@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<title>Austin Horstman</title>
+	<link href="images/austin2.jpg" rel="icon" type="image/png">
+	<script src="assets/js/jquery-3.2.1.min.js"></script>
+</head>
+<body class="landing">
+	<div id="page-wrapper">
+
+		<!-- Header Placeholder-->
+		<section id="headerPlaceholder"></section>
+
+		<!-- Body Placeholder-->
+		<section id="bodyPlaceholder" class="homepage"></section>
+
+		<!-- Footer Placeholder-->
+		<section id="footerPlaceholder"></section>
+	</div>
+
+<script type="text/javascript">
+	$("#headerPlaceholder").load("/header.html");
+	$("#bodyPlaceholder").load("/HomePage.html");
+	$("#footerPlaceholder").load("/footer.html");
+
+	$("head").load("/Scripts.html", function() {
+		$.get("/StyleSheets.html",
+			function(html) {
+				$("head").append(html);
+			});
+	});
+
+	$(document).ready(function () {
+		document.title = 'Austin Horstman';
+	});
+</script>
+</body>
+</html>
