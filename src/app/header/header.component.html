@@ -1,5 +1,5 @@
 <!-- Header -->
-<div class="bs-component">
+<!-- <div class="bs-component">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 	  <a class="navbar-brand" href="index.html">Austin Horstman</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,9 +17,6 @@
 		  <li class="nav-item">
 			<a class="nav-link" routerLink="projects" routerLinkActive='true'>Projects</a>
 		  </li>
-		  <!-- <li class="nav-item">
-			<a class="nav-link" routerLink="about" routerLinkActive='true'>About</a>
-		  </li> -->
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 		  <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -27,4 +24,26 @@
 		</form>
 	  </div>
 	</nav>
-  </div>
+  </div> -->
+
+  <!-- Header -->
+<header class="alt" id="header">
+	<h1>
+		<a class="nav-link" routerLink="home" routerLinkActive='true'>Austin Horstman <span class="sr-only">(current)</span></a>
+	</h1>
+	<nav id="nav">
+		<ul>
+			<li>
+				<a class="nav-link" routerLink="home" routerLinkActive='true'>Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li>
+				<a class="nav-link" routerLink="resume" routerLinkActive='true'>Resume</a>
+			</li>
+			<li>
+				<a class="fa-angle-down icon" href="#">Projects</a>
+				<ul>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header>

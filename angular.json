@@ -28,9 +28,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/bootstrap.css",
+              "src/assets/css/bootstrap-theme.css",
+              "src/assets/css/jquery-ui.css",
+              "src/assets/css/main.css",
+              "src/assets/css/site.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.2.1.min.js",
+              "src/assets/js/jquery.dropotron.min.js",
+              "src/assets/js/jquery.scrollgress.min.js",
+              "src/assets/js/skel.min.js",
+              "src/assets/js/util.js",
+              "src/assets/js/main.js",
+              "src/assets/js/bootstrap.js",
+              "src/assets/js/jquery-ui.js"
+            ]
           },
           "configurations": {
             "production": {

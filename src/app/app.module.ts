@@ -11,20 +11,22 @@ import { SocialLinksComponent } from './social-links/social-links.component';
 import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    AboutComponent,
-    ContactComponent,
-    SocialLinksComponent,
-    ResumeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      HeaderComponent,
+      FooterComponent,
+      AboutComponent,
+      ContactComponent,
+      SocialLinksComponent,
+      ResumeComponent,
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
