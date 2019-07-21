@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +6,7 @@ import { Component, Renderer2 } from '@angular/core';
   styleUrls: ['./app.component.scss'
             ]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'austin-horstman';
 
   constructor(private renderer: Renderer2) {
