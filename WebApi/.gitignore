@@ -232,16 +232,6 @@ _Pvt_Extensions
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
-ClientApp/dist
-ClientApp/tmp
-ClientApp/out-tsc
-# Only exists if Bazel was run
-/bazel-out
-
-# dependencies
-ClientApp/node_modules
-
 # profiling files
 chrome-profiler-events.json
 speed-measure-plugin.json

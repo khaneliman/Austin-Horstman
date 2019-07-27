@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace austinhorstman.Controllers
+namespace austin_horstman_web_app.Controllers
 {
     [Route("api/[controller]")]
     public class SampleDataController : Controller

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace austinhorstman
+namespace austin_horstman_web_app
 {
     public class Startup
     {
