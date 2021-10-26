@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'dotnet build austin-horstman-web-app.csproj'
+        sh 'dotnet build austinhorstman.csproj'
         sh '''cd ClientApp
 npm install
 npm install -g @angular/cli
