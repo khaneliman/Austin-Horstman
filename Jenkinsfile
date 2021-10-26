@@ -8,7 +8,10 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'npm install'
+        sh 'dotnet build .\\austin-horstman-web-app.csproj'
+        sh '''cd .\\ClientApp\\
+npm install
+'''
       }
     }
 
