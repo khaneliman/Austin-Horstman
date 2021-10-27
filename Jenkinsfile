@@ -1,12 +1,12 @@
 pipeline {
   agent any
-    tools {
-        dotnetsdk 'dotnetsdk'
-        nodejs 'nodejs'
-        npm 'npm'
-    }
+  tools {
+    dotnetsdk 'dotnetsdk'
+    nodejs 'nodejs'
+    npm 'npm'
   }
   stages {
+
     stage('Install') {
       steps {
         sh 'dotnet build .\\WebApp\\WebApp.csproj'
@@ -40,3 +40,4 @@ pipeline {
       }
     }
   }
+}
