@@ -22,7 +22,8 @@ npm run-script lint'''
 
         stage('Unit tests') {
           steps {
-            sh '#npm run-script test'
+            sh '''cd ./WebApp/ClientApp
+#npm run-script test'''
           }
         }
 
