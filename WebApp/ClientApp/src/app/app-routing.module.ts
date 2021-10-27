@@ -4,7 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
-import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: AboutComponent},

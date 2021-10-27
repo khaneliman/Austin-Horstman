@@ -9,7 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { ResumeComponent } from './resume/resume.component';
-import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {
   MatButtonModule,
   MatCheckboxModule,
