@@ -39,6 +39,4 @@ pipeline {
         sh 'npm run-script build'
       }
     }
-
   }
-}
