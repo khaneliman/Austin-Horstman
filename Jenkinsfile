@@ -3,7 +3,9 @@ pipeline {
   tools {
     dotnetsdk 'dotnetsdk'
     nodejs 'nodejs'
-    npm 'npm'
+    git 'git',
+    msbuild 'msbuild',
+    dockerTool 'dockerTool'
   }
   stages {
 
