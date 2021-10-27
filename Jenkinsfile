@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh '''cd WebApp
+        sh '''cd ./WebApp
 dotnet restore'''
-        sh '''cd WebApp\\ClientApp              
+        sh '''cd ./ClientApp              
 npm install
 npm install -g @angular/cli'''
       }
@@ -30,8 +30,8 @@ npm install -g @angular/cli'''
 
     stage('Build') {
       steps {
-        sh 'dotnet build WebApp\\WebApp.csproj'
-        sh '''cd /WebApp/ClientApp/
+        sh 'dotnet build ./WebApp/WebApp.csproj'
+        sh '''cd ./WebApp/ClientApp/
 npm run-script build'''
       }
     }
