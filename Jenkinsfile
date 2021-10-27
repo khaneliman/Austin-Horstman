@@ -15,7 +15,8 @@ npm install -g @angular/cli'''
       parallel {
         stage('Static code analysis') {
           steps {
-            sh 'npm run-script lint'
+            sh '''cd ./WebApp/ClientApp
+npm run-script lint'''
           }
         }
 
