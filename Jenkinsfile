@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''cd ./WebApp
 dotnet restore'''
-        sh '''cd ./ClientApp              
+        sh '''cd ./WebApp/ClientApp              
 npm install
 npm install -g @angular/cli'''
       }
