@@ -3,6 +3,9 @@ pipeline {
     docker {
       image 'node:latest'
     }
+    tools {
+        dotnetsdk 'dotnetsdk'
+    }
 
   }
   stages {
