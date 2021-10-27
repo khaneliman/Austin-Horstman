@@ -1,18 +1,13 @@
 pipeline {
   agent any
-  tools {
-    dotnetsdk 'dotnetsdk'
-    nodejs 'nodejs'
-  }
   stages {
-
     stage('Install') {
       steps {
         sh 'dotnet build .\\WebApp\\WebApp.csproj'
-        sh '''cd .\\WebApp\\ClientApp\
-              npm install
-              npm install -g @angular/cli
-              ng build'''
+        sh '''cd .\\WebApp\\ClientApp              
+npm install
+npm install -g @angular/cli
+ng build'''
       }
     }
 
@@ -38,5 +33,10 @@ pipeline {
         sh 'npm run-script build'
       }
     }
+
+  }
+  tools {
+    dotnetsdk 'dotnetsdk'
+    nodejs 'nodejs'
   }
 }
