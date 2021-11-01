@@ -11,7 +11,7 @@ import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 export class HeaderComponent implements OnInit, OnChanges {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
-  public currentRoute;
+  public currentRoute: string | undefined;
 
   ngOnInit() {
     this.router.events.pipe(
