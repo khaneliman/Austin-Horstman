@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './page-not-found.component.html',
   styleUrls: ['./page-not-found.component.css']
 })
-export class PageNotFoundComponent implements OnInit {
+export class PageNotFoundComponent {
 
   scores = [0, 0];
   weapons = [
@@ -24,9 +24,6 @@ export class PageNotFoundComponent implements OnInit {
   enemySelected = -1;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   pick(weapon: number): void {
     // return immediately when still loading. You don't want

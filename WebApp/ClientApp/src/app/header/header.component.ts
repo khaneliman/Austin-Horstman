@@ -8,7 +8,7 @@ import { map, filter, catchError, mergeMap } from 'rxjs/operators';
   styleUrls: ['./header.component.scss',
   ]
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
   public currentRoute: string | undefined;
@@ -32,8 +32,5 @@ export class HeaderComponent implements OnInit, OnChanges {
         // ... do something with the url
         console.log('The new path : ' + this.currentRoute);
       });
-  }
-
-  ngOnChanges() {
   }
 }
