@@ -38,6 +38,12 @@ npm run-script build'''
       }
     }
 
+    stage('Artifacts') {
+      steps {
+        archiveArtifacts 'dist'
+      }
+    }
+
   }
   tools {
     dotnetsdk 'dotnetsdk'
