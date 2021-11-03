@@ -37,8 +37,8 @@ npm run-script test-coverage'''
 npm run-script build'''
       }
     }
-
-    post {
+  }
+  post {
       always {
         archiveArtifacts 'WebApp/ClientApp/dist'
         publishHTML (target : [allowMissing: false,
@@ -50,8 +50,6 @@ npm run-script build'''
               reportTitles: 'The Report'])
       }
     }
-
-  }
   tools {
     dotnetsdk 'dotnetsdk'
     nodejs 'nodejs'
