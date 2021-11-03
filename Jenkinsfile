@@ -37,10 +37,10 @@ npm run-script test-coverage'''
 npm run-script build'''
       }
     }
-  }
-  post {
-      always {
-        archiveArtifacts 'WebApp/ClientApp/dist'
+
+    stage('Artifacts') {
+      steps {
+        archiveArtifacts artifacts: 'WebApp/ClientApp/dist', fingerprint: true
         publishHTML (target : [allowMissing: false,
               alwaysLinkToLastBuild: true,
               keepAll: true,
@@ -50,6 +50,7 @@ npm run-script build'''
               reportTitles: 'The Report'])
       }
     }
+  }
   tools {
     dotnetsdk 'dotnetsdk'
     nodejs 'nodejs'
