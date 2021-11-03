@@ -40,7 +40,7 @@ npm run-script build'''
 
     stage('Artifacts') {
       steps {
-        archiveArtifacts artifacts: 'WebApp/ClientApp/dist', fingerprint: true
+        archiveArtifacts artifacts: './WebApp/ClientApp/dist', fingerprint: true
         publishHTML (target : [allowMissing: false,
               alwaysLinkToLastBuild: true,
               keepAll: true,
