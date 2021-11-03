@@ -48,7 +48,7 @@ npm run-script build'''
               reportFiles: 'index.html',
               reportName: 'Angular Code Coverage',
               reportTitles: 'The Report'])
-        junit './WebApp/ClientApp/coverage/junit/junit.xml'
+        junit 'WebApp/ClientApp/coverage/junit/junit.xml'
       }
     }
   tools {
