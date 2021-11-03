@@ -24,6 +24,13 @@ npm run-script lint'''
           steps {
             sh '''cd ./WebApp/ClientApp
 npm run-script test-coverage'''
+            publishHTML (target : [allowMissing: false,
+              alwaysLinkToLastBuild: true,
+              keepAll: true,
+              reportDir: './WebApp/ClientApp/coverage/ClientApp',
+              reportFiles: 'index.html',
+              reportName: 'Angular Code Coverage',
+              reportTitles: 'The Report'])
           }
         }
 
