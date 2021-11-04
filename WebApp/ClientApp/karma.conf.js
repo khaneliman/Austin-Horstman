@@ -2,7 +2,6 @@
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 process.env.CHROME_BIN = require('puppeteer').executablePath()
 process.env.CHROMIUM_BIN = require('puppeteer').executablePath()
-process.env.CHROME_DRIVER = require('chromedriver').executablePath()
 
 module.exports = function (config) {
   config.set({
@@ -14,7 +13,8 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
-      require('karma-junit-reporter')
+      require('karma-junit-reporter'),
+      require('chromedriver')
     ],
     client: {
       jasmine: {
