@@ -42,6 +42,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
+        sh 'cd ./WebApp/'
         sh 'docker build -t 192.168.1.37:5000/khaneliman/webapp:latest .'
         sh 'docker push 192.168.1.37:5000/khaneliman/webapp:latest '
       }
