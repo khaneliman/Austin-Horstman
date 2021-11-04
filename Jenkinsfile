@@ -26,7 +26,7 @@ pipeline {
         stage('Unit tests') {
           steps {
             sh '''cd ./WebApp/ClientApp
-                  npm run-script test-coverage'''
+                  #npm run-script test-coverage'''
           }
         }
       }
@@ -65,7 +65,7 @@ pipeline {
   tools {
     dotnetsdk 'dotnetsdk'
     nodejs 'nodejs'
-    dockerTool 'dockerTool'
+    dockerTool
   }
 
   environment {
