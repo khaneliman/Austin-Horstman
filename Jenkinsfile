@@ -50,7 +50,6 @@ pipeline {
 
   post {
       always {
-        archiveArtifacts artifacts: 'WebApp/ClientApp/dist/**', fingerprint: true
         publishHTML (target : [allowMissing: false,
               alwaysLinkToLastBuild: true,
               keepAll: true,
@@ -60,12 +59,16 @@ pipeline {
               reportTitles: 'The Report'])
         junit 'WebApp/ClientApp/coverage/junit/Chrome_Headless_93.0.4577.0_(Linux_x86_64)/junit.xml'
       }
+      success {
+        archiveArtifacts artifacts: 'WebApp/ClientApp/dist/**', fingerprint: true
+      }
   }
 
   tools {
+    dockerTool 'Docker'
     dotnetsdk 'dotnetsdk'
+    git 'Default'
     nodejs 'nodejs'
-    dockerTool ''
   }
 
   environment {
