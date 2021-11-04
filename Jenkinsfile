@@ -26,7 +26,7 @@ pipeline {
         stage('Unit tests') {
           steps {
             sh '''cd ./WebApp/ClientApp
-                  #npm run-script test-coverage'''
+                  npm run-script test-coverage'''
           }
         }
       }
@@ -42,9 +42,10 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh '''cd ./WebApp/
+        sh '''cd ./WebApp
               docker build -t 192.168.1.37:5000/khaneliman/webapp:latest .'''
-        sh 'docker push 192.168.1.37:5000/khaneliman/webapp:latest '
+        sh '''cd ./WebApp
+              docker push 192.168.1.37:5000/khaneliman/webapp:latest'''
       }
     }
   }
