@@ -65,12 +65,13 @@ pipeline {
   tools {
     dotnetsdk 'dotnetsdk'
     nodejs 'nodejs'
-    chromedriver 'chromedriver'
+    'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
   }
 
   environment {
     imageName = 'khaneliman/webapp'
     registryUri = '192.168.1.37:5000'
+    
   }
 
   options { 
