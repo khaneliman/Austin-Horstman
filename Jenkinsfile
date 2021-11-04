@@ -65,7 +65,7 @@ pipeline {
   tools {
     dotnetsdk 'dotnetsdk'
     nodejs 'nodejs'
-    dockerTool
+    dockerTool ''
   }
 
   environment {
