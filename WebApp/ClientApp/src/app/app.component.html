@@ -1,0 +1,26 @@
+<div id="page-wrapper">
+  <app-header></app-header>
+  <div class='homepage'>
+      <!-- Banner -->
+      <section id="banner">
+        <h2>Austin Horstman</h2>
+        <p>Software Engineer by day, loving husband by night.</p>
+
+        <app-social-links></app-social-links>
+
+        <br/>
+        <ul class="actions">
+          <li>
+            <a class="nav-link" class='button' routerLink="/contact" >Learn More</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Main -->
+      <section class="container" id="main">
+            <router-outlet></router-outlet>
+      </section>
+      </div>
+
+  <app-footer></app-footer>
+</div>

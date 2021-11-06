@@ -2,37 +2,37 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build-app",
+            "label": "build",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/WebApp/WebApp.csproj",
+                "${workspaceFolder}/austin-horstman-web-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish-app",
+            "label": "publish",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/WebApp/WebApp.csproj",
+                "${workspaceFolder}/austin-horstman-web-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch-app",
+            "label": "watch",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/WebApp/WebApp.csproj",
+                "${workspaceFolder}/austin-horstman-web-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
