@@ -1,0 +1,29 @@
+name: .NET WebApp Build
+
+on:
+  push:
+    branches: [ develop, master ]
+    paths:
+    - 'WebApp/**/*'
+  pull_request:
+    branches: [ develop, master ]
+    paths:
+    - 'WebApp/**/*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore WebApp/
+    - name: Build
+      run: dotnet build WebApp/ --no-restore
+    - name: Test
+      run: dotnet test WebApp/ --no-build --verbosity normal
