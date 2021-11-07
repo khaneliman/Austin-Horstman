@@ -1,0 +1,24 @@
+name: WebApp Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+    paths: 
+    - 'WebApp/*'
+    - '.github/*'
+  pull_request:
+    branches: [ master ]
+    paths: 
+    - 'WebApp/*'
+    - '.github/*'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file WebApp/Dockerfile --tag my-image-name:$(date +%s)
