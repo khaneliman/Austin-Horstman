@@ -12,3 +12,6 @@ Angular:
 
 repo:
 - '*'
+
+GitHub-Action:
+- .github/workflows/*
