@@ -1,0 +1,14 @@
+WebApp:
+- WebApp/**/*
+
+WebApi:
+- WebApi/**/*
+
+test:
+- WebApp/ClientApp/src/**/*.spec.js
+
+Angular:
+- WebApp/ClientApp/**/*
+
+repo:
+- '*'
