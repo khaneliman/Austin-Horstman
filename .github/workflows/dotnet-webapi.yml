@@ -1,0 +1,29 @@
+name: .NET WebApi Build
+
+on:
+  push:
+    branches: [ develop, master ]
+    paths:
+    - 'WebApi/**/*'
+  pull_request:
+    branches: [ develop, master ]
+    paths:
+    - 'WebApi/**/*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore WebApi/
+    - name: Build
+      run: dotnet build WebApi/ --no-restore
+    - name: Test
+      run: dotnet test WebApi/ --no-build --verbosity normal
