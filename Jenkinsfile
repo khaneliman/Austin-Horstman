@@ -39,15 +39,6 @@ pipeline {
               npm run-script build'''
       }
     }
-
-    stage('Deploy') {
-      steps {
-        sh '''cd ./WebApp
-              docker build -t registry.khaneliman.com/khaneliman/webapp:v0.01.00 .'''
-        sh '''cd ./WebApp
-              docker push registry.khaneliman.com/khaneliman/webapp:v0.01.00'''
-      }
-    }
   }
 
   post {
