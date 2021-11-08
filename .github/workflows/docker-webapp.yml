@@ -1,34 +1,26 @@
 name: Docker WebApp
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 on:
-  push:
+  workflow_run:
+    workflows: [".NET WebApp Build"]
+    types: [completed]
     branches: [ develop, master ]
-    # Publish semver tags as releases.
     tags: [ 'v*.*.*', 'latest' ]
   release:
     types: [published]
 
 env:
-  # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   PRIVATE_REGISTRY: khaneliman.azurecr.io
-  # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}-webapp
-
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name = 'release'}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -63,9 +55,13 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
             ${{ env.PRIVATE_REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      # GitHub Action to install QEMU static binaries.
+      # https://github.com/docker/setup-qemu-action
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1.2.0
 
+      # GitHub Action to set up Docker Buildx.
+      # https://github.com/docker/setup-buildx-action
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1.6.0
           
