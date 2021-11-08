@@ -24,4 +24,6 @@ RUN apt-get install -y nodejs
 
 WORKDIR /app
 COPY --from=build-env /app/out .
+EXPOSE 80
+EXPOSE 443
 ENTRYPOINT ["dotnet", "WebApp.dll"]
