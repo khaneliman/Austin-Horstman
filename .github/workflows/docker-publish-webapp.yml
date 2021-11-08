@@ -1,4 +1,4 @@
-name: Docker WebApp - Master
+name: Docker WebApp
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -7,7 +7,7 @@ name: Docker WebApp - Master
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop, master ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*', 'latest' ]
   release:
