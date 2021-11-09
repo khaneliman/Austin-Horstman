@@ -21,6 +21,7 @@
     "@angular/core": "~12.2.2",
     "@angular/forms": "~12.2.2",
     "@angular/material": "^12.2.12",
+    "@angular/cdk": "^12.2.12",
     "@angular/platform-browser": "~12.2.2",
     "@angular/platform-browser-dynamic": "~12.2.2",
     "@angular/platform-server": "~12.2.2",

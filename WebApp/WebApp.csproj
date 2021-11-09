@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,11 +11,14 @@
     <UserSecretsId>8bac85c0-ff93-40d4-8313-01a79e216861</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+	<!--<ContainerDevelopmentMode>Regular</ContainerDevelopmentMode>-->
+	<DockerfileFastModeStage>base</DockerfileFastModeStage>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+	<PackageReference Include="AspNetCore.SpaYarp" Version="1.0.0-beta.3" />
   </ItemGroup>
 
   <ItemGroup>

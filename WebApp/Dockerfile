@@ -14,7 +14,7 @@ WORKDIR "/src/WebApp"
 
 RUN apt-get update
 RUN apt-get install curl gnupg make -yq
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y chromium
 
