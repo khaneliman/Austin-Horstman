@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\WebApi",
-    "\\WebApp"
+    "\\WebApp",
+    "\\WebApp\\ClientApp",
+    "\\WebApp\\ClientApp\\src",
+    "\\WebApp\\wwwroot"
   ],
-  "SelectedNode": "\\WebApi\\Dockerfile",
+  "SelectedNode": "\\WebApp\\ClientApp\\aspnetcore-https.js",
   "PreviewInSolutionExplorer": false
 }
