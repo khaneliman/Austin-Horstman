@@ -4,7 +4,6 @@ import { AboutComponent } from './about/about.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: AboutComponent},
@@ -12,8 +11,7 @@ const routes: Routes = [
   { path: 'social-links', component: SocialLinksComponent},
   { path: 'resume', component: ResumeComponent},
   { path: 'contact', component: ContactComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent}
+  { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

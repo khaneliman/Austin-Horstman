@@ -39,7 +39,7 @@ module.exports = function (config) {
       xmlVersion: null // use '1' if reporting to be per SonarQube 6.2 XML format
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ClientApp'),
+      dir: require('path').join(__dirname, './coverage/angularapp'),
       subdir: '.',
       reporters: [
         { type: 'html' },
