@@ -7,14 +7,13 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["WebApp/WebApp.csproj", "WebApp/"]
-RUN dotnet restore "WebApp/WebApp.csproj"
+COPY *.csproj ./
+RUN dotnet restore "WebApp.csproj"
 COPY . .
-WORKDIR "/src/WebApp"
 
 RUN apt-get update
 RUN apt-get install curl gnupg make -yq
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y chromium
 
