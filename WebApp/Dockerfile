@@ -10,7 +10,6 @@ WORKDIR /src
 COPY *.csproj ./
 RUN dotnet restore "WebApp.csproj"
 COPY . .
-WORKDIR "/src/WebApp"
 
 RUN apt-get update
 RUN apt-get install curl gnupg make -yq
