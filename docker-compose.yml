@@ -1,15 +1,13 @@
-version: '3.4'
-
 services:
   webapi:
-    image: ${DOCKER_REGISTRY-}webapi
+    image: khaneliman/austin-horstman-webapi
     build:
-      context: .
-      dockerfile: WebApi/Dockerfile
+      context: ./WebApi
+      dockerfile: Dockerfile
 
   webapp:
-    image: ${DOCKER_REGISTRY-}webapp
+    image: khaneliman/austin-horstman-webapp
     build:
-      context: .
-      dockerfile: WebApp/Dockerfile
+      context: ./WebApp
+      dockerfile: Dockerfile
 

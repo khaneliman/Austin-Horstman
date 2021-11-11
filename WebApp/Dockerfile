@@ -13,11 +13,9 @@ COPY . .
 
 RUN apt-get update
 RUN apt-get install curl gnupg make -yq
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y chromium
-
-RUN dotnet build "WebApp.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "WebApp.csproj" -c Release -o /app/publish
