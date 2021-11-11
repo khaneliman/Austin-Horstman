@@ -5,35 +5,31 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
 import { ResumeComponent } from './resume/resume.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
-    AboutComponent,
-    HeaderComponent,
+    NavbarComponent,
     FooterComponent,
+    AboutComponent,
     ResumeComponent,
     SocialLinksComponent,
-    ContactComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,7 +40,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

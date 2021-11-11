@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
+  resumeShown: boolean = false ;
 
   constructor() { }
+
+  showResume() {
+    this.resumeShown = !this.resumeShown;
+  }
 
 }
