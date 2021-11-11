@@ -8,7 +8,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-	<!--<ContainerDevelopmentMode>Regular</ContainerDevelopmentMode>-->
+	<ContainerDevelopmentMode>Regular</ContainerDevelopmentMode>
 	<DockerfileFastModeStage>base</DockerfileFastModeStage>
   </PropertyGroup>
 
