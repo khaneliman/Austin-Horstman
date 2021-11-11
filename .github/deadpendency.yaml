@@ -1,0 +1,7 @@
+additional-dependency-files:
+  - path: WebApp/ClientApp/package.json
+    type: npm-package-json
+  - path: WebApp/WebApp.csproj
+    type: dotnet-csharp-project
+  - path: WebApi/WebApi.csproj
+    type: dotnet-csharp-project
