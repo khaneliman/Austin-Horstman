@@ -9,11 +9,6 @@ on:
   release:
     types: [published]
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch or commit to build'
-        required: true
-        default: 'develop'
 
 env:
   REGISTRY: ghcr.io
@@ -31,7 +26,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.inputs.branch }}
+          ref: ${{ github.event.workflow_run.head_branch }}
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
