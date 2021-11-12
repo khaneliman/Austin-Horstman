@@ -1,12 +1,12 @@
 # Austin Horstman Dotnet Angular App
 
-  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/khaneliman/austin-horstman-angular?style=flat&logo=appveyor)
-  ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/khaneliman/austin-horstman-angular?style=flat&logo=appveyor)
+  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/khaneliman/austin-horstman?style=flat&logo=appveyor)
+  ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/khaneliman/austin-horstman?style=flat&logo=appveyor)
 
-  [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-webapp.yml)
-  [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-webapi.yml)
-  [![.NET WebApp Build](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-webapp.yml)
-  [![.NET WebApi Build](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-webapi.yml)
+  [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapp.yml)
+  [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml)
+  [![.NET WebApp Build](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapp.yml)
+  [![.NET WebApi Build](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml)
   
 ## Description
   
@@ -26,7 +26,7 @@
   
   *Steps required to install project and how to get the development environment running:*
   
-  You must have the [.NET](https://dotnet.microsoft.com/download/) SDK installed. [.NET](https://dotnet.microsoft.com/download/) 5 is recommended.
+  You must have the [.NET](https://dotnet.microsoft.com/download/) SDK installed. [.NET](https://dotnet.microsoft.com/download/) 6 is required.
 
   If this is your first time with dotnet development locally. You must trust the local https development certificates.
 
