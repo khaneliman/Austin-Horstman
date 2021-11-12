@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Branch to build'
+        description: 'Branch or commit to build'
         required: true
         default: 'develop'
 
@@ -26,13 +26,18 @@ jobs:
     permissions:
       contents: read
       packages: write
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'release'}}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
     steps:
+      - uses: haya14busa/action-cond@v1
+        id: condval
+        with:
+          cond: ${{ github.event_name == 'workflow_dispatch' }}
+          if_true: "${{ github.event.inputs.branch }}"
+          if_false: " ${{ github.ref_name }}"
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.inputs.branch }}
-
+          ref: ${{ steps.condval.outputs.value }}
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
