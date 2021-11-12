@@ -9,11 +9,6 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ResumeComponent } from './resume/resume.component';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -28,11 +23,6 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    MatButtonModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatProgressSpinnerModule,
-    MatToolbarModule,
     SharedModule
   ],
   providers: [],
