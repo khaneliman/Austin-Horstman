@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { SharedModule } from './shared/shared.module';
-import { PersonalModule } from './personal/personal.module';
 import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
 
@@ -22,8 +21,7 @@ import { CoreModule } from './core/core.module';
     FormsModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule,
-    PersonalModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

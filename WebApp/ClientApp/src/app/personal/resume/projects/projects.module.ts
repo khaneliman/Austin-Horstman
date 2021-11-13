@@ -3,22 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects.component';
-import { CorebtsComponent } from './corebts/corebts.component';
-import { GeeksquadComponent } from './geeksquad/geeksquad.component';
-import { PersonalComponent } from './personal/personal.component';
-import { SkylineComponent } from './skyline/skyline.component';
+
+import { WestModule } from './west/west.module';
+import { SkylineModule } from './skyline/skyline.module';
+import { PersonalModule } from './personal/personal.module';
+import { GeeksquadModule } from './geeksquad/geeksquad.module';
+import { CorebtsModule } from './corebts/corebts.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
     ProjectsComponent,
-    CorebtsComponent,
-    GeeksquadComponent,
-    PersonalComponent,
-    SkylineComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ProjectsRoutingModule
   ]
 })

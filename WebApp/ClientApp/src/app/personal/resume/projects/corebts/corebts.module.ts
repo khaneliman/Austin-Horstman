@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EmploymentRoutingModule } from './employment-routing.module';
-import { EmploymentComponent } from './employment.component';
-
+import { CorebtsRoutingModule } from './corebts-routing.module';
+import { CorebtsComponent } from './corebts.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    EmploymentComponent,
+    CorebtsComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    EmploymentRoutingModule
+    CorebtsRoutingModule
   ]
 })
-export class EmploymentModule { }
+export class CorebtsModule { }

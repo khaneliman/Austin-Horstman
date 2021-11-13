@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TechnologyModule } from './technology/technology.module';
-import { ProjectsModule } from './projects/projects.module';
-import { EducationModule } from './education/education.module';
-import { EmploymentModule } from './employment/employment.module';
 import { ResumeComponent } from './resume.component';
 import { ResumeRoutingModule } from './resume-routing.module';
 
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,11 +11,8 @@ import { ResumeRoutingModule } from './resume-routing.module';
   ],
   imports: [
     CommonModule,
-    ResumeRoutingModule,
-    TechnologyModule,
-    ProjectsModule,
-    EducationModule,
-    EmploymentModule
+    SharedModule,
+    ResumeRoutingModule
   ],
   exports: [
     ResumeComponent
