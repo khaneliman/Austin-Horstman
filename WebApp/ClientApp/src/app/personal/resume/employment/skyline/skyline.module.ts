@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EmploymentRoutingModule } from './employment-routing.module';
-import { EmploymentComponent } from './employment.component';
-
+import { SkylineRoutingModule } from './skyline-routing.module';
+import { SkylineComponent } from './skyline.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    EmploymentComponent,
+    SkylineComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    EmploymentRoutingModule
+    SkylineRoutingModule
   ]
 })
-export class EmploymentModule { }
+export class SkylineModule { }
