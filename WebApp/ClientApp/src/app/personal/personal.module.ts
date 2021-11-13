@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { PersonalRoutingModule } from './personal-routing.module';
 import { ContactComponent } from './contact/contact.component';
 import { PersonalComponent } from './personal.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PersonalComponent } from './personal.component';
   ],
   imports: [
     CommonModule,
-    PersonalRoutingModule
+    PersonalRoutingModule,
+    SharedModule
   ],
   exports: [
     AboutComponent,
