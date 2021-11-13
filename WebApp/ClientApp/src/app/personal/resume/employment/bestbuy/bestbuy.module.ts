@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EmploymentRoutingModule } from './employment-routing.module';
-import { EmploymentComponent } from './employment.component';
-
+import { BestbuyRoutingModule } from './bestbuy-routing.module';
+import { BestbuyComponent } from './bestbuy.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    EmploymentComponent,
+    BestbuyComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    EmploymentRoutingModule
+    BestbuyRoutingModule
   ]
 })
-export class EmploymentModule { }
+export class BestbuyModule { }
