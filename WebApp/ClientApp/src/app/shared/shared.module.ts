@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapse, NgbModule, NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 // Custom components 
 import { SocialLinksComponent } from './social-links/social-links.component';
 
@@ -15,7 +15,9 @@ import { SocialLinksComponent } from './social-links/social-links.component';
     NgbModule
   ],
   exports: [
-    SocialLinksComponent
+    SocialLinksComponent,
+    NgbPopover,
+    NgbCollapse
   ]
 })
 export class SharedModule {
