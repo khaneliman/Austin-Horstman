@@ -2,15 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// Custom components
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
+// Custom components 
 import { SocialLinksComponent } from './social-links/social-links.component';
 
 @NgModule({
   declarations: [
-    FooterComponent,
-    NavbarComponent,
     SocialLinksComponent
   ],
   imports: [
@@ -19,8 +15,6 @@ import { SocialLinksComponent } from './social-links/social-links.component';
     NgbModule
   ],
   exports: [
-    FooterComponent,
-    NavbarComponent,
     SocialLinksComponent
   ]
 })
