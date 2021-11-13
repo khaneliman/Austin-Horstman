@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PersonalComponent } from './personal.component';
-import { ResumeComponent } from './resume/resume.component';
 
 const routes: Routes = [
   {
@@ -11,7 +10,7 @@ const routes: Routes = [
     component: PersonalComponent,
     children: [
       { path: 'about', component: AboutComponent },
-      { path: 'resume', component: ResumeComponent },
+      { path: 'resume', loadChildren: () => import('./resume/resume.module').then(m => m.ResumeModule) },
       { path: 'contact', component: ContactComponent },
       { path: '', redirectTo: 'about', pathMatch: 'full' }
     ]
