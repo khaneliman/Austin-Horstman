@@ -5,3 +5,7 @@ additional-dependency-files:
     type: dotnet-csharp-project
   - path: WebApi/WebApi.csproj
     type: dotnet-csharp-project
+
+ignore-failures:
+  csharp:
+    - Microsoft.VisualStudio.Azure.Containers.Tools.Targets
