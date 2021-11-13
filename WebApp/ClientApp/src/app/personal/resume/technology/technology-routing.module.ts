@@ -12,7 +12,8 @@ const routes: Routes = [
         component: CsharpComponent
       }
     ]
-  }];
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
