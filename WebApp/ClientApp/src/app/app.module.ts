@@ -5,25 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { ResumeComponent } from './resume/resume.component';
 
 import { SharedModule } from './shared/shared.module';
+import { PersonalModule } from './personal/personal.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
-    ResumeComponent,
-    ContactComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    PersonalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
