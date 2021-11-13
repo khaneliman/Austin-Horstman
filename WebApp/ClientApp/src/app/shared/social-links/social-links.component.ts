@@ -45,7 +45,7 @@ export class SocialLinksComponent {
       link: 'https://linkedin.com/in/austin-horstman-94963a76',
       btnClass: 'btn-linkedin',
       faClass: 'fa-linkedin',
-      tooltip: 'Star on linkedin'
+      tooltip: 'Connect on LinkedIn'
     }
   ];
 
