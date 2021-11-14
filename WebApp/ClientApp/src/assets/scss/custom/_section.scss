@@ -128,6 +128,30 @@
         }
     }
 
+    .shape-skyline {
+        background: linear-gradient(150deg, shapes-skyline-color("step-1-gradient-bg") 15%, shapes-skyline-color("step-2-gradient-bg") 70%, shapes-skyline-color("step-3-gradient-bg") 94%);
+
+         :nth-child(1) {
+            background: shapes-skyline-color("span-1-bg");
+        }
+
+         :nth-child(2) {
+            background: shapes-skyline-color("span-2-bg");
+        }
+
+         :nth-child(3) {
+            background: shapes-skyline-color("span-3-bg");
+        }
+
+         :nth-child(4) {
+            background: shapes-skyline-color("span-4-bg");
+        }
+
+         :nth-child(5) {
+            background: shapes-skyline-color("span-5-bg");
+        }
+    }
+
     .shape-light {
         background: linear-gradient(150deg, shapes-light-color("step-1-gradient-bg") 15%, shapes-light-color("step-2-gradient-bg") 70%, shapes-light-color("step-3-gradient-bg") 94%);
 
