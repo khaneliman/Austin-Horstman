@@ -8,6 +8,7 @@
     "start:windows": "ng serve --port 44463 --ssl --ssl-cert %APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem --ssl-key %APPDATA%\\ASP.NET\\https\\%npm_package_name%.key",
     "start:default": "ng serve --port 44463 --ssl --ssl-cert $HOME/.aspnet/https/${npm_package_name}.pem --ssl-key $HOME/.aspnet/https/${npm_package_name}.key",
     "build": "ng build",
+    "build-prod": "ng build --delete-output-path --aot --common-chunk --build-optimizer",
     "build:ssr": "ng run WebApp:server:dev",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
