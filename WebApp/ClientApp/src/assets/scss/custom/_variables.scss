@@ -150,6 +150,18 @@ $shapes-default-colors: map-merge((
   "span-5-bg":                  #6adaff
 ), $shapes-default-colors);
 
+$shapes-skyline-colors: () !default;
+$shapes-skyline-colors: map-merge((
+  "step-1-gradient-bg":         #11c0c0,
+  "step-2-gradient-bg":         #67b7e5,
+  "step-3-gradient-bg":         #5586bf,
+  "span-1-bg":                  #7795f8,
+  "span-2-bg":                  #7b9aff,
+  "span-3-bg":                  #6f8ff8,
+  "span-4-bg":                  #76e0ee,
+  "span-5-bg":                  #6adaff
+), $shapes-skyline-colors);
+
 $shapes-light-colors: () !default;
 $shapes-light-colors: map-merge((
   "step-1-gradient-bg":         #b2cbe1,
