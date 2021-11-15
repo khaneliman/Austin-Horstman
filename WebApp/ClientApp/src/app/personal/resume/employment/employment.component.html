@@ -1,2 +1,48 @@
-<p>employment works!</p>
-<router-outlet></router-outlet>
+<div class="card card-profile shadow">
+    <div class="px-4">
+        <div class="row justify-content-center">
+            <div class="mx-auto order-lg-2">
+                <a href="https://www.skylinetechnologies.com" target="_blank">
+                    <img src="./assets/images/skyline-technologies.png"
+                        class="rounded mx-auto d-block float-left img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 order-lg-3 text-lg-right align-self-lg-center">
+                <div class="card-profile-actions py-4 mt-lg-0">
+
+                </div>
+            </div>
+            <div class="col-lg-2 order-lg-1">
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <h3>
+                Skyline Technologies
+            </h3>
+            <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Appleton, WI</div>
+            <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Software Engineer I</div>
+            <div><i class="ni education_hat mr-2"></i>Custom Software Development</div>
+        </div>
+        <div class="mt-5 py-5 border-top text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <p>As a Software Engineer consultant at Skyline, I worked with several clients in
+                        providing recommendations for
+                        software design and working with their development teams. Work has consisted of native
+                        iOS development for a
+                        regulatory compliance company, Xamarin mobile development for an entertainment festival,
+                        and Angular/GraphQL web
+                        application for an education reporting company. I worked with a pharmaceutical rebates
+                        company building Angular
+                        websites, dotnet core APIs, SSIS ETL processes, and analyzing and improving internal
+                        developer workflows and setting
+                        up a CI/CD for all the application pieces, as well as a new DACPAC database migration
+                        process I created for source
+                        control and deploying their database.</p>
+                    <a class="btn btn-link text-info" routerLink="/personal/resume">See Resume</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet name="company"></router-outlet>
