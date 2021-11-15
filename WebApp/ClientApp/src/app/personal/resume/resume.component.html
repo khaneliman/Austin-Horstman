@@ -20,8 +20,8 @@
         </div>
         <div class="card shadow shadow-lg--hover mt-5 mb-5">
           <div class="card-body">
-            <div class="d-flex px-3">
-              <div class="col-4">
+            <div class="d-flex">
+              <div class="col-4 pt-5">
                 <img class="rounded mx-auto d-block float-left img-fluid " src="assets/images/fb_default_logo.jpg"
                   style="background-color: rgb(24, 26, 27);" />
               </div>
@@ -53,28 +53,26 @@
 </section>
 <section class="section pb-0 bg-gradient-warning">
   <div class="container">
-    <div class="row row-grid align-items-center">
-      <div class="col-md-6 order-lg-2 ml-lg-auto">
-        <div class="position-relative pl-md-5">
-          <img src="./assets/img/ill/ill-2.svg" class="img-center img-fluid">
+    <div class="row row-grid">
+      <div class="d-flex px-3">
+        <div>
+          <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+            <i class="ni ni-building text-primary"></i>
+          </div>
+        </div>
+        <div class="pl-4">
+          <h4 class="display-3 text-white">Employment</h4>
+          <p class="text-white">Computer Repair Agent, Programmer, and Software Engineer</p>
         </div>
       </div>
-      <div class="col-lg-6 order-lg-1">
-        <div class="d-flex px-3">
-          <div>
-            <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-              <i class="ni ni-building text-primary"></i>
-            </div>
-          </div>
-          <div class="pl-4">
-            <h4 class="display-3 text-white">Employment</h4>
-            <p class="text-white">Computer Repair Agent, Programmer, and Software Engineer</p>
-          </div>
-        </div>
+    </div>
+    <div class="row row-grid align-items-center">
+
+      <div class="col-lg-4 order-lg-1">
         <div class="card shadow shadow-lg--hover mt-5">
           <div class="card-body">
-            <div class="d-flex px-3">
-              <div class="col-4">
+            <div class="d-flex ">
+              <div class="col-4 pt-5">
                 <img class="rounded mx-auto d-block float-left img-fluid " src="assets/images/corebts.png"
                   style="background-color: rgb(24, 26, 27);" />
               </div>
@@ -93,12 +91,12 @@
         </div>
         <div class="card shadow shadow-lg--hover mt-5">
           <div class="card-body">
-            <div class="d-flex px-3">
-              <div class="col-4">
+            <div class="d-flex mx-auto">
+              <div class="col-4 pt-5">
                 <img class="rounded mx-auto d-block float-left img-fluid "
                   src="assets/images/skyline-technologies.png" />
               </div>
-              <div class="pl-4">
+              <div class="">
                 <h5 class="title text-success">Skyline Technologies</h5>
                 <p class="align-right">
                   Software Engineer I<br />
@@ -113,8 +111,8 @@
         </div>
         <div class="card shadow shadow-lg--hover mt-5">
           <div class="card-body">
-            <div class="d-flex px-3">
-              <div class="col-4">
+            <div class="d-flex ">
+              <div class="col-4 pt-5">
                 <img class="rounded mx-auto d-block float-left img-fluid " src="assets/images/west.jpg" />
               </div>
               <div class="pl-4">
@@ -125,17 +123,15 @@
                     <i>May 2015 - October 2017</i>
                   </sup>
                 </p>
-                <a placement="top" popoverClass="popover-default"
-                  ngbPopover="Support and develop new features for CRM applications and websites, SSIS packages for data and file automation, write SQL stored procedures for applications and reporting with SSRS, and create internal applications and websites to improve workflow within department."
-                  class="text-success">Learn more</a>
+                <a routerLink="employment/west" class="text-success">Learn more</a>
               </div>
             </div>
           </div>
         </div>
         <div class="card shadow shadow-lg--hover mt-5 mb-5">
           <div class="card-body">
-            <div class="d-flex px-3">
-              <div class="col-4">
+            <div class="d-flex">
+              <div class="col-4 pt-5">
                 <img class="rounded mx-auto d-block float-left img-fluid " src="assets/images/geeksquad.jpg" />
               </div>
               <div class="pl-4">
@@ -146,12 +142,64 @@
                     <i>August 2013 – July 2015</i>
                   </sup>
                 </p>
-                <a placement="right" popoverClass="popover-default"
-                  ngbPopover="As an Advanced Repair Agent with Geek Squad, I am required to diagnose and repair computer problems. I work with a small staff in our precinct and communicate regularly with clients to update them on work being performed on their computers. I ensure the validity of clients' records and file according to Best Buy's standard operating procedure. In addition, I handle the receiving and shipping of clients' products that are sent out to our service centers."
-                  class="text-success">Learn more</a>
+                <a routerLink='employment/bestbuy' class="text-success">Learn more</a>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-lg-8 order-lg-2">
+        <div class="position-relative">
+          <img src="./assets/img/ill/ill-2.svg" class="img-center img-fluid">
+          <!-- <router-outlet name="employment"></router-outlet> -->
+          <!-- TODO: REPLACE WITH ROUTER EMBED OF JOB DETAIL PAGES -->
+          <!-- <div class="card card-profile shadow">
+            <div class="px-4">
+              <div class="row justify-content-center">
+                <div class="mx-auto order-lg-2">
+                  <a href="https://www.skylinetechnologies.com" target="_blank">
+                    <img src="./assets/images/skyline-technologies.png"
+                      class="rounded mx-auto d-block float-left img-fluid">
+                  </a>
+                </div>
+                <div class="col-lg-2 order-lg-3 text-lg-right align-self-lg-center">
+                  <div class="card-profile-actions py-4 mt-lg-0">
+
+                  </div>
+                </div>
+                <div class="col-lg-2 order-lg-1">
+                </div>
+              </div>
+              <div class="text-center mt-5">
+                <h3>
+                  Skyline Technologies
+                </h3>
+                <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Appleton, WI</div>
+                <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Software Engineer I</div>
+                <div><i class="ni education_hat mr-2"></i>Custom Software Development</div>
+              </div>
+              <div class="mt-5 py-5 border-top text-center">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9">
+                    <p>As a Software Engineer consultant at Skyline, I worked with several clients in
+                      providing recommendations for
+                      software design and working with their development teams. Work has consisted of native
+                      iOS development for a
+                      regulatory compliance company, Xamarin mobile development for an entertainment festival,
+                      and Angular/GraphQL web
+                      application for an education reporting company. I worked with a pharmaceutical rebates
+                      company building Angular
+                      websites, dotnet core APIs, SSIS ETL processes, and analyzing and improving internal
+                      developer workflows and setting
+                      up a CI/CD for all the application pieces, as well as a new DACPAC database migration
+                      process I created for source
+                      control and deploying their database.</p>
+                    <a class="btn btn-link text-info" routerLink="/personal/resume">See Resume</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
