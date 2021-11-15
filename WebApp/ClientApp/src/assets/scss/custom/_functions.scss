@@ -18,6 +18,14 @@
 	@return map-get($shapes-skyline-colors, $key);
 }
 
+@function shapes-geeksquad-color($key: "step-1-gradient-bg") {
+	@return map-get($shapes-geeksquad-colors, $key);
+}
+
+@function shapes-west-color($key: "step-1-gradient-bg") {
+	@return map-get($shapes-west-colors, $key);
+}
+
 @function lines-light-color($key: "step-1-gradient-bg") {
 	@return map-get($shapes-light-colors, $key);
 }
