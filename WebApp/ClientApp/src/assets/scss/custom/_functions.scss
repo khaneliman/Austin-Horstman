@@ -14,16 +14,24 @@
 	@return map-get($shapes-default-colors, $key);
 }
 
+@function shapes-corebts-color($key: "step-1-gradient-bg") {
+	@return map-get($shapes-corebts-colors, $key);
+}
+
 @function shapes-skyline-color($key: "step-1-gradient-bg") {
 	@return map-get($shapes-skyline-colors, $key);
 }
 
-@function shapes-geeksquad-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-geeksquad-colors, $key);
+@function shapes-bestbuy-color($key: "step-1-gradient-bg") {
+	@return map-get($shapes-bestbuy-colors, $key);
 }
 
 @function shapes-west-color($key: "step-1-gradient-bg") {
 	@return map-get($shapes-west-colors, $key);
+}
+
+@function shapes-foxvalley-color($key: "step-1-gradient-bg") {
+	@return map-get($shapes-foxvalley-colors, $key);
 }
 
 @function lines-light-color($key: "step-1-gradient-bg") {
