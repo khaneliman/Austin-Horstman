@@ -4,11 +4,21 @@ import { CommonModule } from '@angular/common';
 import { SkylineRoutingModule } from './skyline-routing.module';
 import { SkylineComponent } from './skyline.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { JjKellerComponent } from './jj-keller/jj-keller.component';
+import { ExpressScriptsComponent } from './express-scripts/express-scripts.component';
+import { NetworkHealthComponent } from './network-health/network-health.component';
+import { RenaissanceLearningComponent } from './renaissance-learning/renaissance-learning.component';
+import { CleartrendComponent } from './cleartrend/cleartrend.component';
 
 
 @NgModule({
   declarations: [
-    SkylineComponent
+    SkylineComponent,
+    JjKellerComponent,
+    ExpressScriptsComponent,
+    NetworkHealthComponent,
+    RenaissanceLearningComponent,
+    CleartrendComponent
   ],
   imports: [
     CommonModule,
