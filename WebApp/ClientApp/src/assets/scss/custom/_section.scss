@@ -128,6 +128,30 @@
         }
     }
 
+    .shape-corebts {
+        background: linear-gradient(150deg, shapes-corebts-color("step-1-gradient-bg") 15%, shapes-corebts-color("step-2-gradient-bg") 70%, shapes-corebts-color("step-3-gradient-bg") 94%);
+
+         :nth-child(1) {
+            background: shapes-corebts-color("span-1-bg");
+        }
+
+         :nth-child(2) {
+            background: shapes-corebts-color("span-2-bg");
+        }
+
+         :nth-child(3) {
+            background: shapes-corebts-color("span-3-bg");
+        }
+
+         :nth-child(4) {
+            background: shapes-corebts-color("span-4-bg");
+        }
+
+         :nth-child(5) {
+            background: shapes-corebts-color("span-5-bg");
+        }
+    }
+
     .shape-skyline {
         background: linear-gradient(150deg, shapes-skyline-color("step-1-gradient-bg") 15%, shapes-skyline-color("step-2-gradient-bg") 70%, shapes-skyline-color("step-3-gradient-bg") 94%);
 
@@ -152,27 +176,27 @@
         }
     }
 
-    .shape-geeksquad {
-        background: linear-gradient(150deg, shapes-geeksquad-color("step-1-gradient-bg") 15%, shapes-geeksquad-color("step-2-gradient-bg") 70%, shapes-geeksquad-color("step-3-gradient-bg") 94%);
+    .shape-bestbuy {
+        background: linear-gradient(150deg, shapes-bestbuy-color("step-1-gradient-bg") 15%, shapes-bestbuy-color("step-2-gradient-bg") 70%, shapes-bestbuy-color("step-3-gradient-bg") 94%);
 
          :nth-child(1) {
-            background: shapes-geeksquad-color("span-1-bg");
+            background: shapes-bestbuy-color("span-1-bg");
         }
 
          :nth-child(2) {
-            background: shapes-geeksquad-color("span-2-bg");
+            background: shapes-bestbuy-color("span-2-bg");
         }
 
          :nth-child(3) {
-            background: shapes-geeksquad-color("span-3-bg");
+            background: shapes-bestbuy-color("span-3-bg");
         }
 
          :nth-child(4) {
-            background: shapes-geeksquad-color("span-4-bg");
+            background: shapes-bestbuy-color("span-4-bg");
         }
 
          :nth-child(5) {
-            background: shapes-geeksquad-color("span-5-bg");
+            background: shapes-bestbuy-color("span-5-bg");
         }
     }
 
@@ -197,6 +221,30 @@
 
          :nth-child(5) {
             background: shapes-west-color("span-5-bg");
+        }
+    }
+
+    .shape-foxvalley {
+        background: linear-gradient(150deg, shapes-foxvalley-color("step-1-gradient-bg") 15%, shapes-foxvalley-color("step-2-gradient-bg") 70%, shapes-foxvalley-color("step-3-gradient-bg") 94%);
+
+         :nth-child(1) {
+            background: shapes-foxvalley-color("span-1-bg");
+        }
+
+         :nth-child(2) {
+            background: shapes-foxvalley-color("span-2-bg");
+        }
+
+         :nth-child(3) {
+            background: shapes-foxvalley-color("span-3-bg");
+        }
+
+         :nth-child(4) {
+            background: shapes-foxvalley-color("span-4-bg");
+        }
+
+         :nth-child(5) {
+            background: shapes-foxvalley-color("span-5-bg");
         }
     }
 

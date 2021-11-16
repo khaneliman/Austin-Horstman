@@ -150,6 +150,18 @@ $shapes-default-colors: map-merge((
   "span-5-bg":                  #6adaff
 ), $shapes-default-colors);
 
+$shapes-corebts-colors: () !default;
+$shapes-corebts-colors: map-merge((
+  "step-1-gradient-bg":         #049b04,
+  "step-2-gradient-bg":         #1699e6,
+  "step-3-gradient-bg":         #0052af,
+  "span-1-bg":                  #7795f8,
+  "span-2-bg":                  #7b9aff,
+  "span-3-bg":                  #6f8ff8,
+  "span-4-bg":                  #76e0ee,
+  "span-5-bg":                  #6adaff
+), $shapes-corebts-colors);
+
 $shapes-skyline-colors: () !default;
 $shapes-skyline-colors: map-merge((
   "step-1-gradient-bg":         #11c0c0,
@@ -162,8 +174,8 @@ $shapes-skyline-colors: map-merge((
   "span-5-bg":                  #6adaff
 ), $shapes-skyline-colors);
 
-$shapes-geeksquad-colors: () !default;
-$shapes-geeksquad-colors: map-merge((
+$shapes-bestbuy-colors: () !default;
+$shapes-bestbuy-colors: map-merge((
   "step-1-gradient-bg":         #030200,
   "step-2-gradient-bg":         #ce7501,
   "step-3-gradient-bg":         #eb8603,
@@ -172,7 +184,7 @@ $shapes-geeksquad-colors: map-merge((
   "span-3-bg":                  #6f8ff8,
   "span-4-bg":                  #76e0ee,
   "span-5-bg":                  #6adaff
-), $shapes-geeksquad-colors);
+), $shapes-bestbuy-colors);
 
 $shapes-west-colors: () !default;
 $shapes-west-colors: map-merge((
@@ -185,6 +197,18 @@ $shapes-west-colors: map-merge((
   "span-4-bg":                  #76e0ee,
   "span-5-bg":                  #6adaff
 ), $shapes-west-colors);
+
+$shapes-foxvalley-colors: () !default;
+$shapes-foxvalley-colors: map-merge((
+  "step-1-gradient-bg":         #000000,
+  "step-2-gradient-bg":         #ff0000,
+  "step-3-gradient-bg":         #ffffff,
+  "span-1-bg":                  #7795f8,
+  "span-2-bg":                  #7b9aff,
+  "span-3-bg":                  #6f8ff8,
+  "span-4-bg":                  #76e0ee,
+  "span-5-bg":                  #6adaff
+), $shapes-foxvalley-colors);
 
 $shapes-light-colors: () !default;
 $shapes-light-colors: map-merge((
