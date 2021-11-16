@@ -186,6 +186,18 @@ $shapes-bestbuy-colors: map-merge((
   "span-5-bg":                  #6adaff
 ), $shapes-bestbuy-colors);
 
+$shapes-geeksquad-colors: () !default;
+$shapes-geeksquad-colors: map-merge((
+  "step-1-gradient-bg":         #030200,
+  "step-2-gradient-bg":         #ce7501,
+  "step-3-gradient-bg":         #eb8603,
+  "span-1-bg":                  #7795f8,
+  "span-2-bg":                  #7b9aff,
+  "span-3-bg":                  #6f8ff8,
+  "span-4-bg":                  #76e0ee,
+  "span-5-bg":                  #6adaff
+), $shapes-geeksquad-colors);
+
 $shapes-west-colors: () !default;
 $shapes-west-colors: map-merge((
   "step-1-gradient-bg":         #000000,

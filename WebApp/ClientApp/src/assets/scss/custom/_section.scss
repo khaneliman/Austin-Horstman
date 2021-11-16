@@ -200,6 +200,30 @@
         }
     }
 
+    .shape-geeksquad {
+        background: linear-gradient(150deg, shapes-geeksquad-color("step-1-gradient-bg") 15%, shapes-geeksquad-color("step-2-gradient-bg") 70%, shapes-geeksquad-color("step-3-gradient-bg") 94%);
+
+         :nth-child(1) {
+            background: shapes-geeksquad-color("span-1-bg");
+        }
+
+         :nth-child(2) {
+            background: shapes-geeksquad-color("span-2-bg");
+        }
+
+         :nth-child(3) {
+            background: shapes-geeksquad-color("span-3-bg");
+        }
+
+         :nth-child(4) {
+            background: shapes-geeksquad-color("span-4-bg");
+        }
+
+         :nth-child(5) {
+            background: shapes-geeksquad-color("span-5-bg");
+        }
+    }
+
     .shape-west {
         background: linear-gradient(150deg, shapes-west-color("step-1-gradient-bg") 15%, shapes-west-color("step-2-gradient-bg") 70%, shapes-west-color("step-3-gradient-bg") 94%);
 
