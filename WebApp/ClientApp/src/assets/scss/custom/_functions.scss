@@ -26,6 +26,10 @@
 	@return map-get($shapes-bestbuy-colors, $key);
 }
 
+@function shapes-geeksquad-color($key: "step-1-gradient-bg") {
+	@return map-get($shapes-geeksquad-colors, $key);
+}
+
 @function shapes-west-color($key: "step-1-gradient-bg") {
 	@return map-get($shapes-west-colors, $key);
 }
