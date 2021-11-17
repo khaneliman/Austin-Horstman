@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "projects": {
+    "austin-horstman": {
+      "projectType": "application",
+      "root": "apps/austin-horstman",
+      "sourceRoot": "apps/austin-horstman/src",
+      "prefix": "khaneliman",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/austin-horstman",
+            "index": "apps/austin-horstman/src/index.html",
+            "main": "apps/austin-horstman/src/main.ts",
+            "polyfills": "apps/austin-horstman/src/polyfills.ts",
+            "tsConfig": "apps/austin-horstman/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/austin-horstman/src/favicon.ico",
+              "apps/austin-horstman/src/assets"
+            ],
+            "styles": [
+              "apps/austin-horstman/src/styles.scss",
+              "apps/austin-horstman/src/assets/scss/argon.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/austin-horstman/src/environments/environment.ts",
+                  "with": "apps/austin-horstman/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "austin-horstman:build:production"
+            },
+            "development": {
+              "browserTarget": "austin-horstman:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "austin-horstman:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/austin-horstman/src/**/*.ts",
+              "apps/austin-horstman/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/austin-horstman"
+          ],
+          "options": {
+            "jestConfig": "apps/austin-horstman/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "austin-horstman-e2e": {
+      "root": "apps/austin-horstman-e2e",
+      "sourceRoot": "apps/austin-horstman-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/austin-horstman-e2e/cypress.json",
+            "devServerTarget": "austin-horstman:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "austin-horstman:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/austin-horstman-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "austin-horstman"
+      ]
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "khaneliman",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/src/**/*.ts",
+              "libs/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    }
+  }
+}
