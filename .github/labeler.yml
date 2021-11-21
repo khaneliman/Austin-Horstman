@@ -5,10 +5,10 @@ WebApi:
 - WebApi/**/*
 
 test:
-- WebApp/ClientApp/src/**/*.spec.js
+- WebApp/khaneliman/apps/austin-horstman/src/**/*.spec.js
 
 Angular:
-- WebApp/ClientApp/**/*
+- WebApp/khaneliman/apps/**/*
 
 repo:
 - '*'
