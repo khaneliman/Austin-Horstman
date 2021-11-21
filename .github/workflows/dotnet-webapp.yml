@@ -28,4 +28,4 @@ jobs:
     - name: Test Dotnet
       run: dotnet test WebApp/ --no-build --verbosity normal
     - name: Test Angular
-      run: npm run test-coverage --prefix WebApp/ClientApp/
+      run: npm run test-coverage --prefix WebApp/khaneliman/
