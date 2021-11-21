@@ -8,7 +8,7 @@ pipeline {
       steps {
         sh '''cd ./WebApp
               dotnet restore'''
-        sh '''cd ./WebApp/ClientApp
+        sh '''cd ./WebApp/khaneliman
               npm install
               npm install -g @angular/cli'''
       }
@@ -18,14 +18,14 @@ pipeline {
       parallel {
         stage('Static code analysis') {
           steps {
-            sh '''cd ./WebApp/ClientApp
+            sh '''cd ./WebApp/khaneliman
                   npm run-script lint'''
           }
         }
 
         stage('Unit tests') {
           steps {
-            sh '''cd ./WebApp/ClientApp
+            sh '''cd ./WebApp/khaneliman
                   npm run-script test-coverage'''
           }
         }
@@ -35,7 +35,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'dotnet build ./WebApp/WebApp.csproj'
-        sh '''cd ./WebApp/ClientApp/
+        sh '''cd ./WebApp/khaneliman/
               npm run-script build'''
       }
     }
@@ -46,14 +46,14 @@ pipeline {
         publishHTML (target : [allowMissing: false,
               alwaysLinkToLastBuild: true,
               keepAll: true,
-              reportDir: './WebApp/ClientApp/coverage/ClientApp',
+              reportDir: './WebApp/khaneliman/apps/austin-horstman/coverage/austin-horstman',
               reportFiles: 'index.html',
               reportName: 'Angular Code Coverage',
               reportTitles: 'The Report'])
-        junit 'WebApp/ClientApp/coverage/junit/Chrome_Headless_93.0.4577.0_(Linux_x86_64)/junit.xml'
+        junit 'WebApp/khaneliman/apps/austin-horstman/coverage/junit/Chrome_Headless_93.0.4577.0_(Linux_x86_64)/junit.xml'
       }
       success {
-        archiveArtifacts artifacts: 'WebApp/ClientApp/dist/**', fingerprint: true
+        archiveArtifacts artifacts: 'WebApp/khaneliman/apps/austin-horstman/dist/**', fingerprint: true
       }
   }
 
