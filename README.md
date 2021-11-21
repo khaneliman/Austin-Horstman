@@ -52,7 +52,7 @@
   
   *Tests for application and how to run them:*
   
-    cd WebApp/ClientApp 
+    cd WebApp/khaneliman/apps/austin-horstman 
     npm run test-coverage
 
     cd WebApp
