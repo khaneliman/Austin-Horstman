@@ -87,24 +87,12 @@
             ]
           }
         },
-        "test-jest": {
+        "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/austin-horstman"],
           "options": {
             "jestConfig": "apps/austin-horstman/jest.config.js",
             "passWithNoTests": true
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "apps/austin-horstman/src/test.ts",
-            "polyfills": "apps/austin-horstman/src/polyfills.ts",
-            "tsConfig": "apps/austin-horstman/tsconfig.spec.json",
-            "karmaConfig": "apps/austin-horstman/karma.conf.js",
-            "assets": ["apps/austin-horstman/src/assets"],
-            "styles": ["apps/austin-horstman/src/styles.scss"],
-            "scripts": []
           }
         }
       },
