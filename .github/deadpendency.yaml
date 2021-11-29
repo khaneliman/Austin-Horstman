@@ -9,6 +9,3 @@ additional-dependency-files:
 ignore-failures:
   csharp:
     - Microsoft.VisualStudio.Azure.Containers.Tools.Targets
-  javascript:
-    - karma-chrome-launcher 
-    - karma-junit-reporter
