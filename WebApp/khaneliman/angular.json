@@ -82,8 +82,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/austin-horstman/src/**/*.ts",
-              "apps/austin-horstman/src/**/*.html"
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
