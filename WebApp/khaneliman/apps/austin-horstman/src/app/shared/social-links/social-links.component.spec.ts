@@ -1,18 +1,17 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { SocialLinksComponent } from "./social-links.component";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SocialLinksComponent } from './social-links.component';
 
-describe("SocialLinksComponent", () => {
+describe('SocialLinksComponent', () => {
   let component: SocialLinksComponent;
   let fixture: ComponentFixture<SocialLinksComponent>;
-
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SocialLinksComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       // providers: [{ provide: MyService, useValue: {} }],
-      imports: []
+      imports: [],
     }).compileComponents();
   });
 
@@ -31,4 +30,4 @@ describe("SocialLinksComponent", () => {
 
     // it.todo('should ...');
   });
-})
+});

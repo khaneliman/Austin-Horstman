@@ -1,18 +1,17 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { AboutComponent } from "./about.component";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AboutComponent } from './about.component';
 
-describe("AboutComponent", () => {
+describe('AboutComponent', () => {
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
-
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AboutComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       // providers: [{ provide: MyService, useValue: {} }],
-      imports: []
+      imports: [],
     }).compileComponents();
   });
 
@@ -31,4 +30,4 @@ describe("AboutComponent", () => {
 
     // it.todo('should ...');
   });
-})
+});

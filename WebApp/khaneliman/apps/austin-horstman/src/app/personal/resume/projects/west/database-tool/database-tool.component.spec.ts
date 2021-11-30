@@ -8,9 +8,8 @@ describe('DatabaseToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DatabaseToolComponent ]
-    })
-    .compileComponents();
+      declarations: [DatabaseToolComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

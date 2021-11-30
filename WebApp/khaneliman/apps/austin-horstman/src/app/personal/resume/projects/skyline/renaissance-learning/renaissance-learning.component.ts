@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-renaissance-learning',
+  selector: 'khaneliman-renaissance-learning',
   templateUrl: './renaissance-learning.component.html',
-  styleUrls: ['./renaissance-learning.component.css']
+  styleUrls: ['./renaissance-learning.component.css'],
 })
-export class RenaissanceLearningComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class RenaissanceLearningComponent implements OnInit {}

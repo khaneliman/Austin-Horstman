@@ -5,18 +5,20 @@ import { TechnologyComponent } from './technology.component';
 
 const routes: Routes = [
   {
-    path: '', component: TechnologyComponent,
+    path: '',
+    component: TechnologyComponent,
     children: [
       {
         path: 'csharp',
-        component: CsharpComponent
-      }
-    ]
+        component: CsharpComponent,
+      },
+    ],
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' }];
+  { path: '**', redirectTo: '', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TechnologyRoutingModule { }
+export class TechnologyRoutingModule {}

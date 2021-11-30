@@ -8,9 +8,8 @@ describe('JjKellerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JjKellerComponent ]
-    })
-    .compileComponents();
+      declarations: [JjKellerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

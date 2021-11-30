@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-kroger',
+  selector: 'khaneliman-kroger',
   templateUrl: './kroger.component.html',
-  styleUrls: ['./kroger.component.css']
+  styleUrls: ['./kroger.component.css'],
 })
-export class KrogerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class KrogerComponent implements OnInit {}

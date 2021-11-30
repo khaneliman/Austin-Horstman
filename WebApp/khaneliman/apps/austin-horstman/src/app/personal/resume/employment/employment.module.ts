@@ -6,15 +6,8 @@ import { EmploymentComponent } from './employment.component';
 
 import { SharedModule } from '../../../shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    EmploymentComponent,
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    EmploymentRoutingModule
-  ]
+  declarations: [EmploymentComponent],
+  imports: [CommonModule, SharedModule, EmploymentRoutingModule],
 })
-export class EmploymentModule { }
+export class EmploymentModule {}

@@ -5,15 +5,8 @@ import { SkylineRoutingModule } from './skyline-routing.module';
 import { SkylineComponent } from './skyline.component';
 import { SharedModule } from '../../../../shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    SkylineComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    SkylineRoutingModule
-  ]
+  declarations: [SkylineComponent],
+  imports: [CommonModule, SharedModule, SkylineRoutingModule],
 })
-export class SkylineModule { }
+export class SkylineModule {}

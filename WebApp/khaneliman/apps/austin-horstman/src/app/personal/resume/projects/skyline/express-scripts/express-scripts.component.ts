@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-express-scripts',
+  selector: 'khaneliman-express-scripts',
   templateUrl: './express-scripts.component.html',
-  styleUrls: ['./express-scripts.component.css']
+  styleUrls: ['./express-scripts.component.css'],
 })
-export class ExpressScriptsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ExpressScriptsComponent implements OnInit {}

@@ -5,15 +5,8 @@ import { GeeksquadRoutingModule } from './geeksquad-routing.module';
 import { GeeksquadComponent } from './geeksquad.component';
 import { SharedModule } from '../../../../shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    GeeksquadComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    GeeksquadRoutingModule
-  ]
+  declarations: [GeeksquadComponent],
+  imports: [CommonModule, SharedModule, GeeksquadRoutingModule],
 })
-export class GeeksquadModule { }
+export class GeeksquadModule {}

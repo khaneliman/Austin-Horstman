@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-foxvalley',
+  selector: 'khaneliman-foxvalley',
   templateUrl: './foxvalley.component.html',
-  styleUrls: ['./foxvalley.component.css']
+  styleUrls: ['./foxvalley.component.css'],
 })
-export class FoxvalleyComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class FoxvalleyComponent implements OnInit {}
