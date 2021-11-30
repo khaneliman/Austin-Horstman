@@ -6,16 +6,8 @@ import { CorebtsComponent } from './corebts.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { KrogerComponent } from './kroger/kroger.component';
 
-
 @NgModule({
-  declarations: [
-    CorebtsComponent,
-    KrogerComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    CorebtsRoutingModule
-  ]
+  declarations: [CorebtsComponent, KrogerComponent],
+  imports: [CommonModule, SharedModule, CorebtsRoutingModule],
 })
-export class CorebtsModule { }
+export class CorebtsModule {}

@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-network-health',
+  selector: 'khaneliman-network-health',
   templateUrl: './network-health.component.html',
-  styleUrls: ['./network-health.component.css']
+  styleUrls: ['./network-health.component.css'],
 })
-export class NetworkHealthComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class NetworkHealthComponent implements OnInit {}

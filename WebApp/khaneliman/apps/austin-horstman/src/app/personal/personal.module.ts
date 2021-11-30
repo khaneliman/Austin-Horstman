@@ -7,20 +7,8 @@ import { AboutComponent } from './about/about.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AboutComponent,
-    ContactComponent,
-    PersonalComponent,
-  ],
-  imports: [
-    CommonModule,
-    PersonalRoutingModule,
-    SharedModule
-  ],
-  exports: [
-    AboutComponent,
-    ContactComponent,
-    PersonalComponent
-  ]
+  declarations: [AboutComponent, ContactComponent, PersonalComponent],
+  imports: [CommonModule, PersonalRoutingModule, SharedModule],
+  exports: [AboutComponent, ContactComponent, PersonalComponent],
 })
-export class PersonalModule { }
+export class PersonalModule {}

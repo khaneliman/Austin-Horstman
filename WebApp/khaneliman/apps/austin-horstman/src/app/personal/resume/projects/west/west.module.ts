@@ -5,15 +5,8 @@ import { WestRoutingModule } from './west-routing.module';
 import { WestComponent } from './west.component';
 import { SharedModule } from '../../../../shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    WestComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    WestRoutingModule
-  ]
+  declarations: [WestComponent],
+  imports: [CommonModule, SharedModule, WestRoutingModule],
 })
-export class WestModule { }
+export class WestModule {}

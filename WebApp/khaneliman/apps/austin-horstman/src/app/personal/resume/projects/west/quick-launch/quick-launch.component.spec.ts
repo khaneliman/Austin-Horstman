@@ -8,9 +8,8 @@ describe('QuickLaunchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuickLaunchComponent ]
-    })
-    .compileComponents();
+      declarations: [QuickLaunchComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
