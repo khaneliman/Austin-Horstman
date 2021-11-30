@@ -1,0 +1,10 @@
+# .eslintignore
+
+# you should ignore irrelevant *.js and *.ts files which do not belong to you project
+
+# do not lint node_modules/
+node_modules
+# do not lint build/ or dist/ folder
+dist
+# do not lint coverage/ folder
+khaneliman/coverage

@@ -7,18 +7,19 @@ import { WestComponent } from './west.component';
 
 const routes: Routes = [
   {
-    path: '', component: WestComponent,
+    path: '',
+    component: WestComponent,
     children: [
       { path: 'database-tool', component: DatabaseToolComponent },
       { path: 'it-portal', component: ItPortalComponent },
-      { path: 'quick-launch', component: QuickLaunchComponent }
-    ]
+      { path: 'quick-launch', component: QuickLaunchComponent },
+    ],
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WestRoutingModule { }
+export class WestRoutingModule {}

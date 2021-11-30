@@ -10,11 +10,10 @@ describe('EducationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EducationComponent ],
+      declarations: [EducationComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [RouterTestingModule]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

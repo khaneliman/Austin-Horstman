@@ -8,9 +8,8 @@ describe('ExpressScriptsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpressScriptsComponent ]
-    })
-    .compileComponents();
+      declarations: [ExpressScriptsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

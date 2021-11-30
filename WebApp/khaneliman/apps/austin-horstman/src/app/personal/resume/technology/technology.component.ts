@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-technology',
+  selector: 'khaneliman-technology',
   templateUrl: './technology.component.html',
-  styleUrls: ['./technology.component.css']
+  styleUrls: ['./technology.component.css'],
 })
-export class TechnologyComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class TechnologyComponent implements OnInit {}

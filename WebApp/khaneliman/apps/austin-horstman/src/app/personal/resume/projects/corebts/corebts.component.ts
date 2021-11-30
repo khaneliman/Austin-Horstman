@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-corebts',
+  selector: 'khaneliman-corebts',
   templateUrl: './corebts.component.html',
-  styleUrls: ['./corebts.component.css']
+  styleUrls: ['./corebts.component.css'],
 })
-export class CorebtsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class CorebtsComponent implements OnInit {}

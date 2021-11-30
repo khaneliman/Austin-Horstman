@@ -8,9 +8,8 @@ describe('CsharpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CsharpComponent ]
-    })
-    .compileComponents();
+      declarations: [CsharpComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
