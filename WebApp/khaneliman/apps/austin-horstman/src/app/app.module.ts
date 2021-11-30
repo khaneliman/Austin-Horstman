@@ -4,26 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './khaneliman-routing.module';
 
-import { SharedModule } from 'apps/austin-horstman/src/app/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

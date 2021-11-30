@@ -8,9 +8,8 @@ describe('FoxvalleyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FoxvalleyComponent ]
-    })
-    .compileComponents();
+      declarations: [FoxvalleyComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -10,11 +10,10 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectsComponent ],
+      declarations: [ProjectsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [RouterTestingModule]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

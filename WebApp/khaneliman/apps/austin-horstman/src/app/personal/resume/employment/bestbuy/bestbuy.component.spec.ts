@@ -8,9 +8,8 @@ describe('BestbuyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BestbuyComponent ]
-    })
-    .compileComponents();
+      declarations: [BestbuyComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

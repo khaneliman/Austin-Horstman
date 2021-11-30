@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-jj-keller',
+  selector: 'khaneliman-jj-keller',
   templateUrl: './jj-keller.component.html',
-  styleUrls: ['./jj-keller.component.css']
+  styleUrls: ['./jj-keller.component.css'],
 })
-export class JjKellerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class JjKellerComponent implements OnInit {}

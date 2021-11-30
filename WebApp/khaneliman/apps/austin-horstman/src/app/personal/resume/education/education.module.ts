@@ -6,16 +6,8 @@ import { EducationComponent } from './education.component';
 import { FoxvalleyComponent } from './foxvalley/foxvalley.component';
 import { SharedModule } from '../../../shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    EducationComponent,
-    FoxvalleyComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    EducationRoutingModule
-  ]
+  declarations: [EducationComponent, FoxvalleyComponent],
+  imports: [CommonModule, SharedModule, EducationRoutingModule],
 })
-export class EducationModule { }
+export class EducationModule {}

@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bestbuy',
+  selector: 'khaneliman-bestbuy',
   templateUrl: './bestbuy.component.html',
-  styleUrls: ['./bestbuy.component.css']
+  styleUrls: ['./bestbuy.component.css'],
 })
-export class BestbuyComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class BestbuyComponent implements OnInit {}

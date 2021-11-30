@@ -10,7 +10,6 @@ import { NetworkHealthComponent } from './network-health/network-health.componen
 import { RenaissanceLearningComponent } from './renaissance-learning/renaissance-learning.component';
 import { CleartrendComponent } from './cleartrend/cleartrend.component';
 
-
 @NgModule({
   declarations: [
     SkylineComponent,
@@ -18,12 +17,8 @@ import { CleartrendComponent } from './cleartrend/cleartrend.component';
     ExpressScriptsComponent,
     NetworkHealthComponent,
     RenaissanceLearningComponent,
-    CleartrendComponent
+    CleartrendComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    SkylineRoutingModule
-  ]
+  imports: [CommonModule, SharedModule, SkylineRoutingModule],
 })
-export class SkylineModule { }
+export class SkylineModule {}

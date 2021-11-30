@@ -8,9 +8,8 @@ describe('SkylineComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkylineComponent ]
-    })
-    .compileComponents();
+      declarations: [SkylineComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

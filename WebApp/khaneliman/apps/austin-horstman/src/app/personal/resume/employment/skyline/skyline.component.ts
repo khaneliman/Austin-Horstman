@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-skyline',
+  selector: 'khaneliman-skyline',
   templateUrl: './skyline.component.html',
-  styleUrls: ['./skyline.component.css']
+  styleUrls: ['./skyline.component.css'],
 })
-export class SkylineComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class SkylineComponent implements OnInit {}
