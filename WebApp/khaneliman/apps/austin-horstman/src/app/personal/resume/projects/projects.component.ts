@@ -13,7 +13,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   private resolve: Function | null = null;
   subscriptions: Subscription[] = [];
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
