@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'khaneliman-quick-launch',
   templateUrl: './quick-launch.component.html',
   styleUrls: ['./quick-launch.component.css'],
 })
-export class QuickLaunchComponent implements OnInit {}
+export class QuickLaunchComponent {}
