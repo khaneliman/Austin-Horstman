@@ -4,11 +4,11 @@ import { WestComponent } from './west.component';
 
 const routes: Routes = [
   { path: '', component: WestComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WestRoutingModule { }
+export class WestRoutingModule {}

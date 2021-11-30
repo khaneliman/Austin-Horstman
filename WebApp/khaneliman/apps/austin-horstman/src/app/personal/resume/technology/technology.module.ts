@@ -6,16 +6,8 @@ import { TechnologyComponent } from './technology.component';
 import { CsharpComponent } from './csharp/csharp.component';
 import { SharedModule } from '../../../shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    TechnologyComponent,
-    CsharpComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    TechnologyRoutingModule
-  ]
+  declarations: [TechnologyComponent, CsharpComponent],
+  imports: [CommonModule, SharedModule, TechnologyRoutingModule],
 })
-export class TechnologyModule { }
+export class TechnologyModule {}

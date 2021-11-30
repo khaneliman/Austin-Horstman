@@ -4,11 +4,11 @@ import { PersonalComponent } from './personal.component';
 
 const routes: Routes = [
   { path: '', component: PersonalComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PersonalRoutingModule { }
+export class PersonalRoutingModule {}

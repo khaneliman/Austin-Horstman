@@ -5,15 +5,8 @@ import { BestbuyRoutingModule } from './bestbuy-routing.module';
 import { BestbuyComponent } from './bestbuy.component';
 import { SharedModule } from '../../../../shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    BestbuyComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    BestbuyRoutingModule
-  ]
+  declarations: [BestbuyComponent],
+  imports: [CommonModule, SharedModule, BestbuyRoutingModule],
 })
-export class BestbuyModule { }
+export class BestbuyModule {}
