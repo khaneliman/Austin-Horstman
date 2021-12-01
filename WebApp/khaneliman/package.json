@@ -4,21 +4,33 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
+
     "build": "nx build",
     "build-prod": "ng build --delete-output-path --aot --common-chunk --build-optimizer",
     "build:ssr": "ng run WebApp:server:dev",
+
     "test": "nx test",
     "test-coverage": "nx test --code-coverage",
+
     "lint": "eslint apps/austin-horstman",
     "lint:html": "eslint apps/austin-horstman -f html -o coverage/apps/austin-horstman/eslint.html",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts apps/austin-horstman",
+
+    "clean:node": "rm -rf node_modules/",
+    "clean:dist": "rm -rf dist/",
+    "i": "npm install",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
+
     "prestart": "node aspnetcore-https",
     "start": "run-script-os",
     "start:windows": "nx serve --port 44463 --ssl --ssl-cert %APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem --ssl-key %APPDATA%\\ASP.NET\\https\\%npm_package_name%.key",
     "start:default": "nx serve --port 44463 --ssl --ssl-cert $HOME/.aspnet/https/${npm_package_name}.pem --ssl-key $HOME/.aspnet/https/${npm_package_name}.key",
     "watch": "nx build --watch --configuration development",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+
+    "fullsuite": "run-s fullclean i build test lint",
+    "fullclean": "run-p clean:node clean:dist"
+
   },
   "private": true,
   "husky": {
@@ -79,6 +91,7 @@
     "jest-preset-angular": "^11.0.1",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.0",
+    "npm-run-all": "^4.1.5",
     "puppeteer": "^11.0.0",
     "run-script-os": "^1.1.6",
     "ts-jest": "27.0.5",
