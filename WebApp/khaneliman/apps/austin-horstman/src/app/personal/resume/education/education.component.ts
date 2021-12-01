@@ -21,7 +21,7 @@ export class EducationComponent implements OnInit, OnDestroy {
     const schools: string[] = [];
     if (this.route && this.route.routeConfig && this.route.routeConfig.children)
       this.route.routeConfig.children.forEach((x) =>
-        schools.push(x.path as string),
+        schools.push(x.path as string)
       );
 
     this.childActivated = new Promise<string>((resolve) => {

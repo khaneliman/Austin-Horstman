@@ -21,7 +21,7 @@ export class EmploymentComponent implements OnInit, OnDestroy {
     const jobs: string[] = [];
     if (this.route && this.route.routeConfig && this.route.routeConfig.children)
       this.route.routeConfig.children.forEach((x) =>
-        jobs.push(x.path as string),
+        jobs.push(x.path as string)
       );
 
     this.childActivated = new Promise<string>((resolve) => {
