@@ -11,6 +11,11 @@
         "*.ts"
       ],
       "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": [
+          "apps/austin-horstman/tsconfig.*?.json"
+        ]
+      },
       "extends": [
         "plugin:@nrwl/nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates",

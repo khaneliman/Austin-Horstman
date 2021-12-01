@@ -82,9 +82,11 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+              "apps/austin-horstman/**/*.{ts,js,html}",
+              "!apps/austin-horstman/node_modules/**"
+            ],
+            "eslintConfig": "apps/austin-horstman/.eslintrc.json",
+            "outputFile": "apps/austin-horstman/eslint-report.json"
           }
         },
         "test": {
