@@ -5,12 +5,12 @@
   "scripts": {
     "ng": "nx",
 
-    "build": "nx build",
+    "build": "ng build",
     "build-prod": "ng build --delete-output-path --aot --common-chunk --build-optimizer",
     "build:ssr": "ng run WebApp:server:dev",
 
-    "test": "nx test",
-    "test-coverage": "nx test --code-coverage",
+    "test": "ng test",
+    "test-coverage": "ng test --code-coverage",
 
     "lint": "eslint apps/austin-horstman",
     "lint:html": "eslint apps/austin-horstman -f html -o coverage/apps/austin-horstman/eslint.html",
@@ -24,9 +24,9 @@
 
     "prestart": "node aspnetcore-https",
     "start": "run-script-os",
-    "start:windows": "nx serve --port 44463 --ssl --ssl-cert %APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem --ssl-key %APPDATA%\\ASP.NET\\https\\%npm_package_name%.key",
-    "start:default": "nx serve --port 44463 --ssl --ssl-cert $HOME/.aspnet/https/${npm_package_name}.pem --ssl-key $HOME/.aspnet/https/${npm_package_name}.key",
-    "watch": "nx build --watch --configuration development",
+    "start:windows": "ng serve --port 44463 --ssl --ssl-cert %APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem --ssl-key %APPDATA%\\ASP.NET\\https\\%npm_package_name%.key",
+    "start:default": "ng serve --port 44463 --ssl --ssl-cert $HOME/.aspnet/https/${npm_package_name}.pem --ssl-key $HOME/.aspnet/https/${npm_package_name}.key",
+    "watch": "ng build --watch --configuration development",
 
     "fullsuite": "run-s fullclean i build test lint",
     "fullclean": "run-p clean:node clean:dist"
