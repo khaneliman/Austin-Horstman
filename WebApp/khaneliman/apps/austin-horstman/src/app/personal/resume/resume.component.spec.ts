@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ResumeComponent } from './resume.component';
 
 describe('ResumeComponent', () => {
@@ -10,8 +11,8 @@ describe('ResumeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ResumeComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [RouterTestingModule],
       // providers: [{ provide: MyService, useValue: {} }],
-      imports: [],
     }).compileComponents();
   });
 

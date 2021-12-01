@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '../shared.module';
 import { SocialLinksComponent } from './social-links.component';
 
 describe('SocialLinksComponent', () => {
@@ -11,7 +12,7 @@ describe('SocialLinksComponent', () => {
       declarations: [SocialLinksComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       // providers: [{ provide: MyService, useValue: {} }],
-      imports: [],
+      imports: [SharedModule],
     }).compileComponents();
   });
 
@@ -19,8 +20,6 @@ describe('SocialLinksComponent', () => {
     fixture = TestBed.createComponent(SocialLinksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    // myService = TestBed.inject(MyService);
   });
 
   describe('method1', () => {

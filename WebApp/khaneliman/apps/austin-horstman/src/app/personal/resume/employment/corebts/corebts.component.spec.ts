@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { CorebtsComponent } from './corebts.component';
 
@@ -9,6 +10,7 @@ describe('CorebtsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CorebtsComponent],
+      imports: [RouterTestingModule],
     }).compileComponents();
   });
 

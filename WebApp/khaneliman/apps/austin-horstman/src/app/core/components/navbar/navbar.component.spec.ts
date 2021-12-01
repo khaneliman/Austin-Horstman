@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from '../../../shared/shared.module';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -12,7 +13,7 @@ describe('NavbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, SharedModule],
     }).compileComponents();
   }));
 
