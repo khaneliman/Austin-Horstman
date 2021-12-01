@@ -387,3 +387,4 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 **/.angular/cache/*
+WebApp/khaneliman/apps/austin-horstman/eslint-report.json
