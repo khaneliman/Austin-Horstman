@@ -9,7 +9,9 @@ import {
   NgbDropdownToggle,
   NgbModule,
   NgbNav,
+  NgbNavLink,
   NgbPopover,
+  NgbTooltip,
 } from '@ng-bootstrap/ng-bootstrap';
 // Custom components
 import { SocialLinksComponent } from './social-links/social-links.component';
@@ -26,6 +28,8 @@ import { SocialLinksComponent } from './social-links/social-links.component';
     NgbDropdownItem,
     NgbDropdownToggle,
     NgbDropdownMenu,
+    NgbTooltip,
+    NgbNavLink,
   ],
 })
 export class SharedModule {}
