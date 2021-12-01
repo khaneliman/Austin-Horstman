@@ -53,7 +53,7 @@
     "@angular/platform-browser-dynamic": "13.0.2",
     "@angular/platform-server": "13.0.2",
     "@angular/router": "13.0.2",
-    "@ng-bootstrap/ng-bootstrap": "^11.0.0-beta.2",
+    "@ng-bootstrap/ng-bootstrap": "^12.0.0-beta.4",
     "@ngrx/store": "13.0.1",
     "@nrwl/angular": "13.2.3",
     "@popperjs/core": "^2.10.2",
