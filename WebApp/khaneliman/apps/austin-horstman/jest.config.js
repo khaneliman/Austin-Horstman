@@ -9,7 +9,7 @@ module.exports = {
     },
   },
   coverageDirectory: '../../coverage/apps/austin-horstman',
-  coverageReporters: ["html", "json", "html-spa", ["text", {"skipFull": true}]],
+  coverageReporters: ['html', 'json', 'html-spa', ['text', { skipFull: true }]],
   transform: {
     '^.+.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

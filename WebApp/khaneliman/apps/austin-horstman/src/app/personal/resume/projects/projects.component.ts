@@ -21,7 +21,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     const projects: string[] = [];
     if (this.route && this.route.routeConfig && this.route.routeConfig.children)
       this.route.routeConfig.children.forEach((x) =>
-        projects.push(x.path as string),
+        projects.push(x.path as string)
       );
 
     this.childActivated = new Promise<string>((resolve) => {

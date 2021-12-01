@@ -15,6 +15,7 @@
     "lint": "eslint apps/austin-horstman",
     "lint:html": "eslint apps/austin-horstman -f html -o coverage/apps/austin-horstman/eslint.html",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts apps/austin-horstman",
+    "prettier-format": "prettier --config .prettierrc apps/austin-horstman/**/*.{ts,js,html} --write",
 
     "clean:node": "rm -rf node_modules/",
     "clean:dist": "rm -rf dist/",
