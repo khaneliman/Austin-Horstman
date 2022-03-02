@@ -35,7 +35,7 @@ jobs:
           if_true: "${{ github.event.inputs.branch }}"
           if_false: " ${{ github.ref_name }}"
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ steps.condval.outputs.value }}
       # Login against a Docker registry except on PR
