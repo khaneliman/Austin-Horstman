@@ -15,12 +15,18 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 // Custom components
 import { SocialLinksComponent } from './social-links/social-links.component';
+import { CardComponent } from './card/card.component';
+import { SeparatorComponent } from './separator/separator.component';
+import { FloatingCardComponent } from './floating-card/floating-card.component';
 
 @NgModule({
-  declarations: [SocialLinksComponent],
+  declarations: [SocialLinksComponent, CardComponent, SeparatorComponent, FloatingCardComponent],
   imports: [CommonModule, RouterModule, NgbModule],
   exports: [
     SocialLinksComponent,
+    CardComponent,
+    SeparatorComponent,
+    FloatingCardComponent,
     NgbPopover,
     NgbCollapse,
     NgbNav,
