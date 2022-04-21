@@ -53,3 +53,5 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTIONS_RUNNER_DEBUG: true
+          FILTER_REGEX_EXCLUDE: .*\/(obj|bin|assets|\.github|\.angular|dist|\.vs|\.vscode|node_modules)\/.*
