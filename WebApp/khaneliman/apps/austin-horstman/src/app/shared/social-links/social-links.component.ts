@@ -39,6 +39,13 @@ export class SocialLinksComponent {
       tooltip: 'Star on GitHub',
     },
     {
+      platform: 'gitlab',
+      link: 'https://gitlab.com/khaneliman',
+      btnClass: 'btn-gitlab',
+      faClass: 'fa-gitlab',
+      tooltip: 'Follow on GitLab',
+    },
+    {
       platform: 'linkedin',
       link: 'https://linkedin.com/in/austin-horstman-94963a76',
       btnClass: 'btn-linkedin',
