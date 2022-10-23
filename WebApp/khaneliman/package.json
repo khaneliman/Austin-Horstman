@@ -85,7 +85,7 @@
     "lint-staged": "^12.1.2",
     "postcss": "^8.4.12",
     "prettier": "^2.5.0",
-    "puppeteer": "^11.0.0",
+    "puppeteer": "^19.1.0",
     "run-script-os": "^1.1.6",
     "stylelint": "^14.7.1",
     "stylelint-config-standard-scss": "^3.0.0",
