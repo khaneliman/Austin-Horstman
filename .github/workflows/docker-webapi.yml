@@ -74,7 +74,7 @@ jobs:
         with:
           context: WebApi/
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }} ${{ env.BRANCH}}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64
           cache-from: type=gha, scope=${{ github.workflow }}
