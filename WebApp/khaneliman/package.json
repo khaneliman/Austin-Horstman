@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "nx",
     "build": "ng build",
-    "build-prod": "ng build --delete-output-path --aot --common-chunk --build-optimizer",
+    "build-prod": "ng build --aot --common-chunk --build-optimizer",
     "build:ssr": "ng run WebApp:server:dev",
     "test": "ng test",
     "test:e2e": "ng e2e austin-horstman-e2e --record --key 86eb1ae2-fcd7-480d-ba50-986beb7097e6",
