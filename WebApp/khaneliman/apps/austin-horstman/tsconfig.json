@@ -14,10 +14,31 @@
     }
   ],
   "compilerOptions": {
+    "baseUrl": "./",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@core/*": [
+        "src/app/modules/core/*"
+      ],
+      "@home/*": [
+        "src/app/modules/home/*"
+      ],
+      "@shared/*": [
+        "src/app/modules/shared/*"
+      ],
+      "@layout/*": [
+        "src/app/modules/layout/*"
+      ],
+      "@personal/*": [
+        "src/app/modules/personal/*"
+      ]
+    },
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
