@@ -13,6 +13,11 @@
       "path": "./tsconfig.editor.json"
     }
   ],
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "forceConsistentCasingInFileNames": true,
@@ -38,11 +43,6 @@
       "@personal/*": [
         "src/app/modules/personal/*"
       ]
-    },
-  },
-  "angularCompilerOptions": {
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    }
   }
 }
