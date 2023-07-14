@@ -389,3 +389,6 @@ FodyWeavers.xsd
 **/.angular/cache/*
 WebApp/khaneliman/apps/austin-horstman/eslint-report.json
 WebApp/khaneliman/package-lock.json
+
+# Direnv
+.direnv/*

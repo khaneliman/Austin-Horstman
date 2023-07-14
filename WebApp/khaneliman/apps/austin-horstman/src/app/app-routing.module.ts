@@ -1,13 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from '@home/home.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
   {
     path: 'personal',
     loadChildren: () =>
-      import('./personal/personal.module').then((m) => m.PersonalModule),
+      import('./modules/personal/personal.module').then(
+        (m) => m.PersonalModule
+      ),
+  },
+  {
+    path: 'projects',
+    loadChildren: () =>
+      import('./modules/projects/projects.module').then(
+        (m) => m.ProjectsModule
+      ),
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
