@@ -1,0 +1,17 @@
+# https://numtide.github.io/devshell
+[devshell]
+packages = [
+  yarn
+  nodejs
+  docker
+  dotnet-sdk
+  nodePackages.eslint
+  nodePackages.typescript-language-server
+  nodePackages.typescript
+  nodePackages.stylelint
+  nodePackages.sass
+  nodePackages.prettier
+  nodePackages.pnpm
+  nodePackages.karma
+  nodePackages.jsonlint
+]
