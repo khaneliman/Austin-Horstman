@@ -75,7 +75,7 @@
     "@typescript-eslint/eslint-plugin": "5.40.1",
     "@typescript-eslint/parser": "5.40.1",
     "chromedriver": "^96.0.0",
-    "cypress": "^8.7.0",
+    "cypress": "^13.1.0",
     "eslint": "8.15.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
