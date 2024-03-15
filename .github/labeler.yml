@@ -1,17 +1,35 @@
+# WebApp label for changes under WebApp folder
 WebApp:
-- WebApp/**/*
+  - changed-files:
+    - any-glob-to-any-file: 'WebApp/**/*'  # Matches any file change under WebApp
 
+# WebApi label for changes under WebApi folder
 WebApi:
-- WebApi/**/*
+  - changed-files:
+    - any-glob-to-any-file: 'WebApi/**/*'  # Matches any file change under WebApi
 
+# Test label for changes in .spec.js files under WebApp/khaneliman/apps/austin-horstman/src
 test:
-- WebApp/khaneliman/apps/austin-horstman/src/**/*.spec.js
+  - changed-files:
+    - any-glob-to-any-file: 'WebApp/khaneliman/apps/austin-horstman/src/**/*.spec.js'  # Matches changes in specific .spec.js files
 
+# Angular label for changes under WebApp/khaneliman/apps
 Angular:
-- WebApp/khaneliman/apps/**/*
+  - changed-files:
+    - any-glob-to-any-file: 'WebApp/khaneliman/apps/**/*'  # Matches any file change under WebApp/khaneliman/apps
 
 repo:
-- '*'
+- changed-files:
+  - any-glob-to-any-file: '*'
 
 GitHub-Action:
-- .github/workflows/*
+- changed-files:
+  - any-glob-to-any-file: '.github/workflows/*'
+
+# Add 'feature' label to any PR where the head branch name starts with `feature` or has a `feature` section in the name
+feature:
+ - head-branch: ['^feature', 'feature']
+
+# Add 'release' label to any PR that is opened against the `main` branch
+release:
+ - base-branch: 'main'
