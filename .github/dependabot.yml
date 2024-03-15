@@ -5,3 +5,34 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    commit-message:
+      # Prefix all commit messages with "npm: "
+      prefix: ".github" 
+  - package-ecosystem: "npm"
+    directory: "/WebApp/khaneliman/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      # Prefix all commit messages with "npm: "
+      prefix: "package.json" 
+  - package-ecosystem: "docker"
+    directory: "/WebApp"
+    schedule:
+      interval: "daily"
+    commit-message:
+      # Prefix all commit messages with "[docker] " (no colon, but a trailing whitespace)
+      prefix: "Dockerfile"
+  - package-ecosystem: "docker"
+    directory: "/WebApi"
+    schedule:
+      interval: "daily"
+    commit-message:
+      # Prefix all commit messages with "[docker] " (no colon, but a trailing whitespace)
+      prefix: "Dockerfile"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      # Prefix all commit messages with "[docker] " (no colon, but a trailing whitespace)
+      prefix: "docker-compose.yml"
