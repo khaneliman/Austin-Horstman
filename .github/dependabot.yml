@@ -14,7 +14,7 @@ updates:
       interval: "daily"
     commit-message:
       # Prefix all commit messages with "npm: "
-      prefix: "package.json" 
+      prefix: "package-lock.json" 
   - package-ecosystem: "docker"
     directory: "/WebApp"
     schedule:
