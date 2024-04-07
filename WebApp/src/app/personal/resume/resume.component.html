@@ -1,0 +1,371 @@
+<!-- Education Section -->
+<section class="section pb-0 bg-gradient-default">
+  <div class="container">
+    <div class="row row-grid align-items-center mt-5">
+      <div class="col-lg-2 order-lg-1 ml-lg-auto">
+        <div class="position-relative pl-md-5">
+          <!-- <img src="./assets/img/ill/ill-2.svg" class="img-center img-fluid"> -->
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-2">
+        <div class="d-flex px-3">
+          <div>
+            <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+              <i class="ni ni-ruler-pencil text-primary"></i>
+            </div>
+          </div>
+          <div class="pl-4">
+            <h4 class="display-3 text-white">Education</h4>
+            <!-- <p class="text-white"></p> -->
+          </div>
+        </div>
+        <app-card title="Fox Valley Technical College" imgSrc="assets/images/foxvalley.jpg" [imgDark]="false"
+          description="Associate of Applied Science – IT Software Developer" superText="2013 - 2015"
+          link="education/foxvalley" linkText="Learn more">
+        </app-card>
+      </div>
+      <div class="col-lg-2 order-lg-3 ml-lg-auto">
+        <div class="position-relative pl-md-5"></div>
+      </div>
+    </div>
+  </div>
+  <!-- SVG separator -->
+  <app-separator></app-separator>
+</section>
+<!-- Employment Section -->
+<section class="section pb-0 bg-gradient-warning">
+  <div class="container">
+    <div class="row row-grid">
+      <div class="d-flex px-3">
+        <div>
+          <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+            <i class="ni ni-building text-primary"></i>
+          </div>
+        </div>
+        <div class="pl-4">
+          <h4 class="display-3 text-white">Employment</h4>
+          <p class="text-white">
+            Computer Repair Agent, Programmer, Software Engineer, and Senior Software Engineer
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row row-grid align-items-center">
+      <div class="col-lg-4 order-lg-1">
+        <div class="card shadow shadow-lg--hover mt-5">
+          <div class="card-body">
+            <div class="d-flex">
+              <div class="col-4 pt-5">
+                <img class="rounded mx-auto d-block float-left img-fluid" src="assets/images/corebts.png"
+                  style="background-color: rgb(24, 26, 27)" />
+              </div>
+              <div class="pl-4">
+                <h5 class="title text-success">Core BTS</h5>
+                <p class="align-right">
+                  Senior Software Engineer<br />
+                  <sup>
+                    <i>January 2021 - Current</i>
+                  </sup>
+                </p>
+                <p class="align-right">
+                  Software Engineer<br />
+                  <sup>
+                    <i>January 2021 - January 2022</i>
+                  </sup>
+                </p>
+                <a routerLink="employment/corebts" class="text-success">Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-card title="Skyline Technologies" imgSrc="assets/images/skyline-technologies.png" [imgDark]="false"
+          description="Software Engineer I" superText="October 2017 - January 2021" link="employment/skyline"
+          linkText="Learn more">
+        </app-card>
+        <app-card title="West Corporation" imgSrc="assets/images/west.jpg" [imgDark]="false" description="Programmer"
+          superText="May 2015 - October 2017" link="employment/west" linkText="Learn more">
+        </app-card>
+        <app-card title="Best Buy" imgSrc="assets/images/geeksquad.jpg" [imgDark]="false"
+          description="Advanced Repair Agent" superText="August 2013 – July 2015" link="employment/bestbuy"
+          linkText="Learn more">
+        </app-card>
+      </div>
+      <div class="col-lg-8 order-lg-2">
+        <div class="position-relative">
+          <img src="./assets/img/ill/ill-2.svg" class="img-center img-fluid" />
+          <!-- <router-outlet name="employment"></router-outlet> -->
+          <!-- TODO: REPLACE WITH ROUTER EMBED OF JOB DETAIL PAGES -->
+          <!-- <div class="card card-profile shadow">
+            <div class="px-4">
+              <div class="row justify-content-center">
+                <div class="mx-auto order-lg-2">
+                  <a href="https://www.skylinetechnologies.com" target="_blank">
+                    <img src="./assets/images/skyline-technologies.png"
+                      class="rounded mx-auto d-block float-left img-fluid">
+                  </a>
+                </div>
+                <div class="col-lg-2 order-lg-3 text-lg-right align-self-lg-center">
+                  <div class="card-profile-actions py-4 mt-lg-0">
+
+                  </div>
+                </div>
+                <div class="col-lg-2 order-lg-1">
+                </div>
+              </div>
+              <div class="text-center mt-5">
+                <h3>
+                  Skyline Technologies
+                </h3>
+                <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Appleton, WI</div>
+                <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Software Engineer I</div>
+                <div><i class="ni education_hat mr-2"></i>Custom Software Development</div>
+              </div>
+              <div class="mt-5 py-5 border-top text-center">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9">
+                    <p>As a Software Engineer consultant at Skyline, I worked with several clients in
+                      providing recommendations for
+                      software design and working with their development teams. Work has consisted of native
+                      iOS development for a
+                      regulatory compliance company, Xamarin mobile development for an entertainment festival,
+                      and Angular/GraphQL web
+                      application for an education reporting company. I worked with a pharmaceutical rebates
+                      company building Angular
+                      websites, dotnet core APIs, SSIS ETL processes, and analyzing and improving internal
+                      developer workflows and setting
+                      up a CI/CD for all the application pieces, as well as a new DACPAC database migration
+                      process I created for source
+                      control and deploying their database.</p>
+                    <a class="btn btn-link text-info" routerLink="/personal/resume">See Resume</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SVG separator -->
+  <app-separator></app-separator>
+</section>
+<!-- Projects Section -->
+<section class="section section-lg mb-5 bg-secondary">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <div class="d-flex px-3">
+        <div>
+          <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+            <i class="ni ni-collection text-primary"></i>
+          </div>
+        </div>
+        <div class="pl-4 mb-5">
+          <h4 class="display-3 mb-5">Projects</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-lg pt-lg-0 mt--200 bg-secondary">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="row row-grid">
+          <div class="col-lg-4">
+            <app-floating-card title="Updates Soon" icon="ni ni-check-bold" status="warning" link="projects/corebts"
+              linkText="Learn more">
+            </app-floating-card>
+          </div>
+          <div class="col-lg-4">
+            <app-floating-card title="Updates Soon" icon="ni ni-check-bold" status="warning" link="projects/corebts"
+              linkText="Learn more">
+            </app-floating-card>
+          </div>
+          <div class="col-lg-4">
+            <app-floating-card title="West IT Portal" icon="ni ni-check-bold" status="primary" superText="2017"
+              description="I created an ASP.NET MVC website that centralizes all the
+                              sites and tools our IT department needs to access on a daily
+                              basis. I created a web version of my previous database
+                              searching and SSIS job searching tools using ASP.NET MVC,
+                              JavaScript, jQuery, and Bootstrap. I also recreated one of our
+                              work request systems in the website, so that we didn't have to
+                              leave the 'IT Portal' for anything." [tags]="['C#', 'ASP.NET', 'WPF']"
+              link="projects/west/it-portal" linkText="Learn more">
+            </app-floating-card>
+          </div>
+        </div>
+        <div class="row row-grid">
+          <div class="col-lg-4">
+            <app-floating-card title="OnContact Quick Launch" icon="ni ni-check-bold" status="primary" superText="2016"
+              description="I added functionality to one of the tools that was previously
+                  created by my supervisor, at the time. It automated the
+                  process of clearing local caches and dynamically updating
+                  configuration files that the software needed to access client
+                  databases. I also added the Database Search functionality to
+                  the quick launch so that you could find where the programs
+                  were located while loading up the applications." [tags]="['C#', '.NET Framework', 'WinForms']"
+              link="projects/west/quick-launch" linkText="Learn more">
+            </app-floating-card>
+          </div>
+          <div class="col-lg-4">
+            <app-floating-card title="Database and SSIS Job Search" icon="ni ni-istanbul" status="success"
+              superText="2016" description="Database Search had a searchable list of the databases on all
+                              West's servers, what version of CRM they were on, and whether
+                              it was a development, test, or production database. The SSIS
+                              job search tool would query West's servers that hosted SQL
+                              Server Agent Jobs and let the user search for jobs and see
+                              what their run schedules were." [tags]="['C#', '.NET Framework', 'WinForms']"
+              link="projects/west/database-tool" linkText="Learn more">
+            </app-floating-card>
+          </div>
+          <div class="col-lg-4">
+            <app-floating-card title="Geek Squad Stat Tracker" icon="ni ni-planet" status="warning" superText="2015"
+              description="I have written and deployed a software application for
+                  tracking statistics at our Geek Squad precinct. It managed the
+                  employees, positions, and services that we had at our Geek
+                  Squad precinct. It allowed our manager to import corporate
+                  budget reports into the database and export reports for
+                  employee's individual sales or the sales for a particular day,
+                  week, or month. I used SQL Server as the DBMS and included a
+                  database creation script with the source code." [tags]="['C#', '.NET Framework', 'WPF']"
+              link="projects/geeksquad/stat-tracker" linkText="Learn more">
+            </app-floating-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TODO: Retrieve experience length -->
+<!-- Experience Section -->
+<section class="section bg-default text-white">
+  <div class="container">
+    <div class="row">
+      <div class="icon icon-lg icon-shape icon-shape-white shadow rounded-circle mb-5">
+        <i class="ni ni-settings"></i>
+      </div>
+      <h3 class="text-white">Technology Summary</h3>
+    </div>
+    <div class="row row-grid align-items-top">
+      <div class="col-md-6">
+        <div class="pl-md-5">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Proficient</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>C#</td>
+                <td id="cs"></td>
+              </tr>
+              <tr>
+                <td>SQL</td>
+                <td id="sql"></td>
+              </tr>
+              <tr>
+                <td>Angular</td>
+                <td id="angular"></td>
+              </tr>
+              <tr>
+                <td>HTML</td>
+                <td id="html"></td>
+              </tr>
+              <tr>
+                <td>JavaScript</td>
+                <td id="js"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Learned</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>C++</td>
+              <td id="cpp"></td>
+            </tr>
+            <tr>
+              <td>PHP</td>
+              <td id="php"></td>
+            </tr>
+            <tr>
+              <td>MySQL</td>
+              <td id="mysql"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <div class="pl-md-5">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Encountered</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>VB.NET</td>
+                <td id="vb"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Interested</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Swift</td>
+              <td id="swift"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Software</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Visual Studio</td>
+            </tr>
+            <tr>
+              <td>SQL Server Management Studio</td>
+            </tr>
+            <tr>
+              <td>Resharper Ultimate</td>
+            </tr>
+            <tr>
+              <td>Redgate SQL Toolbelt</td>
+            </tr>
+            <tr>
+              <td>Task Factory</td>
+            </tr>
+            <tr>
+              <td>Microsoft Office</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</section>

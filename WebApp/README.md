@@ -1,67 +1,27 @@
-# Austin Horstman Dotnet Angular App
+# WebApp
 
-  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/khaneliman/austin-horstman-angular?style=flat&logo=appveyor)
-  ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/khaneliman/austin-horstman-angular?style=flat&logo=appveyor)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
 
-  [![Docker WebApp](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-webapp.yml)
-  [![.NET WebApp Build](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-webapp.yml)
-  
-## Description
-  
-  *The what, why, and how:*
-  
-  Personal website for myself. Used to house the information about myself for others to familiarize them with me, as a person. It contains all the projects that I work on related to my time as a software engineer and my resume for anyone interested in learning more.
+## Development server
 
-## Table of Contents
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [License](#license)
-  
-## Installation
-  
-  *Steps required to install project and how to get the development environment running:*
-  
-  You must have the [.NET](https://dotnet.microsoft.com/download/) SDK installed. [.NET](https://dotnet.microsoft.com/download/) 5 is recommended.
+## Code scaffolding
 
-  If this is your first time with dotnet development locally. You must trust the local https development certificates.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-    dotnet dev-certs https --trust
-  
-## Usage
-  
-  *Instructions and examples for use:*
-  
-    dotnet watch run
-  
-## Contributing
-  
-  *If you would like to contribute it, you can follow these guidelines for how to do so.*
-  
-* Create feature branches and submit a PR into develop.
-  
-## Tests
-  
-  *Tests for application and how to run them:*
-  
-    cd khaneliman/apps/austin-horstman  
-    npm run test-coverage
+## Build
 
-    dotnet test
-  
-## License
-  
-  [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html)
-  
-  ---
-  
-## Questions?
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-  <img src="https://avatars.githubusercontent.com/u/1778670?v=4" alt="khaneliman" width="40%" />
-  
-  For any questions, please contact me with the information below:
+## Running unit tests
 
-  GitHub: [@khaneliman](https://api.github.com/users/khaneliman)
-  
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
