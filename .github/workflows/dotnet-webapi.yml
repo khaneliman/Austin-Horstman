@@ -1,29 +1,25 @@
 name: .NET WebApi Build
-
 on:
   push:
-    branches: [ develop, master ]
+    branches: [develop, master]
     paths:
-    - 'WebApi/**/*'
+      - 'WebApi/**/*'
   pull_request:
-    branches: [ develop, master ]
+    branches: [develop, master]
     paths:
-    - 'WebApi/**/*'
-
+      - 'WebApi/**/*'
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore WebApi/
-    - name: Build
-      run: dotnet build WebApi/ --no-restore
-    - name: Test
-      run: dotnet test WebApi/ --no-build --verbosity normal
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore WebApi/
+      - name: Build
+        run: dotnet build WebApi/ --no-restore
+      - name: Test
+        run: dotnet test WebApi/ --no-build --verbosity normal

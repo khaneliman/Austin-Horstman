@@ -1,5 +1,4 @@
 name: Dependent Issues
-
 on:
   issues:
     types:
@@ -15,12 +14,10 @@ on:
       # this action is required to pass before merging. Can be removed
       # otherwise.
       - synchronize
-
   # Schedule a daily check. Useful if you reference cross-repository
   # issues or pull requests. Can be removed otherwise.
   schedule:
     - cron: '0 0 * * *'
-
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -34,15 +31,12 @@ jobs:
         with:
           # (Optional) The label to use to mark dependent issues
           label: dependent
-
           # (Optional) Enable checking for dependencies in issues.
           # Enable by setting the value to "on". Default "off"
           check_issues: off
-
           # (Optional) Ignore dependabot PRs.
           # Enable by setting the value to "on". Default "off"
           ignore_dependabot: off
-
           # (Optional) A comma-separated list of keywords. Default
           # "depends on, blocked by"
           keywords: depends on, blocked by
