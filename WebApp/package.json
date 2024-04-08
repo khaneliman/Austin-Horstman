@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "ci:clean": "rimraf ./dist",
-    "ci:test": "ng test --watch=false --browsers=ChromeHeadlessCustom --code-coverage",
-    "ci:build": "ng build --prod"
+    "ci:test": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "ci:build": "ng build"
   },
   "private": true,
   "dependencies": {

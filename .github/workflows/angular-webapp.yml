@@ -1,0 +1,49 @@
+name: Angular WebApp Build
+on:
+  push:
+    branches: [develop, master]
+    paths:
+      - 'WebApp/**/*'
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - 'WebApp/**/*'
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch or commit to build'
+        required: true
+        default: 'develop'
+      node:
+        description: 'Node version to build'
+        required: true
+        default: '20.x'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["${{github.event.inputs.node}}"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: WebApp/package-lock.json
+      - name: Install Dependencies
+        working-directory: ./WebApp
+        run: npm ci
+      # - name: Run Unit Tests
+      # working-directory: ./WebApp
+      # run: npm run ci:test
+      - name: Clean Distribution Directory
+        working-directory: ./WebApp
+        run: npm run ci:clean
+      - name: Build Application
+        working-directory: ./WebApp
+        run: npm run ci:build
+      - name: List Files in Distribution Directory
+        working-directory: ./WebApp
+        run: ls -R ./dist
