@@ -6,12 +6,12 @@ import {
   RouterModule,
 } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
-import { NgbCollapse, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
   standalone: true,
-  imports: [NgbTooltip, NgbCollapse, RouterModule, SocialLinksComponent],
+  imports: [NgbModule, RouterModule, SocialLinksComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
