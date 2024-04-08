@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SocialLinksComponent } from '../../../shared/social-links/social-links.component';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
   standalone: true,

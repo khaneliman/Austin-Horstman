@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
 import { NgbCollapse, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
-import { SocialLinksComponent } from '../../../shared/social-links/social-links.component';
+import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
   standalone: true,
