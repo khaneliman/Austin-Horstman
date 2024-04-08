@@ -4,10 +4,10 @@ services:
     build:
       context: ./WebApi
       dockerfile: Dockerfile
-
   webapp:
     image: khaneliman/austin-horstman-webapp
     build:
       context: ./WebApp
       dockerfile: Dockerfile
-
+    ports:
+      - 4200:4200

@@ -1,26 +1,13 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+FROM node:alpine
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+RUN mkdir -p /usr/src/app
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0.101 AS build
-WORKDIR /src
-COPY *.csproj ./
-RUN dotnet restore "WebApp.csproj"
+WORKDIR /usr/src/app
+
+RUN npm install -g @angular/cli
+
 COPY . .
 
-RUN apt-get update
-RUN apt-get install curl gnupg make -yq
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt-get install -y nodejs
-RUN apt-get install -y chromium
+RUN npm install
 
-FROM build AS publish
-RUN dotnet publish "WebApp.csproj" -c Release -o /app/publish
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebApp.dll"]
+CMD ["ng", "serve", "--host", "0.0.0.0"]

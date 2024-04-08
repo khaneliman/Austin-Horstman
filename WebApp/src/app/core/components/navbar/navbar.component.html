@@ -1,0 +1,54 @@
+<nav id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="navbar_global">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="container">
+    <div class="navbar-collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand"></div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link no-caret" role="button" [routerLink]="['/home']">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">Home</span>
+          </a>
+        </li>
+        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
+          <a class="nav-link" role="button" id="navbarPersonalDropdown" ngbDropdownToggle>
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">Personal</span>
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarPersonalDropdown">
+            <a ngbDropdownItem [routerLink]="['/personal/about']">About</a>
+            <a ngbDropdownItem [routerLink]="['/personal/contact']">Contact</a>
+            <a ngbDropdownItem [routerLink]="['/personal/resume']">Resume</a>
+          </div>
+        </li>
+        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
+          <a class="nav-link" data-toggle="dropdown" id="navbarProjectsDropdown" role="button" ngbDropdownToggle>
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">Projects</span>
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarProjectsDropdown">
+            <a ngbDropdownItem class="dropdown-item">Coming Soon.</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <app-social-links location="nav"></app-social-links>
+      </ul>
+    </div>
+  </div>
+</nav>
