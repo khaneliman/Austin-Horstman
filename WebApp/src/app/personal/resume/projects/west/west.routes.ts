@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
+import { WestComponent } from './west.component';
 import { DatabaseToolComponent } from './database-tool/database-tool.component';
 import { ItPortalComponent } from './it-portal/it-portal.component';
 import { QuickLaunchComponent } from './quick-launch/quick-launch.component';
-import { WestComponent } from './west.component';
 
-const routes: Routes = [
+export const WEST_ROUTES: Routes = [
   {
     path: '',
     component: WestComponent,
@@ -17,9 +16,3 @@ const routes: Routes = [
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class WestRoutingModule {}

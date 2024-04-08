@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   selector: 'app-floating-card',
   templateUrl: './floating-card.component.html',
   styleUrls: ['./floating-card.component.scss'],

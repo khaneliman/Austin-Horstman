@@ -1,22 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
-const routes: Routes = [
+export const PERSONAL_ROUTES: Routes = [
   { path: '', component: AboutComponent },
   {
     path: 'resume',
     loadChildren: () =>
-      import('./resume/resume.module').then((m) => m.ResumeModule),
+      import('./resume/resume.routes').then((m) => m.RESUME_ROUTES),
   },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: 'about', pathMatch: 'full' },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class PersonalRoutingModule {}
