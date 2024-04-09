@@ -21,7 +21,20 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "app/*": ["./src/app/*"],
+      "core/*": ["./src/app/core/*"],
+      "home/*": ["./src/app/home/*"],
+      "personal/*": ["./src/app/personal/*"],
+      "about/*": ["./src/app/personal/about/*"],
+      "contacts/*": ["./src/app/personal/contacts/*"],
+      "education/*": ["./src/app/personal/education/*"],
+      "employment/*": ["./src/app/personal/employment/*"],
+      "resume/*": ["./src/app/personal/resume/*"],
+      "technology/*": ["./src/app/personal/technology/*"],
+      "projects/*": ["./src/app/projects/*"],
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
