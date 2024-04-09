@@ -9,6 +9,16 @@ export const PERSONAL_ROUTES: Routes = [
     loadChildren: () =>
       import('./resume/resume.routes').then((m) => m.RESUME_ROUTES),
   },
+  {
+    path: 'education',
+    loadChildren: () =>
+      import('./education/education.routes').then((m) => m.EDUCATION_ROUTES),
+  },
+  {
+    path: 'employment',
+    loadChildren: () =>
+      import('./employment/employment.routes').then((m) => m.EMPLOYMENT_ROUTES),
+  },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: 'about', pathMatch: 'full' },
