@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   selector: 'app-database-tool',
   templateUrl: './database-tool.component.html',
-  styleUrls: ['./database-tool.component.css'],
+  styleUrls: ['./database-tool.component.scss'],
 })
 export class DatabaseToolComponent {}

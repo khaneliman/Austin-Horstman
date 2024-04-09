@@ -4,11 +4,11 @@ import { Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-education',
-    templateUrl: './education.component.html',
-    styleUrls: ['./education.component.css'],
-    standalone: true,
-    imports: [RouterOutlet, AsyncPipe],
+  selector: 'app-education',
+  templateUrl: './education.component.html',
+  styleUrls: ['./education.component.scss'],
+  standalone: true,
+  imports: [RouterOutlet, AsyncPipe],
 })
 export class EducationComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute) {}

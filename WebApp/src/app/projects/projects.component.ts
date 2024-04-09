@@ -6,7 +6,7 @@ import { AsyncPipe } from '@angular/common';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css'],
+  styleUrls: ['./projects.component.scss'],
   standalone: true,
   imports: [RouterOutlet, AsyncPipe],
 })
