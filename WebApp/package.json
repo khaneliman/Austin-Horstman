@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve --configuration development",
+    "prod": "ng serve --configuration production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -44,4 +46,3 @@
     "typescript": "~5.4.2"
   }
 }
-
