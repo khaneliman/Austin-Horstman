@@ -5,7 +5,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0.301 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0.302 AS build
 WORKDIR /src
 COPY *.csproj ./
 RUN dotnet restore "WebApi.csproj"
