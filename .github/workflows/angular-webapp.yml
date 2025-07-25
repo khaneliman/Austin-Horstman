@@ -17,7 +17,7 @@ on:
       node:
         description: 'Node version to build'
         required: true
-        default: '20.x'
+        default: '22.x'
 jobs:
   build:
     runs-on: ubuntu-latest
