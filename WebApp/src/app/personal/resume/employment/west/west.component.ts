@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
     selector: 'app-west',
     templateUrl: './west.component.html',
     styleUrls: ['./west.component.css'],
-    standalone: true,
-    imports: [RouterLink],
+    imports: [RouterLink]
 })
 export class WestComponent {}

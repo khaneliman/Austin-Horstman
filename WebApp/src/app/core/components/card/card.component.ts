@@ -3,11 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+    imports: [CommonModule, RouterModule],
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
   @Input() imgSrc: string | undefined;

@@ -7,8 +7,7 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-projects',
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.css'],
-    standalone: true,
-    imports: [RouterOutlet, AsyncPipe],
+    imports: [RouterOutlet, AsyncPipe]
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute) {}

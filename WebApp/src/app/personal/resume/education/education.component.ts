@@ -7,8 +7,7 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-education',
     templateUrl: './education.component.html',
     styleUrls: ['./education.component.css'],
-    standalone: true,
-    imports: [RouterOutlet, AsyncPipe],
+    imports: [RouterOutlet, AsyncPipe]
 })
 export class EducationComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute) {}

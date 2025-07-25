@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
     selector: 'app-bestbuy',
     templateUrl: './bestbuy.component.html',
     styleUrls: ['./bestbuy.component.css'],
-    standalone: true,
-    imports: [RouterLink],
+    imports: [RouterLink]
 })
 export class BestbuyComponent {}

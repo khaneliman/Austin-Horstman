@@ -3,11 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  standalone: true,
-  imports: [RouterModule, CommonModule],
-  selector: 'app-floating-card',
-  templateUrl: './floating-card.component.html',
-  styleUrls: ['./floating-card.component.scss'],
+    imports: [RouterModule, CommonModule],
+    selector: 'app-floating-card',
+    templateUrl: './floating-card.component.html',
+    styleUrls: ['./floating-card.component.scss']
 })
 export class FloatingCardComponent implements OnInit {
   @Input() icon: string | undefined;

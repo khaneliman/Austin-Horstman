@@ -5,7 +5,6 @@ import { RouterOutlet } from '@angular/router';
     selector: 'app-skyline',
     templateUrl: './skyline.component.html',
     styleUrls: ['./skyline.component.css'],
-    standalone: true,
-    imports: [RouterOutlet],
+    imports: [RouterOutlet]
 })
 export class SkylineComponent {}

@@ -5,7 +5,6 @@ import { RouterOutlet, RouterLink } from '@angular/router';
     selector: 'app-geeksquad',
     templateUrl: './geeksquad.component.html',
     styleUrls: ['./geeksquad.component.css'],
-    standalone: true,
-    imports: [RouterOutlet, RouterLink],
+    imports: [RouterOutlet, RouterLink]
 })
 export class GeeksquadComponent {}

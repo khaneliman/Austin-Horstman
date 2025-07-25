@@ -7,8 +7,7 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-employment',
     templateUrl: './employment.component.html',
     styleUrls: ['./employment.component.css'],
-    standalone: true,
-    imports: [RouterOutlet, AsyncPipe],
+    imports: [RouterOutlet, AsyncPipe]
 })
 export class EmploymentComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute) {}

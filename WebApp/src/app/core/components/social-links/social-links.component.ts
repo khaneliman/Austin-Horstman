@@ -4,11 +4,10 @@ import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
-  imports: [NgbTooltip, CommonModule],
-  selector: 'app-social-links',
-  templateUrl: './social-links.component.html',
-  styleUrls: ['./social-links.component.scss'],
+    imports: [NgbTooltip, CommonModule],
+    selector: 'app-social-links',
+    templateUrl: './social-links.component.html',
+    styleUrls: ['./social-links.component.scss']
 })
 export class SocialLinksComponent {
   @Input() location: string | undefined;

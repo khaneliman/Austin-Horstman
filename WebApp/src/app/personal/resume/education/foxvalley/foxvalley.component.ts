@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
     selector: 'app-foxvalley',
     templateUrl: './foxvalley.component.html',
     styleUrls: ['./foxvalley.component.css'],
-    standalone: true,
-    imports: [RouterLink],
+    imports: [RouterLink]
 })
 export class FoxvalleyComponent {}

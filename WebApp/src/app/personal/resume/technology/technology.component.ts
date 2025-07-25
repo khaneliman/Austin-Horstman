@@ -5,7 +5,6 @@ import { RouterOutlet } from '@angular/router';
     selector: 'app-technology',
     templateUrl: './technology.component.html',
     styleUrls: ['./technology.component.css'],
-    standalone: true,
-    imports: [RouterOutlet],
+    imports: [RouterOutlet]
 })
 export class TechnologyComponent {}

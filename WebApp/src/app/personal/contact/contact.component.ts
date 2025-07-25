@@ -5,8 +5,7 @@ import { NgClass } from '@angular/common';
     selector: 'app-contact',
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.scss'],
-    standalone: true,
-    imports: [NgClass],
+    imports: [NgClass]
 })
 export class ContactComponent {
   focus: any;

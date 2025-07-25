@@ -10,11 +10,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
-  standalone: true,
-  imports: [NgbModule, RouterModule, SocialLinksComponent],
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+    imports: [NgbModule, RouterModule, SocialLinksComponent],
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
   public isCollapsed = true;
