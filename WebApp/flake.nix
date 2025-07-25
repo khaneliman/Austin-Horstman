@@ -23,7 +23,7 @@
 
           buildInputs = with pkgs; [
             docker
-            nodejs_20
+            nodejs_22
           ];
 
           # nativeBuildInputs = with pkgs; [ pkg-config ];
