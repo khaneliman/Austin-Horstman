@@ -29,21 +29,18 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node-version || '22.X' }}
           cache: 'npm'
           cache-dependency-path: WebApp/package-lock.json
       - name: Install Dependencies
         working-directory: ./WebApp
         run: npm ci
-      # - name: Run Unit Tests
-      # working-directory: ./WebApp
-      # run: npm run ci:test
+      - name: Run Unit Tests
+        working-directory: ./WebApp
+        run: npm run ci:test
       - name: Clean Distribution Directory
         working-directory: ./WebApp
         run: npm run ci:clean
       - name: Build Application
         working-directory: ./WebApp
         run: npm run ci:build
-      - name: List Files in Distribution Directory
-        working-directory: ./WebApp
-        run: ls -R ./dist
