@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() imgSrc: string | undefined;
   @Input() imgDark: boolean | undefined;
   @Input() title: string | undefined;
@@ -16,8 +16,4 @@ export class CardComponent implements OnInit {
   @Input() superText: string | undefined;
   @Input() link: string | undefined;
   @Input() linkText: string | undefined;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

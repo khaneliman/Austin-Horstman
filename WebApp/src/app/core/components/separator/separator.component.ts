@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -6,8 +6,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './separator.component.html',
   styleUrls: ['./separator.component.scss'],
 })
-export class SeparatorComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class SeparatorComponent {}
