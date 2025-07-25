@@ -2,18 +2,22 @@
   <div class="card-body">
     <div class="d-flex">
       <div class="col-4 pt-5">
-        <img alt={{title}} class="rounded mx-auto d-block float-left img-fluid" [ngClass]="imgDark ? 'img-dark' : ''"
-          src="{{imgSrc}}" />
+        <img
+          alt="{{ title }}"
+          class="rounded mx-auto d-block float-left img-fluid"
+          [ngClass]="imgDark ? 'img-dark' : ''"
+          src="{{ imgSrc }}"
+        />
       </div>
       <div class="pl-4">
-        <h5 class="title text-success">{{title}}</h5>
+        <h5 class="title text-success">{{ title }}</h5>
         <p class="align-right">
-          {{description}}<br />
+          {{ description }}<br />
           <sup>
-            <i>{{superText}}</i>
+            <i>{{ superText }}</i>
           </sup>
         </p>
-        <a routerLink="{{link}}" class="text-success">{{linkText}}</a>
+        <a routerLink="{{ link }}" class="text-success">{{ linkText }}</a>
       </div>
     </div>
   </div>

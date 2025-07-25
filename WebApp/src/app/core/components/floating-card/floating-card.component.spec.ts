@@ -10,10 +10,10 @@ describe('FloatingCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    // providers: [{ provide: MyService, useValue: {} }],
-    imports: [RouterTestingModule, FloatingCardComponent],
-}).compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      // providers: [{ provide: MyService, useValue: {} }],
+      imports: [RouterTestingModule, FloatingCardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

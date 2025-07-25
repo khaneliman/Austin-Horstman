@@ -1,25 +1,23 @@
-
 ngb-datepicker {
   border-radius: $datepicker-border-radius !important;
   direction: ltr !important;
-
 
   &,
   & * {
     outline: none;
   }
   &-rtl {
-      direction: rtl;
-      &.dropdown-menu {
-          left: auto;
-      }
-      table tr td span {
-          float: right;
-      }
+    direction: rtl;
+    &.dropdown-menu {
+      left: auto;
+    }
+    table tr td span {
+      float: right;
+    }
   }
-  top: 0!important;
-  left: 0!important;
-  padding: $datepicker-dropdown-padding!important;
+  top: 0 !important;
+  left: 0 !important;
+  padding: $datepicker-dropdown-padding !important;
   @include box-shadow($dropdown-box-shadow);
 
   .bg-light {
@@ -35,12 +33,12 @@ ngb-datepicker {
     ngb-datepicker-navigation {
       color: $primary;
 
-      .ngb-dp-arrow{
+      .ngb-dp-arrow {
         justify-content: center !important;
 
-        &:hover{
+        &:hover {
           background: #e9ecef;
-          border-radius: .375rem;
+          border-radius: 0.375rem;
         }
       }
 
@@ -63,9 +61,9 @@ ngb-datepicker {
           -webkit-appearance: menulist !important;
           box-shadow: none !important;
 
-          &:hover{
+          &:hover {
             background: #e9ecef !important;
-            border-radius: .375rem;
+            border-radius: 0.375rem;
           }
         }
       }
@@ -85,8 +83,8 @@ ngb-datepicker {
           font-weight: 300;
           width: 36px;
           height: 36px;
-          font-size: .875rem;
-          transition: all .15s ease;
+          font-size: 0.875rem;
+          transition: all 0.15s ease;
           text-align: center;
           border: none;
         }
@@ -94,10 +92,10 @@ ngb-datepicker {
           font-size: 14px;
         }
         .ngb-dp-day {
-          font-size: .875rem;
+          font-size: 0.875rem;
           width: 36px;
           height: 36px;
-          transition: all .15s ease;
+          transition: all 0.15s ease;
           text-align: center;
           border: none;
           border-radius: 50%;
@@ -119,24 +117,24 @@ ngb-datepicker {
               background-color: transparent;
             }
 
-            &.faded{
+            &.faded {
               border-radius: 0;
             }
-            &.range{
+            &.range {
               color: $white;
-              &:hover{
+              &:hover {
                 background: #5e72e4;
               }
             }
-            &.range-start{
+            &.range-start {
               border-top-right-radius: 0;
               border-bottom-right-radius: 0;
             }
-            &.range-end{
+            &.range-end {
               border-top-left-radius: 0;
               border-bottom-left-radius: 0;
             }
-            &.range-end.range-start{
+            &.range-end.range-start {
               border-radius: 50%;
             }
           }
@@ -160,21 +158,21 @@ ngb-datepicker {
   }
 }
 
-.custom-day.range{
+.custom-day.range {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   color: #fff;
   background: #5e72e4;
   box-shadow: none;
-  font-size: .875rem;
+  font-size: 0.875rem;
   width: 36px;
   height: 36px;
-  transition: all .15s ease;
+  transition: all 0.15s ease;
   text-align: center;
   border: none;
   border-radius: 50%;
 
-  &.faded{
+  &.faded {
     border-radius: 0;
   }
 }

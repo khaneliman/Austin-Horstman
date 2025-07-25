@@ -9,8 +9,8 @@ describe('SkylineComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, SkylineComponent],
-}).compileComponents();
+      imports: [RouterTestingModule, SkylineComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

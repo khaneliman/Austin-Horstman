@@ -9,8 +9,8 @@ describe('PersonalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, PersonalComponent],
-}).compileComponents();
+      imports: [RouterTestingModule, PersonalComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

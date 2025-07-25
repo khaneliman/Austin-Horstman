@@ -8,8 +8,8 @@ describe('RenaissanceLearningComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RenaissanceLearningComponent],
-}).compileComponents();
+      imports: [RenaissanceLearningComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

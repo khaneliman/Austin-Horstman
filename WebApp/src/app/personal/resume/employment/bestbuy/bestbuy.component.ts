@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-bestbuy',
-    templateUrl: './bestbuy.component.html',
-    styleUrls: ['./bestbuy.component.css'],
-    imports: [RouterLink]
+  selector: 'app-bestbuy',
+  templateUrl: './bestbuy.component.html',
+  styleUrls: ['./bestbuy.component.css'],
+  imports: [RouterLink],
 })
 export class BestbuyComponent {}

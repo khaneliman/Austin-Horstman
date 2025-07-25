@@ -10,9 +10,9 @@ describe('EducationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [RouterTestingModule, EducationComponent],
-}).compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [RouterTestingModule, EducationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

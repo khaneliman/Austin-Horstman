@@ -4,10 +4,10 @@ import { Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-projects',
-    templateUrl: './projects.component.html',
-    styleUrls: ['./projects.component.css'],
-    imports: [RouterOutlet, AsyncPipe]
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css'],
+  imports: [RouterOutlet, AsyncPipe],
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute) {}
@@ -16,17 +16,17 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   ngOnInit(): void {
     const projects: string[] = [];
     if (this.route && this.route.routeConfig && this.route.routeConfig.children)
-      this.route.routeConfig.children.forEach((x) =>
-        projects.push(x.path as string),
+      this.route.routeConfig.children.forEach(x =>
+        projects.push(x.path as string)
       );
 
-    this.childActivated = new Promise<string>((resolve) => {
+    this.childActivated = new Promise<string>(resolve => {
       this.resolve = resolve;
     });
 

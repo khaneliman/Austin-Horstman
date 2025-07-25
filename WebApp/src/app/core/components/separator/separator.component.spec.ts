@@ -8,8 +8,8 @@ describe('SeparatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [SeparatorComponent],
-}).compileComponents();
+      imports: [SeparatorComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

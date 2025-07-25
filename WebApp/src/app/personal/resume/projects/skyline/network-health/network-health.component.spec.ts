@@ -8,8 +8,8 @@ describe('NetworkHealthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [NetworkHealthComponent],
-}).compileComponents();
+      imports: [NetworkHealthComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

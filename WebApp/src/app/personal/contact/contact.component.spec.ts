@@ -8,10 +8,10 @@ describe('ContactComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    // providers: [{ provide: MyService, useValue: {} }],
-    imports: [ContactComponent],
-}).compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      // providers: [{ provide: MyService, useValue: {} }],
+      imports: [ContactComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

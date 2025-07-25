@@ -8,8 +8,8 @@ describe('KrogerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [KrogerComponent],
-}).compileComponents();
+      imports: [KrogerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

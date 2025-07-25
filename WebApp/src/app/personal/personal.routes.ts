@@ -7,7 +7,7 @@ export const PERSONAL_ROUTES: Routes = [
   {
     path: 'resume',
     loadChildren: () =>
-      import('./resume/resume.routes').then((m) => m.RESUME_ROUTES),
+      import('./resume/resume.routes').then(m => m.RESUME_ROUTES),
   },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },

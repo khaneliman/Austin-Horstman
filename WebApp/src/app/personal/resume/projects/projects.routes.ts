@@ -9,29 +9,27 @@ export const PROJECTS_ROUTES: Routes = [
       {
         path: 'west',
         loadChildren: () =>
-          import('./west/west.routes').then((m) => m.WEST_ROUTES),
+          import('./west/west.routes').then(m => m.WEST_ROUTES),
       },
       {
         path: 'skyline',
         loadChildren: () =>
-          import('./skyline/skyline.routes').then((m) => m.SKYLINE_ROUTES),
+          import('./skyline/skyline.routes').then(m => m.SKYLINE_ROUTES),
       },
       {
         path: 'personal',
         loadChildren: () =>
-          import('./personal/personal.routes').then((m) => m.PERSONAL_ROUTES),
+          import('./personal/personal.routes').then(m => m.PERSONAL_ROUTES),
       },
       {
         path: 'geeksquad',
         loadChildren: () =>
-          import('./geeksquad/geeksquad.routes').then(
-            (m) => m.GEEKSQUAD_ROUTES,
-          ),
+          import('./geeksquad/geeksquad.routes').then(m => m.GEEKSQUAD_ROUTES),
       },
       {
         path: 'corebts',
         loadChildren: () =>
-          import('./corebts/corebts.routes').then((m) => m.COREBTS_ROUTES),
+          import('./corebts/corebts.routes').then(m => m.COREBTS_ROUTES),
       },
     ],
   },

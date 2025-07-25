@@ -10,9 +10,9 @@ describe('EmploymentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [RouterTestingModule, EmploymentComponent],
-}).compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [RouterTestingModule, EmploymentComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

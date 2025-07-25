@@ -9,8 +9,8 @@ describe('CorebtsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, CorebtsComponent],
-}).compileComponents();
+      imports: [RouterTestingModule, CorebtsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

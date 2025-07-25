@@ -8,8 +8,8 @@ describe('CleartrendComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [CleartrendComponent],
-}).compileComponents();
+      imports: [CleartrendComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

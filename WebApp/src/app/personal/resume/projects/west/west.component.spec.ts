@@ -9,8 +9,8 @@ describe('WestComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, WestComponent],
-}).compileComponents();
+      imports: [RouterTestingModule, WestComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

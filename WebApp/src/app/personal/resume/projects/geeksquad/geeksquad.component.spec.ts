@@ -9,8 +9,8 @@ describe('GeeksquadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, GeeksquadComponent],
-}).compileComponents();
+      imports: [RouterTestingModule, GeeksquadComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

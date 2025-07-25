@@ -10,9 +10,9 @@ describe('NavbarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [RouterTestingModule, NavbarComponent],
-}).compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [RouterTestingModule, NavbarComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -10,10 +10,10 @@ describe('CardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    // providers: [{ provide: MyService, useValue: {} }],
-    imports: [RouterTestingModule, CardComponent],
-}).compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      // providers: [{ provide: MyService, useValue: {} }],
+      imports: [RouterTestingModule, CardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,47 +1,47 @@
 // Retrieve color Sass maps
 
-@function section-color($key: "primary") {
-	@return map-get($section-colors, $key);
+@function section-color($key: 'primary') {
+  @return map-get($section-colors, $key);
 }
 
 // Lines colors
 
-@function shapes-primary-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-primary-colors, $key);
+@function shapes-primary-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-primary-colors, $key);
 }
 
-@function shapes-default-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-default-colors, $key);
+@function shapes-default-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-default-colors, $key);
 }
 
-@function shapes-corebts-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-corebts-colors, $key);
+@function shapes-corebts-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-corebts-colors, $key);
 }
 
-@function shapes-skyline-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-skyline-colors, $key);
+@function shapes-skyline-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-skyline-colors, $key);
 }
 
-@function shapes-bestbuy-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-bestbuy-colors, $key);
+@function shapes-bestbuy-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-bestbuy-colors, $key);
 }
 
-@function shapes-geeksquad-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-geeksquad-colors, $key);
+@function shapes-geeksquad-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-geeksquad-colors, $key);
 }
 
-@function shapes-west-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-west-colors, $key);
+@function shapes-west-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-west-colors, $key);
 }
 
-@function shapes-foxvalley-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-foxvalley-colors, $key);
+@function shapes-foxvalley-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-foxvalley-colors, $key);
 }
 
-@function lines-light-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-light-colors, $key);
+@function lines-light-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-light-colors, $key);
 }
 
-@function shapes-dark-color($key: "step-1-gradient-bg") {
-	@return map-get($shapes-dark-colors, $key);
+@function shapes-dark-color($key: 'step-1-gradient-bg') {
+  @return map-get($shapes-dark-colors, $key);
 }

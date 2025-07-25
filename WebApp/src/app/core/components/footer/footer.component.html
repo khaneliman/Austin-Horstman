@@ -1,9 +1,12 @@
-<footer class="footer" [ngClass]="{
+<footer
+  class="footer"
+  [ngClass]="{
     'has-cards':
       getPath() !== '/user-profile' &&
       getPath() !== '/register' &&
-      getPath() !== '/login'
-  }">
+      getPath() !== '/login',
+  }"
+>
   <!-- <div class="container container-lg" *ngIf="getPath()!=='/home' && getPath()!=='/about' && getPath()!=='/login'">
     <div class="row">
       <div class="col-md-6 mb-5 mb-md-0">
@@ -23,7 +26,9 @@
     </div>
   </div> -->
   <div class="container">
-    <div class="row row-grid align-items-center" [ngClass]="{
+    <div
+      class="row row-grid align-items-center"
+      [ngClass]="{
         'my-md':
           getPath() !== '/user-profile' &&
           getPath() !== '/register' &&
@@ -31,8 +36,9 @@
         'mb-5':
           getPath() === '/user-profile' ||
           getPath() === '/register' ||
-          getPath() === '/login'
-      }">
+          getPath() === '/login',
+      }"
+    >
       <div class="col-lg-6">
         <h3 class="text-primary font-weight-light mb-2">
           Thank you for supporting me!

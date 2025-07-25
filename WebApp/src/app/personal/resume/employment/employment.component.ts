@@ -4,10 +4,10 @@ import { Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-employment',
-    templateUrl: './employment.component.html',
-    styleUrls: ['./employment.component.css'],
-    imports: [RouterOutlet, AsyncPipe]
+  selector: 'app-employment',
+  templateUrl: './employment.component.html',
+  styleUrls: ['./employment.component.css'],
+  imports: [RouterOutlet, AsyncPipe],
 })
 export class EmploymentComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute) {}
@@ -16,17 +16,15 @@ export class EmploymentComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   ngOnDestroy() {
-    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   ngOnInit(): void {
     const jobs: string[] = [];
     if (this.route && this.route.routeConfig && this.route.routeConfig.children)
-      this.route.routeConfig.children.forEach((x) =>
-        jobs.push(x.path as string),
-      );
+      this.route.routeConfig.children.forEach(x => jobs.push(x.path as string));
 
-    this.childActivated = new Promise<string>((resolve) => {
+    this.childActivated = new Promise<string>(resolve => {
       this.resolve = resolve;
     });
 

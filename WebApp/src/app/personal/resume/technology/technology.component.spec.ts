@@ -9,8 +9,8 @@ describe('TechnologyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, TechnologyComponent],
-}).compileComponents();
+      imports: [RouterTestingModule, TechnologyComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

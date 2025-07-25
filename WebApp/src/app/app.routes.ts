@@ -6,7 +6,7 @@ export const routes: Routes = [
   {
     path: 'personal',
     loadChildren: () =>
-      import('./personal/personal.routes').then((m) => m.PERSONAL_ROUTES),
+      import('./personal/personal.routes').then(m => m.PERSONAL_ROUTES),
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

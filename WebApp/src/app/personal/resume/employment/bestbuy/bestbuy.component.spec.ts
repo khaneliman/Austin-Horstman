@@ -9,8 +9,8 @@ describe('BestbuyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, BestbuyComponent],
-}).compileComponents();
+      imports: [RouterTestingModule, BestbuyComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

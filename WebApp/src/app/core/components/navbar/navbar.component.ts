@@ -10,10 +10,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
-    imports: [NgbModule, RouterModule, SocialLinksComponent],
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+  imports: [NgbModule, RouterModule, SocialLinksComponent],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
   public isCollapsed = true;
@@ -22,11 +22,11 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public location: Location,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
+    this.router.events.subscribe(event => {
       this.isCollapsed = true;
       if (event instanceof NavigationStart) {
         if (event.url != this.lastPoppedUrl)
