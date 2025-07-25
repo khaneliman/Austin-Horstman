@@ -1,0 +1,30 @@
+# Build stage
+FROM node:alpine AS build
+
+WORKDIR /usr/src/app
+
+# Install Angular CLI globally
+RUN npm install -g @angular/cli
+
+# Copy package files and install dependencies (including dev deps for build)
+COPY package*.json ./
+RUN npm ci --ignore-scripts
+
+# Copy source code and build for production
+COPY . .
+RUN npm run build:prod
+
+# Production stage with nginx
+FROM nginx:alpine AS production
+
+# Copy built app to nginx html directory (Angular now outputs to browser subdirectory)
+COPY --from=build /usr/src/app/dist/web-app/browser/ /usr/share/nginx/html/
+
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
