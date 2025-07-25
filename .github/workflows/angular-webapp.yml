@@ -19,7 +19,7 @@ on:
         required: true
         default: '22.x'
 jobs:
-  build:
+  build-web:
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -17,7 +17,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}-webapp
 jobs:
-  build:
+  deploy-web:
     runs-on: ubuntu-latest
     permissions:
       contents: read

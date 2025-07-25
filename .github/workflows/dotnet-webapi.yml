@@ -9,7 +9,7 @@ on:
     paths:
       - 'WebApi/**/*'
 jobs:
-  build:
+  build-api:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
