@@ -8,8 +8,8 @@ describe('StatTrackerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [StatTrackerComponent],
-}).compileComponents();
+      imports: [StatTrackerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

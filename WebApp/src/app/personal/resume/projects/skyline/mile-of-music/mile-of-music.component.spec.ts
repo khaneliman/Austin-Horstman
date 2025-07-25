@@ -8,8 +8,8 @@ describe('MileOfMusicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [MileOfMusicComponent],
-}).compileComponents();
+      imports: [MileOfMusicComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

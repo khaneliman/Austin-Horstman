@@ -6,9 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "jest",
     "ci:clean": "rimraf ./dist",
-    "ci:test": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "ci:test": "jest --coverage --watchAll=false",
     "ci:build": "ng build"
   },
   "private": true,
@@ -33,13 +33,10 @@
     "@angular/cli": "^20.1.3",
     "@angular/compiler-cli": "^20.1.3",
     "@angular/localize": "^20.1.3",
-    "@types/jasmine": "~5.1.0",
-    "jasmine-core": "~5.1.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
+    "@types/jest": "^30.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-preset-angular": "^14.4.0",
     "typescript": "~5.8.3"
   }
 }

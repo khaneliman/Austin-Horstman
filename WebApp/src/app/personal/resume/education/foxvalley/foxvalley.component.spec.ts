@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { FoxvalleyComponent } from './foxvalley.component';
 
@@ -8,8 +9,8 @@ describe('FoxvalleyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [FoxvalleyComponent],
-}).compileComponents();
+      imports: [FoxvalleyComponent, RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -8,8 +8,8 @@ describe('ItPortalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [ItPortalComponent],
-}).compileComponents();
+      imports: [ItPortalComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
