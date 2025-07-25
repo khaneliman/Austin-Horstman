@@ -8,6 +8,6 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
 })
 export class ContactComponent {
-  focus: any;
-  focus1: any;
+  focus?: boolean;
+  focus1?: boolean;
 }
