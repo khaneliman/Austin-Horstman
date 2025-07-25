@@ -34,13 +34,7 @@ jobs:
           cache-dependency-path: WebApp/package-lock.json
       - name: Install Dependencies
         working-directory: ./WebApp
-        run: npm ci
-      - name: Run Unit Tests
+        run: npm run ci:install
+      - name: Run Full CI Pipeline
         working-directory: ./WebApp
-        run: npm run ci:test
-      - name: Clean Distribution Directory
-        working-directory: ./WebApp
-        run: npm run ci:clean
-      - name: Build Application
-        working-directory: ./WebApp
-        run: npm run ci:build
+        run: npm run ci:full
