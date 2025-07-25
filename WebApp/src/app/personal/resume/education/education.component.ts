@@ -6,7 +6,7 @@ import { AsyncPipe } from '@angular/common';
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  styleUrls: ['./education.component.css'],
+  styleUrls: ['./education.component.scss'],
   imports: [RouterOutlet, AsyncPipe],
 })
 export class EducationComponent implements OnInit, OnDestroy {

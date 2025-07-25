@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   selector: 'app-stat-tracker',
   templateUrl: './stat-tracker.component.html',
-  styleUrls: ['./stat-tracker.component.css'],
+  styleUrls: ['./stat-tracker.component.scss'],
 })
 export class StatTrackerComponent {}

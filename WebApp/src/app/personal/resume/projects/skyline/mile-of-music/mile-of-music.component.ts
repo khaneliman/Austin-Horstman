@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   selector: 'app-mile-of-music',
   templateUrl: './mile-of-music.component.html',
-  styleUrls: ['./mile-of-music.component.css'],
+  styleUrls: ['./mile-of-music.component.scss'],
 })
 export class MileOfMusicComponent {}
