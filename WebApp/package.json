@@ -9,7 +9,11 @@
     "test": "jest",
     "ci:clean": "rm -rf ./dist",
     "ci:test": "jest --coverage --watchAll=false",
-    "ci:build": "ng build"
+    "ci:build": "ng build",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss}\"",
   },
   "private": true,
   "dependencies": {
