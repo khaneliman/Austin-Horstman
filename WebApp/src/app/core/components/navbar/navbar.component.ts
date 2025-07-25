@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   Router,
   NavigationEnd,
@@ -20,10 +20,8 @@ export class NavbarComponent implements OnInit {
   private lastPoppedUrl: string | undefined;
   private yScrollStack: number[] = [];
 
-  constructor(
-    public location: Location,
-    private router: Router
-  ) {}
+  public location = inject(Location);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {

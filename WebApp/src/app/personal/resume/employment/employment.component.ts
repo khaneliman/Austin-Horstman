@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -10,9 +10,9 @@ import { AsyncPipe } from '@angular/common';
   imports: [RouterOutlet, AsyncPipe],
 })
 export class EmploymentComponent implements OnInit, OnDestroy {
-  constructor(private route: ActivatedRoute) {}
+  private route = inject(ActivatedRoute);
   public childActivated: Promise<string> | null = null;
-  private resolve: Function | null = null;
+  private resolve: ((value: string) => void) | null = null;
   subscriptions: Subscription[] = [];
 
   ngOnDestroy() {
