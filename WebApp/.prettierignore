@@ -5,3 +5,4 @@ coverage/
 *.min.css
 package-lock.json
 .angular/
+src/assets/scss/bootstrap/mixins/_image.scss
