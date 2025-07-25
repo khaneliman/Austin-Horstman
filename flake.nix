@@ -1,32 +1,30 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
-    {
-      nixpkgs,
-      flake-utils,
-      ...
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in
-      with pkgs;
-      {
-        devShells.default = mkShell {
-          name = "khaneliman-web-app-shell";
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
-          buildInputs = with pkgs; [
-            docker
-            nodejs_22
-          ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            name = "austin-horstman-shell";
 
-          # nativeBuildInputs = with pkgs; [ pkg-config ];
+            buildInputs = with pkgs; [
+              docker
+              nodejs_22
+            ];
+          };
         };
-      }
-    );
+    };
 }
