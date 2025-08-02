@@ -27,6 +27,7 @@
 
               # Web development
               nodejs_22
+              prettier
 
               # .NET development
               dotnet-sdk
