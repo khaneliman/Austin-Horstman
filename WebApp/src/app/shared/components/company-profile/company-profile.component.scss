@@ -1,5 +1,5 @@
 // Company profile component styles with reliable gradients
-@import '../../../../assets/scss/utilities/gradients';
+@use '../../../../assets/scss/utilities/gradients' as *;
 .company-header {
   &--green {
     @include company-header-gradient('green');

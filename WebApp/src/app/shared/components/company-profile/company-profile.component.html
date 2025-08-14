@@ -43,7 +43,11 @@
             *ngIf="company.website"
             class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
           >
-            <i class="fa fa-external-link text-white text-sm"></i>
+            <ng-icon
+              name="heroArrowTopRightOnSquare"
+              size="0.875rem"
+              class="text-white"
+            ></ng-icon>
           </div>
         </div>
 
@@ -52,22 +56,38 @@
         <!-- Company details -->
         <div class="flex flex-wrap justify-center gap-6 text-gray-300">
           <div class="flex items-center space-x-2">
-            <i class="ni ni-pin-3 text-green-400"></i>
+            <ng-icon
+              name="heroMapPin"
+              size="1rem"
+              class="text-green-400"
+            ></ng-icon>
             <span>{{ company.location }}</span>
           </div>
           <div class="flex items-center space-x-2">
-            <i class="ni ni-briefcase-24 text-emerald-400"></i>
+            <ng-icon
+              name="heroBriefcase"
+              size="1rem"
+              class="text-emerald-400"
+            ></ng-icon>
             <span>{{ company.position }}</span>
           </div>
           <div class="flex items-center space-x-2">
-            <i class="ni ni-calendar-grid-58 text-lime-400"></i>
+            <ng-icon
+              name="heroCalendarDays"
+              size="1rem"
+              class="text-lime-400"
+            ></ng-icon>
             <span>{{ company.dateRange }}</span>
           </div>
           <div
             *ngIf="company.department"
             class="flex items-center space-x-2 w-full justify-center md:w-auto"
           >
-            <i class="ni ni-hat-3 text-lime-400"></i>
+            <ng-icon
+              name="heroAcademicCap"
+              size="1rem"
+              class="text-lime-400"
+            ></ng-icon>
             <span>{{ company.department }}</span>
           </div>
         </div>
@@ -114,13 +134,11 @@
         <!-- Projects Grid -->
         <div class="mb-8">
           <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <i
-              [class]="
-                'ni ni-code ' +
-                getIconClass(company.colorScheme.theme) +
-                ' mr-3 text-xl'
-              "
-            ></i>
+            <ng-icon
+              name="heroCodeBracket"
+              size="1.25rem"
+              [class]="getIconClass(company.colorScheme.theme) + ' mr-3'"
+            ></ng-icon>
             Featured Projects
           </h3>
           <div
@@ -150,7 +168,11 @@
                     <div
                       class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center"
                     >
-                      <i [class]="project.icon + ' text-white text-xl'"></i>
+                      <ng-icon
+                        [name]="project.icon"
+                        size="1.25rem"
+                        class="text-white"
+                      ></ng-icon>
                     </div>
                     <span
                       class="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium"
@@ -194,7 +216,11 @@
                     "
                   >
                     View Details
-                    <i class="fa fa-arrow-right ml-2 text-xs"></i>
+                    <ng-icon
+                      name="heroArrowRight"
+                      size="0.75rem"
+                      class="ml-2"
+                    ></ng-icon>
                   </a>
                 </div>
               </div>
@@ -211,13 +237,11 @@
           "
         >
           <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-            <i
-              [class]="
-                'ni ni-building ' +
-                getIconClass(company.colorScheme.theme) +
-                ' mr-3 text-xl'
-              "
-            ></i>
+            <ng-icon
+              name="heroBuildingOffice"
+              size="1.25rem"
+              [class]="getIconClass(company.colorScheme.theme) + ' mr-3'"
+            ></ng-icon>
             About {{ company.name }}
           </h3>
           <p
@@ -238,13 +262,11 @@
             "
           >
             <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
-              <i
-                [class]="
-                  'ni ni-settings-gear-65 ' +
-                  getIconClass(company.colorScheme.theme) +
-                  ' mr-2'
-                "
-              ></i>
+              <ng-icon
+                name="heroCog6Tooth"
+                size="1rem"
+                [class]="getIconClass(company.colorScheme.theme) + ' mr-2'"
+              ></ng-icon>
               Key Responsibilities & Achievements
             </h4>
             <ul class="text-gray-700 space-y-2 text-sm">
@@ -272,7 +294,11 @@
               ' text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200'
             "
           >
-            <i class="fa fa-external-link mr-3"></i>
+            <ng-icon
+              name="heroArrowTopRightOnSquare"
+              size="1rem"
+              class="mr-3"
+            ></ng-icon>
             <span>Visit Company Website</span>
           </a>
 
@@ -280,7 +306,11 @@
             routerLink="/personal/resume"
             class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-300 hover:border-gray-400 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
-            <i class="ni ni-collection mr-3"></i>
+            <ng-icon
+              name="heroRectangleStack"
+              size="1rem"
+              class="mr-3"
+            ></ng-icon>
             <span>See Full Resume</span>
           </a>
         </div>

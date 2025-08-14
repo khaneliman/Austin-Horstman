@@ -1,6 +1,28 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import {
+  heroArrowTopRightOnSquare,
+  heroMapPin,
+  heroBriefcase,
+  heroCalendarDays,
+  heroAcademicCap,
+  heroCodeBracket,
+  heroBuildingOffice,
+  heroCog6Tooth,
+  heroArrowRight,
+  heroRectangleStack,
+  heroShoppingBag,
+  heroBookOpen,
+  heroMusicalNote,
+  heroDevicePhoneMobile,
+  heroBeaker,
+  heroArchiveBox,
+  heroChartBarSquare,
+  heroCircleStack,
+  heroChartPie,
+} from '@ng-icons/heroicons/outline';
 
 export interface CompanyInfo {
   name: string;
@@ -43,7 +65,30 @@ export interface ProjectInfo {
   selector: 'app-company-profile',
   templateUrl: './company-profile.component.html',
   styleUrls: ['./company-profile.component.scss'],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgIconComponent],
+  providers: [
+    provideIcons({
+      heroArrowTopRightOnSquare,
+      heroMapPin,
+      heroBriefcase,
+      heroCalendarDays,
+      heroAcademicCap,
+      heroCodeBracket,
+      heroBuildingOffice,
+      heroCog6Tooth,
+      heroArrowRight,
+      heroRectangleStack,
+      heroShoppingBag,
+      heroBookOpen,
+      heroMusicalNote,
+      heroDevicePhoneMobile,
+      heroBeaker,
+      heroArchiveBox,
+      heroChartBarSquare,
+      heroCircleStack,
+      heroChartPie,
+    }),
+  ],
 })
 export class CompanyProfileComponent {
   @Input() company!: CompanyInfo;

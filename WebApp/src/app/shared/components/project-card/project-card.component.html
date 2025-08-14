@@ -11,7 +11,11 @@
         <div
           class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center"
         >
-          <i [class]="project.icon + ' text-white text-2xl'"></i>
+          <ng-icon
+            [name]="project.icon"
+            size="1.5rem"
+            class="text-white"
+          ></ng-icon>
         </div>
         <span
           class="px-4 py-2 bg-white/20 rounded-full text-white text-sm font-medium"
@@ -51,7 +55,7 @@
         '-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 justify-center group-hover:scale-105'
       "
     >
-      <i class="ni ni-bold-right mr-3"></i>
+      <ng-icon name="heroChevronRight" size="1rem" class="mr-3"></ng-icon>
       View Project Details
     </a>
   </div>

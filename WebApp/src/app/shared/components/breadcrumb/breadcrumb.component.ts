@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroGlobeAlt } from '@ng-icons/heroicons/outline';
 
 export interface BreadcrumbItem {
   label: string;
@@ -11,7 +13,8 @@ export interface BreadcrumbItem {
 @Component({
   selector: 'app-breadcrumb',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgIconComponent],
+  providers: [provideIcons({ heroGlobeAlt })],
   template: `
     <nav class="flex mb-8" aria-label="Breadcrumb">
       <ol
@@ -44,7 +47,12 @@ export interface BreadcrumbItem {
               [routerLink]="item.route"
               class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white transition-colors"
             >
-              <i *ngIf="i === 0" class="w-3 h-3 mr-2.5 ni ni-world-2"></i>
+              <ng-icon
+                *ngIf="i === 0"
+                name="heroGlobeAlt"
+                size="0.75rem"
+                class="mr-2.5"
+              ></ng-icon>
               {{ item.label }}
             </a>
           </ng-container>
@@ -55,7 +63,12 @@ export interface BreadcrumbItem {
               [class.text-blue-600]="last"
               [class.font-semibold]="last"
             >
-              <i *ngIf="i === 0" class="w-3 h-3 mr-2.5 ni ni-world-2"></i>
+              <ng-icon
+                *ngIf="i === 0"
+                name="heroGlobeAlt"
+                size="0.75rem"
+                class="mr-2.5"
+              ></ng-icon>
               {{ item.label }}
             </span>
           </ng-container>
