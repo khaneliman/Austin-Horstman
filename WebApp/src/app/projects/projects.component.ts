@@ -16,7 +16,7 @@ export class ProjectsComponent {
       description: 'Modern enterprise solutions and client applications',
       company: 'Core BTS',
       route: '/projects/professional/corebts',
-      icon: 'ni ni-building',
+      logo: 'assets/images/corebts.png',
       color: 'from-gray-600 to-green-600',
       projects: [
         {
@@ -34,7 +34,7 @@ export class ProjectsComponent {
       description: 'Consulting projects across multiple industries',
       company: 'Skyline Technologies',
       route: '/projects/professional/skyline',
-      icon: 'ni ni-code',
+      logo: './assets/images/skyline-technologies.png',
       color: 'from-blue-600 to-purple-600',
       projects: [
         {
@@ -60,7 +60,7 @@ export class ProjectsComponent {
       description: 'Enterprise tools and automation solutions',
       company: 'West Corporation',
       route: '/projects/professional/west',
-      icon: 'ni ni-settings',
+      logo: './assets/images/west.jpg',
       color: 'from-red-600 to-orange-600',
       projects: [
         {
@@ -78,7 +78,7 @@ export class ProjectsComponent {
       description: 'Customer service and operational tools',
       company: 'Best Buy Geek Squad',
       route: '/projects/professional/geeksquad',
-      icon: 'ni ni-support-16',
+      logo: './assets/images/geeksquad.jpg',
       color: 'from-blue-600 to-yellow-600',
       projects: [
         {
