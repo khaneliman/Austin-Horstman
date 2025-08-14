@@ -1,15 +1,44 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import {
+  CompanyProfileComponent,
+  CompanyInfo,
+  ProjectInfo,
+} from '../../../../shared/components/company-profile/company-profile.component';
 
 @Component({
   selector: 'app-skyline',
   templateUrl: './skyline.component.html',
   styleUrls: ['./skyline.component.scss'],
-  imports: [RouterOutlet, RouterLink, CommonModule],
+  imports: [CompanyProfileComponent],
 })
 export class SkylineComponent {
-  projects = [
+  company: CompanyInfo = {
+    name: 'Skyline Technologies',
+    logoSrc: '/assets/images/skyline-technologies.png',
+    logoAlt: 'Skyline Technologies logo',
+    website: 'https://www.skylinetechnologies.com',
+    location: 'Appleton, WI',
+    position: 'Software Developer',
+    dateRange: '2013 - 2015',
+    colorScheme: {
+      theme: 'blue',
+      primary: 'blue-500',
+      secondary: 'indigo-600',
+      accent: 'purple-600',
+      gradientFrom: 'from-blue-900',
+      gradientTo: 'to-purple-900',
+      gradientVia: 'via-indigo-800',
+    },
+    stats: {
+      years: '2',
+      metric1: { value: '5+', label: 'Clients' },
+      metric2: { value: '8+', label: 'Projects' },
+    },
+    description:
+      'Skyline Technologies is a premier software consulting company specializing in custom application development, web development, and technology consulting services. During my time as a Software Developer, I worked on diverse client projects ranging from healthcare management systems to learning platforms and financial applications.',
+  };
+
+  projects: ProjectInfo[] = [
     {
       name: 'Renaissance Learning Platform',
       description: 'Educational assessment and reading management platform',
