@@ -84,3 +84,26 @@ export function getKrogerProjectForProfile(
     technologies: [...project.technologies],
   };
 }
+
+// Company project mappings - defines which projects exist for each company
+export const COMPANY_PROJECTS = {
+  'nri-na': [{ name: 'DoItBest Platform', route: 'doitbest' }],
+  corebts: [
+    { name: 'Kroger Solutions', route: 'kroger' },
+    { name: 'DoItBest Platform', route: 'doitbest' },
+  ],
+  skyline: [
+    { name: 'Renaissance Learning', route: 'renaissance-learning' },
+    { name: 'Mile of Music', route: 'mile-of-music' },
+    { name: 'JJ Keller', route: 'jj-keller' },
+    { name: 'Express Scripts', route: 'express-scripts' },
+    { name: 'ClearTrend', route: 'cleartrend' },
+    { name: 'Network Health', route: 'network-health' },
+  ],
+  geeksquad: [{ name: 'Stat Tracker', route: 'stat-tracker' }],
+  west: [
+    { name: 'Database Tool', route: 'database-tool' },
+    { name: 'IT Portal', route: 'it-portal' },
+    { name: 'Quick Launch', route: 'quick-launch' },
+  ],
+} as const;
