@@ -52,7 +52,7 @@ export class ProfessionalProjectsComponent {
       company: 'Core BTS',
       route: '/projects/professional/corebts',
       logo: 'assets/images/corebts.png',
-      color: 'from-gray-600 to-green-600',
+      color: 'from-gray-800 to-green-700',
       projects: [
         {
           name: 'Kroger Solutions',

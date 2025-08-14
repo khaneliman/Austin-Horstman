@@ -50,12 +50,13 @@ export class NriNaComponent {
     },
     {
       name: 'DoItBest Platform',
-      description: 'Next-generation hardware retail management platform',
-      route: 'doitbest',
+      description:
+        'Backend services and infrastructure modernization (inherited from Core BTS acquisition)',
+      route: '/projects/professional/corebts/doitbest',
       icon: 'heroCog6Tooth',
       color: 'from-indigo-600 to-blue-800',
       status: 'Production',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Microservices'],
+      technologies: ['C#', 'Java', 'Kafka', 'Oracle', 'Azure', 'Kubernetes'],
     },
   ];
 }
