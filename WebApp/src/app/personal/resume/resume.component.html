@@ -452,22 +452,87 @@
       ></app-floating-card>
     </div>
 
+    <!-- Personal & Open Source Projects -->
+    <div class="mt-20">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold text-gray-800 mb-4">
+          Personal & Open Source
+        </h3>
+        <div
+          class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full mx-auto"
+        ></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <app-floating-card
+          title="Home Manager"
+          icon="heroCodeBracket"
+          status="success"
+          superText="Open Source"
+          description="Nix-based user environment configuration system for managing dotfiles, packages, and system configurations declaratively. Contributed modules and improvements to the ecosystem."
+          [tags]="['Nix', 'Open Source', 'Configuration Management']"
+          link="projects/personal/home-manager"
+          linkText="Learn more"
+        ></app-floating-card>
+
+        <app-floating-card
+          title="NixVim"
+          icon="heroCodeBracket"
+          status="primary"
+          superText="Open Source"
+          description="Neovim configuration framework using Nix module system for reproducible editor setups. Enables declarative plugin management and configuration."
+          [tags]="['Nix', 'Neovim', 'Lua']"
+          link="projects/personal/nixvim"
+          linkText="Learn more"
+        ></app-floating-card>
+
+        <app-floating-card
+          title="Nixpkgs"
+          icon="heroCodeBracket"
+          status="primary"
+          superText="Open Source"
+          description="Package repository for Nix package manager with contributions to Darwin (macOS) packages, build scripts, and package definitions for the Nix ecosystem."
+          [tags]="['Nix', 'Darwin', 'Package Management']"
+          link="projects/personal/nixpkgs"
+          linkText="Learn more"
+        ></app-floating-card>
+      </div>
+    </div>
+
     <!-- View All Projects CTA -->
     <div class="text-center mt-16">
-      <div
-        class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 text-white"
-      >
-        <h3 class="text-2xl font-bold mb-4">Explore All Projects</h3>
-        <p class="text-purple-100 mb-6">
-          View detailed technical implementations and project outcomes across
-          all companies and technologies.
-        </p>
-        <a
-          routerLink="/projects/professional"
-          class="px-6 py-3 bg-white text-purple-600 rounded-xl hover:bg-gray-100 transition-colors font-semibold"
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div
+          class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 text-white"
         >
-          Professional Portfolio →
-        </a>
+          <h3 class="text-2xl font-bold mb-4">Professional Portfolio</h3>
+          <p class="text-purple-100 mb-6">
+            Explore enterprise projects and technical implementations from my
+            professional career.
+          </p>
+          <a
+            routerLink="/projects/professional"
+            class="px-6 py-3 bg-white text-purple-600 rounded-xl hover:bg-gray-100 transition-colors font-semibold"
+          >
+            View Professional →
+          </a>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-indigo-600 to-green-600 rounded-3xl p-8 text-white"
+        >
+          <h3 class="text-2xl font-bold mb-4">Personal Projects</h3>
+          <p class="text-indigo-100 mb-6">
+            Discover open source contributions and personal development
+            projects.
+          </p>
+          <a
+            routerLink="/projects/personal"
+            class="px-6 py-3 bg-white text-indigo-600 rounded-xl hover:bg-gray-100 transition-colors font-semibold"
+          >
+            View Personal →
+          </a>
+        </div>
       </div>
     </div>
   </div>
