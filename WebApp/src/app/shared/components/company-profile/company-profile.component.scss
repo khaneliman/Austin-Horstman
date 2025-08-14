@@ -125,4 +125,17 @@
   &.from-orange-600.to-yellow-800 {
     background: linear-gradient(135deg, #ea580c 0%, #ca8a04 100%);
   }
+  &.from-orange-500.to-yellow-600 {
+    background: linear-gradient(135deg, #f97316 0%, #ca8a04 100%);
+  }
+
+  // Red-Orange gradients
+  &.from-red-500.to-orange-600 {
+    background: linear-gradient(135deg, #ef4444 0%, #ea580c 100%);
+  }
+
+  // Blue-Yellow gradients
+  &.from-blue-500.to-yellow-600 {
+    background: linear-gradient(135deg, #3b82f6 0%, #ca8a04 100%);
+  }
 }
