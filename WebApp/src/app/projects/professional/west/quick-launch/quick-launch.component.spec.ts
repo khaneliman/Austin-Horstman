@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { QuickLaunchComponent } from './quick-launch.component';
 
@@ -8,7 +9,7 @@ describe('QuickLaunchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuickLaunchComponent],
+      imports: [QuickLaunchComponent, RouterTestingModule],
     }).compileComponents();
   });
 

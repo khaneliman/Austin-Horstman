@@ -13,5 +13,7 @@ module.exports = {
   ],
 
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  transformIgnorePatterns: ['node_modules/(?!@angular|@ng-bootstrap)'],
+  transformIgnorePatterns: [
+    'node_modules/(?!@angular|@ng-bootstrap|@ng-icons)',
+  ],
 };
