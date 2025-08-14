@@ -2,7 +2,7 @@
   [hidden]="location !== 'nav'"
   class="navbar-nav align-items-lg-center ml-lg-auto"
 >
-  <li *ngFor="let site of socialLinks" class="nav-item">
+  <li *ngFor="let site of socialLinks; trackBy: trackBySocialLink" class="nav-item">
     <a
       class="nav-link nav-link-icon"
       href="{{ site.link }}"
@@ -18,7 +18,7 @@
 
 <a
   [hidden]="location !== 'footer'"
-  *ngFor="let site of socialLinks"
+  *ngFor="let site of socialLinks; trackBy: trackBySocialLink"
   target="_blank"
   href="{{ site.link }}"
   class="btn btn-neutral btn-icon-only {{ site.btnClass }} btn-round btn-lg"
