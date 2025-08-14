@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { KrogerComponent } from './kroger.component';
 
@@ -9,6 +10,12 @@ describe('KrogerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [KrogerComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 

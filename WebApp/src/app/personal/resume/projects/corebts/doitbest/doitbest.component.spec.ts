@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 import { DoItBestComponent } from './doitbest.component';
 
 describe('DoItBestComponent', () => {
@@ -8,6 +9,12 @@ describe('DoItBestComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DoItBestComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 

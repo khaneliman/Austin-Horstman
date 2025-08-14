@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { RenaissanceLearningComponent } from './renaissance-learning.component';
 
@@ -9,6 +10,12 @@ describe('RenaissanceLearningComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RenaissanceLearningComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 

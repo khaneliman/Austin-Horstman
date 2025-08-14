@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { MileOfMusicComponent } from './mile-of-music.component';
 
@@ -9,6 +10,12 @@ describe('MileOfMusicComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MileOfMusicComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 

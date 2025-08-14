@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { StatTrackerComponent } from './stat-tracker.component';
 
@@ -9,6 +10,12 @@ describe('StatTrackerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [StatTrackerComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 
