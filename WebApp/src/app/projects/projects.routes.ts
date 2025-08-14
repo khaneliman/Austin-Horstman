@@ -6,8 +6,8 @@ export const PROJECTS_ROUTES: Routes = [
   {
     path: 'professional',
     loadChildren: () =>
-      import('../personal/resume/projects/projects.routes').then(
-        m => m.PROJECTS_ROUTES
+      import('./professional/professional.routes').then(
+        m => m.PROFESSIONAL_ROUTES
       ),
   },
   {
