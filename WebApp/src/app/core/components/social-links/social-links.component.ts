@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SocialLink } from './social-link';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',
   styleUrls: ['./social-links.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SocialLinksComponent {
   @Input() location: string | undefined;
@@ -56,4 +57,8 @@ export class SocialLinksComponent {
       tooltip: 'Connect on LinkedIn',
     },
   ];
+
+  trackBySocialLink(index: number, socialLink: SocialLink): string {
+    return socialLink.platform;
+  }
 }
