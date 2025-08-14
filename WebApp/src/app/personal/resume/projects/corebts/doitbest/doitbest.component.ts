@@ -1,43 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ProjectNavHeaderComponent } from '../../../../../shared';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroCog6Tooth,
-  heroBuildingOffice,
-  heroCalendarDays,
-  heroBeaker,
-  heroListBullet,
-  heroShoppingBag,
-  heroArchiveBox,
-  heroTruck,
-  heroUsers,
-  heroLink,
-  heroArrowRight,
-  heroGlobeAlt,
-} from '@ng-icons/heroicons/outline';
+import { DoitbestProjectComponent } from '../../../../../shared/components/doitbest-project/doitbest-project.component';
 
 @Component({
   selector: 'app-doitbest',
   templateUrl: './doitbest.component.html',
   styleUrls: ['./doitbest.component.scss'],
   standalone: true,
-  imports: [RouterLink, ProjectNavHeaderComponent, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroCog6Tooth,
-      heroBuildingOffice,
-      heroCalendarDays,
-      heroBeaker,
-      heroListBullet,
-      heroShoppingBag,
-      heroArchiveBox,
-      heroTruck,
-      heroUsers,
-      heroLink,
-      heroArrowRight,
-      heroGlobeAlt,
-    }),
-  ],
+  imports: [DoitbestProjectComponent],
 })
 export class DoItBestComponent {}
