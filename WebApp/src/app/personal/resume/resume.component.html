@@ -334,22 +334,52 @@
       ></div>
     </div>
 
-    <!-- Projects Grid -->
+    <!-- Projects Stats -->
+    <div class="text-center mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300"
+        >
+          <div class="text-3xl font-bold text-gray-800 mb-2">17</div>
+          <div class="text-gray-600 font-medium">Total Projects</div>
+        </div>
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300"
+        >
+          <div class="text-3xl font-bold text-gray-800 mb-2">5</div>
+          <div class="text-gray-600 font-medium">Companies</div>
+        </div>
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300"
+        >
+          <div class="text-3xl font-bold text-gray-800 mb-2">20+</div>
+          <div class="text-gray-600 font-medium">Technologies</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Project Cards -->
+      <!-- Featured Project Cards -->
       <app-floating-card
-        title="Updates Soon"
+        title="DoItBest Platform (NRI-NA)"
         icon="heroCheck"
-        status="warning"
-        link="projects/corebts"
+        status="success"
+        superText="2022-Current"
+        description="Enterprise retail platform modernization with microservices architecture, event-driven design using Kafka, and cloud-native deployment on Azure. Led architectural decisions and mentored development team."
+        [tags]="['C#', 'Java', 'Kafka', 'Azure', 'Kubernetes']"
+        link="projects/nri-na/doitbest"
         linkText="Learn more"
       ></app-floating-card>
 
       <app-floating-card
-        title="Updates Soon"
+        title="Kroger Solutions (Core BTS)"
         icon="heroCheck"
-        status="warning"
-        link="projects/corebts"
+        status="primary"
+        superText="2021"
+        description="Enterprise retail platform with comprehensive document management system, PDF rendering capabilities using Fabric.js, and NgRx state management for Angular applications."
+        [tags]="['Angular', 'NgRx', 'Fabric.js', 'Azure']"
+        link="projects/corebts/kroger"
         linkText="Learn more"
       ></app-floating-card>
 
@@ -420,6 +450,25 @@
         link="projects/geeksquad/stat-tracker"
         linkText="Learn more"
       ></app-floating-card>
+    </div>
+
+    <!-- View All Projects CTA -->
+    <div class="text-center mt-16">
+      <div
+        class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 text-white"
+      >
+        <h3 class="text-2xl font-bold mb-4">Explore All Projects</h3>
+        <p class="text-purple-100 mb-6">
+          View detailed technical implementations and project outcomes across
+          all companies and technologies.
+        </p>
+        <a
+          routerLink="/projects/professional"
+          class="px-6 py-3 bg-white text-purple-600 rounded-xl hover:bg-gray-100 transition-colors font-semibold"
+        >
+          Professional Portfolio →
+        </a>
+      </div>
     </div>
   </div>
 </section>
