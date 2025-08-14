@@ -3,13 +3,13 @@
 // Company header gradients
 @mixin company-header-gradient($color) {
   @if $color == 'green' {
-    background: linear-gradient(135deg, #14532d 0%, #166534 50%, #065f46 100%);
+    background: linear-gradient(135deg, #059669 0%, #22c55e 50%, #14b8a6 100%);
   } @else if $color == 'blue' {
     background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
   } @else if $color == 'red' {
-    background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #ea580c 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
   } @else if $color == 'orange' {
-    background: linear-gradient(135deg, #1e3a8a 0%, #eab308 50%, #ea580c 100%);
+    background: linear-gradient(135deg, #111827 0%, #374151 50%, #f97316 100%);
   }
 }
 
@@ -48,9 +48,9 @@
     }
   } @else if $color == 'orange' {
     @if $hover {
-      background: linear-gradient(135deg, #2563eb 0%, #ca8a04 100%);
+      background: linear-gradient(135deg, #111827 0%, #ea580c 100%);
     } @else {
-      background: linear-gradient(135deg, #3b82f6 0%, #eab308 100%);
+      background: linear-gradient(135deg, #374151 0%, #f97316 100%);
     }
   }
 }
