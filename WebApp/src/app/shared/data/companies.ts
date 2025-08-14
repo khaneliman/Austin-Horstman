@@ -38,6 +38,16 @@ export const COMPANIES = {
     },
     description:
       "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2022, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Senior Software Engineer in the Modern Business Unit, I work with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on cloud-native architectures and scalable enterprise solutions.",
+    achievements: [
+      'Drove team-wide agile process improvements as technical leader and scrum advisor, significantly increasing delivery speed and reducing development blockers',
+      'Successfully managed complex stakeholder relationships with business users, legacy system maintainers, and architects to create and prioritize backlogs under tight deadlines',
+      'Established comprehensive mentoring program for junior developers through code reviews, 1-on-1 meetings, and technical concept explanation',
+      'Architected enterprise-wide secure authentication and authorization model using JWT and role-based access controls, adopted across multiple Angular and Java REST API applications',
+      'Designed and deployed scalable cloud infrastructure using Bicep infrastructure-as-code and Kubernetes Helm charts on Azure, ensuring high availability for mission-critical workloads',
+      'Led the design and implementation of event-driven architecture using Kafka stream processors to support phased decommissioning of legacy mainframe systems in a high-impact modernization initiative',
+      'Streamlined development workflows and communication channels between development teams and leadership, maintaining high productivity during complex system transitions',
+      'Established architectural patterns and security frameworks that became organizational standards for modern application development',
+    ],
     projectsRoute: '/projects/professional/nri-na',
     employmentRoute: '/personal/resume/employment/nri-na',
     gradientColor: 'from-blue-600 to-indigo-600',
@@ -70,6 +80,12 @@ export const COMPANIES = {
     },
     description:
       'Core BTS is a technology consulting company specializing in modern application development and digital transformation solutions. I joined as a Software Engineer in January 2021 and was promoted to Senior Software Engineer during my tenure. In the Modern Business Unit, I worked with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on delivering scalable, maintainable solutions that drive business value and innovation.',
+    achievements: [
+      'Successfully architected and implemented NgRx state management across multiple Angular applications, modernizing Cold Fusion legacy systems and improving application performance and maintainability',
+      'Designed and built a comprehensive PDF rendering and annotation system using Fabric.js and Angular, integrated with Azure Blob Storage backend for scalable document management',
+      'Implemented enterprise-grade state management patterns that became the standard for subsequent Angular applications across the organization',
+      'Delivered seamless Azure integration for document storage and management, enabling scalable and secure file handling for client applications',
+    ],
     projectsRoute: '/projects/professional/corebts',
     employmentRoute: '/personal/resume/employment/corebts',
     gradientColor: 'from-gray-800 to-green-700',
