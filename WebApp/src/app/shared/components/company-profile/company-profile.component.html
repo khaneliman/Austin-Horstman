@@ -114,8 +114,14 @@
         <!-- Projects Grid -->
         <div class="mb-8">
           <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <i class="ni ni-folder-17 text-green-500 mr-3"></i>
-            {{ company.name }} Projects
+            <i
+              [class]="
+                'ni ni-code ' +
+                getIconClass(company.colorScheme.theme) +
+                ' mr-3 text-xl'
+              "
+            ></i>
+            Featured Projects
           </h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div
@@ -125,7 +131,8 @@
               <!-- Project Header -->
               <div
                 [class]="
-                  'relative bg-gradient-to-r ' + project.color + ' px-6 py-8'
+                  'relative project-card-header px-6 py-8 text-white ' +
+                  project.color
                 "
               >
                 <div
@@ -153,26 +160,36 @@
 
               <!-- Project Details -->
               <div class="p-6">
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                  {{ project.description }}
+                </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
-                    *ngFor="let tech of project.technologies"
-                    class="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs font-medium"
+                    *ngFor="let tech of project.technologies; let i = index"
+                    [class]="
+                      'px-3 py-1 text-sm font-medium rounded-full ' +
+                      getTechBadgeClass(i)
+                    "
                   >
                     {{ tech }}
                   </span>
                 </div>
 
-                <a
-                  [routerLink]="project.route"
-                  [class]="
-                    'inline-flex items-center w-full px-4 py-3 project-button--' +
-                    company.colorScheme.theme +
-                    ' text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all duration-200 justify-center group-hover:scale-105'
-                  "
-                >
-                  <i class="ni ni-bold-right mr-2"></i>
-                  View Project Details
-                </a>
+                <div class="flex justify-between items-center">
+                  <div class="flex gap-2">
+                    <!-- Technology badges moved above -->
+                  </div>
+                  <a
+                    [routerLink]="project.route"
+                    [class]="
+                      getProjectLinkClass(company.colorScheme.theme) +
+                      ' font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform'
+                    "
+                  >
+                    View Details
+                    <i class="fa fa-arrow-right ml-2 text-xs"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -187,7 +204,13 @@
           "
         >
           <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-            <i class="ni ni-building text-green-500 mr-3 text-xl"></i>
+            <i
+              [class]="
+                'ni ni-building ' +
+                getIconClass(company.colorScheme.theme) +
+                ' mr-3 text-xl'
+              "
+            ></i>
             About {{ company.name }}
           </h3>
           <p class="text-gray-700 leading-relaxed">
