@@ -29,6 +29,24 @@ import {
 export class ProfessionalProjectsComponent {
   professionalProjects = [
     {
+      title: 'NRI-NA Projects',
+      description: 'Enterprise solutions and digital transformation',
+      company: 'NRI-NA',
+      route: '/projects/professional/nri-na',
+      logo: 'assets/images/corebts.png',
+      color: 'from-blue-600 to-indigo-600',
+      projects: [
+        {
+          name: 'Kroger Solutions',
+          route: '/projects/professional/nri-na/kroger',
+        },
+        {
+          name: 'DoItBest Platform',
+          route: '/projects/professional/nri-na/doitbest',
+        },
+      ],
+    },
+    {
       title: 'Core BTS Projects',
       description: 'Modern enterprise solutions and client applications',
       company: 'Core BTS',
@@ -110,7 +128,8 @@ export class ProfessionalProjectsComponent {
     const routeName = companyName
       .toLowerCase()
       .replace(/\s+/g, '')
-      .replace('geeksquad', 'bestbuy');
+      .replace('geeksquad', 'bestbuy')
+      .replace('nri-na', 'nri-na');
     return `/personal/resume/employment/${routeName}`;
   }
 }

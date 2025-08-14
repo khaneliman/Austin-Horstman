@@ -4,6 +4,13 @@ import { ProfessionalProjectsComponent } from './professional.component';
 export const PROFESSIONAL_ROUTES: Routes = [
   { path: '', component: ProfessionalProjectsComponent },
   {
+    path: 'nri-na',
+    loadChildren: () =>
+      import('../../personal/resume/projects/nri-na/nri-na.routes').then(
+        m => m.NRI_NA_ROUTES
+      ),
+  },
+  {
     path: 'corebts',
     loadChildren: () =>
       import('../../personal/resume/projects/corebts/corebts.routes').then(
