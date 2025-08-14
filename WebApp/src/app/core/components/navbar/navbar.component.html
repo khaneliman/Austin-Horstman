@@ -12,7 +12,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="container">
-    <div class="navbar-collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+    <div
+      class="navbar-collapse"
+      id="navbar_global"
+      [class.collapse]="isCollapsed"
+    >
       <div class="navbar-collapse-header">
         <div class="row">
           <div class="col-6 collapse-brand"></div>

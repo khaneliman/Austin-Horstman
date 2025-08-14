@@ -4,13 +4,12 @@ import {
   Input,
   inject,
 } from '@angular/core';
-import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { SocialLinksService } from '../../services';
 
 @Component({
   standalone: true,
-  imports: [NgbTooltip, CommonModule],
+  imports: [CommonModule],
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',
   styleUrls: ['./social-links.component.scss'],

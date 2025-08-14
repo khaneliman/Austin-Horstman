@@ -12,13 +12,13 @@ import {
   RouterModule,
 } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   standalone: true,
-  imports: [NgbModule, RouterModule, SocialLinksComponent],
+  imports: [CommonModule, RouterModule, SocialLinksComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
