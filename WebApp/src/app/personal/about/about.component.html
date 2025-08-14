@@ -1,108 +1,134 @@
-<main class="profile-page">
-  <section class="section-profile-cover section-shaped my-0">
-    <!-- Circles background -->
-    <div class="shape shape-style-1 shape-dark alpha-4">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <!-- SVG separator -->
-    <div class="separator separator-bottom separator-skew">
-      <svg
-        x="0"
-        y="0"
-        viewBox="0 0 2560 100"
-        preserveAspectRatio="none"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="card card-profile shadow mt--300">
-        <div class="px-4">
-          <div class="row justify-content-center">
-            <div class="col-lg-3 order-lg-2">
-              <div class="card-profile-image">
-                <a href="javascript:void(0)">
-                  <img
-                    src="./assets/images/austin2.jpg"
-                    class="rounded-circle"
-                    alt="Austin Horstman profile photo"
-                  />
-                </a>
+<!-- Modern Hero Section -->
+<main class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20">
+    <!-- Subtle gradient background -->
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"
+    ></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <!-- Profile Card -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <!-- Profile Header -->
+          <div
+            class="relative bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-16"
+          >
+            <!-- Profile Image -->
+            <div class="flex justify-center">
+              <div class="relative">
+                <img
+                  src="./assets/images/austin2.jpg"
+                  alt="Austin Horstman profile photo"
+                  class="w-32 h-32 rounded-full ring-4 ring-white object-cover shadow-lg"
+                />
+                <div
+                  class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full ring-4 ring-white"
+                ></div>
               </div>
             </div>
-            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-              <div class="card-profile-actions py-4 mt-lg-0">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4"
-                  >Connect</a
+
+            <!-- Profile Info -->
+            <div class="text-center mt-6 text-white">
+              <h1 class="text-4xl font-bold mb-2">
+                Austin Horstman
+                <span class="text-blue-200 font-normal text-3xl"
+                  >, {{ age() }}</span
                 >
-                <a
-                  routerLink="/personal/contact"
-                  class="btn btn-sm btn-default float-right"
-                  >Message</a
+              </h1>
+              <p class="text-blue-100 text-xl mb-4">Senior Software Engineer</p>
+              <div class="flex items-center justify-center text-blue-100">
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
                 >
-              </div>
-            </div>
-            <div class="col-lg-4 order-lg-1">
-              <div class="card-profile-stats d-flex justify-content-center">
-                <!-- <div>
-                  <span class="heading">360</span>
-                  <span class="description">Friends</span>
-                </div>
-                <div>
-                  <span class="heading">10</span>
-                  <span class="description">Photos</span>
-                </div>
-                <div>
-                  <span class="heading">89</span>
-                  <span class="description">Comments</span>
-                </div> -->
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Fox Crossing, WI
               </div>
             </div>
           </div>
-          <div class="text-center mt-5">
-            <h3>
-              Austin Horstman
-              <span class="font-weight-light">, {{ age() }}</span>
-            </h3>
-            <div class="h6 font-weight-300">
-              <i class="ni location_pin mr-2"></i>Fox Crossing, WI
-            </div>
-            <div class="h6 mt-4">
-              <i class="ni business_briefcase-24 mr-2"></i>Senior Software
-              Engineer - Core BTS
-            </div>
-            <div>
-              <i class="ni education_hat mr-2"></i>AAS of Software Development
-            </div>
-          </div>
-          <div class="mt-5 py-5 border-top text-center">
-            <div class="row justify-content-center">
-              <div class="col-lg-9">
-                <p>
-                  If you’re on the hunt for a professional Software Engineer
-                  with experience and the ability to adapt to new technologies,
-                  you’ve come to the right place. Since 2015, I’ve been
-                  providing exceptional software development services to my
-                  employer's clients. I help clients implement strategical
-                  updates to their marketing and sales efforts through an
-                  efficient calling strategy and email marketing analytics.
-                </p>
-                <a
-                  class="btn btn-link text-primary"
-                  routerLink="/personal/resume"
-                  >See Resume</a
-                >
+
+          <!-- Content Section -->
+          <div class="px-8 py-12">
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div class="text-center p-4 bg-blue-50 rounded-xl">
+                <div class="text-2xl font-bold text-blue-600 mb-1">9+</div>
+                <div class="text-gray-600 text-sm">Years Experience</div>
               </div>
+              <div class="text-center p-4 bg-green-50 rounded-xl">
+                <div class="text-2xl font-bold text-green-600 mb-1">50+</div>
+                <div class="text-gray-600 text-sm">Projects Delivered</div>
+              </div>
+              <div class="text-center p-4 bg-purple-50 rounded-xl">
+                <div class="text-2xl font-bold text-purple-600 mb-1">15+</div>
+                <div class="text-gray-600 text-sm">Technologies</div>
+              </div>
+            </div>
+
+            <!-- About Description -->
+            <div class="text-center mb-8">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                About Me
+              </h2>
+              <p
+                class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto"
+              >
+                Passionate Software Engineer with {{ age() - 23 }}+ years of
+                experience building scalable web applications and leading
+                technical initiatives. I specialize in modern Angular, .NET, and
+                cloud technologies, helping companies transform their digital
+                presence through innovative solutions.
+              </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <a
+                routerLink="/personal/resume"
+                class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 5a2 2 0 012-2v1a1 1 0 001 1h6a1 1 0 001-1V3a2 2 0 012 2v6.5a2.5 2.5 0 01-2.5 2.5h-7A2.5 2.5 0 014 11.5V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                View Resume
+              </a>
+              <a
+                routerLink="/personal/contact"
+                class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-colors duration-200"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                  ></path>
+                  <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                  ></path>
+                </svg>
+                Get in Touch
+              </a>
             </div>
           </div>
         </div>
