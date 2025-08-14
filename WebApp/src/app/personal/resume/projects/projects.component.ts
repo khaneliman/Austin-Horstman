@@ -1,16 +1,15 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
-  imports: [RouterOutlet, AsyncPipe],
+  imports: [RouterOutlet],
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
-  private route = inject(ActivatedRoute);
+  public route = inject(ActivatedRoute);
   public childActivated: Promise<string> | null = null;
   private resolve: ((value: string) => void) | null = null;
   subscriptions: Subscription[] = [];
