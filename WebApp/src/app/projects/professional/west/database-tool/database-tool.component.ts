@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroArrowLeft,
@@ -16,7 +15,7 @@ import { ProjectNavHeaderComponent } from '../../../../shared/components/project
   selector: 'app-database-tool',
   templateUrl: './database-tool.component.html',
   styleUrls: ['./database-tool.component.scss'],
-  imports: [RouterLink, NgIconComponent, ProjectNavHeaderComponent],
+  imports: [NgIconComponent, ProjectNavHeaderComponent],
   providers: [
     provideIcons({
       heroArrowLeft,

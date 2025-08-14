@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroArrowLeft,
@@ -19,7 +18,7 @@ import { ProjectNavHeaderComponent } from '../../../../shared/components/project
   selector: 'app-it-portal',
   templateUrl: './it-portal.component.html',
   styleUrls: ['./it-portal.component.scss'],
-  imports: [RouterLink, NgIconComponent, ProjectNavHeaderComponent],
+  imports: [NgIconComponent, ProjectNavHeaderComponent],
   providers: [
     provideIcons({
       heroArrowLeft,
