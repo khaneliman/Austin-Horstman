@@ -13,7 +13,7 @@ import {
   simpleGithub,
   simpleGitlab,
 } from '@ng-icons/simple-icons';
-import { heroBriefcase } from '@ng-icons/heroicons/outline';
+import { bootstrapLinkedin } from '@ng-icons/bootstrap-icons';
 import { SocialLinksService } from '../../services';
 
 @Component({
@@ -30,7 +30,7 @@ import { SocialLinksService } from '../../services';
       simpleInstagram,
       simpleGithub,
       simpleGitlab,
-      heroBriefcase,
+      bootstrapLinkedin,
     }),
   ],
 })

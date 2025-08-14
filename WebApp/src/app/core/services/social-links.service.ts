@@ -45,7 +45,7 @@ export class SocialLinksService {
       platform: 'linkedin',
       link: 'https://linkedin.com/in/austin-horstman-94963a76',
       btnClass: 'btn-linkedin',
-      iconName: 'heroBriefcase',
+      iconName: 'bootstrapLinkedin',
       tooltip: 'Connect on LinkedIn',
     },
   ]);
