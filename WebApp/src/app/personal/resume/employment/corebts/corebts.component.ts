@@ -18,8 +18,8 @@ export class CorebtsComponent {
     logoAlt: 'Core BTS logo',
     website: 'https://www.corebts.com',
     location: 'Appleton, WI',
-    position: 'Senior Software Engineer',
-    dateRange: '2020 - 2024',
+    position: 'Software Engineer → Senior Software Engineer',
+    dateRange: 'Jan 2021 - Jan 2022',
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'green',
@@ -31,12 +31,12 @@ export class CorebtsComponent {
       gradientVia: 'via-green-800',
     },
     stats: {
-      years: '4+',
-      metric1: { value: '10+', label: 'Clients' },
-      metric2: { value: '15+', label: 'Projects' },
+      years: '1',
+      metric1: { value: '5+', label: 'Clients' },
+      metric2: { value: '8+', label: 'Projects' },
     },
     description:
-      'Core BTS is a technology consulting company specializing in modern application development and digital transformation solutions. As a Senior Software Engineer in the Modern Business Unit, I work with diverse clients to build cutting-edge applications using the latest technologies and development practices. Our team focuses on delivering scalable, maintainable solutions that drive business value and innovation.',
+      'Core BTS is a technology consulting company specializing in modern application development and digital transformation solutions. I joined as a Software Engineer in January 2021 and was promoted to Senior Software Engineer during my tenure. In the Modern Business Unit, I worked with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on delivering scalable, maintainable solutions that drive business value and innovation.',
   };
 
   projects: ProjectInfo[] = [
