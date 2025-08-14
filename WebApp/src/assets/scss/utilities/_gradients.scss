@@ -1,0 +1,85 @@
+// Reusable gradient utility classes
+
+// Company header gradients
+@mixin company-header-gradient($color) {
+  @if $color == 'green' {
+    background: linear-gradient(135deg, #14532d 0%, #166534 50%, #065f46 100%);
+  } @else if $color == 'blue' {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+  } @else if $color == 'red' {
+    background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #ea580c 100%);
+  } @else if $color == 'orange' {
+    background: linear-gradient(135deg, #1e3a8a 0%, #eab308 50%, #ea580c 100%);
+  }
+}
+
+// Stats section gradients
+@mixin stats-section-gradient($color) {
+  @if $color == 'green' {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  } @else if $color == 'blue' {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  } @else if $color == 'red' {
+    background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+  } @else if $color == 'orange' {
+    background: linear-gradient(135deg, #fffbeb 0%, #fde68a 100%);
+  }
+}
+
+// Project button gradients
+@mixin project-button-gradient($color, $hover: false) {
+  @if $color == 'green' {
+    @if $hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    } @else {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+  } @else if $color == 'blue' {
+    @if $hover {
+      background: linear-gradient(135deg, #2563eb 0%, #4338ca 100%);
+    } @else {
+      background: linear-gradient(135deg, #3b82f6 0%, #4f46e5 100%);
+    }
+  } @else if $color == 'red' {
+    @if $hover {
+      background: linear-gradient(135deg, #dc2626 0%, #c2410c 100%);
+    } @else {
+      background: linear-gradient(135deg, #ef4444 0%, #ea580c 100%);
+    }
+  } @else if $color == 'orange' {
+    @if $hover {
+      background: linear-gradient(135deg, #2563eb 0%, #ca8a04 100%);
+    } @else {
+      background: linear-gradient(135deg, #3b82f6 0%, #eab308 100%);
+    }
+  }
+}
+
+// Project card header gradients
+@mixin project-card-gradient($from, $to) {
+  @if $from == 'blue' and $to == 'indigo' {
+    background: linear-gradient(135deg, #2563eb 0%, #4338ca 100%);
+  } @else if $from == 'blue' and $to == 'emerald' {
+    background: linear-gradient(135deg, #2563eb 0%, #065f46 100%);
+  } @else if $from == 'indigo' and $to == 'purple' {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  } @else if $from == 'indigo' and $to == 'blue' {
+    background: linear-gradient(135deg, #4f46e5 0%, #1e40af 100%);
+  } @else if $from == 'purple' and $to == 'red' {
+    background: linear-gradient(135deg, #9333ea 0%, #b91c1c 100%);
+  } @else if $from == 'teal' and $to == 'green' {
+    background: linear-gradient(135deg, #0d9488 0%, #15803d 100%);
+  } @else if $from == 'green' and $to == 'emerald' {
+    background: linear-gradient(135deg, #16a34a 0%, #065f46 100%);
+  } @else if $from == 'red' and $to == 'orange' {
+    background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+  } @else if $from == 'orange' and $to == 'yellow' {
+    background: linear-gradient(135deg, #ea580c 0%, #ca8a04 100%);
+  } @else if $from == 'orange-light' and $to == 'yellow' {
+    background: linear-gradient(135deg, #f97316 0%, #ca8a04 100%);
+  } @else if $from == 'red-light' and $to == 'orange' {
+    background: linear-gradient(135deg, #ef4444 0%, #ea580c 100%);
+  } @else if $from == 'blue-light' and $to == 'yellow' {
+    background: linear-gradient(135deg, #3b82f6 0%, #ca8a04 100%);
+  }
+}
