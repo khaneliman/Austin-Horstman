@@ -5,6 +5,6 @@ export interface Skill {
   Experience: Experience[];
 }
 
-export interface Language extends Skill {}
+export type Language = Skill;
 
-export interface Framework extends Skill {}
+export type Framework = Skill;

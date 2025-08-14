@@ -1,5 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
-import { SocialLink } from '../../../shared/types';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  inject,
+} from '@angular/core';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { SocialLinksService } from '../../services';
