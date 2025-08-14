@@ -1,2 +1,134 @@
-<p>Skyline Projects</p>
-<router-outlet></router-outlet>
+<!-- Skyline Technologies Company Profile -->
+<div class="relative">
+  <!-- Company profile card -->
+  <div
+    class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden transform -translate-y-32"
+  >
+    <!-- Header section -->
+    <div
+      class="relative bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900 px-8 pt-12 pb-8"
+    >
+      <!-- Decorative elements -->
+      <div
+        class="absolute top-4 right-4 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"
+      ></div>
+      <div
+        class="absolute bottom-4 left-4 w-16 h-16 bg-purple-500/10 rounded-full blur-lg"
+      ></div>
+
+      <!-- Company logo and info -->
+      <div class="relative z-10 text-center">
+        <div class="inline-block relative group">
+          <a
+            href="https://www.skylinetechnologies.com"
+            target="_blank"
+            class="block"
+          >
+            <div
+              class="w-32 h-32 bg-white rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white group-hover:border-blue-400 transition-colors duration-300"
+            >
+              <img
+                class="w-full h-full object-contain"
+                src="assets/images/skyline.png"
+                alt="Skyline Technologies logo"
+              />
+            </div>
+          </a>
+
+          <!-- Floating external link icon -->
+          <div
+            class="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg"
+          >
+            <i class="fa fa-external-link text-white text-sm"></i>
+          </div>
+        </div>
+
+        <h2 class="text-4xl font-bold text-white mb-6">Skyline Technologies</h2>
+
+        <!-- Company details -->
+        <div class="flex flex-wrap justify-center gap-6 text-gray-300">
+          <div class="flex items-center space-x-2">
+            <i class="ni ni-pin-3 text-blue-400"></i>
+            <span>Appleton, WI</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="ni ni-briefcase-24 text-purple-400"></i>
+            <span>Software Developer</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="ni ni-calendar-grid-58 text-indigo-400"></i>
+            <span>2013 - 2015</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats section -->
+    <div
+      class="px-8 py-6 bg-gradient-to-r from-blue-50 to-purple-50 border-b border-gray-100"
+    >
+      <div class="grid grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-1">2</div>
+          <div class="text-sm text-gray-600 font-medium">Years</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-1">5+</div>
+          <div class="text-sm text-gray-600 font-medium">Clients</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-purple-600 mb-1">8+</div>
+          <div class="text-sm text-gray-600 font-medium">Projects</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content section -->
+    <div class="px-8 py-12">
+      <div class="max-w-4xl mx-auto">
+        <!-- Company overview -->
+        <div
+          class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8"
+        >
+          <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <i class="ni ni-building text-blue-500 mr-3 text-xl"></i>
+            About Skyline Technologies
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Skyline Technologies is a premier software consulting company
+            specializing in custom application development, web development, and
+            technology consulting services. During my time as a Software
+            Developer, I worked on diverse client projects ranging from
+            healthcare management systems to learning platforms and financial
+            applications.
+          </p>
+        </div>
+
+        <!-- Project content -->
+        <div class="prose prose-lg max-w-none mb-8">
+          <router-outlet></router-outlet>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://www.skylinetechnologies.com"
+            target="_blank"
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <i class="fa fa-external-link mr-3"></i>
+            <span>Visit Company Website</span>
+          </a>
+
+          <a
+            routerLink="/personal/resume"
+            class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-300 hover:border-gray-400 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          >
+            <i class="ni ni-collection mr-3"></i>
+            <span>See Full Resume</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
