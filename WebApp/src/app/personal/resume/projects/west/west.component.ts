@@ -42,21 +42,23 @@ export class WestComponent {
   projects: ProjectInfo[] = [
     {
       name: 'IT Portal System',
-      description: 'Internal IT service management and ticket tracking portal',
+      description:
+        'Comprehensive internal portal system to streamline IT operations and improve departmental workflow efficiency',
       route: 'it-portal',
-      icon: 'ni ni-laptop',
-      color: 'from-red-600 to-red-800',
+      icon: 'ni ni-settings-gear-65',
+      color: 'from-red-500 to-orange-600',
       status: 'Production',
-      technologies: ['VB.NET', 'ASP.NET', 'SQL Server', 'JavaScript'],
+      technologies: ['C#', 'SQL Server', 'ASP.NET', 'Internal Tools'],
     },
     {
       name: 'Database Management Tool',
-      description: 'Enterprise database administration and monitoring system',
+      description:
+        'Advanced SSIS packages and stored procedures for automated data processing and enterprise reporting systems',
       route: 'database-tool',
-      icon: 'ni ni-chart-bar-32',
-      color: 'from-orange-600 to-red-800',
-      status: 'Legacy',
-      technologies: ['C#', '.NET', 'Oracle', 'Crystal Reports'],
+      icon: 'ni ni-archive-2',
+      color: 'from-orange-500 to-yellow-600',
+      status: 'Production',
+      technologies: ['SSIS', 'SSRS', 'SQL Server', 'Data Processing'],
     },
   ];
 }
