@@ -18,8 +18,4 @@ export class FloatingCardComponent {
   @Input() link: string | undefined;
   @Input() linkText: string | undefined;
   @Input() tags: string[] | undefined;
-
-  trackByTag(index: number, tag: string): string {
-    return tag;
-  }
 }

@@ -16,8 +16,4 @@ export class SocialLinksComponent {
 
   private socialLinksService = inject(SocialLinksService);
   protected socialLinks = this.socialLinksService.socialLinks$;
-
-  trackBySocialLink(index: number, socialLink: SocialLink): string {
-    return socialLink.platform;
-  }
 }

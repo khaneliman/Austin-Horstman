@@ -11,12 +11,9 @@
       {{ description }}
     </p>
     <div>
-      <span
-        *ngFor="let tag of tags; trackBy: trackByTag"
-        span
-        class="badge badge-pill badge-warning"
-        >{{ tag }}</span
-      >
+      @for (tag of tags; track tag) {
+        <span class="badge badge-pill badge-warning">{{ tag }}</span>
+      }
     </div>
     <a routerLink="{{ link }}" class="btn btn-{{ status }} mt-4">{{
       linkText
