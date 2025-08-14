@@ -24,6 +24,7 @@ import {
   heroChartPie,
   heroGlobeAlt,
   heroRocketLaunch,
+  heroShieldCheck,
 } from '@ng-icons/heroicons/outline';
 
 export interface CompanyInfo {
@@ -91,6 +92,7 @@ export interface ProjectInfo {
       heroChartPie,
       heroGlobeAlt,
       heroRocketLaunch,
+      heroShieldCheck,
     }),
   ],
 })
