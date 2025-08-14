@@ -35,10 +35,6 @@ export class ProjectsComponent {
       color: 'from-blue-600 to-indigo-600',
       projects: [
         {
-          name: 'Kroger Solutions',
-          route: '/projects/professional/nri-na/kroger',
-        },
-        {
           name: 'DoItBest Platform',
           route: '/projects/professional/nri-na/doitbest',
         },

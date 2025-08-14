@@ -7,13 +7,6 @@ export const NRI_NA_ROUTES: Routes = [
     component: NriNaComponent,
     children: [
       {
-        path: 'kroger',
-        loadComponent: () =>
-          import('../corebts/kroger/kroger.component').then(
-            m => m.KrogerComponent
-          ),
-      },
-      {
         path: 'doitbest',
         loadComponent: () =>
           import('./doitbest/doitbest.component').then(

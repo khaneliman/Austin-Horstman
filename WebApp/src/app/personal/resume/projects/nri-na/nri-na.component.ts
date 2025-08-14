@@ -4,10 +4,7 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../../shared/components/company-profile/company-profile.component';
-import {
-  getDoItBestProjectForProfile,
-  getKrogerProjectForProfile,
-} from '../../../../shared/data/projects';
+import { getDoItBestProjectForProfile } from '../../../../shared/data/projects';
 
 @Component({
   selector: 'app-nri-na',
@@ -43,8 +40,5 @@ export class NriNaComponent {
       "NRI-NA is a technology consulting company specializing in enterprise software development and digital transformation solutions. In 2022, Nomura Research Institute acquired Core BTS, expanding the company's capabilities in cloud-native architectures and global enterprise solutions. As a Senior Software Engineer, I led development of large-scale applications for major retail and e-commerce clients, focusing on inventory management, supply chain optimization, and customer experience platforms with modern cloud technologies.",
   };
 
-  projects: ProjectInfo[] = [
-    getKrogerProjectForProfile('nriNa'),
-    getDoItBestProjectForProfile(),
-  ];
+  projects: ProjectInfo[] = [getDoItBestProjectForProfile()];
 }
