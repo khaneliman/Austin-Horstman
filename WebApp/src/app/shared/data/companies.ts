@@ -7,6 +7,7 @@ export interface ExtendedCompanyInfo extends CompanyInfo {
   projectsRoute: string;
   employmentRoute: string;
   gradientColor: string; // For professional projects cards
+  projects: readonly { name: string; route: string }[]; // Projects available for this company
 }
 
 // Comprehensive company configurations
@@ -51,6 +52,7 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/nri-na',
     employmentRoute: '/personal/resume/employment/nri-na',
     gradientColor: 'from-blue-600 to-indigo-600',
+    projects: [{ name: 'DoItBest Platform', route: 'doitbest' }],
   },
 
   corebts: {
@@ -89,6 +91,10 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/corebts',
     employmentRoute: '/personal/resume/employment/corebts',
     gradientColor: 'from-gray-800 to-green-700',
+    projects: [
+      { name: 'Kroger Solutions', route: 'kroger' },
+      { name: 'DoItBest Platform', route: 'doitbest' },
+    ],
   },
 
   skyline: {
@@ -121,6 +127,14 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/skyline',
     employmentRoute: '/personal/resume/employment/skyline',
     gradientColor: 'from-blue-600 to-purple-600',
+    projects: [
+      { name: 'Renaissance Learning', route: 'renaissance-learning' },
+      { name: 'Mile of Music', route: 'mile-of-music' },
+      { name: 'JJ Keller', route: 'jj-keller' },
+      { name: 'Express Scripts', route: 'express-scripts' },
+      { name: 'ClearTrend', route: 'cleartrend' },
+      { name: 'Network Health', route: 'network-health' },
+    ],
   },
 
   west: {
@@ -152,6 +166,11 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/west',
     employmentRoute: '/personal/resume/employment/west',
     gradientColor: 'from-red-600 to-orange-600',
+    projects: [
+      { name: 'Database Tool', route: 'database-tool' },
+      { name: 'IT Portal', route: 'it-portal' },
+      { name: 'Quick Launch', route: 'quick-launch' },
+    ],
   },
 
   bestbuy: {
@@ -183,6 +202,7 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/geeksquad',
     employmentRoute: '/personal/resume/employment/bestbuy',
     gradientColor: 'from-blue-600 to-yellow-600',
+    projects: [{ name: 'Stat Tracker', route: 'stat-tracker' }],
   },
 } as const;
 

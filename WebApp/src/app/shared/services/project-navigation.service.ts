@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
 import { ProjectNavItem } from '../components/project-nav-header/project-nav-header.component';
-import { COMPANY_PROJECTS } from '../data/projects';
+import { COMPANIES } from '../data/companies';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectNavigationService {
   /**
-   * Dynamically generates navigation items for a company based on the centralized
-   * project data that defines which projects exist for each company
+   * Dynamically generates navigation items for a company based on the projects
+   * defined in the COMPANIES data structure
    */
   getNavigationItems(
     companyKey: string,
     activeRoute?: string
   ): ProjectNavItem[] {
-    const projects =
-      COMPANY_PROJECTS[companyKey as keyof typeof COMPANY_PROJECTS] || [];
+    const company = COMPANIES[companyKey as keyof typeof COMPANIES];
+    if (!company?.projects) return [];
+
     const baseRoute = `/projects/professional/${companyKey}`;
 
-    return projects.map(project => ({
+    return company.projects.map(project => ({
       name: project.name,
       route: `${baseRoute}/${project.route}`,
       isActive: activeRoute

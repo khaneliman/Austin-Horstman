@@ -86,35 +86,11 @@ export function getKrogerProjectForProfile(
   };
 }
 
-// Company project mappings - defines which projects exist for each company
-export const COMPANY_PROJECTS = {
-  'nri-na': [{ name: 'DoItBest Platform', route: 'doitbest' }],
-  corebts: [
-    { name: 'Kroger Solutions', route: 'kroger' },
-    { name: 'DoItBest Platform', route: 'doitbest' },
-  ],
-  skyline: [
-    { name: 'Renaissance Learning', route: 'renaissance-learning' },
-    { name: 'Mile of Music', route: 'mile-of-music' },
-    { name: 'JJ Keller', route: 'jj-keller' },
-    { name: 'Express Scripts', route: 'express-scripts' },
-    { name: 'ClearTrend', route: 'cleartrend' },
-    { name: 'Network Health', route: 'network-health' },
-  ],
-  geeksquad: [{ name: 'Stat Tracker', route: 'stat-tracker' }],
-  west: [
-    { name: 'Database Tool', route: 'database-tool' },
-    { name: 'IT Portal', route: 'it-portal' },
-    { name: 'Quick Launch', route: 'quick-launch' },
-  ],
-} as const;
-
 // Helper function to generate professional project grid data from centralized sources
 export function generateProfessionalProjectsGrid() {
-  return Object.entries(COMPANY_PROJECTS)
-    .map(([companyKey, projects]) => {
-      const company = COMPANIES[companyKey as keyof typeof COMPANIES];
-      if (!company) return undefined;
+  return Object.entries(COMPANIES)
+    .map(([companyKey, company]) => {
+      if (!company.projects?.length) return undefined;
 
       return {
         title: `${company.displayName} Projects`,
@@ -123,7 +99,7 @@ export function generateProfessionalProjectsGrid() {
         route: company.projectsRoute,
         logo: company.logoSrc,
         color: company.gradientColor,
-        projects: projects.map(project => ({
+        projects: company.projects.map(project => ({
           name: project.name,
           route: `/projects/professional/${companyKey}/${project.route}`,
         })),
