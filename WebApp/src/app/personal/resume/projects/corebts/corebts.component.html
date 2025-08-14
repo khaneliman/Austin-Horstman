@@ -1,58 +1,110 @@
-<div class="card card-profile shadow mt--500">
-  <div class="px-4">
-    <div class="row justify-content-center">
-      <div class="col-lg-4 order-lg-3">
-        <div class="">
-          <a href="https://www.corebts.com" target="_blank">
-            <img
-              class="rounded rounded-circle mx-auto d-block img-fluid"
-              src="assets/images/corebts.png"
-              style="background-color: rgb(24, 26, 27)"
-              alt="CoreBTS logo"
-            />
+<!-- Core BTS Project Profile -->
+<div class="relative">
+  <!-- Company profile card -->
+  <div
+    class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden transform -translate-y-32"
+  >
+    <!-- Header section -->
+    <div
+      class="relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 px-8 pt-12 pb-8"
+    >
+      <!-- Decorative elements -->
+      <div
+        class="absolute top-4 right-4 w-20 h-20 bg-green-500/10 rounded-full blur-xl"
+      ></div>
+      <div
+        class="absolute bottom-4 left-4 w-16 h-16 bg-blue-500/10 rounded-full blur-lg"
+      ></div>
+
+      <!-- Company logo and info -->
+      <div class="relative z-10 text-center">
+        <div class="inline-block relative group">
+          <a href="https://www.corebts.com" target="_blank" class="block">
+            <div
+              class="w-32 h-32 bg-gray-900 rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white group-hover:border-green-400 transition-colors duration-300"
+            >
+              <img
+                class="w-full h-full object-contain"
+                src="assets/images/corebts.png"
+                alt="CoreBTS logo"
+              />
+            </div>
           </a>
+
+          <!-- Floating external link icon -->
+          <div
+            class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
+          >
+            <i class="fa fa-external-link text-white text-sm"></i>
+          </div>
+        </div>
+
+        <h2 class="text-4xl font-bold text-white mb-6">Core BTS</h2>
+
+        <!-- Company details -->
+        <div class="flex flex-wrap justify-center gap-6 text-gray-300">
+          <div class="flex items-center space-x-2">
+            <i class="ni ni-pin-3 text-green-400"></i>
+            <span>Appleton, WI</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="ni ni-briefcase-24 text-blue-400"></i>
+            <span>Senior Software Engineer</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="ni ni-hat-3 text-purple-400"></i>
+            <span>Modern Business Unit</span>
+          </div>
         </div>
       </div>
-      <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-        <div class="card-profile-actions py-4 mt-lg-0"></div>
-      </div>
-      <div class="col-lg-4 order-lg-1">
-        <!-- <div class="card-profile-stats d-flex justify-content-center">
-          <div>
-            <span class="heading">4</span>
-            <span class="description">years</span>
-          </div>
-          <div>
-            <span class="heading">X</span>
-            <span class="description">Clients</span>
-          </div>
-          <div>
-            <span class="heading">X</span>
-            <span class="description">Projects</span>
-          </div>
-        </div> -->
+    </div>
+
+    <!-- Stats section -->
+    <div
+      class="px-8 py-6 bg-gradient-to-r from-green-50 to-blue-50 border-b border-gray-100"
+    >
+      <div class="grid grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-green-600 mb-1">4+</div>
+          <div class="text-sm text-gray-600 font-medium">Years</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-1">10+</div>
+          <div class="text-sm text-gray-600 font-medium">Clients</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-purple-600 mb-1">15+</div>
+          <div class="text-sm text-gray-600 font-medium">Projects</div>
+        </div>
       </div>
     </div>
-    <div class="text-center mt-3">
-      <h3>Core BTS</h3>
-      <div class="h6 font-weight-300">
-        <i class="ni location_pin mr-2"></i>Appleton, WI
-      </div>
-      <div class="h6 mt-4">
-        <i class="ni business_briefcase-24 mr-2"></i>Software Engineer
-      </div>
-      <div>
-        <i class="ni education_hat mr-2"></i>Modern Business Unit - Modern
-        Applications
-      </div>
-    </div>
-    <div class="mt-5 py-5 border-top text-center">
-      <div class="row justify-content-center">
-        <div class="col-lg-9">
+
+    <!-- Content section -->
+    <div class="px-8 py-12">
+      <div class="max-w-4xl mx-auto">
+        <!-- Project content -->
+        <div class="prose prose-lg max-w-none mb-8">
           <router-outlet></router-outlet>
-          <a class="btn btn-link text-info" routerLink="/personal/resume"
-            >See Resume</a
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://www.corebts.com"
+            target="_blank"
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
           >
+            <i class="fa fa-external-link mr-3"></i>
+            <span>Visit Company Website</span>
+          </a>
+
+          <a
+            routerLink="/personal/resume"
+            class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-300 hover:border-gray-400 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          >
+            <i class="ni ni-collection mr-3"></i>
+            <span>See Full Resume</span>
+          </a>
         </div>
       </div>
     </div>
