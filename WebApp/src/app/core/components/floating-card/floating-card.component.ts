@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
+  standalone: true,
   imports: [RouterModule, CommonModule],
   selector: 'app-floating-card',
   templateUrl: './floating-card.component.html',

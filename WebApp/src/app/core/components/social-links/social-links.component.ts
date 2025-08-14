@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { SocialLinksService } from '../../services';
 
 @Component({
+  standalone: true,
   imports: [NgbTooltip, CommonModule],
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',
