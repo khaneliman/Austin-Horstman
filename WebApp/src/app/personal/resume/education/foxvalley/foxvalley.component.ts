@@ -8,6 +8,7 @@ import {
   heroComputerDesktop,
   heroCodeBracket,
   heroRectangleStack,
+  heroCalendar,
 } from '@ng-icons/heroicons/outline';
 
 @Component({
@@ -23,6 +24,7 @@ import {
       heroComputerDesktop,
       heroCodeBracket,
       heroRectangleStack,
+      heroCalendar,
     }),
   ],
 })
