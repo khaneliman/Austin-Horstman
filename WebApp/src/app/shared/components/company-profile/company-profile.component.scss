@@ -138,4 +138,18 @@
   &.from-blue-500.to-yellow-600 {
     background: linear-gradient(135deg, #3b82f6 0%, #ca8a04 100%);
   }
+
+  // Additional Skyline-specific gradients
+  &.from-blue-600.to-indigo-700 {
+    background: linear-gradient(135deg, #2563eb 0%, #4338ca 100%);
+  }
+  &.from-indigo-600.to-purple-700 {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  }
+  &.from-purple-600.to-red-700 {
+    background: linear-gradient(135deg, #9333ea 0%, #b91c1c 100%);
+  }
+  &.from-teal-600.to-green-700 {
+    background: linear-gradient(135deg, #0d9488 0%, #15803d 100%);
+  }
 }
