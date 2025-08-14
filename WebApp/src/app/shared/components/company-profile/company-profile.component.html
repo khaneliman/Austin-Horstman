@@ -12,10 +12,18 @@
     >
       <!-- Decorative elements -->
       <div
-        class="absolute top-4 right-4 w-20 h-20 bg-green-500/10 rounded-full blur-xl"
+        [ngClass]="
+          'absolute top-4 right-4 w-20 h-20 bg-' +
+          company.colorScheme.primary +
+          '/10 rounded-full blur-xl'
+        "
       ></div>
       <div
-        class="absolute bottom-4 left-4 w-16 h-16 bg-emerald-500/10 rounded-full blur-lg"
+        [ngClass]="
+          'absolute bottom-4 left-4 w-16 h-16 bg-' +
+          company.colorScheme.secondary +
+          '/10 rounded-full blur-lg'
+        "
       ></div>
 
       <!-- Company logo and info -->
@@ -28,7 +36,11 @@
             [class.pointer-events-none]="!company.website"
           >
             <div
-              class="w-32 h-32 bg-white rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white group-hover:border-green-500 transition-colors duration-300"
+              class="w-32 h-32 rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white transition-colors duration-300"
+              [style.background]="
+                getLogoBackgroundStyle(company.logoBackground)
+              "
+              [ngClass]="'group-hover:border-' + company.colorScheme.primary"
             >
               <img
                 class="w-full h-full object-contain"
@@ -41,7 +53,11 @@
           <!-- Floating external link icon -->
           <div
             *ngIf="company.website"
-            class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
+            [ngClass]="
+              'absolute -top-2 -right-2 w-8 h-8 bg-' +
+              company.colorScheme.primary +
+              ' rounded-full flex items-center justify-center shadow-lg'
+            "
           >
             <ng-icon
               name="heroArrowTopRightOnSquare"
