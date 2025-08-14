@@ -7,7 +7,7 @@
         title="{{ site.tooltip }}"
         class="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-50"
       >
-        <i class="fa {{ site.faClass }} text-lg"></i>
+        <ng-icon [name]="site.iconName" size="1.25rem"></ng-icon>
       </a>
     }
   </div>
@@ -22,7 +22,7 @@
         title="{{ site.tooltip }}"
         class="inline-flex items-center justify-center w-10 h-10 bg-white text-gray-600 hover:text-white hover:bg-blue-600 rounded-full shadow-lg transition-colors duration-200"
       >
-        <i class="fa {{ site.faClass }}"></i>
+        <ng-icon [name]="site.iconName" size="1rem"></ng-icon>
       </a>
     }
   </div>
