@@ -26,6 +26,9 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   public isCollapsed = true;
+  public isPersonalDropdownOpen = false;
+  public isProjectsDropdownOpen = false;
+  public isMobileMenuOpen = false;
   private lastPoppedUrl: string | undefined;
   private yScrollStack: number[] = [];
   private destroy$ = new Subject<void>();
@@ -73,5 +76,28 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       return false;
     }
+  }
+
+  togglePersonalDropdown(): void {
+    this.isPersonalDropdownOpen = !this.isPersonalDropdownOpen;
+    this.isProjectsDropdownOpen = false;
+  }
+
+  toggleProjectsDropdown(): void {
+    this.isProjectsDropdownOpen = !this.isProjectsDropdownOpen;
+    this.isPersonalDropdownOpen = false;
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeDropdowns(): void {
+    this.isPersonalDropdownOpen = false;
+    this.isProjectsDropdownOpen = false;
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
   }
 }

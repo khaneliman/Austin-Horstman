@@ -1,33 +1,29 @@
 @if (location === 'nav') {
-  <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+  <div class="flex items-center space-x-4">
     @for (site of socialLinks(); track site.platform) {
-      <li class="nav-item">
-        <a
-          class="nav-link nav-link-icon"
-          href="{{ site.link }}"
-          target="_blank"
-          data-toggle="tooltip"
-          title="{{ site.tooltip }}"
-        >
-          <i class="fa {{ site.faClass }}"></i>
-          <span class="nav-link-inner--text d-lg-none">{{
-            site.platform
-          }}</span>
-        </a>
-      </li>
+      <a
+        href="{{ site.link }}"
+        target="_blank"
+        title="{{ site.tooltip }}"
+        class="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-50"
+      >
+        <i class="fa {{ site.faClass }} text-lg"></i>
+      </a>
     }
-  </ul>
+  </div>
 }
 
 @if (location === 'footer') {
-  @for (site of socialLinks(); track site.platform) {
-    <a
-      target="_blank"
-      href="{{ site.link }}"
-      class="btn btn-neutral btn-icon-only {{ site.btnClass }} btn-round btn-lg"
-      title="{{ site.tooltip }}"
-    >
-      <i class="fa {{ site.faClass }}"></i>
-    </a>
-  }
+  <div class="flex justify-center space-x-4">
+    @for (site of socialLinks(); track site.platform) {
+      <a
+        target="_blank"
+        href="{{ site.link }}"
+        title="{{ site.tooltip }}"
+        class="inline-flex items-center justify-center w-10 h-10 bg-white text-gray-600 hover:text-white hover:bg-blue-600 rounded-full shadow-lg transition-colors duration-200"
+      >
+        <i class="fa {{ site.faClass }}"></i>
+      </a>
+    }
+  </div>
 }

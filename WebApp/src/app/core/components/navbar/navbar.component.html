@@ -1,99 +1,199 @@
+<!-- Fixed navigation header -->
 <nav
-  id="navbar-main"
-  class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned"
+  class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-200"
 >
-  <button
-    class="navbar-toggler"
-    type="button"
-    (click)="isCollapsed = !isCollapsed"
-    [attr.aria-expanded]="!isCollapsed"
-    aria-controls="navbar_global"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="container">
-    <div
-      class="navbar-collapse"
-      id="navbar_global"
-      [class.collapse]="isCollapsed"
-    >
-      <div class="navbar-collapse-header">
-        <div class="row">
-          <div class="col-6 collapse-brand"></div>
-          <div class="col-6 collapse-close">
-            <button
-              type="button"
-              class="navbar-toggler"
-              (click)="isCollapsed = !isCollapsed"
-              [attr.aria-expanded]="!isCollapsed"
-              aria-controls="navbar_global"
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Left side navigation -->
+      <div class="flex items-center space-x-8">
+        <!-- Home link -->
+        <a
+          [routerLink]="['/home']"
+          class="text-gray-700 hover:text-blue-600 px-3 py-2 text-lg font-medium transition-colors duration-200"
+        >
+          Home
+        </a>
+
+        <!-- Personal dropdown -->
+        <div class="relative">
+          <button
+            (click)="togglePersonalDropdown()"
+            class="text-gray-700 hover:text-blue-600 px-3 py-2 text-lg font-medium flex items-center space-x-1 transition-colors duration-200"
+            [attr.aria-expanded]="isPersonalDropdownOpen"
+          >
+            <span>Personal</span>
+            <svg
+              class="w-4 h-4 transition-transform duration-200"
+              [class.rotate-180]="isPersonalDropdownOpen"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <span></span>
-              <span></span>
-            </button>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Personal dropdown menu -->
+          <div
+            *ngIf="isPersonalDropdownOpen"
+            class="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-lg ring-1 ring-gray-200 py-2"
+          >
+            <a
+              [routerLink]="['/personal/about']"
+              (click)="closeDropdowns()"
+              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            >
+              About
+            </a>
+            <a
+              [routerLink]="['/personal/contact']"
+              (click)="closeDropdowns()"
+              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            >
+              Contact
+            </a>
+            <a
+              [routerLink]="['/personal/resume']"
+              (click)="closeDropdowns()"
+              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            >
+              Resume
+            </a>
+          </div>
+        </div>
+
+        <!-- Projects dropdown -->
+        <div class="relative">
+          <button
+            (click)="toggleProjectsDropdown()"
+            class="text-gray-700 hover:text-blue-600 px-3 py-2 text-lg font-medium flex items-center space-x-1 transition-colors duration-200"
+            [attr.aria-expanded]="isProjectsDropdownOpen"
+          >
+            <span>Projects</span>
+            <svg
+              class="w-4 h-4 transition-transform duration-200"
+              [class.rotate-180]="isProjectsDropdownOpen"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Projects dropdown menu -->
+          <div
+            *ngIf="isProjectsDropdownOpen"
+            class="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-lg ring-1 ring-gray-200 py-2"
+          >
+            <div class="block px-4 py-2 text-gray-500">Coming Soon.</div>
           </div>
         </div>
       </div>
-      <ul class="navbar-nav align-items-lg-center">
-        <li class="nav-item">
-          <a class="nav-link no-caret" role="button" [routerLink]="['/home']">
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Home</span>
-          </a>
-        </li>
-        <li
-          class="nav-item"
-          ngbDropdown
-          display="dynamic"
-          placement="bottom-right"
-        >
-          <a
-            class="nav-link"
-            role="button"
-            id="navbarPersonalDropdown"
-            ngbDropdownToggle
-          >
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Personal</span>
-          </a>
-          <div
-            ngbDropdownMenu
-            class="dropdown-menu"
-            aria-labelledby="navbarPersonalDropdown"
-          >
-            <a ngbDropdownItem [routerLink]="['/personal/about']">About</a>
-            <a ngbDropdownItem [routerLink]="['/personal/contact']">Contact</a>
-            <a ngbDropdownItem [routerLink]="['/personal/resume']">Resume</a>
-          </div>
-        </li>
-        <li
-          class="nav-item"
-          ngbDropdown
-          display="dynamic"
-          placement="bottom-right"
-        >
-          <a
-            class="nav-link"
-            data-toggle="dropdown"
-            id="navbarProjectsDropdown"
-            role="button"
-            ngbDropdownToggle
-          >
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Projects</span>
-          </a>
-          <div
-            ngbDropdownMenu
-            class="dropdown-menu"
-            aria-labelledby="navbarProjectsDropdown"
-          >
-            <a ngbDropdownItem class="dropdown-item">Coming Soon.</a>
-          </div>
-        </li>
-      </ul>
-      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+
+      <!-- Right side - Social links -->
+      <div class="flex items-center">
         <app-social-links location="nav"></app-social-links>
-      </ul>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button
+          (click)="toggleMobileMenu()"
+          class="text-gray-700 hover:text-blue-600 p-2 transition-colors duration-200"
+          [attr.aria-expanded]="isMobileMenuOpen"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              *ngIf="!isMobileMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+            <path
+              *ngIf="isMobileMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+      *ngIf="isMobileMenuOpen"
+      class="md:hidden bg-white border-t border-gray-200 py-4"
+    >
+      <div class="space-y-4">
+        <!-- Mobile Home -->
+        <a
+          [routerLink]="['/home']"
+          (click)="closeMobileMenu()"
+          class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+        >
+          Home
+        </a>
+
+        <!-- Mobile Personal -->
+        <div>
+          <div class="px-4 py-2 text-sm font-medium text-gray-500">
+            Personal
+          </div>
+          <a
+            [routerLink]="['/personal/about']"
+            (click)="closeMobileMenu()"
+            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+          >
+            About
+          </a>
+          <a
+            [routerLink]="['/personal/contact']"
+            (click)="closeMobileMenu()"
+            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+          >
+            Contact
+          </a>
+          <a
+            [routerLink]="['/personal/resume']"
+            (click)="closeMobileMenu()"
+            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+          >
+            Resume
+          </a>
+        </div>
+
+        <!-- Mobile Projects -->
+        <div>
+          <div class="px-4 py-2 text-sm font-medium text-gray-500">
+            Projects
+          </div>
+          <div class="px-8 py-2 text-gray-500">Coming Soon.</div>
+        </div>
+
+        <!-- Mobile Social Links -->
+        <div class="px-4 pt-4 border-t border-gray-200">
+          <app-social-links location="nav"></app-social-links>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
