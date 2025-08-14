@@ -37,6 +37,13 @@ export class WestComponent {
     },
     description:
       'West Corporation was a leading provider of business communications services, specializing in contact center solutions, unified communications, and technology services. In the Revenue Generation Services division, I developed and maintained enterprise-level applications and automation solutions that streamlined operations and improved departmental workflows.',
+    achievements: [
+      'Developed new features for CRM applications and websites',
+      'Created SSIS packages for data and file automation processes',
+      'Wrote SQL stored procedures for applications and SSRS reporting',
+      'Built internal applications and websites to improve departmental workflow',
+      'Maintained and enhanced existing enterprise systems',
+    ],
   };
 
   projects: ProjectInfo[] = [
