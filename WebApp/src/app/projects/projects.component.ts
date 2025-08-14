@@ -8,11 +8,17 @@ import {
   heroCog6Tooth,
   heroRectangleStack,
 } from '@ng-icons/heroicons/outline';
+import { ProfessionalProjectsGridComponent } from '../shared/components/professional-projects-grid/professional-projects-grid.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgIconComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgIconComponent,
+    ProfessionalProjectsGridComponent,
+  ],
   providers: [
     provideIcons({
       heroGlobeAlt,
@@ -142,13 +148,4 @@ export class ProjectsComponent {
       color: 'from-teal-600 to-blue-600',
     },
   ];
-
-  getCompanyRoute(companyName: string): string {
-    const routeName = companyName
-      .toLowerCase()
-      .replace(/\s+/g, '')
-      .replace('geeksquad', 'bestbuy')
-      .replace('nri-na', 'nri-na');
-    return `/personal/resume/employment/${routeName}`;
-  }
 }
