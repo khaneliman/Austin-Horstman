@@ -52,7 +52,7 @@ export class BestbuyComponent {
       description:
         'Performance monitoring and statistics tracking application for repair operations',
       route: '/projects/professional/geeksquad/stat-tracker',
-      icon: 'ni ni-chart-bar-32',
+      icon: 'heroChartBarSquare',
       color: 'from-blue-500 to-yellow-600',
       status: 'Production',
       technologies: ['VB.NET', 'Windows Forms', 'SQLite', 'Excel Integration'],

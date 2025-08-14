@@ -21,7 +21,11 @@
             <div
               class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl"
             >
-              <i class="ni ni-ruler-pencil text-blue-600 text-3xl"></i>
+              <ng-icon
+                name="heroPencil"
+                size="2rem"
+                class="text-blue-600"
+              ></ng-icon>
             </div>
           </div>
           <div class="flex-1">
@@ -73,7 +77,11 @@
         <div
           class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl"
         >
-          <i class="ni ni-building text-orange-600 text-3xl"></i>
+          <ng-icon
+            name="heroBuildingOffice"
+            size="2rem"
+            class="text-orange-600"
+          ></ng-icon>
         </div>
       </div>
       <div class="flex-1">
@@ -206,13 +214,21 @@
           <div
             class="absolute -top-4 -right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg animate-bounce"
           >
-            <i class="fa fa-trophy text-white text-xl"></i>
+            <ng-icon
+              name="heroTrophy"
+              size="1.25rem"
+              class="text-white"
+            ></ng-icon>
           </div>
 
           <div
             class="absolute -bottom-4 -left-4 w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center shadow-lg animate-pulse"
           >
-            <i class="fa fa-code text-white text-lg"></i>
+            <ng-icon
+              name="heroCodeBracket"
+              size="1.125rem"
+              class="text-white"
+            ></ng-icon>
           </div>
         </div>
       </div>
@@ -243,7 +259,11 @@
         <div
           class="w-20 h-20 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center shadow-2xl"
         >
-          <i class="ni ni-collection text-white text-3xl"></i>
+          <ng-icon
+            name="heroRectangleStack"
+            size="2rem"
+            class="text-white"
+          ></ng-icon>
         </div>
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -259,7 +279,7 @@
       <!-- Project Cards -->
       <app-floating-card
         title="Updates Soon"
-        icon="ni ni-check-bold"
+        icon="heroCheck"
         status="warning"
         link="projects/corebts"
         linkText="Learn more"
@@ -267,7 +287,7 @@
 
       <app-floating-card
         title="Updates Soon"
-        icon="ni ni-check-bold"
+        icon="heroCheck"
         status="warning"
         link="projects/corebts"
         linkText="Learn more"
@@ -275,7 +295,7 @@
 
       <app-floating-card
         title="West IT Portal"
-        icon="ni ni-check-bold"
+        icon="heroCheck"
         status="primary"
         superText="2017"
         description="I created an ASP.NET MVC website that centralizes all the
@@ -292,7 +312,7 @@
 
       <app-floating-card
         title="OnContact Quick Launch"
-        icon="ni ni-check-bold"
+        icon="heroCheck"
         status="primary"
         superText="2016"
         description="I added functionality to one of the tools that was previously
@@ -309,7 +329,7 @@
 
       <app-floating-card
         title="Database and SSIS Job Search"
-        icon="ni ni-istanbul"
+        icon="heroGlobeAlt"
         status="success"
         superText="2016"
         description="Database Search had a searchable list of the databases on all
@@ -325,7 +345,7 @@
 
       <app-floating-card
         title="Geek Squad Stat Tracker"
-        icon="ni ni-planet"
+        icon="heroGlobeAlt"
         status="warning"
         superText="2015"
         description="I have written and deployed a software application for
@@ -367,7 +387,11 @@
         <div
           class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl"
         >
-          <i class="ni ni-settings text-white text-3xl"></i>
+          <ng-icon
+            name="heroCog6Tooth"
+            size="2rem"
+            class="text-white"
+          ></ng-icon>
         </div>
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -388,7 +412,11 @@
           <div
             class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg mr-4"
           >
-            <i class="fa fa-star text-white text-lg"></i>
+            <ng-icon
+              name="heroStar"
+              size="1.125rem"
+              class="text-white"
+            ></ng-icon>
           </div>
           <h3 class="text-2xl font-bold text-white">Proficient</h3>
         </div>
@@ -399,7 +427,11 @@
             <span class="text-lg text-gray-200 font-medium">Angular</span>
             <div class="flex space-x-1">
               @for (star of [1, 2, 3, 4, 5]; track star) {
-                <i class="fa fa-star text-green-400 text-sm"></i>
+                <ng-icon
+                  name="heroStar"
+                  size="0.875rem"
+                  class="text-green-400"
+                ></ng-icon>
               }
             </div>
           </div>
@@ -409,7 +441,11 @@
             <span class="text-lg text-gray-200 font-medium">C#</span>
             <div class="flex space-x-1">
               @for (star of [1, 2, 3, 4, 5]; track star) {
-                <i class="fa fa-star text-green-400 text-sm"></i>
+                <ng-icon
+                  name="heroStar"
+                  size="0.875rem"
+                  class="text-green-400"
+                ></ng-icon>
               }
             </div>
           </div>
@@ -419,7 +455,11 @@
             <span class="text-lg text-gray-200 font-medium">SQL</span>
             <div class="flex space-x-1">
               @for (star of [1, 2, 3, 4, 5]; track star) {
-                <i class="fa fa-star text-green-400 text-sm"></i>
+                <ng-icon
+                  name="heroStar"
+                  size="0.875rem"
+                  class="text-green-400"
+                ></ng-icon>
               }
             </div>
           </div>
@@ -429,7 +469,11 @@
             <span class="text-lg text-gray-200 font-medium">HTML</span>
             <div class="flex space-x-1">
               @for (star of [1, 2, 3, 4, 5]; track star) {
-                <i class="fa fa-star text-green-400 text-sm"></i>
+                <ng-icon
+                  name="heroStar"
+                  size="0.875rem"
+                  class="text-green-400"
+                ></ng-icon>
               }
             </div>
           </div>
@@ -439,7 +483,11 @@
             <span class="text-lg text-gray-200 font-medium">TypeScript</span>
             <div class="flex space-x-1">
               @for (star of [1, 2, 3, 4, 5]; track star) {
-                <i class="fa fa-star text-green-400 text-sm"></i>
+                <ng-icon
+                  name="heroStar"
+                  size="0.875rem"
+                  class="text-green-400"
+                ></ng-icon>
               }
             </div>
           </div>
@@ -449,18 +497,34 @@
             <span class="text-lg text-gray-200 font-medium">Nix</span>
             <div class="flex space-x-1">
               @for (star of [1, 2, 3, 4]; track star) {
-                <i class="fa fa-star text-green-400 text-sm"></i>
+                <ng-icon
+                  name="heroStar"
+                  size="0.875rem"
+                  class="text-green-400"
+                ></ng-icon>
               }
-              <i class="fa fa-star text-gray-500 text-sm"></i>
+              <ng-icon
+                name="heroStar"
+                size="0.875rem"
+                class="text-gray-500"
+              ></ng-icon>
             </div>
           </div>
           <div class="flex items-center justify-between py-2">
             <span class="text-lg text-gray-200 font-medium">Lua</span>
             <div class="flex space-x-1">
               @for (star of [1, 2, 3, 4]; track star) {
-                <i class="fa fa-star text-green-400 text-sm"></i>
+                <ng-icon
+                  name="heroStar"
+                  size="0.875rem"
+                  class="text-green-400"
+                ></ng-icon>
               }
-              <i class="fa fa-star text-gray-500 text-sm"></i>
+              <ng-icon
+                name="heroStar"
+                size="0.875rem"
+                class="text-gray-500"
+              ></ng-icon>
             </div>
           </div>
         </div>
@@ -476,7 +540,11 @@
             <div
               class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center shadow-lg mr-4"
             >
-              <i class="fa fa-graduation-cap text-white text-lg"></i>
+              <ng-icon
+                name="heroAcademicCap"
+                size="1.125rem"
+                class="text-white"
+              ></ng-icon>
             </div>
             <h3 class="text-2xl font-bold text-white">Learned</h3>
           </div>
@@ -516,7 +584,11 @@
             <div
               class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg mr-4"
             >
-              <i class="fa fa-lightbulb-o text-white text-lg"></i>
+              <ng-icon
+                name="heroLightBulb"
+                size="1.125rem"
+                class="text-white"
+              ></ng-icon>
             </div>
             <h3 class="text-2xl font-bold text-white">Interested</h3>
           </div>

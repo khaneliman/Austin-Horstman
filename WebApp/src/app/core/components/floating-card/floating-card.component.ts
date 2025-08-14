@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, NgIconComponent],
   selector: 'app-floating-card',
   templateUrl: './floating-card.component.html',
   styleUrls: ['./floating-card.component.scss'],

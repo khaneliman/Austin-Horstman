@@ -52,7 +52,7 @@ export class WestComponent {
       description:
         'Comprehensive internal portal system to streamline IT operations and improve departmental workflow efficiency',
       route: '/projects/professional/west/it-portal',
-      icon: 'ni ni-settings-gear-65',
+      icon: 'heroCog6Tooth',
       color: 'from-red-500 to-orange-600',
       status: 'Production',
       technologies: ['C#', 'SQL Server', 'ASP.NET', 'Internal Tools'],
@@ -62,7 +62,7 @@ export class WestComponent {
       description:
         'Advanced SSIS packages and stored procedures for automated data processing and enterprise reporting systems',
       route: '/projects/professional/west/database-tool',
-      icon: 'ni ni-archive-2',
+      icon: 'heroArchiveBox',
       color: 'from-orange-500 to-yellow-600',
       status: 'Production',
       technologies: ['SSIS', 'SSRS', 'SQL Server', 'Data Processing'],
