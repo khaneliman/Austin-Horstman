@@ -39,6 +39,26 @@ export class ProjectNavigationService {
         route: '/projects/professional/skyline/network-health',
       },
     ],
+    geeksquad: [
+      {
+        name: 'Stat Tracker',
+        route: '/projects/professional/geeksquad/stat-tracker',
+      },
+    ],
+    west: [
+      {
+        name: 'Database Tool',
+        route: '/projects/professional/west/database-tool',
+      },
+      {
+        name: 'IT Portal',
+        route: '/projects/professional/west/it-portal',
+      },
+      {
+        name: 'Quick Launch',
+        route: '/projects/professional/west/quick-launch',
+      },
+    ],
   };
 
   getNavigationItems(
