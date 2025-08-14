@@ -52,7 +52,7 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/nri-na',
     employmentRoute: '/personal/resume/employment/nri-na',
     gradientColor: 'from-blue-600 to-indigo-600',
-    projects: [{ name: 'DoItBest Platform', route: 'doitbest' }],
+    projects: [{ name: 'Do It Best', route: 'doitbest' }],
   },
 
   corebts: {
@@ -92,8 +92,8 @@ export const COMPANIES = {
     employmentRoute: '/personal/resume/employment/corebts',
     gradientColor: 'from-gray-800 to-green-700',
     projects: [
-      { name: 'Kroger Solutions', route: 'kroger' },
-      { name: 'DoItBest Platform', route: 'doitbest' },
+      { name: 'Kroger', route: 'kroger' },
+      { name: 'Do It Best', route: 'doitbest' },
     ],
   },
 

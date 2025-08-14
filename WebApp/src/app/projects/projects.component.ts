@@ -63,18 +63,18 @@ export class ProjectsComponent {
       switch (company.company) {
         case 'NRI-NA':
           projects.push({
-            name: 'DoItBest Platform',
+            name: 'Do It Best',
             route: '/projects/professional/nri-na/doitbest',
           });
           break;
         case 'Core BTS':
           projects.push(
             {
-              name: 'Kroger Solutions',
+              name: 'Kroger',
               route: '/projects/professional/corebts/kroger',
             },
             {
-              name: 'DoItBest Platform',
+              name: 'Do It Best',
               route: '/projects/professional/corebts/doitbest',
             }
           );
@@ -82,7 +82,7 @@ export class ProjectsComponent {
         case 'Skyline Technologies':
           projects.push(
             {
-              name: 'Kroger Solutions',
+              name: 'Kroger',
               route: '/projects/professional/skyline/kroger',
             },
             {

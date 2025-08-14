@@ -4,7 +4,7 @@ import { COMPANIES } from './companies';
 // Shared project configurations that can be reused across different company contexts
 export const SHARED_PROJECTS = {
   doitbest: {
-    name: 'DoItBest Platform',
+    name: 'DoItBest',
     description:
       'Backend services and infrastructure modernization with mainframe decommissioning',
     icon: 'heroCog6Tooth',
@@ -15,7 +15,7 @@ export const SHARED_PROJECTS = {
 
   kroger: {
     corebts: {
-      name: 'Kroger Solutions',
+      name: 'Kroger',
       description:
         'NgRx state management and Cold Fusion modernization for enterprise retail platform',
       icon: 'heroShoppingBag',
@@ -25,7 +25,7 @@ export const SHARED_PROJECTS = {
       route: '/projects/professional/corebts/kroger',
     },
     skyline: {
-      name: 'Kroger Solutions',
+      name: 'Kroger',
       description:
         'Enterprise retail platform modernization and inventory management systems',
       icon: 'heroShoppingBag',
@@ -35,7 +35,7 @@ export const SHARED_PROJECTS = {
       route: '/projects/professional/skyline/kroger',
     },
     nriNa: {
-      name: 'Kroger Solutions',
+      name: 'Kroger',
       description: 'Advanced enterprise platform modernization',
       icon: 'heroShoppingBag',
       color: 'from-blue-600 to-indigo-800',
