@@ -82,6 +82,71 @@
     <!-- Content section -->
     <div class="px-8 py-12">
       <div class="max-w-4xl mx-auto">
+        <!-- Projects Grid -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <i class="ni ni-folder-17 text-red-500 mr-3"></i>
+            West Corporation Projects
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div
+              *ngFor="let project of projects"
+              class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <!-- Project Header -->
+              <div
+                [class]="
+                  'relative bg-gradient-to-r ' + project.color + ' px-6 py-8'
+                "
+              >
+                <div
+                  class="absolute top-3 right-3 w-12 h-12 bg-white/10 rounded-full blur-lg"
+                ></div>
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <div
+                      [class]="
+                        'w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center'
+                      "
+                    >
+                      <i [class]="project.icon + ' text-white text-xl'"></i>
+                    </div>
+                    <span
+                      class="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium"
+                    >
+                      {{ project.status }}
+                    </span>
+                  </div>
+                  <h4 class="text-xl font-bold text-white mb-2">
+                    {{ project.name }}
+                  </h4>
+                  <p class="text-white/90 text-sm">{{ project.description }}</p>
+                </div>
+              </div>
+
+              <!-- Project Details -->
+              <div class="p-6">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    *ngFor="let tech of project.technologies"
+                    class="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs font-medium"
+                  >
+                    {{ tech }}
+                  </span>
+                </div>
+
+                <a
+                  [routerLink]="project.route"
+                  class="inline-flex items-center w-full px-4 py-3 bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all duration-200 justify-center group-hover:scale-105"
+                >
+                  <i class="ni ni-bold-right mr-2"></i>
+                  View Project Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Company overview -->
         <div
           class="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8 mb-8"
