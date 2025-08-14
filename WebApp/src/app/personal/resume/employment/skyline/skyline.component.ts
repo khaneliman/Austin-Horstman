@@ -36,6 +36,14 @@ export class SkylineComponent {
     },
     description:
       'Skyline Technologies is a premier software consulting company specializing in custom application development, web development, and technology consulting services. As a Software Engineer consultant, I worked with diverse clients providing recommendations for software design and collaborating with their development teams across multiple technology stacks and platforms.',
+    achievements: [
+      'Native iOS development for regulatory compliance company',
+      'Xamarin mobile development for entertainment festival platform',
+      'Angular/GraphQL web application for education reporting company',
+      'Full-stack development for pharmaceutical rebates company (Angular, .NET Core APIs)',
+      'SSIS ETL processes and database migration workflows',
+      'CI/CD pipeline setup and DACPAC database migration process creation',
+    ],
   };
 
   projects: ProjectInfo[] = [
