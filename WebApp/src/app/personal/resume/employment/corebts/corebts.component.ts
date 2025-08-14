@@ -42,12 +42,13 @@ export class CorebtsComponent {
   projects: ProjectInfo[] = [
     {
       name: 'Kroger Solutions',
-      description: 'Enterprise retail platform modernization',
+      description:
+        'NgRx state management and Cold Fusion modernization for enterprise retail platform',
       route: '/projects/professional/corebts/kroger',
       icon: 'heroShoppingBag',
       color: 'from-green-600 to-emerald-800',
       status: 'Production',
-      technologies: ['Angular', '.NET', 'Azure', 'SQL Server'],
+      technologies: ['Angular', 'NgRx', '.NET', 'Azure', 'Cold Fusion Legacy'],
     },
     {
       name: 'DoItBest Platform',

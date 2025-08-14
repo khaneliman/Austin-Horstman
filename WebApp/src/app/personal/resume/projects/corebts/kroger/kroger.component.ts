@@ -17,6 +17,9 @@ import {
   heroArrowRight,
   heroArchiveBox,
   heroGlobeAlt,
+  heroCodeBracket,
+  heroCircleStack,
+  heroArrowPath,
 } from '@ng-icons/heroicons/outline';
 
 @Component({
@@ -41,6 +44,9 @@ import {
       heroArrowRight,
       heroArchiveBox,
       heroGlobeAlt,
+      heroCodeBracket,
+      heroCircleStack,
+      heroArrowPath,
     }),
   ],
 })
