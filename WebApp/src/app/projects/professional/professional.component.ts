@@ -69,6 +69,10 @@ export class ProfessionalProjectsComponent {
       color: 'from-blue-600 to-purple-600',
       projects: [
         {
+          name: 'Kroger Solutions',
+          route: '/projects/professional/skyline/kroger',
+        },
+        {
           name: 'Renaissance Learning Platform',
           route: '/projects/professional/skyline/renaissance-learning',
         },
