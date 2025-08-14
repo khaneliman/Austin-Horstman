@@ -31,7 +31,7 @@ export class ProjectsComponent {
       description: 'Enterprise solutions and digital transformation',
       company: 'NRI-NA',
       route: '/projects/professional/nri-na',
-      logo: 'assets/images/corebts.png',
+      logo: 'assets/images/nri-logo.png',
       color: 'from-blue-600 to-indigo-600',
       projects: [
         {

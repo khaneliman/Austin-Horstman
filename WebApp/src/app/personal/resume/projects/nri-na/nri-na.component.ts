@@ -14,7 +14,7 @@ import {
 export class NriNaComponent {
   company: CompanyInfo = {
     name: 'NRI-NA',
-    logoSrc: 'assets/images/corebts.png',
+    logoSrc: 'assets/images/nri-logo.png',
     logoAlt: 'NRI-NA logo',
     website: 'https://www.nri.com/en/worldwide/americas',
     location: 'Madison, WI',
