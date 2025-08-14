@@ -7,6 +7,7 @@ export interface ExtendedCompanyInfo extends CompanyInfo {
   projectsRoute: string;
   employmentRoute: string;
   gradientColor: string; // For professional projects cards
+  logoBackground: 'white' | 'black' | 'dark'; // Logo background styling
   projects: readonly { name: string; route: string }[]; // Projects available for this company
 }
 
@@ -18,6 +19,7 @@ export const COMPANIES = {
     name: 'NRI-NA',
     logoSrc: 'assets/images/nri-logo.png',
     logoAlt: 'NRI-NA logo',
+    logoBackground: 'white',
     website: 'https://www.nri.com/en/worldwide/americas',
     location: 'Appleton, WI',
     position: 'Senior Software Engineer',
@@ -61,6 +63,7 @@ export const COMPANIES = {
     name: 'Core BTS',
     logoSrc: 'assets/images/corebts.png',
     logoAlt: 'Core BTS logo',
+    logoBackground: 'black',
     website: 'https://www.corebts.com',
     location: 'Appleton, WI',
     position: 'Software Engineer → Senior Software Engineer',
@@ -68,12 +71,12 @@ export const COMPANIES = {
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'green',
-      primary: 'green-500',
-      secondary: 'emerald-600',
-      accent: 'lime-600',
-      gradientFrom: 'from-green-900',
-      gradientTo: 'to-emerald-900',
-      gradientVia: 'via-green-800',
+      primary: 'emerald-600',
+      secondary: 'teal-500',
+      accent: 'green-500',
+      gradientFrom: 'from-emerald-600',
+      gradientTo: 'to-teal-500',
+      gradientVia: 'via-green-500',
     },
     stats: {
       years: '1',
@@ -90,7 +93,7 @@ export const COMPANIES = {
     ],
     projectsRoute: '/projects/professional/corebts',
     employmentRoute: '/personal/resume/employment/corebts',
-    gradientColor: 'from-gray-800 to-green-700',
+    gradientColor: 'from-emerald-600 to-teal-500',
     projects: [
       { name: 'Kroger', route: 'kroger' },
       { name: 'Do It Best', route: 'doitbest' },
@@ -103,6 +106,7 @@ export const COMPANIES = {
     name: 'Skyline Technologies',
     logoSrc: './assets/images/skyline-technologies.png',
     logoAlt: 'Skyline Technologies logo',
+    logoBackground: 'white',
     website: 'https://www.skylinetechnologies.com',
     location: 'Appleton, WI',
     position: 'Software Engineer',
@@ -143,6 +147,7 @@ export const COMPANIES = {
     name: 'West Corporation',
     logoSrc: './assets/images/west.jpg',
     logoAlt: 'West Corporation logo',
+    logoBackground: 'white',
     website: 'https://www.west.com',
     location: 'Omaha, NE',
     position: 'Software Engineer Intern',
@@ -153,8 +158,8 @@ export const COMPANIES = {
       primary: 'red-600',
       secondary: 'orange-600',
       accent: 'yellow-600',
-      gradientFrom: 'from-red-900',
-      gradientTo: 'to-orange-900',
+      gradientFrom: 'from-red-600',
+      gradientTo: 'to-orange-600',
     },
     stats: {
       years: '0.3',
@@ -179,18 +184,19 @@ export const COMPANIES = {
     name: 'Best Buy Geek Squad',
     logoSrc: './assets/images/geeksquad.jpg',
     logoAlt: 'Best Buy Geek Squad logo',
+    logoBackground: 'dark',
     website: 'https://www.bestbuy.com/site/geek-squad',
     location: 'Omaha, NE',
     position: 'Consultation Agent',
     dateRange: 'Oct 2017 - May 2018',
     department: 'Geek Squad Services',
     colorScheme: {
-      theme: 'blue',
-      primary: 'blue-600',
-      secondary: 'yellow-500',
-      accent: 'blue-800',
-      gradientFrom: 'from-blue-900',
-      gradientTo: 'to-blue-700',
+      theme: 'orange',
+      primary: 'orange-500',
+      secondary: 'gray-900',
+      accent: 'orange-600',
+      gradientFrom: 'from-gray-900',
+      gradientTo: 'to-orange-500',
     },
     stats: {
       years: '0.7',
@@ -201,7 +207,7 @@ export const COMPANIES = {
       'Best Buy Geek Squad provides technology support and services to customers. As a Consultation Agent, I provided technical support and developed internal tools to improve customer service efficiency, including stat tracking systems and operational dashboards to help agents manage their performance and customer interactions.',
     projectsRoute: '/projects/professional/geeksquad',
     employmentRoute: '/personal/resume/employment/bestbuy',
-    gradientColor: 'from-blue-600 to-yellow-600',
+    gradientColor: 'from-gray-900 to-orange-500',
     projects: [{ name: 'Stat Tracker', route: 'stat-tracker' }],
   },
 } as const;
@@ -260,6 +266,7 @@ export function getCompaniesForProfessionalGrid() {
     route: company.projectsRoute,
     logo: company.logoSrc,
     color: company.gradientColor,
+    logoBackground: company.logoBackground,
     projects: [], // Will be populated by project data separately
   }));
 }
