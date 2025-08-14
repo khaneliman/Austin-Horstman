@@ -3,7 +3,7 @@ on:
   workflow_run:
     workflows: [".NET WebApi Build"]
     types: [completed]
-    branches: [develop, master]
+    branches: [master]
     tags: ['v*.*.*', 'latest']
   release:
     types: [published]
@@ -12,7 +12,7 @@ on:
       branch:
         description: 'Branch or commit to build'
         required: true
-        default: 'develop'
+        default: 'master'
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}-WebApi
