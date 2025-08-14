@@ -14,11 +14,6 @@ export const RESUME_ROUTES: Routes = [
       import('./education/education.routes').then(m => m.EDUCATION_ROUTES),
   },
   {
-    path: 'projects',
-    loadChildren: () =>
-      import('./projects/projects.routes').then(m => m.PROJECTS_ROUTES),
-  },
-  {
     path: 'technology',
     loadChildren: () =>
       import('./technology/technology.routes').then(m => m.TECHNOLOGY_ROUTES),
