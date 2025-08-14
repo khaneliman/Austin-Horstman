@@ -1,0 +1,43 @@
+<!-- Project Navigation Header -->
+<div class="bg-white border-b border-gray-200 sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Left: Back Navigation -->
+      <div class="flex items-center space-x-4">
+        <a
+          [routerLink]="backRoute"
+          [class]="
+            'inline-flex items-center px-4 py-2 text-gray-600 hover:text-' +
+            hoverColor +
+            '-600 transition-colors duration-200'
+          "
+        >
+          <i class="ni ni-bold-left mr-2"></i>
+          {{ backLabel }}
+        </a>
+      </div>
+
+      <!-- Right: Project Quick Nav -->
+      <div
+        class="hidden md:flex items-center space-x-2"
+        *ngIf="projects.length > 1"
+      >
+        <a
+          *ngFor="let project of projects"
+          [routerLink]="project.route"
+          [class]="
+            project.isActive
+              ? 'px-3 py-2 bg-' +
+                hoverColor +
+                '-100 text-' +
+                hoverColor +
+                '-700 rounded-lg text-sm font-medium'
+              : 'px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg text-sm font-medium transition-colors'
+          "
+        >
+          {{ project.name }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

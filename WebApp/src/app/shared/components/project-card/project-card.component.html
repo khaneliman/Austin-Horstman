@@ -1,0 +1,58 @@
+<div
+  class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl border border-gray-100 hover:border-gray-200 overflow-hidden transition-all duration-300 transform hover:-translate-y-2"
+>
+  <!-- Project Header -->
+  <div [class]="'relative bg-gradient-to-r ' + project.color + ' px-8 py-10'">
+    <div
+      class="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full blur-xl"
+    ></div>
+    <div class="relative z-10">
+      <div class="flex items-center justify-between mb-4">
+        <div
+          class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center"
+        >
+          <i [class]="project.icon + ' text-white text-2xl'"></i>
+        </div>
+        <span
+          class="px-4 py-2 bg-white/20 rounded-full text-white text-sm font-medium"
+        >
+          {{ project.status }}
+        </span>
+      </div>
+      <h3 class="text-2xl font-bold text-white mb-3">
+        {{ project.name }}
+      </h3>
+      <p class="text-white/90 text-base">{{ project.description }}</p>
+    </div>
+  </div>
+
+  <!-- Project Details -->
+  <div class="p-8">
+    <div class="flex flex-wrap gap-2 mb-6">
+      <span
+        *ngFor="let tech of project.technologies"
+        class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium"
+      >
+        {{ tech }}
+      </span>
+    </div>
+
+    <a
+      [routerLink]="project.route"
+      [class]="
+        'inline-flex items-center w-full px-6 py-4 bg-gradient-to-r from-' +
+        buttonColor +
+        '-500 to-' +
+        buttonColor +
+        '-600 hover:from-' +
+        buttonColor +
+        '-600 hover:to-' +
+        buttonColor +
+        '-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 justify-center group-hover:scale-105'
+      "
+    >
+      <i class="ni ni-bold-right mr-3"></i>
+      View Project Details
+    </a>
+  </div>
+</div>
