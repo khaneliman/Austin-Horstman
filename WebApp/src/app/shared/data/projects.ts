@@ -5,12 +5,11 @@ export const SHARED_PROJECTS = {
   doitbest: {
     name: 'DoItBest Platform',
     description:
-      'Backend services and infrastructure modernization (inherited from Core BTS acquisition)',
+      'Backend services and infrastructure modernization with mainframe decommissioning',
     icon: 'heroCog6Tooth',
     color: 'from-indigo-600 to-blue-800',
     status: 'Production' as const,
     technologies: ['C#', 'Java', 'Kafka', 'Oracle', 'Azure', 'Kubernetes'],
-    route: '/projects/professional/corebts/doitbest',
   },
 
   kroger: {
@@ -37,9 +36,11 @@ export const SHARED_PROJECTS = {
 } as const;
 
 // Helper functions to get project configurations
-export function getDoItBestProject(): ProjectInfo {
+export function getDoItBestProject(company: 'corebts' | 'nri-na'): ProjectInfo {
+  const companyRoute = company === 'corebts' ? 'corebts' : 'nri-na';
   return {
     ...SHARED_PROJECTS.doitbest,
+    route: `/projects/professional/${companyRoute}/doitbest`,
     technologies: [...SHARED_PROJECTS.doitbest.technologies],
   };
 }
@@ -48,6 +49,26 @@ export function getKrogerProject(company: 'corebts' | 'nriNa'): ProjectInfo {
   const project = SHARED_PROJECTS.kroger[company];
   return {
     ...project,
+    technologies: [...project.technologies],
+  };
+}
+
+// Company profile specific helpers (for child routes with relative paths)
+export function getDoItBestProjectForProfile(): ProjectInfo {
+  return {
+    ...SHARED_PROJECTS.doitbest,
+    route: 'doitbest', // Relative route for child routes
+    technologies: [...SHARED_PROJECTS.doitbest.technologies],
+  };
+}
+
+export function getKrogerProjectForProfile(
+  company: 'corebts' | 'nriNa'
+): ProjectInfo {
+  const project = SHARED_PROJECTS.kroger[company];
+  return {
+    ...project,
+    route: 'kroger', // Relative route for child routes
     technologies: [...project.technologies],
   };
 }
