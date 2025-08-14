@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
   @Input() imgSrc: string | undefined;
