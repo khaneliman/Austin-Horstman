@@ -1,12 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { NgClass } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  imports: [NgClass],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {

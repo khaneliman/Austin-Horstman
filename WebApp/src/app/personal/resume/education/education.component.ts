@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.scss'],
-  imports: [RouterOutlet, AsyncPipe],
+  imports: [RouterOutlet],
 })
 export class EducationComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
