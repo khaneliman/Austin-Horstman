@@ -82,3 +82,47 @@
     }
   }
 }
+
+// Project card gradient styles for reliable rendering
+.project-card-header {
+  // Blue gradients
+  &.from-blue-600.to-indigo-700 {
+    background: linear-gradient(135deg, #2563eb 0%, #4338ca 100%);
+  }
+  &.from-blue-600.to-emerald-800 {
+    background: linear-gradient(135deg, #2563eb 0%, #065f46 100%);
+  }
+
+  // Indigo gradients
+  &.from-indigo-600.to-purple-700 {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  }
+  &.from-indigo-600.to-blue-800 {
+    background: linear-gradient(135deg, #4f46e5 0%, #1e40af 100%);
+  }
+
+  // Purple gradients
+  &.from-purple-600.to-red-700 {
+    background: linear-gradient(135deg, #9333ea 0%, #b91c1c 100%);
+  }
+
+  // Teal gradients
+  &.from-teal-600.to-green-700 {
+    background: linear-gradient(135deg, #0d9488 0%, #15803d 100%);
+  }
+
+  // Green gradients
+  &.from-green-600.to-emerald-800 {
+    background: linear-gradient(135deg, #16a34a 0%, #065f46 100%);
+  }
+
+  // Red gradients
+  &.from-red-600.to-orange-800 {
+    background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+  }
+
+  // Orange gradients
+  &.from-orange-600.to-yellow-800 {
+    background: linear-gradient(135deg, #ea580c 0%, #ca8a04 100%);
+  }
+}
