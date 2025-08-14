@@ -1,137 +1,274 @@
-<main>
-  <div class="position-relative">
-    <!-- shape Hero -->
-    <section class="section section-lg section-shaped pb-250">
-      <div class="shape shape-style-1 shape-default">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="container py-lg-md d-flex">
-        <div class="col px-0">
-          <div class="row">
-            <div class="col-lg-6">
-              <h1 class="display-3 text-white">
+<!-- Modern Hero Section -->
+<main class="min-h-screen">
+  <!-- Hero Section with gradient background -->
+  <section
+    class="relative min-h-screen bg-gradient-to-br from-blue-600 to-purple-600 overflow-hidden pt-16"
+  >
+    <!-- Animated background elements -->
+    <div class="absolute inset-0">
+      <div
+        class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"
+      ></div>
+      <div
+        class="absolute top-40 right-20 w-48 h-48 bg-purple-300/20 rounded-full blur-2xl animate-pulse delay-1000"
+      ></div>
+      <div
+        class="absolute bottom-40 left-1/4 w-24 h-24 bg-blue-300/20 rounded-full blur-xl animate-pulse delay-500"
+      ></div>
+      <div
+        class="absolute bottom-20 right-1/3 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-700"
+      ></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]"
+      >
+        <!-- Left side - Content -->
+        <div class="text-center lg:text-left">
+          <div class="space-y-8">
+            <!-- Name/Brand -->
+            <div>
+              <h1
+                class="text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight"
+              >
                 Khaneliman
-                <span></span>
               </h1>
-              <p class="lead text-white">
-                If you’re on the hunt for a professional Software Engineer with
-                experience and the ability to adapt to new technologies, you’ve
-                come to the right place.
-              </p>
-              <div class="btn-wrapper">
-                <a
-                  routerLink="/projects"
-                  class="btn btn-info btn-icon mb-3 mb-sm-0"
-                >
-                  <span class="btn-inner--icon"
-                    ><i class="fa fa-code"></i
-                  ></span>
-                  <span class="btn-inner--text">Projects</span>
-                </a>
-                <a
-                  routerLink="/personal"
-                  class="btn btn-white btn-icon mb-3 mb-sm-0"
-                >
-                  <span class="btn-inner--icon"
-                    ><i class="ni ni-circle-08"></i
-                  ></span>
-                  <span class="btn-inner--text">Personal</span>
-                </a>
-              </div>
+              <div
+                class="w-24 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto lg:mx-0 rounded-full"
+              ></div>
             </div>
-            <div class="col-md-6 order-md-2">
+
+            <!-- Description -->
+            <p
+              class="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-2xl"
+            >
+              Professional Software Engineer with expertise in modern
+              technologies and a passion for building innovative solutions.
+              Ready to adapt and excel in any development environment.
+            </p>
+
+            <!-- Call-to-action buttons -->
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <a
+                routerLink="/projects"
+                class="inline-flex items-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              >
+                <i class="fa fa-code mr-3 text-lg"></i>
+                <span>View Projects</span>
+              </a>
+
+              <a
+                routerLink="/personal/about"
+                class="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg border border-white/20 hover:border-white/30 shadow-lg hover:shadow-xl backdrop-blur-sm transform hover:scale-105 transition-all duration-200"
+              >
+                <i class="ni ni-circle-08 mr-3 text-lg"></i>
+                <span>About Me</span>
+              </a>
+            </div>
+
+            <!-- Skills tags -->
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <span
+                class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
+              >
+                Angular
+              </span>
+              <span
+                class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
+              >
+                TypeScript
+              </span>
+              <span
+                class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
+              >
+                .NET
+              </span>
+              <span
+                class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
+              >
+                Cloud
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side - Image/Visual -->
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative">
+            <!-- Decorative elements -->
+            <div
+              class="absolute -inset-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur-lg opacity-30"
+            ></div>
+
+            <!-- Main image container -->
+            <div
+              class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl"
+            >
               <img
                 src="./assets/img/theme/promo-1.png"
-                class="img-fluid floating"
-                alt="Austin Horstman promotional image"
+                class="w-full max-w-md h-auto object-contain filter drop-shadow-2xl"
+                alt="Austin Horstman - Professional Software Engineer"
               />
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- SVG separator -->
-      <div class="separator separator-bottom separator-skew">
-        <svg
-          x="0"
-          y="0"
-          viewBox="0 0 2560 100"
-          preserveAspectRatio="none"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-    </section>
-    <!-- 1st Hero Variation -->
-  </div>
-  <!-- <section class="section section-lg pt-lg-0 mt--200">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="row row-grid">
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-                      <i class="ni ni-check-bold"></i>
-                    </div>
-                    <h6 class="text-primary text-uppercase">Download Argon</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-primary">angular</span>
-                      <span class="badge badge-pill badge-primary">ng-bootstrap</span>
-                      <span class="badge badge-pill badge-primary">creative</span>
-                    </div>
-                    <a href="javascript:void(0)" class="btn btn-primary mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
-                      <i class="ni ni-istanbul"></i>
-                    </div>
-                    <h6 class="text-success text-uppercase">Build Something</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-success">business</span>
-                      <span class="badge badge-pill badge-success">vision</span>
-                      <span class="badge badge-pill badge-success">success</span>
-                    </div>
-                    <a href="javascript:void(0)" class="btn btn-success mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                      <i class="ni ni-planet"></i>
-                    </div>
-                    <h6 class="text-warning text-uppercase">Prepare Launch</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-warning">marketing</span>
-                      <span class="badge badge-pill badge-warning">product</span>
-                      <span class="badge badge-pill badge-warning">launch</span>
-                    </div>
-                    <a href="javascript:void(0)" class="btn btn-warning mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
+
+            <!-- Floating icons -->
+            <div
+              class="absolute -top-4 -right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
+            >
+              <i class="fa fa-code text-white text-xl"></i>
+            </div>
+
+            <div
+              class="absolute -bottom-4 -left-4 w-14 h-14 bg-purple-500 rounded-full flex items-center justify-center shadow-lg"
+            >
+              <i class="fa fa-laptop text-white text-lg"></i>
             </div>
           </div>
         </div>
       </div>
-    </section> -->
+    </div>
+
+    <!-- Modern wave separator -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+      <svg
+        class="relative block w-full h-20"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          class="fill-white"
+        ></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Features section (replacing the commented section) -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">What I Bring</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Combining technical expertise with practical problem-solving to
+          deliver exceptional software solutions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+        >
+          <div class="p-8">
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i class="fa fa-code text-white text-2xl"></i>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Modern Development
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Expert in cutting-edge frameworks and technologies, delivering
+              scalable and maintainable solutions using the latest best
+              practices.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium"
+                >Angular</span
+              >
+              <span
+                class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium"
+                >TypeScript</span
+              >
+              <span
+                class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium"
+                >Modern</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+        >
+          <div class="p-8">
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i class="fa fa-cogs text-white text-2xl"></i>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              System Architecture
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Designing robust, scalable systems that grow with your business
+              needs while maintaining high performance and reliability.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm font-medium"
+                >Scalable</span
+              >
+              <span
+                class="px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm font-medium"
+                >Cloud</span
+              >
+              <span
+                class="px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm font-medium"
+                >Reliable</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+        >
+          <div class="p-8">
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i class="fa fa-rocket text-white text-2xl"></i>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Innovation Focus
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Passionate about exploring emerging technologies and implementing
+              innovative solutions that drive business success.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm font-medium"
+                >Innovation</span
+              >
+              <span
+                class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm font-medium"
+                >Research</span
+              >
+              <span
+                class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm font-medium"
+                >Growth</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
