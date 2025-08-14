@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { getCompanyEmploymentRoute } from '../../data/companies';
+import { LogoStylingService } from '../../services/logo-styling.service';
 
 export interface ProfessionalProject {
   title: string;
@@ -10,6 +11,7 @@ export interface ProfessionalProject {
   route: string;
   logo: string;
   color: string;
+  logoBackground: 'white' | 'black' | 'dark';
   projects: {
     name: string;
     route: string;
@@ -27,7 +29,13 @@ export class ProfessionalProjectsGridComponent {
   @Input() projects: ProfessionalProject[] = [];
   @Input() showCompanyInfo = true;
 
+  private readonly logoStylingService = inject(LogoStylingService);
+
   getCompanyRoute(companyName: string): string {
     return getCompanyEmploymentRoute(companyName);
+  }
+
+  getLogoBackgroundStyle(logoBackground: 'white' | 'black' | 'dark'): string {
+    return this.logoStylingService.getLogoBackgroundStyle(logoBackground);
   }
 }

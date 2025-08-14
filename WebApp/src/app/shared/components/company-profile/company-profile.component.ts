@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { LogoStylingService } from '../../services/logo-styling.service';
 import {
   heroArrowTopRightOnSquare,
   heroMapPin,
@@ -31,6 +32,7 @@ export interface CompanyInfo {
   name: string;
   logoSrc: string;
   logoAlt: string;
+  logoBackground?: 'white' | 'black' | 'dark'; // Make it optional for now
   website?: string;
   location: string;
   position: string;
@@ -99,6 +101,14 @@ export interface ProjectInfo {
 export class CompanyProfileComponent {
   @Input() company!: CompanyInfo;
   @Input() projects!: ProjectInfo[];
+
+  private readonly logoStylingService = inject(LogoStylingService);
+
+  getLogoBackgroundStyle(
+    logoBackground: 'white' | 'black' | 'dark' | undefined
+  ): string {
+    return this.logoStylingService.getLogoBackgroundStyle(logoBackground);
+  }
 
   getTechBadgeClass(index: number): string {
     const badgeClasses = [
