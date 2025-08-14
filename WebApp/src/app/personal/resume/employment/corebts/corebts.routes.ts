@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { CorebtsComponent } from '../../projects/corebts/corebts.component';
+import { CorebtsComponent } from './corebts.component';
 
 export const COREBTS_ROUTES: Routes = [
   { path: '', component: CorebtsComponent },
