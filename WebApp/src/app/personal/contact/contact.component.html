@@ -1,138 +1,184 @@
-<main>
-  <div class="position-relative">
-    <section class="section section-lg bg-gradient-default">
-      <div class="container pt-lg pb-300">
-        <div class="row text-center justify-content-center">
-          <div class="col-lg-10">
-            <h2 class="display-3 text-white">Build something</h2>
-            <p class="lead text-white">
-              Having worked in the consulting business, I have learned a lot
-              about what prevents projects from being completed successfully and
-              how to figure out the most important needs of a client.
-            </p>
-          </div>
-        </div>
-        <div class="row row-grid mt-5">
-          <div class="col-lg-4">
-            <div
-              class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary"
-            >
-              <i class="ni ni-settings text-primary"></i>
-            </div>
-            <h5 class="text-white mt-3">Building tools</h5>
-            <p class="text-white mt-3">
-              Experience with the latest Angular and Dotnet technology allows
-              tools to be maintainable and supported for longer.
-            </p>
-          </div>
-          <div class="col-lg-4">
-            <div
-              class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary"
-            >
-              <i class="ni ni-ruler-pencil text-primary"></i>
-            </div>
-            <h5 class="text-white mt-3">Grow your market</h5>
-            <p class="text-white mt-3">
-              Creating new services that are easier to use allow you to reach a
-              wider market that is looking for a better UX experience.
-            </p>
-          </div>
-          <div class="col-lg-4">
-            <div
-              class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary"
-            >
-              <i class="ni ni-atom text-primary"></i>
-            </div>
-            <h5 class="text-white mt-3">Launch time</h5>
-            <p class="text-white mt-3">
-              Utilizing modern frameworks that allow quick code generation and
-              reusable components allows an application to reach market faster.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- SVG separator -->
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg
-          x="0"
-          y="0"
-          viewBox="0 0 2560 100"
-          preserveAspectRatio="none"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
+<main class="min-h-screen">
+  <!-- Hero Section -->
+  <section
+    class="relative bg-gradient-to-br from-blue-600 to-purple-600 overflow-hidden pt-16"
+  >
+    <!-- Animated background elements -->
+    <div class="absolute inset-0">
+      <div
+        class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"
+      ></div>
+      <div
+        class="absolute top-40 right-20 w-48 h-48 bg-purple-300/20 rounded-full blur-2xl animate-pulse delay-1000"
+      ></div>
+      <div
+        class="absolute bottom-40 left-1/4 w-24 h-24 bg-blue-300/20 rounded-full blur-xl animate-pulse delay-500"
+      ></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <!-- Header content -->
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
+          Build something
+        </h2>
+        <p
+          class="text-xl lg:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed"
         >
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
+          Having worked in the consulting business, I have learned a lot about
+          what prevents projects from being completed successfully and how to
+          figure out the most important needs of a client.
+        </p>
       </div>
-    </section>
-    <section class="section section-lg pt-lg-0 section-contact-us">
-      <div class="container">
-        <div class="row justify-content-center mt--300">
-          <div class="col-lg-8">
-            <div class="card bg-gradient-secondary shadow">
-              <div class="card-body p-lg-5">
-                <h4 class="mb-1">Want to work with me?</h4>
-                <p class="mt-0">Your project is very important to me.</p>
+
+      <!-- Features grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+        <!-- Building tools -->
+        <div class="text-center">
+          <div
+            class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
+          >
+            <i class="ni ni-settings text-blue-600 text-3xl"></i>
+          </div>
+          <h5 class="text-2xl font-bold text-white mb-4">Building tools</h5>
+          <p class="text-blue-100 text-lg leading-relaxed">
+            Experience with the latest Angular and .NET technology allows tools
+            to be maintainable and supported for longer.
+          </p>
+        </div>
+
+        <!-- Grow your market -->
+        <div class="text-center">
+          <div
+            class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
+          >
+            <i class="ni ni-ruler-pencil text-blue-600 text-3xl"></i>
+          </div>
+          <h5 class="text-2xl font-bold text-white mb-4">Grow your market</h5>
+          <p class="text-blue-100 text-lg leading-relaxed">
+            Creating new services that are easier to use allow you to reach a
+            wider market that is looking for a better UX experience.
+          </p>
+        </div>
+
+        <!-- Launch time -->
+        <div class="text-center">
+          <div
+            class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
+          >
+            <i class="ni ni-atom text-blue-600 text-3xl"></i>
+          </div>
+          <h5 class="text-2xl font-bold text-white mb-4">Launch time</h5>
+          <p class="text-blue-100 text-lg leading-relaxed">
+            Utilizing modern frameworks that allow quick code generation and
+            reusable components allows an application to reach market faster.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave separator -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+      <svg
+        class="relative block w-full h-20"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          class="fill-white"
+        ></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="py-20 bg-white relative -mt-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative">
+        <!-- Contact form card -->
+        <div
+          class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl shadow-2xl p-8 lg:p-12 border border-gray-100"
+        >
+          <div class="text-center mb-8">
+            <h4 class="text-3xl font-bold text-gray-800 mb-4">
+              Want to work with me?
+            </h4>
+            <p class="text-xl text-gray-600">
+              Your project is very important to me.
+            </p>
+          </div>
+
+          <form class="space-y-6">
+            <!-- Name input -->
+            <div class="group" [class.focused]="focus === true">
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Your Name</label
+              >
+              <div class="relative">
                 <div
-                  class="form-group mt-5"
-                  [ngClass]="{ focused: focus === true }"
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
                 >
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"
-                        ><i class="ni ni-user-run"></i
-                      ></span>
-                    </div>
-                    <input
-                      class="form-control"
-                      placeholder="Your name"
-                      type="text"
-                      (focus)="focus = true"
-                      (blur)="focus = false"
-                    />
-                  </div>
+                  <i class="ni ni-user-run text-gray-400"></i>
                 </div>
-                <div
-                  class="form-group"
-                  [ngClass]="{ focused: focus1 === true }"
-                >
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"
-                        ><i class="ni ni-email-83"></i
-                      ></span>
-                    </div>
-                    <input
-                      class="form-control"
-                      placeholder="Email address"
-                      type="email"
-                      (focus)="focus1 = true"
-                      (blur)="focus1 = false"
-                    />
-                  </div>
-                </div>
-                <div class="form-group mb-4">
-                  <textarea
-                    class="form-control form-control-alternative"
-                    name="name"
-                    rows="4"
-                    cols="80"
-                    placeholder="Type a message..."
-                  ></textarea>
-                </div>
-                <div>
-                  <button
-                    type="button"
-                    class="btn btn-default btn-round btn-block btn-lg"
-                  >
-                    Send Message
-                  </button>
-                </div>
+                <input
+                  type="text"
+                  class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                  placeholder="Your name"
+                  (focus)="focus = true"
+                  (blur)="focus = false"
+                />
               </div>
             </div>
-          </div>
+
+            <!-- Email input -->
+            <div class="group" [class.focused]="focus1 === true">
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Email Address</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                >
+                  <i class="ni ni-email-83 text-gray-400"></i>
+                </div>
+                <input
+                  type="email"
+                  class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                  placeholder="your.email@example.com"
+                  (focus)="focus1 = true"
+                  (blur)="focus1 = false"
+                />
+              </div>
+            </div>
+
+            <!-- Message textarea -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Message</label
+              >
+              <textarea
+                rows="6"
+                class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm resize-none"
+                placeholder="Tell me about your project..."
+              ></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <div class="pt-4">
+              <button
+                type="button"
+                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-3"
+              >
+                <i class="ni ni-send text-xl"></i>
+                <span class="text-lg">Send Message</span>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
