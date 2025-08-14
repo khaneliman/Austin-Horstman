@@ -22,6 +22,11 @@ export const EMPLOYMENT_ROUTES: Routes = [
           import('./skyline/skyline.routes').then(m => m.SKYLINE_ROUTES),
       },
       {
+        path: 'nri-na',
+        loadChildren: () =>
+          import('./nri-na/nri-na.routes').then(m => m.NRI_NA_ROUTES),
+      },
+      {
         path: 'west',
         loadChildren: () =>
           import('./west/west.routes').then(m => m.WEST_ROUTES),

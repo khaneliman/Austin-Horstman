@@ -29,6 +29,11 @@ export const PROJECTS_ROUTES: Routes = [
           import('./geeksquad/geeksquad.routes').then(m => m.GEEKSQUAD_ROUTES),
       },
       {
+        path: 'nri-na',
+        loadChildren: () =>
+          import('./nri-na/nri-na.routes').then(m => m.NRI_NA_ROUTES),
+      },
+      {
         path: 'corebts',
         loadChildren: () =>
           import('./corebts/corebts.routes').then(m => m.COREBTS_ROUTES),

@@ -6,6 +6,16 @@ import { ProjectNavItem } from '../components/project-nav-header/project-nav-hea
 })
 export class ProjectNavigationService {
   private navConfigurations: Record<string, ProjectNavItem[]> = {
+    'nri-na': [
+      {
+        name: 'Kroger Solutions',
+        route: '/projects/professional/nri-na/kroger',
+      },
+      {
+        name: 'DoItBest Platform',
+        route: '/projects/professional/nri-na/doitbest',
+      },
+    ],
     corebts: [
       {
         name: 'Kroger Solutions',
