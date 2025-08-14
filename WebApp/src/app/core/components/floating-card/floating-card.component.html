@@ -1,23 +1,92 @@
-<div class="card card-lift--hover shadow border-0">
-  <div class="card-body py-5">
-    <div class="icon icon-shape icon-shape-{{ status }} rounded-circle mb-4">
-      <i class="{{ icon }}"></i>
+<div
+  class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+>
+  <div class="p-8">
+    <!-- Icon with gradient background -->
+    <div
+      class="w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+      [ngClass]="{
+        'bg-gradient-to-r from-blue-500 to-blue-600': status === 'primary',
+        'bg-gradient-to-r from-green-500 to-green-600': status === 'success',
+        'bg-gradient-to-r from-yellow-500 to-yellow-600': status === 'warning',
+        'bg-gradient-to-r from-red-500 to-red-600': status === 'danger',
+        'bg-gradient-to-r from-purple-500 to-purple-600': status === 'info',
+        'bg-gradient-to-r from-gray-500 to-gray-600': !status,
+      }"
+    >
+      <i class="{{ icon }} text-white text-2xl"></i>
     </div>
-    <h6 class="text-{{ status }} text-uppercase">{{ title }}</h6>
-    <sup>
-      <i>{{ superText }}</i>
-    </sup>
-    <p class="description mt-3">
+
+    <!-- Title -->
+    <h6
+      class="text-lg font-bold uppercase tracking-wide mb-2"
+      [ngClass]="{
+        'text-blue-600': status === 'primary',
+        'text-green-600': status === 'success',
+        'text-yellow-600': status === 'warning',
+        'text-red-600': status === 'danger',
+        'text-purple-600': status === 'info',
+        'text-gray-600': !status,
+      }"
+    >
+      {{ title }}
+    </h6>
+
+    <!-- Super text -->
+    @if (superText) {
+      <p class="text-sm text-gray-500 italic mb-3">
+        {{ superText }}
+      </p>
+    }
+
+    <!-- Description -->
+    <p class="text-gray-700 leading-relaxed mb-4">
       {{ description }}
     </p>
-    <div>
-      @for (tag of tags; track tag) {
-        <span class="badge badge-pill badge-warning">{{ tag }}</span>
-      }
-    </div>
-    <a routerLink="{{ link }}" class="btn btn-{{ status }} mt-4">{{
-      linkText
-    }}</a>
+
+    <!-- Tags -->
+    @if (tags && tags.length > 0) {
+      <div class="flex flex-wrap gap-2 mb-6">
+        @for (tag of tags; track tag) {
+          <span
+            class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full border border-yellow-200"
+          >
+            {{ tag }}
+          </span>
+        }
+      </div>
+    }
+
+    <!-- Action button -->
+    @if (link && linkText) {
+      <a
+        routerLink="{{ link }}"
+        class="inline-flex items-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg"
+        [ngClass]="{
+          'bg-blue-500 hover:bg-blue-600 text-white': status === 'primary',
+          'bg-green-500 hover:bg-green-600 text-white': status === 'success',
+          'bg-yellow-500 hover:bg-yellow-600 text-white': status === 'warning',
+          'bg-red-500 hover:bg-red-600 text-white': status === 'danger',
+          'bg-purple-500 hover:bg-purple-600 text-white': status === 'info',
+          'bg-gray-500 hover:bg-gray-600 text-white': !status,
+        }"
+      >
+        <span>{{ linkText }}</span>
+        <svg
+          class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </a>
+    }
   </div>
 </div>
 
