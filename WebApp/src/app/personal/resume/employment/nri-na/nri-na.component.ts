@@ -13,7 +13,7 @@ import {
 })
 export class NriNaComponent {
   company: CompanyInfo = {
-    name: 'NRI-NA (formerly Core BTS)',
+    name: 'NRI-NA',
     logoSrc: 'assets/images/corebts.png',
     logoAlt: 'NRI-NA logo',
     website: 'https://www.nri.com/en/worldwide/americas',
@@ -36,7 +36,7 @@ export class NriNaComponent {
       metric2: { value: '20+', label: 'Clients' },
     },
     description:
-      'NRI-NA (formerly Core BTS) is a technology consulting company specializing in modern application development and digital transformation solutions. Following the acquisition by Nomura Research Institute in 2022, the company has expanded its global reach and enterprise capabilities. As a Senior Software Engineer in the Modern Business Unit, I work with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on cloud-native architectures and scalable enterprise solutions.',
+      "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2022, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Senior Software Engineer in the Modern Business Unit, I work with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on cloud-native architectures and scalable enterprise solutions.",
   };
 
   projects: ProjectInfo[] = [
