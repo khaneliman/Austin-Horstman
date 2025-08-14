@@ -8,5 +8,10 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./personal/personal.routes').then(m => m.PERSONAL_ROUTES),
   },
+  {
+    path: 'projects',
+    loadChildren: () =>
+      import('./projects/projects.routes').then(m => m.PROJECTS_ROUTES),
+  },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
