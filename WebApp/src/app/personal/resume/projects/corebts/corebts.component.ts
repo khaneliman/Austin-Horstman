@@ -4,6 +4,10 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../../shared/components/company-profile/company-profile.component';
+import {
+  getDoItBestProjectForProfile,
+  getKrogerProjectForProfile,
+} from '../../../../shared/data/projects';
 
 @Component({
   selector: 'app-corebts',
@@ -39,23 +43,7 @@ export class CorebtsComponent {
   };
 
   projects: ProjectInfo[] = [
-    {
-      name: 'Kroger Solutions',
-      description: 'Modern enterprise solutions for retail operations',
-      route: 'kroger',
-      icon: 'heroShoppingBag',
-      color: 'from-blue-600 to-blue-800',
-      status: 'Production',
-      technologies: ['Angular', 'C#', '.NET', 'SQL Server'],
-    },
-    {
-      name: 'DoItBest Platform',
-      description: 'Hardware retail management and analytics platform',
-      route: 'doitbest',
-      icon: 'heroCog6Tooth',
-      color: 'from-green-600 to-green-800',
-      status: 'Production',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
-    },
+    getKrogerProjectForProfile('corebts'),
+    getDoItBestProjectForProfile(),
   ];
 }

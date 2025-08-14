@@ -4,6 +4,10 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../../shared/components/company-profile/company-profile.component';
+import {
+  getDoItBestProjectForProfile,
+  getKrogerProjectForProfile,
+} from '../../../../shared/data/projects';
 
 @Component({
   selector: 'app-nri-na',
@@ -17,9 +21,10 @@ export class NriNaComponent {
     logoSrc: 'assets/images/nri-logo.png',
     logoAlt: 'NRI-NA logo',
     website: 'https://www.nri.com/en/worldwide/americas',
-    location: 'Madison, WI',
+    location: 'Appleton, WI',
     position: 'Senior Software Engineer',
-    dateRange: '2022 - Current',
+    dateRange: 'Jan 2022 - Current',
+    department: 'Modern Business Unit',
     colorScheme: {
       theme: 'blue',
       primary: 'blue-500',
@@ -31,32 +36,15 @@ export class NriNaComponent {
     },
     stats: {
       years: '3+',
-      metric1: { value: '5+', label: 'Major Clients' },
-      metric2: { value: 'Enterprise', label: 'Scale' },
+      metric1: { value: '15+', label: 'Projects' },
+      metric2: { value: '20+', label: 'Clients' },
     },
     description:
       "NRI-NA is a technology consulting company specializing in enterprise software development and digital transformation solutions. In 2022, Nomura Research Institute acquired Core BTS, expanding the company's capabilities in cloud-native architectures and global enterprise solutions. As a Senior Software Engineer, I led development of large-scale applications for major retail and e-commerce clients, focusing on inventory management, supply chain optimization, and customer experience platforms with modern cloud technologies.",
   };
 
   projects: ProjectInfo[] = [
-    {
-      name: 'Kroger Solutions',
-      description: 'Advanced enterprise solutions for retail operations',
-      route: 'kroger',
-      icon: 'heroShoppingBag',
-      color: 'from-blue-600 to-blue-800',
-      status: 'Production',
-      technologies: ['Angular', 'C#', '.NET', 'SQL Server', 'Azure'],
-    },
-    {
-      name: 'DoItBest Platform',
-      description:
-        'Backend services and infrastructure modernization (inherited from Core BTS acquisition)',
-      route: '/projects/professional/corebts/doitbest',
-      icon: 'heroCog6Tooth',
-      color: 'from-indigo-600 to-blue-800',
-      status: 'Production',
-      technologies: ['C#', 'Java', 'Kafka', 'Oracle', 'Azure', 'Kubernetes'],
-    },
+    getKrogerProjectForProfile('nriNa'),
+    getDoItBestProjectForProfile(),
   ];
 }
