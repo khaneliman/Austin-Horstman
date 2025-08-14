@@ -1,76 +1,65 @@
+<!-- Modern Footer -->
 <footer
-  class="footer"
-  [ngClass]="{
-    'has-cards':
-      getPath() !== '/user-profile' &&
-      getPath() !== '/register' &&
-      getPath() !== '/login',
-  }"
+  class="bg-gradient-to-r from-slate-50 to-blue-50 border-t border-gray-200"
 >
-  <!-- <div class="container container-lg" *ngIf="getPath()!=='/home' && getPath()!=='/about' && getPath()!=='/login'">
-    <div class="row">
-      <div class="col-md-6 mb-5 mb-md-0">
-        <div class="card card-lift--hover shadow border-0">
-          <a [routerLink]="['/landing']" title="Landing Page">
-            <img src="./assets/img/theme/landing.jpg" class="card-img" alt="Company logo">
-          </a>
-        </div>
-      </div>
-      <div class="col-md-6 mb-5 mb-lg-0">
-        <div class="card card-lift--hover shadow border-0">
-          <a [routerLink]="['/user-profile']" title="Profile Page">
-            <img src="./assets/img/theme/profile.jpg" class="card-img" alt="Company logo">
-          </a>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <div class="container">
-    <div
-      class="row row-grid align-items-center"
-      [ngClass]="{
-        'my-md':
-          getPath() !== '/user-profile' &&
-          getPath() !== '/register' &&
-          getPath() !== '/login',
-        'mb-5':
-          getPath() === '/user-profile' ||
-          getPath() === '/register' ||
-          getPath() === '/login',
-      }"
-    >
-      <div class="col-lg-6">
-        <h3 class="text-primary font-weight-light mb-2">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Main footer content -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
+      <!-- Left side - Message -->
+      <div class="text-center lg:text-left">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-2">
           Thank you for supporting me!
         </h3>
-        <h4 class="mb-0 font-weight-light">
+        <p class="text-gray-600 text-lg">
           Let's get in touch on any of these platforms.
-        </h4>
+        </p>
       </div>
-      <div class="col-lg-6 text-lg-center btn-wrapper">
+
+      <!-- Right side - Social links -->
+      <div class="flex justify-center lg:justify-end">
         <app-social-links location="footer"></app-social-links>
       </div>
     </div>
-    <hr />
-    <div class="row align-items-center justify-content-md-between">
-      <div class="col-md-6">
-        <div class="copyright">
-          &copy; {{ test | date: 'yyyy' }}
-          <a routerLink="home">Austin Horstman</a>.
+
+    <!-- Divider -->
+    <div class="border-t border-gray-300 pt-8">
+      <!-- Bottom footer content -->
+      <div
+        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+      >
+        <!-- Copyright -->
+        <div class="text-gray-600">
+          &copy; {{ currentYear }}
+          <a
+            routerLink="/home"
+            class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+          >
+            Austin Horstman
+          </a>
+          . All rights reserved.
         </div>
-      </div>
-      <div class="col-md-6">
-        <ul class="nav nav-footer justify-content-end">
-          <li class="nav-item">
-            <a routerLink="/personal/about" class="nav-link">About Me</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/personal/contact" class="nav-link">Contact Me</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="personal/resume" class="nav-link">Resume</a>
-          </li>
-        </ul>
+
+        <!-- Footer navigation -->
+        <nav class="flex space-x-6">
+          <a
+            routerLink="/personal/about"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+          >
+            About Me
+          </a>
+          <a
+            routerLink="/personal/contact"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+          >
+            Contact Me
+          </a>
+          <a
+            routerLink="/personal/resume"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+          >
+            Resume
+          </a>
+        </nav>
       </div>
     </div>
   </div>
