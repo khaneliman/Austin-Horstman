@@ -86,6 +86,178 @@ export function getKrogerProjectForProfile(
   };
 }
 
+// Detailed project metadata - maps project routes to full project information
+const PROJECT_DETAILS = {
+  doitbest: {
+    description:
+      'Backend services and infrastructure modernization with mainframe decommissioning',
+    icon: 'heroCog6Tooth',
+    color: 'from-indigo-600 to-blue-800',
+    status: 'Production' as const,
+    technologies: ['C#', 'Java', 'Kafka', 'Oracle', 'Azure', 'Kubernetes'],
+  },
+  kroger: {
+    corebts: {
+      description:
+        'NgRx state management and Cold Fusion modernization for enterprise retail platform',
+      icon: 'heroShoppingBag',
+      color: 'from-green-600 to-emerald-800',
+      status: 'Production' as const,
+      technologies: ['Angular', 'NgRx', '.NET', 'Azure', 'Cold Fusion Legacy'],
+    },
+    skyline: {
+      description:
+        'Enterprise retail platform modernization and inventory management systems',
+      icon: 'heroShoppingBag',
+      color: 'from-purple-600 to-indigo-800',
+      status: 'Production' as const,
+      technologies: ['Angular', '.NET', 'Azure', 'SQL Server', 'NgRx'],
+    },
+  },
+  'renaissance-learning': {
+    description: 'Educational reporting platform',
+    icon: 'heroBookOpen',
+    color: 'from-blue-600 to-indigo-700',
+    status: 'Production' as const,
+    technologies: ['Angular', 'GraphQL', 'TypeScript', 'Reports'],
+  },
+  'mile-of-music': {
+    description: 'Mobile event platform',
+    icon: 'heroMusicalNote',
+    color: 'from-indigo-600 to-purple-700',
+    status: 'Production' as const,
+    technologies: ['Xamarin', 'Mobile', 'C#', 'iOS/Android'],
+  },
+  'jj-keller': {
+    description: 'iOS compliance application',
+    icon: 'heroDevicePhoneMobile',
+    color: 'from-purple-600 to-red-700',
+    status: 'Production' as const,
+    technologies: ['iOS', 'Native', 'Swift', 'Compliance'],
+  },
+  'express-scripts': {
+    description: 'Pharmaceutical rebates platform',
+    icon: 'heroBeaker',
+    color: 'from-teal-600 to-green-700',
+    status: 'Production' as const,
+    technologies: ['Angular', '.NET Core', 'SQL Server', 'Rebates'],
+  },
+  cleartrend: {
+    description: 'Healthcare analytics platform',
+    icon: 'heroChartBarSquare',
+    color: 'from-green-600 to-teal-700',
+    status: 'Production' as const,
+    technologies: ['Angular', 'C#', 'SQL Server', 'Analytics'],
+  },
+  'network-health': {
+    description: 'Health insurance management system',
+    icon: 'heroShieldCheck',
+    color: 'from-blue-600 to-green-700',
+    status: 'Production' as const,
+    technologies: ['Angular', '.NET', 'SQL Server', 'Healthcare'],
+  },
+  'stat-tracker': {
+    description: 'Employee performance tracking system',
+    icon: 'heroChartBarSquare',
+    color: 'from-blue-600 to-yellow-700',
+    status: 'Production' as const,
+    technologies: ['JavaScript', 'HTML/CSS', 'Local Storage'],
+  },
+  'database-tool': {
+    description: 'Internal database management application',
+    icon: 'heroCircleStack',
+    color: 'from-red-600 to-orange-700',
+    status: 'Production' as const,
+    technologies: ['C#', 'WinForms', 'SQL Server'],
+  },
+  'it-portal': {
+    description: 'Employee information and tools portal',
+    icon: 'heroGlobeAlt',
+    color: 'from-orange-600 to-red-700',
+    status: 'Production' as const,
+    technologies: ['ASP.NET', 'C#', 'SQL Server'],
+  },
+  'quick-launch': {
+    description: 'Application launcher and productivity tool',
+    icon: 'heroRocketLaunch',
+    color: 'from-yellow-600 to-orange-700',
+    status: 'Production' as const,
+    technologies: ['C#', 'WinForms', 'Windows API'],
+  },
+} as const;
+
+// Helper function to generate ProjectInfo objects from centralized COMPANIES data
+export function getProjectsForCompany(
+  companyKey: keyof typeof COMPANIES
+): ProjectInfo[] {
+  const company = COMPANIES[companyKey];
+  return company.projects.map(project => {
+    if (project.route === 'kroger') {
+      const krogerDetails =
+        PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
+      return {
+        name: project.name,
+        route: project.route,
+        description: krogerDetails.description,
+        icon: krogerDetails.icon,
+        color: krogerDetails.color,
+        status: krogerDetails.status,
+        technologies: [...krogerDetails.technologies],
+      };
+    }
+
+    const details =
+      PROJECT_DETAILS[
+        project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>
+      ];
+    return {
+      name: project.name,
+      route: project.route,
+      description: details.description,
+      icon: details.icon,
+      color: details.color,
+      status: details.status,
+      technologies: [...details.technologies],
+    };
+  });
+}
+
+// Helper function for employment components - generates ProjectInfo with absolute routes
+export function getProjectsForEmployment(
+  companyKey: keyof typeof COMPANIES
+): ProjectInfo[] {
+  const company = COMPANIES[companyKey];
+  return company.projects.map(project => {
+    if (project.route === 'kroger') {
+      const krogerDetails =
+        PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
+      return {
+        name: project.name,
+        route: `/projects/professional/${companyKey}/${project.route}`,
+        description: krogerDetails.description,
+        icon: krogerDetails.icon,
+        color: krogerDetails.color,
+        status: krogerDetails.status,
+        technologies: [...krogerDetails.technologies],
+      };
+    }
+
+    const details =
+      PROJECT_DETAILS[
+        project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>
+      ];
+    return {
+      name: project.name,
+      route: `/projects/professional/${companyKey}/${project.route}`,
+      description: details.description,
+      icon: details.icon,
+      color: details.color,
+      status: details.status,
+      technologies: [...details.technologies],
+    };
+  });
+}
+
 // Helper function to generate professional project grid data from centralized sources
 export function generateProfessionalProjectsGrid() {
   return Object.entries(COMPANIES)

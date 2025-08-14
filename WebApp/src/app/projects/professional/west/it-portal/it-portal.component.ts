@@ -12,13 +12,14 @@ import {
   heroLink,
   heroCodeBracket,
 } from '@ng-icons/heroicons/outline';
+import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
 
 @Component({
   standalone: true,
   selector: 'app-it-portal',
   templateUrl: './it-portal.component.html',
   styleUrls: ['./it-portal.component.scss'],
-  imports: [RouterLink, NgIconComponent],
+  imports: [RouterLink, NgIconComponent, ProjectNavHeaderComponent],
   providers: [
     provideIcons({
       heroArrowLeft,
@@ -33,4 +34,9 @@ import {
     }),
   ],
 })
-export class ItPortalComponent {}
+export class ItPortalComponent {
+  backRoute = '/projects/professional/west';
+  backLabel = 'Back to West Projects';
+  hoverColor = 'red';
+  companyKey = 'west';
+}

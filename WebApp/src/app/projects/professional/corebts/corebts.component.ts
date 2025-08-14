@@ -4,10 +4,7 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../shared/components/company-profile/company-profile.component';
-import {
-  getDoItBestProjectForProfile,
-  getKrogerProjectForProfile,
-} from '../../../shared/data/projects';
+import { getProjectsForCompany } from '../../../shared/data/projects';
 
 @Component({
   selector: 'app-corebts',
@@ -42,8 +39,5 @@ export class CorebtsComponent {
       'Core BTS is a technology consulting company specializing in enterprise software development and digital transformation solutions. As a Senior Software Engineer, I led development of large-scale applications for major retail and e-commerce clients, focusing on inventory management, supply chain optimization, and customer experience platforms.',
   };
 
-  projects: ProjectInfo[] = [
-    getKrogerProjectForProfile('corebts'),
-    getDoItBestProjectForProfile(),
-  ];
+  projects: ProjectInfo[] = getProjectsForCompany('corebts');
 }

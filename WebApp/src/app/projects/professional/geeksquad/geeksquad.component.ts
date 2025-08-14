@@ -4,6 +4,7 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../shared/components/company-profile/company-profile.component';
+import { getProjectsForCompany } from '../../../shared/data/projects';
 
 @Component({
   selector: 'app-geeksquad',
@@ -39,16 +40,5 @@ export class GeeksquadComponent {
       "Best Buy's Geek Squad is a specialized technology support service providing computer repair, installation, and technical support services. As an Advanced Repair Agent at the Appleton precinct, I handled complex hardware repairs, software troubleshooting, and developed custom tools to improve operational efficiency and customer service delivery.",
   };
 
-  projects: ProjectInfo[] = [
-    {
-      name: 'Stat Tracker System',
-      description:
-        'Performance monitoring and statistics tracking application for repair operations',
-      route: 'stat-tracker',
-      icon: 'heroChartPie',
-      color: 'from-blue-600 to-orange-800',
-      status: 'Production',
-      technologies: ['VB.NET', 'Windows Forms', 'SQLite', 'Excel Integration'],
-    },
-  ];
+  projects: ProjectInfo[] = getProjectsForCompany('bestbuy');
 }

@@ -4,6 +4,7 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../shared/components/company-profile/company-profile.component';
+import { getProjectsForCompany } from '../../../shared/data/projects';
 
 @Component({
   selector: 'app-west',
@@ -39,26 +40,5 @@ export class WestComponent {
       'West Corporation was a leading provider of business communications services, specializing in contact center solutions, unified communications, and technology services. During my time as a Programmer in the Revenue Generation Services division, I developed internal tools and applications that streamlined IT operations and improved team productivity across the organization.',
   };
 
-  projects: ProjectInfo[] = [
-    {
-      name: 'IT Portal System',
-      description:
-        'Comprehensive internal portal system to streamline IT operations and improve departmental workflow efficiency',
-      route: 'it-portal',
-      icon: 'heroCog6Tooth',
-      color: 'from-red-500 to-orange-600',
-      status: 'Production',
-      technologies: ['C#', 'SQL Server', 'ASP.NET', 'Internal Tools'],
-    },
-    {
-      name: 'Database Management Tool',
-      description:
-        'Advanced SSIS packages and stored procedures for automated data processing and enterprise reporting systems',
-      route: 'database-tool',
-      icon: 'heroCircleStack',
-      color: 'from-orange-500 to-yellow-600',
-      status: 'Production',
-      technologies: ['SSIS', 'SSRS', 'SQL Server', 'Data Processing'],
-    },
-  ];
+  projects: ProjectInfo[] = getProjectsForCompany('west');
 }

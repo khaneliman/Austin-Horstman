@@ -4,10 +4,7 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../../shared/components/company-profile/company-profile.component';
-import {
-  getDoItBestProject,
-  getKrogerProject,
-} from '../../../../shared/data/projects';
+import { getProjectsForEmployment } from '../../../../shared/data/projects';
 import { getCompanyById } from '../../../../shared/data/companies';
 
 @Component({
@@ -19,8 +16,5 @@ import { getCompanyById } from '../../../../shared/data/companies';
 export class CorebtsComponent {
   company: CompanyInfo = getCompanyById('corebts');
 
-  projects: ProjectInfo[] = [
-    getKrogerProject('corebts'),
-    getDoItBestProject('corebts'),
-  ];
+  projects: ProjectInfo[] = getProjectsForEmployment('corebts');
 }

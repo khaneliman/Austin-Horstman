@@ -12,13 +12,14 @@ import {
   heroCog6Tooth,
   heroChevronRight,
 } from '@ng-icons/heroicons/outline';
+import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
 
 @Component({
   standalone: true,
   selector: 'app-quick-launch',
   templateUrl: './quick-launch.component.html',
   styleUrls: ['./quick-launch.component.scss'],
-  imports: [NgIconComponent],
+  imports: [NgIconComponent, ProjectNavHeaderComponent],
   providers: [
     provideIcons({
       heroRocketLaunch,
@@ -34,4 +35,9 @@ import {
     }),
   ],
 })
-export class QuickLaunchComponent {}
+export class QuickLaunchComponent {
+  backRoute = '/projects/professional/west';
+  backLabel = 'Back to West Projects';
+  hoverColor = 'red';
+  companyKey = 'west';
+}

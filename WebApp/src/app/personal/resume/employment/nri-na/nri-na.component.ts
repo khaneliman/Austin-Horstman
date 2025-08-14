@@ -4,7 +4,7 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../../shared/components/company-profile/company-profile.component';
-import { getDoItBestProject } from '../../../../shared/data/projects';
+import { getProjectsForEmployment } from '../../../../shared/data/projects';
 import { getCompanyById } from '../../../../shared/data/companies';
 
 @Component({
@@ -16,5 +16,5 @@ import { getCompanyById } from '../../../../shared/data/companies';
 export class NriNaComponent {
   company: CompanyInfo = getCompanyById('nri-na');
 
-  projects: ProjectInfo[] = [getDoItBestProject('nri-na')];
+  projects: ProjectInfo[] = getProjectsForEmployment('nri-na');
 }
