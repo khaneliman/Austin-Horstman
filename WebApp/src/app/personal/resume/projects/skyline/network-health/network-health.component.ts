@@ -3,13 +3,12 @@ import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroHeart,
-  heroHeartPulse,
   heroStar,
   heroUser,
   heroClipboardDocumentList,
   heroUserGroup,
   heroCog6Tooth,
-  heroIdentificationBadge,
+  heroIdentification,
   heroShieldCheck,
   heroCodeBracket,
   heroBuildingOffice2,
@@ -25,13 +24,12 @@ import { ProjectNavHeaderComponent } from '../../../../../shared';
   providers: [
     provideIcons({
       heroHeart,
-      heroHeartPulse,
       heroStar,
       heroUser,
       heroClipboardDocumentList,
       heroUserGroup,
       heroCog6Tooth,
-      heroIdentificationBadge,
+      heroIdentification,
       heroShieldCheck,
       heroCodeBracket,
       heroBuildingOffice2,
