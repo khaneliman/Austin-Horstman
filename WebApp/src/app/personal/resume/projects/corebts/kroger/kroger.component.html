@@ -2,39 +2,13 @@
 <div
   class="min-h-screen bg-gradient-to-br from-green-50 via-gray-50 to-emerald-50"
 >
-  <!-- Project Navigation Header -->
-  <div class="bg-white border-b border-gray-200 sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <!-- Left: Back Navigation -->
-        <div class="flex items-center space-x-4">
-          <a
-            routerLink="/projects/professional/corebts"
-            class="inline-flex items-center px-4 py-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
-          >
-            <i class="ni ni-bold-left mr-2"></i>
-            Back to Core BTS Projects
-          </a>
-        </div>
-
-        <!-- Right: Project Quick Nav -->
-        <div class="hidden md:flex items-center space-x-2">
-          <a
-            routerLink="/projects/professional/corebts/kroger"
-            class="px-3 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium"
-          >
-            Kroger Solutions
-          </a>
-          <a
-            routerLink="/projects/professional/corebts/doitbest"
-            class="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg text-sm font-medium transition-colors"
-          >
-            DoItBest Platform
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Reusable Project Navigation Header -->
+  <app-project-nav-header
+    backRoute="/projects/professional/corebts"
+    backLabel="Back to Core BTS Projects"
+    hoverColor="green"
+    companyKey="corebts"
+  ></app-project-nav-header>
 
   <div class="max-w-6xl mx-auto px-6 py-12">
     <!-- Project Header -->

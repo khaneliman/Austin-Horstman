@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ProjectNavHeaderComponent } from '../../../../../shared';
 
 @Component({
   standalone: true,
   selector: 'app-mile-of-music',
   templateUrl: './mile-of-music.component.html',
   styleUrls: ['./mile-of-music.component.scss'],
-  imports: [RouterLink],
+  imports: [ProjectNavHeaderComponent],
 })
 export class MileOfMusicComponent {}
