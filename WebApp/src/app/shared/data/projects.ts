@@ -274,6 +274,7 @@ export function generateProfessionalProjectsGrid() {
         route: company.projectsRoute,
         logo: company.logoSrc,
         color: company.gradientColor,
+        logoBackground: company.logoBackground,
         projects: company.projects.map(project => ({
           name: project.name,
           route: `/projects/professional/${companyKey}/${project.route}`,
