@@ -31,12 +31,7 @@
 
             <!-- Profile Info -->
             <div class="text-center mt-6 text-white">
-              <h1 class="text-4xl font-bold mb-2">
-                Austin Horstman,
-                <span class="text-blue-200 font-normal text-3xl">{{
-                  age()
-                }}</span>
-              </h1>
+              <h1 class="text-4xl font-bold mb-2">Austin Horstman</h1>
               <p class="text-blue-100 text-xl mb-4">Senior Software Engineer</p>
               <div class="flex items-center justify-center text-blue-100">
                 <svg
@@ -61,7 +56,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div class="text-center p-4 bg-blue-50 rounded-xl">
                 <div class="text-2xl font-bold text-blue-600 mb-1">
-                  {{ age() - 23 }}+
+                  {{ yearsOfExperience() }}+
                 </div>
                 <div class="text-gray-600 text-sm">Years Experience</div>
               </div>
@@ -83,8 +78,8 @@
               <p
                 class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto"
               >
-                Austin has over {{ age() - 23 }} years of experience in the
-                information technology industry and has played key roles in
+                Austin has over {{ yearsOfExperience() }} years of experience in
+                the information technology industry and has played key roles in
                 several .NET desktop, database design and deployments, extract,
                 transform, load processes, and application modernization Angular
                 websites. Passionate about open-source development and is a

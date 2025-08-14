@@ -15,22 +15,22 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
-  private readonly birthDate = signal(new Date('1991-08-12'));
+  private readonly careerStartDate = signal(new Date('2013-08-01')); // When you started at Best Buy Geek Squad
 
-  protected readonly age = computed(() => {
+  protected readonly yearsOfExperience = computed(() => {
     const today = new Date();
-    const birth = this.birthDate();
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
+    const careerStart = this.careerStartDate();
+    let years = today.getFullYear() - careerStart.getFullYear();
+    const monthDiff = today.getMonth() - careerStart.getMonth();
 
     if (
       monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < birth.getDate())
+      (monthDiff === 0 && today.getDate() < careerStart.getDate())
     ) {
-      age--;
+      years--;
     }
 
-    return age;
+    return years;
   });
 
   resumeShown = false;
