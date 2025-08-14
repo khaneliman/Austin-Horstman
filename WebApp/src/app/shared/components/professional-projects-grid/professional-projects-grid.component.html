@@ -1,0 +1,84 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+  <div
+    *ngFor="let project of projects"
+    class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
+  >
+    <!-- Company Header -->
+    <div
+      class="relative px-8 py-12"
+      [class.bg-gradient-to-r]="project.company !== 'Core BTS'"
+      [ngClass]="project.company !== 'Core BTS' ? project.color : 'bg-gray-900'"
+    >
+      <div
+        class="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full blur-xl"
+      ></div>
+      <div class="relative z-10">
+        <div
+          class="w-20 h-20 rounded-full p-3 mx-auto mb-4 shadow-2xl overflow-hidden"
+          [class.bg-white]="
+            project.company !== 'Core BTS' &&
+            project.company !== 'Best Buy Geek Squad'
+          "
+          [class.bg-gray-900]="
+            project.company === 'Core BTS' ||
+            project.company === 'Best Buy Geek Squad'
+          "
+        >
+          <img
+            class="w-full h-full object-contain"
+            [src]="project.logo"
+            [alt]="project.company + ' logo'"
+          />
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-2">
+          {{ project.title }}
+        </h3>
+        <p class="text-white/90">{{ project.description }}</p>
+      </div>
+    </div>
+
+    <!-- Projects List -->
+    <div
+      class="p-8"
+      style="display: flex; flex-direction: column; flex-grow: 1"
+    >
+      <div style="flex-grow: 1">
+        <h4 class="text-lg font-semibold text-gray-800 mb-4">
+          Featured Projects:
+        </h4>
+        <div class="space-y-3 mb-6">
+          <div
+            *ngFor="let proj of project.projects"
+            class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            <span class="text-gray-700 font-medium">{{ proj.name }}</span>
+            <a
+              [routerLink]="proj.route"
+              class="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            >
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-3 mt-auto">
+        <a
+          [routerLink]="project.route"
+          class="flex-1 bg-gradient-to-r {{
+            project.color
+          }} text-white px-6 py-3 rounded-xl font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+        >
+          View All Projects
+        </a>
+        <a
+          *ngIf="showCompanyInfo"
+          [routerLink]="getCompanyRoute(project.company)"
+          class="px-6 py-3 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+        >
+          Company Info
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
