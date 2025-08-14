@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-floating-card',
   templateUrl: './floating-card.component.html',
   styleUrls: ['./floating-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FloatingCardComponent {
   @Input() icon: string | undefined;
@@ -17,4 +18,8 @@ export class FloatingCardComponent {
   @Input() link: string | undefined;
   @Input() linkText: string | undefined;
   @Input() tags: string[] | undefined;
+
+  trackByTag(index: number, tag: string): string {
+    return tag;
+  }
 }
