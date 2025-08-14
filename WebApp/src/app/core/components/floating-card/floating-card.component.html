@@ -12,7 +12,7 @@
     </p>
     <div>
       <span
-        *ngFor="let tag of tags"
+        *ngFor="let tag of tags; trackBy: trackByTag"
         span
         class="badge badge-pill badge-warning"
         >{{ tag }}</span
