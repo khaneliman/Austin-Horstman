@@ -15,7 +15,7 @@ export class SocialLinksComponent {
   @Input() location: string | undefined;
 
   private socialLinksService = inject(SocialLinksService);
-  socialLinks: SocialLink[] = this.socialLinksService.getSocialLinks();
+  protected socialLinks = this.socialLinksService.socialLinks$;
 
   trackBySocialLink(index: number, socialLink: SocialLink): string {
     return socialLink.platform;

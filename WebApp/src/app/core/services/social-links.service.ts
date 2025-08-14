@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { SocialLink } from '../../shared/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocialLinksService {
-  private readonly socialLinks: SocialLink[] = [
+  private readonly socialLinks = signal<SocialLink[]>([
     {
       platform: 'facebook',
       link: 'https://facebook.com/khaneliman',
@@ -48,9 +48,11 @@ export class SocialLinksService {
       faClass: 'fa-linkedin',
       tooltip: 'Connect on LinkedIn',
     },
-  ];
+  ]);
+
+  readonly socialLinks$ = this.socialLinks.asReadonly();
 
   getSocialLinks(): SocialLink[] {
-    return this.socialLinks;
+    return this.socialLinks();
   }
 }
