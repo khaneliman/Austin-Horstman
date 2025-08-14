@@ -1,312 +1,320 @@
 <!-- Geek Squad Stat Tracker Project Detail -->
-<div class="max-w-4xl mx-auto">
-  <!-- Breadcrumb Navigation -->
-  <nav class="mb-8">
-    <div class="flex items-center space-x-2 text-sm text-gray-600">
-      <a
-        href="/projects/professional"
-        class="hover:text-blue-600 transition-colors duration-200 flex items-center"
-      >
-        <i class="ni ni-folder-17 mr-1"></i>
-        Professional Projects
-      </a>
-      <i class="ni ni-bold-right text-xs"></i>
-      <a
-        href="/projects/professional/geeksquad"
-        class="hover:text-blue-600 transition-colors duration-200 flex items-center"
-      >
-        <img
-          src="/assets/images/geeksquad.jpg"
-          alt="Geek Squad"
-          class="w-4 h-4 mr-1"
-        />
-        Geek Squad
-      </a>
-      <i class="ni ni-bold-right text-xs"></i>
-      <span class="text-blue-600 font-medium">Geek Squad Stat Tracker</span>
+<div
+  class="min-h-screen bg-gradient-to-br from-blue-50 via-orange-50 to-yellow-50"
+>
+  <!-- Project Navigation Header -->
+  <div class="bg-white border-b border-gray-200 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <!-- Left: Back Navigation -->
+        <div class="flex items-center space-x-4">
+          <a
+            routerLink="/projects/professional/geeksquad"
+            class="inline-flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors duration-200"
+          >
+            <i class="ni ni-bold-left mr-2"></i>
+            Back to Geek Squad Projects
+          </a>
+        </div>
+
+        <!-- Right: Project Quick Nav -->
+        <div class="hidden md:flex items-center space-x-2">
+          <a
+            routerLink="/projects/professional/geeksquad/stat-tracker"
+            class="px-3 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium"
+          >
+            Stat Tracker
+          </a>
+        </div>
+      </div>
     </div>
-  </nav>
-  <!-- Project header -->
-  <div class="text-center mb-12">
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Project header -->
+    <div class="text-center mb-12">
+      <div
+        class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl shadow-lg mb-6"
+      >
+        <i class="ni ni-planet text-white text-2xl"></i>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">
+        Geek Squad Stat Tracker
+      </h1>
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <span
+          class="px-4 py-2 bg-purple-100 text-purple-800 text-sm font-medium rounded-full"
+          >C#</span
+        >
+        <span
+          class="px-4 py-2 bg-blue-100 text-blue-800 text-sm font-medium rounded-full"
+          >.NET Framework</span
+        >
+        <span
+          class="px-4 py-2 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full"
+          >WPF</span
+        >
+        <span
+          class="px-4 py-2 bg-green-100 text-green-800 text-sm font-medium rounded-full"
+          >SQL Server</span
+        >
+      </div>
+      <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+        A comprehensive desktop application for tracking sales statistics,
+        managing employees, and analyzing performance data at a Best Buy Geek
+        Squad precinct.
+      </p>
+    </div>
+
+    <!-- Project timeline -->
     <div
-      class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl shadow-lg mb-6"
+      class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 mb-12"
     >
-      <i class="ni ni-planet text-white text-2xl"></i>
-    </div>
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">
-      Geek Squad Stat Tracker
-    </h1>
-    <div class="flex flex-wrap justify-center gap-3 mb-6">
-      <span
-        class="px-4 py-2 bg-purple-100 text-purple-800 text-sm font-medium rounded-full"
-        >C#</span
-      >
-      <span
-        class="px-4 py-2 bg-blue-100 text-blue-800 text-sm font-medium rounded-full"
-        >.NET Framework</span
-      >
-      <span
-        class="px-4 py-2 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full"
-        >WPF</span
-      >
-      <span
-        class="px-4 py-2 bg-green-100 text-green-800 text-sm font-medium rounded-full"
-        >SQL Server</span
-      >
-    </div>
-    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-      A comprehensive desktop application for tracking sales statistics,
-      managing employees, and analyzing performance data at a Best Buy Geek
-      Squad precinct.
-    </p>
-  </div>
-
-  <!-- Project timeline -->
-  <div
-    class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 mb-12"
-  >
-    <div class="flex items-center justify-between text-center">
-      <div>
-        <div class="text-2xl font-bold text-yellow-600 mb-1">2015</div>
-        <div class="text-sm text-gray-600">Project Year</div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold text-orange-600 mb-1">Desktop</div>
-        <div class="text-sm text-gray-600">Application Type</div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold text-red-600 mb-1">Deployed</div>
-        <div class="text-sm text-gray-600">Status</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project description -->
-  <div class="space-y-8 mb-12">
-    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <i class="fa fa-chart-line text-blue-500 mr-3 text-xl"></i>
-        Project Overview
-      </h2>
-      <div class="space-y-4 text-gray-700 leading-relaxed">
-        <p>
-          The Geek Squad Stat Tracker was a comprehensive desktop application I
-          developed to manage and track statistics at our Best Buy Geek Squad
-          precinct. This application revolutionized how we handled employee
-          performance data, sales tracking, and reporting.
-        </p>
-        <p>
-          The system managed employees, their positions, and the various
-          services we offered at the precinct. It provided our manager with the
-          ability to import corporate budget reports directly into the database
-          and generate detailed reports for individual employee sales or
-          aggregate sales data for specific time periods.
-        </p>
-        <p>
-          Built using C# and WPF with SQL Server as the database management
-          system, the application included a complete database creation script
-          with the source code, making it easily deployable across different
-          environments.
-        </p>
-      </div>
-    </div>
-
-    <!-- Key features -->
-    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <i class="fa fa-star text-yellow-500 mr-3 text-xl"></i>
-        Key Features
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center"
-          >
-            <i class="fa fa-users text-blue-600 text-sm"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 mb-1">
-              Employee Management
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Track staff members, positions, and service assignments
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
-          >
-            <i class="fa fa-upload text-green-600 text-sm"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 mb-1">Budget Import</h3>
-            <p class="text-gray-600 text-sm">
-              Import corporate budget reports directly into the system
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center"
-          >
-            <i class="fa fa-chart-bar text-purple-600 text-sm"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 mb-1">Sales Reporting</h3>
-            <p class="text-gray-600 text-sm">
-              Generate individual and aggregate sales reports
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
-          >
-            <i class="fa fa-calendar text-orange-600 text-sm"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 mb-1">
-              Time-based Analytics
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Track performance by day, week, or month
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center"
-          >
-            <i class="fa fa-cog text-indigo-600 text-sm"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 mb-1">Service Management</h3>
-            <p class="text-gray-600 text-sm">
-              Configure and track different service offerings
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
-          >
-            <i class="fa fa-download text-red-600 text-sm"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 mb-1">
-              Export Functionality
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Export reports and data for further analysis
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Technical implementation -->
-    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <i class="fa fa-code text-purple-500 mr-3 text-xl"></i>
-        Technical Implementation
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="flex items-center justify-between text-center">
         <div>
-          <h3 class="font-semibold text-gray-800 mb-4">
-            Frontend Technologies
-          </h3>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
-              <span class="text-gray-700">C# WPF Desktop Application</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <span class="text-gray-700">.NET Framework</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
-              <span class="text-gray-700">XAML User Interface</span>
-            </div>
-          </div>
+          <div class="text-2xl font-bold text-yellow-600 mb-1">2015</div>
+          <div class="text-sm text-gray-600">Project Year</div>
         </div>
-
         <div>
-          <h3 class="font-semibold text-gray-800 mb-4">Backend & Database</h3>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span class="text-gray-700">SQL Server Database</span>
+          <div class="text-2xl font-bold text-orange-600 mb-1">Desktop</div>
+          <div class="text-sm text-gray-600">Application Type</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-red-600 mb-1">Deployed</div>
+          <div class="text-sm text-gray-600">Status</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project description -->
+    <div class="space-y-8 mb-12">
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fa fa-chart-line text-blue-500 mr-3 text-xl"></i>
+          Project Overview
+        </h2>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>
+            The Geek Squad Stat Tracker was a comprehensive desktop application
+            I developed to manage and track statistics at our Best Buy Geek
+            Squad precinct. This application revolutionized how we handled
+            employee performance data, sales tracking, and reporting.
+          </p>
+          <p>
+            The system managed employees, their positions, and the various
+            services we offered at the precinct. It provided our manager with
+            the ability to import corporate budget reports directly into the
+            database and generate detailed reports for individual employee sales
+            or aggregate sales data for specific time periods.
+          </p>
+          <p>
+            Built using C# and WPF with SQL Server as the database management
+            system, the application included a complete database creation script
+            with the source code, making it easily deployable across different
+            environments.
+          </p>
+        </div>
+      </div>
+
+      <!-- Key features -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fa fa-star text-yellow-500 mr-3 text-xl"></i>
+          Key Features
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center"
+            >
+              <i class="fa fa-users text-blue-600 text-sm"></i>
             </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <span class="text-gray-700">Entity Framework</span>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">
+                Employee Management
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Track staff members, positions, and service assignments
+              </p>
             </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <span class="text-gray-700">Database Creation Scripts</span>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
+            >
+              <i class="fa fa-upload text-green-600 text-sm"></i>
             </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Budget Import</h3>
+              <p class="text-gray-600 text-sm">
+                Import corporate budget reports directly into the system
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center"
+            >
+              <i class="fa fa-chart-bar text-purple-600 text-sm"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Sales Reporting</h3>
+              <p class="text-gray-600 text-sm">
+                Generate individual and aggregate sales reports
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+            >
+              <i class="fa fa-calendar text-orange-600 text-sm"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">
+                Time-based Analytics
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Track performance by day, week, or month
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center"
+            >
+              <i class="fa fa-cog text-indigo-600 text-sm"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">
+                Service Management
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Configure and track different service offerings
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+            >
+              <i class="fa fa-download text-red-600 text-sm"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">
+                Export Functionality
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Export reports and data for further analysis
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical implementation -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fa fa-code text-purple-500 mr-3 text-xl"></i>
+          Technical Implementation
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-4">
+              Frontend Technologies
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                <span class="text-gray-700">C# WPF Desktop Application</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <span class="text-gray-700">.NET Framework</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                <span class="text-gray-700">XAML User Interface</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-4">Backend & Database</h3>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-gray-700">SQL Server Database</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <span class="text-gray-700">Entity Framework</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <span class="text-gray-700">Database Creation Scripts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technologies used -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fa fa-tools text-orange-500 mr-3 text-xl"></i>
+          Technology Stack
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="text-center p-4 bg-purple-50 rounded-xl">
+            <div class="text-2xl mb-2">⚙️</div>
+            <div class="font-medium text-purple-800">C#</div>
+          </div>
+          <div class="text-center p-4 bg-blue-50 rounded-xl">
+            <div class="text-2xl mb-2">🖥️</div>
+            <div class="font-medium text-blue-800">WPF</div>
+          </div>
+          <div class="text-center p-4 bg-green-50 rounded-xl">
+            <div class="text-2xl mb-2">🗃️</div>
+            <div class="font-medium text-green-800">SQL Server</div>
+          </div>
+          <div class="text-center p-4 bg-indigo-50 rounded-xl">
+            <div class="text-2xl mb-2">🔧</div>
+            <div class="font-medium text-indigo-800">.NET Framework</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Technologies used -->
-    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <i class="fa fa-tools text-orange-500 mr-3 text-xl"></i>
-        Technology Stack
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="text-center p-4 bg-purple-50 rounded-xl">
-          <div class="text-2xl mb-2">⚙️</div>
-          <div class="font-medium text-purple-800">C#</div>
+    <!-- Project impact -->
+    <div
+      class="bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl p-8 text-white text-center"
+    >
+      <h2 class="text-2xl font-bold mb-4">Project Impact & Achievements</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div>
+          <div class="text-2xl font-bold mb-2">📈</div>
+          <div class="text-sm text-yellow-100">
+            Improved sales tracking accuracy and manager visibility into team
+            performance
+          </div>
         </div>
-        <div class="text-center p-4 bg-blue-50 rounded-xl">
-          <div class="text-2xl mb-2">🖥️</div>
-          <div class="font-medium text-blue-800">WPF</div>
+        <div>
+          <div class="text-2xl font-bold mb-2">⏱️</div>
+          <div class="text-sm text-yellow-100">
+            Reduced report generation time from hours to minutes
+          </div>
         </div>
-        <div class="text-center p-4 bg-green-50 rounded-xl">
-          <div class="text-2xl mb-2">🗃️</div>
-          <div class="font-medium text-green-800">SQL Server</div>
-        </div>
-        <div class="text-center p-4 bg-indigo-50 rounded-xl">
-          <div class="text-2xl mb-2">🔧</div>
-          <div class="font-medium text-indigo-800">.NET Framework</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project impact -->
-  <div
-    class="bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl p-8 text-white text-center"
-  >
-    <h2 class="text-2xl font-bold mb-4">Project Impact & Achievements</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-      <div>
-        <div class="text-2xl font-bold mb-2">📈</div>
-        <div class="text-sm text-yellow-100">
-          Improved sales tracking accuracy and manager visibility into team
-          performance
-        </div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold mb-2">⏱️</div>
-        <div class="text-sm text-yellow-100">
-          Reduced report generation time from hours to minutes
-        </div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold mb-2">🎯</div>
-        <div class="text-sm text-yellow-100">
-          Successfully deployed and used in production environment
+        <div>
+          <div class="text-2xl font-bold mb-2">🎯</div>
+          <div class="text-sm text-yellow-100">
+            Successfully deployed and used in production environment
+          </div>
         </div>
       </div>
     </div>
