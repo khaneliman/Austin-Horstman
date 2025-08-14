@@ -1,209 +1,209 @@
 {
-    "Language": [
+  "Language": [
+    {
+      "Name": "C#",
+      "Experience": [
         {
-            "Name": "C#",
-            "Experience": [
-                {
-                    "Location": "Western Technical College",
-                    "StartDate": "09/01/2010",
-                    "EndDate": "12/01/2010"
-                },
-                {
-                    "Location": "Fox Valley Technical College",
-                    "StartDate": "01/01/2013",
-                    "EndDate": "05/18/2015"
-                },
-                {
-                    "Location": "West Corporation",
-                    "StartDate": "05/19/2015",
-                    "EndDate": "10/04/2017"
-                },
-                {
-                    "Location": "J.J. Keller",
-                    "StartDate": "10/01/2017",
-                    "EndDate": "03/01/2018"
-                },
-                {
-                    "Location": "Mile of Music",
-                    "StartDate": "03/01/2018",
-                    "EndDate": "08/01/2018"
-                },
-                {
-                    "Location": "Network Health",
-                    "StartDate": "08/01/2018",
-                    "EndDate": "10/01/2018"
-                },
-                {
-                    "Location": "Express Scripts",
-                    "StartDate": "11/01/2018",
-                    "EndDate": ""
-                }
-            ]
+          "Location": "Western Technical College",
+          "StartDate": "09/01/2010",
+          "EndDate": "12/01/2010"
         },
         {
-            "Name": "SQL",
-            "Experience": [
-                {
-                    "Location": "Western Technical College",
-                    "StartDate": "08/01/2010",
-                    "EndDate": "12/01/2010"
-                },
-                {
-                    "Location": "Fox Valley Technical College",
-                    "StartDate": "01/01/2014",
-                    "EndDate": "05/18/2015"
-                },
-                {
-                    "Location": "West Corporation",
-                    "StartDate": "05/19/2015",
-                    "EndDate": "10/04/2017"
-                },
-                {
-                    "Location": "J.J. Keller",
-                    "StartDate": "10/01/2017",
-                    "EndDate": "03/01/2018"
-                },
-                {
-                    "Location": "Network Health",
-                    "StartDate": "08/01/2018",
-                    "EndDate": "10/01/2018"
-                },
-                {
-                    "Location": "Express Scripts",
-                    "StartDate": "11/01/2018",
-                    "EndDate": ""
-                }
-            ]
+          "Location": "Fox Valley Technical College",
+          "StartDate": "01/01/2013",
+          "EndDate": "05/18/2015"
         },
         {
-            "Name": "C++",
-            "Experience": [
-                {
-                    "Location": "West Salem High School",
-                    "StartDate": "01/01/2009",
-                    "EndDate": "05/01/2009"
-                },
-                {
-                    "Location": "Fox Valley Technical College",
-                    "StartDate": "08/01/2014",
-                    "EndDate": "12/01/2014"
-                }
-            ]
+          "Location": "West Corporation",
+          "StartDate": "05/19/2015",
+          "EndDate": "10/04/2017"
         },
         {
-            "Name": "JavaScript",
-            "Experience": [
-                {
-                    "Location": "Western Technical College",
-                    "StartDate": "08/01/2010",
-                    "EndDate": "12/01/2010"
-                },
-                {
-                    "Location": "Fox Valley Technical College",
-                    "StartDate": "08/01/2013",
-                    "EndDate": "05/18/2015"
-                },
-                {
-                    "Location": "West Corporation",
-                    "StartDate": "01/01/2017",
-                    "EndDate": "10/04/2017"
-                },
-                {
-                    "Location": "Network Health",
-                    "StartDate": "08/01/2018",
-                    "EndDate": "10/01/2018"
-                },
-                {
-                    "Location": "ClearTrend",
-                    "StartDate": "10/01/2018",
-                    "EndDate": "11/01/2018"
-                },
-                {
-                    "Location": "Express Scripts",
-                    "StartDate": "11/01/2018",
-                    "EndDate": ""
-                }
-            ]
+          "Location": "J.J. Keller",
+          "StartDate": "10/01/2017",
+          "EndDate": "03/01/2018"
         },
         {
-            "Name": "HTML",
-            "Experience": [
-                {
-                    "Location": "West Salem High School",
-                    "StartDate": "01/01/2008",
-                    "EndDate": "12/01/2008"
-                },
-                {
-                    "Location": "Western Technical College",
-                    "StartDate": "08/01/2010",
-                    "EndDate": "12/01/2010"
-                },
-                {
-                    "Location": "Fox Valley Technical College",
-                    "StartDate": "08/01/2013",
-                    "EndDate": "05/18/2015"
-                },
-                {
-                    "Location": "West Corporation",
-                    "StartDate": "01/01/2017",
-                    "EndDate": "10/04/2017"
-                },
-                {
-                    "Location": "Network Health",
-                    "StartDate": "08/01/2018",
-                    "EndDate": "10/01/2018"
-                },
-                {
-                    "Location": "ClearTrend",
-                    "StartDate": "10/01/2018",
-                    "EndDate": "11/01/2018"
-                },
-                {
-                    "Location": "Express Scripts",
-                    "StartDate": "11/01/2018",
-                    "EndDate": ""
-                }
-            ]
+          "Location": "Mile of Music",
+          "StartDate": "03/01/2018",
+          "EndDate": "08/01/2018"
         },
         {
-            "Name": "PHP",
-            "Experience": [
-                {
-                    "Location": "Fox Valley Technical College",
-                    "StartDate": "01/01/2015",
-                    "EndDate": "05/18/2015"
-                }
-            ]
+          "Location": "Network Health",
+          "StartDate": "08/01/2018",
+          "EndDate": "10/01/2018"
         },
         {
-            "Name": "MySQL",
-            "Experience": [
-                {
-                    "Location": "Fox Valley Technical College",
-                    "StartDate": "01/01/2015",
-                    "EndDate": "05/18/2015"
-                }
-            ]
-        },
-        {
-            "Name": "Objective-C",
-            "Experience": [
-                {
-                    "Location": "J.J. Keller",
-                    "StartDate": "10/01/2017",
-                    "EndDate": "03/01/2018"
-                }
-            ]
-        },
-        {
-            "Name": "GraphQL",
-            "Experience":[
-                {
-                    "Location": "Renaissance Learning",
-                    "StartDate": "04/01/2018",
-                    "EndDate": "07/01/2018"
-                }
-            ]
+          "Location": "Express Scripts",
+          "StartDate": "11/01/2018",
+          "EndDate": ""
         }
-    ]
+      ]
+    },
+    {
+      "Name": "SQL",
+      "Experience": [
+        {
+          "Location": "Western Technical College",
+          "StartDate": "08/01/2010",
+          "EndDate": "12/01/2010"
+        },
+        {
+          "Location": "Fox Valley Technical College",
+          "StartDate": "01/01/2014",
+          "EndDate": "05/18/2015"
+        },
+        {
+          "Location": "West Corporation",
+          "StartDate": "05/19/2015",
+          "EndDate": "10/04/2017"
+        },
+        {
+          "Location": "J.J. Keller",
+          "StartDate": "10/01/2017",
+          "EndDate": "03/01/2018"
+        },
+        {
+          "Location": "Network Health",
+          "StartDate": "08/01/2018",
+          "EndDate": "10/01/2018"
+        },
+        {
+          "Location": "Express Scripts",
+          "StartDate": "11/01/2018",
+          "EndDate": ""
+        }
+      ]
+    },
+    {
+      "Name": "C++",
+      "Experience": [
+        {
+          "Location": "West Salem High School",
+          "StartDate": "01/01/2009",
+          "EndDate": "05/01/2009"
+        },
+        {
+          "Location": "Fox Valley Technical College",
+          "StartDate": "08/01/2014",
+          "EndDate": "12/01/2014"
+        }
+      ]
+    },
+    {
+      "Name": "JavaScript",
+      "Experience": [
+        {
+          "Location": "Western Technical College",
+          "StartDate": "08/01/2010",
+          "EndDate": "12/01/2010"
+        },
+        {
+          "Location": "Fox Valley Technical College",
+          "StartDate": "08/01/2013",
+          "EndDate": "05/18/2015"
+        },
+        {
+          "Location": "West Corporation",
+          "StartDate": "01/01/2017",
+          "EndDate": "10/04/2017"
+        },
+        {
+          "Location": "Network Health",
+          "StartDate": "08/01/2018",
+          "EndDate": "10/01/2018"
+        },
+        {
+          "Location": "ClearTrend",
+          "StartDate": "10/01/2018",
+          "EndDate": "11/01/2018"
+        },
+        {
+          "Location": "Express Scripts",
+          "StartDate": "11/01/2018",
+          "EndDate": ""
+        }
+      ]
+    },
+    {
+      "Name": "HTML",
+      "Experience": [
+        {
+          "Location": "West Salem High School",
+          "StartDate": "01/01/2008",
+          "EndDate": "12/01/2008"
+        },
+        {
+          "Location": "Western Technical College",
+          "StartDate": "08/01/2010",
+          "EndDate": "12/01/2010"
+        },
+        {
+          "Location": "Fox Valley Technical College",
+          "StartDate": "08/01/2013",
+          "EndDate": "05/18/2015"
+        },
+        {
+          "Location": "West Corporation",
+          "StartDate": "01/01/2017",
+          "EndDate": "10/04/2017"
+        },
+        {
+          "Location": "Network Health",
+          "StartDate": "08/01/2018",
+          "EndDate": "10/01/2018"
+        },
+        {
+          "Location": "ClearTrend",
+          "StartDate": "10/01/2018",
+          "EndDate": "11/01/2018"
+        },
+        {
+          "Location": "Express Scripts",
+          "StartDate": "11/01/2018",
+          "EndDate": ""
+        }
+      ]
+    },
+    {
+      "Name": "PHP",
+      "Experience": [
+        {
+          "Location": "Fox Valley Technical College",
+          "StartDate": "01/01/2015",
+          "EndDate": "05/18/2015"
+        }
+      ]
+    },
+    {
+      "Name": "MySQL",
+      "Experience": [
+        {
+          "Location": "Fox Valley Technical College",
+          "StartDate": "01/01/2015",
+          "EndDate": "05/18/2015"
+        }
+      ]
+    },
+    {
+      "Name": "Objective-C",
+      "Experience": [
+        {
+          "Location": "J.J. Keller",
+          "StartDate": "10/01/2017",
+          "EndDate": "03/01/2018"
+        }
+      ]
+    },
+    {
+      "Name": "GraphQL",
+      "Experience": [
+        {
+          "Location": "Renaissance Learning",
+          "StartDate": "04/01/2018",
+          "EndDate": "07/01/2018"
+        }
+      ]
+    }
+  ]
 }

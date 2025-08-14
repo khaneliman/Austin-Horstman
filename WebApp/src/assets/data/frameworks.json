@@ -1,29 +1,29 @@
 {
-    "Framework": [
+  "Framework": [
+    {
+      "Name": "Angular",
+      "Experience": [
         {
-            "Name": "Angular",
-            "Experience": [
-                {
-                    "Location": "Renaissance Learning",
-                    "StartDate": "04/01/2018",
-                    "EndDate": "07/01/2018"
-                },
-                {
-                    "Location": "Express Scripts",
-                    "StartDate": "11/01/2018",
-                    "EndDate": ""
-                }
-            ]
+          "Location": "Renaissance Learning",
+          "StartDate": "04/01/2018",
+          "EndDate": "07/01/2018"
         },
         {
-            "Name": "React",
-            "Experience": [
-                {
-                    "Location": "ClearTrend",
-                    "StartDate": "10/01/2018",
-                    "EndDate": "11/01/2018"
-                }
-            ]
+          "Location": "Express Scripts",
+          "StartDate": "11/01/2018",
+          "EndDate": ""
         }
-    ]
+      ]
+    },
+    {
+      "Name": "React",
+      "Experience": [
+        {
+          "Location": "ClearTrend",
+          "StartDate": "10/01/2018",
+          "EndDate": "11/01/2018"
+        }
+      ]
+    }
+  ]
 }

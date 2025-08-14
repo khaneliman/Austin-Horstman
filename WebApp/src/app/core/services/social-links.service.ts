@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { SocialLink } from '../../shared/types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SocialLinksService {
   private readonly socialLinks = signal<SocialLink[]>([

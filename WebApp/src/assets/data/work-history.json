@@ -1,161 +1,72 @@
 {
-    "Employer": [
-        {
-            "Name": "West Corporation",
-            "StartDate": "05/19/2015",
-            "EndDate": "10/04/2017",
-            "Languages": [
-                "C#",
-                "SQL",
-                "JavaScript",
-                "HTML"
-            ],
-            "Frameworks": [
-                ".NET Framework",
-                "ASP.NET"
-            ],
-            "Libraries": [
-                "Bootstrap",
-                "jQuery"
-            ],
-            "Tools": [
-                "SSIS",
-                "SSRS",
-                "Redgate SQL Toolbox",
-                "OnContact"
-            ]
-        },
-        {
-            "Name": "J.J. Keller",
-            "StartDate": "10/01/2017",
-            "EndDate": "03/01/2018",
-            "Languages": [
-                "Objective-C",
-                "C#",
-                "SQL"
-            ],
-            "Frameworks": [
-                ".NET Framework",
-                "Foundation",
-                "ASP.NET"
-            ],
-            "Libraries": [
-            ],
-            "Tools": [
-            ]
-        },
-        {
-            "Name": "Mile of Music",
-            "StartDate": "03/01/2018",
-            "EndDate": "08/01/2018",
-            "Languages": [
-                "C#",
-                "SQL",
-                "JavaScript",
-                "HTML"
-            ],
-            "Frameworks": [
-                ".NET Framework",
-                ".NET Core",
-                "ASP.NET",
-                "ASP.NET Core"
-            ],
-            "Libraries": [
-                "Skybrud Social",
-                "Xamarin Media Manager"
-            ],
-            "Tools": [
-                "Xamarin"
-            ]
-        },
-        {
-            "Name": "Renaissance Learning",
-            "StartDate": "04/01/2018",
-            "EndDate": "07/01/2018",
-            "Languages": [
-                "JavaScript",
-                "TypeScript",
-                "HTML",
-                "GraphQL"
-            ],
-            "Frameworks": [
-                "Angular"
-            ],
-            "Libraries": [
-            ],
-            "Tools": [
-                "SSRS"
-            ]
-        },
-        {
-            "Name": "Network Health",
-            "StartDate": "08/01/2018",
-            "EndDate": "10/01/2018",
-            "Languages": [
-                "C#",
-                "SQL",
-                "JavaScript",
-                "HTML"
-            ],
-            "Frameworks": [
-                ".NET Core",
-                "ASP.NET Core"
-            ],
-            "Libraries": [
-                "Bootstrap",
-                "Swagger",
-                "xUnit.Net",
-                "Entity Framework Core"
-            ],
-            "Tools": [
-            ]
-        },
-        {
-            "Name": "ClearTREND",
-            "StartDate": "10/01/2018",
-            "EndDate": "11/01/2018",
-            "Languages": [
-                "JavaScript",
-                "HTML"
-            ],
-            "Frameworks": [
-                ".NET Core",
-                "ASP.NET Core"
-            ],
-            "Libraries": [
-                "Redux"
-            ],
-            "Tools": [
-            ]
-        },
-        {
-            "Name": "Express Scripts",
-            "StartDate": "11/01/2018",
-            "EndDate": "",
-            "Languages": [
-                "C#",
-                "SQL",
-                "JavaScript",
-                "HTML"
-            ],
-            "Frameworks": [
-                ".NET Framework",
-                ".NET Core",
-                "ASP.NET"
-            ],
-            "Libraries": [
-                "AngularJS",
-                "Angular",
-                "Bootstrap",
-                "Swagger"
-            ],
-            "Tools": [
-                "SSIS",
-                "SSRS",
-                "SSDT",
-                "Jenkins",
-                "Teradata"
-            ]
-        }
-    ]
+  "Employer": [
+    {
+      "Name": "West Corporation",
+      "StartDate": "05/19/2015",
+      "EndDate": "10/04/2017",
+      "Languages": ["C#", "SQL", "JavaScript", "HTML"],
+      "Frameworks": [".NET Framework", "ASP.NET"],
+      "Libraries": ["Bootstrap", "jQuery"],
+      "Tools": ["SSIS", "SSRS", "Redgate SQL Toolbox", "OnContact"]
+    },
+    {
+      "Name": "J.J. Keller",
+      "StartDate": "10/01/2017",
+      "EndDate": "03/01/2018",
+      "Languages": ["Objective-C", "C#", "SQL"],
+      "Frameworks": [".NET Framework", "Foundation", "ASP.NET"],
+      "Libraries": [],
+      "Tools": []
+    },
+    {
+      "Name": "Mile of Music",
+      "StartDate": "03/01/2018",
+      "EndDate": "08/01/2018",
+      "Languages": ["C#", "SQL", "JavaScript", "HTML"],
+      "Frameworks": [".NET Framework", ".NET Core", "ASP.NET", "ASP.NET Core"],
+      "Libraries": ["Skybrud Social", "Xamarin Media Manager"],
+      "Tools": ["Xamarin"]
+    },
+    {
+      "Name": "Renaissance Learning",
+      "StartDate": "04/01/2018",
+      "EndDate": "07/01/2018",
+      "Languages": ["JavaScript", "TypeScript", "HTML", "GraphQL"],
+      "Frameworks": ["Angular"],
+      "Libraries": [],
+      "Tools": ["SSRS"]
+    },
+    {
+      "Name": "Network Health",
+      "StartDate": "08/01/2018",
+      "EndDate": "10/01/2018",
+      "Languages": ["C#", "SQL", "JavaScript", "HTML"],
+      "Frameworks": [".NET Core", "ASP.NET Core"],
+      "Libraries": [
+        "Bootstrap",
+        "Swagger",
+        "xUnit.Net",
+        "Entity Framework Core"
+      ],
+      "Tools": []
+    },
+    {
+      "Name": "ClearTREND",
+      "StartDate": "10/01/2018",
+      "EndDate": "11/01/2018",
+      "Languages": ["JavaScript", "HTML"],
+      "Frameworks": [".NET Core", "ASP.NET Core"],
+      "Libraries": ["Redux"],
+      "Tools": []
+    },
+    {
+      "Name": "Express Scripts",
+      "StartDate": "11/01/2018",
+      "EndDate": "",
+      "Languages": ["C#", "SQL", "JavaScript", "HTML"],
+      "Frameworks": [".NET Framework", ".NET Core", "ASP.NET"],
+      "Libraries": ["AngularJS", "Angular", "Bootstrap", "Swagger"],
+      "Tools": ["SSIS", "SSRS", "SSDT", "Jenkins", "Teradata"]
+    }
+  ]
 }

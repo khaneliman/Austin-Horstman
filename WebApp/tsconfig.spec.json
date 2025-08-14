@@ -3,16 +3,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": [
-      "jest",
-      "node",
-      "@angular/localize"
-    ],
+    "types": ["jest", "node", "@angular/localize"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
