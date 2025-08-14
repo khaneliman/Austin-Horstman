@@ -195,35 +195,24 @@ export function getCompanyEmploymentRoute(companyNameOrId: string): string {
   const company =
     COMPANIES[companyNameOrId as keyof typeof COMPANIES] ||
     getCompanyByName(companyNameOrId);
-  if (company) {
-    return company.employmentRoute;
+
+  if (!company) {
+    throw new Error(`Company not found: ${companyNameOrId}`);
   }
 
-  // Fallback logic for existing routing patterns
-  const routeName = companyNameOrId
-    .toLowerCase()
-    .replace(/\s+/g, '')
-    .replace('geeksquad', 'bestbuy')
-    .replace('nri-na', 'nri-na');
-  return `/personal/resume/employment/${routeName}`;
+  return company.employmentRoute;
 }
 
 export function getCompanyProjectsRoute(companyNameOrId: string): string {
   const company =
     COMPANIES[companyNameOrId as keyof typeof COMPANIES] ||
     getCompanyByName(companyNameOrId);
-  return (
-    company?.projectsRoute ||
-    `/projects/professional/${companyNameOrId.toLowerCase()}`
-  );
-}
 
-// Legacy helper functions for backward compatibility
-export function getCompanyInfo(
-  company: 'corebts' | 'nriNa' | 'nri-na'
-): CompanyInfo {
-  const key = company === 'nriNa' ? 'nri-na' : company;
-  return { ...COMPANIES[key as keyof typeof COMPANIES] };
+  if (!company) {
+    throw new Error(`Company not found: ${companyNameOrId}`);
+  }
+
+  return company.projectsRoute;
 }
 
 // For professional projects grid compatibility
