@@ -1,4 +1,5 @@
 import { ProjectInfo } from '../components/company-profile/company-profile.component';
+import { COMPANIES } from './companies';
 
 // Shared project configurations that can be reused across different company contexts
 export const SHARED_PROJECTS = {
@@ -107,3 +108,26 @@ export const COMPANY_PROJECTS = {
     { name: 'Quick Launch', route: 'quick-launch' },
   ],
 } as const;
+
+// Helper function to generate professional project grid data from centralized sources
+export function generateProfessionalProjectsGrid() {
+  return Object.entries(COMPANY_PROJECTS)
+    .map(([companyKey, projects]) => {
+      const company = COMPANIES[companyKey as keyof typeof COMPANIES];
+      if (!company) return undefined;
+
+      return {
+        title: `${company.displayName} Projects`,
+        description: company.description.split('.')[0], // First sentence
+        company: company.displayName,
+        route: company.projectsRoute,
+        logo: company.logoSrc,
+        color: company.gradientColor,
+        projects: projects.map(project => ({
+          name: project.name,
+          route: `/projects/professional/${companyKey}/${project.route}`,
+        })),
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== undefined);
+}
