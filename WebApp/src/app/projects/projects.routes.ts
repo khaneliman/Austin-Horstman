@@ -13,7 +13,7 @@ export const PROJECTS_ROUTES: Routes = [
   {
     path: 'personal',
     loadChildren: () =>
-      import('../personal/resume/projects/personal/personal.routes').then(
+      import('./personal/personal.routes').then(
         m => m.PERSONAL_PROJECTS_ROUTES
       ),
   },
