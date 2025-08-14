@@ -13,13 +13,13 @@ import {
 })
 export class CorebtsComponent {
   company: CompanyInfo = {
-    name: 'Core BTS',
+    name: 'NRI-NA (formerly Core BTS)',
     logoSrc: 'assets/images/corebts.png',
     logoAlt: 'Core BTS logo',
     website: 'https://www.corebts.com',
     location: 'Appleton, WI',
     position: 'Senior Software Engineer',
-    dateRange: '2020 - 2024',
+    dateRange: 'Jan 2020 - Current',
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'green',
@@ -31,12 +31,12 @@ export class CorebtsComponent {
       gradientVia: 'via-green-800',
     },
     stats: {
-      years: '4+',
+      years: '5+',
       metric1: { value: '10+', label: 'Clients' },
       metric2: { value: '15+', label: 'Projects' },
     },
     description:
-      'Core BTS is a technology consulting company specializing in modern application development and digital transformation solutions. As a Senior Software Engineer in the Modern Business Unit, I work with diverse clients to build cutting-edge applications using the latest technologies and development practices. Our team focuses on delivering scalable, maintainable solutions that drive business value and innovation.',
+      'NRI-NA (formerly Core BTS) is a technology consulting company specializing in modern application development and digital transformation solutions. As a Senior Software Engineer in the Modern Business Unit, I work with diverse clients to build cutting-edge applications using the latest technologies and development practices. Our team focuses on delivering scalable, maintainable solutions that drive business value and innovation.',
   };
 
   projects: ProjectInfo[] = [
