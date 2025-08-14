@@ -45,7 +45,7 @@ export class GeeksquadComponent {
       description:
         'Performance monitoring and statistics tracking application for repair operations',
       route: 'stat-tracker',
-      icon: 'ni ni-chart-pie-35',
+      icon: 'heroChartPie',
       color: 'from-blue-600 to-orange-800',
       status: 'Production',
       technologies: ['VB.NET', 'Windows Forms', 'SQLite', 'Excel Integration'],

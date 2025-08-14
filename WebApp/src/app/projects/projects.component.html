@@ -121,7 +121,11 @@
               category.color
             }} rounded-full flex items-center justify-center mx-auto mb-6"
           >
-            <i class="{{ category.icon }} text-white text-2xl"></i>
+            <ng-icon
+              [name]="category.icon"
+              size="1.5rem"
+              class="text-white"
+            ></ng-icon>
           </div>
 
           <h3 class="text-xl font-bold text-gray-900 mb-3">
@@ -136,7 +140,7 @@
           routerLink="/projects/personal"
           class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
         >
-          <i class="ni ni-collection mr-3"></i>
+          <ng-icon name="heroRectangleStack" size="1rem" class="mr-3"></ng-icon>
           Explore Personal Projects
         </a>
       </div>

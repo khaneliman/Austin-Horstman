@@ -1,10 +1,33 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import {
+  heroUser,
+  heroLightBulb,
+  heroCodeBracket,
+  heroCog6Tooth,
+  heroFolder,
+  heroGlobeAlt,
+  heroBriefcase,
+  heroComputerDesktop,
+} from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
   styleUrls: ['./personal.component.scss'],
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgIconComponent],
+  providers: [
+    provideIcons({
+      heroUser,
+      heroLightBulb,
+      heroCodeBracket,
+      heroCog6Tooth,
+      heroFolder,
+      heroGlobeAlt,
+      heroBriefcase,
+      heroComputerDesktop,
+    }),
+  ],
 })
 export class PersonalComponent {}

@@ -1,12 +1,19 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroRectangleStack } from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgIconComponent],
+  providers: [
+    provideIcons({
+      heroRectangleStack,
+    }),
+  ],
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
   public route = inject(ActivatedRoute);
