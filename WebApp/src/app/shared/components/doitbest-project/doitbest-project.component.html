@@ -1,0 +1,553 @@
+<!-- DoItBest Platform Project Page - Reusable Component -->
+<div
+  class="min-h-screen bg-gradient-to-br from-blue-50 via-gray-50 to-indigo-50"
+>
+  <!-- Reusable Project Navigation Header -->
+  <app-project-nav-header
+    [backRoute]="backRoute"
+    [backLabel]="backLabel"
+    [hoverColor]="hoverColor"
+    [companyKey]="companyKey"
+  ></app-project-nav-header>
+
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Project Header -->
+    <div
+      class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-8"
+    >
+      <div
+        class="relative bg-gradient-to-r from-blue-600 to-indigo-600 px-8 pt-12 pb-8"
+      >
+        <!-- Decorative elements -->
+        <div
+          class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"
+        ></div>
+        <div
+          class="absolute bottom-4 left-4 w-16 h-16 bg-blue-300/20 rounded-full blur-lg"
+        ></div>
+
+        <div class="relative z-10 text-center mt-8">
+          <div class="inline-block relative group mb-6">
+            <div
+              class="w-24 h-24 bg-white/20 rounded-full p-4 mx-auto shadow-2xl border-4 border-white/30"
+            >
+              <ng-icon
+                name="heroCog6Tooth"
+                size="2rem"
+                class="text-white flex items-center justify-center h-full"
+              ></ng-icon>
+            </div>
+          </div>
+
+          <h1 class="text-5xl font-bold text-white mb-4">DoItBest Platform</h1>
+          <p class="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            Hardware retailer backend services and infrastructure modernization
+            project
+          </p>
+
+          <!-- Project Meta -->
+          <div class="flex flex-wrap justify-center gap-6 text-blue-100 mt-8">
+            <div class="flex items-center space-x-2">
+              <ng-icon
+                name="heroBuildingOffice"
+                size="1rem"
+                class="text-blue-300"
+              ></ng-icon>
+              <span>{{ companyName }}</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <ng-icon
+                name="heroCalendarDays"
+                size="1rem"
+                class="text-blue-300"
+              ></ng-icon>
+              <span>{{ dateRange }}</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <ng-icon
+                name="heroBeaker"
+                size="1rem"
+                class="text-blue-300"
+              ></ng-icon>
+              <span>Enterprise Scale</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div
+        class="px-8 py-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-100"
+      >
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-blue-600 mb-1">C# / Java</div>
+            <div class="text-sm text-gray-600 font-medium">Backend</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-indigo-600 mb-1">Kafka</div>
+            <div class="text-sm text-gray-600 font-medium">Event Streaming</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-cyan-600 mb-1">Azure</div>
+            <div class="text-sm text-gray-600 font-medium">Cloud</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-purple-600 mb-1">Oracle</div>
+            <div class="text-sm text-gray-600 font-medium">Database</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Main Content -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Overview -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+            <ng-icon
+              name="heroListBullet"
+              size="1.25rem"
+              class="text-blue-500 mr-3"
+            ></ng-icon>
+            Project Overview
+          </h2>
+          <div class="prose max-w-none text-gray-700 leading-relaxed">
+            <p class="mb-4">
+              The DoItBest Platform project involved developing a comprehensive
+              backend services infrastructure and modernization system for one
+              of the largest hardware retailers in North America. This
+              multi-faceted platform serves both B2B and B2C customers, handling
+              complex inventory management, supplier integrations, and
+              multi-location fulfillment.
+            </p>
+            <p class="mb-4">
+              Working closely with DoItBest's business stakeholders and
+              technical teams, we modernized their entire digital infrastructure
+              while maintaining seamless operations across thousands of retail
+              locations and distribution centers. The solution encompasses
+              backend services, infrastructure modernization, inventory
+              management, and supply chain optimization.
+            </p>
+            <p>
+              The platform successfully increased system reliability, improved
+              infrastructure scalability, and streamlined operations for both
+              corporate locations and independent dealers within the DoItBest
+              network through modern cloud-native architecture and event-driven
+              systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- Technical Implementation & Leadership -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+            <ng-icon
+              name="heroCodeBracket"
+              size="1.25rem"
+              class="text-blue-500 mr-3"
+            ></ng-icon>
+            Technical Implementation & Leadership
+          </h2>
+          <div class="prose max-w-none text-gray-700 leading-relaxed">
+            <p class="mb-4">
+              Led cross-functional collaboration with business stakeholders,
+              legacy application maintainers, and architects to create and
+              prioritize product backlog, ensuring delivery against tight
+              project deadlines. Drove team-wide agile process improvements,
+              acting as both technical leader and scrum advisor to increase
+              delivery speed and reduce development blockers.
+            </p>
+            <p class="mb-4">
+              Facilitated continuous team productivity by communicating
+              developer needs with leadership and proactively working to remove
+              blockers. Mentored junior developers through comprehensive code
+              reviews, regular 1-on-1 meetings, and detailed technical concept
+              explanations to accelerate team capability growth.
+            </p>
+            <p class="mb-4">
+              <strong
+                >Architected a secure authentication and authorization model
+                using JWT and role-based access controls</strong
+              >, which was adopted across multiple C# and Java REST API
+              applications throughout the organization. This standardized
+              security approach ensured consistent access management and
+              simplified maintenance across the platform ecosystem.
+            </p>
+            <p class="mb-4">
+              <strong
+                >Architected and deployed cloud infrastructure using Bicep and
+                Kubernetes Helm charts on Azure</strong
+              >, ensuring scalability and resilience for mission-critical
+              workloads. The infrastructure-as-code approach enabled consistent
+              deployments and simplified environment management across
+              development, staging, and production.
+            </p>
+            <p>
+              <strong
+                >Designed and implemented event-driven architecture components
+                using Kafka stream processors</strong
+              >
+              to support the phased decommissioning of mainframe systems in a
+              high-impact modernization effort. This approach enabled real-time
+              data processing while maintaining system reliability during the
+              critical legacy-to-modern migration phase.
+            </p>
+          </div>
+
+          <!-- Technical Leadership Highlights -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroUserGroup"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Technical Leadership
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Led agile process improvements and mentored junior developers
+                while facilitating cross-functional stakeholder collaboration.
+              </p>
+            </div>
+
+            <div class="bg-green-50 rounded-xl p-6 border border-green-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroShieldCheck"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Security Architecture
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Designed JWT-based authentication with role-based access
+                controls adopted across multiple C# and Java REST API
+                applications.
+              </p>
+            </div>
+
+            <div class="bg-purple-50 rounded-xl p-6 border border-purple-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroCloud"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Cloud Infrastructure
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Architected scalable Azure infrastructure using Bicep and
+                Kubernetes Helm charts for mission-critical workloads.
+              </p>
+            </div>
+
+            <div class="bg-orange-50 rounded-xl p-6 border border-orange-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroCircleStack"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Modernization Architecture
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Implemented event-driven architecture with Kafka stream
+                processors for mainframe decommissioning modernization.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+            <ng-icon
+              name="heroCog6Tooth"
+              size="1.25rem"
+              class="text-blue-500 mr-3"
+            ></ng-icon>
+            Key Features & Capabilities
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroShoppingBag"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Multi-Channel Commerce
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Backend services supporting B2B dealer portals and B2C
+                e-commerce with integrated inventory and pricing management.
+              </p>
+            </div>
+
+            <div class="bg-indigo-50 rounded-xl p-6 border border-indigo-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroArchiveBox"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Advanced Infrastructure
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Scalable cloud infrastructure with Kubernetes orchestration and
+                automated deployment pipelines for enterprise workloads.
+              </p>
+            </div>
+
+            <div class="bg-purple-50 rounded-xl p-6 border border-purple-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroCircleStack"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Event-Driven Architecture
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Kafka-based event streaming for real-time data processing and
+                seamless mainframe system decommissioning.
+              </p>
+            </div>
+
+            <div class="bg-green-50 rounded-xl p-6 border border-green-100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
+                >
+                  <ng-icon
+                    name="heroShieldCheck"
+                    size="1rem"
+                    class="text-white"
+                  ></ng-icon>
+                </div>
+                <h3 class="font-semibold text-gray-800">
+                  Security & Authentication
+                </h3>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Enterprise-grade JWT authentication with role-based access
+                controls across all platform services and applications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <!-- Technologies Used -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <ng-icon
+              name="heroBeaker"
+              size="1rem"
+              class="text-blue-500 mr-2"
+            ></ng-icon>
+            Technologies
+          </h3>
+
+          <div class="space-y-3">
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">C# .NET</span>
+              <span
+                class="px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded-full"
+                >Backend</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">Java Spring Boot</span>
+              <span
+                class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full"
+                >Backend</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">Oracle Database</span>
+              <span
+                class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full"
+                >Database</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">Azure Cloud</span>
+              <span
+                class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full"
+                >Cloud Platform</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">Kubernetes</span>
+              <span
+                class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs font-medium rounded-full"
+                >Container Orchestration</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">Apache Kafka</span>
+              <span
+                class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full"
+                >Event Streaming</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">Azure Bicep</span>
+              <span
+                class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-medium rounded-full"
+                >Infrastructure</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">Helm Charts</span>
+              <span
+                class="px-2 py-1 bg-rose-100 text-rose-800 text-xs font-medium rounded-full"
+                >Deployment</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+            >
+              <span class="font-medium text-gray-700">JWT Authentication</span>
+              <span
+                class="px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-medium rounded-full"
+                >Security</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Links -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <ng-icon
+              name="heroLink"
+              size="1rem"
+              class="text-blue-500 mr-2"
+            ></ng-icon>
+            Quick Links
+          </h3>
+
+          <div class="space-y-3">
+            <a
+              [routerLink]="employmentRoute"
+              class="flex items-center p-3 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg transition-colors group"
+            >
+              <ng-icon
+                name="heroBuildingOffice"
+                size="1rem"
+                class="mr-3 text-blue-500"
+              ></ng-icon>
+              <span class="font-medium">{{ companyName }} Profile</span>
+              <ng-icon
+                name="heroArrowRight"
+                size="0.75rem"
+                class="ml-auto group-hover:translate-x-1 transition-transform"
+              ></ng-icon>
+            </a>
+
+            <a
+              [routerLink]="projectsRoute"
+              class="flex items-center p-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg transition-colors group"
+            >
+              <ng-icon
+                name="heroArchiveBox"
+                size="1rem"
+                class="mr-3 text-indigo-500"
+              ></ng-icon>
+              <span class="font-medium">All {{ companyName }} Projects</span>
+              <ng-icon
+                name="heroArrowRight"
+                size="0.75rem"
+                class="ml-auto group-hover:translate-x-1 transition-transform"
+              ></ng-icon>
+            </a>
+
+            <a
+              routerLink="/projects"
+              class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-lg transition-colors group"
+            >
+              <ng-icon
+                name="heroGlobeAlt"
+                size="1rem"
+                class="mr-3 text-gray-500"
+              ></ng-icon>
+              <span class="font-medium">All Projects</span>
+              <ng-icon
+                name="heroArrowRight"
+                size="0.75rem"
+                class="ml-auto group-hover:translate-x-1 transition-transform"
+              ></ng-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
