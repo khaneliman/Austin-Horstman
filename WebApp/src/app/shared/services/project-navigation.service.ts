@@ -5,12 +5,9 @@ import { ProjectNavItem } from '../components/project-nav-header/project-nav-hea
   providedIn: 'root',
 })
 export class ProjectNavigationService {
-  private navConfigurations: Record<string, ProjectNavItem[]> = {
+  // Define actual projects that exist in the filesystem for each company
+  private projectConfigurations: Record<string, ProjectNavItem[]> = {
     'nri-na': [
-      {
-        name: 'Kroger Solutions',
-        route: '/projects/professional/nri-na/kroger',
-      },
       {
         name: 'DoItBest Platform',
         route: '/projects/professional/nri-na/doitbest',
@@ -27,10 +24,6 @@ export class ProjectNavigationService {
       },
     ],
     skyline: [
-      {
-        name: 'Kroger Solutions',
-        route: '/projects/professional/skyline/kroger',
-      },
       {
         name: 'Renaissance Learning',
         route: '/projects/professional/skyline/renaissance-learning',
@@ -79,7 +72,7 @@ export class ProjectNavigationService {
     companyKey: string,
     activeRoute?: string
   ): ProjectNavItem[] {
-    const items = this.navConfigurations[companyKey] || [];
+    const items = this.projectConfigurations[companyKey] || [];
     return items.map(item => ({
       ...item,
       isActive: activeRoute ? item.route === activeRoute : false,
