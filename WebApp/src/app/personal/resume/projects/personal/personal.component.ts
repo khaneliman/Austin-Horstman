@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroUser,
@@ -10,13 +10,14 @@ import {
   heroGlobeAlt,
   heroBriefcase,
   heroComputerDesktop,
+  heroArrowTopRightOnSquare,
 } from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
   styleUrls: ['./personal.component.scss'],
-  imports: [RouterOutlet, NgIconComponent],
+  imports: [RouterOutlet, RouterLink, NgIconComponent],
   providers: [
     provideIcons({
       heroUser,
@@ -27,6 +28,7 @@ import {
       heroGlobeAlt,
       heroBriefcase,
       heroComputerDesktop,
+      heroArrowTopRightOnSquare,
     }),
   ],
 })

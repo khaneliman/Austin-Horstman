@@ -23,10 +23,12 @@
           >
             <ng-icon name="heroUser" size="1.5rem" class="text-white"></ng-icon>
           </div>
-          <h1 class="text-4xl font-bold text-white mb-4">Personal Projects</h1>
+          <h1 class="text-4xl font-bold text-white mb-4">
+            Personal Projects & Open Source
+          </h1>
           <p class="text-indigo-100 text-lg max-w-2xl mx-auto">
-            Individual software development projects and personal portfolio
-            applications
+            Individual software development projects, open source contributions,
+            and personal portfolio applications
           </p>
         </div>
       </div>
@@ -66,6 +68,7 @@
             <li>• Database design and optimization</li>
             <li>• API development and integration</li>
             <li>• Personal portfolio and showcase applications</li>
+            <li>• Open source maintainer in the Nix ecosystem</li>
           </ul>
         </div>
 
@@ -163,6 +166,99 @@
       </p>
     </div>
 
+    <!-- Open Source Contributions -->
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <ng-icon
+          name="heroCodeBracket"
+          size="1.25rem"
+          class="text-green-500 mr-3"
+        ></ng-icon>
+        Open Source Contributions
+      </h2>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Active maintainer and contributor to several open source projects in the
+        Nix ecosystem, focusing on improving developer experience and system
+        reproducibility.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a
+          routerLink="home-manager"
+          class="group bg-blue-50 rounded-xl p-6 cursor-pointer hover:bg-blue-100 transition-colors duration-200 border border-transparent hover:border-blue-200 hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-semibold text-blue-800 group-hover:text-blue-900">
+              Home Manager
+            </h3>
+            <ng-icon
+              name="heroArrowTopRightOnSquare"
+              size="1rem"
+              class="text-blue-600 group-hover:text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            ></ng-icon>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">
+            Designed and improved Nix modules for declarative user environment
+            configuration. Refactored modules to support freeform configuration
+            inputs.
+          </p>
+          <div class="text-xs text-blue-600 font-medium">
+            Oct 2024 - Current
+          </div>
+        </a>
+
+        <a
+          routerLink="nixvim"
+          class="group bg-green-50 rounded-xl p-6 cursor-pointer hover:bg-green-100 transition-colors duration-200 border border-transparent hover:border-green-200 hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-semibold text-green-800 group-hover:text-green-900">
+              Nixvim
+            </h3>
+            <ng-icon
+              name="heroArrowTopRightOnSquare"
+              size="1rem"
+              class="text-green-600 group-hover:text-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            ></ng-icon>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">
+            Enhanced user experience for creating Neovim configurations using
+            Nix's declarative approach. Created new plugin modules and resolved
+            user experience issues.
+          </p>
+          <div class="text-xs text-green-600 font-medium">
+            May 2024 - Current
+          </div>
+        </a>
+
+        <a
+          routerLink="nixpkgs"
+          class="group bg-purple-50 rounded-xl p-6 cursor-pointer hover:bg-purple-100 transition-colors duration-200 border border-transparent hover:border-purple-200 hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3
+              class="font-semibold text-purple-800 group-hover:text-purple-900"
+            >
+              Nixpkgs
+            </h3>
+            <ng-icon
+              name="heroArrowTopRightOnSquare"
+              size="1rem"
+              class="text-purple-600 group-hover:text-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            ></ng-icon>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">
+            Maintains packages and infrastructure for the Nix package manager.
+            Specializes in Darwin (macOS) platform maintenance and package
+            updates.
+          </p>
+          <div class="text-xs text-purple-600 font-medium">
+            May 2023 - Current
+          </div>
+        </a>
+      </div>
+    </div>
+
     <!-- Technology Diversity -->
     <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
       <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
@@ -214,6 +310,30 @@
         <span
           class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium"
           >PostgreSQL</span
+        >
+        <span
+          class="bg-slate-100 text-slate-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Nix</span
+        >
+        <span
+          class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Rust</span
+        >
+        <span
+          class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Docker</span
+        >
+        <span
+          class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium"
+          >C#</span
+        >
+        <span
+          class="bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Java</span
+        >
+        <span
+          class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium"
+          >C++</span
         >
       </div>
     </div>
