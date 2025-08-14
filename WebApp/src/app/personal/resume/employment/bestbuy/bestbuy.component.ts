@@ -37,6 +37,13 @@ export class BestbuyComponent {
     },
     description:
       "Best Buy's Geek Squad is a specialized technology support service providing computer repair, installation, and technical support services. As an Advanced Repair Agent at the Appleton precinct, I handled complex hardware repairs, software troubleshooting, and developed custom tools to improve operational efficiency and customer service delivery.",
+    achievements: [
+      'Diagnosed and repaired complex computer hardware and software issues',
+      'Managed client communications and service updates throughout repair process',
+      "Maintained accurate client records per Best Buy's standard operating procedures",
+      'Coordinated receiving and shipping operations for service center repairs',
+      'Collaborated with small precinct team to ensure efficient service delivery',
+    ],
   };
 
   projects: ProjectInfo[] = [

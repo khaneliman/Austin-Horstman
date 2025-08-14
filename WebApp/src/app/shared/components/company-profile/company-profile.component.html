@@ -123,7 +123,14 @@
             ></i>
             Featured Projects
           </h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div
+            [class]="
+              'grid gap-6 mb-8 ' +
+              (projects.length === 1
+                ? 'grid-cols-1'
+                : 'grid-cols-1 md:grid-cols-2')
+            "
+          >
             <div
               *ngFor="let project of projects"
               class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
@@ -213,9 +220,39 @@
             ></i>
             About {{ company.name }}
           </h3>
-          <p class="text-gray-700 leading-relaxed">
+          <p
+            class="text-gray-700 leading-relaxed"
+            [class.mb-6]="company.achievements"
+          >
             {{ company.description }}
           </p>
+
+          <!-- Key Responsibilities & Achievements section -->
+          <div
+            *ngIf="company.achievements"
+            class="bg-white rounded-xl p-6 border"
+            [class]="
+              'border-' +
+              company.colorScheme.theme.replace('orange', 'blue') +
+              '-100'
+            "
+          >
+            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+              <i
+                [class]="
+                  'ni ni-settings-gear-65 ' +
+                  getIconClass(company.colorScheme.theme) +
+                  ' mr-2'
+                "
+              ></i>
+              Key Responsibilities & Achievements
+            </h4>
+            <ul class="text-gray-700 space-y-2 text-sm">
+              <li *ngFor="let achievement of company.achievements">
+                • {{ achievement }}
+              </li>
+            </ul>
+          </div>
         </div>
 
         <!-- Project content -->

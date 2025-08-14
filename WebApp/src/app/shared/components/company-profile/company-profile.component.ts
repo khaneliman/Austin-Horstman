@@ -26,6 +26,7 @@ export interface CompanyInfo {
     metric2: { value: string; label: string };
   };
   description: string;
+  achievements?: string[]; // Optional list of key responsibilities/achievements
 }
 
 export interface ProjectInfo {
