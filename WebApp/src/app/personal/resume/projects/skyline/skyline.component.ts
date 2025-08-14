@@ -4,6 +4,7 @@ import {
   CompanyInfo,
   ProjectInfo,
 } from '../../../../shared/components/company-profile/company-profile.component';
+import { getKrogerProjectForProfile } from '../../../../shared/data/projects';
 
 @Component({
   selector: 'app-skyline',
@@ -39,6 +40,7 @@ export class SkylineComponent {
   };
 
   projects: ProjectInfo[] = [
+    getKrogerProjectForProfile('skyline'),
     {
       name: 'Renaissance Learning',
       description: 'Educational reporting platform',

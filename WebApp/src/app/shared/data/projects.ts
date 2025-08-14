@@ -23,6 +23,16 @@ export const SHARED_PROJECTS = {
       technologies: ['Angular', 'NgRx', '.NET', 'Azure', 'Cold Fusion Legacy'],
       route: '/projects/professional/corebts/kroger',
     },
+    skyline: {
+      name: 'Kroger Solutions',
+      description:
+        'Enterprise retail platform modernization and inventory management systems',
+      icon: 'heroShoppingBag',
+      color: 'from-purple-600 to-indigo-800',
+      status: 'Production' as const,
+      technologies: ['Angular', '.NET', 'Azure', 'SQL Server', 'NgRx'],
+      route: '/projects/professional/skyline/kroger',
+    },
     nriNa: {
       name: 'Kroger Solutions',
       description: 'Advanced enterprise platform modernization',
@@ -45,7 +55,9 @@ export function getDoItBestProject(company: 'corebts' | 'nri-na'): ProjectInfo {
   };
 }
 
-export function getKrogerProject(company: 'corebts' | 'nriNa'): ProjectInfo {
+export function getKrogerProject(
+  company: 'corebts' | 'skyline' | 'nriNa'
+): ProjectInfo {
   const project = SHARED_PROJECTS.kroger[company];
   return {
     ...project,
@@ -63,7 +75,7 @@ export function getDoItBestProjectForProfile(): ProjectInfo {
 }
 
 export function getKrogerProjectForProfile(
-  company: 'corebts' | 'nriNa'
+  company: 'corebts' | 'skyline' | 'nriNa'
 ): ProjectInfo {
   const project = SHARED_PROJECTS.kroger[company];
   return {

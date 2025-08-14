@@ -28,6 +28,10 @@ export class ProjectNavigationService {
     ],
     skyline: [
       {
+        name: 'Kroger Solutions',
+        route: '/projects/professional/skyline/kroger',
+      },
+      {
         name: 'Renaissance Learning',
         route: '/projects/professional/skyline/renaissance-learning',
       },
