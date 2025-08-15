@@ -20,6 +20,13 @@ export const NRI_NA_ROUTES: Routes = [
             m => m.AiResourceStaffingComponent
           ),
       },
+      {
+        path: 'tax-document-analysis',
+        loadComponent: () =>
+          import(
+            './tax-document-analysis/tax-document-analysis.component'
+          ).then(m => m.TaxDocumentAnalysisComponent),
+      },
     ],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
