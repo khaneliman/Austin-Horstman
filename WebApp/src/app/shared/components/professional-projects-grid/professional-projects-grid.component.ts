@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { getCompanyEmploymentRoute } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
+import {
+  BackgroundElement,
+  DecorativeBackgroundComponent,
+} from '../decorative-background/decorative-background.component';
 
 export interface ProfessionalProject {
   title: string;
@@ -21,7 +25,7 @@ export interface ProfessionalProject {
 @Component({
   selector: 'app-professional-projects-grid',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, DecorativeBackgroundComponent],
   templateUrl: './professional-projects-grid.component.html',
   styleUrls: ['./professional-projects-grid.component.scss'],
 })
@@ -30,6 +34,16 @@ export class ProfessionalProjectsGridComponent {
   @Input() showCompanyInfo = true;
 
   private readonly logoStylingService = inject(LogoStylingService);
+
+  backgroundElements: BackgroundElement[] = [
+    {
+      size: 'md',
+      position: 'top-4 right-4',
+      color: 'white',
+      opacity: 10,
+      blur: 'xl',
+    },
+  ];
 
   getCompanyRoute(companyName: string): string {
     return getCompanyEmploymentRoute(companyName);

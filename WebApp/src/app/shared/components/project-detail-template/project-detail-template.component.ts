@@ -2,6 +2,10 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  BulletListComponent,
+  BulletListItem,
+} from '../bullet-list/bullet-list.component';
+import {
   heroArrowLeft,
   heroBookOpen,
   heroRocketLaunch,
@@ -85,6 +89,7 @@ import { StatsGridComponent, Stat } from '../stats-grid/stats-grid.component';
     TechTagListComponent,
     FeatureGridComponent,
     StatsGridComponent,
+    BulletListComponent,
   ],
   providers: [
     provideIcons({
@@ -180,5 +185,10 @@ export class ProjectDetailTemplateComponent {
       name: tech.name,
       color: 'white', // White color for header tags on colored background
     }));
+  }
+
+  getListItems(items?: string[]): BulletListItem[] {
+    if (!items) return [];
+    return items.map(item => ({ text: item }));
   }
 }

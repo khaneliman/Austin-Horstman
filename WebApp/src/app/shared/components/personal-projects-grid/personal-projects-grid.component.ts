@@ -2,6 +2,10 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
+import {
+  BackgroundElement,
+  DecorativeBackgroundComponent,
+} from '../decorative-background/decorative-background.component';
 
 export interface PersonalProject {
   id: string;
@@ -26,7 +30,12 @@ export interface PersonalProject {
 @Component({
   selector: 'app-personal-projects-grid',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgIconComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgIconComponent,
+    DecorativeBackgroundComponent,
+  ],
   templateUrl: './personal-projects-grid.component.html',
   styleUrls: ['./personal-projects-grid.component.scss'],
 })
@@ -34,6 +43,16 @@ export class PersonalProjectsGridComponent {
   @Input() projects: PersonalProject[] = [];
   @Input() showFeaturedOnly = false;
   @Input() maxProjects?: number;
+
+  backgroundElements: BackgroundElement[] = [
+    {
+      size: 'md',
+      position: 'top-4 right-4',
+      color: 'white',
+      opacity: 10,
+      blur: 'xl',
+    },
+  ];
 
   get displayedProjects(): PersonalProject[] {
     const filtered = this.showFeaturedOnly

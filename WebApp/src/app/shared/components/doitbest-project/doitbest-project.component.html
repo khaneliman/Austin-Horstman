@@ -23,12 +23,9 @@
         class="relative bg-gradient-to-r from-blue-600 to-indigo-600 px-8 pt-12 pb-8"
       >
         <!-- Decorative elements -->
-        <div
-          class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"
-        ></div>
-        <div
-          class="absolute bottom-4 left-4 w-16 h-16 bg-blue-300/20 rounded-full blur-lg"
-        ></div>
+        <app-decorative-background
+          [elements]="backgroundElements"
+        ></app-decorative-background>
 
         <div class="relative z-10 text-center mt-8">
           <div class="inline-block relative group mb-6">
@@ -195,90 +192,24 @@
 
           <!-- Technical Leadership Highlights -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroUserGroup"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Technical Leadership
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Led agile process improvements and mentored junior developers
-                while facilitating cross-functional stakeholder collaboration.
-              </p>
-            </div>
-
-            <div class="bg-green-50 rounded-xl p-6 border border-green-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroShieldCheck"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Security Architecture
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Designed JWT-based authentication with role-based access
-                controls adopted across multiple C# and Java REST API
-                applications.
-              </p>
-            </div>
-
-            <div class="bg-purple-50 rounded-xl p-6 border border-purple-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroCloud"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Cloud Infrastructure
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Architected scalable Azure infrastructure using Bicep and
-                Kubernetes Helm charts for mission-critical workloads.
-              </p>
-            </div>
-
-            <div class="bg-orange-50 rounded-xl p-6 border border-orange-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroCircleStack"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Modernization Architecture
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Implemented event-driven architecture with Kafka stream
-                processors for mainframe decommissioning modernization.
-              </p>
-            </div>
+            <app-enhanced-feature-card
+              *ngFor="let highlight of technicalHighlights; let i = index"
+              [feature]="highlight"
+              variant="highlighted"
+              size="sm"
+              iconPosition="left"
+              [colorTheme]="
+                i === 0
+                  ? 'blue'
+                  : i === 1
+                    ? 'green'
+                    : i === 2
+                      ? 'purple'
+                      : 'orange'
+              "
+              [hover]="true"
+            >
+            </app-enhanced-feature-card>
           </div>
         </app-base-card>
 
@@ -294,89 +225,24 @@
           </app-section-header>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroShoppingBag"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Multi-Channel Commerce
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Backend services supporting B2B dealer portals and B2C
-                e-commerce with integrated inventory and pricing management.
-              </p>
-            </div>
-
-            <div class="bg-indigo-50 rounded-xl p-6 border border-indigo-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroArchiveBox"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Advanced Infrastructure
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Scalable cloud infrastructure with Kubernetes orchestration and
-                automated deployment pipelines for enterprise workloads.
-              </p>
-            </div>
-
-            <div class="bg-purple-50 rounded-xl p-6 border border-purple-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroCircleStack"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Event-Driven Architecture
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Kafka-based event streaming for real-time data processing and
-                seamless mainframe system decommissioning.
-              </p>
-            </div>
-
-            <div class="bg-green-50 rounded-xl p-6 border border-green-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroShieldCheck"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Security & Authentication
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Enterprise-grade JWT authentication with role-based access
-                controls across all platform services and applications.
-              </p>
-            </div>
+            <app-enhanced-feature-card
+              *ngFor="let capability of keyCapabilities; let i = index"
+              [feature]="capability"
+              variant="highlighted"
+              size="sm"
+              iconPosition="left"
+              [colorTheme]="
+                i === 0
+                  ? 'blue'
+                  : i === 1
+                    ? 'indigo'
+                    : i === 2
+                      ? 'purple'
+                      : 'green'
+              "
+              [hover]="true"
+            >
+            </app-enhanced-feature-card>
           </div>
         </app-base-card>
       </div>

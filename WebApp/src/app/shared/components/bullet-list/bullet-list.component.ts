@@ -72,7 +72,7 @@ export type BulletStyle =
             <app-bullet-list
               *ngIf="item.subItems && item.subItems.length > 0"
               [items]="item.subItems"
-              [bulletStyle]="subBulletStyle"
+              [bulletStyle]="subBulletStyle || 'dot'"
               [variant]="variant"
               [size]="size"
               [spacing]="spacing"

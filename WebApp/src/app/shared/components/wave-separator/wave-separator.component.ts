@@ -134,7 +134,7 @@ export class WaveSeparatorComponent {
 
   getPathData(position: 'top' | 'bottom'): string {
     const baseFlip = this.flip;
-    const positionFlip = ((position === 'top') !== position) === 'bottom';
+    const positionFlip = position === 'top';
     const shouldFlip = baseFlip !== positionFlip;
 
     switch (this.waveStyle) {

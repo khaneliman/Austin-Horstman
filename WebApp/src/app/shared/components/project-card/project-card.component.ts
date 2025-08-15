@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  BackgroundElement,
+  DecorativeBackgroundComponent,
+} from '../decorative-background/decorative-background.component';
+import {
   heroChevronRight,
   heroShoppingBag,
   heroCog6Tooth,
@@ -27,7 +31,12 @@ export interface ProjectCardData {
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [CommonModule, RouterLink, NgIconComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    NgIconComponent,
+    DecorativeBackgroundComponent,
+  ],
   providers: [
     provideIcons({
       heroChevronRight,
@@ -47,4 +56,14 @@ export interface ProjectCardData {
 export class ProjectCardComponent {
   @Input() project!: ProjectCardData;
   @Input() buttonColor = 'blue'; // Theme color for the button
+
+  backgroundElements: BackgroundElement[] = [
+    {
+      size: 'md',
+      position: 'top-4 right-4',
+      color: 'white',
+      opacity: 10,
+      blur: 'xl',
+    },
+  ];
 }

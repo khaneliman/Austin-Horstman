@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent } from '@ng-icons/core';
-import { RouterLink } from '@angular/router';
 
 export interface EnhancedFeature {
   title: string;
@@ -18,7 +17,7 @@ export interface EnhancedFeature {
 @Component({
   selector: 'app-enhanced-feature-card',
   standalone: true,
-  imports: [CommonModule, NgIconComponent, RouterLink],
+  imports: [CommonModule, NgIconComponent],
   template: `
     <div
       [class]="cardClasses"

@@ -15,7 +15,15 @@ import {
   ActivatedRoute,
 } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import {
+  BulletListComponent,
+  BulletListItem,
+} from '../bullet-list/bullet-list.component';
 import { LogoStylingService } from '../../services/logo-styling.service';
+import {
+  BackgroundElement,
+  DecorativeBackgroundComponent,
+} from '../decorative-background/decorative-background.component';
 import type { CompanyInfo } from '../../data/companies';
 import {
   heroArrowTopRightOnSquare,
@@ -63,7 +71,13 @@ export interface ProjectInfo {
   selector: 'app-company-profile',
   templateUrl: './company-profile.component.html',
   styleUrls: ['./company-profile.component.scss'],
-  imports: [CommonModule, RouterModule, NgIconComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgIconComponent,
+    BulletListComponent,
+    DecorativeBackgroundComponent,
+  ],
   providers: [
     provideIcons({
       heroArrowTopRightOnSquare,
@@ -103,6 +117,33 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
   private destroy$ = new Subject<void>();
   private lastNavigationWasToProjectRoute = false;
+
+  backgroundElements: BackgroundElement[] = [
+    {
+      size: 'lg',
+      position: 'top-4 right-4',
+      color: 'white', // Will be dynamically replaced
+      opacity: 10,
+      blur: 'xl',
+    },
+    {
+      size: 'md',
+      position: 'bottom-4 left-4',
+      color: 'white', // Will be dynamically replaced
+      opacity: 10,
+      blur: 'lg',
+    },
+  ];
+
+  projectBackgroundElements: BackgroundElement[] = [
+    {
+      size: 'sm',
+      position: 'top-3 right-3',
+      color: 'white',
+      opacity: 10,
+      blur: 'lg',
+    },
+  ];
 
   getLogoBackgroundStyle(
     logoBackground: 'white' | 'black' | 'dark' | undefined
@@ -201,5 +242,12 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
 
     // Update the flag for next navigation
     this.lastNavigationWasToProjectRoute = hasProjectRoute;
+  }
+
+  getAchievementItems(): BulletListItem[] {
+    if (!this.company.achievements) return [];
+    return this.company.achievements.map(achievement => ({
+      text: achievement,
+    }));
   }
 }

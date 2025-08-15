@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import {
   DecorativeBackgroundComponent,
@@ -18,7 +19,12 @@ export interface HeroButton {
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [CommonModule, NgIconComponent, DecorativeBackgroundComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgIconComponent,
+    DecorativeBackgroundComponent,
+  ],
   template: `
     <section [class]="sectionClasses">
       <!-- Background decorations -->

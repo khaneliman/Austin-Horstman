@@ -11,20 +11,9 @@
       "
     >
       <!-- Decorative elements -->
-      <div
-        [ngClass]="
-          'absolute top-4 right-4 w-20 h-20 bg-' +
-          company.colorScheme.primary +
-          '/10 rounded-full blur-xl'
-        "
-      ></div>
-      <div
-        [ngClass]="
-          'absolute bottom-4 left-4 w-16 h-16 bg-' +
-          company.colorScheme.secondary +
-          '/10 rounded-full blur-lg'
-        "
-      ></div>
+      <app-decorative-background
+        [elements]="backgroundElements"
+      ></app-decorative-background>
 
       <!-- Company logo and info -->
       <div class="relative z-10 text-center">
@@ -176,9 +165,9 @@
                   project.color
                 "
               >
-                <div
-                  class="absolute top-3 right-3 w-12 h-12 bg-white/10 rounded-full blur-lg"
-                ></div>
+                <app-decorative-background
+                  [elements]="projectBackgroundElements"
+                ></app-decorative-background>
                 <div class="relative z-10">
                   <div class="flex items-center justify-between mb-4">
                     <div
@@ -285,11 +274,13 @@
               ></ng-icon>
               Key Responsibilities & Achievements
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li *ngFor="let achievement of company.achievements">
-                • {{ achievement }}
-              </li>
-            </ul>
+            <app-bullet-list
+              [items]="getAchievementItems()"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="blue"
+            ></app-bullet-list>
           </div>
         </div>
 

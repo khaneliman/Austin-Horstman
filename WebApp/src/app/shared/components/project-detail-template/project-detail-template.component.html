@@ -105,15 +105,13 @@
         [innerHTML]="config.overview.content"
       ></div>
       <div *ngIf="config.overview.type === 'list'">
-        <ul class="space-y-2 text-gray-700">
-          <li
-            *ngFor="let item of config.overview.items"
-            class="flex items-start"
-          >
-            <span [class]="'text-' + config.primaryColor + '-500 mr-2'">•</span>
-            {{ item }}
-          </li>
-        </ul>
+        <app-bullet-list
+          [items]="getListItems(config.overview.items)"
+          bulletStyle="dot"
+          size="md"
+          spacing="normal"
+          [colorTheme]="config.primaryColor"
+        ></app-bullet-list>
       </div>
       <p
         *ngIf="!config.overview.type || config.overview.type === 'text'"
@@ -165,12 +163,13 @@
 
       <div *ngIf="section.type === 'html'" [innerHTML]="section.content"></div>
       <div *ngIf="section.type === 'list'">
-        <ul class="space-y-2 text-gray-700">
-          <li *ngFor="let item of section.items" class="flex items-start">
-            <span [class]="'text-' + config.primaryColor + '-500 mr-2'">•</span>
-            {{ item }}
-          </li>
-        </ul>
+        <app-bullet-list
+          [items]="getListItems(section.items)"
+          bulletStyle="dot"
+          size="md"
+          spacing="normal"
+          [colorTheme]="config.primaryColor"
+        ></app-bullet-list>
       </div>
       <p
         *ngIf="!section.type || section.type === 'text'"
@@ -197,12 +196,13 @@
 
       <div *ngIf="section.type === 'html'" [innerHTML]="section.content"></div>
       <div *ngIf="section.type === 'list'">
-        <ul class="space-y-2 text-gray-700">
-          <li *ngFor="let item of section.items" class="flex items-start">
-            <span [class]="'text-' + config.primaryColor + '-500 mr-2'">•</span>
-            {{ item }}
-          </li>
-        </ul>
+        <app-bullet-list
+          [items]="getListItems(section.items)"
+          bulletStyle="dot"
+          size="md"
+          spacing="normal"
+          [colorTheme]="config.primaryColor"
+        ></app-bullet-list>
       </div>
       <p
         *ngIf="!section.type || section.type === 'text'"

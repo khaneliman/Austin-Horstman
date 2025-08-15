@@ -8,9 +8,9 @@
       class="relative px-8 py-12 bg-gradient-to-r"
       [ngClass]="getCategoryColor(project.category)"
     >
-      <div
-        class="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full blur-xl"
-      ></div>
+      <app-decorative-background
+        [elements]="backgroundElements"
+      ></app-decorative-background>
       <div class="absolute top-4 left-4 flex items-center space-x-2">
         <span
           class="px-3 py-1 text-xs font-semibold rounded-full"

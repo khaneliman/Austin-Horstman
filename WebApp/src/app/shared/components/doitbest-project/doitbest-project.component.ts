@@ -23,6 +23,14 @@ import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-hea
 import { BaseCardComponent } from '../base-card/base-card.component';
 import { SectionHeaderComponent } from '../section-header/section-header.component';
 import { StatsGridComponent, Stat } from '../stats-grid/stats-grid.component';
+import {
+  BackgroundElement,
+  DecorativeBackgroundComponent,
+} from '../decorative-background/decorative-background.component';
+import {
+  EnhancedFeatureCardComponent,
+  EnhancedFeature,
+} from '../enhanced-feature-card/enhanced-feature-card.component';
 
 @Component({
   selector: 'app-doitbest-project',
@@ -35,6 +43,8 @@ import { StatsGridComponent, Stat } from '../stats-grid/stats-grid.component';
     BaseCardComponent,
     SectionHeaderComponent,
     StatsGridComponent,
+    DecorativeBackgroundComponent,
+    EnhancedFeatureCardComponent,
   ],
   providers: [
     provideIcons({
@@ -68,6 +78,23 @@ export class DoitbestProjectComponent {
   @Input() employmentRoute!: string;
   @Input() projectsRoute!: string;
 
+  backgroundElements: BackgroundElement[] = [
+    {
+      size: 'lg',
+      position: 'top-4 right-4',
+      color: 'white',
+      opacity: 10,
+      blur: 'xl',
+    },
+    {
+      size: 'md',
+      position: 'bottom-4 left-4',
+      color: 'blue-300',
+      opacity: 20,
+      blur: 'lg',
+    },
+  ];
+
   quickStats: Stat[] = [
     {
       icon: 'heroCodeBracket',
@@ -88,6 +115,76 @@ export class DoitbestProjectComponent {
       icon: 'heroArchiveBox',
       value: 'Oracle',
       label: 'Database',
+    },
+  ];
+
+  technicalHighlights: EnhancedFeature[] = [
+    {
+      title: 'Technical Leadership',
+      description:
+        'Led agile process improvements and mentored junior developers while facilitating cross-functional stakeholder collaboration.',
+      icon: 'heroUserGroup',
+      badge: 'Leadership',
+      footer: 'Team Management • Mentoring • Process Improvement',
+    },
+    {
+      title: 'Security Architecture',
+      description:
+        'Designed JWT-based authentication with role-based access controls adopted across multiple C# and Java REST API applications.',
+      icon: 'heroShieldCheck',
+      badge: 'Security',
+      footer: 'JWT • RBAC • Multi-platform',
+    },
+    {
+      title: 'Cloud Infrastructure',
+      description:
+        'Architected scalable Azure infrastructure using Bicep and Kubernetes Helm charts for mission-critical workloads.',
+      icon: 'heroCloud',
+      badge: 'Cloud Native',
+      footer: 'Azure • Kubernetes • Infrastructure as Code',
+    },
+    {
+      title: 'Modernization Architecture',
+      description:
+        'Implemented event-driven architecture with Kafka stream processors for mainframe decommissioning modernization.',
+      icon: 'heroCircleStack',
+      badge: 'Event-Driven',
+      footer: 'Kafka • Event Streaming • Legacy Migration',
+    },
+  ];
+
+  keyCapabilities: EnhancedFeature[] = [
+    {
+      title: 'Multi-Channel Commerce',
+      description:
+        'Backend services supporting B2B dealer portals and B2C e-commerce with integrated inventory and pricing management.',
+      icon: 'heroShoppingBag',
+      badge: 'E-commerce',
+      footer: 'B2B • B2C • Integration',
+    },
+    {
+      title: 'Advanced Infrastructure',
+      description:
+        'Scalable cloud infrastructure with Kubernetes orchestration and automated deployment pipelines for enterprise workloads.',
+      icon: 'heroArchiveBox',
+      badge: 'Scalable',
+      footer: 'Kubernetes • Automation • Enterprise',
+    },
+    {
+      title: 'Event-Driven Architecture',
+      description:
+        'Kafka-based event streaming for real-time data processing and seamless mainframe system decommissioning.',
+      icon: 'heroCircleStack',
+      badge: 'Real-time',
+      footer: 'Event Streaming • Real-time • Migration',
+    },
+    {
+      title: 'Security & Authentication',
+      description:
+        'Enterprise-grade JWT authentication with role-based access controls across all platform services and applications.',
+      icon: 'heroShieldCheck',
+      badge: 'Enterprise',
+      footer: 'JWT • RBAC • Platform-wide',
     },
   ];
 }

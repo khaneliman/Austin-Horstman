@@ -19,12 +19,9 @@
         class="relative bg-gradient-to-r from-green-600 to-emerald-600 px-8 pt-12 pb-8"
       >
         <!-- Decorative elements -->
-        <div
-          class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"
-        ></div>
-        <div
-          class="absolute bottom-4 left-4 w-16 h-16 bg-green-300/20 rounded-full blur-lg"
-        ></div>
+        <app-decorative-background
+          [elements]="backgroundElements"
+        ></app-decorative-background>
 
         <div class="relative z-10 text-center mt-8">
           <div class="inline-block relative group mb-6">
@@ -188,90 +185,24 @@
 
           <!-- Technical Highlights -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div class="bg-indigo-50 rounded-xl p-6 border border-indigo-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroCircleStack"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  NgRx State Management
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Implemented centralized state management with NgRx for multiple
-                Angular applications, ensuring consistent data flow and
-                application state.
-              </p>
-            </div>
-
-            <div class="bg-yellow-50 rounded-xl p-6 border border-yellow-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroCircleStack"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Legacy Modernization
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Successfully modernized Cold Fusion applications to Angular
-                architecture while maintaining business continuity and data
-                integrity.
-              </p>
-            </div>
-
-            <div class="bg-red-50 rounded-xl p-6 border border-red-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroShoppingBag"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  PDF Document Management
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Built comprehensive PDF rendering and annotation system using
-                Fabric.js with Azure blob storage for real-time document
-                collaboration.
-              </p>
-            </div>
-
-            <div class="bg-teal-50 rounded-xl p-6 border border-teal-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroCloud"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">Azure Integration</h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Seamless integration with Azure blob storage for secure document
-                storage and retrieval with real-time synchronization.
-              </p>
-            </div>
+            <app-enhanced-feature-card
+              *ngFor="let highlight of technicalHighlights; let i = index"
+              [feature]="highlight"
+              variant="highlighted"
+              size="sm"
+              iconPosition="left"
+              [colorTheme]="
+                i === 0
+                  ? 'indigo'
+                  : i === 1
+                    ? 'yellow'
+                    : i === 2
+                      ? 'red'
+                      : 'teal'
+              "
+              [hover]="true"
+            >
+            </app-enhanced-feature-card>
           </div>
         </div>
 
@@ -287,83 +218,24 @@
           </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-green-50 rounded-xl p-6 border border-green-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroChartBarSquare"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">Real-time Inventory</h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Live tracking of inventory levels across all store locations
-                with automated alerts and restocking recommendations.
-              </p>
-            </div>
-
-            <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroUsers"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">
-                  Supply Chain Integration
-                </h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Seamless integration with supplier systems for automated
-                ordering and delivery scheduling.
-              </p>
-            </div>
-
-            <div class="bg-purple-50 rounded-xl p-6 border border-purple-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroChartBarSquare"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">Analytics Dashboard</h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Comprehensive reporting and analytics for demand forecasting and
-                operational optimization.
-              </p>
-            </div>
-
-            <div class="bg-orange-50 rounded-xl p-6 border border-orange-100">
-              <div class="flex items-center mb-4">
-                <div
-                  class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3"
-                >
-                  <ng-icon
-                    name="heroShoppingBag"
-                    size="1rem"
-                    class="text-white"
-                  ></ng-icon>
-                </div>
-                <h3 class="font-semibold text-gray-800">Mobile Access</h3>
-              </div>
-              <p class="text-gray-600 text-sm">
-                Mobile-responsive interface for store managers and warehouse
-                personnel to access system remotely.
-              </p>
-            </div>
+            <app-enhanced-feature-card
+              *ngFor="let capability of keyCapabilities; let i = index"
+              [feature]="capability"
+              variant="highlighted"
+              size="sm"
+              iconPosition="left"
+              [colorTheme]="
+                i === 0
+                  ? 'green'
+                  : i === 1
+                    ? 'blue'
+                    : i === 2
+                      ? 'purple'
+                      : 'orange'
+              "
+              [hover]="true"
+            >
+            </app-enhanced-feature-card>
           </div>
         </div>
       </div>
