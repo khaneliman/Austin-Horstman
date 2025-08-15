@@ -1,35 +1,21 @@
-import { Component } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroArrowLeft,
-  heroCircleStack,
-  heroCheckCircle,
-  heroListBullet,
-  heroCog6Tooth,
-  heroChevronRight,
-} from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   standalone: true,
   selector: 'app-database-tool',
-  templateUrl: './database-tool.component.html',
-  styleUrls: ['./database-tool.component.scss'],
-  imports: [NgIconComponent, ProjectNavHeaderComponent],
-  providers: [
-    provideIcons({
-      heroArrowLeft,
-      heroCircleStack,
-      heroCheckCircle,
-      heroListBullet,
-      heroCog6Tooth,
-      heroChevronRight,
-    }),
-  ],
+  template: `
+    <app-project-detail-template [config]="projectConfig">
+    </app-project-detail-template>
+  `,
+  imports: [ProjectDetailTemplateComponent],
 })
-export class DatabaseToolComponent {
-  backRoute = '/projects/professional/west';
-  backLabel = 'Back to West Projects';
-  hoverColor = 'red';
-  companyKey = 'west';
+export class DatabaseToolComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('database-tool')!;
+  }
 }
