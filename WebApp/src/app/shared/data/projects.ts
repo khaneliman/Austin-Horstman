@@ -184,6 +184,21 @@ const PROJECT_DETAILS = {
     status: 'Production' as const,
     technologies: ['C#', 'WinForms', 'Windows API'],
   },
+  'ai-resource-staffing': {
+    description:
+      'AI-powered resource allocation system for optimal project staffing',
+    icon: 'heroBeaker',
+    color: 'from-blue-600 to-sky-700',
+    status: 'Production' as const,
+    technologies: [
+      'Microsoft Graph API',
+      'GraphQL',
+      'OpenAir API',
+      'AI/ML',
+      'TypeScript',
+      'Node.js',
+    ],
+  },
 } as const;
 
 // Helper function to generate ProjectInfo objects from centralized COMPANIES data
