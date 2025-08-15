@@ -4,11 +4,12 @@ import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detai
 import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
-  standalone: true,
   selector: 'app-stat-tracker',
   template: `<app-project-detail-template
     [config]="projectConfig"
   ></app-project-detail-template>`,
+  styleUrls: ['./stat-tracker.component.scss'],
+  standalone: true,
   imports: [ProjectDetailTemplateComponent],
 })
 export class StatTrackerComponent implements OnInit {
