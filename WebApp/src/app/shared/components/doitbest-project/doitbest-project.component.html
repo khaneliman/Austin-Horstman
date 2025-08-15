@@ -12,8 +12,12 @@
 
   <div class="max-w-6xl mx-auto px-6 py-12">
     <!-- Project Header -->
-    <div
-      class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-8"
+    <app-base-card
+      variant="large"
+      shadow="xl"
+      rounded="3xl"
+      [padding]="false"
+      class="overflow-hidden mb-8"
     >
       <div
         class="relative bg-gradient-to-r from-blue-600 to-indigo-600 px-8 pt-12 pb-8"
@@ -79,41 +83,33 @@
       <div
         class="px-8 py-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-100"
       >
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="text-center">
-            <div class="text-2xl font-bold text-blue-600 mb-1">C# / Java</div>
-            <div class="text-sm text-gray-600 font-medium">Backend</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-indigo-600 mb-1">Kafka</div>
-            <div class="text-sm text-gray-600 font-medium">Event Streaming</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-cyan-600 mb-1">Azure</div>
-            <div class="text-sm text-gray-600 font-medium">Cloud</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-purple-600 mb-1">Oracle</div>
-            <div class="text-sm text-gray-600 font-medium">Database</div>
-          </div>
-        </div>
+        <app-stats-grid
+          [stats]="quickStats"
+          [columns]="4"
+          color="blue"
+          [colorVariation]="true"
+          itemSize="md"
+          gap="6"
+          [showBackground]="false"
+        >
+        </app-stats-grid>
       </div>
-    </div>
+    </app-base-card>
 
     <!-- Project Details -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- Main Content -->
       <div class="lg:col-span-2 space-y-8">
         <!-- Overview -->
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-            <ng-icon
-              name="heroListBullet"
-              size="1.25rem"
-              class="text-blue-500 mr-3"
-            ></ng-icon>
-            Project Overview
-          </h2>
+        <app-base-card variant="large" shadow="lg" rounded="2xl" class="mb-8">
+          <app-section-header
+            title="Project Overview"
+            icon="heroListBullet"
+            iconColor="blue"
+            level="h2"
+            marginBottom="6"
+          >
+          </app-section-header>
           <div class="prose max-w-none text-gray-700 leading-relaxed">
             <p class="mb-4">
               The Do It Best project involved developing a comprehensive backend
@@ -139,18 +135,18 @@
               systems.
             </p>
           </div>
-        </div>
+        </app-base-card>
 
         <!-- Technical Implementation & Leadership -->
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-            <ng-icon
-              name="heroCodeBracket"
-              size="1.25rem"
-              class="text-blue-500 mr-3"
-            ></ng-icon>
-            Technical Implementation & Leadership
-          </h2>
+        <app-base-card variant="large" shadow="lg" rounded="2xl" class="mb-8">
+          <app-section-header
+            title="Technical Implementation & Leadership"
+            icon="heroCodeBracket"
+            iconColor="blue"
+            level="h2"
+            marginBottom="6"
+          >
+          </app-section-header>
           <div class="prose max-w-none text-gray-700 leading-relaxed">
             <p class="mb-4">
               Led cross-functional collaboration with business stakeholders,
@@ -284,18 +280,18 @@
               </p>
             </div>
           </div>
-        </div>
+        </app-base-card>
 
         <!-- Key Features -->
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-            <ng-icon
-              name="heroCog6Tooth"
-              size="1.25rem"
-              class="text-blue-500 mr-3"
-            ></ng-icon>
-            Key Features & Capabilities
-          </h2>
+        <app-base-card variant="large" shadow="lg" rounded="2xl">
+          <app-section-header
+            title="Key Features & Capabilities"
+            icon="heroCog6Tooth"
+            iconColor="blue"
+            level="h2"
+            marginBottom="6"
+          >
+          </app-section-header>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
@@ -382,7 +378,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </app-base-card>
       </div>
 
       <!-- Sidebar -->

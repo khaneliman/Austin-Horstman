@@ -20,6 +20,9 @@ import {
   heroCircleStack,
 } from '@ng-icons/heroicons/outline';
 import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-header.component';
+import { BaseCardComponent } from '../base-card/base-card.component';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { StatsGridComponent, Stat } from '../stats-grid/stats-grid.component';
 
 @Component({
   selector: 'app-doitbest-project',
@@ -29,6 +32,9 @@ import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-hea
     RouterModule,
     NgIconComponent,
     ProjectNavHeaderComponent,
+    BaseCardComponent,
+    SectionHeaderComponent,
+    StatsGridComponent,
   ],
   providers: [
     provideIcons({
@@ -61,4 +67,27 @@ export class DoitbestProjectComponent {
   @Input() hoverColor!: string;
   @Input() employmentRoute!: string;
   @Input() projectsRoute!: string;
+
+  quickStats: Stat[] = [
+    {
+      icon: 'heroCodeBracket',
+      value: 'C# / Java',
+      label: 'Backend',
+    },
+    {
+      icon: 'heroCircleStack',
+      value: 'Kafka',
+      label: 'Event Streaming',
+    },
+    {
+      icon: 'heroCloud',
+      value: 'Azure',
+      label: 'Cloud',
+    },
+    {
+      icon: 'heroArchiveBox',
+      value: 'Oracle',
+      label: 'Database',
+    },
+  ];
 }
