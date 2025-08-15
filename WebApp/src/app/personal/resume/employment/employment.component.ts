@@ -2,12 +2,13 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { WaveSeparatorComponent } from '../../../shared/components/wave-separator/wave-separator.component';
 
 @Component({
   selector: 'app-employment',
   templateUrl: './employment.component.html',
   styleUrls: ['./employment.component.scss'],
-  imports: [RouterOutlet, AsyncPipe],
+  imports: [RouterOutlet, AsyncPipe, WaveSeparatorComponent],
 })
 export class EmploymentComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);

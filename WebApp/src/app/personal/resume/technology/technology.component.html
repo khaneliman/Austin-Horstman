@@ -10,12 +10,9 @@
       <div
         class="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-8 py-12"
       >
-        <div
-          class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"
-        ></div>
-        <div
-          class="absolute bottom-4 left-4 w-16 h-16 bg-purple-300/20 rounded-full blur-lg"
-        ></div>
+        <app-decorative-background
+          [elements]="backgroundElements"
+        ></app-decorative-background>
 
         <div class="relative z-10 text-center">
           <div
@@ -47,39 +44,16 @@
         Frontend Technologies
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-red-50 rounded-xl p-6">
-          <h3 class="font-semibold text-red-800 mb-3 flex items-center">
-            <ng-icon
-              name="heroCodeBracket"
-              size="1rem"
-              class="text-red-500 mr-2"
-            ></ng-icon>
-            Angular
-          </h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Primary frontend framework with extensive experience in modern
-            Angular development, state management, and component architecture.
-          </p>
-          <div class="text-xs text-red-600 font-medium">Expert Level</div>
-        </div>
-
-        <div class="bg-yellow-50 rounded-xl p-6">
-          <h3 class="font-semibold text-yellow-800 mb-3">TypeScript</h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Strong typing and modern JavaScript development with extensive use
-            in enterprise applications.
-          </p>
-          <div class="text-xs text-yellow-600 font-medium">Advanced</div>
-        </div>
-
-        <div class="bg-purple-50 rounded-xl p-6">
-          <h3 class="font-semibold text-purple-800 mb-3">HTML/CSS</h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Semantic markup and modern styling techniques including CSS Grid,
-            Flexbox, and responsive design.
-          </p>
-          <div class="text-xs text-purple-600 font-medium">Expert Level</div>
-        </div>
+        <app-enhanced-feature-card
+          *ngFor="let tech of frontendTechnologies; let i = index"
+          [feature]="tech"
+          variant="highlighted"
+          size="md"
+          iconPosition="left"
+          [colorTheme]="i === 0 ? 'red' : i === 1 ? 'yellow' : 'purple'"
+          [hover]="true"
+        >
+        </app-enhanced-feature-card>
       </div>
     </div>
 
@@ -94,32 +68,16 @@
         Backend & Database
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-blue-50 rounded-xl p-6">
-          <h3 class="font-semibold text-blue-800 mb-3">C# / .NET</h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Extensive experience with .NET ecosystem, Web APIs, and enterprise
-            application development.
-          </p>
-          <div class="text-xs text-blue-600 font-medium">Expert Level</div>
-        </div>
-
-        <div class="bg-orange-50 rounded-xl p-6">
-          <h3 class="font-semibold text-orange-800 mb-3">SQL Server</h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Database design, optimization, stored procedures, and complex query
-            development.
-          </p>
-          <div class="text-xs text-orange-600 font-medium">Advanced</div>
-        </div>
-
-        <div class="bg-red-50 rounded-xl p-6">
-          <h3 class="font-semibold text-red-800 mb-3">Java</h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Enterprise Java development and Spring framework experience in
-            consulting projects.
-          </p>
-          <div class="text-xs text-red-600 font-medium">Intermediate</div>
-        </div>
+        <app-enhanced-feature-card
+          *ngFor="let tech of backendTechnologies; let i = index"
+          [feature]="tech"
+          variant="highlighted"
+          size="md"
+          iconPosition="left"
+          [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'orange' : 'red'"
+          [hover]="true"
+        >
+        </app-enhanced-feature-card>
       </div>
     </div>
 
@@ -164,28 +122,16 @@
         Emerging Technologies & Open Source
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-slate-50 rounded-xl p-6">
-          <h3 class="font-semibold text-slate-800 mb-3">Nix Ecosystem</h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Active maintainer in Nixpkgs, Home Manager, and Nixvim projects.
-            Specializes in declarative system configuration and reproducible
-            builds.
-          </p>
-          <div class="text-xs text-slate-600 font-medium">
-            Open Source Maintainer
-          </div>
-        </div>
-
-        <div class="bg-orange-50 rounded-xl p-6">
-          <h3 class="font-semibold text-orange-800 mb-3">Rust & C++</h3>
-          <p class="text-gray-700 text-sm mb-3">
-            Systems programming languages used in performance-critical
-            applications and contributing to open source projects.
-          </p>
-          <div class="text-xs text-orange-600 font-medium">
-            Growing Proficiency
-          </div>
-        </div>
+        <app-enhanced-feature-card
+          *ngFor="let tech of emergingTechnologies; let i = index"
+          [feature]="tech"
+          variant="highlighted"
+          size="md"
+          iconPosition="left"
+          [colorTheme]="i === 0 ? 'slate' : 'orange'"
+          [hover]="true"
+        >
+        </app-enhanced-feature-card>
       </div>
     </div>
   </div>

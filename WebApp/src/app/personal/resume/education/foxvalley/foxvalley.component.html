@@ -9,12 +9,9 @@
       class="relative bg-gradient-to-r from-gray-900 via-gray-800 to-red-900 px-8 pt-12 pb-8"
     >
       <!-- Decorative elements -->
-      <div
-        class="absolute top-4 right-4 w-20 h-20 bg-red-500/10 rounded-full blur-xl"
-      ></div>
-      <div
-        class="absolute bottom-4 left-4 w-16 h-16 bg-gray-500/10 rounded-full blur-lg"
-      ></div>
+      <app-decorative-background
+        [elements]="backgroundElements"
+      ></app-decorative-background>
 
       <!-- College logo and info -->
       <div class="relative z-10 text-center">
@@ -138,16 +135,13 @@
               ></ng-icon>
               Program Highlights & Skills Acquired
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li>
-                • Programming fundamentals and software development lifecycle
-              </li>
-              <li>• Database design, implementation, and management</li>
-              <li>• Web development technologies and frameworks</li>
-              <li>• Object-oriented programming concepts and practices</li>
-              <li>• Software testing, debugging, and quality assurance</li>
-              <li>• Project management and team collaboration skills</li>
-            </ul>
+            <app-bullet-list
+              [items]="curriculumHighlights"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="blue"
+            ></app-bullet-list>
           </div>
         </div>
 

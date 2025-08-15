@@ -3,14 +3,9 @@
   class="relative bg-gradient-to-br from-blue-600 to-purple-600 py-20 overflow-hidden"
 >
   <!-- Animated background elements -->
-  <div class="absolute inset-0">
-    <div
-      class="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl animate-pulse"
-    ></div>
-    <div
-      class="absolute bottom-20 right-20 w-24 h-24 bg-white/10 rounded-full blur-xl animate-pulse delay-700"
-    ></div>
-  </div>
+  <app-decorative-background
+    [elements]="educationBackgroundElements"
+  ></app-decorative-background>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -54,21 +49,21 @@
   </div>
 
   <!-- Modern separator -->
-  <app-separator></app-separator>
+  <app-wave-separator
+    waveStyle="slant"
+    direction="bottom"
+    height="lg"
+    color="white"
+  ></app-wave-separator>
 </section>
 <!-- Employment Section -->
 <section
   class="relative bg-gradient-to-br from-orange-500 to-yellow-600 py-20 overflow-hidden"
 >
   <!-- Animated background elements -->
-  <div class="absolute inset-0">
-    <div
-      class="absolute top-32 right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl animate-pulse delay-300"
-    ></div>
-    <div
-      class="absolute bottom-32 left-20 w-28 h-28 bg-white/10 rounded-full blur-xl animate-pulse delay-1000"
-    ></div>
-  </div>
+  <app-decorative-background
+    [elements]="employmentBackgroundElements"
+  ></app-decorative-background>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
@@ -296,21 +291,21 @@
   </div>
 
   <!-- Modern separator -->
-  <app-separator></app-separator>
+  <app-wave-separator
+    waveStyle="slant"
+    direction="bottom"
+    height="lg"
+    color="white"
+  ></app-wave-separator>
 </section>
 <!-- Projects Section -->
 <section
   class="relative bg-gradient-to-br from-gray-100 to-gray-200 py-20 overflow-hidden"
 >
   <!-- Animated background elements -->
-  <div class="absolute inset-0">
-    <div
-      class="absolute top-20 right-32 w-36 h-36 bg-purple-200/30 rounded-full blur-2xl animate-pulse delay-500"
-    ></div>
-    <div
-      class="absolute bottom-20 left-32 w-32 h-32 bg-blue-200/40 rounded-full blur-xl animate-pulse delay-1200"
-    ></div>
-  </div>
+  <app-decorative-background
+    [elements]="projectsBackgroundElements"
+  ></app-decorative-background>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
@@ -542,17 +537,9 @@
   class="relative bg-gradient-to-br from-slate-900 to-gray-900 py-20 overflow-hidden"
 >
   <!-- Animated background elements -->
-  <div class="absolute inset-0">
-    <div
-      class="absolute top-20 left-20 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl animate-pulse"
-    ></div>
-    <div
-      class="absolute bottom-20 right-20 w-32 h-32 bg-green-500/10 rounded-full blur-xl animate-pulse delay-700"
-    ></div>
-    <div
-      class="absolute top-1/2 left-1/2 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"
-    ></div>
-  </div>
+  <app-decorative-background
+    [elements]="technologyBackgroundElements"
+  ></app-decorative-background>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
