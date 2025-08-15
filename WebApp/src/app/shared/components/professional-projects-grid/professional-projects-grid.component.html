@@ -4,7 +4,16 @@
     class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
   >
     <!-- Company Header -->
-    <div class="relative px-8 py-12 bg-gradient-to-r" [ngClass]="project.color">
+    <div
+      class="relative px-8 py-12"
+      [class]="
+        project.company === 'GeekSquad'
+          ? 'grid-header--geeksquad'
+          : project.company === 'NRI-NA'
+            ? 'grid-header--nri'
+            : 'grid-header--' + project.theme
+      "
+    >
       <div
         class="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full blur-xl"
       ></div>
@@ -59,9 +68,14 @@
       <div class="flex gap-3 mt-auto">
         <a
           [routerLink]="project.route"
-          class="flex-1 bg-gradient-to-r {{
-            project.color
-          }} text-white px-6 py-3 rounded-xl font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          class="flex-1 text-white px-6 py-3 rounded-xl font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          [class]="
+            project.company === 'GeekSquad'
+              ? 'grid-button--geeksquad'
+              : project.company === 'NRI-NA'
+                ? 'grid-button--nri'
+                : 'grid-button--' + project.theme
+          "
         >
           View All Projects
         </a>

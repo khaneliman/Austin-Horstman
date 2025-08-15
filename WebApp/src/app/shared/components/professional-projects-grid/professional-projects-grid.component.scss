@@ -1,1 +1,72 @@
-// Professional Projects Grid Component Styles
+// Professional projects grid component styles
+@use '../../../../assets/scss/utilities/gradients' as *;
+
+.grid-header {
+  &--green {
+    @include company-header-gradient('green');
+  }
+
+  &--blue {
+    @include company-header-gradient('blue');
+  }
+
+  &--red {
+    @include company-header-gradient('red');
+  }
+
+  &--orange {
+    @include company-header-gradient('orange');
+  }
+
+  &--geeksquad {
+    background: linear-gradient(135deg, #000000 0%, #f97316 100%);
+  }
+
+  &--nri {
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #6366f1 100%);
+  }
+}
+
+.grid-button {
+  &--green {
+    @include project-button-gradient('green');
+    &:hover {
+      @include project-button-gradient('green', true);
+    }
+  }
+
+  &--blue {
+    @include project-button-gradient('blue');
+    &:hover {
+      @include project-button-gradient('blue', true);
+    }
+  }
+
+  &--red {
+    @include project-button-gradient('red');
+    &:hover {
+      @include project-button-gradient('red', true);
+    }
+  }
+
+  &--orange {
+    @include project-button-gradient('orange');
+    &:hover {
+      @include project-button-gradient('orange', true);
+    }
+  }
+
+  &--geeksquad {
+    background: linear-gradient(135deg, #000000 0%, #f97316 100%);
+    &:hover {
+      background: linear-gradient(135deg, #000000 0%, #ea580c 100%);
+    }
+  }
+
+  &--nri {
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    &:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+    }
+  }
+}
