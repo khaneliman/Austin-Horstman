@@ -214,6 +214,21 @@ const PROJECT_DETAILS = {
       'Zod Validation',
     ],
   },
+  'mulesoft-migrator': {
+    description:
+      'Enterprise migration analysis platform for converting MuleSoft projects to .NET applications',
+    icon: 'heroArrowPathRoundedSquare',
+    color: 'from-emerald-600 to-teal-700',
+    status: 'Production' as const,
+    technologies: [
+      'React Router 7',
+      'TypeScript',
+      'LangGraph',
+      'Claude 3.7 Sonnet',
+      'PostgreSQL',
+      'Tailwind CSS',
+    ],
+  },
 } as const;
 
 // Helper function to generate ProjectInfo objects from centralized COMPANIES data
