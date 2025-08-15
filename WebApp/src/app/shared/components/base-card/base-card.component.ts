@@ -21,6 +21,7 @@ export class BaseCardComponent {
   @Input() border = true;
   @Input() background = 'white';
   @Input() role = '';
+  @Input() additionalClasses = '';
 
   get cardClasses(): string {
     const classes = ['bg-' + this.background];
@@ -56,6 +57,11 @@ export class BaseCardComponent {
       classes.push(
         'hover:shadow-xl transition-all duration-300 hover:-translate-y-1'
       );
+    }
+
+    // Additional classes
+    if (this.additionalClasses) {
+      classes.push(this.additionalClasses);
     }
 
     return classes.join(' ');
