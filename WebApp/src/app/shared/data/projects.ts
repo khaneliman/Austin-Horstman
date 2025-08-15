@@ -199,6 +199,21 @@ const PROJECT_DETAILS = {
       'Node.js',
     ],
   },
+  'tax-document-analysis': {
+    description:
+      'LLM-powered tax document ingestion and business impact analysis system',
+    icon: 'heroDocumentText',
+    color: 'from-purple-600 to-indigo-700',
+    status: 'Production' as const,
+    technologies: [
+      'LLM/AI',
+      'Document Processing',
+      'NLP',
+      'Python',
+      'Tax Code Analysis',
+      'OCR',
+    ],
+  },
 } as const;
 
 // Helper function to generate ProjectInfo objects from centralized COMPANIES data
