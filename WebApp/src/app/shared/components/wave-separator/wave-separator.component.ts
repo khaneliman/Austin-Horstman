@@ -15,49 +15,45 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div [class]="containerClasses">
-      <!-- Top separator -->
-      <div
-        *ngIf="direction === 'top' || direction === 'both'"
-        class="absolute top-0 left-0 w-full overflow-hidden leading-none"
+    <!-- Top separator -->
+    <div
+      *ngIf="direction === 'top' || direction === 'both'"
+      class="overflow-hidden leading-none"
+    >
+      <svg
+        class="relative block w-full"
+        [attr.height]="svgHeight"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
       >
-        <svg
-          class="relative block w-full"
-          [attr.height]="svgHeight"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            [attr.d]="getPathData('top')"
-            [class]="getPathClasses('top')"
-          ></path>
-        </svg>
-      </div>
+        <path
+          [attr.d]="getPathData('top')"
+          [class]="getPathClasses('top')"
+        ></path>
+      </svg>
+    </div>
 
-      <!-- Content slot -->
-      <div [class]="contentClasses">
-        <ng-content></ng-content>
-      </div>
+    <!-- Content slot -->
+    <ng-content></ng-content>
 
-      <!-- Bottom separator -->
-      <div
-        *ngIf="direction === 'bottom' || direction === 'both'"
-        class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180"
+    <!-- Bottom separator -->
+    <div
+      *ngIf="direction === 'bottom' || direction === 'both'"
+      class="overflow-hidden leading-none rotate-180"
+    >
+      <svg
+        class="relative block w-full"
+        [attr.height]="svgHeight"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
       >
-        <svg
-          class="relative block w-full"
-          [attr.height]="svgHeight"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            [attr.d]="getPathData('bottom')"
-            [class]="getPathClasses('bottom')"
-          ></path>
-        </svg>
-      </div>
+        <path
+          [attr.d]="getPathData('bottom')"
+          [class]="getPathClasses('bottom')"
+        ></path>
+      </svg>
     </div>
   `,
   styles: [
@@ -77,30 +73,6 @@ export class WaveSeparatorComponent {
   @Input() animate = false;
   @Input() flip = false;
   @Input() minHeight = '0px';
-
-  get containerClasses(): string {
-    const classes = ['relative'];
-
-    if (this.minHeight !== '0px') {
-      classes.push('min-h-[var(--min-height)]');
-    }
-
-    return classes.join(' ');
-  }
-
-  get contentClasses(): string {
-    const classes = ['relative', 'z-10'];
-
-    // Add padding to account for wave height
-    if (this.direction === 'top' || this.direction === 'both') {
-      classes.push(`pt-[${this.svgHeight}px]`);
-    }
-    if (this.direction === 'bottom' || this.direction === 'both') {
-      classes.push(`pb-[${this.svgHeight}px]`);
-    }
-
-    return classes.join(' ');
-  }
 
   get svgHeight(): number {
     switch (this.height) {
@@ -139,9 +111,7 @@ export class WaveSeparatorComponent {
 
     switch (this.waveStyle) {
       case 'wave':
-        return shouldFlip
-          ? 'M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,106.7C960,117,1056,139,1152,133.3C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'
-          : 'M0,64L48,80C96,96,192,128,288,133.3C384,139,480,117,576,106.7C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z';
+        return 'M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z';
 
       case 'curve':
         return shouldFlip
