@@ -70,7 +70,10 @@ export const COMPANIES = {
     ],
     projectsRoute: '/projects/professional/nri-na',
     employmentRoute: '/personal/resume/employment/nri-na',
-    projects: [{ name: 'Do It Best', route: 'doitbest' }],
+    projects: [
+      { name: 'Do It Best', route: 'doitbest' },
+      { name: 'AI Resource Staffing', route: 'ai-resource-staffing' },
+    ],
   },
 
   corebts: {
