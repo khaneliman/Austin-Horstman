@@ -1,343 +1,128 @@
-<!-- Personal Projects Overview -->
-<div
-  class="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50"
->
-  <div class="max-w-4xl mx-auto px-6 py-12">
-    <!-- Project Header -->
-    <div
-      class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden mb-8"
-    >
-      <div
-        class="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-8 py-12"
-      >
+<!-- Personal Projects Page -->
+<main class="min-h-screen bg-gray-50 pt-16">
+  <!-- Hero Section -->
+  <section
+    class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-20"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
         <div
-          class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"
-        ></div>
-        <div
-          class="absolute bottom-4 left-4 w-16 h-16 bg-purple-300/20 rounded-full blur-lg"
-        ></div>
+          class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <ng-icon name="heroUser" size="2rem" class="text-white"></ng-icon>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Personal Projects & Open Source
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-indigo-100 max-w-4xl mx-auto leading-relaxed"
+        >
+          Individual software development projects, open source contributions,
+          and personal portfolio applications showcasing continuous learning and
+          technical exploration.
+        </p>
 
-        <div class="relative z-10 text-center">
-          <div
-            class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6"
+        <!-- Breadcrumb-style navigation -->
+        <div
+          class="mt-8 flex justify-center items-center space-x-2 text-indigo-200"
+        >
+          <a routerLink="/projects" class="hover:text-white transition-colors"
+            >Projects</a
           >
-            <ng-icon name="heroUser" size="1.5rem" class="text-white"></ng-icon>
-          </div>
-          <h1 class="text-4xl font-bold text-white mb-4">
-            Personal Projects & Open Source
-          </h1>
-          <p class="text-indigo-100 text-lg max-w-2xl mx-auto">
-            Individual software development projects, open source contributions,
-            and personal portfolio applications
-          </p>
+          <ng-icon name="heroChevronRight" size="0.75rem"></ng-icon>
+          <span class="text-white font-medium">Personal</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Projects Overview -->
-    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          name="heroLightBulb"
-          size="1.25rem"
-          class="text-indigo-500 mr-3"
-        ></ng-icon>
-        Project Collection Overview
-      </h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
-        This collection represents various personal software development
-        projects that showcase different technologies, programming languages,
-        and development approaches. These projects demonstrate continuous
-        learning, experimentation with new frameworks, and the ability to work
-        independently on diverse technical challenges.
-      </p>
+  <!-- Personal Projects Grid -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Personal Project Portfolio
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Explore my collection of personal projects spanning open source
+          contributions, web applications, development tools, and learning
+          experiments.
+        </p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-indigo-50 rounded-xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+      <app-personal-projects-grid
+        [projects]="personalProjects"
+      ></app-personal-projects-grid>
+    </div>
+  </section>
+
+  <!-- Project Categories Overview -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          Project Categories
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Projects organized by focus area and technology stack
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center bg-green-50 rounded-2xl p-8">
+          <div
+            class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
             <ng-icon
               name="heroCodeBracket"
-              size="1rem"
-              class="text-indigo-500 mr-2"
+              size="1.5rem"
+              class="text-white"
             ></ng-icon>
-            Development Focus Areas
-          </h3>
-          <ul class="text-gray-700 space-y-2 text-sm">
-            <li>• Full-stack web application development</li>
-            <li>• Modern frontend frameworks and libraries</li>
-            <li>• Database design and optimization</li>
-            <li>• API development and integration</li>
-            <li>• Personal portfolio and showcase applications</li>
-            <li>• Open source maintainer in the Nix ecosystem</li>
-          </ul>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Open Source</h3>
+          <p class="text-gray-600">
+            Active contributions to the Nix ecosystem and other open source
+            projects
+          </p>
         </div>
 
-        <div class="bg-purple-50 rounded-xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
-            <ng-icon
-              name="heroCog6Tooth"
-              size="1rem"
-              class="text-purple-500 mr-2"
-            ></ng-icon>
-            Technical Exploration
-          </h3>
-          <ul class="text-gray-700 space-y-2 text-sm">
-            <li>• Experimenting with emerging technologies</li>
-            <li>• Learning new programming paradigms</li>
-            <li>• Implementing design patterns and architectures</li>
-            <li>• Performance optimization techniques</li>
-            <li>• DevOps and deployment automation</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Categories -->
-    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          name="heroFolder"
-          size="1.25rem"
-          class="text-pink-500 mr-3"
-        ></ng-icon>
-        Project Categories
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <div class="text-center bg-indigo-50 rounded-xl p-6">
+        <div class="text-center bg-blue-50 rounded-2xl p-8">
           <div
-            class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3"
+            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6"
           >
             <ng-icon
               name="heroGlobeAlt"
-              size="1.25rem"
-              class="text-indigo-600"
+              size="1.5rem"
+              class="text-white"
             ></ng-icon>
           </div>
-          <div class="text-lg font-bold text-indigo-600 mb-2">
-            Web Applications
-          </div>
-          <div class="text-sm text-gray-600">
-            Interactive web platforms and SPAs
-          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Web Applications</h3>
+          <p class="text-gray-600">
+            Full-stack web applications and portfolio sites
+          </p>
         </div>
-        <div class="text-center bg-purple-50 rounded-xl p-6">
+
+        <div class="text-center bg-purple-50 rounded-2xl p-8">
           <div
-            class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3"
+            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6"
           >
             <ng-icon
-              name="heroBriefcase"
-              size="1.25rem"
-              class="text-purple-600"
+              name="heroWrench"
+              size="1.5rem"
+              class="text-white"
             ></ng-icon>
           </div>
-          <div class="text-lg font-bold text-purple-600 mb-2">
-            Portfolio Sites
-          </div>
-          <div class="text-sm text-gray-600">
-            Professional showcases and resumes
-          </div>
-        </div>
-        <div class="text-center bg-pink-50 rounded-xl p-6">
-          <div
-            class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3"
-          >
-            <ng-icon
-              name="heroCog6Tooth"
-              size="1.25rem"
-              class="text-pink-600"
-            ></ng-icon>
-          </div>
-          <div class="text-lg font-bold text-pink-600 mb-2">
-            Utilities & Tools
-          </div>
-          <div class="text-sm text-gray-600">
-            Development aids and automation
-          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">
+            Development Tools
+          </h3>
+          <p class="text-gray-600">
+            Utilities, automation scripts, and development environment
+            configurations
+          </p>
         </div>
       </div>
-
-      <p class="text-gray-700 leading-relaxed">
-        Each project serves as a learning opportunity to explore different
-        aspects of software development, from user interface design to backend
-        architecture, database optimization, and deployment strategies. These
-        projects reflect a commitment to continuous improvement and staying
-        current with technology trends.
-      </p>
     </div>
-
-    <!-- Open Source Contributions -->
-    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          name="heroCodeBracket"
-          size="1.25rem"
-          class="text-green-500 mr-3"
-        ></ng-icon>
-        Open Source Contributions
-      </h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
-        Active maintainer and contributor to several open source projects in the
-        Nix ecosystem, focusing on improving developer experience and system
-        reproducibility.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a
-          routerLink="home-manager"
-          class="group bg-blue-50 rounded-xl p-6 cursor-pointer hover:bg-blue-100 transition-colors duration-200 border border-transparent hover:border-blue-200 hover:shadow-lg"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-semibold text-blue-800 group-hover:text-blue-900">
-              Home Manager
-            </h3>
-            <ng-icon
-              name="heroArrowTopRightOnSquare"
-              size="1rem"
-              class="text-blue-600 group-hover:text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            ></ng-icon>
-          </div>
-          <p class="text-gray-700 text-sm mb-3">
-            Designed and improved Nix modules for declarative user environment
-            configuration. Refactored modules to support freeform configuration
-            inputs.
-          </p>
-          <div class="text-xs text-blue-600 font-medium">
-            Oct 2024 - Current
-          </div>
-        </a>
-
-        <a
-          routerLink="nixvim"
-          class="group bg-green-50 rounded-xl p-6 cursor-pointer hover:bg-green-100 transition-colors duration-200 border border-transparent hover:border-green-200 hover:shadow-lg"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-semibold text-green-800 group-hover:text-green-900">
-              Nixvim
-            </h3>
-            <ng-icon
-              name="heroArrowTopRightOnSquare"
-              size="1rem"
-              class="text-green-600 group-hover:text-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            ></ng-icon>
-          </div>
-          <p class="text-gray-700 text-sm mb-3">
-            Enhanced user experience for creating Neovim configurations using
-            Nix's declarative approach. Created new plugin modules and resolved
-            user experience issues.
-          </p>
-          <div class="text-xs text-green-600 font-medium">
-            May 2024 - Current
-          </div>
-        </a>
-
-        <a
-          routerLink="nixpkgs"
-          class="group bg-purple-50 rounded-xl p-6 cursor-pointer hover:bg-purple-100 transition-colors duration-200 border border-transparent hover:border-purple-200 hover:shadow-lg"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h3
-              class="font-semibold text-purple-800 group-hover:text-purple-900"
-            >
-              Nixpkgs
-            </h3>
-            <ng-icon
-              name="heroArrowTopRightOnSquare"
-              size="1rem"
-              class="text-purple-600 group-hover:text-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            ></ng-icon>
-          </div>
-          <p class="text-gray-700 text-sm mb-3">
-            Maintains packages and infrastructure for the Nix package manager.
-            Specializes in Darwin (macOS) platform maintenance and package
-            updates.
-          </p>
-          <div class="text-xs text-purple-600 font-medium">
-            May 2023 - Current
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Technology Diversity -->
-    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          name="heroComputerDesktop"
-          size="1.25rem"
-          class="text-indigo-500 mr-3"
-        ></ng-icon>
-        Technology Stack Diversity
-      </h2>
-
-      <div class="flex flex-wrap gap-3">
-        <span
-          class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Angular</span
-        >
-        <span
-          class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium"
-          >React</span
-        >
-        <span
-          class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Vue.js</span
-        >
-        <span
-          class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Node.js</span
-        >
-        <span
-          class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Python</span
-        >
-        <span
-          class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium"
-          >JavaScript</span
-        >
-        <span
-          class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium"
-          >TypeScript</span
-        >
-        <span
-          class="bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium"
-          >HTML/CSS</span
-        >
-        <span
-          class="bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium"
-          >MongoDB</span
-        >
-        <span
-          class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium"
-          >PostgreSQL</span
-        >
-        <span
-          class="bg-slate-100 text-slate-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Nix</span
-        >
-        <span
-          class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Rust</span
-        >
-        <span
-          class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Docker</span
-        >
-        <span
-          class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium"
-          >C#</span
-        >
-        <span
-          class="bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Java</span
-        >
-        <span
-          class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium"
-          >C++</span
-        >
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
+</main>
 
 <router-outlet></router-outlet>
