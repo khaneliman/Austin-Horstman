@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { LogoStylingService } from '../../services/logo-styling.service';
+import type { CompanyInfo } from '../../data/companies';
 import {
   heroArrowTopRightOnSquare,
   heroMapPin,
@@ -28,33 +29,8 @@ import {
   heroShieldCheck,
 } from '@ng-icons/heroicons/outline';
 
-export interface CompanyInfo {
-  name: string;
-  logoSrc: string;
-  logoAlt: string;
-  logoBackground?: 'white' | 'black' | 'dark'; // Make it optional for now
-  website?: string;
-  location: string;
-  position: string;
-  dateRange: string;
-  department?: string;
-  colorScheme: {
-    theme: string; // 'green', 'blue', 'red', 'orange'
-    primary: string;
-    secondary: string;
-    accent: string;
-    gradientFrom: string;
-    gradientTo: string;
-    gradientVia?: string;
-  };
-  stats: {
-    years: string;
-    metric1: { value: string; label: string };
-    metric2: { value: string; label: string };
-  };
-  description: string;
-  achievements?: readonly string[]; // Optional list of key responsibilities/achievements
-}
+// CompanyInfo is imported above and re-exported for other components
+export type { CompanyInfo };
 
 export interface ProjectInfo {
   name: string;
