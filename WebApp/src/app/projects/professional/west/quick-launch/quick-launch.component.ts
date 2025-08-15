@@ -1,43 +1,21 @@
-import { Component } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroRocketLaunch,
-  heroStar,
-  heroMagnifyingGlass,
-  heroClock,
-  heroUser,
-  heroBolt,
-  heroWifi,
-  heroShieldCheck,
-  heroCog6Tooth,
-  heroChevronRight,
-} from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   standalone: true,
   selector: 'app-quick-launch',
-  templateUrl: './quick-launch.component.html',
-  styleUrls: ['./quick-launch.component.scss'],
-  imports: [NgIconComponent, ProjectNavHeaderComponent],
-  providers: [
-    provideIcons({
-      heroRocketLaunch,
-      heroStar,
-      heroMagnifyingGlass,
-      heroClock,
-      heroUser,
-      heroBolt,
-      heroWifi,
-      heroShieldCheck,
-      heroCog6Tooth,
-      heroChevronRight,
-    }),
-  ],
+  template: `
+    <app-project-detail-template [config]="projectConfig">
+    </app-project-detail-template>
+  `,
+  imports: [ProjectDetailTemplateComponent],
 })
-export class QuickLaunchComponent {
-  backRoute = '/projects/professional/west';
-  backLabel = 'Back to West Projects';
-  hoverColor = 'red';
-  companyKey = 'west';
+export class QuickLaunchComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('quick-launch')!;
+  }
 }
