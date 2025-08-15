@@ -16,6 +16,10 @@
   &--orange {
     @include company-header-gradient('orange');
   }
+
+  &--nri {
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #6366f1 100%);
+  }
 }
 
 .stats-section {
@@ -52,6 +56,10 @@
   &--orange {
     @include stats-section-gradient('orange');
   }
+
+  &--nri {
+    @include stats-section-gradient('blue');
+  }
 }
 
 .project-button {
@@ -80,6 +88,13 @@
     @include project-button-gradient('orange');
     &:hover {
       @include project-button-gradient('orange', true);
+    }
+  }
+
+  &--nri {
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    &:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
     }
   }
 }
