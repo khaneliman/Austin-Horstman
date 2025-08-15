@@ -224,9 +224,9 @@ const PROJECT_DETAILS = {
       'React Router 7',
       'TypeScript',
       'LangGraph',
-      'Claude 3.7 Sonnet',
+      'Claude 4 Sonnet',
+      'OpenAI o3 & o4-mini',
       'PostgreSQL',
-      'Tailwind CSS',
     ],
   },
 } as const;
