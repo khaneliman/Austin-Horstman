@@ -59,13 +59,15 @@
             </p>
 
             <!-- Technology Tags -->
-            <div class="flex flex-wrap justify-center gap-3 mt-6">
-              <span
-                *ngFor="let tech of config.technologies"
-                class="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium"
-              >
-                {{ tech.name }}
-              </span>
+            <div class="mt-6">
+              <div class="flex flex-wrap justify-center gap-3">
+                <span
+                  *ngFor="let tech of config.technologies"
+                  class="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium"
+                >
+                  {{ tech.name }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -73,58 +75,30 @@
     </div>
 
     <!-- Quick Stats Section -->
-    <div
-      *ngIf="config.showQuickStats && config.quickStats"
-      [class]="
-        'bg-gradient-to-r from-' +
-        config.primaryColor +
-        '-50 to-' +
-        config.primaryColor +
-        '-100 rounded-2xl p-8 mb-12'
-      "
-    >
-      <div
-        [class]="
-          'grid gap-6 text-center ' +
-          (config.quickStats.length <= 2
-            ? 'grid-cols-2'
-            : config.quickStats.length === 3
-              ? 'grid-cols-3'
-              : 'grid-cols-2 md:grid-cols-4')
-        "
+    <div *ngIf="config.showQuickStats && config.quickStats" class="mb-12">
+      <app-stats-grid
+        [stats]="stats"
+        [color]="config.primaryColor"
+        [containerBackground]="true"
+        [containerColor]="config.primaryColor"
+        [columns]="4"
+        [colorVariation]="false"
+        itemSize="md"
+        gap="6"
       >
-        <div *ngFor="let stat of config.quickStats">
-          <div
-            [class]="
-              'w-12 h-12 bg-' +
-              config.primaryColor +
-              '-500 rounded-xl flex items-center justify-center mx-auto mb-3'
-            "
-          >
-            <ng-icon
-              [name]="stat.icon"
-              size="1.25rem"
-              class="text-white"
-            ></ng-icon>
-          </div>
-          <div class="text-2xl font-bold text-gray-800 mb-1">
-            {{ stat.value }}
-          </div>
-          <div class="text-gray-600 text-sm">{{ stat.label }}</div>
-        </div>
-      </div>
+      </app-stats-grid>
     </div>
 
     <!-- Project Overview Section -->
-    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          [name]="config.overview.icon || 'heroBookOpen'"
-          size="1.125rem"
-          [class]="'text-' + config.primaryColor + '-500 mr-3'"
-        ></ng-icon>
-        {{ config.overview.title }}
-      </h2>
+    <app-base-card variant="large" additionalClasses="mb-8">
+      <app-section-header
+        [title]="config.overview.title"
+        [icon]="config.overview.icon || 'heroBookOpen'"
+        [iconColor]="config.primaryColor"
+        level="h2"
+        marginBottom="6"
+      >
+      </app-section-header>
 
       <div
         *ngIf="config.overview.type === 'html'"
@@ -136,7 +110,7 @@
             *ngFor="let item of config.overview.items"
             class="flex items-start"
           >
-            <span class="text-green-500 mr-2">•</span>
+            <span [class]="'text-' + config.primaryColor + '-500 mr-2'">•</span>
             {{ item }}
           </li>
         </ul>
@@ -147,70 +121,47 @@
       >
         {{ config.overview.content }}
       </p>
-    </div>
+    </app-base-card>
 
     <!-- Key Features Section -->
-    <div
+    <app-base-card
       *ngIf="config.features.length > 0"
-      class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8"
+      variant="large"
+      additionalClasses="mb-8"
     >
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          name="heroSparkles"
-          size="1.125rem"
-          [class]="'text-' + config.primaryColor + '-500 mr-3'"
-        ></ng-icon>
-        Key Features
-      </h2>
-
-      <div
-        [class]="
-          'grid gap-6 ' +
-          (config.gridColumns === 'single'
-            ? 'grid-cols-1'
-            : 'grid-cols-1 md:grid-cols-2')
-        "
+      <app-section-header
+        title="Key Features"
+        icon="heroSparkles"
+        [iconColor]="config.primaryColor"
+        level="h2"
+        marginBottom="6"
       >
-        <div
-          *ngFor="let feature of config.features"
-          class="flex items-start space-x-4"
-        >
-          <div
-            [class]="
-              'flex-shrink-0 w-8 h-8 bg-' +
-              config.primaryColor +
-              '-100 rounded-full flex items-center justify-center'
-            "
-          >
-            <ng-icon
-              [name]="feature.icon"
-              size="0.875rem"
-              [class]="'text-' + config.primaryColor + '-600'"
-            ></ng-icon>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 mb-1">
-              {{ feature.title }}
-            </h3>
-            <p class="text-gray-600 text-sm">{{ feature.description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+      </app-section-header>
+
+      <app-feature-grid
+        [features]="features"
+        [columns]="config.gridColumns === 'single' ? 1 : 2"
+        [iconColor]="config.primaryColor"
+        itemSize="md"
+        gap="6"
+      >
+      </app-feature-grid>
+    </app-base-card>
 
     <!-- Technical Details Sections -->
-    <div
+    <app-base-card
       *ngFor="let section of config.technicalDetails"
-      class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8"
+      variant="large"
+      additionalClasses="mb-8"
     >
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          [name]="section.icon || 'heroCog6Tooth'"
-          size="1.125rem"
-          [class]="'text-' + config.primaryColor + '-500 mr-3'"
-        ></ng-icon>
-        {{ section.title }}
-      </h2>
+      <app-section-header
+        [title]="section.title"
+        [icon]="section.icon || 'heroCog6Tooth'"
+        [iconColor]="config.primaryColor"
+        level="h2"
+        marginBottom="6"
+      >
+      </app-section-header>
 
       <div *ngIf="section.type === 'html'" [innerHTML]="section.content"></div>
       <div *ngIf="section.type === 'list'">
@@ -227,21 +178,22 @@
       >
         {{ section.content }}
       </p>
-    </div>
+    </app-base-card>
 
     <!-- Special Sections -->
-    <div
+    <app-base-card
       *ngFor="let section of config.specialSections"
-      class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8"
+      variant="large"
+      additionalClasses="mb-8"
     >
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          [name]="section.icon || 'heroLightBulb'"
-          size="1.125rem"
-          [class]="'text-' + config.primaryColor + '-500 mr-3'"
-        ></ng-icon>
-        {{ section.title }}
-      </h2>
+      <app-section-header
+        [title]="section.title"
+        [icon]="section.icon || 'heroLightBulb'"
+        [iconColor]="config.primaryColor"
+        level="h2"
+        marginBottom="6"
+      >
+      </app-section-header>
 
       <div *ngIf="section.type === 'html'" [innerHTML]="section.content"></div>
       <div *ngIf="section.type === 'list'">
@@ -258,37 +210,31 @@
       >
         {{ section.content }}
       </p>
-    </div>
+    </app-base-card>
 
     <!-- Technology Stack -->
-    <div
+    <app-base-card
       *ngIf="config.showTechnicalHighlights"
-      class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8"
+      variant="large"
+      additionalClasses="mb-8"
     >
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <ng-icon
-          name="heroCodeBracket"
-          size="1.125rem"
-          [class]="'text-' + config.primaryColor + '-500 mr-3'"
-        ></ng-icon>
-        Technology Stack
-      </h2>
+      <app-section-header
+        title="Technology Stack"
+        icon="heroCodeBracket"
+        [iconColor]="config.primaryColor"
+        level="h2"
+        marginBottom="6"
+      >
+      </app-section-header>
 
-      <div class="flex flex-wrap gap-3">
-        <span
-          *ngFor="let tech of config.technologies"
-          [class]="
-            'bg-' +
-            tech.color +
-            '-100 text-' +
-            tech.color +
-            '-800 px-4 py-2 rounded-full text-sm font-medium'
-          "
-        >
-          {{ tech.name }}
-        </span>
-      </div>
-    </div>
+      <app-tech-tag-list
+        [technologies]="techTags"
+        justify="start"
+        size="sm"
+        variant="filled"
+      >
+      </app-tech-tag-list>
+    </app-base-card>
 
     <!-- Project Impact Section -->
     <div
@@ -301,7 +247,9 @@
         '-700 rounded-2xl p-8 text-white text-center'
       "
     >
-      <h2 class="text-2xl font-bold mb-4">Project Impact</h2>
+      <h2 class="text-2xl font-bold mb-4 text-white text-center">
+        Project Impact
+      </h2>
       <p
         [class]="
           'text-lg text-' +
