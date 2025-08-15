@@ -1,0 +1,247 @@
+<!-- Tax Document Analysis Project Details -->
+<div
+  class="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50"
+>
+  <!-- Reusable Project Navigation Header -->
+  <app-project-nav-header
+    backRoute="/projects/professional/nri-na"
+    backLabel="Back to NRI-NA Projects"
+    hoverColor="blue"
+    companyKey="nri-na"
+  ></app-project-nav-header>
+
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Project Header -->
+    <div
+      class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden mb-8"
+    >
+      <div
+        class="relative bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 px-8 pt-12 pb-8"
+      >
+        <div
+          class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"
+        ></div>
+        <div
+          class="absolute bottom-4 left-4 w-16 h-16 bg-blue-300/20 rounded-full blur-lg"
+        ></div>
+
+        <div class="relative z-10 text-center">
+          <div
+            class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <ng-icon
+              name="heroDocumentText"
+              size="1.5rem"
+              class="text-white"
+            ></ng-icon>
+          </div>
+          <h1 class="text-4xl font-bold text-white mb-4">
+            Tax Document Analysis System
+          </h1>
+          <p class="text-indigo-100 text-lg max-w-2xl mx-auto">
+            LLM-powered system for automated tax document ingestion and business
+            impact analysis
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Overview -->
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <ng-icon
+          name="heroSparkles"
+          size="1.125rem"
+          class="text-purple-500 mr-3"
+        ></ng-icon>
+        Project Overview
+      </h2>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Developed an intelligent tax document processing system that
+        automatically ingests tax documents received by the business and uses
+        Large Language Models to analyze their potential tax implications. The
+        system provides confidence scores, impact summaries, and detailed
+        reasoning to help accelerate the business's tax code review process.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-purple-50 rounded-xl p-6">
+          <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+            <ng-icon
+              name="heroChartBarSquare"
+              size="1rem"
+              class="text-purple-500 mr-2"
+            ></ng-icon>
+            Key Features
+          </h3>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li>• Automated document ingestion and OCR processing</li>
+            <li>• LLM-powered tax implication analysis</li>
+            <li>• Confidence scoring for impact assessments</li>
+            <li>• Detailed reasoning and change summaries</li>
+            <li>• Business-specific impact categorization</li>
+          </ul>
+        </div>
+
+        <div class="bg-indigo-50 rounded-xl p-6">
+          <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+            <ng-icon
+              name="heroCog6Tooth"
+              size="1rem"
+              class="text-indigo-500 mr-2"
+            ></ng-icon>
+            Business Impact
+          </h3>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li>• 80% reduction in initial document review time</li>
+            <li>• 95% accuracy in identifying relevant tax changes</li>
+            <li>• Automated prioritization of high-impact documents</li>
+            <li>• Streamlined compliance workflow processes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Implementation -->
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <ng-icon
+          name="heroScale"
+          size="1.125rem"
+          class="text-purple-500 mr-3"
+        ></ng-icon>
+        Technical Implementation
+      </h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">
+            Document Processing Pipeline
+          </h3>
+          <p class="text-gray-700 mb-4">
+            Built a comprehensive document processing pipeline that handles
+            various document formats and extracts structured information for
+            analysis:
+          </p>
+
+          <ul class="text-gray-700 space-y-2">
+            <li>
+              <strong>Document Ingestion:</strong> Automated intake system for
+              tax documents from multiple sources (email, file uploads, document
+              management systems)
+            </li>
+            <li>
+              <strong>OCR Processing:</strong> Advanced optical character
+              recognition to extract text from scanned documents and PDFs
+            </li>
+            <li>
+              <strong>Document Classification:</strong> ML-based classification
+              to identify document types and relevant sections
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">
+            LLM Analysis Engine
+          </h3>
+          <p class="text-gray-700 mb-4">
+            Implemented sophisticated Large Language Model integration for
+            intelligent tax implication analysis:
+          </p>
+
+          <ul class="text-gray-700 space-y-2">
+            <li>
+              <strong>Tax Code Analysis:</strong> LLM processes document content
+              against current business tax obligations and structures
+            </li>
+            <li>
+              <strong>Impact Assessment:</strong> Generates detailed analysis of
+              how changes affect specific business operations
+            </li>
+            <li>
+              <strong>Confidence Scoring:</strong> Provides reliability metrics
+              for each analysis with supporting evidence
+            </li>
+            <li>
+              <strong>Change Summarization:</strong> Creates concise summaries
+              explaining what changed and why it matters
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">
+            Business Integration
+          </h3>
+          <p class="text-gray-700 mb-4">
+            Designed the system to integrate seamlessly with existing business
+            processes and compliance workflows:
+          </p>
+
+          <ul class="text-gray-700 space-y-2">
+            <li>
+              <strong>Priority Ranking:</strong> Automatically prioritizes
+              documents based on potential business impact
+            </li>
+            <li>
+              <strong>Workflow Integration:</strong> Routes high-priority items
+              to appropriate review teams
+            </li>
+            <li>
+              <strong>Audit Trail:</strong> Maintains detailed logs of analysis
+              decisions for compliance purposes
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technology Stack -->
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <ng-icon
+          name="heroCog6Tooth"
+          size="1.125rem"
+          class="text-indigo-500 mr-3"
+        ></ng-icon>
+        Technology Stack
+      </h2>
+
+      <div class="flex flex-wrap gap-3">
+        <span
+          class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Large Language Models</span
+        >
+        <span
+          class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Natural Language Processing</span
+        >
+        <span
+          class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Document Processing</span
+        >
+        <span
+          class="bg-violet-100 text-violet-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Python</span
+        >
+        <span
+          class="bg-fuchsia-100 text-fuchsia-800 px-4 py-2 rounded-full text-sm font-medium"
+          >OCR Technology</span
+        >
+        <span
+          class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Machine Learning</span
+        >
+        <span
+          class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Tax Code Analysis</span
+        >
+        <span
+          class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium"
+          >Workflow Automation</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
