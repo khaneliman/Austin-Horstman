@@ -73,6 +73,7 @@ export const COMPANIES = {
     projects: [
       { name: 'Do It Best', route: 'doitbest' },
       { name: 'AI Resource Staffing', route: 'ai-resource-staffing' },
+      { name: 'Tax Document Analysis', route: 'tax-document-analysis' },
     ],
   },
 
