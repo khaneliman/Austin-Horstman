@@ -68,11 +68,19 @@ jobs:
           if [[ "${{ github.event_name }}" == "release" ]] || [[ "${{ steps.condval.outputs.value }}" == *"master"* ]]; then
             echo "dockerfile=WebApp/Dockerfile.production" >> $GITHUB_OUTPUT
             echo "cache-scope=prod" >> $GITHUB_OUTPUT
-            echo "tags=${{ steps.meta.outputs.tags }}" >> $GITHUB_OUTPUT
+            {
+              echo 'tags<<EOF'
+              echo '${{ steps.meta.outputs.tags }}'
+              echo 'EOF'
+            } >> $GITHUB_OUTPUT
           else
             echo "dockerfile=WebApp/Dockerfile" >> $GITHUB_OUTPUT
             echo "cache-scope=dev" >> $GITHUB_OUTPUT
-            echo "tags=${{ steps.meta.outputs.tags }}-dev" >> $GITHUB_OUTPUT
+            {
+              echo 'tags<<EOF'
+              echo '${{ steps.meta.outputs.tags }}'
+              echo 'EOF'
+            } >> $GITHUB_OUTPUT
           fi
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
