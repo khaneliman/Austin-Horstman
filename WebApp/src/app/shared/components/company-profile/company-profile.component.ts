@@ -1,6 +1,14 @@
-import { Component, Input, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  inject,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { LogoStylingService } from '../../services/logo-styling.service';
 import type { CompanyInfo } from '../../data/companies';
@@ -30,6 +38,8 @@ import {
   heroDocumentText,
   heroArrowPathRoundedSquare,
 } from '@ng-icons/heroicons/outline';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 // CompanyInfo is imported above and re-exported for other components
 export type { CompanyInfo };
@@ -78,11 +88,15 @@ export interface ProjectInfo {
     }),
   ],
 })
-export class CompanyProfileComponent {
+export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
   @Input() company!: CompanyInfo;
   @Input() projects!: ProjectInfo[];
+  @ViewChild('projectDetailsSection') projectDetailsSection!: ElementRef;
 
   private readonly logoStylingService = inject(LogoStylingService);
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+  private destroy$ = new Subject<void>();
 
   getLogoBackgroundStyle(
     logoBackground: 'white' | 'black' | 'dark' | undefined
@@ -124,5 +138,48 @@ export class CompanyProfileComponent {
       orange: 'text-orange-500',
     };
     return iconClasses[theme as keyof typeof iconClasses] || iconClasses.green;
+  }
+
+  ngAfterViewInit(): void {
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        // Check if current route has auto-scroll data
+        this.checkAndScrollToProjectDetails();
+      });
+
+    // Also check on initial load
+    this.checkAndScrollToProjectDetails();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private scrollToProjectDetails(): void {
+    if (this.projectDetailsSection) {
+      this.projectDetailsSection.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
+
+  private checkAndScrollToProjectDetails(): void {
+    // Check if any active child route has autoScroll data set to true
+    let currentRoute = this.route.firstChild;
+    while (currentRoute) {
+      if (currentRoute.snapshot.data['autoScroll'] === true && this.projectDetailsSection) {
+        setTimeout(() => {
+          this.scrollToProjectDetails();
+        }, 150);
+        return;
+      }
+      currentRoute = currentRoute.firstChild;
+    }
   }
 }

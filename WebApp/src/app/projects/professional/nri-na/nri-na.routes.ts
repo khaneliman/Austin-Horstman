@@ -12,6 +12,7 @@ export const NRI_NA_ROUTES: Routes = [
           import('./doitbest/doitbest.component').then(
             m => m.NriNaDoItBestComponent
           ),
+        data: { autoScroll: true },
       },
       {
         path: 'ai-resource-staffing',
@@ -19,6 +20,7 @@ export const NRI_NA_ROUTES: Routes = [
           import('./ai-resource-staffing/ai-resource-staffing.component').then(
             m => m.AiResourceStaffingComponent
           ),
+        data: { autoScroll: true },
       },
       {
         path: 'tax-document-analysis',
@@ -26,6 +28,7 @@ export const NRI_NA_ROUTES: Routes = [
           import(
             './tax-document-analysis/tax-document-analysis.component'
           ).then(m => m.TaxDocumentAnalysisComponent),
+        data: { autoScroll: true },
       },
       {
         path: 'mulesoft-migrator',
@@ -33,6 +36,7 @@ export const NRI_NA_ROUTES: Routes = [
           import('./mulesoft-migrator/mulesoft-migrator.component').then(
             m => m.MuleSoftMigratorComponent
           ),
+        data: { autoScroll: true },
       },
     ],
   },

@@ -9,9 +9,9 @@ export const WEST_ROUTES: Routes = [
     path: '',
     component: WestComponent,
     children: [
-      { path: 'database-tool', component: DatabaseToolComponent },
-      { path: 'it-portal', component: ItPortalComponent },
-      { path: 'quick-launch', component: QuickLaunchComponent },
+      { path: 'database-tool', component: DatabaseToolComponent, data: { autoScroll: true } },
+      { path: 'it-portal', component: ItPortalComponent, data: { autoScroll: true } },
+      { path: 'quick-launch', component: QuickLaunchComponent, data: { autoScroll: true } },
     ],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
