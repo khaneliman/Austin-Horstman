@@ -1,0 +1,18 @@
+// Star Rating Styles
+.star-rating {
+  .star-filled {
+    color: #fbbf24; // yellow-400
+    svg {
+      fill: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  .star-empty {
+    color: #9ca3af; // gray-400
+    svg {
+      fill: none;
+      stroke: currentColor;
+    }
+  }
+}
