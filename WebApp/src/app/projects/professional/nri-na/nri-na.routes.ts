@@ -27,6 +27,13 @@ export const NRI_NA_ROUTES: Routes = [
             './tax-document-analysis/tax-document-analysis.component'
           ).then(m => m.TaxDocumentAnalysisComponent),
       },
+      {
+        path: 'mulesoft-migrator',
+        loadComponent: () =>
+          import('./mulesoft-migrator/mulesoft-migrator.component').then(
+            m => m.MuleSoftMigratorComponent
+          ),
+      },
     ],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
