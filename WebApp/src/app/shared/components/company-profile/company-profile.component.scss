@@ -146,4 +146,7 @@
   &.from-purple-600.to-indigo-700 {
     @include project-card-gradient('purple', 'indigo');
   }
+  &.from-emerald-600.to-teal-700 {
+    @include project-card-gradient('emerald', 'teal');
+  }
 }

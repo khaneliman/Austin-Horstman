@@ -28,6 +28,7 @@ import {
   heroRocketLaunch,
   heroShieldCheck,
   heroDocumentText,
+  heroArrowPathRoundedSquare,
 } from '@ng-icons/heroicons/outline';
 
 // CompanyInfo is imported above and re-exported for other components
@@ -73,6 +74,7 @@ export interface ProjectInfo {
       heroRocketLaunch,
       heroShieldCheck,
       heroDocumentText,
+      heroArrowPathRoundedSquare,
     }),
   ],
 })
