@@ -1,13 +1,37 @@
-import { CompanyInfo } from '../components/company-profile/company-profile.component';
+// Removed circular import - CompanyInfo is now defined here
 
-// Extended company information for routing and projects grid
-export interface ExtendedCompanyInfo extends CompanyInfo {
+// Company information interface
+export interface CompanyInfo {
   id: string;
   displayName: string;
+  name: string;
+  logoSrc: string;
+  logoAlt: string;
+  logoBackground: 'white' | 'black' | 'dark'; // Logo background styling
+  website?: string;
+  location: string;
+  position: string;
+  dateRange: string;
+  department?: string;
+  colorScheme: {
+    theme: string; // 'green', 'blue', 'red', 'orange'
+    primary: string;
+    secondary: string;
+    accent: string;
+    gradientFrom: string;
+    gradientTo: string;
+    gradientVia?: string;
+  };
+  stats: {
+    years: string;
+    metric1: { value: string; label: string };
+    metric2: { value: string; label: string };
+  };
+  description: string;
+  achievements?: readonly string[]; // Optional list of key responsibilities/achievements
   projectsRoute: string;
   employmentRoute: string;
   gradientColor: string; // For professional projects cards
-  logoBackground: 'white' | 'black' | 'dark'; // Logo background styling
   projects: readonly { name: string; route: string }[]; // Projects available for this company
 }
 
@@ -26,13 +50,13 @@ export const COMPANIES = {
     dateRange: 'Jan 2022 - Current',
     department: 'Modern Business Unit',
     colorScheme: {
-      theme: 'blue',
+      theme: 'nri',
       primary: 'blue-500',
       secondary: 'indigo-600',
       accent: 'sky-600',
-      gradientFrom: 'from-blue-900',
-      gradientTo: 'to-indigo-900',
-      gradientVia: 'via-blue-800',
+      gradientFrom: 'from-blue-600',
+      gradientTo: 'to-indigo-600',
+      gradientVia: 'via-blue-700',
     },
     stats: {
       years: '3+',
@@ -213,19 +237,15 @@ export const COMPANIES = {
 } as const;
 
 // Helper functions for accessing company data
-export function getCompanyById(
-  id: keyof typeof COMPANIES
-): ExtendedCompanyInfo {
+export function getCompanyById(id: keyof typeof COMPANIES): CompanyInfo {
   return { ...COMPANIES[id] };
 }
 
-export function getAllCompanies(): ExtendedCompanyInfo[] {
+export function getAllCompanies(): CompanyInfo[] {
   return Object.values(COMPANIES).map(company => ({ ...company }));
 }
 
-export function getCompanyByName(
-  name: string
-): ExtendedCompanyInfo | undefined {
+export function getCompanyByName(name: string): CompanyInfo | undefined {
   return Object.values(COMPANIES).find(
     company =>
       company.name.toLowerCase() === name.toLowerCase() ||
