@@ -16,11 +16,11 @@ export interface Stat {
     <div [class]="containerClasses">
       <div [class]="gridClasses">
         <app-stat-card
-          *ngFor="let stat of stats"
+          *ngFor="let stat of stats; let i = index"
           [icon]="stat.icon"
           [value]="stat.value"
           [label]="stat.label"
-          [color]="getStatColor($index)"
+          [color]="getStatColor(i)"
           [size]="itemSize"
           [center]="true"
           [background]="showBackground"
