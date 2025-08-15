@@ -27,6 +27,11 @@ import {
   heroUser,
   heroBolt,
   heroWifi,
+  heroCheck,
+  heroRectangleStack,
+  heroListBullet,
+  heroTicket,
+  heroLink,
 } from '@ng-icons/heroicons/outline';
 
 import { ProjectDetailConfig } from '../../interfaces/project-detail.interface';
@@ -63,6 +68,11 @@ import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-hea
       heroUser,
       heroBolt,
       heroWifi,
+      heroCheck,
+      heroRectangleStack,
+      heroListBullet,
+      heroTicket,
+      heroLink,
     }),
   ],
   templateUrl: './project-detail-template.component.html',
