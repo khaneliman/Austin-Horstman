@@ -6,7 +6,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
-    headerStyle: 'complex',
     headerIcon: 'heroBookOpen',
     primaryColor: 'blue',
 
@@ -87,7 +86,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
-    headerStyle: 'simple',
     headerIcon: 'heroRocketLaunch',
     primaryColor: 'orange',
 
@@ -187,7 +185,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
-    headerStyle: 'simple',
     headerIcon: 'heroCheck',
     primaryColor: 'blue',
 
@@ -256,7 +253,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
-    headerStyle: 'simple',
     headerIcon: 'heroCircleStack',
     primaryColor: 'green',
 
@@ -336,7 +332,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-blue-50 via-orange-50 to-yellow-50',
-    headerStyle: 'simple',
     headerIcon: 'heroGlobeAlt',
     primaryColor: 'yellow',
 
@@ -435,7 +430,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-green-50 via-gray-50 to-emerald-50',
-    headerStyle: 'complex',
     headerIcon: 'heroShoppingBag',
     primaryColor: 'green',
 
@@ -535,7 +529,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-blue-50 via-gray-50 to-indigo-50',
-    headerStyle: 'complex',
     headerIcon: 'heroCog6Tooth',
     primaryColor: 'blue',
 
@@ -637,7 +630,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-blue-50 via-indigo-50 to-sky-50',
-    headerStyle: 'complex',
     headerIcon: 'heroBeaker',
     primaryColor: 'blue',
 
@@ -727,7 +719,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
-    headerStyle: 'complex',
     headerIcon: 'heroArrowPathRoundedSquare',
     primaryColor: 'emerald',
 
@@ -825,7 +816,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50',
-    headerStyle: 'complex',
     headerIcon: 'heroDocumentText',
     primaryColor: 'purple',
 
@@ -910,7 +900,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
   cleartrend: {
     // Visual/Branding
     backgroundGradient: 'bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50',
-    headerStyle: 'simple',
     headerIcon: 'heroChartBar',
     primaryColor: 'teal',
 
@@ -1005,7 +994,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
-    headerStyle: 'complex',
     headerIcon: 'heroHeart',
     primaryColor: 'red',
 
@@ -1092,7 +1080,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-green-50 via-teal-50 to-blue-50',
-    headerStyle: 'complex',
     headerIcon: 'heroArchiveBox',
     primaryColor: 'green',
 
@@ -1173,7 +1160,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-purple-50 via-pink-50 to-red-50',
-    headerStyle: 'complex',
     headerIcon: 'heroSpeakerWave',
     primaryColor: 'purple',
 
@@ -1257,7 +1243,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     backgroundGradient:
       'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50',
-    headerStyle: 'simple',
     headerIcon: 'heroHeart',
     primaryColor: 'emerald',
 

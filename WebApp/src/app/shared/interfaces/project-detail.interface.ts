@@ -23,12 +23,9 @@ export interface ContentSection {
   items?: string[];
 }
 
-export type HeaderStyle = 'simple' | 'complex';
-
 export interface ProjectDetailConfig {
   // Visual/Branding
   backgroundGradient: string;
-  headerStyle: HeaderStyle;
   headerIcon: string;
   primaryColor: string;
 

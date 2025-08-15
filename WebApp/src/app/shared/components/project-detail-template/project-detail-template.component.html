@@ -9,48 +9,8 @@
   ></app-project-nav-header>
 
   <div class="max-w-6xl mx-auto px-6 py-12">
-    <!-- Simple Header Style -->
-    <div *ngIf="config.headerStyle === 'simple'" class="text-center mb-12">
-      <div
-        [class]="
-          'inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-' +
-          config.primaryColor +
-          '-500 to-' +
-          config.primaryColor +
-          '-600 rounded-xl shadow-lg mb-6'
-        "
-      >
-        <ng-icon
-          [name]="config.headerIcon"
-          size="1.5rem"
-          class="text-white"
-        ></ng-icon>
-      </div>
-      <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ config.title }}</h1>
-
-      <!-- Technology Tags -->
-      <div class="flex flex-wrap justify-center gap-3 mb-6">
-        <span
-          *ngFor="let tech of config.technologies"
-          [class]="
-            'bg-' +
-            tech.color +
-            '-100 text-' +
-            tech.color +
-            '-800 px-4 py-2 rounded-full text-sm font-medium'
-          "
-        >
-          {{ tech.name }}
-        </span>
-      </div>
-
-      <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-        {{ config.description }}
-      </p>
-    </div>
-
-    <!-- Complex Header Style -->
-    <div *ngIf="config.headerStyle === 'complex'" class="mb-8">
+    <!-- Project Header -->
+    <div class="mb-8">
       <div
         class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
       >
