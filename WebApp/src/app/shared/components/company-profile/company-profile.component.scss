@@ -18,7 +18,7 @@
   }
 
   &--nri {
-    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #6366f1 100%);
+    @include company-header-gradient('nri');
   }
 }
 
@@ -92,9 +92,9 @@
   }
 
   &--nri {
-    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    @include project-button-gradient('nri');
     &:hover {
-      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+      @include project-button-gradient('nri', true);
     }
   }
 }

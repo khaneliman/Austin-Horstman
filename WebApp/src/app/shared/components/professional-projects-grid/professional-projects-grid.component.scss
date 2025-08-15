@@ -19,11 +19,11 @@
   }
 
   &--geeksquad {
-    background: linear-gradient(135deg, #000000 0%, #f97316 100%);
+    @include company-header-gradient('geeksquad');
   }
 
   &--nri {
-    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #6366f1 100%);
+    @include company-header-gradient('nri');
   }
 }
 
@@ -57,16 +57,16 @@
   }
 
   &--geeksquad {
-    background: linear-gradient(135deg, #000000 0%, #f97316 100%);
+    @include project-button-gradient('geeksquad');
     &:hover {
-      background: linear-gradient(135deg, #000000 0%, #ea580c 100%);
+      @include project-button-gradient('geeksquad', true);
     }
   }
 
   &--nri {
-    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    @include project-button-gradient('nri');
     &:hover {
-      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+      @include project-button-gradient('nri', true);
     }
   }
 }
