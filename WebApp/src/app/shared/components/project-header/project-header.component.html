@@ -1,0 +1,77 @@
+<!-- Project Header Component -->
+<div [class]="containerClasses">
+  <div [class]="headerClasses">
+    <!-- Decorative Background Elements -->
+    <app-decorative-background
+      *ngIf="variant !== 'minimal'"
+      [elements]="defaultBackgroundElements"
+    >
+    </app-decorative-background>
+
+    <!-- Back Button -->
+    <div *ngIf="showBackButton && backRoute" class="relative z-10">
+      <a [routerLink]="backRoute" [class]="backButtonClasses">
+        <ng-icon name="heroArrowLeft" size="1rem"></ng-icon>
+        <span>{{ backLabel || 'Back' }}</span>
+      </a>
+    </div>
+
+    <!-- Header Content -->
+    <div class="relative z-10 text-center">
+      <!-- Project Icon -->
+      <div [class]="iconContainerClasses">
+        <ng-icon
+          [name]="project.icon"
+          [size]="iconSize"
+          class="text-white w-full h-full"
+        ></ng-icon>
+      </div>
+
+      <!-- Project Title -->
+      <h1 [class]="titleClasses">
+        {{ project.title }}
+      </h1>
+
+      <!-- Status Badge -->
+      <div
+        *ngIf="project.status && variant === 'full'"
+        class="inline-flex items-center gap-1 bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium mb-4"
+      >
+        <ng-icon name="heroCheck" size="0.875rem"></ng-icon>
+        <span>{{ project.status }}</span>
+      </div>
+
+      <!-- Project Description -->
+      <p [class]="descriptionClasses">
+        {{ project.description }}
+      </p>
+
+      <!-- Technology Tags -->
+      <div
+        *ngIf="project.technologies.length > 0 && variant !== 'minimal'"
+        class="mt-6"
+      >
+        <div
+          *ngIf="variant === 'default'"
+          class="flex flex-wrap justify-center gap-3"
+        >
+          <span
+            *ngFor="let tech of project.technologies"
+            class="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium"
+          >
+            {{ tech.name }}
+          </span>
+        </div>
+
+        <div *ngIf="variant === 'full'">
+          <app-tech-tag-list
+            [technologies]="techTags"
+            justify="center"
+            size="sm"
+            variant="ghost"
+          ></app-tech-tag-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
