@@ -1,0 +1,133 @@
+.enhanced-feature-card {
+  position: relative;
+
+  &:hover .hover-glow {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  // Enhanced hover effects for different variants
+  &.variant-highlighted:hover {
+    transform: translateY(-8px);
+  }
+
+  &.variant-bordered:hover {
+    transform: scale(1.02);
+  }
+
+  &.variant-minimal:hover {
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  // Smooth transitions
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Action indicator animation
+  .action-indicator {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  // Icon container animations
+  .icon-container {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  // Background icon subtle animation
+  .background-icon {
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.1;
+    }
+  }
+
+  // Image hover effects
+  img {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  // Badge pulse effect for highlighted variant
+  &.variant-highlighted .badge {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  // Accessibility improvements
+  &:focus-within {
+    outline: 2px solid theme('colors.blue.500');
+    outline-offset: 2px;
+  }
+
+  // Dark mode support (if needed in the future)
+  @media (prefers-color-scheme: dark) {
+    &.bg-white {
+      @apply bg-gray-800 text-white;
+    }
+
+    .text-gray-900 {
+      @apply text-white;
+    }
+
+    .text-gray-600 {
+      @apply text-gray-300;
+    }
+
+    .text-gray-500 {
+      @apply text-gray-400;
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
+  // Print styles
+  @media print {
+    box-shadow: none !important;
+    transform: none !important;
+
+    .action-indicator {
+      display: none;
+    }
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    border: 2px solid;
+
+    .action-indicator {
+      border: 1px solid;
+    }
+  }
+}
