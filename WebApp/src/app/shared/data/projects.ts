@@ -276,7 +276,7 @@ export function generateProfessionalProjectsGrid() {
         company: company.displayName,
         route: company.projectsRoute,
         logo: company.logoSrc,
-        color: company.gradientColor,
+        theme: company.colorScheme.theme,
         logoBackground: company.logoBackground,
         projects: company.projects.map(project => ({
           name: project.name,

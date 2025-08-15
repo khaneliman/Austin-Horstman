@@ -10,7 +10,7 @@ export interface ProfessionalProject {
   company: string;
   route: string;
   logo: string;
-  color: string;
+  theme: string;
   logoBackground: 'white' | 'black' | 'dark';
   projects: {
     name: string;
