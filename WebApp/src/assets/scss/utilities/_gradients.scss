@@ -101,5 +101,7 @@
     background: linear-gradient(135deg, #2563eb 0%, #a16207 100%);
   } @else if $from == 'blue' and $to == 'sky' {
     background: linear-gradient(135deg, #2563eb 0%, #0369a1 100%);
+  } @else if $from == 'purple' and $to == 'indigo' {
+    background: linear-gradient(135deg, #9333ea 0%, #4338ca 100%);
   }
 }
