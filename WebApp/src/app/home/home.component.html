@@ -76,12 +76,13 @@
   </app-hero-section>
 
   <!-- Wave separator -->
-  <div class="absolute bottom-0 left-0 w-full z-20">
+  <div class="relative -mt-20">
     <app-wave-separator
       waveStyle="wave"
       direction="bottom"
       height="lg"
       color="white"
+      [flip]="true"
     ></app-wave-separator>
   </div>
 
