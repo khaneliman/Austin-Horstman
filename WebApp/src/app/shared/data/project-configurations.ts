@@ -182,6 +182,155 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     showImpactSection: true,
     gridColumns: 'double',
   },
+
+  'it-portal': {
+    // Visual/Branding
+    backgroundGradient:
+      'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
+    headerStyle: 'simple',
+    headerIcon: 'heroCheck',
+    primaryColor: 'blue',
+
+    // Navigation
+    backRoute: '/projects/professional/west',
+    backLabel: 'Back to West Projects',
+    companyKey: 'west',
+    hoverColor: 'red',
+
+    // Content
+    title: 'West IT Portal',
+    description:
+      'A comprehensive web portal that centralized all IT department tools and resources into a single, unified platform for streamlined daily operations.',
+    technologies: [
+      { name: 'ASP.NET MVC', color: 'blue' },
+      { name: 'C#', color: 'purple' },
+      { name: 'JavaScript', color: 'green' },
+      { name: 'jQuery', color: 'orange' },
+      { name: 'Bootstrap', color: 'indigo' },
+    ],
+    quickStats: [
+      { label: 'Project Year', value: '2017', icon: 'heroClock' },
+      { label: 'Development Time', value: '6mo', icon: 'heroBeaker' },
+      { label: 'Internal Usage', value: '100%', icon: 'heroUser' },
+    ],
+    overview: {
+      title: 'Project Overview',
+      content:
+        'The West IT Portal was a comprehensive ASP.NET MVC website designed to centralize all the sites and tools that our IT department needed to access on a daily basis. This project eliminated the need to bookmark dozens of different tools and provided a single point of access for all IT operations. I created web versions of my previous database searching and SSIS job searching tools using ASP.NET MVC, JavaScript, jQuery, and Bootstrap. The portal integrated seamlessly with existing systems while providing a modern, responsive interface. Additionally, I recreated one of our work request systems directly within the website, ensuring that IT staff could handle all their daily tasks without leaving the portal environment.',
+      icon: 'heroRectangleStack',
+    },
+    features: [
+      {
+        title: 'Database Search Tool',
+        description:
+          'Web-based interface for searching and managing database instances',
+        icon: 'heroCircleStack',
+      },
+      {
+        title: 'SSIS Job Management',
+        description: 'Monitor and manage SQL Server Integration Services jobs',
+        icon: 'heroListBullet',
+      },
+      {
+        title: 'Work Request System',
+        description: 'Integrated ticketing system for internal IT requests',
+        icon: 'heroTicket',
+      },
+      {
+        title: 'Centralized Access',
+        description: 'Single portal for all IT tools and resources',
+        icon: 'heroLink',
+      },
+    ],
+    impact:
+      'The IT Portal significantly improved team efficiency by consolidating all essential tools into a single, accessible platform. This eliminated context switching and reduced the time spent navigating between different systems, allowing the IT team to focus on core responsibilities.',
+
+    // Layout Options
+    showQuickStats: true,
+    showTechnicalHighlights: true,
+    showImpactSection: true,
+    gridColumns: 'double',
+  },
+
+  'database-tool': {
+    // Visual/Branding
+    backgroundGradient:
+      'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
+    headerStyle: 'simple',
+    headerIcon: 'heroCircleStack',
+    primaryColor: 'green',
+
+    // Navigation
+    backRoute: '/projects/professional/west',
+    backLabel: 'Back to West Projects',
+    companyKey: 'west',
+    hoverColor: 'red',
+
+    // Content
+    title: 'Database and SSIS Job Search',
+    description:
+      "A powerful desktop application providing searchable interfaces for database management and SSIS job monitoring across West Corporation's server infrastructure.",
+    technologies: [
+      { name: 'C#', color: 'purple' },
+      { name: '.NET Framework', color: 'blue' },
+      { name: 'WinForms', color: 'green' },
+      { name: 'SQL Server', color: 'indigo' },
+    ],
+    quickStats: [
+      { label: 'Development Year', value: '2016', icon: 'heroClock' },
+      { label: 'Servers Supported', value: 'Multiple', icon: 'heroServer' },
+      { label: 'Job Monitoring', value: 'Real-time', icon: 'heroBeaker' },
+      { label: 'Application', value: 'Desktop', icon: 'heroComputerDesktop' },
+    ],
+    overview: {
+      title: 'Project Overview',
+      content:
+        'This dual-purpose desktop application was designed to solve two critical IT management challenges at West Corporation. The first component provided a comprehensive searchable database listing across all company servers, offering detailed information about database versions, environments, and configurations. The second component enabled real-time monitoring and searching of SSIS (SQL Server Integration Services) jobs, providing essential insights into data processing workflows and system health.',
+      icon: 'heroCircleStack',
+    },
+    features: [
+      {
+        title: 'Database Search',
+        description:
+          'Comprehensive searchable database listing across all West Corporation servers',
+        icon: 'heroCircleStack',
+      },
+      {
+        title: 'SSIS Job Monitoring',
+        description:
+          'Real-time monitoring and searching of SQL Server Integration Services jobs',
+        icon: 'heroBeaker',
+      },
+      {
+        title: 'Server Management',
+        description:
+          'Multi-server support with detailed configuration insights',
+        icon: 'heroServer',
+      },
+      {
+        title: 'Real-time Updates',
+        description: 'Live monitoring of job statuses and database states',
+        icon: 'heroBolt',
+      },
+    ],
+    specialSections: [
+      {
+        title: 'Dual Functionality',
+        content:
+          'The application featured two distinct but complementary modules: Database Search provided comprehensive searchable database listings across all West Corporation servers with detailed information about database versions, environments, and configurations. SSIS Job Search enabled real-time monitoring and searching of SQL Server Integration Services jobs, providing essential insights into data processing workflows and system health.',
+        icon: 'heroCog6Tooth',
+        type: 'text',
+      },
+    ],
+    impact:
+      'Dramatically reduced the time IT staff spent locating databases and monitoring SSIS jobs from hours to minutes. The centralized search capabilities eliminated the need to manually check multiple servers, significantly improving operational efficiency and system reliability.',
+
+    // Layout Options
+    showQuickStats: true,
+    showTechnicalHighlights: true,
+    showImpactSection: true,
+    gridColumns: 'double',
+  },
 };
 
 // Helper function to get project configuration
