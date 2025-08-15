@@ -1,11 +1,29 @@
-import { Component } from '@angular/core';
-import { KrogerProjectComponent } from '../../../../shared/components/kroger-project/kroger-project.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-skyline-kroger',
   templateUrl: './kroger.component.html',
   styleUrls: ['./kroger.component.scss'],
   standalone: true,
-  imports: [KrogerProjectComponent],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class SkylineKrogerComponent {}
+export class SkylineKrogerComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    const krogerConfig = getProjectConfiguration('kroger-solutions');
+    if (krogerConfig) {
+      // Override configuration for Skyline-specific routing
+      this.projectConfig = {
+        ...krogerConfig,
+        backRoute: '/projects/professional/skyline',
+        backLabel: 'Back to Skyline Projects',
+        companyKey: 'skyline',
+        hoverColor: 'blue',
+      };
+    }
+  }
+}
