@@ -8,6 +8,7 @@ import { getProjectConfiguration } from '../../../../shared/data/project-configu
   template: `<app-project-detail-template
     [config]="projectConfig"
   ></app-project-detail-template>`,
+  styleUrls: ['./tax-document-analysis.component.scss'],
   standalone: true,
   imports: [ProjectDetailTemplateComponent],
 })
