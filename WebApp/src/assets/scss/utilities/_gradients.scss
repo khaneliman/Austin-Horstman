@@ -81,5 +81,7 @@
     background: linear-gradient(135deg, #ef4444 0%, #ea580c 100%);
   } @else if $from == 'blue-light' and $to == 'yellow' {
     background: linear-gradient(135deg, #3b82f6 0%, #ca8a04 100%);
+  } @else if $from == 'blue' and $to == 'yellow-dark' {
+    background: linear-gradient(135deg, #2563eb 0%, #a16207 100%);
   }
 }

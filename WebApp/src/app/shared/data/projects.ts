@@ -192,12 +192,15 @@ export function getProjectsForCompany(
 ): ProjectInfo[] {
   const company = COMPANIES[companyKey];
   return company.projects.map(project => {
+    // Special case for Best Buy which uses geeksquad route path
+    const routeCompanyKey = companyKey === 'bestbuy' ? 'geeksquad' : companyKey;
+
     if (project.route === 'kroger') {
       const krogerDetails =
         PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
       return {
         name: project.name,
-        route: project.route,
+        route: `/projects/professional/${routeCompanyKey}/${project.route}`,
         description: krogerDetails.description,
         icon: krogerDetails.icon,
         color: krogerDetails.color,
@@ -212,7 +215,7 @@ export function getProjectsForCompany(
       ];
     return {
       name: project.name,
-      route: project.route,
+      route: `/projects/professional/${routeCompanyKey}/${project.route}`,
       description: details.description,
       icon: details.icon,
       color: details.color,
