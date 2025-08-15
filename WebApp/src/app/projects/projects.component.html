@@ -1,22 +1,17 @@
 <!-- Projects Main Landing Page -->
 <main class="min-h-screen bg-gray-50 pt-16">
   <!-- Hero Section -->
-  <section
-    class="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 text-white py-20"
+  <app-hero-section
+    [title]="heroTitle"
+    [subtitle]="heroSubtitle"
+    variant="gradient"
+    size="lg"
+    alignment="center"
+    backgroundGradient="from-blue-600 via-purple-600 to-indigo-600"
+    minHeight="min-h-auto"
+    textColor="light"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">Projects Portfolio</h1>
-        <p
-          class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed"
-        >
-          Explore a comprehensive collection of professional and personal
-          software development projects spanning multiple technologies,
-          industries, and client engagements.
-        </p>
-      </div>
-    </div>
-  </section>
+  </app-hero-section>
 
   <!-- Professional Projects Section -->
   <section class="py-20">

@@ -9,12 +9,9 @@
       class="relative bg-gradient-to-r from-purple-900 via-violet-800 to-indigo-900 px-8 pt-12 pb-8"
     >
       <!-- Decorative elements -->
-      <div
-        class="absolute top-4 right-4 w-20 h-20 bg-violet-500/10 rounded-full blur-xl"
-      ></div>
-      <div
-        class="absolute bottom-4 left-4 w-16 h-16 bg-purple-500/10 rounded-full blur-lg"
-      ></div>
+      <app-decorative-background
+        [elements]="backgroundElements"
+      ></app-decorative-background>
 
       <!-- Project logo and info -->
       <div class="relative z-10 text-center">
@@ -140,28 +137,13 @@
               ></ng-icon>
               My Contributions & Specialization
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li>
-                • Active involvement in the development and maintenance of the
-                central package repository
-              </li>
-              <li>
-                • Specialized in maintaining packages and infrastructure for the
-                Darwin (macOS) platform
-              </li>
-              <li>
-                • Regular package updates, security patches, and compatibility
-                improvements
-              </li>
-              <li>• Cross-platform testing and validation of package builds</li>
-              <li>
-                • Community support for macOS-specific packaging challenges
-              </li>
-              <li>
-                • Contributing to the largest package repository in the Linux
-                ecosystem
-              </li>
-            </ul>
+            <app-bullet-list
+              [items]="contributionsAndSpecialization"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="purple"
+            ></app-bullet-list>
           </div>
         </div>
 
@@ -213,12 +195,13 @@
               ></ng-icon>
               Impact & Scale
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li>• Contributing to 80,000+ package ecosystem</li>
-              <li>• Supporting thousands of Darwin/macOS users</li>
-              <li>• Maintaining critical system infrastructure</li>
-              <li>• Enabling reproducible cross-platform builds</li>
-            </ul>
+            <app-bullet-list
+              [items]="impactAndScale"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="purple"
+            ></app-bullet-list>
           </div>
         </div>
 

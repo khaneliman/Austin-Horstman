@@ -9,12 +9,9 @@
       class="relative bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 px-8 pt-12 pb-8"
     >
       <!-- Decorative elements -->
-      <div
-        class="absolute top-4 right-4 w-20 h-20 bg-indigo-500/10 rounded-full blur-xl"
-      ></div>
-      <div
-        class="absolute bottom-4 left-4 w-16 h-16 bg-blue-500/10 rounded-full blur-lg"
-      ></div>
+      <app-decorative-background
+        [elements]="backgroundElements"
+      ></app-decorative-background>
 
       <!-- Project logo and info -->
       <div class="relative z-10 text-center">
@@ -140,29 +137,13 @@
               ></ng-icon>
               My Contributions & Focus Areas
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li>
-                • Designed and improved Nix modules to enable declarative user
-                environment configuration
-              </li>
-              <li>
-                • Refactored existing modules to support freeform configuration
-                inputs
-              </li>
-              <li>
-                • Enhanced usability and extensibility for advanced use cases
-              </li>
-              <li>
-                • Provided support and guidance to users via GitHub discussions
-              </li>
-              <li>
-                • Contributed to system reproducibility and developer onboarding
-                consistency
-              </li>
-              <li>
-                • Helped grow the community and improve contributor experience
-              </li>
-            </ul>
+            <app-bullet-list
+              [items]="contributionsAndFocusAreas"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="blue"
+            ></app-bullet-list>
           </div>
         </div>
 
@@ -210,12 +191,13 @@
               ></ng-icon>
               Impact & Community
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li>• Improved developer onboarding experience</li>
-              <li>• Enhanced system reproducibility</li>
-              <li>• Streamlined user environment management</li>
-              <li>• Active community support and mentoring</li>
-            </ul>
+            <app-bullet-list
+              [items]="impactAndCommunity"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="blue"
+            ></app-bullet-list>
           </div>
         </div>
 

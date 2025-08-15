@@ -14,9 +14,11 @@ import {
   heroCheckCircle,
   heroWrench,
   heroDevicePhoneMobile,
+  heroChevronRight,
 } from '@ng-icons/heroicons/outline';
 import { PersonalProjectsGridComponent } from '../../shared/components/personal-projects-grid/personal-projects-grid.component';
 import { generatePersonalProjectsGrid } from '../../shared/data/personal-projects';
+import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
 
 @Component({
   selector: 'app-personal',
@@ -27,6 +29,7 @@ import { generatePersonalProjectsGrid } from '../../shared/data/personal-project
     RouterLink,
     NgIconComponent,
     PersonalProjectsGridComponent,
+    HeroSectionComponent,
   ],
   providers: [
     provideIcons({
@@ -42,9 +45,15 @@ import { generatePersonalProjectsGrid } from '../../shared/data/personal-project
       heroCheckCircle,
       heroWrench,
       heroDevicePhoneMobile,
+      heroChevronRight,
     }),
   ],
 })
 export class PersonalComponent {
   personalProjects = generatePersonalProjectsGrid();
+
+  heroTitle = 'Personal Projects & Open Source';
+  heroSubtitle =
+    'Individual software development projects, open source contributions, and personal portfolio applications showcasing continuous learning and technical exploration.';
+  heroBadge = 'Personal Projects';
 }

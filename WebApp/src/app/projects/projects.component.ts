@@ -15,6 +15,7 @@ import { ProfessionalProjectsGridComponent } from '../shared/components/professi
 import { PersonalProjectsGridComponent } from '../shared/components/personal-projects-grid/personal-projects-grid.component';
 import { generateProfessionalProjectsGrid } from '../shared/data/projects';
 import { generatePersonalProjectsGrid } from '../shared/data/personal-projects';
+import { HeroSectionComponent } from '../shared/components/hero-section/hero-section.component';
 
 @Component({
   selector: 'app-projects',
@@ -25,6 +26,7 @@ import { generatePersonalProjectsGrid } from '../shared/data/personal-projects';
     NgIconComponent,
     ProfessionalProjectsGridComponent,
     PersonalProjectsGridComponent,
+    HeroSectionComponent,
   ],
   providers: [
     provideIcons({
@@ -43,6 +45,10 @@ import { generatePersonalProjectsGrid } from '../shared/data/personal-projects';
 export class ProjectsComponent {
   professionalProjects = generateProfessionalProjectsGrid();
   personalProjects = generatePersonalProjectsGrid();
+
+  heroTitle = 'Projects Portfolio';
+  heroSubtitle =
+    'Explore a comprehensive collection of professional and personal software development projects spanning multiple technologies, industries, and client engagements.';
 
   personalProjectCategories = [
     {

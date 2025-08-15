@@ -9,12 +9,9 @@
       class="relative bg-gradient-to-r from-green-900 via-emerald-800 to-teal-900 px-8 pt-12 pb-8"
     >
       <!-- Decorative elements -->
-      <div
-        class="absolute top-4 right-4 w-20 h-20 bg-teal-500/10 rounded-full blur-xl"
-      ></div>
-      <div
-        class="absolute bottom-4 left-4 w-16 h-16 bg-green-500/10 rounded-full blur-lg"
-      ></div>
+      <app-decorative-background
+        [elements]="backgroundElements"
+      ></app-decorative-background>
 
       <!-- Project logo and info -->
       <div class="relative z-10 text-center">
@@ -140,32 +137,13 @@
               ></ng-icon>
               My Contributions & Achievements
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li>
-                • Enhanced user experience for creating Neovim configurations
-                using Nix's declarative approach
-              </li>
-              <li>
-                • Resolved bugs and assisted new users with configuration
-                challenges
-              </li>
-              <li>
-                • Refactored existing plugin modules to support freeform
-                configuration
-              </li>
-              <li>
-                • Created new plugin modules to increase user satisfaction and
-                adoption
-              </li>
-              <li>
-                • Streamlined the process of customizing Neovim with the module
-                system
-              </li>
-              <li>
-                • Focused on making complex editor configurations more
-                accessible
-              </li>
-            </ul>
+            <app-bullet-list
+              [items]="contributionsAndAchievements"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="green"
+            ></app-bullet-list>
           </div>
         </div>
 
@@ -217,12 +195,13 @@
               ></ng-icon>
               Impact & Community
             </h4>
-            <ul class="text-gray-700 space-y-2 text-sm">
-              <li>• Simplified Neovim configuration management</li>
-              <li>• Improved accessibility for new users</li>
-              <li>• Enhanced reproducible development environments</li>
-              <li>• Active community support and education</li>
-            </ul>
+            <app-bullet-list
+              [items]="impactAndCommunity"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="green"
+            ></app-bullet-list>
           </div>
         </div>
 

@@ -11,6 +11,7 @@ import {
 } from '@ng-icons/heroicons/outline';
 import { ProfessionalProjectsGridComponent } from '../../shared/components/professional-projects-grid/professional-projects-grid.component';
 import { generateProfessionalProjectsGrid } from '../../shared/data/projects';
+import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
 
 @Component({
   selector: 'app-professional-projects',
@@ -20,6 +21,7 @@ import { generateProfessionalProjectsGrid } from '../../shared/data/projects';
     RouterModule,
     NgIconComponent,
     ProfessionalProjectsGridComponent,
+    HeroSectionComponent,
   ],
   providers: [
     provideIcons({
@@ -35,4 +37,8 @@ import { generateProfessionalProjectsGrid } from '../../shared/data/projects';
 })
 export class ProfessionalProjectsComponent {
   professionalProjects = generateProfessionalProjectsGrid();
+
+  heroTitle = 'Professional Projects';
+  heroSubtitle =
+    'Enterprise solutions and client applications developed during my tenure at leading technology companies, showcasing expertise in modern development practices and scalable system architecture.';
 }

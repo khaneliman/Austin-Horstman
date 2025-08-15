@@ -1,40 +1,27 @@
 <!-- Personal Projects Page -->
 <main class="min-h-screen bg-gray-50 pt-16">
   <!-- Hero Section -->
-  <section
-    class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-20"
+  <app-hero-section
+    [title]="heroTitle"
+    [subtitle]="heroSubtitle"
+    [badge]="heroBadge"
+    variant="gradient"
+    size="lg"
+    alignment="center"
+    backgroundGradient="from-indigo-600 via-purple-600 to-pink-600"
+    minHeight="min-h-auto"
+    textColor="light"
+    [showContentSlot]="true"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <div
-          class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6"
-        >
-          <ng-icon name="heroUser" size="2rem" class="text-white"></ng-icon>
-        </div>
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">
-          Personal Projects & Open Source
-        </h1>
-        <p
-          class="text-xl md:text-2xl text-indigo-100 max-w-4xl mx-auto leading-relaxed"
-        >
-          Individual software development projects, open source contributions,
-          and personal portfolio applications showcasing continuous learning and
-          technical exploration.
-        </p>
-
-        <!-- Breadcrumb-style navigation -->
-        <div
-          class="mt-8 flex justify-center items-center space-x-2 text-indigo-200"
-        >
-          <a routerLink="/projects" class="hover:text-white transition-colors"
-            >Projects</a
-          >
-          <ng-icon name="heroChevronRight" size="0.75rem"></ng-icon>
-          <span class="text-white font-medium">Personal</span>
-        </div>
-      </div>
+    <!-- Breadcrumb-style navigation -->
+    <div class="flex justify-center items-center space-x-2 text-indigo-200">
+      <a routerLink="/projects" class="hover:text-white transition-colors"
+        >Projects</a
+      >
+      <ng-icon name="heroChevronRight" size="0.75rem"></ng-icon>
+      <span class="text-white font-medium">Personal</span>
     </div>
-  </section>
+  </app-hero-section>
 
   <!-- Personal Projects Grid -->
   <section class="py-20">
