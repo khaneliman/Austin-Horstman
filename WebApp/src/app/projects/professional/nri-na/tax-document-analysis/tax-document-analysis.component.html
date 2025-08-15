@@ -57,11 +57,11 @@
         Project Overview
       </h2>
       <p class="text-gray-700 leading-relaxed mb-6">
-        Developed an intelligent tax document processing system that
-        automatically ingests tax documents received by the business and uses
-        Large Language Models to analyze their potential tax implications. The
-        system provides confidence scores, impact summaries, and detailed
-        reasoning to help accelerate the business's tax code review process.
+        Built a React/Remix web application that helps NRI-NA tax analysts
+        efficiently evaluate tax document relevance and generate standardized
+        business impact summaries. The tool uses Azure OpenAI to analyze tax
+        authority documents and determine their applicability to NRI-NA
+        operations with confidence scoring and structured analysis.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -75,11 +75,11 @@
             Key Features
           </h3>
           <ul class="text-gray-700 space-y-2 text-sm">
-            <li>• Automated document ingestion and OCR processing</li>
-            <li>• LLM-powered tax implication analysis</li>
-            <li>• Confidence scoring for impact assessments</li>
-            <li>• Detailed reasoning and change summaries</li>
-            <li>• Business-specific impact categorization</li>
+            <li>• PDF document processing with structured text extraction</li>
+            <li>• Azure OpenAI integration for relevance analysis</li>
+            <li>• Zod schema validation for structured AI responses</li>
+            <li>• NRI-NA operational profile matching</li>
+            <li>• Confidence scoring with detailed reasoning</li>
           </ul>
         </div>
 
@@ -93,10 +93,10 @@
             Business Impact
           </h3>
           <ul class="text-gray-700 space-y-2 text-sm">
-            <li>• 80% reduction in initial document review time</li>
-            <li>• 95% accuracy in identifying relevant tax changes</li>
-            <li>• Automated prioritization of high-impact documents</li>
-            <li>• Streamlined compliance workflow processes</li>
+            <li>• Streamlined tax analyst workflow processes</li>
+            <li>• Standardized impact summary generation</li>
+            <li>• Multi-jurisdictional tax authority analysis</li>
+            <li>• Improved accuracy in relevance determination</li>
           </ul>
         </div>
       </div>
@@ -116,81 +116,83 @@
       <div class="space-y-6">
         <div>
           <h3 class="text-lg font-semibold text-gray-800 mb-3">
-            Document Processing Pipeline
+            Document Processing & Analysis
           </h3>
           <p class="text-gray-700 mb-4">
-            Built a comprehensive document processing pipeline that handles
-            various document formats and extracts structured information for
-            analysis:
+            Built with React/Remix architecture using modern web technologies
+            for efficient tax document processing:
           </p>
 
           <ul class="text-gray-700 space-y-2">
             <li>
-              <strong>Document Ingestion:</strong> Automated intake system for
-              tax documents from multiple sources (email, file uploads, document
-              management systems)
+              <strong>PDF Processing:</strong> Uses pdf-parse and pdfjs-dist
+              libraries to extract structured text content from tax authority
+              PDFs
             </li>
             <li>
-              <strong>OCR Processing:</strong> Advanced optical character
-              recognition to extract text from scanned documents and PDFs
+              <strong>Local File System Access:</strong> Designed to run locally
+              with direct access to folder-based document collections
             </li>
             <li>
-              <strong>Document Classification:</strong> ML-based classification
-              to identify document types and relevant sections
+              <strong>Azure OpenAI Integration:</strong> Leverages GPT models
+              for intelligent document relevance analysis
             </li>
           </ul>
         </div>
 
         <div>
           <h3 class="text-lg font-semibold text-gray-800 mb-3">
-            LLM Analysis Engine
+            AI-Powered Relevance Analysis
           </h3>
           <p class="text-gray-700 mb-4">
-            Implemented sophisticated Large Language Model integration for
-            intelligent tax implication analysis:
+            Implements structured AI analysis using Zod schema validation for
+            consistent, reliable results:
           </p>
 
           <ul class="text-gray-700 space-y-2">
             <li>
-              <strong>Tax Code Analysis:</strong> LLM processes document content
-              against current business tax obligations and structures
+              <strong>Relevance Evaluation:</strong> Analyzes each document
+              against NRI-NA's operational footprint including office locations,
+              business activities, and corporate structure
             </li>
             <li>
-              <strong>Impact Assessment:</strong> Generates detailed analysis of
-              how changes affect specific business operations
+              <strong>Confidence Scoring:</strong> Provides HIGH/MEDIUM/LOW
+              confidence levels with detailed reasoning chains
             </li>
             <li>
-              <strong>Confidence Scoring:</strong> Provides reliability metrics
-              for each analysis with supporting evidence
+              <strong>Structured Output:</strong> Uses Zod schemas to ensure
+              consistent AI response format with type safety
             </li>
             <li>
-              <strong>Change Summarization:</strong> Creates concise summaries
-              explaining what changed and why it matters
+              <strong>Impact Summary Generation:</strong> Creates standardized
+              business-focused summaries with citations to source documents
             </li>
           </ul>
         </div>
 
         <div>
           <h3 class="text-lg font-semibold text-gray-800 mb-3">
-            Business Integration
+            Tax Analyst Workflow
           </h3>
           <p class="text-gray-700 mb-4">
-            Designed the system to integrate seamlessly with existing business
-            processes and compliance workflows:
+            Designed for tax professionals to efficiently process multiple
+            documents with comprehensive analysis:
           </p>
 
           <ul class="text-gray-700 space-y-2">
             <li>
-              <strong>Priority Ranking:</strong> Automatically prioritizes
-              documents based on potential business impact
+              <strong>Folder-based Processing:</strong> Processes entire folders
+              of tax documents from various state and federal authorities
             </li>
             <li>
-              <strong>Workflow Integration:</strong> Routes high-priority items
-              to appropriate review teams
+              <strong>NRI-NA Context Matching:</strong> Uses detailed company
+              profile to evaluate relevance across geographic jurisdictions and
+              business activities
             </li>
             <li>
-              <strong>Audit Trail:</strong> Maintains detailed logs of analysis
-              decisions for compliance purposes
+              <strong>Comprehensive Reporting:</strong> Generates detailed
+              impact summaries and overall tax impact reports for management
+              review
             </li>
           </ul>
         </div>
@@ -211,35 +213,35 @@
       <div class="flex flex-wrap gap-3">
         <span
           class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Large Language Models</span
+          >React</span
         >
         <span
           class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Natural Language Processing</span
+          >Remix</span
         >
         <span
           class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Document Processing</span
+          >TypeScript</span
         >
         <span
           class="bg-violet-100 text-violet-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Python</span
+          >Azure OpenAI</span
         >
         <span
           class="bg-fuchsia-100 text-fuchsia-800 px-4 py-2 rounded-full text-sm font-medium"
-          >OCR Technology</span
+          >PDF Processing</span
         >
         <span
           class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Machine Learning</span
+          >Zod Validation</span
         >
         <span
           class="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Tax Code Analysis</span
+          >Tailwind CSS</span
         >
         <span
           class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium"
-          >Workflow Automation</span
+          >Node.js</span
         >
       </div>
     </div>
