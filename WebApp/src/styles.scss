@@ -61,4 +61,13 @@
   background: linear-gradient(135deg, #111827, #f97316) !important;
 }
 
+/* Star rating color fixes for OKLCH compatibility */
+.text-yellow-400 {
+  color: #facc15 !important;
+}
+
+.text-gray-400 {
+  color: #9ca3af !important;
+}
+
 /* Custom global styles */
