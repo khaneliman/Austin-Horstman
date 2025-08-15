@@ -1,31 +1,20 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroArchiveBox,
-  heroLightBulb,
-  heroCheck,
-  heroCog6Tooth,
-  heroChartBarSquare,
-  heroComputerDesktop,
-} from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-jj-keller',
-  templateUrl: './jj-keller.component.html',
-  styleUrls: ['./jj-keller.component.scss'],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   standalone: true,
-  imports: [RouterLink, ProjectNavHeaderComponent, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroArchiveBox,
-      heroLightBulb,
-      heroCheck,
-      heroCog6Tooth,
-      heroChartBarSquare,
-      heroComputerDesktop,
-    }),
-  ],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class JjKellerComponent {}
+export class JjKellerComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('jj-keller')!;
+  }
+}

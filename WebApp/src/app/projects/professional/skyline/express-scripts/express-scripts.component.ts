@@ -1,39 +1,20 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroLightBulb,
-  heroChartPie,
-  heroCheck,
-  heroCodeBracket,
-  heroCircleStack,
-  heroTruck,
-  heroHeart,
-  heroComputerDesktop,
-  heroCog8Tooth,
-  heroCog6Tooth,
-} from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-express-scripts',
-  templateUrl: './express-scripts.component.html',
-  styleUrls: ['./express-scripts.component.scss'],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   standalone: true,
-  imports: [RouterLink, ProjectNavHeaderComponent, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroLightBulb,
-      heroChartPie,
-      heroCheck,
-      heroCodeBracket,
-      heroCircleStack,
-      heroTruck,
-      heroHeart,
-      heroComputerDesktop,
-      heroCog8Tooth,
-      heroCog6Tooth,
-    }),
-  ],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class ExpressScriptsComponent {}
+export class ExpressScriptsComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('express-scripts')!;
+  }
+}

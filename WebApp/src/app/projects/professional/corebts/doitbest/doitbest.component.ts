@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
-import { DoitbestProjectComponent } from '../../../../shared/components/doitbest-project/doitbest-project.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-doitbest',
-  templateUrl: './doitbest.component.html',
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   styleUrls: ['./doitbest.component.scss'],
   standalone: true,
-  imports: [DoitbestProjectComponent],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class DoItBestComponent {}
+export class DoItBestComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('doitbest-platform')!;
+  }
+}

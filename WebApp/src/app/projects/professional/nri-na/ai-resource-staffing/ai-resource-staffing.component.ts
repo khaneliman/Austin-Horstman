@@ -1,35 +1,20 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroWrench,
-  heroUserGroup,
-  heroBeaker,
-  heroChartBarSquare,
-  heroCog6Tooth,
-} from '@ng-icons/heroicons/outline';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-ai-resource-staffing',
-  templateUrl: './ai-resource-staffing.component.html',
-  styleUrls: ['./ai-resource-staffing.component.scss'],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    ProjectNavHeaderComponent,
-    NgIconComponent,
-  ],
-  providers: [
-    provideIcons({
-      heroWrench,
-      heroUserGroup,
-      heroBeaker,
-      heroChartBarSquare,
-      heroCog6Tooth,
-    }),
-  ],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class AiResourceStaffingComponent {}
+export class AiResourceStaffingComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('ai-resource-staffing')!;
+  }
+}

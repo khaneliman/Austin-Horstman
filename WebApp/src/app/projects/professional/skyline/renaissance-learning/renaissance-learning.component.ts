@@ -1,29 +1,20 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroBookOpen,
-  heroLightBulb,
-  heroChartBarSquare,
-  heroCog6Tooth,
-  heroComputerDesktop,
-} from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-renaissance-learning',
-  templateUrl: './renaissance-learning.component.html',
-  styleUrls: ['./renaissance-learning.component.scss'],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   standalone: true,
-  imports: [RouterLink, ProjectNavHeaderComponent, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroBookOpen,
-      heroLightBulb,
-      heroChartBarSquare,
-      heroCog6Tooth,
-      heroComputerDesktop,
-    }),
-  ],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class RenaissanceLearningComponent {}
+export class RenaissanceLearningComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('renaissance-learning')!;
+  }
+}

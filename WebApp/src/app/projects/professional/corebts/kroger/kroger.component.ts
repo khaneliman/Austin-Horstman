@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
-import { KrogerProjectComponent } from '../../../../shared/components/kroger-project/kroger-project.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-kroger',
-  templateUrl: './kroger.component.html',
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   styleUrls: ['./kroger.component.scss'],
   standalone: true,
-  imports: [KrogerProjectComponent],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class KrogerComponent {}
+export class KrogerComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('kroger-solutions')!;
+  }
+}

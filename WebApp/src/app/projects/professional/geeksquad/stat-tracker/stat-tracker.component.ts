@@ -1,42 +1,20 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroChevronLeft,
-  heroGlobeAlt,
-  heroPresentationChartLine,
-  heroStar,
-  heroUsers,
-  heroArrowUpTray,
-  heroChartBar,
-  heroCalendarDays,
-  heroCog6Tooth,
-  heroArrowDownTray,
-  heroCodeBracket,
-  heroWrench,
-} from '@ng-icons/heroicons/outline';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   standalone: true,
   selector: 'app-stat-tracker',
-  templateUrl: './stat-tracker.component.html',
-  styleUrls: ['./stat-tracker.component.scss'],
-  imports: [RouterLink, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroChevronLeft,
-      heroGlobeAlt,
-      heroPresentationChartLine,
-      heroStar,
-      heroUsers,
-      heroArrowUpTray,
-      heroChartBar,
-      heroCalendarDays,
-      heroCog6Tooth,
-      heroArrowDownTray,
-      heroCodeBracket,
-      heroWrench,
-    }),
-  ],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
+  imports: [ProjectDetailTemplateComponent],
 })
-export class StatTrackerComponent {}
+export class StatTrackerComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('stat-tracker')!;
+  }
+}

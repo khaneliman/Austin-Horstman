@@ -1,35 +1,20 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroArrowPathRoundedSquare,
-  heroComputerDesktop,
-  heroChartBarSquare,
-  heroCog6Tooth,
-  heroDocumentArrowUp,
-} from '@ng-icons/heroicons/outline';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-mulesoft-migrator',
-  templateUrl: './mulesoft-migrator.component.html',
-  styleUrls: ['./mulesoft-migrator.component.scss'],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    ProjectNavHeaderComponent,
-    NgIconComponent,
-  ],
-  providers: [
-    provideIcons({
-      heroArrowPathRoundedSquare,
-      heroComputerDesktop,
-      heroChartBarSquare,
-      heroCog6Tooth,
-      heroDocumentArrowUp,
-    }),
-  ],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class MuleSoftMigratorComponent {}
+export class MuleSoftMigratorComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('mulesoft-migrator')!;
+  }
+}

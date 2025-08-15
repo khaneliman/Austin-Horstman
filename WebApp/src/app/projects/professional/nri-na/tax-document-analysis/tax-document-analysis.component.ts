@@ -1,35 +1,20 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroDocumentText,
-  heroSparkles,
-  heroChartBarSquare,
-  heroCog6Tooth,
-  heroScale,
-} from '@ng-icons/heroicons/outline';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-tax-document-analysis',
-  templateUrl: './tax-document-analysis.component.html',
-  styleUrls: ['./tax-document-analysis.component.scss'],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    ProjectNavHeaderComponent,
-    NgIconComponent,
-  ],
-  providers: [
-    provideIcons({
-      heroDocumentText,
-      heroSparkles,
-      heroChartBarSquare,
-      heroCog6Tooth,
-      heroScale,
-    }),
-  ],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class TaxDocumentAnalysisComponent {}
+export class TaxDocumentAnalysisComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('tax-document-analysis')!;
+  }
+}

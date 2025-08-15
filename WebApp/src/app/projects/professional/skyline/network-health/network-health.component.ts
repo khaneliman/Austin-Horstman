@@ -1,39 +1,20 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroHeart,
-  heroStar,
-  heroUser,
-  heroClipboardDocumentList,
-  heroUserGroup,
-  heroCog6Tooth,
-  heroIdentification,
-  heroShieldCheck,
-  heroCodeBracket,
-  heroBuildingOffice2,
-} from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   selector: 'app-network-health',
-  templateUrl: './network-health.component.html',
-  styleUrls: ['./network-health.component.scss'],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
   standalone: true,
-  imports: [RouterLink, ProjectNavHeaderComponent, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroHeart,
-      heroStar,
-      heroUser,
-      heroClipboardDocumentList,
-      heroUserGroup,
-      heroCog6Tooth,
-      heroIdentification,
-      heroShieldCheck,
-      heroCodeBracket,
-      heroBuildingOffice2,
-    }),
-  ],
+  imports: [ProjectDetailTemplateComponent],
 })
-export class NetworkHealthComponent {}
+export class NetworkHealthComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('network-health')!;
+  }
+}

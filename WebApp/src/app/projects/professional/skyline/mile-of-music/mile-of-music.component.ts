@@ -1,30 +1,20 @@
-import { Component } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroSpeakerWave,
-  heroLightBulb,
-  heroDevicePhoneMobile,
-  heroCog6Tooth,
-  heroChartBarSquare,
-  heroComputerDesktop,
-} from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../../../../shared/components/project-nav-header/project-nav-header.component';
+import { Component, OnInit } from '@angular/core';
+import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
+import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 
 @Component({
   standalone: true,
   selector: 'app-mile-of-music',
-  templateUrl: './mile-of-music.component.html',
-  styleUrls: ['./mile-of-music.component.scss'],
-  imports: [ProjectNavHeaderComponent, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroSpeakerWave,
-      heroLightBulb,
-      heroDevicePhoneMobile,
-      heroCog6Tooth,
-      heroChartBarSquare,
-      heroComputerDesktop,
-    }),
-  ],
+  template: `<app-project-detail-template
+    [config]="projectConfig"
+  ></app-project-detail-template>`,
+  imports: [ProjectDetailTemplateComponent],
 })
-export class MileOfMusicComponent {}
+export class MileOfMusicComponent implements OnInit {
+  projectConfig!: ProjectDetailConfig;
+
+  ngOnInit(): void {
+    this.projectConfig = getProjectConfiguration('mile-of-music')!;
+  }
+}
