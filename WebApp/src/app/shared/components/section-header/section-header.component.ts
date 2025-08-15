@@ -1,0 +1,108 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgIconComponent } from '@ng-icons/core';
+
+@Component({
+  selector: 'app-section-header',
+  standalone: true,
+  imports: [CommonModule, NgIconComponent],
+  template: `
+    <div [ngSwitch]="level" [class]="headerClasses">
+      <h1 *ngSwitchCase="'h1'" [class]="titleClasses">
+        <ng-icon
+          *ngIf="icon"
+          [name]="icon"
+          [size]="iconSize"
+          [class]="iconClasses"
+        ></ng-icon>
+        {{ title }}
+      </h1>
+      <h2 *ngSwitchCase="'h2'" [class]="titleClasses">
+        <ng-icon
+          *ngIf="icon"
+          [name]="icon"
+          [size]="iconSize"
+          [class]="iconClasses"
+        ></ng-icon>
+        {{ title }}
+      </h2>
+      <h3 *ngSwitchDefault [class]="titleClasses">
+        <ng-icon
+          *ngIf="icon"
+          [name]="icon"
+          [size]="iconSize"
+          [class]="iconClasses"
+        ></ng-icon>
+        {{ title }}
+      </h3>
+    </div>
+    <p *ngIf="description" [class]="descriptionClasses">
+      {{ description }}
+    </p>
+  `,
+  styles: [],
+})
+export class SectionHeaderComponent {
+  @Input() title!: string;
+  @Input() icon?: string;
+  @Input() iconColor = 'blue';
+  @Input() level: 'h1' | 'h2' | 'h3' = 'h2';
+  @Input() description?: string;
+  @Input() center = false;
+  @Input() marginBottom = '6';
+
+  get headerClasses(): string {
+    const classes = [`mb-${this.marginBottom}`];
+    if (this.center) {
+      classes.push('text-center');
+    }
+    return classes.join(' ');
+  }
+
+  get titleClasses(): string {
+    const classes = ['font-bold text-gray-800 flex items-center'];
+
+    if (this.center) {
+      classes.push('justify-center');
+    }
+
+    switch (this.level) {
+      case 'h1':
+        classes.push('text-4xl');
+        break;
+      case 'h2':
+        classes.push('text-2xl');
+        break;
+      case 'h3':
+        classes.push('text-xl');
+        break;
+    }
+
+    return classes.join(' ');
+  }
+
+  get iconClasses(): string {
+    return `text-${this.iconColor}-500 mr-3`;
+  }
+
+  get iconSize(): string {
+    switch (this.level) {
+      case 'h1':
+        return '1.5rem';
+      case 'h2':
+        return '1.125rem';
+      case 'h3':
+        return '1rem';
+      default:
+        return '1.125rem';
+    }
+  }
+
+  get descriptionClasses(): string {
+    const classes = ['text-gray-600 leading-relaxed mt-2'];
+    if (this.center) {
+      classes.push('text-center');
+    }
+    return classes.join(' ');
+  }
+}
