@@ -7,9 +7,14 @@ import {
   heroBriefcase,
   heroCog6Tooth,
   heroRectangleStack,
+  heroCodeBracket,
+  heroWrench,
+  heroLightBulb,
 } from '@ng-icons/heroicons/outline';
 import { ProfessionalProjectsGridComponent } from '../shared/components/professional-projects-grid/professional-projects-grid.component';
+import { PersonalProjectsGridComponent } from '../shared/components/personal-projects-grid/personal-projects-grid.component';
 import { generateProfessionalProjectsGrid } from '../shared/data/projects';
+import { generatePersonalProjectsGrid } from '../shared/data/personal-projects';
 
 @Component({
   selector: 'app-projects',
@@ -19,6 +24,7 @@ import { generateProfessionalProjectsGrid } from '../shared/data/projects';
     RouterModule,
     NgIconComponent,
     ProfessionalProjectsGridComponent,
+    PersonalProjectsGridComponent,
   ],
   providers: [
     provideIcons({
@@ -26,6 +32,9 @@ import { generateProfessionalProjectsGrid } from '../shared/data/projects';
       heroBriefcase,
       heroCog6Tooth,
       heroRectangleStack,
+      heroCodeBracket,
+      heroWrench,
+      heroLightBulb,
     }),
   ],
   templateUrl: './projects.component.html',
@@ -33,25 +42,26 @@ import { generateProfessionalProjectsGrid } from '../shared/data/projects';
 })
 export class ProjectsComponent {
   professionalProjects = generateProfessionalProjectsGrid();
+  personalProjects = generatePersonalProjectsGrid();
 
   personalProjectCategories = [
+    {
+      title: 'Open Source',
+      description: 'Active contributions to the Nix ecosystem',
+      icon: 'heroCodeBracket',
+      color: 'from-green-600 to-emerald-600',
+    },
     {
       title: 'Web Applications',
       description: 'Full-stack web development projects',
       icon: 'heroGlobeAlt',
-      color: 'from-indigo-600 to-purple-600',
+      color: 'from-blue-600 to-indigo-600',
     },
     {
-      title: 'Portfolio Sites',
-      description: 'Personal and professional showcases',
-      icon: 'heroBriefcase',
-      color: 'from-purple-600 to-pink-600',
-    },
-    {
-      title: 'Tools & Utilities',
-      description: 'Development aids and automation tools',
-      icon: 'heroCog6Tooth',
-      color: 'from-teal-600 to-blue-600',
+      title: 'Development Tools',
+      description: 'Utilities and automation tools',
+      icon: 'heroWrench',
+      color: 'from-purple-600 to-violet-600',
     },
   ];
 }
