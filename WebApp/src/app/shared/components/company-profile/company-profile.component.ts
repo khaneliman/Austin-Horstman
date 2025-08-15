@@ -27,6 +27,7 @@ import {
   heroGlobeAlt,
   heroRocketLaunch,
   heroShieldCheck,
+  heroDocumentText,
 } from '@ng-icons/heroicons/outline';
 
 // CompanyInfo is imported above and re-exported for other components
@@ -71,6 +72,7 @@ export interface ProjectInfo {
       heroGlobeAlt,
       heroRocketLaunch,
       heroShieldCheck,
+      heroDocumentText,
     }),
   ],
 })

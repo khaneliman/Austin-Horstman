@@ -143,4 +143,7 @@
   &.from-blue-600.to-sky-700 {
     @include project-card-gradient('blue', 'sky');
   }
+  &.from-purple-600.to-indigo-700 {
+    @include project-card-gradient('purple', 'indigo');
+  }
 }
