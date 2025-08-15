@@ -1,0 +1,210 @@
+// Dropdown Menu Styles
+.dropdown-menu {
+  // Base menu container
+  min-width: 12rem; // 192px
+  max-width: 20rem; // 320px
+
+  // Ensure proper z-index layering
+  z-index: 1000;
+
+  // Custom scrollbar for long menus
+  max-height: 20rem; // 320px
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.gray.400') transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: theme('colors.gray.400');
+    border-radius: 3px;
+
+    &:hover {
+      background-color: theme('colors.gray.500');
+    }
+  }
+
+  // Enhanced animations
+  &.transition-all {
+    transform-origin: top;
+
+    // Entry animation
+    &.opacity-100.scale-100 {
+      animation: dropdownEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    // Exit animation
+    &.opacity-0.scale-95 {
+      animation: dropdownExit 150ms cubic-bezier(0.4, 0, 1, 1) forwards;
+    }
+  }
+
+  // Dark mode specific styles
+  &.bg-gray-800 {
+    // Dark mode scrollbar
+    scrollbar-color: theme('colors.gray.600') transparent;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: theme('colors.gray.600');
+
+      &:hover {
+        background-color: theme('colors.gray.500');
+      }
+    }
+  }
+}
+
+// Menu item enhancements
+[role='menuitem'] {
+  // Ensure consistent spacing
+  &:first-child {
+    border-top-left-radius: theme('borderRadius.xl');
+    border-top-right-radius: theme('borderRadius.xl');
+  }
+
+  &:last-child {
+    border-bottom-left-radius: theme('borderRadius.xl');
+    border-bottom-right-radius: theme('borderRadius.xl');
+  }
+
+  // Focus styles for better accessibility
+  &:focus {
+    outline: 2px solid theme('colors.blue.500');
+    outline-offset: -2px;
+  }
+
+  // Icon alignment
+  ng-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Consistent icon sizing
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+// Divider enhancements
+.dropdown-divider {
+  height: 1px;
+  margin: 0.5rem 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    theme('colors.gray.200'),
+    transparent
+  );
+
+  // Dark mode divider
+  .bg-gray-800 & {
+    background: linear-gradient(
+      to right,
+      transparent,
+      theme('colors.gray.700'),
+      transparent
+    );
+  }
+}
+
+// Responsive breakpoints
+@media (max-width: 640px) {
+  .dropdown-menu {
+    // Full width on mobile for better accessibility
+    &.w-auto,
+    &.w-48,
+    &.w-56,
+    &.w-64 {
+      width: calc(100vw - 2rem);
+      max-width: 20rem;
+    }
+
+    // Adjust positioning for mobile
+    &.left-0 {
+      left: 1rem;
+    }
+
+    &.right-0 {
+      right: 1rem;
+    }
+
+    &.left-1\/2.-translate-x-1\/2 {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .dropdown-menu {
+    border-width: 2px;
+    border-color: theme('colors.gray.900');
+  }
+
+  [role='menuitem'] {
+    &:focus {
+      outline-width: 3px;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .dropdown-menu {
+    &.transition-all {
+      transition: none;
+      animation: none;
+
+      &.opacity-100.scale-100 {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      &.opacity-0.scale-95 {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  [role='menuitem'] {
+    transition: none;
+  }
+}
+
+// Animation keyframes
+@keyframes dropdownEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes dropdownExit {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+}
+
+// Print styles
+@media print {
+  .dropdown-menu {
+    display: none !important;
+  }
+}

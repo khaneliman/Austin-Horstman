@@ -1,0 +1,386 @@
+import {
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Component } from '@angular/core';
+import { NgIconComponent } from '@ng-icons/core';
+
+import { DropdownMenuComponent, MenuItem } from './dropdown-menu.component';
+
+// Mock NgIconComponent for testing
+@Component({
+  selector: 'app-ng-icon',
+  template: '<span [attr.data-icon]="name">{{ name }}</span>',
+  standalone: true,
+})
+class MockNgIconComponent {
+  name!: string;
+  size?: string;
+  class?: string;
+}
+
+describe('DropdownMenuComponent', () => {
+  let component: DropdownMenuComponent;
+  let fixture: ComponentFixture<DropdownMenuComponent>;
+  let compiled: HTMLElement;
+
+  const mockItems: MenuItem[] = [
+    {
+      label: 'Profile',
+      icon: 'heroUser',
+      routerLink: '/profile',
+      id: 'profile-item',
+    },
+    {
+      label: 'Settings',
+      icon: 'heroCog',
+      action: () => console.log('Settings clicked'),
+      id: 'settings-item',
+    },
+    {
+      divider: true,
+    },
+    {
+      label: 'External Link',
+      icon: 'heroGlobe',
+      href: 'https://example.com',
+      id: 'external-item',
+    },
+    {
+      label: 'Disabled Item',
+      icon: 'heroXMark',
+      disabled: true,
+      action: () => console.log('Should not be called'),
+      id: 'disabled-item',
+    },
+  ];
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [DropdownMenuComponent, RouterTestingModule],
+      providers: [
+        // Override NgIconComponent with mock
+      ],
+    })
+      .overrideComponent(DropdownMenuComponent, {
+        remove: { imports: [NgIconComponent] },
+        add: { imports: [MockNgIconComponent] },
+      })
+      .compileComponents();
+
+    fixture = TestBed.createComponent(DropdownMenuComponent);
+    component = fixture.componentInstance;
+    compiled = fixture.nativeElement;
+
+    // Set default test props
+    component.items = mockItems;
+    component.isOpen = true;
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe('Rendering', () => {
+    it('should not render menu when isOpen is false', () => {
+      component.isOpen = false;
+      fixture.detectChanges();
+
+      const menu = compiled.querySelector('[role="menu"]');
+      expect(menu).toBeFalsy();
+    });
+
+    it('should render menu when isOpen is true', () => {
+      fixture.detectChanges();
+
+      const menu = compiled.querySelector('[role="menu"]');
+      expect(menu).toBeTruthy();
+    });
+
+    it('should render all menu items correctly', () => {
+      fixture.detectChanges();
+
+      const menuItems = compiled.querySelectorAll('[role="menuitem"]');
+      // Should have 4 items (excluding divider)
+      expect(menuItems.length).toBe(4);
+    });
+
+    it('should render dividers', () => {
+      fixture.detectChanges();
+
+      const dividers = compiled.querySelectorAll('.border-t');
+      expect(dividers.length).toBeGreaterThan(0);
+    });
+
+    it('should apply correct positioning classes', () => {
+      component.position = 'right';
+      fixture.detectChanges();
+
+      const menu = compiled.querySelector('[role="menu"]');
+      expect(menu?.classList.contains('right-0')).toBe(true);
+    });
+
+    it('should apply correct width classes', () => {
+      component.width = 'lg';
+      fixture.detectChanges();
+
+      const menu = compiled.querySelector('[role="menu"]');
+      expect(menu?.classList.contains('w-56')).toBe(true);
+    });
+
+    it('should apply dark mode classes', () => {
+      component.darkMode = true;
+      fixture.detectChanges();
+
+      const menu = compiled.querySelector('[role="menu"]');
+      expect(menu?.classList.contains('bg-gray-800')).toBe(true);
+      expect(menu?.classList.contains('ring-gray-700')).toBe(true);
+    });
+  });
+
+  describe('Interactions', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
+
+    it('should emit itemClick when menu item is clicked', () => {
+      spyOn(component.itemClick, 'emit');
+
+      const profileItem = compiled.querySelector(
+        '#profile-item'
+      ) as HTMLElement;
+      profileItem.click();
+
+      expect(component.itemClick.emit).toHaveBeenCalledWith(mockItems[0]);
+    });
+
+    it('should call action function when item with action is clicked', () => {
+      const settingsItem = mockItems[1];
+      spyOn(settingsItem, 'action' as keyof MenuItem);
+
+      const settingsElement = compiled.querySelector(
+        '#settings-item'
+      ) as HTMLElement;
+      settingsElement.click();
+
+      expect(settingsItem.action).toHaveBeenCalled();
+    });
+
+    it('should not call action for disabled items', () => {
+      const disabledItem = mockItems[4];
+      spyOn(disabledItem, 'action' as keyof MenuItem);
+      spyOn(component.itemClick, 'emit');
+
+      const disabledElement = compiled.querySelector(
+        '#disabled-item'
+      ) as HTMLElement;
+      if (disabledElement) {
+        disabledElement.click();
+      }
+
+      expect(disabledItem.action).not.toHaveBeenCalled();
+      expect(component.itemClick.emit).not.toHaveBeenCalled();
+    });
+
+    it('should handle router link navigation', () => {
+      const routerItem = compiled.querySelector(
+        '#profile-item'
+      ) as HTMLAnchorElement;
+      expect(routerItem.getAttribute('ng-reflect-router-link')).toBe(
+        '/profile'
+      );
+    });
+
+    it('should handle external links with proper attributes', () => {
+      const externalItem = compiled.querySelector(
+        '#external-item'
+      ) as HTMLAnchorElement;
+      expect(externalItem.href).toBe('https://example.com/');
+      expect(externalItem.target).toBe('_blank');
+      expect(externalItem.rel).toBe('noopener noreferrer');
+    });
+  });
+
+  describe('Keyboard Navigation', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
+
+    it('should handle ArrowDown key', () => {
+      const menu = compiled.querySelector('[role="menu"]') as HTMLElement;
+      const event = new KeyboardEvent('keydown', { key: 'ArrowDown' });
+      spyOn(event, 'preventDefault');
+
+      menu.dispatchEvent(event);
+
+      expect(event.preventDefault).toHaveBeenCalled();
+    });
+
+    it('should handle ArrowUp key', () => {
+      const menu = compiled.querySelector('[role="menu"]') as HTMLElement;
+      const event = new KeyboardEvent('keydown', { key: 'ArrowUp' });
+      spyOn(event, 'preventDefault');
+
+      menu.dispatchEvent(event);
+
+      expect(event.preventDefault).toHaveBeenCalled();
+    });
+
+    it('should handle Escape key', fakeAsync(() => {
+      spyOn(component.openChange, 'emit');
+
+      const menu = compiled.querySelector('[role="menu"]') as HTMLElement;
+      const event = new KeyboardEvent('keydown', { key: 'Escape' });
+      spyOn(event, 'preventDefault');
+
+      menu.dispatchEvent(event);
+      tick();
+
+      expect(event.preventDefault).toHaveBeenCalled();
+      expect(component.openChange.emit).toHaveBeenCalledWith(false);
+    }));
+
+    it('should handle Enter key on menu items', () => {
+      spyOn(component.itemClick, 'emit');
+
+      const profileItem = compiled.querySelector(
+        '#profile-item'
+      ) as HTMLElement;
+      const event = new KeyboardEvent('keydown', { key: 'Enter' });
+      spyOn(event, 'preventDefault');
+
+      profileItem.dispatchEvent(event);
+
+      expect(event.preventDefault).toHaveBeenCalled();
+      expect(component.itemClick.emit).toHaveBeenCalledWith(mockItems[0]);
+    });
+  });
+
+  describe('Outside Click Handling', () => {
+    beforeEach(() => {
+      component.closeOnOutsideClick = true;
+      fixture.detectChanges();
+    });
+
+    it('should emit outsideClick when clicking outside', () => {
+      spyOn(component.outsideClick, 'emit');
+      spyOn(component.openChange, 'emit');
+
+      // Simulate click outside the component
+      const outsideElement = document.createElement('div');
+      document.body.appendChild(outsideElement);
+
+      const event = new MouseEvent('click', { bubbles: true });
+      Object.defineProperty(event, 'target', { value: outsideElement });
+
+      document.dispatchEvent(event);
+
+      expect(component.outsideClick.emit).toHaveBeenCalledWith(event);
+      expect(component.openChange.emit).toHaveBeenCalledWith(false);
+
+      document.body.removeChild(outsideElement);
+    });
+
+    it('should not close when clicking inside the menu', () => {
+      spyOn(component.outsideClick, 'emit');
+      spyOn(component.openChange, 'emit');
+
+      const menuItem = compiled.querySelector('#profile-item') as HTMLElement;
+      const event = new MouseEvent('click', { bubbles: true });
+      Object.defineProperty(event, 'target', { value: menuItem });
+
+      document.dispatchEvent(event);
+
+      expect(component.outsideClick.emit).not.toHaveBeenCalled();
+      expect(component.openChange.emit).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
+
+    it('should have proper ARIA attributes', () => {
+      component.ariaLabelledBy = 'trigger-button';
+      component.role = 'menu';
+      fixture.detectChanges();
+
+      const menu = compiled.querySelector('[role="menu"]');
+      expect(menu?.getAttribute('aria-labelledby')).toBe('trigger-button');
+      expect(menu?.getAttribute('role')).toBe('menu');
+    });
+
+    it('should have proper tabindex values', () => {
+      const enabledItems = compiled.querySelectorAll(
+        '[role="menuitem"]:not([aria-disabled="true"])'
+      );
+      enabledItems.forEach(item => {
+        expect(item.getAttribute('tabindex')).toBe('0');
+      });
+
+      const disabledItem = compiled.querySelector('[aria-disabled="true"]');
+      if (disabledItem) {
+        expect(disabledItem.getAttribute('tabindex')).toBe('-1');
+      }
+    });
+
+    it('should have aria-label attributes', () => {
+      const items = compiled.querySelectorAll('[role="menuitem"]');
+      items.forEach(item => {
+        expect(item.getAttribute('aria-label')).toBeTruthy();
+      });
+    });
+  });
+
+  describe('Utility Methods', () => {
+    it('should track items correctly', () => {
+      const result1 = component.trackByFn(0, mockItems[0]);
+      const result2 = component.trackByFn(0, { label: 'Test' });
+      const result3 = component.trackByFn(2, mockItems[2]);
+
+      expect(result1).toBe('profile-item');
+      expect(result2).toBe('Test');
+      expect(result3).toBe(2); // For divider without id or label
+    });
+
+    it('should generate correct menu classes', () => {
+      component.position = 'center';
+      component.width = 'xl';
+      component.darkMode = true;
+      component.showTransition = true;
+
+      const classes = component.menuClasses;
+
+      expect(classes).toContain('left-1/2');
+      expect(classes).toContain('-translate-x-1/2');
+      expect(classes).toContain('w-64');
+      expect(classes).toContain('bg-gray-800');
+      expect(classes).toContain('ring-gray-700');
+      expect(classes).toContain('transition-all');
+    });
+
+    it('should generate correct item classes for light mode', () => {
+      component.darkMode = false;
+
+      const classes = component.itemClasses;
+
+      expect(classes).toContain('text-gray-700');
+      expect(classes).toContain('hover:bg-blue-50');
+      expect(classes).toContain('hover:text-blue-600');
+    });
+
+    it('should generate correct item classes for dark mode', () => {
+      component.darkMode = true;
+
+      const classes = component.itemClasses;
+
+      expect(classes).toContain('text-gray-200');
+      expect(classes).toContain('hover:bg-gray-700');
+      expect(classes).toContain('hover:text-white');
+    });
+  });
+});
