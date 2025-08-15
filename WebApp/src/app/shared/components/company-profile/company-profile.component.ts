@@ -8,7 +8,12 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import {
+  RouterModule,
+  Router,
+  NavigationEnd,
+  ActivatedRoute,
+} from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { LogoStylingService } from '../../services/logo-styling.service';
 import type { CompanyInfo } from '../../data/companies';
@@ -97,6 +102,7 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private destroy$ = new Subject<void>();
+  private lastNavigationWasToProjectRoute = false;
 
   getLogoBackgroundStyle(
     logoBackground: 'white' | 'black' | 'dark' | undefined
@@ -172,14 +178,28 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
   private checkAndScrollToProjectDetails(): void {
     // Check if any active child route has autoScroll data set to true
     let currentRoute = this.route.firstChild;
+    let hasProjectRoute = false;
+
     while (currentRoute) {
-      if (currentRoute.snapshot.data['autoScroll'] === true && this.projectDetailsSection) {
-        setTimeout(() => {
-          this.scrollToProjectDetails();
-        }, 150);
-        return;
+      if (
+        currentRoute.snapshot.data['autoScroll'] === true &&
+        this.projectDetailsSection
+      ) {
+        hasProjectRoute = true;
+
+        // Only auto-scroll if the last navigation was NOT to a project route
+        // (i.e., user is coming from project cards, not from another project)
+        if (!this.lastNavigationWasToProjectRoute) {
+          setTimeout(() => {
+            this.scrollToProjectDetails();
+          }, 150);
+        }
+        break;
       }
       currentRoute = currentRoute.firstChild;
     }
+
+    // Update the flag for next navigation
+    this.lastNavigationWasToProjectRoute = hasProjectRoute;
   }
 }

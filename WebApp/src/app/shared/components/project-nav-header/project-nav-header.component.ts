@@ -39,4 +39,20 @@ export class ProjectNavHeaderComponent implements OnInit {
       );
     }
   }
+
+  navigateToProject(route: string, event: Event) {
+    event.preventDefault();
+
+    // Save current scroll position
+    const currentScrollY =
+      window.pageYOffset || document.documentElement.scrollTop;
+
+    // Navigate to the new route
+    this.router.navigate([route]).then(() => {
+      // Restore scroll position after navigation
+      requestAnimationFrame(() => {
+        window.scrollTo(0, currentScrollY);
+      });
+    });
+  }
 }

@@ -24,15 +24,15 @@
       >
         <a
           *ngFor="let project of projects"
-          [routerLink]="project.route"
+          (click)="navigateToProject(project.route, $event)"
           [class]="
             project.isActive
               ? 'px-3 py-2 bg-' +
                 hoverColor +
                 '-100 text-' +
                 hoverColor +
-                '-700 rounded-lg text-sm font-medium'
-              : 'px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg text-sm font-medium transition-colors'
+                '-700 rounded-lg text-sm font-medium cursor-pointer'
+              : 'px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg text-sm font-medium transition-colors cursor-pointer'
           "
         >
           {{ project.name }}
