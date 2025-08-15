@@ -103,5 +103,7 @@
     background: linear-gradient(135deg, #2563eb 0%, #0369a1 100%);
   } @else if $from == 'purple' and $to == 'indigo' {
     background: linear-gradient(135deg, #9333ea 0%, #4338ca 100%);
+  } @else if $from == 'emerald' and $to == 'teal' {
+    background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
   }
 }
