@@ -1,110 +1,92 @@
-<main class="min-h-screen">
+<main class="min-h-screen relative">
   <!-- Hero Section -->
-  <section
-    class="relative bg-gradient-to-br from-blue-600 to-purple-600 overflow-hidden pt-16"
+  <app-hero-section
+    [title]="heroTitle"
+    [subtitle]="heroSubtitle"
+    variant="gradient"
+    size="lg"
+    alignment="center"
+    backgroundGradient="from-blue-600 to-purple-600"
+    [backgroundElements]="backgroundElements"
+    minHeight="min-h-auto"
+    textColor="light"
+    [showContentSlot]="true"
   >
-    <!-- Animated background elements -->
-    <div class="absolute inset-0">
-      <div
-        class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"
-      ></div>
-      <div
-        class="absolute top-40 right-20 w-48 h-48 bg-purple-300/20 rounded-full blur-2xl animate-pulse delay-1000"
-      ></div>
-      <div
-        class="absolute bottom-40 left-1/4 w-24 h-24 bg-blue-300/20 rounded-full blur-xl animate-pulse delay-500"
-      ></div>
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <!-- Header content -->
-      <div class="text-center mb-20">
-        <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
-          Build something
-        </h2>
-        <p
-          class="text-xl lg:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed"
+    <!-- Features grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+      <!-- Building tools -->
+      <div class="text-center">
+        <div
+          class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
         >
-          Having worked in the consulting business, I have learned a lot about
-          what prevents projects from being completed successfully and how to
-          figure out the most important needs of a client.
+          <ng-icon
+            name="heroCog6Tooth"
+            size="2rem"
+            class="text-blue-600"
+          ></ng-icon>
+        </div>
+        <h5 class="text-2xl font-bold text-white mb-4">Building tools</h5>
+        <p class="text-blue-100 text-lg leading-relaxed">
+          Experience with the latest Angular and .NET technology allows tools to
+          be maintainable and supported for longer.
         </p>
       </div>
 
-      <!-- Features grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
-        <!-- Building tools -->
-        <div class="text-center">
-          <div
-            class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
-          >
-            <ng-icon
-              name="heroCog6Tooth"
-              size="2rem"
-              class="text-blue-600"
-            ></ng-icon>
-          </div>
-          <h5 class="text-2xl font-bold text-white mb-4">Building tools</h5>
-          <p class="text-blue-100 text-lg leading-relaxed">
-            Experience with the latest Angular and .NET technology allows tools
-            to be maintainable and supported for longer.
-          </p>
+      <!-- Grow your market -->
+      <div class="text-center">
+        <div
+          class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
+        >
+          <ng-icon
+            name="heroPencil"
+            size="2rem"
+            class="text-blue-600"
+          ></ng-icon>
         </div>
+        <h5 class="text-2xl font-bold text-white mb-4">Grow your market</h5>
+        <p class="text-blue-100 text-lg leading-relaxed">
+          Creating new services that are easier to use allow you to reach a
+          wider market that is looking for a better UX experience.
+        </p>
+      </div>
 
-        <!-- Grow your market -->
-        <div class="text-center">
-          <div
-            class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
-          >
-            <ng-icon
-              name="heroPencil"
-              size="2rem"
-              class="text-blue-600"
-            ></ng-icon>
-          </div>
-          <h5 class="text-2xl font-bold text-white mb-4">Grow your market</h5>
-          <p class="text-blue-100 text-lg leading-relaxed">
-            Creating new services that are easier to use allow you to reach a
-            wider market that is looking for a better UX experience.
-          </p>
+      <!-- Launch time -->
+      <div class="text-center">
+        <div
+          class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
+        >
+          <ng-icon
+            name="heroBeaker"
+            size="2rem"
+            class="text-blue-600"
+          ></ng-icon>
         </div>
-
-        <!-- Launch time -->
-        <div class="text-center">
-          <div
-            class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
-          >
-            <ng-icon
-              name="heroBeaker"
-              size="2rem"
-              class="text-blue-600"
-            ></ng-icon>
-          </div>
-          <h5 class="text-2xl font-bold text-white mb-4">Launch time</h5>
-          <p class="text-blue-100 text-lg leading-relaxed">
-            Utilizing modern frameworks that allow quick code generation and
-            reusable components allows an application to reach market faster.
-          </p>
-        </div>
+        <h5 class="text-2xl font-bold text-white mb-4">Launch time</h5>
+        <p class="text-blue-100 text-lg leading-relaxed">
+          Utilizing modern frameworks that allow quick code generation and
+          reusable components allows an application to reach market faster.
+        </p>
       </div>
     </div>
+  </app-hero-section>
 
-    <!-- Wave separator -->
-    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-      <svg
-        class="relative block w-full h-20"
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          class="fill-white"
-        ></path>
-      </svg>
-    </div>
-  </section>
+  <!-- Wave separator -->
+  <div
+    class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20"
+  >
+    <svg
+      class="relative block w-full h-20"
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        class="fill-white"
+      ></path>
+    </svg>
+  </div>
 
   <!-- Contact Form Section -->
   <section class="py-20 bg-white relative -mt-20">
@@ -123,83 +105,48 @@
             </p>
           </div>
 
-          <form class="space-y-6">
+          <form
+            [formGroup]="contactForm"
+            (ngSubmit)="onSubmit()"
+            class="space-y-6"
+          >
             <!-- Name input -->
-            <div class="group" [class.focused]="focus === true">
-              <label
-                for="name-input"
-                class="block text-sm font-medium text-gray-700 mb-2"
-                >Your Name</label
-              >
-              <div class="relative">
-                <div
-                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
-                >
-                  <ng-icon
-                    name="heroUserPlus"
-                    size="1rem"
-                    class="text-gray-400"
-                  ></ng-icon>
-                </div>
-                <input
-                  id="name-input"
-                  type="text"
-                  class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm"
-                  placeholder="Your name"
-                  (focus)="focus = true"
-                  (blur)="focus = false"
-                />
-              </div>
-            </div>
+            <app-form-input
+              label="Your Name"
+              type="text"
+              placeholder="Your name"
+              leadingIcon="heroUserPlus"
+              formControlName="name"
+              [required]="true"
+            ></app-form-input>
 
             <!-- Email input -->
-            <div class="group" [class.focused]="focus1 === true">
-              <label
-                for="email-input"
-                class="block text-sm font-medium text-gray-700 mb-2"
-                >Email Address</label
-              >
-              <div class="relative">
-                <div
-                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
-                >
-                  <ng-icon
-                    name="heroEnvelope"
-                    size="1rem"
-                    class="text-gray-400"
-                  ></ng-icon>
-                </div>
-                <input
-                  id="email-input"
-                  type="email"
-                  class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm"
-                  placeholder="your.email@example.com"
-                  (focus)="focus1 = true"
-                  (blur)="focus1 = false"
-                />
-              </div>
-            </div>
+            <app-form-input
+              label="Email Address"
+              type="email"
+              placeholder="your.email@example.com"
+              leadingIcon="heroEnvelope"
+              formControlName="email"
+              [required]="true"
+            ></app-form-input>
 
             <!-- Message textarea -->
-            <div>
-              <label
-                for="message-input"
-                class="block text-sm font-medium text-gray-700 mb-2"
-                >Message</label
-              >
-              <textarea
-                id="message-input"
-                rows="6"
-                class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm resize-none"
-                placeholder="Tell me about your project..."
-              ></textarea>
-            </div>
+            <app-form-input
+              label="Message"
+              type="textarea"
+              placeholder="Tell me about your project..."
+              formControlName="message"
+              [rows]="6"
+              [required]="true"
+            ></app-form-input>
 
             <!-- Submit button -->
             <div class="pt-4">
               <button
-                type="button"
-                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-3"
+                type="submit"
+                (click)="onSubmit()"
+                [disabled]="contactForm.invalid"
+                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 <ng-icon name="heroPaperAirplane" size="1.25rem"></ng-icon>
                 <span class="text-lg">Send Message</span>
