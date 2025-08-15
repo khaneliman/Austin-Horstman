@@ -13,6 +13,13 @@ export const NRI_NA_ROUTES: Routes = [
             m => m.NriNaDoItBestComponent
           ),
       },
+      {
+        path: 'ai-resource-staffing',
+        loadComponent: () =>
+          import('./ai-resource-staffing/ai-resource-staffing.component').then(
+            m => m.AiResourceStaffingComponent
+          ),
+      },
     ],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
