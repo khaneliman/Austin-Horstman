@@ -18,9 +18,6 @@ export interface CompanyInfo {
     primary: string;
     secondary: string;
     accent: string;
-    gradientFrom: string;
-    gradientTo: string;
-    gradientVia?: string;
   };
   stats: {
     years: string;
@@ -31,7 +28,6 @@ export interface CompanyInfo {
   achievements?: readonly string[]; // Optional list of key responsibilities/achievements
   projectsRoute: string;
   employmentRoute: string;
-  gradientColor: string; // For professional projects cards
   projects: readonly { name: string; route: string }[]; // Projects available for this company
 }
 
@@ -54,9 +50,6 @@ export const COMPANIES = {
       primary: 'blue-500',
       secondary: 'indigo-600',
       accent: 'sky-600',
-      gradientFrom: 'from-blue-600',
-      gradientTo: 'to-indigo-600',
-      gradientVia: 'via-blue-700',
     },
     stats: {
       years: '3+',
@@ -77,7 +70,6 @@ export const COMPANIES = {
     ],
     projectsRoute: '/projects/professional/nri-na',
     employmentRoute: '/personal/resume/employment/nri-na',
-    gradientColor: 'from-blue-600 to-indigo-600',
     projects: [{ name: 'Do It Best', route: 'doitbest' }],
   },
 
@@ -98,9 +90,6 @@ export const COMPANIES = {
       primary: 'emerald-600',
       secondary: 'teal-500',
       accent: 'green-500',
-      gradientFrom: 'from-emerald-600',
-      gradientTo: 'to-teal-500',
-      gradientVia: 'via-green-500',
     },
     stats: {
       years: '1',
@@ -117,7 +106,6 @@ export const COMPANIES = {
     ],
     projectsRoute: '/projects/professional/corebts',
     employmentRoute: '/personal/resume/employment/corebts',
-    gradientColor: 'from-emerald-600 to-teal-500',
     projects: [
       { name: 'Kroger', route: 'kroger' },
       { name: 'Do It Best', route: 'doitbest' },
@@ -141,9 +129,6 @@ export const COMPANIES = {
       primary: 'blue-800',
       secondary: 'sky-400',
       accent: 'cyan-500',
-      gradientFrom: 'from-blue-900',
-      gradientTo: 'to-sky-500',
-      gradientVia: 'via-blue-700',
     },
     stats: {
       years: '2',
@@ -154,7 +139,6 @@ export const COMPANIES = {
       'Skyline Technologies is a consulting company providing custom software development and technology solutions across multiple industries. As a Software Engineer, I worked on diverse client projects ranging from healthcare applications to retail platforms, developing full-stack solutions with modern frameworks and implementing best practices for scalable, maintainable code.',
     projectsRoute: '/projects/professional/skyline',
     employmentRoute: '/personal/resume/employment/skyline',
-    gradientColor: 'from-blue-800 to-sky-400',
     projects: [
       { name: 'Renaissance Learning', route: 'renaissance-learning' },
       { name: 'Mile of Music', route: 'mile-of-music' },
@@ -182,8 +166,6 @@ export const COMPANIES = {
       primary: 'red-600',
       secondary: 'orange-600',
       accent: 'yellow-600',
-      gradientFrom: 'from-red-600',
-      gradientTo: 'to-orange-600',
     },
     stats: {
       years: '0.3',
@@ -194,7 +176,6 @@ export const COMPANIES = {
       'West Corporation is a global provider of technology-enabled services and solutions. As a Software Engineer Intern in the IT Department, I developed internal tools and automation solutions to improve operational efficiency, including database management systems and employee portal applications using modern web technologies.',
     projectsRoute: '/projects/professional/west',
     employmentRoute: '/personal/resume/employment/west',
-    gradientColor: 'from-red-600 to-orange-600',
     projects: [
       { name: 'Database Tool', route: 'database-tool' },
       { name: 'IT Portal', route: 'it-portal' },
@@ -219,8 +200,6 @@ export const COMPANIES = {
       primary: 'orange-500',
       secondary: 'gray-900',
       accent: 'orange-600',
-      gradientFrom: 'from-gray-900',
-      gradientTo: 'to-orange-500',
     },
     stats: {
       years: '0.7',
@@ -231,7 +210,6 @@ export const COMPANIES = {
       'Best Buy Geek Squad provides technology support and services to customers. As a Consultation Agent, I provided technical support and developed internal tools to improve customer service efficiency, including stat tracking systems and operational dashboards to help agents manage their performance and customer interactions.',
     projectsRoute: '/projects/professional/geeksquad',
     employmentRoute: '/personal/resume/employment/bestbuy',
-    gradientColor: 'from-gray-900 to-orange-500',
     projects: [{ name: 'Stat Tracker', route: 'stat-tracker' }],
   },
 } as const;
@@ -285,7 +263,7 @@ export function getCompaniesForProfessionalGrid() {
     company: company.displayName,
     route: company.projectsRoute,
     logo: company.logoSrc,
-    color: company.gradientColor,
+    theme: company.colorScheme.theme,
     logoBackground: company.logoBackground,
     projects: [], // Will be populated by project data separately
   }));
