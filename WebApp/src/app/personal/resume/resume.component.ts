@@ -29,7 +29,13 @@ import {
   getCompanyWithCalculatedStats,
   getAllCompanies,
 } from '../../shared/data/companies';
-import { getProjectsForCompany } from '../../shared/data/projects';
+import {
+  TechnologySkill,
+  getProficientTechnologies,
+  getLearnedTechnologies,
+  getInterestedTechnologies,
+  getAllTechnologyNames,
+} from '../../shared/data/technologies';
 
 @Component({
   selector: 'app-resume',
@@ -163,6 +169,15 @@ export class ResumeComponent {
     getCompanyWithCalculatedStats('bestbuy'),
   ];
 
+  // Technology skill data
+  proficientTechnologies: TechnologySkill[] = getProficientTechnologies().sort(
+    (a, b) => (b.skillLevel ?? 0) - (a.skillLevel ?? 0)
+  );
+  learnedTechnologies: TechnologySkill[] = getLearnedTechnologies().sort(
+    (a, b) => (b.skillLevel ?? 0) - (a.skillLevel ?? 0)
+  );
+  interestedTechnologies: TechnologySkill[] = getInterestedTechnologies();
+
   trackByCompanyId(index: number, company: CompanyInfo): string {
     return company.id;
   }
@@ -198,21 +213,13 @@ export class ResumeComponent {
       return sum + company.projects.length;
     }, 0);
 
-    // Count unique technologies from all company projects
-    const allTechnologies = new Set<string>();
-    allCompanies.forEach(company => {
-      const projects = getProjectsForCompany(
-        company.id as keyof typeof import('../../shared/data/companies').COMPANIES
-      );
-      projects.forEach(project => {
-        project.technologies.forEach(tech => allTechnologies.add(tech));
-      });
-    });
+    // Use the centralized technology skills data for total count
+    const totalTechnologies = getAllTechnologyNames().length;
 
     return {
       totalProjects,
       totalCompanies: allCompanies.length,
-      totalTechnologies: allTechnologies.size,
+      totalTechnologies,
     };
   }
 }

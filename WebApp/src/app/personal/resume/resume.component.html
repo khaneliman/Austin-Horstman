@@ -596,119 +596,24 @@
           <h3 class="text-2xl font-bold text-white">Proficient</h3>
         </div>
         <div class="space-y-4">
-          <div
-            class="flex items-center justify-between py-2 border-b border-white/10"
-          >
-            <span class="text-lg text-gray-200 font-medium">Angular</span>
-            <div class="flex space-x-1 star-rating">
-              @for (star of [1, 2, 3, 4, 5]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-filled"
-                ></ng-icon>
-              }
+          @for (tech of proficientTechnologies; track tech.name; let last = $last) {
+            <div
+              class="flex items-center justify-between py-2"
+              [class.border-b]="!last"
+              [class.border-white/10]="!last"
+            >
+              <span class="text-lg text-gray-200 font-medium">{{ tech.name }}</span>
+              <div class="flex space-x-1 star-rating">
+                @for (star of [1, 2, 3, 4, 5]; track star) {
+                  <ng-icon
+                    name="heroStar"
+                    size="0.875rem"
+                    [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
+                  ></ng-icon>
+                }
+              </div>
             </div>
-          </div>
-          <div
-            class="flex items-center justify-between py-2 border-b border-white/10"
-          >
-            <span class="text-lg text-gray-200 font-medium">C#</span>
-            <div class="flex space-x-1 star-rating">
-              @for (star of [1, 2, 3, 4]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-filled"
-                ></ng-icon>
-              }
-              <ng-icon
-                name="heroStar"
-                size="0.875rem"
-                class="star-empty"
-              ></ng-icon>
-            </div>
-          </div>
-          <div
-            class="flex items-center justify-between py-2 border-b border-white/10"
-          >
-            <span class="text-lg text-gray-200 font-medium">SQL</span>
-            <div class="flex space-x-1 star-rating">
-              @for (star of [1, 2, 3]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-filled"
-                ></ng-icon>
-              }
-              @for (star of [4, 5]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-empty"
-                ></ng-icon>
-              }
-            </div>
-          </div>
-          <div
-            class="flex items-center justify-between py-2 border-b border-white/10"
-          >
-            <span class="text-lg text-gray-200 font-medium">HTML</span>
-            <div class="flex space-x-1 star-rating">
-              @for (star of [1, 2, 3, 4]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-filled"
-                ></ng-icon>
-              }
-              <ng-icon
-                name="heroStar"
-                size="0.875rem"
-                class="star-empty"
-              ></ng-icon>
-            </div>
-          </div>
-          <div
-            class="flex items-center justify-between py-2 border-b border-white/10"
-          >
-            <span class="text-lg text-gray-200 font-medium">TypeScript</span>
-            <div class="flex space-x-1 star-rating">
-              @for (star of [1, 2, 3, 4, 5]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-filled"
-                ></ng-icon>
-              }
-            </div>
-          </div>
-          <div
-            class="flex items-center justify-between py-2 border-b border-white/10"
-          >
-            <span class="text-lg text-gray-200 font-medium">Nix</span>
-            <div class="flex space-x-1 star-rating">
-              @for (star of [1, 2, 3, 4, 5]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-filled"
-                ></ng-icon>
-              }
-            </div>
-          </div>
-          <div class="flex items-center justify-between py-2">
-            <span class="text-lg text-gray-200 font-medium">Lua</span>
-            <div class="flex space-x-1 star-rating">
-              @for (star of [1, 2, 3, 4, 5]; track star) {
-                <ng-icon
-                  name="heroStar"
-                  size="0.875rem"
-                  class="star-filled"
-                ></ng-icon>
-              }
-            </div>
-          </div>
+          }
         </div>
       </div>
 
@@ -730,31 +635,25 @@
             </div>
             <h3 class="text-2xl font-bold text-white">Learned</h3>
           </div>
-          <div class="flex flex-wrap gap-3">
-            <span
-              class="px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium border border-blue-500/30"
-              >C++</span
-            >
-            <span
-              class="px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium border border-blue-500/30"
-              >Rust</span
-            >
-            <span
-              class="px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium border border-blue-500/30"
-              >Java</span
-            >
-            <span
-              class="px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium border border-blue-500/30"
-              >JavaScript</span
-            >
-            <span
-              class="px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium border border-blue-500/30"
-              >SCSS</span
-            >
-            <span
-              class="px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium border border-blue-500/30"
-              >MySQL</span
-            >
+          <div class="space-y-4">
+            @for (tech of learnedTechnologies; track tech.name; let last = $last) {
+              <div
+                class="flex items-center justify-between py-2"
+                [class.border-b]="!last"
+                [class.border-white/10]="!last"
+              >
+                <span class="text-lg text-gray-200 font-medium">{{ tech.name }}</span>
+                <div class="flex space-x-1 star-rating">
+                  @for (star of [1, 2, 3, 4, 5]; track star) {
+                    <ng-icon
+                      name="heroStar"
+                      size="0.875rem"
+                      [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
+                    ></ng-icon>
+                  }
+                </div>
+              </div>
+            }
           </div>
         </div>
 
@@ -775,30 +674,11 @@
             <h3 class="text-2xl font-bold text-white">Interested</h3>
           </div>
           <div class="flex flex-wrap gap-3">
-            <span
-              class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
-              >Swift</span
-            >
-            <span
-              class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
-              >MAUI</span
-            >
-            <span
-              class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
-              >Leptos</span
-            >
-            <span
-              class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
-              >Svelte</span
-            >
-            <span
-              class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
-              >Rocket (Rust)</span
-            >
-            <span
-              class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
-              >Game Development</span
-            >
+            @for (tech of interestedTechnologies; track tech.name) {
+              <span
+                class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
+              >{{ tech.name }}</span>
+            }
           </div>
         </div>
       </div>
