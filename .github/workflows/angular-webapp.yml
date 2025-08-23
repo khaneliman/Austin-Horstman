@@ -14,27 +14,18 @@ on:
         description: 'Branch or commit to build'
         required: true
         default: 'master'
-      node:
-        description: 'Node version to build'
-        required: true
-        default: '22.x'
 jobs:
   build-web:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ["${{github.event.inputs.node}}"]
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+      - name: Setup Bun runtime
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ matrix.node-version || '22.X' }}
-          cache: 'npm'
-          cache-dependency-path: WebApp/package-lock.json
+          bun-version: latest
       - name: Install Dependencies
         working-directory: ./WebApp
-        run: npm run ci:install
+        run: bun install --frozen-lockfile
       - name: Run Full CI Pipeline
         working-directory: ./WebApp
-        run: npm run ci:full
+        run: bun run ci:full
