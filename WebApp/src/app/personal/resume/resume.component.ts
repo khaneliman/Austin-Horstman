@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { CardComponent } from '../../core/components/card/card.component';
 import { WaveSeparatorComponent } from '../../shared/components/wave-separator/wave-separator.component';
 import { FloatingCardComponent } from '../../core/components/floating-card/floating-card.component';
@@ -20,13 +21,17 @@ import {
   heroCheck,
   heroGlobeAlt,
   heroCog6Tooth,
+  heroFolder,
+  heroInformationCircle,
 } from '@ng-icons/heroicons/outline';
+import { CompanyInfo, COMPANIES } from '../../shared/data/companies';
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],
   imports: [
+    CommonModule,
     CardComponent,
     WaveSeparatorComponent,
     RouterLink,
@@ -47,6 +52,8 @@ import {
       heroCheck,
       heroGlobeAlt,
       heroCog6Tooth,
+      heroFolder,
+      heroInformationCircle,
     }),
   ],
 })
@@ -141,4 +148,40 @@ export class ResumeComponent {
       delay: 1000,
     },
   ];
+
+  // Company data
+  currentCompany: CompanyInfo = COMPANIES['nri-na'];
+  previousCompanies: CompanyInfo[] = [
+    COMPANIES.corebts,
+    COMPANIES.skyline,
+    COMPANIES.west,
+    COMPANIES.bestbuy,
+  ];
+
+  trackByCompanyId(index: number, company: CompanyInfo): string {
+    return company.id;
+  }
+
+  trackByIndex(index: number): number {
+    return index;
+  }
+
+  getCompanyColor(colorClass: string): string {
+    // Map Tailwind color classes to actual CSS colors
+    const colorMap: Record<string, string> = {
+      'blue-500': '#3b82f6',
+      'blue-600': '#2563eb',
+      'blue-800': '#1e40af',
+      'emerald-600': '#059669',
+      'green-500': '#22c55e',
+      'red-600': '#dc2626',
+      'orange-500': '#f97316',
+      'indigo-600': '#4f46e5',
+      'sky-400': '#38bdf8',
+      'teal-500': '#14b8a6',
+      'orange-600': '#ea580c',
+      'gray-900': '#111827',
+    };
+    return colorMap[colorClass] || '#3b82f6';
+  }
 }
