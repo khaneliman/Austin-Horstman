@@ -14,11 +14,11 @@ import {
   heroCheckCircle,
   heroWrench,
   heroDevicePhoneMobile,
-  heroChevronRight,
 } from '@ng-icons/heroicons/outline';
 import { PersonalProjectsGridComponent } from '../../shared/components/personal-projects-grid/personal-projects-grid.component';
 import { generatePersonalProjectsGrid } from '../../shared/data/personal-projects';
 import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
+import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/projects-breadcrumb.component';
 
 @Component({
   selector: 'app-personal',
@@ -30,6 +30,7 @@ import { HeroSectionComponent } from '../../shared/components/hero-section/hero-
     NgIconComponent,
     PersonalProjectsGridComponent,
     HeroSectionComponent,
+    ProjectsBreadcrumbComponent,
   ],
   providers: [
     provideIcons({
@@ -45,7 +46,6 @@ import { HeroSectionComponent } from '../../shared/components/hero-section/hero-
       heroCheckCircle,
       heroWrench,
       heroDevicePhoneMobile,
-      heroChevronRight,
     }),
   ],
 })

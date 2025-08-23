@@ -7,11 +7,11 @@ import {
   heroBuildingOffice,
   heroBeaker,
   heroChartBarSquare,
-  heroChevronRight,
 } from '@ng-icons/heroicons/outline';
 import { ProfessionalProjectsGridComponent } from '../../shared/components/professional-projects-grid/professional-projects-grid.component';
 import { generateProfessionalProjectsGrid } from '../../shared/data/projects';
 import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
+import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/projects-breadcrumb.component';
 
 @Component({
   selector: 'app-professional-projects',
@@ -22,10 +22,10 @@ import { HeroSectionComponent } from '../../shared/components/hero-section/hero-
     NgIconComponent,
     ProfessionalProjectsGridComponent,
     HeroSectionComponent,
+    ProjectsBreadcrumbComponent,
   ],
   providers: [
     provideIcons({
-      heroChevronRight,
       heroBriefcase,
       heroBuildingOffice,
       heroBeaker,

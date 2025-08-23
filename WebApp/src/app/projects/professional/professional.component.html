@@ -12,14 +12,10 @@
     textColor="light"
     [showContentSlot]="true"
   >
-    <!-- Breadcrumb-style navigation -->
-    <div class="flex justify-center items-center space-x-2 text-blue-200">
-      <a routerLink="/projects" class="hover:text-white transition-colors"
-        >Projects</a
-      >
-      <ng-icon name="heroChevronRight" size="0.75rem"></ng-icon>
-      <span class="text-white font-medium">Professional</span>
-    </div>
+    <app-projects-breadcrumb
+      currentSection="Professional"
+      textColor="text-blue-200"
+    ></app-projects-breadcrumb>
   </app-hero-section>
 
   <!-- Professional Projects Grid -->
