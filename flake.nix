@@ -27,7 +27,6 @@
 
               # Web development
               bun
-              nodejs_22
               prettier
 
               # .NET development

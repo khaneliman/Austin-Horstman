@@ -1,2 +1,2 @@
 #!/bin/sh
-cd WebApp && npx lint-staged
+cd WebApp && bunx lint-staged
