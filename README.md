@@ -12,7 +12,7 @@
   
   *The what, why, and how:*
   
-  Personal repository for myself. Used to house the information about myself for others to familiarize them with me, as a person. It contains all the projects that I work on related to my time as a software engineer and my resume for anyone interested in learning more.
+  Personal portfolio website showcasing professional experience, projects, and skills. Built with Angular 20.x and powered by Bun for optimal performance. The application features a modern navigation system, interactive project showcases, and comprehensive professional information. Contains all projects related to my time as a software engineer and detailed resume information for anyone interested in learning more.
 
 ## Table of Contents
 
@@ -25,22 +25,56 @@
 ## Installation
   
   *Steps required to install project and how to get the development environment running:*
+
+### Prerequisites
   
-  You must have the [.NET](https://dotnet.microsoft.com/download/) SDK installed. [.NET](https://dotnet.microsoft.com/download/) 6 is required.
+- **Bun**: Install [Bun](https://bun.sh/) runtime and package manager
+- **.NET SDK**: [.NET](https://dotnet.microsoft.com/download/) 6+ is required for the backend API
+- **Docker** (optional): For containerized deployment
 
-  If this is your first time with dotnet development locally. You must trust the local https development certificates.
+### Frontend Setup (Angular WebApp)
+  
+```bash
+cd WebApp
+bun install                # Install dependencies
+bun run start:dev          # Start development server
+```
 
-    dotnet dev-certs https --trust
+### Backend Setup (.NET WebAPI)
+  
+If this is your first time with dotnet development locally, you must trust the local https development certificates:
+
+```bash
+dotnet dev-certs https --trust
+```
   
 ## Usage
   
   *Instructions and examples for use:*
-  
-    cd WebApp
-    dotnet watch run
 
-    cd WebApi
-    dotnet watch run
+### Frontend Development
+  
+```bash
+cd WebApp
+bun run start:dev          # Development server with hot reload
+bun run build:dev          # Development build
+bun run watch              # Watch mode development
+```
+
+### Backend Development
+  
+```bash
+cd WebApi
+dotnet watch run           # Development server with hot reload
+```
+
+### Production Build
+  
+```bash
+cd WebApp
+bun run build:prod         # Production build
+bun run docker:build       # Docker production build
+```
   
 ## Contributing
   
@@ -51,15 +85,36 @@
 ## Tests
   
   *Tests for application and how to run them:*
-  
-    cd WebApp/khaneliman/apps/austin-horstman 
-    npm run test-coverage
 
-    cd WebApp
-    dotnet test
+### Frontend Tests (Bun)
+  
+```bash
+cd WebApp
+bun run test               # Run all tests
+bun run test:coverage      # Run tests with coverage report
+bun run test:watch         # Run tests in watch mode
+bun run test:ci            # Run tests for CI environment
+```
+
+### Backend Tests (.NET)
+  
+```bash
+cd WebApp
+dotnet test                # Run .NET tests for WebApp
       
-    cd WebApi
-    dotnet test
+cd WebApi
+dotnet test                # Run .NET tests for WebApi
+```
+
+### Quality Assurance
+  
+```bash
+cd WebApp
+bun run check              # Run full quality check (lint + format + test)
+bun run lint               # Lint code
+bun run format             # Format code with Prettier
+bun run typecheck          # TypeScript compilation check
+```
 
 ## License
   
