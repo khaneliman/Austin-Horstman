@@ -61,7 +61,13 @@ describe('DropdownMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DropdownMenuComponent, RouterTestingModule],
+      imports: [
+        DropdownMenuComponent,
+        RouterTestingModule.withRoutes([
+          { path: 'profile', component: MockNgIconComponent },
+          { path: 'settings', component: MockNgIconComponent },
+        ]),
+      ],
       providers: [
         // Override NgIconComponent with mock
       ],
