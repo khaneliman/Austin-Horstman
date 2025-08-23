@@ -11,8 +11,8 @@ import { NgIconComponent } from '@ng-icons/core';
 import { DropdownMenuComponent, MenuItem } from './dropdown-menu.component';
 
 // Mock NgIconComponent for testing
-// eslint-disable-next-line @angular-eslint/component-selector
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'ng-icon',
   template: '<span [attr.data-icon]="name">{{ name }}</span>',
   standalone: true,
@@ -160,7 +160,7 @@ describe('DropdownMenuComponent', () => {
 
     it('should call action function when item with action is clicked', () => {
       const settingsItem = mockItems[1];
-      const actionSpy = jest.spyOn(settingsItem, 'action' as keyof MenuItem);
+      const actionSpy = jest.spyOn(settingsItem, 'action');
 
       const settingsElement = compiled.querySelector(
         '#settings-item'
@@ -172,10 +172,7 @@ describe('DropdownMenuComponent', () => {
 
     it('should not call action for disabled items', () => {
       const disabledItem = mockItems[4];
-      const disabledActionSpy = jest.spyOn(
-        disabledItem,
-        'action' as keyof MenuItem
-      );
+      const disabledActionSpy = jest.spyOn(disabledItem, 'action');
       const emitSpy = jest.spyOn(component.itemClick, 'emit');
 
       const disabledElement = compiled.querySelector(
