@@ -1,11 +1,5 @@
-import { describe, it, expect } from 'bun:test';
-import {
-  TechnologyTag,
-  QuickStat,
-  Feature,
-  ContentSection,
-  ProjectDetailConfig,
-} from './project-detail.interface';
+import { describe, expect, it } from 'bun:test';
+import { ContentSection, Feature, ProjectDetailConfig, QuickStat, TechnologyTag } from './project-detail.interface';
 
 describe('Project Detail Interfaces', () => {
   describe('TechnologyTag Interface', () => {
@@ -30,7 +24,7 @@ describe('Project Detail Interfaces', () => {
         { name: 'Azure Cloud', color: 'cyan' },
       ];
 
-      technologies.forEach(tech => {
+      technologies.forEach((tech) => {
         expect(tech.name).toBeDefined();
         expect(tech.color).toBeDefined();
         expect(typeof tech.name).toBe('string');
@@ -46,12 +40,9 @@ describe('Project Detail Interfaces', () => {
         { name: 'Vue.js 3', color: 'emerald' },
       ];
 
-      specialTechs.forEach(tech => {
+      specialTechs.forEach((tech) => {
         // Should have either dots, plus signs, or other special characters
-        const hasSpecialChars =
-          tech.name.includes('.') ||
-          tech.name.includes('+') ||
-          tech.name.includes('#');
+        const hasSpecialChars = tech.name.includes('.') || tech.name.includes('+') || tech.name.includes('#');
         expect(hasSpecialChars || tech.name.length > 2).toBe(true);
         expect(tech.name.length).toBeGreaterThan(1);
       });
@@ -79,7 +70,7 @@ describe('Project Detail Interfaces', () => {
         { label: 'Status', value: 'Production', icon: 'heroServer' },
       ];
 
-      stats.forEach(stat => {
+      stats.forEach((stat) => {
         expect(stat.label).toBeDefined();
         expect(stat.value).toBeDefined();
         expect(stat.icon).toBeDefined();
@@ -122,25 +113,22 @@ describe('Project Detail Interfaces', () => {
       const features: Feature[] = [
         {
           title: 'Advanced Analytics',
-          description:
-            'Comprehensive data analysis and visualization with machine learning capabilities',
+          description: 'Comprehensive data analysis and visualization with machine learning capabilities',
           icon: 'heroChartBar',
         },
         {
           title: 'Security Framework',
-          description:
-            'Enterprise-grade security with encryption, authentication, and authorization',
+          description: 'Enterprise-grade security with encryption, authentication, and authorization',
           icon: 'heroShieldCheck',
         },
         {
           title: 'Scalable Architecture',
-          description:
-            'Horizontally scalable microservices architecture supporting millions of users',
+          description: 'Horizontally scalable microservices architecture supporting millions of users',
           icon: 'heroServer',
         },
       ];
 
-      features.forEach(feature => {
+      features.forEach((feature) => {
         expect(feature.title.length).toBeGreaterThan(5);
         expect(feature.description.length).toBeGreaterThan(20);
         expect(feature.icon.startsWith('hero')).toBe(true);
@@ -215,8 +203,7 @@ describe('Project Detail Interfaces', () => {
     it('should validate complete ProjectDetailConfig structure', () => {
       const validConfig: ProjectDetailConfig = {
         // Visual/Branding
-        backgroundGradient:
-          'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
+        backgroundGradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
         headerIcon: 'heroBookOpen',
         primaryColor: 'blue',
 
@@ -334,8 +321,7 @@ describe('Project Detail Interfaces', () => {
 
     it('should handle complex nested structures', () => {
       const complexConfig: ProjectDetailConfig = {
-        backgroundGradient:
-          'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
+        backgroundGradient: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
         headerIcon: 'heroArrowPathRoundedSquare',
         primaryColor: 'emerald',
         backRoute: '/projects/professional/company',
@@ -387,8 +373,7 @@ describe('Project Detail Interfaces', () => {
             items: ['Step 1', 'Step 2', 'Step 3'],
           },
         ],
-        impact:
-          'Significant positive impact on development workflow and efficiency',
+        impact: 'Significant positive impact on development workflow and efficiency',
         showQuickStats: true,
         showTechnicalHighlights: true,
         showImpactSection: true,
@@ -455,8 +440,7 @@ describe('Project Detail Interfaces', () => {
         companyKey: 'company-with-dashes',
         hoverColor: 'red',
         title: 'Project: Advanced & "Complex" Solutions (v2.0)',
-        description:
-          'A project with special characters: æøå, 中文, русский, and emojis 🚀',
+        description: 'A project with special characters: æøå, 中文, русский, and emojis 🚀',
         technologies: [
           { name: 'C#', color: 'purple' },
           { name: '.NET Core 6', color: 'blue' },

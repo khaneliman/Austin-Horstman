@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroGlobeAlt,
   heroBriefcase,
-  heroCog6Tooth,
-  heroRectangleStack,
   heroCodeBracket,
-  heroWrench,
+  heroCog6Tooth,
+  heroGlobeAlt,
   heroLightBulb,
+  heroRectangleStack,
+  heroWrench,
 } from '@ng-icons/heroicons/outline';
-import { ProfessionalProjectsGridComponent } from '../shared/components/professional-projects-grid/professional-projects-grid.component';
-import { PersonalProjectsGridComponent } from '../shared/components/personal-projects-grid/personal-projects-grid.component';
-import { generateProfessionalProjectsGrid } from '../shared/data/projects';
-import { generatePersonalProjectsGrid } from '../shared/data/personal-projects';
 import { HeroSectionComponent } from '../shared/components/hero-section/hero-section.component';
+import { PersonalProjectsGridComponent } from '../shared/components/personal-projects-grid/personal-projects-grid.component';
+import { ProfessionalProjectsGridComponent } from '../shared/components/professional-projects-grid/professional-projects-grid.component';
+import { generatePersonalProjectsGrid } from '../shared/data/personal-projects';
+import { generateProfessionalProjectsGrid } from '../shared/data/projects';
 
 @Component({
   selector: 'app-projects',

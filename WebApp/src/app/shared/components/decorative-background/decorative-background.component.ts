@@ -1,23 +1,9 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 export interface BackgroundElement {
-  size:
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | 'w-24-h-24'
-    | 'w-32-h-32'
-    | 'w-40-h-40'
-    | 'w-48-h-48';
-  position:
-    | 'top-left'
-    | 'top-right'
-    | 'bottom-left'
-    | 'bottom-right'
-    | 'center'
-    | string; // Allow custom positioning like 'top-20 left-10'
+  size: 'sm' | 'md' | 'lg' | 'xl' | 'w-24-h-24' | 'w-32-h-32' | 'w-40-h-40' | 'w-48-h-48';
+  position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center' | string; // Allow custom positioning like 'top-20 left-10'
   color: string;
   opacity?: number;
   blur?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
@@ -34,9 +20,7 @@ export interface BackgroundElement {
       <div
         *ngFor="let element of elements"
         [class]="getElementClasses(element)"
-        [style.animation-delay]="
-          element.animate && element.delay ? element.delay + 'ms' : '0ms'
-        "
+        [style.animation-delay]="element.animate && element.delay ? element.delay + 'ms' : '0ms'"
       ></div>
     </div>
   `,
@@ -91,9 +75,7 @@ export class DecorativeBackgroundComponent {
         classes.push('bottom-4 right-4');
         break;
       case 'center':
-        classes.push(
-          'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
-        );
+        classes.push('top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2');
         break;
       default:
         // Custom positioning - split by spaces and add each class

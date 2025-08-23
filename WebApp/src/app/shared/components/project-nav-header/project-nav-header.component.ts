@@ -1,9 +1,9 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, Router } from '@angular/router';
-import { ProjectNavigationService } from '../../services/project-navigation.service';
+import { Component, Input, inject, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroChevronLeft } from '@ng-icons/heroicons/outline';
+import { ProjectNavigationService } from '../../services/project-navigation.service';
 
 export interface ProjectNavItem {
   name: string;
@@ -33,10 +33,7 @@ export class ProjectNavHeaderComponent implements OnInit {
   ngOnInit() {
     if (this.companyKey) {
       const currentRoute = this.router.url;
-      this.projects = this.navService.getNavigationItems(
-        this.companyKey,
-        currentRoute
-      );
+      this.projects = this.navService.getNavigationItems(this.companyKey, currentRoute);
     }
   }
 
@@ -44,8 +41,7 @@ export class ProjectNavHeaderComponent implements OnInit {
     event.preventDefault();
 
     // Save current scroll position
-    const currentScrollY =
-      window.pageYOffset || document.documentElement.scrollTop;
+    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
     // Navigate to the new route
     this.router.navigate([route]).then(() => {

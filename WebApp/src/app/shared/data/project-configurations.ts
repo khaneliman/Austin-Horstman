@@ -4,8 +4,7 @@ import { ProjectDetailConfig } from '../interfaces/project-detail.interface';
 export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
   'renaissance-learning': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
+    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
     headerIcon: 'heroBookOpen',
     primaryColor: 'blue',
 
@@ -47,20 +46,17 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
       },
       {
         title: 'Personalized Learning Paths',
-        description:
-          "Customized learning experiences tailored to each student's reading level and interests.",
+        description: "Customized learning experiences tailored to each student's reading level and interests.",
         icon: 'heroLightBulb',
       },
       {
         title: 'Comprehensive Reporting',
-        description:
-          'Detailed analytics and reporting tools for teachers, administrators, and parents.',
+        description: 'Detailed analytics and reporting tools for teachers, administrators, and parents.',
         icon: 'heroChartBar',
       },
       {
         title: 'Multi-Language Support',
-        description:
-          'Platform available in multiple languages to support diverse student populations.',
+        description: 'Platform available in multiple languages to support diverse student populations.',
         icon: 'heroGlobeAlt',
       },
     ],
@@ -84,8 +80,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'quick-launch': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
+    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroRocketLaunch',
     primaryColor: 'orange',
 
@@ -129,8 +124,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
       },
       {
         title: 'Interaction History',
-        description:
-          'Complete timeline of customer interactions and communications',
+        description: 'Complete timeline of customer interactions and communications',
         icon: 'heroClock',
       },
       {
@@ -183,8 +177,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'it-portal': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
+    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroCheck',
     primaryColor: 'blue',
 
@@ -219,8 +212,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     features: [
       {
         title: 'Database Search Tool',
-        description:
-          'Web-based interface for searching and managing database instances',
+        description: 'Web-based interface for searching and managing database instances',
         icon: 'heroCircleStack',
       },
       {
@@ -251,8 +243,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'database-tool': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
+    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroCircleStack',
     primaryColor: 'green',
 
@@ -287,20 +278,17 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     features: [
       {
         title: 'Database Search',
-        description:
-          'Comprehensive searchable database listing across all West Corporation servers',
+        description: 'Comprehensive searchable database listing across all West Corporation servers',
         icon: 'heroCircleStack',
       },
       {
         title: 'SSIS Job Monitoring',
-        description:
-          'Real-time monitoring and searching of SQL Server Integration Services jobs',
+        description: 'Real-time monitoring and searching of SQL Server Integration Services jobs',
         icon: 'heroBeaker',
       },
       {
         title: 'Server Management',
-        description:
-          'Multi-server support with detailed configuration insights',
+        description: 'Multi-server support with detailed configuration insights',
         icon: 'heroServer',
       },
       {
@@ -330,8 +318,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'stat-tracker': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-blue-50 via-orange-50 to-yellow-50',
+    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroGlobeAlt',
     primaryColor: 'yellow',
 
@@ -428,8 +415,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
   // Core BTS Projects
   'kroger-solutions': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-green-50 via-gray-50 to-emerald-50',
+    backgroundGradient: 'bg-gradient-to-br from-green-50 via-gray-50 to-emerald-50',
     headerIcon: 'heroShoppingBag',
     primaryColor: 'green',
 
@@ -441,8 +427,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
     // Content
     title: 'Kroger',
-    description:
-      'Enterprise retail platform modernization and inventory management system development',
+    description: 'Enterprise retail platform modernization and inventory management system development',
     technologies: [
       { name: 'Angular 15+', color: 'red' },
       { name: '.NET Core 6', color: 'blue' },
@@ -475,14 +460,12 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
       },
       {
         title: 'Supply Chain Integration',
-        description:
-          'Seamless integration with supplier systems for automated ordering and delivery scheduling.',
+        description: 'Seamless integration with supplier systems for automated ordering and delivery scheduling.',
         icon: 'heroUsers',
       },
       {
         title: 'Analytics Dashboard',
-        description:
-          'Comprehensive reporting and analytics for demand forecasting and operational optimization.',
+        description: 'Comprehensive reporting and analytics for demand forecasting and operational optimization.',
         icon: 'heroChartBarSquare',
       },
       {
@@ -527,8 +510,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'doitbest-platform': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-blue-50 via-gray-50 to-indigo-50',
+    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-gray-50 to-indigo-50',
     headerIcon: 'heroCog6Tooth',
     primaryColor: 'blue',
 
@@ -540,8 +522,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
     // Content
     title: 'Do It Best',
-    description:
-      'Hardware retailer backend services and infrastructure modernization project',
+    description: 'Hardware retailer backend services and infrastructure modernization project',
     technologies: [
       { name: 'C# .NET', color: 'red' },
       { name: 'Java Spring Boot', color: 'blue' },
@@ -603,8 +584,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     specialSections: [
       {
         title: 'Technical Leadership Highlights',
-        content:
-          'Leadership and technical achievements across the modernization project',
+        content: 'Leadership and technical achievements across the modernization project',
         icon: 'heroUserGroup',
         type: 'list',
         items: [
@@ -628,8 +608,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
   // NRI-NA Projects
   'ai-resource-staffing': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-blue-50 via-indigo-50 to-sky-50',
+    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-sky-50',
     headerIcon: 'heroBeaker',
     primaryColor: 'blue',
 
@@ -668,26 +647,22 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     features: [
       {
         title: 'Microsoft Graph Integration',
-        description:
-          'Real-time data from user profiles, calendar availability, and organizational structure',
+        description: 'Real-time data from user profiles, calendar availability, and organizational structure',
         icon: 'heroCloudArrowUp',
       },
       {
         title: 'OpenAir API Integration',
-        description:
-          'Billable time tracking, project allocations, and upcoming assignments',
+        description: 'Billable time tracking, project allocations, and upcoming assignments',
         icon: 'heroCircleStack',
       },
       {
         title: 'Skills Database Matching',
-        description:
-          'Proficiency scoring and AI-powered resource recommendations',
+        description: 'Proficiency scoring and AI-powered resource recommendations',
         icon: 'heroBeaker',
       },
       {
         title: 'Availability Analysis',
-        description:
-          'Conflict detection and capacity calculations with time zone support',
+        description: 'Conflict detection and capacity calculations with time zone support',
         icon: 'heroClock',
       },
     ],
@@ -717,8 +692,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'mulesoft-migrator': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
+    backgroundGradient: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
     headerIcon: 'heroArrowPathRoundedSquare',
     primaryColor: 'emerald',
 
@@ -752,8 +726,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     features: [
       {
         title: 'Automated MuleSoft Analysis',
-        description:
-          'AI-powered analysis of MuleSoft projects with dependency mapping',
+        description: 'AI-powered analysis of MuleSoft projects with dependency mapping',
         icon: 'heroDocumentArrowUp',
       },
       {
@@ -763,8 +736,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
       },
       {
         title: 'Legacy System Inventory',
-        description:
-          'Comprehensive endpoint inventory and modernization strategies',
+        description: 'Comprehensive endpoint inventory and modernization strategies',
         icon: 'heroRectangleStack',
       },
       {
@@ -814,8 +786,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'tax-document-analysis': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50',
+    backgroundGradient: 'bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50',
     headerIcon: 'heroDocumentText',
     primaryColor: 'purple',
 
@@ -827,8 +798,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
     // Content
     title: 'Tax Document Analysis System',
-    description:
-      'LLM-powered system for automated tax document ingestion and business impact analysis',
+    description: 'LLM-powered system for automated tax document ingestion and business impact analysis',
     technologies: [
       { name: 'React', color: 'purple' },
       { name: 'Remix', color: 'indigo' },
@@ -992,8 +962,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'express-scripts': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
+    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroHeart',
     primaryColor: 'red',
 
@@ -1005,8 +974,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
     // Content
     title: 'Express Scripts Pharmacy Platform',
-    description:
-      'Full-stack pharmaceutical rebates management system with Angular frontend and .NET Core APIs',
+    description: 'Full-stack pharmaceutical rebates management system with Angular frontend and .NET Core APIs',
     technologies: [
       { name: 'Angular', color: 'red' },
       { name: '.NET Core', color: 'orange' },
@@ -1027,8 +995,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     features: [
       {
         title: 'Complex Rebate Calculations',
-        description:
-          'Automated pharmaceutical rebate processing and calculations',
+        description: 'Automated pharmaceutical rebate processing and calculations',
         icon: 'heroChartPie',
       },
       {
@@ -1078,8 +1045,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'jj-keller': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-green-50 via-teal-50 to-blue-50',
+    backgroundGradient: 'bg-gradient-to-br from-green-50 via-teal-50 to-blue-50',
     headerIcon: 'heroArchiveBox',
     primaryColor: 'green',
 
@@ -1091,8 +1057,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
     // Content
     title: 'J.J. Keller Compliance Platform',
-    description:
-      'Native iOS application for regulatory compliance management and safety documentation',
+    description: 'Native iOS application for regulatory compliance management and safety documentation',
     technologies: [
       { name: 'iOS Native', color: 'green' },
       { name: 'Swift', color: 'teal' },
@@ -1158,8 +1123,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'mile-of-music': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-purple-50 via-pink-50 to-red-50',
+    backgroundGradient: 'bg-gradient-to-br from-purple-50 via-pink-50 to-red-50',
     headerIcon: 'heroSpeakerWave',
     primaryColor: 'purple',
 
@@ -1241,8 +1205,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'network-health': {
     // Visual/Branding
-    backgroundGradient:
-      'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50',
+    backgroundGradient: 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50',
     headerIcon: 'heroHeart',
     primaryColor: 'emerald',
 
@@ -1281,8 +1244,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     features: [
       {
         title: 'Member Portal',
-        description:
-          'Self-service portal for members to manage benefits and claims',
+        description: 'Self-service portal for members to manage benefits and claims',
         icon: 'heroUser',
       },
       {
@@ -1349,8 +1311,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 };
 
 // Helper function to get project configuration
-export function getProjectConfiguration(
-  projectKey: string
-): ProjectDetailConfig | null {
+export function getProjectConfiguration(projectKey: string): ProjectDetailConfig | null {
   return PROJECT_CONFIGURATIONS[projectKey] || null;
 }

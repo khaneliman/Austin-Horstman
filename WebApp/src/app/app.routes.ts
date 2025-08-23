@@ -5,13 +5,11 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'personal',
-    loadChildren: () =>
-      import('./personal/personal.routes').then(m => m.PERSONAL_ROUTES),
+    loadChildren: () => import('./personal/personal.routes').then((m) => m.PERSONAL_ROUTES),
   },
   {
     path: 'projects',
-    loadChildren: () =>
-      import('./projects/projects.routes').then(m => m.PROJECTS_ROUTES),
+    loadChildren: () => import('./projects/projects.routes').then((m) => m.PROJECTS_ROUTES),
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

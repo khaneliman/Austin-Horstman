@@ -11,9 +11,7 @@
   <div class="max-w-6xl mx-auto px-6 py-12">
     <!-- Project Header -->
     <div class="mb-8">
-      <div
-        class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
-      >
+      <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
         <div
           [class]="
             'relative bg-gradient-to-r from-' +
@@ -25,31 +23,15 @@
         >
           <!-- Decorative elements -->
           <div
-            [class]="
-              'absolute top-4 right-4 w-20 h-20 bg-' +
-              config.primaryColor +
-              '/10 rounded-full blur-xl'
-            "
+            [class]="'absolute top-4 right-4 w-20 h-20 bg-' + config.primaryColor + '/10 rounded-full blur-xl'"
           ></div>
           <div
-            [class]="
-              'absolute bottom-4 left-4 w-16 h-16 bg-' +
-              config.primaryColor +
-              '/10 rounded-full blur-lg'
-            "
+            [class]="'absolute bottom-4 left-4 w-16 h-16 bg-' + config.primaryColor + '/10 rounded-full blur-lg'"
           ></div>
 
           <div class="relative z-10 text-center">
-            <div
-              [class]="
-                'w-24 h-24 bg-white/20 rounded-2xl p-4 mx-auto mb-6 shadow-lg border border-white/20'
-              "
-            >
-              <ng-icon
-                [name]="config.headerIcon"
-                size="2rem"
-                class="text-white w-full h-full"
-              ></ng-icon>
+            <div [class]="'w-24 h-24 bg-white/20 rounded-2xl p-4 mx-auto mb-6 shadow-lg border border-white/20'">
+              <ng-icon [name]="config.headerIcon" size="2rem" class="text-white w-full h-full"></ng-icon>
             </div>
             <h1 class="text-4xl font-bold text-white mb-4">
               {{ config.title }}
@@ -100,10 +82,7 @@
       >
       </app-section-header>
 
-      <div
-        *ngIf="config.overview.type === 'html'"
-        [innerHTML]="config.overview.content"
-      ></div>
+      <div *ngIf="config.overview.type === 'html'" [innerHTML]="config.overview.content"></div>
       <div *ngIf="config.overview.type === 'list'">
         <app-bullet-list
           [items]="getListItems(config.overview.items)"
@@ -113,20 +92,13 @@
           [colorTheme]="config.primaryColor"
         ></app-bullet-list>
       </div>
-      <p
-        *ngIf="!config.overview.type || config.overview.type === 'text'"
-        class="text-gray-700 leading-relaxed"
-      >
+      <p *ngIf="!config.overview.type || config.overview.type === 'text'" class="text-gray-700 leading-relaxed">
         {{ config.overview.content }}
       </p>
     </app-base-card>
 
     <!-- Key Features Section -->
-    <app-base-card
-      *ngIf="config.features.length > 0"
-      variant="large"
-      additionalClasses="mb-8"
-    >
+    <app-base-card *ngIf="config.features.length > 0" variant="large" additionalClasses="mb-8">
       <app-section-header
         title="Key Features"
         icon="heroSparkles"
@@ -147,11 +119,7 @@
     </app-base-card>
 
     <!-- Technical Details Sections -->
-    <app-base-card
-      *ngFor="let section of config.technicalDetails"
-      variant="large"
-      additionalClasses="mb-8"
-    >
+    <app-base-card *ngFor="let section of config.technicalDetails" variant="large" additionalClasses="mb-8">
       <app-section-header
         [title]="section.title"
         [icon]="section.icon || 'heroCog6Tooth'"
@@ -171,20 +139,13 @@
           [colorTheme]="config.primaryColor"
         ></app-bullet-list>
       </div>
-      <p
-        *ngIf="!section.type || section.type === 'text'"
-        class="text-gray-700 leading-relaxed"
-      >
+      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 leading-relaxed">
         {{ section.content }}
       </p>
     </app-base-card>
 
     <!-- Special Sections -->
-    <app-base-card
-      *ngFor="let section of config.specialSections"
-      variant="large"
-      additionalClasses="mb-8"
-    >
+    <app-base-card *ngFor="let section of config.specialSections" variant="large" additionalClasses="mb-8">
       <app-section-header
         [title]="section.title"
         [icon]="section.icon || 'heroLightBulb'"
@@ -204,20 +165,13 @@
           [colorTheme]="config.primaryColor"
         ></app-bullet-list>
       </div>
-      <p
-        *ngIf="!section.type || section.type === 'text'"
-        class="text-gray-700 leading-relaxed"
-      >
+      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 leading-relaxed">
         {{ section.content }}
       </p>
     </app-base-card>
 
     <!-- Technology Stack -->
-    <app-base-card
-      *ngIf="config.showTechnicalHighlights"
-      variant="large"
-      additionalClasses="mb-8"
-    >
+    <app-base-card *ngIf="config.showTechnicalHighlights" variant="large" additionalClasses="mb-8">
       <app-section-header
         title="Technology Stack"
         icon="heroCodeBracket"
@@ -227,13 +181,7 @@
       >
       </app-section-header>
 
-      <app-tech-tag-list
-        [technologies]="techTags"
-        justify="start"
-        size="sm"
-        variant="filled"
-      >
-      </app-tech-tag-list>
+      <app-tech-tag-list [technologies]="techTags" justify="start" size="sm" variant="filled"> </app-tech-tag-list>
     </app-base-card>
 
     <!-- Project Impact Section -->
@@ -247,16 +195,8 @@
         '-700 rounded-2xl p-8 text-white text-center'
       "
     >
-      <h2 class="text-2xl font-bold mb-4 text-white text-center">
-        Project Impact
-      </h2>
-      <p
-        [class]="
-          'text-lg text-' +
-          config.primaryColor +
-          '-100 leading-relaxed max-w-2xl mx-auto'
-        "
-      >
+      <h2 class="text-2xl font-bold mb-4 text-white text-center">Project Impact</h2>
+      <p [class]="'text-lg text-' + config.primaryColor + '-100 leading-relaxed max-w-2xl mx-auto'">
         {{ config.impact }}
       </p>
     </div>

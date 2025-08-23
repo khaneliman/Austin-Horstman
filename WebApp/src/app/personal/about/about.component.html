@@ -3,18 +3,14 @@
   <!-- Hero Section -->
   <section class="relative pt-32 pb-20">
     <!-- Subtle gradient background -->
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"
-    ></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
         <!-- Profile Card -->
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
           <!-- Profile Header -->
-          <div
-            class="relative bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-16"
-          >
+          <div class="relative bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-16">
             <!-- Profile Image -->
             <div class="flex justify-center">
               <div class="relative">
@@ -23,9 +19,7 @@
                   alt="Austin Horstman profile photo"
                   class="w-32 h-32 rounded-full ring-4 ring-white object-cover shadow-lg"
                 />
-                <div
-                  class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full ring-4 ring-white"
-                ></div>
+                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full ring-4 ring-white"></div>
               </div>
             </div>
 
@@ -34,11 +28,7 @@
               <h1 class="text-4xl font-bold mb-2">Austin Horstman</h1>
               <p class="text-blue-100 text-xl mb-4">Senior Software Engineer</p>
               <div class="flex items-center justify-center text-blue-100">
-                <svg
-                  class="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fill-rule="evenodd"
                     d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -55,9 +45,7 @@
             <!-- Quick Stats -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div class="text-center p-4 bg-blue-50 rounded-xl">
-                <div class="text-2xl font-bold text-blue-600 mb-1">
-                  {{ yearsOfExperience() }}+
-                </div>
+                <div class="text-2xl font-bold text-blue-600 mb-1">{{ yearsOfExperience() }}+</div>
                 <div class="text-gray-600 text-sm">Years Experience</div>
               </div>
               <div class="text-center p-4 bg-green-50 rounded-xl">
@@ -72,34 +60,22 @@
 
             <!-- About Description -->
             <div class="text-center mb-8">
-              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
-                About Me
-              </h2>
-              <p
-                class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto"
-              >
-                Austin has over {{ yearsOfExperience() }} years of experience in
-                the information technology industry and has played key roles in
-                several .NET desktop, database design and deployments, extract,
-                transform, load processes, and application modernization Angular
-                websites. Passionate about open-source development and is a
-                maintainer in the Nix ecosystem and various Linux projects.
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">About Me</h2>
+              <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+                Austin has over {{ yearsOfExperience() }} years of experience in the information technology industry and
+                has played key roles in several .NET desktop, database design and deployments, extract, transform, load
+                processes, and application modernization Angular websites. Passionate about open-source development and
+                is a maintainer in the Nix ecosystem and various Linux projects.
               </p>
             </div>
 
             <!-- Action Buttons -->
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 routerLink="/personal/resume"
                 class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
               >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
                   <path
                     fill-rule="evenodd"
@@ -113,17 +89,9 @@
                 routerLink="/personal/contact"
                 class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-colors duration-200"
               >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-                  ></path>
-                  <path
-                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-                  ></path>
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                 </svg>
                 Get in Touch
               </a>

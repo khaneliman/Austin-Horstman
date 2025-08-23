@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-base-card',
@@ -54,9 +54,7 @@ export class BaseCardComponent {
 
     // Hover effects
     if (this.hover) {
-      classes.push(
-        'hover:shadow-xl transition-all duration-300 hover:-translate-y-1'
-      );
+      classes.push('hover:shadow-xl transition-all duration-300 hover:-translate-y-1');
     }
 
     // Additional classes

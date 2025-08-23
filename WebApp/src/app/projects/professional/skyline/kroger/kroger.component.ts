@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
-import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
 import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
+import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
 
 @Component({
   selector: 'app-skyline-kroger',

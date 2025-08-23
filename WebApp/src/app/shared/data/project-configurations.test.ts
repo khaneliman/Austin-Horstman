@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'bun:test';
+import { describe, expect, it } from 'bun:test';
 import { PROJECT_CONFIGURATIONS } from './project-configurations';
 
 describe('Project Configurations', () => {
@@ -33,8 +33,8 @@ describe('Project Configurations', () => {
   });
 
   it('should have valid technology items in configurations', () => {
-    Object.values(PROJECT_CONFIGURATIONS).forEach(config => {
-      config.technologies.forEach(tech => {
+    Object.values(PROJECT_CONFIGURATIONS).forEach((config) => {
+      config.technologies.forEach((tech) => {
         expect(tech).toHaveProperty('name');
         expect(tech).toHaveProperty('color');
         expect(typeof tech.name).toBe('string');
@@ -46,11 +46,11 @@ describe('Project Configurations', () => {
   });
 
   it('should have valid quick stats if present', () => {
-    Object.values(PROJECT_CONFIGURATIONS).forEach(config => {
+    Object.values(PROJECT_CONFIGURATIONS).forEach((config) => {
       if (config.quickStats) {
         expect(Array.isArray(config.quickStats)).toBe(true);
 
-        config.quickStats.forEach(stat => {
+        config.quickStats.forEach((stat) => {
           expect(stat).toHaveProperty('label');
           expect(stat).toHaveProperty('value');
           expect(stat).toHaveProperty('icon');
@@ -63,23 +63,16 @@ describe('Project Configurations', () => {
   });
 
   it('should have valid back routes', () => {
-    Object.values(PROJECT_CONFIGURATIONS).forEach(config => {
+    Object.values(PROJECT_CONFIGURATIONS).forEach((config) => {
       expect(config.backRoute.startsWith('/')).toBe(true);
       expect(config.backLabel.length).toBeGreaterThan(0);
     });
   });
 
   it('should have consistent company keys', () => {
-    const validCompanyKeys = [
-      'skyline',
-      'corebts',
-      'west',
-      'geeksquad',
-      'nri-na',
-      'bestbuy',
-    ];
+    const validCompanyKeys = ['skyline', 'corebts', 'west', 'geeksquad', 'nri-na', 'bestbuy'];
 
-    Object.values(PROJECT_CONFIGURATIONS).forEach(config => {
+    Object.values(PROJECT_CONFIGURATIONS).forEach((config) => {
       expect(validCompanyKeys).toContain(config.companyKey);
     });
   });
@@ -91,7 +84,7 @@ describe('Project Configurations', () => {
   });
 
   it('should have meaningful descriptions', () => {
-    Object.values(PROJECT_CONFIGURATIONS).forEach(config => {
+    Object.values(PROJECT_CONFIGURATIONS).forEach((config) => {
       expect(config.description.length).toBeGreaterThan(50); // Should be descriptive
       expect(config.title.length).toBeGreaterThan(5);
     });
@@ -106,9 +99,7 @@ describe('Project Configurations', () => {
     });
 
     it('should have projects for multiple companies', () => {
-      const companyKeys = Object.values(PROJECT_CONFIGURATIONS).map(
-        config => config.companyKey
-      );
+      const companyKeys = Object.values(PROJECT_CONFIGURATIONS).map((config) => config.companyKey);
       const uniqueCompanies = new Set(companyKeys);
       expect(uniqueCompanies.size).toBeGreaterThan(1);
     });

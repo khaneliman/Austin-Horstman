@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'bun:test';
+import { beforeEach, describe, expect, it } from 'bun:test';
 import { LogoStylingService } from './logo-styling.service';
 
 describe('LogoStylingService', () => {
@@ -54,14 +54,9 @@ describe('LogoStylingService', () => {
     });
 
     it('should handle all valid logo background types', () => {
-      const validTypes: ('white' | 'black' | 'dark' | undefined)[] = [
-        'white',
-        'black',
-        'dark',
-        undefined,
-      ];
+      const validTypes: ('white' | 'black' | 'dark' | undefined)[] = ['white', 'black', 'dark', undefined];
 
-      validTypes.forEach(type => {
+      validTypes.forEach((type) => {
         expect(() => service.getLogoBackgroundStyle(type)).not.toThrow();
         expect(() => service.getLogoBackgroundClasses(type)).not.toThrow();
         expect(service.getLogoBackgroundStyle(type)).toBeDefined();

@@ -1,11 +1,11 @@
-import { describe, it, expect } from 'bun:test';
+import { describe, expect, it } from 'bun:test';
 import {
-  TECHNOLOGY_SKILLS,
-  getProficientTechnologies,
-  getLearnedTechnologies,
-  getInterestedTechnologies,
   getAllTechnologyNames,
+  getInterestedTechnologies,
+  getLearnedTechnologies,
+  getProficientTechnologies,
   getTechnologyByName,
+  TECHNOLOGY_SKILLS,
 } from './technologies';
 
 describe('Technologies Data', () => {
@@ -17,7 +17,7 @@ describe('Technologies Data', () => {
     });
 
     it('should have valid technology structure', () => {
-      TECHNOLOGY_SKILLS.forEach(tech => {
+      TECHNOLOGY_SKILLS.forEach((tech) => {
         expect(tech).toHaveProperty('name');
         expect(typeof tech.name).toBe('string');
         expect(tech.name.length).toBeGreaterThan(0);
@@ -31,7 +31,7 @@ describe('Technologies Data', () => {
     });
 
     it('should have unique technology names', () => {
-      const names = TECHNOLOGY_SKILLS.map(tech => tech.name.toLowerCase());
+      const names = TECHNOLOGY_SKILLS.map((tech) => tech.name.toLowerCase());
       const uniqueNames = new Set(names);
       expect(names.length).toBe(uniqueNames.size);
     });
@@ -42,7 +42,7 @@ describe('Technologies Data', () => {
       const proficient = getProficientTechnologies();
       expect(Array.isArray(proficient)).toBe(true);
 
-      proficient.forEach(tech => {
+      proficient.forEach((tech) => {
         expect(tech.skillLevel).toBeDefined();
         expect(tech.skillLevel! >= 4).toBe(true);
       });
@@ -50,7 +50,7 @@ describe('Technologies Data', () => {
 
     it('should include Angular and TypeScript as proficient', () => {
       const proficient = getProficientTechnologies();
-      const names = proficient.map(tech => tech.name);
+      const names = proficient.map((tech) => tech.name);
 
       expect(names).toContain('Angular');
       expect(names).toContain('TypeScript');
@@ -62,7 +62,7 @@ describe('Technologies Data', () => {
       const learned = getLearnedTechnologies();
       expect(Array.isArray(learned)).toBe(true);
 
-      learned.forEach(tech => {
+      learned.forEach((tech) => {
         expect(tech.skillLevel).toBeDefined();
         expect(tech.skillLevel! >= 2).toBe(true);
         expect(tech.skillLevel! <= 3).toBe(true);
@@ -71,7 +71,7 @@ describe('Technologies Data', () => {
 
     it('should include moderate skill technologies', () => {
       const learned = getLearnedTechnologies();
-      const names = learned.map(tech => tech.name);
+      const names = learned.map((tech) => tech.name);
 
       expect(names.length).toBeGreaterThan(0);
       expect(names).toContain('Docker');
@@ -83,16 +83,14 @@ describe('Technologies Data', () => {
       const interested = getInterestedTechnologies();
       expect(Array.isArray(interested)).toBe(true);
 
-      interested.forEach(tech => {
-        expect(tech.skillLevel === undefined || tech.skillLevel === 1).toBe(
-          true
-        );
+      interested.forEach((tech) => {
+        expect(tech.skillLevel === undefined || tech.skillLevel === 1).toBe(true);
       });
     });
 
     it('should include interested technologies like Swift', () => {
       const interested = getInterestedTechnologies();
-      const names = interested.map(tech => tech.name);
+      const names = interested.map((tech) => tech.name);
 
       expect(names).toContain('Swift');
       expect(names).toContain('Svelte');
@@ -106,7 +104,7 @@ describe('Technologies Data', () => {
       expect(Array.isArray(names)).toBe(true);
       expect(names.length).toBe(TECHNOLOGY_SKILLS.length);
 
-      names.forEach(name => {
+      names.forEach((name) => {
         expect(typeof name).toBe('string');
         expect(name.length).toBeGreaterThan(0);
       });
@@ -142,32 +140,25 @@ describe('Technologies Data', () => {
       const learned = getLearnedTechnologies();
       const interested = getInterestedTechnologies();
 
-      const totalCategorized =
-        proficient.length + learned.length + interested.length;
+      const totalCategorized = proficient.length + learned.length + interested.length;
       expect(totalCategorized).toBe(TECHNOLOGY_SKILLS.length);
     });
 
     it('should have no overlap between categories', () => {
-      const proficient = getProficientTechnologies().map(t => t.name);
-      const learned = getLearnedTechnologies().map(t => t.name);
-      const interested = getInterestedTechnologies().map(t => t.name);
+      const proficient = getProficientTechnologies().map((t) => t.name);
+      const learned = getLearnedTechnologies().map((t) => t.name);
+      const interested = getInterestedTechnologies().map((t) => t.name);
 
       // Check no overlap between proficient and learned
-      const proficientLearnedOverlap = proficient.filter(name =>
-        learned.includes(name)
-      );
+      const proficientLearnedOverlap = proficient.filter((name) => learned.includes(name));
       expect(proficientLearnedOverlap.length).toBe(0);
 
       // Check no overlap between learned and interested
-      const learnedInterestedOverlap = learned.filter(name =>
-        interested.includes(name)
-      );
+      const learnedInterestedOverlap = learned.filter((name) => interested.includes(name));
       expect(learnedInterestedOverlap.length).toBe(0);
 
       // Check no overlap between proficient and interested
-      const proficientInterestedOverlap = proficient.filter(name =>
-        interested.includes(name)
-      );
+      const proficientInterestedOverlap = proficient.filter((name) => interested.includes(name));
       expect(proficientInterestedOverlap.length).toBe(0);
     });
   });

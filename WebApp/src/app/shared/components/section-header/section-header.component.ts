@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
@@ -9,30 +9,15 @@ import { NgIconComponent } from '@ng-icons/core';
   template: `
     <div [ngSwitch]="level" [class]="headerClasses">
       <h1 *ngSwitchCase="'h1'" [class]="titleClasses">
-        <ng-icon
-          *ngIf="icon"
-          [name]="icon"
-          [size]="iconSize"
-          [class]="iconClasses"
-        ></ng-icon>
+        <ng-icon *ngIf="icon" [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
         {{ title }}
       </h1>
       <h2 *ngSwitchCase="'h2'" [class]="titleClasses">
-        <ng-icon
-          *ngIf="icon"
-          [name]="icon"
-          [size]="iconSize"
-          [class]="iconClasses"
-        ></ng-icon>
+        <ng-icon *ngIf="icon" [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
         {{ title }}
       </h2>
       <h3 *ngSwitchDefault [class]="titleClasses">
-        <ng-icon
-          *ngIf="icon"
-          [name]="icon"
-          [size]="iconSize"
-          [class]="iconClasses"
-        ></ng-icon>
+        <ng-icon *ngIf="icon" [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
         {{ title }}
       </h3>
     </div>

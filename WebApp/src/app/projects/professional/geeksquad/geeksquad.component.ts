@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {
-  CompanyProfileComponent,
   CompanyInfo,
+  CompanyProfileComponent,
   ProjectInfo,
 } from '../../../shared/components/company-profile/company-profile.component';
-import { getProjectsForCompany } from '../../../shared/data/projects';
 import { getCompanyById } from '../../../shared/data/companies';
+import { getProjectsForCompany } from '../../../shared/data/projects';
 
 @Component({
   selector: 'app-geeksquad',

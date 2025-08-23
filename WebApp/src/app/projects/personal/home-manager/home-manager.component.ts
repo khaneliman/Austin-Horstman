@@ -2,36 +2,28 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  BulletListComponent,
-  BulletListItem,
-} from '../../../shared/components/bullet-list/bullet-list.component';
-import {
-  BackgroundElement,
-  DecorativeBackgroundComponent,
-} from '../../../shared/components/decorative-background/decorative-background.component';
-import {
   heroArrowTopRightOnSquare,
+  heroCalendar,
   heroCodeBracket,
   heroCog6Tooth,
   heroCommandLine,
   heroGlobeAlt,
   heroHome,
-  heroUser,
-  heroCalendar,
   heroStar,
+  heroUser,
   heroUsers,
 } from '@ng-icons/heroicons/outline';
+import { BulletListComponent, BulletListItem } from '../../../shared/components/bullet-list/bullet-list.component';
+import {
+  BackgroundElement,
+  DecorativeBackgroundComponent,
+} from '../../../shared/components/decorative-background/decorative-background.component';
 
 @Component({
   selector: 'app-home-manager',
   templateUrl: './home-manager.component.html',
   styleUrls: ['./home-manager.component.scss'],
-  imports: [
-    RouterLink,
-    NgIconComponent,
-    BulletListComponent,
-    DecorativeBackgroundComponent,
-  ],
+  imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({
       heroArrowTopRightOnSquare,

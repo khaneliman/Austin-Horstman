@@ -1,36 +1,36 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroListBullet,
-  heroCodeBracket,
-  heroCog6Tooth,
+  heroArchiveBox,
+  heroArrowRight,
   heroBeaker,
-  heroLink,
   heroBuildingOffice,
   heroCalendarDays,
-  heroArchiveBox,
+  heroCircleStack,
+  heroCloud,
+  heroCodeBracket,
+  heroCog6Tooth,
   heroGlobeAlt,
-  heroArrowRight,
+  heroLink,
+  heroListBullet,
+  heroShieldCheck,
   heroShoppingBag,
   heroUserGroup,
-  heroShieldCheck,
-  heroCloud,
-  heroCircleStack,
 } from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-header.component';
 import { BaseCardComponent } from '../base-card/base-card.component';
-import { SectionHeaderComponent } from '../section-header/section-header.component';
-import { StatsGridComponent, Stat } from '../stats-grid/stats-grid.component';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
 } from '../decorative-background/decorative-background.component';
 import {
-  EnhancedFeatureCardComponent,
   EnhancedFeature,
+  EnhancedFeatureCardComponent,
 } from '../enhanced-feature-card/enhanced-feature-card.component';
+import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-header.component';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { Stat, StatsGridComponent } from '../stats-grid/stats-grid.component';
 
 @Component({
   selector: 'app-doitbest-project',

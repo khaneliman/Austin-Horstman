@@ -1,20 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
-  inject,
-} from '@angular/core';
-import {
-  Router,
-  NavigationEnd,
-  NavigationStart,
-  RouterModule,
-} from '@angular/router';
-import { Location, PopStateEvent } from '@angular/common';
-import { CommonModule } from '@angular/common';
-import { SocialLinksComponent } from '../social-links/social-links.component';
+import { CommonModule, Location, PopStateEvent } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
   standalone: true,
@@ -37,11 +25,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private router = inject(Router);
 
   ngOnInit(): void {
-    this.router.events.pipe(takeUntil(this.destroy$)).subscribe(event => {
+    this.router.events.pipe(takeUntil(this.destroy$)).subscribe((event) => {
       this.isCollapsed = true;
       if (event instanceof NavigationStart) {
-        if (event.url != this.lastPoppedUrl)
-          this.yScrollStack.push(window.scrollY);
+        if (event.url != this.lastPoppedUrl) this.yScrollStack.push(window.scrollY);
       } else if (event instanceof NavigationEnd) {
         if (event.url == this.lastPoppedUrl) {
           this.lastPoppedUrl = undefined;

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import {
@@ -30,12 +30,7 @@ export interface PersonalProject {
 @Component({
   selector: 'app-personal-projects-grid',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgIconComponent,
-    DecorativeBackgroundComponent,
-  ],
+  imports: [CommonModule, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
   templateUrl: './personal-projects-grid.component.html',
   styleUrls: ['./personal-projects-grid.component.scss'],
 })
@@ -55,9 +50,7 @@ export class PersonalProjectsGridComponent {
   ];
 
   get displayedProjects(): PersonalProject[] {
-    const filtered = this.showFeaturedOnly
-      ? this.projects.filter(p => p.featured)
-      : this.projects;
+    const filtered = this.showFeaturedOnly ? this.projects.filter((p) => p.featured) : this.projects;
 
     return this.maxProjects ? filtered.slice(0, this.maxProjects) : filtered;
   }

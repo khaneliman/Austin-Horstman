@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -23,10 +18,7 @@ export class AboutComponent {
     let years = today.getFullYear() - careerStart.getFullYear();
     const monthDiff = today.getMonth() - careerStart.getMonth();
 
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < careerStart.getDate())
-    ) {
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < careerStart.getDate())) {
       years--;
     }
 

@@ -1,13 +1,7 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
-export type WaveStyle =
-  | 'wave'
-  | 'curve'
-  | 'zigzag'
-  | 'slant'
-  | 'triangle'
-  | 'book';
+export type WaveStyle = 'wave' | 'curve' | 'zigzag' | 'slant' | 'triangle' | 'book';
 export type WaveDirection = 'top' | 'bottom' | 'both';
 
 @Component({
@@ -16,10 +10,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
   imports: [CommonModule],
   template: `
     <!-- Top separator -->
-    <div
-      *ngIf="direction === 'top' || direction === 'both'"
-      class="overflow-hidden leading-none"
-    >
+    <div *ngIf="direction === 'top' || direction === 'both'" class="overflow-hidden leading-none">
       <svg
         class="relative block w-full"
         [attr.height]="svgHeight"
@@ -27,10 +18,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
         viewBox="0 0 1200 120"
         preserveAspectRatio="none"
       >
-        <path
-          [attr.d]="getPathData('top')"
-          [class]="getPathClasses('top')"
-        ></path>
+        <path [attr.d]="getPathData('top')" [class]="getPathClasses('top')"></path>
       </svg>
     </div>
 
@@ -38,10 +26,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
     <ng-content></ng-content>
 
     <!-- Bottom separator -->
-    <div
-      *ngIf="direction === 'bottom' || direction === 'both'"
-      class="overflow-hidden leading-none rotate-180"
-    >
+    <div *ngIf="direction === 'bottom' || direction === 'both'" class="overflow-hidden leading-none rotate-180">
       <svg
         class="relative block w-full"
         [attr.height]="svgHeight"
@@ -49,10 +34,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
         viewBox="0 0 1200 120"
         preserveAspectRatio="none"
       >
-        <path
-          [attr.d]="getPathData('bottom')"
-          [class]="getPathClasses('bottom')"
-        ></path>
+        <path [attr.d]="getPathData('bottom')" [class]="getPathClasses('bottom')"></path>
       </svg>
     </div>
   `,
@@ -114,9 +96,7 @@ export class WaveSeparatorComponent {
         return 'M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z';
 
       case 'curve':
-        return shouldFlip
-          ? 'M0,160L1440,96L1440,0L0,0Z'
-          : 'M0,96L1440,160L1440,320L0,320Z';
+        return shouldFlip ? 'M0,160L1440,96L1440,0L0,0Z' : 'M0,96L1440,160L1440,320L0,320Z';
 
       case 'zigzag':
         return shouldFlip
@@ -124,14 +104,10 @@ export class WaveSeparatorComponent {
           : 'M0,64L120,96L240,64L360,128L480,64L600,96L720,64L840,128L960,64L1080,96L1200,64L1200,320L0,320Z';
 
       case 'slant':
-        return shouldFlip
-          ? 'M0,320L1440,160L1440,0L0,0Z'
-          : 'M0,160L1440,320L1440,320L0,320Z';
+        return shouldFlip ? 'M0,320L1440,160L1440,0L0,0Z' : 'M0,160L1440,320L1440,320L0,320Z';
 
       case 'triangle':
-        return shouldFlip
-          ? 'M0,320L720,160L1440,320L1440,0L0,0Z'
-          : 'M0,160L720,320L1440,160L1440,320L0,320Z';
+        return shouldFlip ? 'M0,320L720,160L1440,320L1440,0L0,0Z' : 'M0,160L720,320L1440,160L1440,320L0,320Z';
 
       case 'book':
         return shouldFlip

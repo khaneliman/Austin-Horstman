@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
@@ -9,11 +9,7 @@ import { NgIconComponent } from '@ng-icons/core';
   template: `
     <div class="flex items-start space-x-4">
       <div [class]="iconContainerClasses">
-        <ng-icon
-          [name]="icon"
-          [size]="iconSize"
-          [class]="iconClasses"
-        ></ng-icon>
+        <ng-icon [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
       </div>
       <div class="flex-1">
         <h3 [class]="titleClasses">

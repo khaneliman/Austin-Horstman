@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'bun:test';
+import { describe, expect, it } from 'bun:test';
 import { SocialLinksService } from './social-links.service';
 
 describe('SocialLinksService', () => {
@@ -19,7 +19,7 @@ describe('SocialLinksService', () => {
     const service = new SocialLinksService();
     const links = service.socialLinks();
 
-    links.forEach(link => {
+    links.forEach((link) => {
       expect(link).toHaveProperty('platform');
       expect(link).toHaveProperty('link');
       expect(link).toHaveProperty('iconName');

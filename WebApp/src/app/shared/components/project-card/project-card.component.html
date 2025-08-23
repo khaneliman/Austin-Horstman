@@ -3,23 +3,13 @@
 >
   <!-- Project Header -->
   <div [class]="'relative bg-gradient-to-r ' + project.color + ' px-8 py-10'">
-    <app-decorative-background
-      [elements]="backgroundElements"
-    ></app-decorative-background>
+    <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
     <div class="relative z-10">
       <div class="flex items-center justify-between mb-4">
-        <div
-          class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center"
-        >
-          <ng-icon
-            [name]="project.icon"
-            size="1.5rem"
-            class="text-white"
-          ></ng-icon>
+        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+          <ng-icon [name]="project.icon" size="1.5rem" class="text-white"></ng-icon>
         </div>
-        <span
-          class="px-4 py-2 bg-white/20 rounded-full text-white text-sm font-medium"
-        >
+        <span class="px-4 py-2 bg-white/20 rounded-full text-white text-sm font-medium">
           {{ project.status }}
         </span>
       </div>

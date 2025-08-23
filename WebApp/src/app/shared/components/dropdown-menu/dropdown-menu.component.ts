@@ -1,16 +1,16 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ElementRef,
-  OnInit,
-  OnDestroy,
-  HostListener,
-  ChangeDetectionStrategy,
-  inject,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  inject,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 
@@ -78,10 +78,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
       const dropdown = this.elementRef.nativeElement;
 
       // Check if click is outside dropdown and trigger element
-      if (
-        !dropdown.contains(target) &&
-        (!this.triggerElement || !this.triggerElement.contains(target))
-      ) {
+      if (!dropdown.contains(target) && (!this.triggerElement || !this.triggerElement.contains(target))) {
         this.outsideClick.emit(event);
         this.closeMenu();
       }
@@ -151,9 +148,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   private setupKeyboardNavigation(): void {
     // Focus the dropdown menu for keyboard navigation
     setTimeout(() => {
-      const menuElement = this.elementRef.nativeElement.querySelector(
-        '[role="menu"]'
-      ) as HTMLElement;
+      const menuElement = this.elementRef.nativeElement.querySelector('[role="menu"]') as HTMLElement;
       if (menuElement) {
         menuElement.focus();
       }
@@ -166,15 +161,12 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   }
 
   private navigateUp(enabledItems: MenuItem[]): void {
-    this.focusedIndex =
-      this.focusedIndex <= 0 ? enabledItems.length - 1 : this.focusedIndex - 1;
+    this.focusedIndex = this.focusedIndex <= 0 ? enabledItems.length - 1 : this.focusedIndex - 1;
     this.updateFocus();
   }
 
   private updateFocus(): void {
-    const menuItems = this.elementRef.nativeElement.querySelectorAll(
-      '[role="menuitem"]:not([disabled])'
-    );
+    const menuItems = this.elementRef.nativeElement.querySelectorAll('[role="menuitem"]:not([disabled])');
     const targetItem = menuItems[this.focusedIndex] as HTMLElement;
     if (targetItem) {
       targetItem.focus();
@@ -192,7 +184,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   }
 
   private getEnabledMenuItems(): MenuItem[] {
-    return this.items.filter(item => !item.disabled && !item.divider);
+    return this.items.filter((item) => !item.disabled && !item.divider);
   }
 
   get menuClasses(): string {
@@ -298,14 +290,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   }
 
   get disabledItemClasses(): string {
-    const classes = [
-      'flex',
-      'items-center',
-      'w-full',
-      'px-4',
-      'py-2',
-      'cursor-not-allowed',
-    ];
+    const classes = ['flex', 'items-center', 'w-full', 'px-4', 'py-2', 'cursor-not-allowed'];
 
     if (this.darkMode) {
       classes.push('text-gray-500');

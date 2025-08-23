@@ -1,34 +1,24 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroCog6Tooth,
-  heroPencil,
   heroBeaker,
-  heroUserPlus,
+  heroCog6Tooth,
   heroEnvelope,
   heroPaperAirplane,
+  heroPencil,
+  heroUserPlus,
 } from '@ng-icons/heroicons/outline';
+import { BackgroundElement } from '../../shared/components/decorative-background/decorative-background.component';
 import { FormInputComponent } from '../../shared/components/form-input/form-input.component';
 import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
-import { BackgroundElement } from '../../shared/components/decorative-background/decorative-background.component';
 
 @Component({
   standalone: true,
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  imports: [
-    NgIconComponent,
-    FormInputComponent,
-    ReactiveFormsModule,
-    HeroSectionComponent,
-  ],
+  imports: [NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],
   providers: [
     provideIcons({
       heroCog6Tooth,
@@ -47,8 +37,7 @@ export class ContactComponent {
   private readonly fb = inject(FormBuilder);
 
   heroTitle = "Let's Connect";
-  heroSubtitle =
-    "Ready to discuss your next project? I'd love to hear from you.";
+  heroSubtitle = "Ready to discuss your next project? I'd love to hear from you.";
 
   backgroundElements: BackgroundElement[] = [
     {

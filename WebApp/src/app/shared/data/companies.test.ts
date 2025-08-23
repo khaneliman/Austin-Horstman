@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'bun:test';
+import { describe, expect, it } from 'bun:test';
 import { COMPANIES, getAllCompanies } from './companies';
 
 describe('Companies Data', () => {
@@ -9,7 +9,7 @@ describe('Companies Data', () => {
   });
 
   it('should have valid company structure', () => {
-    Object.values(COMPANIES).forEach(company => {
+    Object.values(COMPANIES).forEach((company) => {
       expect(company).toHaveProperty('id');
       expect(company).toHaveProperty('displayName');
       expect(company).toHaveProperty('name');
@@ -20,7 +20,7 @@ describe('Companies Data', () => {
   });
 
   it('should have unique company ids', () => {
-    const ids = Object.values(COMPANIES).map(company => company.id);
+    const ids = Object.values(COMPANIES).map((company) => company.id);
     const uniqueIds = new Set(ids);
     expect(ids.length).toBe(uniqueIds.size);
   });

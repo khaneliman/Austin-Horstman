@@ -1,73 +1,69 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroArrowLeft,
-  heroBookOpen,
-  heroRocketLaunch,
-  heroCircleStack,
-  heroCodeBracket,
-  heroComputerDesktop,
-  heroCog6Tooth,
-  heroLightBulb,
-  heroChartBar,
-  heroGlobeAlt,
-  heroShieldCheck,
-  heroBeaker,
-  heroWrench,
   heroAcademicCap,
-  heroUserGroup,
-  heroCloudArrowUp,
-  heroDocumentText,
-  heroMagnifyingGlass,
-  heroSparkles,
-  heroServer,
-  heroDevicePhoneMobile,
-  heroClock,
-  heroUser,
-  heroBolt,
-  heroWifi,
-  heroCheck,
-  heroRectangleStack,
-  heroListBullet,
-  heroTicket,
-  heroLink,
-  heroChartPie,
-  heroTruck,
-  heroCog8Tooth,
-  heroSpeakerWave,
-  heroMapPin,
-  heroArrowPath,
-  heroBell,
-  heroCloudArrowDown,
-  heroIdentification,
-  heroClipboardDocumentList,
-  heroHeart,
-  heroBuildingOffice2,
-  heroPresentationChartLine,
-  heroUsers,
-  heroShoppingBag,
   heroArchiveBox,
-  heroCloud,
-  heroArrowUpTray,
   heroArrowDownTray,
+  heroArrowLeft,
+  heroArrowPath,
   heroArrowPathRoundedSquare,
-  heroDocumentArrowUp,
-  heroScale,
-  heroChartBarSquare,
-  heroStar,
+  heroArrowUpTray,
+  heroBeaker,
+  heroBell,
+  heroBolt,
+  heroBookOpen,
+  heroBuildingOffice2,
   heroCalendarDays,
+  heroChartBar,
+  heroChartBarSquare,
+  heroChartPie,
+  heroCheck,
+  heroCircleStack,
+  heroClipboardDocumentList,
+  heroClock,
+  heroCloud,
+  heroCloudArrowDown,
+  heroCloudArrowUp,
+  heroCodeBracket,
+  heroCog6Tooth,
+  heroCog8Tooth,
+  heroComputerDesktop,
+  heroDevicePhoneMobile,
+  heroDocumentArrowUp,
+  heroDocumentText,
+  heroGlobeAlt,
+  heroHeart,
+  heroIdentification,
+  heroLightBulb,
+  heroLink,
+  heroListBullet,
+  heroMagnifyingGlass,
+  heroMapPin,
+  heroPresentationChartLine,
+  heroRectangleStack,
+  heroRocketLaunch,
+  heroScale,
+  heroServer,
+  heroShieldCheck,
+  heroShoppingBag,
+  heroSparkles,
+  heroSpeakerWave,
+  heroStar,
+  heroTicket,
+  heroTruck,
+  heroUser,
+  heroUserGroup,
+  heroUsers,
+  heroWifi,
+  heroWrench,
 } from '@ng-icons/heroicons/outline';
-
 import {
-  TechTagListComponent,
-  TechTag,
-} from '../tech-tag-list/tech-tag-list.component';
-import {
-  DecorativeBackgroundComponent,
   BackgroundElement,
+  DecorativeBackgroundComponent,
 } from '../decorative-background/decorative-background.component';
+import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.component';
 
 export interface ProjectHeader {
   title: string;
@@ -83,13 +79,7 @@ export interface ProjectHeader {
 @Component({
   selector: 'app-project-header',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    NgIconComponent,
-    TechTagListComponent,
-    DecorativeBackgroundComponent,
-  ],
+  imports: [CommonModule, RouterLink, NgIconComponent, TechTagListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({
       heroArrowLeft,
@@ -161,21 +151,14 @@ export class ProjectHeaderComponent {
   @Input() variant: 'default' | 'minimal' | 'full' = 'default';
 
   get techTags(): TechTag[] {
-    return this.project.technologies.map(tech => ({
+    return this.project.technologies.map((tech) => ({
       name: tech.name,
       color: 'white', // White color for header tags on colored background
     }));
   }
 
   get containerClasses(): string {
-    const baseClasses = [
-      'bg-white',
-      'rounded-3xl',
-      'shadow-2xl',
-      'border',
-      'border-gray-100',
-      'overflow-hidden',
-    ];
+    const baseClasses = ['bg-white', 'rounded-3xl', 'shadow-2xl', 'border', 'border-gray-100', 'overflow-hidden'];
 
     if (this.variant === 'minimal') {
       baseClasses.push('shadow-lg');
@@ -208,15 +191,7 @@ export class ProjectHeaderComponent {
   }
 
   get iconContainerClasses(): string {
-    const classes = [
-      'bg-white/20',
-      'rounded-2xl',
-      'p-4',
-      'mx-auto',
-      'shadow-lg',
-      'border',
-      'border-white/20',
-    ];
+    const classes = ['bg-white/20', 'rounded-2xl', 'p-4', 'mx-auto', 'shadow-lg', 'border', 'border-white/20'];
 
     switch (this.size) {
       case 'sm':
@@ -265,12 +240,7 @@ export class ProjectHeaderComponent {
   }
 
   get descriptionClasses(): string {
-    const classes = [
-      'text-white/90',
-      'leading-relaxed',
-      'max-w-2xl',
-      'mx-auto',
-    ];
+    const classes = ['text-white/90', 'leading-relaxed', 'max-w-2xl', 'mx-auto'];
 
     switch (this.size) {
       case 'sm':
@@ -307,9 +277,7 @@ export class ProjectHeaderComponent {
     }
 
     // Default decorative elements based on gradient colors
-    const primaryColor = this.project.gradientFrom
-      .replace('-600', '')
-      .replace('-700', '');
+    const primaryColor = this.project.gradientFrom.replace('-600', '').replace('-700', '');
     return [
       {
         size: 'lg',

@@ -2,10 +2,7 @@
 <div [class]="containerClasses">
   <div [class]="headerClasses">
     <!-- Decorative Background Elements -->
-    <app-decorative-background
-      *ngIf="variant !== 'minimal'"
-      [elements]="defaultBackgroundElements"
-    >
+    <app-decorative-background *ngIf="variant !== 'minimal'" [elements]="defaultBackgroundElements">
     </app-decorative-background>
 
     <!-- Back Button -->
@@ -20,11 +17,7 @@
     <div class="relative z-10 text-center">
       <!-- Project Icon -->
       <div [class]="iconContainerClasses">
-        <ng-icon
-          [name]="project.icon"
-          [size]="iconSize"
-          class="text-white w-full h-full"
-        ></ng-icon>
+        <ng-icon [name]="project.icon" [size]="iconSize" class="text-white w-full h-full"></ng-icon>
       </div>
 
       <!-- Project Title -->
@@ -47,14 +40,8 @@
       </p>
 
       <!-- Technology Tags -->
-      <div
-        *ngIf="project.technologies.length > 0 && variant !== 'minimal'"
-        class="mt-6"
-      >
-        <div
-          *ngIf="variant === 'default'"
-          class="flex flex-wrap justify-center gap-3"
-        >
+      <div *ngIf="project.technologies.length > 0 && variant !== 'minimal'" class="mt-6">
+        <div *ngIf="variant === 'default'" class="flex flex-wrap justify-center gap-3">
           <span
             *ngFor="let tech of project.technologies"
             class="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium"
@@ -64,12 +51,7 @@
         </div>
 
         <div *ngIf="variant === 'full'">
-          <app-tech-tag-list
-            [technologies]="techTags"
-            justify="center"
-            size="sm"
-            variant="ghost"
-          ></app-tech-tag-list>
+          <app-tech-tag-list [technologies]="techTags" justify="center" size="sm" variant="ghost"></app-tech-tag-list>
         </div>
       </div>
     </div>

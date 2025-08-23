@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'bun:test';
+import { beforeEach, describe, expect, it } from 'bun:test';
 import { generatePersonalProjectsGrid } from './personal-projects';
 
 describe('Personal Projects Data', () => {
@@ -14,7 +14,7 @@ describe('Personal Projects Data', () => {
   });
 
   it('should have valid project structure', () => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       expect(project).toHaveProperty('id');
       expect(project).toHaveProperty('title');
       expect(project).toHaveProperty('description');
@@ -38,17 +38,17 @@ describe('Personal Projects Data', () => {
   });
 
   it('should have unique project IDs', () => {
-    const ids = projects.map(project => project.id);
+    const ids = projects.map((project) => project.id);
     const uniqueIds = new Set(ids);
     expect(ids.length).toBe(uniqueIds.size);
   });
 
   it('should have valid sub-projects structure', () => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       if (project.projects) {
         expect(Array.isArray(project.projects)).toBe(true);
 
-        project.projects.forEach(subProject => {
+        project.projects.forEach((subProject) => {
           expect(subProject).toHaveProperty('name');
           expect(subProject).toHaveProperty('description');
           expect(subProject).toHaveProperty('route');
@@ -64,21 +64,21 @@ describe('Personal Projects Data', () => {
   });
 
   it('should have valid date formats', () => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       // Should be in YYYY-MM format
       expect(project.startDate).toMatch(/^\d{4}-\d{2}$/);
     });
   });
 
   it('should have meaningful descriptions', () => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       expect(project.description.length).toBeGreaterThan(50);
       expect(project.title.length).toBeGreaterThan(5);
     });
   });
 
   it('should have valid URLs when present', () => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       if (project.githubUrl) {
         expect(project.githubUrl.startsWith('https://github.com/')).toBe(true);
       }
@@ -89,12 +89,12 @@ describe('Personal Projects Data', () => {
   });
 
   it('should have highlights when present', () => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       if (project.highlights) {
         expect(Array.isArray(project.highlights)).toBe(true);
         expect(project.highlights.length).toBeGreaterThan(0);
 
-        project.highlights.forEach(highlight => {
+        project.highlights.forEach((highlight) => {
           expect(typeof highlight).toBe('string');
           expect(highlight.length).toBeGreaterThan(0);
         });
@@ -103,17 +103,17 @@ describe('Personal Projects Data', () => {
   });
 
   it('should have featured projects', () => {
-    const featuredProjects = projects.filter(project => project.featured);
+    const featuredProjects = projects.filter((project) => project.featured);
     expect(featuredProjects.length).toBeGreaterThan(0);
   });
 
   it('should have diverse categories', () => {
-    const categories = new Set(projects.map(project => project.category));
+    const categories = new Set(projects.map((project) => project.category));
     expect(categories.size).toBeGreaterThan(1);
   });
 
   it('should include expected technologies', () => {
-    const allTechnologies = projects.flatMap(project => project.technologies);
+    const allTechnologies = projects.flatMap((project) => project.technologies);
 
     // Should include key technologies
     expect(allTechnologies).toContain('Nix');
@@ -123,14 +123,14 @@ describe('Personal Projects Data', () => {
 
   describe('specific project validations', () => {
     it('should have Nix ecosystem project', () => {
-      const nixProject = projects.find(p => p.id === 'nix-ecosystem');
+      const nixProject = projects.find((p) => p.id === 'nix-ecosystem');
       expect(nixProject).toBeDefined();
       expect(nixProject!.technologies).toContain('Nix');
       expect(nixProject!.featured).toBe(true);
     });
 
     it('should have portfolio website project', () => {
-      const portfolioProject = projects.find(p => p.id === 'portfolio-website');
+      const portfolioProject = projects.find((p) => p.id === 'portfolio-website');
       expect(portfolioProject).toBeDefined();
       expect(portfolioProject!.technologies).toContain('Angular');
       expect(portfolioProject!.liveUrl).toBe('https://austinhorstman.com');

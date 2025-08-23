@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'bun:test';
+import { describe, expect, it } from 'bun:test';
 import { ProjectNavigationService } from './project-navigation.service';
 
 describe('ProjectNavigationService', () => {
@@ -28,7 +28,7 @@ describe('ProjectNavigationService', () => {
     const service = new ProjectNavigationService();
     const navigation = service.getNavigationItems('corebts');
 
-    navigation.forEach(item => {
+    navigation.forEach((item) => {
       expect(item).toHaveProperty('name');
       expect(item).toHaveProperty('route');
       expect(item).toHaveProperty('isActive');
@@ -42,7 +42,7 @@ describe('ProjectNavigationService', () => {
     const service = new ProjectNavigationService();
     const navigation = service.getNavigationItems('corebts');
 
-    navigation.forEach(item => {
+    navigation.forEach((item) => {
       expect(item.route).toMatch(/^\/projects\/professional\/corebts\//);
     });
   });

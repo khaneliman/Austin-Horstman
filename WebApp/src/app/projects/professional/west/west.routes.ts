@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { WestComponent } from './west.component';
 import { DatabaseToolComponent } from './database-tool/database-tool.component';
 import { ItPortalComponent } from './it-portal/it-portal.component';
 import { QuickLaunchComponent } from './quick-launch/quick-launch.component';
+import { WestComponent } from './west.component';
 
 export const WEST_ROUTES: Routes = [
   {

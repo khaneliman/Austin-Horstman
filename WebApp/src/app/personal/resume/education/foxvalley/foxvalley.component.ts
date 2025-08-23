@@ -2,33 +2,25 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  BulletListComponent,
-  BulletListItem,
-} from '../../../../shared/components/bullet-list/bullet-list.component';
+  heroAcademicCap,
+  heroArrowTopRightOnSquare,
+  heroCalendar,
+  heroCodeBracket,
+  heroComputerDesktop,
+  heroMapPin,
+  heroRectangleStack,
+} from '@ng-icons/heroicons/outline';
+import { BulletListComponent, BulletListItem } from '../../../../shared/components/bullet-list/bullet-list.component';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
 } from '../../../../shared/components/decorative-background/decorative-background.component';
-import {
-  heroArrowTopRightOnSquare,
-  heroMapPin,
-  heroAcademicCap,
-  heroComputerDesktop,
-  heroCodeBracket,
-  heroRectangleStack,
-  heroCalendar,
-} from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-foxvalley',
   templateUrl: './foxvalley.component.html',
   styleUrls: ['./foxvalley.component.scss'],
-  imports: [
-    RouterLink,
-    NgIconComponent,
-    BulletListComponent,
-    DecorativeBackgroundComponent,
-  ],
+  imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({
       heroArrowTopRightOnSquare,

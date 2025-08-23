@@ -57,22 +57,19 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       projects: [
         {
           name: 'Frontend Application',
-          description:
-            'Angular-based SPA with responsive design, routing, and dynamic content management',
+          description: 'Angular-based SPA with responsive design, routing, and dynamic content management',
           route: '',
           technologies: ['Angular', 'TypeScript', 'SCSS'],
         },
         {
           name: 'Backend API',
-          description:
-            '.NET 6 minimal API providing data services and contact form handling',
+          description: '.NET 6 minimal API providing data services and contact form handling',
           route: '',
           technologies: ['.NET', 'C#', 'REST API'],
         },
         {
           name: 'DevOps Pipeline',
-          description:
-            'Containerized deployment with CI/CD automation using Docker and GitHub Actions',
+          description: 'Containerized deployment with CI/CD automation using Docker and GitHub Actions',
           route: '',
           technologies: ['Docker', 'GitHub Actions', 'CI/CD'],
         },
@@ -97,22 +94,19 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       projects: [
         {
           name: 'Neovim Configuration',
-          description:
-            'Fully configured Neovim setup with LSP, treesitter, and custom keybindings using Nixvim',
+          description: 'Fully configured Neovim setup with LSP, treesitter, and custom keybindings using Nixvim',
           route: '',
           technologies: ['Neovim', 'Nixvim', 'Lua'],
         },
         {
           name: 'Shell Environment',
-          description:
-            'Zsh configuration with custom themes, aliases, and development utilities',
+          description: 'Zsh configuration with custom themes, aliases, and development utilities',
           route: '',
           technologies: ['Zsh', 'Starship', 'CLI Tools'],
         },
         {
           name: 'System Packages',
-          description:
-            'Declarative package management for development tools and utilities across platforms',
+          description: 'Declarative package management for development tools and utilities across platforms',
           route: '',
           technologies: ['Nix', 'Package Management'],
         },

@@ -1,34 +1,34 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroShoppingBag,
-  heroListBullet,
+  heroArchiveBox,
+  heroArrowRight,
+  heroBeaker,
+  heroBuildingOffice,
+  heroCalendarDays,
+  heroChartBarSquare,
+  heroCircleStack,
+  heroCloud,
   heroCodeBracket,
   heroCog6Tooth,
-  heroBeaker,
-  heroLink,
-  heroBuildingOffice,
-  heroArchiveBox,
   heroGlobeAlt,
-  heroArrowRight,
-  heroCalendarDays,
-  heroUsers,
-  heroChartBarSquare,
+  heroLink,
+  heroListBullet,
   heroShieldCheck,
-  heroCloud,
-  heroCircleStack,
+  heroShoppingBag,
+  heroUsers,
 } from '@ng-icons/heroicons/outline';
-import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-header.component';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
 } from '../decorative-background/decorative-background.component';
 import {
-  EnhancedFeatureCardComponent,
   EnhancedFeature,
+  EnhancedFeatureCardComponent,
 } from '../enhanced-feature-card/enhanced-feature-card.component';
+import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-header.component';
 
 @Component({
   selector: 'app-kroger-project',
@@ -136,24 +136,21 @@ export class KrogerProjectComponent {
     },
     {
       title: 'Supply Chain Integration',
-      description:
-        'Seamless integration with supplier systems for automated ordering and delivery scheduling.',
+      description: 'Seamless integration with supplier systems for automated ordering and delivery scheduling.',
       icon: 'heroUsers',
       badge: 'Integration',
       footer: 'Suppliers • Automation • Scheduling',
     },
     {
       title: 'Analytics Dashboard',
-      description:
-        'Comprehensive reporting and analytics for demand forecasting and operational optimization.',
+      description: 'Comprehensive reporting and analytics for demand forecasting and operational optimization.',
       icon: 'heroChartBarSquare',
       badge: 'Analytics',
       footer: 'Reporting • Forecasting • Optimization',
     },
     {
       title: 'Mobile Access',
-      description:
-        'Mobile-responsive interface for store managers and warehouse personnel to access system remotely.',
+      description: 'Mobile-responsive interface for store managers and warehouse personnel to access system remotely.',
       icon: 'heroShoppingBag',
       badge: 'Mobile',
       footer: 'Responsive • Remote • Management',

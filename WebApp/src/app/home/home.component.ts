@@ -1,24 +1,21 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroCodeBracket,
+  heroCog6Tooth,
   heroComputerDesktop,
   heroRocketLaunch,
-  heroCog6Tooth,
   heroUser,
 } from '@ng-icons/heroicons/outline';
-import {
-  HeroSectionComponent,
-  HeroButton,
-} from '../shared/components/hero-section/hero-section.component';
 import { BackgroundElement } from '../shared/components/decorative-background/decorative-background.component';
-import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave-separator.component';
 import {
-  EnhancedFeatureCardComponent,
   EnhancedFeature,
+  EnhancedFeatureCardComponent,
 } from '../shared/components/enhanced-feature-card/enhanced-feature-card.component';
+import { HeroButton, HeroSectionComponent } from '../shared/components/hero-section/hero-section.component';
+import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave-separator.component';
 
 @Component({
   standalone: true,

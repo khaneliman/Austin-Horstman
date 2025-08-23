@@ -225,9 +225,7 @@ export function getCompanyById(id: keyof typeof COMPANIES): CompanyInfo {
 }
 
 // Calculate dynamic metrics for a company
-export function getCompanyWithCalculatedStats(
-  id: keyof typeof COMPANIES
-): CompanyInfo {
+export function getCompanyWithCalculatedStats(id: keyof typeof COMPANIES): CompanyInfo {
   const company = { ...COMPANIES[id] } as CompanyInfo;
   const projectCount = company.projects.length;
 
@@ -239,39 +237,29 @@ export function getCompanyWithCalculatedStats(
 
   company.stats.clients = {
     value: company.id === 'bestbuy' ? '500+' : projectCount.toString(),
-    label:
-      company.id === 'bestbuy'
-        ? 'Customers Served'
-        : company.id === 'west'
-          ? 'Tools Built'
-          : 'Clients',
+    label: company.id === 'bestbuy' ? 'Customers Served' : company.id === 'west' ? 'Tools Built' : 'Clients',
   };
 
   return company;
 }
 
 export function getAllCompanies(): CompanyInfo[] {
-  return Object.keys(COMPANIES).map(key =>
-    getCompanyWithCalculatedStats(key as keyof typeof COMPANIES)
-  );
+  return Object.keys(COMPANIES).map((key) => getCompanyWithCalculatedStats(key as keyof typeof COMPANIES));
 }
 
 export function getAllCompaniesRaw(): CompanyInfo[] {
-  return Object.values(COMPANIES).map(company => ({ ...company }));
+  return Object.values(COMPANIES).map((company) => ({ ...company }));
 }
 
 export function getCompanyByName(name: string): CompanyInfo | undefined {
   return Object.values(COMPANIES).find(
-    company =>
-      company.name.toLowerCase() === name.toLowerCase() ||
-      company.displayName.toLowerCase() === name.toLowerCase()
+    (company) =>
+      company.name.toLowerCase() === name.toLowerCase() || company.displayName.toLowerCase() === name.toLowerCase()
   );
 }
 
 export function getCompanyEmploymentRoute(companyNameOrId: string): string {
-  const company =
-    COMPANIES[companyNameOrId as keyof typeof COMPANIES] ||
-    getCompanyByName(companyNameOrId);
+  const company = COMPANIES[companyNameOrId as keyof typeof COMPANIES] || getCompanyByName(companyNameOrId);
 
   if (!company) {
     throw new Error(`Company not found: ${companyNameOrId}`);
@@ -281,9 +269,7 @@ export function getCompanyEmploymentRoute(companyNameOrId: string): string {
 }
 
 export function getCompanyProjectsRoute(companyNameOrId: string): string {
-  const company =
-    COMPANIES[companyNameOrId as keyof typeof COMPANIES] ||
-    getCompanyByName(companyNameOrId);
+  const company = COMPANIES[companyNameOrId as keyof typeof COMPANIES] || getCompanyByName(companyNameOrId);
 
   if (!company) {
     throw new Error(`Company not found: ${companyNameOrId}`);
@@ -294,7 +280,7 @@ export function getCompanyProjectsRoute(companyNameOrId: string): string {
 
 // For professional projects grid compatibility
 export function getCompaniesForProfessionalGrid() {
-  return getAllCompanies().map(company => ({
+  return getAllCompanies().map((company) => ({
     title: `${company.displayName} Projects`,
     description: company.description.split('.')[0], // First sentence for brevity
     company: company.displayName,

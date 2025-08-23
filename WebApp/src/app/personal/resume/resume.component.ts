@@ -1,40 +1,36 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { CardComponent } from '../../core/components/card/card.component';
-import { WaveSeparatorComponent } from '../../shared/components/wave-separator/wave-separator.component';
-import { FloatingCardComponent } from '../../core/components/floating-card/floating-card.component';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import {
+  heroAcademicCap,
+  heroBuildingOffice,
+  heroCheck,
+  heroCodeBracket,
+  heroCog6Tooth,
+  heroFolder,
+  heroGlobeAlt,
+  heroInformationCircle,
+  heroLightBulb,
+  heroPencil,
+  heroRectangleStack,
+  heroStar,
+  heroTrophy,
+} from '@ng-icons/heroicons/outline';
+import { CardComponent } from '../../core/components/card/card.component';
+import { FloatingCardComponent } from '../../core/components/floating-card/floating-card.component';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
 } from '../../shared/components/decorative-background/decorative-background.component';
+import { WaveSeparatorComponent } from '../../shared/components/wave-separator/wave-separator.component';
+import { CompanyInfo, getAllCompanies, getCompanyWithCalculatedStats } from '../../shared/data/companies';
 import {
-  heroTrophy,
-  heroCodeBracket,
-  heroStar,
-  heroAcademicCap,
-  heroLightBulb,
-  heroPencil,
-  heroBuildingOffice,
-  heroRectangleStack,
-  heroCheck,
-  heroGlobeAlt,
-  heroCog6Tooth,
-  heroFolder,
-  heroInformationCircle,
-} from '@ng-icons/heroicons/outline';
-import {
-  CompanyInfo,
-  getCompanyWithCalculatedStats,
-  getAllCompanies,
-} from '../../shared/data/companies';
-import {
-  TechnologySkill,
-  getProficientTechnologies,
-  getLearnedTechnologies,
-  getInterestedTechnologies,
   getAllTechnologyNames,
+  getInterestedTechnologies,
+  getLearnedTechnologies,
+  getProficientTechnologies,
+  TechnologySkill,
 } from '../../shared/data/technologies';
 
 @Component({

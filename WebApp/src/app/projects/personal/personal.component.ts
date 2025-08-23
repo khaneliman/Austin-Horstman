@@ -2,22 +2,22 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroUser,
-  heroLightBulb,
+  heroArrowTopRightOnSquare,
+  heroBriefcase,
+  heroCheckCircle,
   heroCodeBracket,
   heroCog6Tooth,
+  heroComputerDesktop,
+  heroDevicePhoneMobile,
   heroFolder,
   heroGlobeAlt,
-  heroBriefcase,
-  heroComputerDesktop,
-  heroArrowTopRightOnSquare,
-  heroCheckCircle,
+  heroLightBulb,
+  heroUser,
   heroWrench,
-  heroDevicePhoneMobile,
 } from '@ng-icons/heroicons/outline';
+import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
 import { PersonalProjectsGridComponent } from '../../shared/components/personal-projects-grid/personal-projects-grid.component';
 import { generatePersonalProjectsGrid } from '../../shared/data/personal-projects';
-import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
 import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/projects-breadcrumb.component';
 
 @Component({

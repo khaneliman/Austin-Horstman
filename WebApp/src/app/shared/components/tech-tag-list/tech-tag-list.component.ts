@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { TechTagComponent } from '../tech-tag/tech-tag.component';
 
 export interface TechTag {

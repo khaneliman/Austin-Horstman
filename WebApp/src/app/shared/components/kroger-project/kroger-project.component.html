@@ -1,7 +1,5 @@
 <!-- Kroger Project Page - Reusable Component -->
-<div
-  class="min-h-screen bg-gradient-to-br from-green-50 via-gray-50 to-emerald-50"
->
+<div class="min-h-screen bg-gradient-to-br from-green-50 via-gray-50 to-emerald-50">
   <!-- Reusable Project Navigation Header -->
   <app-project-nav-header
     [backRoute]="backRoute"
@@ -12,22 +10,14 @@
 
   <div class="max-w-6xl mx-auto px-6 py-12">
     <!-- Project Header -->
-    <div
-      class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-8"
-    >
-      <div
-        class="relative bg-gradient-to-r from-green-600 to-emerald-600 px-8 pt-12 pb-8"
-      >
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-8">
+      <div class="relative bg-gradient-to-r from-green-600 to-emerald-600 px-8 pt-12 pb-8">
         <!-- Decorative elements -->
-        <app-decorative-background
-          [elements]="backgroundElements"
-        ></app-decorative-background>
+        <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
 
         <div class="relative z-10 text-center mt-8">
           <div class="inline-block relative group mb-6">
-            <div
-              class="w-24 h-24 bg-white/20 rounded-full p-4 mx-auto shadow-2xl border-4 border-white/30"
-            >
+            <div class="w-24 h-24 bg-white/20 rounded-full p-4 mx-auto shadow-2xl border-4 border-white/30">
               <ng-icon
                 name="heroShoppingBag"
                 size="2rem"
@@ -38,34 +28,21 @@
 
           <h1 class="text-5xl font-bold text-white mb-4">Kroger</h1>
           <p class="text-xl text-green-100 max-w-3xl mx-auto leading-relaxed">
-            Enterprise retail platform modernization and inventory management
-            system development
+            Enterprise retail platform modernization and inventory management system development
           </p>
 
           <!-- Project Meta -->
           <div class="flex flex-wrap justify-center gap-6 text-green-100 mt-8">
             <div class="flex items-center space-x-2">
-              <ng-icon
-                name="heroBuildingOffice"
-                size="1rem"
-                class="text-green-300"
-              ></ng-icon>
+              <ng-icon name="heroBuildingOffice" size="1rem" class="text-green-300"></ng-icon>
               <span>{{ companyName }}</span>
             </div>
             <div class="flex items-center space-x-2">
-              <ng-icon
-                name="heroCalendarDays"
-                size="1rem"
-                class="text-green-300"
-              ></ng-icon>
+              <ng-icon name="heroCalendarDays" size="1rem" class="text-green-300"></ng-icon>
               <span>{{ dateRange }}</span>
             </div>
             <div class="flex items-center space-x-2">
-              <ng-icon
-                name="heroBeaker"
-                size="1rem"
-                class="text-green-300"
-              ></ng-icon>
+              <ng-icon name="heroBeaker" size="1rem" class="text-green-300"></ng-icon>
               <span>Enterprise Scale</span>
             </div>
           </div>
@@ -73,9 +50,7 @@
       </div>
 
       <!-- Quick Stats -->
-      <div
-        class="px-8 py-6 bg-gradient-to-r from-green-50 to-emerald-50 border-b border-gray-100"
-      >
+      <div class="px-8 py-6 bg-gradient-to-r from-green-50 to-emerald-50 border-b border-gray-100">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div class="text-center">
             <div class="text-2xl font-bold text-green-600 mb-1">Angular</div>
@@ -90,9 +65,7 @@
             <div class="text-sm text-gray-600 font-medium">Cloud</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl font-bold text-purple-600 mb-1">
-              SQL Server
-            </div>
+            <div class="text-2xl font-bold text-purple-600 mb-1">SQL Server</div>
             <div class="text-sm text-gray-600 font-medium">Database</div>
           </div>
         </div>
@@ -106,34 +79,24 @@
         <!-- Overview -->
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
           <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-            <ng-icon
-              name="heroListBullet"
-              size="1.25rem"
-              class="text-green-500 mr-3"
-            ></ng-icon>
+            <ng-icon name="heroListBullet" size="1.25rem" class="text-green-500 mr-3"></ng-icon>
             Project Overview
           </h2>
           <div class="prose max-w-none text-gray-700 leading-relaxed">
             <p class="mb-4">
-              The Kroger project involved comprehensive modernization of
-              enterprise retail platform systems, focusing on inventory
-              management, supply chain optimization, and customer experience
-              enhancement. Working directly with Kroger's technology teams, we
-              developed scalable solutions that handle millions of transactions
-              and inventory items across thousands of retail locations.
+              The Kroger project involved comprehensive modernization of enterprise retail platform systems, focusing on
+              inventory management, supply chain optimization, and customer experience enhancement. Working directly
+              with Kroger's technology teams, we developed scalable solutions that handle millions of transactions and
+              inventory items across thousands of retail locations.
             </p>
             <p class="mb-4">
-              This multi-year engagement required deep integration with existing
-              Kroger systems while implementing modern architectural patterns
-              and cloud-native technologies. The solution encompasses real-time
-              inventory tracking, automated reordering systems, and
-              comprehensive analytics dashboards for supply chain managers.
+              This multi-year engagement required deep integration with existing Kroger systems while implementing
+              modern architectural patterns and cloud-native technologies. The solution encompasses real-time inventory
+              tracking, automated reordering systems, and comprehensive analytics dashboards for supply chain managers.
             </p>
             <p>
-              The project delivered measurable improvements in inventory
-              accuracy, reduced operational costs, and enhanced customer
-              satisfaction through better product availability and streamlined
-              operations.
+              The project delivered measurable improvements in inventory accuracy, reduced operational costs, and
+              enhanced customer satisfaction through better product availability and streamlined operations.
             </p>
           </div>
         </div>
@@ -141,45 +104,31 @@
         <!-- Technical Implementation -->
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
           <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-            <ng-icon
-              name="heroCodeBracket"
-              size="1.25rem"
-              class="text-green-500 mr-3"
-            ></ng-icon>
+            <ng-icon name="heroCodeBracket" size="1.25rem" class="text-green-500 mr-3"></ng-icon>
             Technical Implementation
           </h2>
           <div class="prose max-w-none text-gray-700 leading-relaxed">
             <p class="mb-4">
               <strong>Architected and implemented NgRx state management</strong>
-              with multiple Angular applications for Cold Fusion app
-              modernization projects. This comprehensive approach involved
-              migrating legacy Cold Fusion applications to modern Angular
-              architecture while maintaining data consistency and user
-              experience.
+              with multiple Angular applications for Cold Fusion app modernization projects. This comprehensive approach
+              involved migrating legacy Cold Fusion applications to modern Angular architecture while maintaining data
+              consistency and user experience.
             </p>
             <p class="mb-4">
-              <strong
-                >Architected and implemented Fabric.js PDF rendering and
-                annotation document management</strong
-              >
-              through an Angular application utilizing Azure blob storage
-              backend. This solution provided real-time document collaboration
-              capabilities, allowing multiple users to annotate and mark up PDF
-              documents with synchronized changes across the platform.
+              <strong>Architected and implemented Fabric.js PDF rendering and annotation document management</strong>
+              through an Angular application utilizing Azure blob storage backend. This solution provided real-time
+              document collaboration capabilities, allowing multiple users to annotate and mark up PDF documents with
+              synchronized changes across the platform.
             </p>
             <p class="mb-4">
-              The NgRx implementation provided centralized state management
-              across multiple Angular applications, enabling seamless data
-              sharing and synchronization. This was particularly crucial when
-              modernizing Cold Fusion applications that had tightly coupled data
-              layers and business logic.
+              The NgRx implementation provided centralized state management across multiple Angular applications,
+              enabling seamless data sharing and synchronization. This was particularly crucial when modernizing Cold
+              Fusion applications that had tightly coupled data layers and business logic.
             </p>
             <p>
-              Key technical achievements included implementing reactive data
-              flows, optimizing state management patterns for large-scale retail
-              operations, and creating a migration pathway that allowed gradual
-              transition from legacy Cold Fusion systems to modern Angular
-              applications without disrupting business operations.
+              Key technical achievements included implementing reactive data flows, optimizing state management patterns
+              for large-scale retail operations, and creating a migration pathway that allowed gradual transition from
+              legacy Cold Fusion systems to modern Angular applications without disrupting business operations.
             </p>
           </div>
 
@@ -191,15 +140,7 @@
               variant="highlighted"
               size="sm"
               iconPosition="left"
-              [colorTheme]="
-                i === 0
-                  ? 'indigo'
-                  : i === 1
-                    ? 'yellow'
-                    : i === 2
-                      ? 'red'
-                      : 'teal'
-              "
+              [colorTheme]="i === 0 ? 'indigo' : i === 1 ? 'yellow' : i === 2 ? 'red' : 'teal'"
               [hover]="true"
             >
             </app-enhanced-feature-card>
@@ -209,11 +150,7 @@
         <!-- Key Features -->
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
           <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-            <ng-icon
-              name="heroCog6Tooth"
-              size="1.25rem"
-              class="text-green-500 mr-3"
-            ></ng-icon>
+            <ng-icon name="heroCog6Tooth" size="1.25rem" class="text-green-500 mr-3"></ng-icon>
             Key Features & Capabilities
           </h2>
 
@@ -224,15 +161,7 @@
               variant="highlighted"
               size="sm"
               iconPosition="left"
-              [colorTheme]="
-                i === 0
-                  ? 'green'
-                  : i === 1
-                    ? 'blue'
-                    : i === 2
-                      ? 'purple'
-                      : 'orange'
-              "
+              [colorTheme]="i === 0 ? 'green' : i === 1 ? 'blue' : i === 2 ? 'purple' : 'orange'"
               [hover]="true"
             >
             </app-enhanced-feature-card>
@@ -245,95 +174,48 @@
         <!-- Technologies Used -->
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
           <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-            <ng-icon
-              name="heroBeaker"
-              size="1rem"
-              class="text-green-500 mr-2"
-            ></ng-icon>
+            <ng-icon name="heroBeaker" size="1rem" class="text-green-500 mr-2"></ng-icon>
             Technologies
           </h3>
 
           <div class="space-y-3">
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">Angular 15+</span>
-              <span
-                class="px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded-full"
-                >Frontend</span
-              >
+              <span class="px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded-full">Frontend</span>
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">.NET Core 6</span>
-              <span
-                class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full"
-                >Backend</span
-              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">Backend</span>
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">Azure Cloud</span>
-              <span
-                class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full"
-                >Cloud</span
-              >
+              <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">Cloud</span>
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">SQL Server</span>
-              <span
-                class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full"
-                >Database</span
-              >
+              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Database</span>
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">Entity Framework</span>
-              <span
-                class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full"
-                >ORM</span
-              >
+              <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">ORM</span>
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">NgRx</span>
-              <span
-                class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs font-medium rounded-full"
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs font-medium rounded-full"
                 >State Management</span
               >
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">Cold Fusion Legacy</span>
-              <span
-                class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full"
-                >Migration</span
-              >
+              <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">Migration</span>
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">Fabric.js</span>
-              <span
-                class="px-2 py-1 bg-pink-100 text-pink-800 text-xs font-medium rounded-full"
-                >Canvas/PDF</span
-              >
+              <span class="px-2 py-1 bg-pink-100 text-pink-800 text-xs font-medium rounded-full">Canvas/PDF</span>
             </div>
-            <div
-              class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-            >
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <span class="font-medium text-gray-700">Azure Blob Storage</span>
-              <span
-                class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-medium rounded-full"
-                >Storage</span
-              >
+              <span class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-medium rounded-full">Storage</span>
             </div>
           </div>
         </div>
@@ -341,11 +223,7 @@
         <!-- Project Links -->
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
           <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-            <ng-icon
-              name="heroLink"
-              size="1rem"
-              class="text-green-500 mr-2"
-            ></ng-icon>
+            <ng-icon name="heroLink" size="1rem" class="text-green-500 mr-2"></ng-icon>
             Quick Links
           </h3>
 
@@ -354,11 +232,7 @@
               [routerLink]="employmentRoute"
               class="flex items-center p-3 bg-green-50 hover:bg-green-100 text-green-700 rounded-lg transition-colors group"
             >
-              <ng-icon
-                name="heroBuildingOffice"
-                size="1rem"
-                class="mr-3 text-green-500"
-              ></ng-icon>
+              <ng-icon name="heroBuildingOffice" size="1rem" class="mr-3 text-green-500"></ng-icon>
               <span class="font-medium">{{ companyName }} Profile</span>
               <ng-icon
                 name="heroArrowRight"
@@ -371,11 +245,7 @@
               [routerLink]="projectsRoute"
               class="flex items-center p-3 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg transition-colors group"
             >
-              <ng-icon
-                name="heroArchiveBox"
-                size="1rem"
-                class="mr-3 text-blue-500"
-              ></ng-icon>
+              <ng-icon name="heroArchiveBox" size="1rem" class="mr-3 text-blue-500"></ng-icon>
               <span class="font-medium">All {{ companyName }} Projects</span>
               <ng-icon
                 name="heroArrowRight"
@@ -388,11 +258,7 @@
               routerLink="/projects"
               class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-lg transition-colors group"
             >
-              <ng-icon
-                name="heroGlobeAlt"
-                size="1rem"
-                class="mr-3 text-gray-500"
-              ></ng-icon>
+              <ng-icon name="heroGlobeAlt" size="1rem" class="mr-3 text-gray-500"></ng-icon>
               <span class="font-medium">All Projects</span>
               <ng-icon
                 name="heroArrowRight"

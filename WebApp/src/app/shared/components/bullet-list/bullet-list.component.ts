@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 export interface BulletListItem {
@@ -9,13 +9,7 @@ export interface BulletListItem {
   subItems?: BulletListItem[];
 }
 
-export type BulletStyle =
-  | 'dot'
-  | 'arrow'
-  | 'check'
-  | 'dash'
-  | 'number'
-  | 'icon';
+export type BulletStyle = 'dot' | 'arrow' | 'check' | 'dash' | 'number' | 'icon';
 
 @Component({
   selector: 'app-bullet-list',
@@ -23,10 +17,7 @@ export type BulletStyle =
   imports: [CommonModule, NgIconComponent],
   template: `
     <ul [class]="listClasses" [attr.role]="role">
-      <li
-        *ngFor="let item of items; trackBy: trackByFn; index as i"
-        [class]="getItemClasses(item, i)"
-      >
+      <li *ngFor="let item of items; trackBy: trackByFn; index as i" [class]="getItemClasses(item, i)">
         <div class="flex items-start">
           <!-- Bullet/Icon/Number -->
           <div [class]="bulletContainerClasses">
@@ -44,24 +35,10 @@ export type BulletStyle =
               [class]="getBulletIconClasses(item)"
             >
             </ng-icon>
-            <span
-              *ngIf="bulletStyle === 'number'"
-              [class]="getNumberClasses(item, i)"
-            >
-              {{ i + 1 }}.
-            </span>
-            <span *ngIf="bulletStyle === 'dot'" [class]="getDotClasses(item)">
-              •
-            </span>
-            <span
-              *ngIf="bulletStyle === 'arrow'"
-              [class]="getArrowClasses(item)"
-            >
-              →
-            </span>
-            <span *ngIf="bulletStyle === 'dash'" [class]="getDashClasses(item)">
-              –
-            </span>
+            <span *ngIf="bulletStyle === 'number'" [class]="getNumberClasses(item, i)"> {{ i + 1 }}. </span>
+            <span *ngIf="bulletStyle === 'dot'" [class]="getDotClasses(item)"> • </span>
+            <span *ngIf="bulletStyle === 'arrow'" [class]="getArrowClasses(item)"> → </span>
+            <span *ngIf="bulletStyle === 'dash'" [class]="getDashClasses(item)"> – </span>
           </div>
 
           <!-- Content -->
@@ -256,10 +233,7 @@ export class BulletListComponent {
     return classes.join(' ');
   }
 
-  readonly trackByFn = (
-    index: number,
-    item: BulletListItem
-  ): string | number => {
+  readonly trackByFn = (index: number, item: BulletListItem): string | number => {
     return item.text || index;
   };
 }

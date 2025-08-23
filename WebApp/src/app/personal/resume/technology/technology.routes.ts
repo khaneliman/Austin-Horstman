@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { TechnologyComponent } from './technology.component';
 import { CsharpComponent } from './csharp/csharp.component';
+import { TechnologyComponent } from './technology.component';
 
 export const TECHNOLOGY_ROUTES: Routes = [
   {

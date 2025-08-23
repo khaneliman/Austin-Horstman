@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
@@ -41,13 +41,7 @@ export class StatCardComponent {
   }
 
   get iconContainerClasses(): string {
-    const classes = [
-      `bg-${this.color}-500`,
-      'rounded-xl',
-      'flex',
-      'items-center',
-      'justify-center',
-    ];
+    const classes = [`bg-${this.color}-500`, 'rounded-xl', 'flex', 'items-center', 'justify-center'];
 
     if (this.center) {
       classes.push('mx-auto', 'mb-3');

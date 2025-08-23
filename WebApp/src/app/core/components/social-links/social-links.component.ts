@@ -1,19 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  inject,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  simpleFacebook,
-  simpleX,
-  simpleInstagram,
-  simpleGithub,
-  simpleGitlab,
-} from '@ng-icons/simple-icons';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { bootstrapLinkedin } from '@ng-icons/bootstrap-icons';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { simpleFacebook, simpleGithub, simpleGitlab, simpleInstagram, simpleX } from '@ng-icons/simple-icons';
 import { SocialLinksService } from '../../services';
 
 @Component({

@@ -1,19 +1,11 @@
 <!-- Company Profile -->
 <div class="relative pt-32 pb-20">
   <!-- Company profile card -->
-  <div
-    class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden max-w-6xl mx-auto"
-  >
+  <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden max-w-6xl mx-auto">
     <!-- Header section -->
-    <div
-      [class]="
-        'relative px-8 pt-12 pb-8 company-header--' + company.colorScheme.theme
-      "
-    >
+    <div [class]="'relative px-8 pt-12 pb-8 company-header--' + company.colorScheme.theme">
       <!-- Decorative elements -->
-      <app-decorative-background
-        [elements]="backgroundElements"
-      ></app-decorative-background>
+      <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
 
       <!-- Company logo and info -->
       <div class="relative z-10 text-center">
@@ -26,16 +18,10 @@
           >
             <div
               class="w-32 h-32 rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white transition-colors duration-300"
-              [style.background]="
-                getLogoBackgroundStyle(company.logoBackground)
-              "
+              [style.background]="getLogoBackgroundStyle(company.logoBackground)"
               [ngClass]="'group-hover:border-' + company.colorScheme.primary"
             >
-              <img
-                class="w-full h-full object-contain"
-                [src]="company.logoSrc"
-                [alt]="company.logoAlt"
-              />
+              <img class="w-full h-full object-contain" [src]="company.logoSrc" [alt]="company.logoAlt" />
             </div>
           </a>
 
@@ -48,11 +34,7 @@
               ' rounded-full flex items-center justify-center shadow-lg'
             "
           >
-            <ng-icon
-              name="heroArrowTopRightOnSquare"
-              size="0.875rem"
-              class="text-white"
-            ></ng-icon>
+            <ng-icon name="heroArrowTopRightOnSquare" size="0.875rem" class="text-white"></ng-icon>
           </div>
         </div>
 
@@ -61,38 +43,19 @@
         <!-- Company details -->
         <div class="flex flex-wrap justify-center gap-6 text-gray-300">
           <div class="flex items-center space-x-2">
-            <ng-icon
-              name="heroMapPin"
-              size="1rem"
-              class="text-green-400"
-            ></ng-icon>
+            <ng-icon name="heroMapPin" size="1rem" class="text-green-400"></ng-icon>
             <span>{{ company.location }}</span>
           </div>
           <div class="flex items-center space-x-2">
-            <ng-icon
-              name="heroBriefcase"
-              size="1rem"
-              class="text-emerald-400"
-            ></ng-icon>
+            <ng-icon name="heroBriefcase" size="1rem" class="text-emerald-400"></ng-icon>
             <span>{{ company.position }}</span>
           </div>
           <div class="flex items-center space-x-2">
-            <ng-icon
-              name="heroCalendarDays"
-              size="1rem"
-              class="text-lime-400"
-            ></ng-icon>
+            <ng-icon name="heroCalendarDays" size="1rem" class="text-lime-400"></ng-icon>
             <span>{{ company.dateRange }}</span>
           </div>
-          <div
-            *ngIf="company.department"
-            class="flex items-center space-x-2 w-full justify-center md:w-auto"
-          >
-            <ng-icon
-              name="heroAcademicCap"
-              size="1rem"
-              class="text-lime-400"
-            ></ng-icon>
+          <div *ngIf="company.department" class="flex items-center space-x-2 w-full justify-center md:w-auto">
+            <ng-icon name="heroAcademicCap" size="1rem" class="text-lime-400"></ng-icon>
             <span>{{ company.department }}</span>
           </div>
         </div>
@@ -100,13 +63,7 @@
     </div>
 
     <!-- Stats section -->
-    <div
-      [class]="
-        'px-8 py-6 stats-section--' +
-        company.colorScheme.theme +
-        ' border-b border-gray-100'
-      "
-    >
+    <div [class]="'px-8 py-6 stats-section--' + company.colorScheme.theme + ' border-b border-gray-100'">
       <div class="grid grid-cols-3 gap-6">
         <div class="text-center">
           <div class="text-3xl font-bold text-green-600 mb-1">
@@ -146,42 +103,20 @@
             ></ng-icon>
             Featured Projects
           </h3>
-          <div
-            [class]="
-              'grid gap-6 mb-8 ' +
-              (projects.length === 1
-                ? 'grid-cols-1'
-                : 'grid-cols-1 md:grid-cols-2')
-            "
-          >
+          <div [class]="'grid gap-6 mb-8 ' + (projects.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')">
             <div
               *ngFor="let project of projects"
               class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
             >
               <!-- Project Header -->
-              <div
-                [class]="
-                  'relative project-card-header px-6 py-8 text-white ' +
-                  project.color
-                "
-              >
-                <app-decorative-background
-                  [elements]="projectBackgroundElements"
-                ></app-decorative-background>
+              <div [class]="'relative project-card-header px-6 py-8 text-white ' + project.color">
+                <app-decorative-background [elements]="projectBackgroundElements"></app-decorative-background>
                 <div class="relative z-10">
                   <div class="flex items-center justify-between mb-4">
-                    <div
-                      class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center"
-                    >
-                      <ng-icon
-                        [name]="project.icon"
-                        size="1.25rem"
-                        class="text-white"
-                      ></ng-icon>
+                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                      <ng-icon [name]="project.icon" size="1.25rem" class="text-white"></ng-icon>
                     </div>
-                    <span
-                      class="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium"
-                    >
+                    <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium">
                       {{ project.status }}
                     </span>
                   </div>
@@ -200,10 +135,7 @@
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
                     *ngFor="let tech of project.technologies; let i = index"
-                    [class]="
-                      'px-3 py-1 text-sm font-medium rounded-full ' +
-                      getTechBadgeClass(i)
-                    "
+                    [class]="'px-3 py-1 text-sm font-medium rounded-full ' + getTechBadgeClass(i)"
                   >
                     {{ tech }}
                   </span>
@@ -221,11 +153,7 @@
                     "
                   >
                     View Details
-                    <ng-icon
-                      name="heroArrowRight"
-                      size="0.75rem"
-                      class="ml-2"
-                    ></ng-icon>
+                    <ng-icon name="heroArrowRight" size="0.75rem" class="ml-2"></ng-icon>
                   </a>
                 </div>
               </div>
@@ -234,13 +162,7 @@
         </div>
 
         <!-- Company overview -->
-        <div
-          [class]="
-            'company-overview--' +
-            company.colorScheme.theme +
-            ' rounded-2xl p-8 mb-8'
-          "
-        >
+        <div [class]="'company-overview--' + company.colorScheme.theme + ' rounded-2xl p-8 mb-8'">
           <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
             <ng-icon
               name="heroBuildingOffice"
@@ -249,10 +171,7 @@
             ></ng-icon>
             About {{ company.name }}
           </h3>
-          <p
-            class="text-gray-700 leading-relaxed"
-            [class.mb-6]="company.achievements"
-          >
+          <p class="text-gray-700 leading-relaxed" [class.mb-6]="company.achievements">
             {{ company.description }}
           </p>
 
@@ -260,11 +179,7 @@
           <div
             *ngIf="company.achievements"
             class="bg-white rounded-xl p-6 border"
-            [class]="
-              'border-' +
-              company.colorScheme.theme.replace('orange', 'blue') +
-              '-100'
-            "
+            [class]="'border-' + company.colorScheme.theme.replace('orange', 'blue') + '-100'"
           >
             <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
               <ng-icon
@@ -301,11 +216,7 @@
               ' text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200'
             "
           >
-            <ng-icon
-              name="heroArrowTopRightOnSquare"
-              size="1rem"
-              class="mr-3"
-            ></ng-icon>
+            <ng-icon name="heroArrowTopRightOnSquare" size="1rem" class="mr-3"></ng-icon>
             <span>Visit Company Website</span>
           </a>
 
@@ -313,11 +224,7 @@
             routerLink="/personal/resume"
             class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-300 hover:border-gray-400 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
-            <ng-icon
-              name="heroRectangleStack"
-              size="1rem"
-              class="mr-3"
-            ></ng-icon>
+            <ng-icon name="heroRectangleStack" size="1rem" class="mr-3"></ng-icon>
             <span>See Full Resume</span>
           </a>
         </div>

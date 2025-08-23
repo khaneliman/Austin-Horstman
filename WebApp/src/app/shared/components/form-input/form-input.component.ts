@@ -1,13 +1,7 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  forwardRef,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgIconComponent } from '@ng-icons/core';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-form-input',
@@ -31,12 +25,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       <!-- Input container -->
       <div class="relative">
         <!-- Leading icon -->
-        <div
-          *ngIf="leadingIcon"
-          class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
-        >
-          <ng-icon [name]="leadingIcon" size="1rem" [class]="iconClasses">
-          </ng-icon>
+        <div *ngIf="leadingIcon" class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <ng-icon [name]="leadingIcon" size="1rem" [class]="iconClasses"> </ng-icon>
         </div>
 
         <!-- Input field -->
@@ -71,10 +61,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         </textarea>
 
         <!-- Trailing icon/button -->
-        <div
-          *ngIf="trailingIcon"
-          class="absolute inset-y-0 right-0 pr-4 flex items-center"
-        >
+        <div *ngIf="trailingIcon" class="absolute inset-y-0 right-0 pr-4 flex items-center">
           <button
             *ngIf="trailingClickable"
             type="button"
@@ -83,13 +70,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
           >
             <ng-icon [name]="trailingIcon" size="1rem"></ng-icon>
           </button>
-          <ng-icon
-            *ngIf="!trailingClickable"
-            [name]="trailingIcon"
-            size="1rem"
-            [class]="iconClasses"
-          >
-          </ng-icon>
+          <ng-icon *ngIf="!trailingClickable" [name]="trailingIcon" size="1rem" [class]="iconClasses"> </ng-icon>
         </div>
       </div>
 
@@ -108,8 +89,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class FormInputComponent implements ControlValueAccessor {
   @Input() label?: string;
-  @Input() type: 'text' | 'email' | 'password' | 'number' | 'tel' | 'textarea' =
-    'text';
+  @Input() type: 'text' | 'email' | 'password' | 'number' | 'tel' | 'textarea' = 'text';
   @Input() placeholder?: string;
   @Input() helpText?: string;
   @Input() errorMessage?: string;
@@ -195,9 +175,7 @@ export class FormInputComponent implements ControlValueAccessor {
     // Variant styles
     switch (this.variant) {
       case 'default':
-        classes.push(
-          'border border-gray-300 rounded-xl bg-white/50 backdrop-blur-sm'
-        );
+        classes.push('border border-gray-300 rounded-xl bg-white/50 backdrop-blur-sm');
         break;
       case 'filled':
         classes.push('border border-gray-300 rounded-xl bg-gray-50');
@@ -209,9 +187,7 @@ export class FormInputComponent implements ControlValueAccessor {
 
     // Focus and error states
     if (this.hasError) {
-      classes.push(
-        'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-transparent'
-      );
+      classes.push('border-red-300 focus:ring-2 focus:ring-red-500 focus:border-transparent');
     } else {
       classes.push('focus:ring-2 focus:ring-blue-500 focus:border-transparent');
     }

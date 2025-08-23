@@ -12,29 +12,21 @@
     textColor="light"
     [showContentSlot]="true"
   >
-    <app-projects-breadcrumb
-      currentSection="Personal"
-      textColor="text-indigo-200"
-    ></app-projects-breadcrumb>
+    <app-projects-breadcrumb currentSection="Personal" textColor="text-indigo-200"></app-projects-breadcrumb>
   </app-hero-section>
 
   <!-- Personal Projects Grid -->
   <section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          Personal Project Portfolio
-        </h2>
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Personal Project Portfolio</h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Explore my collection of personal projects spanning open source
-          contributions, web applications, development tools, and learning
-          experiments.
+          Explore my collection of personal projects spanning open source contributions, web applications, development
+          tools, and learning experiments.
         </p>
       </div>
 
-      <app-personal-projects-grid
-        [projects]="personalProjects"
-      ></app-personal-projects-grid>
+      <app-personal-projects-grid [projects]="personalProjects"></app-personal-projects-grid>
     </div>
   </section>
 
@@ -42,12 +34,8 @@
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">
-          Project Categories
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Projects organized by focus area and technology stack
-        </p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Project Categories</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Projects organized by focus area and technology stack</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -55,52 +43,30 @@
           <div
             class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6"
           >
-            <ng-icon
-              name="heroCodeBracket"
-              size="1.5rem"
-              class="text-white"
-            ></ng-icon>
+            <ng-icon name="heroCodeBracket" size="1.5rem" class="text-white"></ng-icon>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-3">Open Source</h3>
-          <p class="text-gray-600">
-            Active contributions to the Nix ecosystem and other open source
-            projects
-          </p>
+          <p class="text-gray-600">Active contributions to the Nix ecosystem and other open source projects</p>
         </div>
 
         <div class="text-center bg-blue-50 rounded-2xl p-8">
           <div
             class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6"
           >
-            <ng-icon
-              name="heroGlobeAlt"
-              size="1.5rem"
-              class="text-white"
-            ></ng-icon>
+            <ng-icon name="heroGlobeAlt" size="1.5rem" class="text-white"></ng-icon>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-3">Web Applications</h3>
-          <p class="text-gray-600">
-            Full-stack web applications and portfolio sites
-          </p>
+          <p class="text-gray-600">Full-stack web applications and portfolio sites</p>
         </div>
 
         <div class="text-center bg-purple-50 rounded-2xl p-8">
           <div
             class="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6"
           >
-            <ng-icon
-              name="heroWrench"
-              size="1.5rem"
-              class="text-white"
-            ></ng-icon>
+            <ng-icon name="heroWrench" size="1.5rem" class="text-white"></ng-icon>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">
-            Development Tools
-          </h3>
-          <p class="text-gray-600">
-            Utilities, automation scripts, and development environment
-            configurations
-          </p>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Development Tools</h3>
+          <p class="text-gray-600">Utilities, automation scripts, and development environment configurations</p>
         </div>
       </div>
     </div>

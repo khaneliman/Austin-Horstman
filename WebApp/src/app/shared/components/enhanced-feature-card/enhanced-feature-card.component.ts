@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 export interface EnhancedFeature {
@@ -29,11 +29,7 @@ export interface EnhancedFeature {
     >
       <!-- Image section -->
       <div *ngIf="feature.image" [class]="imageContainerClasses">
-        <img
-          [src]="feature.image"
-          [alt]="feature.title"
-          class="w-full h-full object-cover"
-        />
+        <img [src]="feature.image" [alt]="feature.title" class="w-full h-full object-cover" />
         <div *ngIf="feature.badge" [class]="badgeClasses">
           {{ feature.badge }}
         </div>
@@ -42,17 +38,9 @@ export interface EnhancedFeature {
       <!-- Icon section (when no image) -->
       <div *ngIf="!feature.image && feature.icon" [class]="iconSectionClasses">
         <div [class]="iconContainerClasses">
-          <ng-icon
-            [name]="feature.icon"
-            [size]="iconSize"
-            [class]="iconClasses"
-          >
-          </ng-icon>
+          <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"> </ng-icon>
         </div>
-        <div
-          *ngIf="feature.badge && iconPosition === 'top'"
-          [class]="badgeClasses"
-        >
+        <div *ngIf="feature.badge && iconPosition === 'top'" [class]="badgeClasses">
           {{ feature.badge }}
         </div>
       </div>
@@ -60,27 +48,13 @@ export interface EnhancedFeature {
       <!-- Content section -->
       <div [class]="contentClasses">
         <!-- Badge for left icon position -->
-        <div
-          *ngIf="
-            feature.badge &&
-            (iconPosition === 'left' || iconPosition === 'background')
-          "
-          [class]="badgeClasses"
-        >
+        <div *ngIf="feature.badge && (iconPosition === 'left' || iconPosition === 'background')" [class]="badgeClasses">
           {{ feature.badge }}
         </div>
 
         <!-- Icon for left position -->
-        <div
-          *ngIf="feature.icon && iconPosition === 'left'"
-          [class]="leftIconClasses"
-        >
-          <ng-icon
-            [name]="feature.icon"
-            [size]="iconSize"
-            [class]="iconClasses"
-          >
-          </ng-icon>
+        <div *ngIf="feature.icon && iconPosition === 'left'" [class]="leftIconClasses">
+          <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"> </ng-icon>
         </div>
 
         <div class="flex-1">
@@ -95,16 +69,8 @@ export interface EnhancedFeature {
       </div>
 
       <!-- Background icon for background position -->
-      <div
-        *ngIf="feature.icon && iconPosition === 'background'"
-        [class]="backgroundIconClasses"
-      >
-        <ng-icon
-          [name]="feature.icon"
-          [size]="backgroundIconSize"
-          class="text-gray-100"
-        >
-        </ng-icon>
+      <div *ngIf="feature.icon && iconPosition === 'background'" [class]="backgroundIconClasses">
+        <ng-icon [name]="feature.icon" [size]="backgroundIconSize" class="text-gray-100"> </ng-icon>
       </div>
     </div>
   `,
@@ -112,8 +78,7 @@ export interface EnhancedFeature {
 })
 export class EnhancedFeatureCardComponent {
   @Input() feature!: EnhancedFeature;
-  @Input() variant: 'default' | 'highlighted' | 'bordered' | 'minimal' =
-    'default';
+  @Input() variant: 'default' | 'highlighted' | 'bordered' | 'minimal' = 'default';
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() iconPosition: 'top' | 'left' | 'background' = 'top';
   @Input() colorTheme = 'blue';
@@ -132,12 +97,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get cardClasses(): string {
-    const classes = [
-      'relative',
-      'overflow-hidden',
-      'transition-all',
-      'duration-300',
-    ];
+    const classes = ['relative', 'overflow-hidden', 'transition-all', 'duration-300'];
 
     // Base card styling
     classes.push('bg-white', 'border', 'border-gray-200');
@@ -161,9 +121,7 @@ export class EnhancedFeatureCardComponent {
         classes.push('shadow-md');
         break;
       case 'highlighted':
-        classes.push(
-          `shadow-lg border-${this.colorTheme}-200 bg-gradient-to-br from-${this.colorTheme}-50 to-white`
-        );
+        classes.push(`shadow-lg border-${this.colorTheme}-200 bg-gradient-to-br from-${this.colorTheme}-50 to-white`);
         break;
       case 'bordered':
         classes.push(`shadow-md border-2 border-${this.colorTheme}-200`);
@@ -217,13 +175,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get iconContainerClasses(): string {
-    const classes = [
-      `bg-${this.colorTheme}-100`,
-      'rounded-full',
-      'flex',
-      'items-center',
-      'justify-center',
-    ];
+    const classes = [`bg-${this.colorTheme}-100`, 'rounded-full', 'flex', 'items-center', 'justify-center'];
 
     if (this.iconPosition === 'top') {
       classes.push('mx-auto', 'mb-4');
@@ -295,44 +247,19 @@ export class EnhancedFeatureCardComponent {
   }
 
   get badgeClasses(): string {
-    const classes = [
-      'inline-block',
-      'px-3',
-      'py-1',
-      'text-xs',
-      'font-medium',
-      'rounded-full',
-    ];
+    const classes = ['inline-block', 'px-3', 'py-1', 'text-xs', 'font-medium', 'rounded-full'];
 
     if (this.feature.image) {
-      classes.push(
-        'absolute',
-        'top-3',
-        'right-3',
-        'bg-white',
-        'text-gray-800',
-        'shadow-md'
-      );
+      classes.push('absolute', 'top-3', 'right-3', 'bg-white', 'text-gray-800', 'shadow-md');
     } else {
-      classes.push(
-        `bg-${this.colorTheme}-100`,
-        `text-${this.colorTheme}-800`,
-        'mb-2'
-      );
+      classes.push(`bg-${this.colorTheme}-100`, `text-${this.colorTheme}-800`, 'mb-2');
     }
 
     return classes.join(' ');
   }
 
   get footerClasses(): string {
-    const classes = [
-      'text-sm',
-      'text-gray-500',
-      'mt-4',
-      'pt-4',
-      'border-t',
-      'border-gray-100',
-    ];
+    const classes = ['text-sm', 'text-gray-500', 'mt-4', 'pt-4', 'border-t', 'border-gray-100'];
     return classes.join(' ');
   }
 
@@ -346,12 +273,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get isClickable(): boolean {
-    return (
-      this.clickable ||
-      !!this.feature.action ||
-      !!this.feature.href ||
-      !!this.feature.routerLink
-    );
+    return this.clickable || !!this.feature.action || !!this.feature.href || !!this.feature.routerLink;
   }
 
   get iconSize(): string {

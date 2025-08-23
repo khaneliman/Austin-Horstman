@@ -1,7 +1,5 @@
 <!-- Fixed navigation header -->
-<nav
-  class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-200"
->
+<nav class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <!-- Left side navigation -->
@@ -29,12 +27,7 @@
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
 
@@ -82,12 +75,7 @@
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
 
@@ -134,12 +122,7 @@
           class="text-gray-700 hover:text-blue-600 p-2 transition-colors duration-200"
           [attr.aria-expanded]="isMobileMenuOpen"
         >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               *ngIf="!isMobileMenuOpen"
               stroke-linecap="round"
@@ -160,10 +143,7 @@
     </div>
 
     <!-- Mobile menu -->
-    <div
-      *ngIf="isMobileMenuOpen"
-      class="md:hidden bg-white border-t border-gray-200 py-4"
-    >
+    <div *ngIf="isMobileMenuOpen" class="md:hidden bg-white border-t border-gray-200 py-4">
       <div class="space-y-4">
         <!-- Mobile Home -->
         <a
@@ -176,9 +156,7 @@
 
         <!-- Mobile Personal -->
         <div>
-          <div class="px-4 py-2 text-sm font-medium text-gray-500">
-            Personal
-          </div>
+          <div class="px-4 py-2 text-sm font-medium text-gray-500">Personal</div>
           <a
             [routerLink]="['/personal/about']"
             (click)="closeMobileMenu()"
@@ -204,9 +182,7 @@
 
         <!-- Mobile Projects -->
         <div>
-          <div class="px-4 py-2 text-sm font-medium text-gray-500">
-            Projects
-          </div>
+          <div class="px-4 py-2 text-sm font-medium text-gray-500">Projects</div>
           <a
             [routerLink]="['/projects']"
             (click)="closeMobileMenu()"

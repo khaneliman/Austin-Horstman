@@ -7,9 +7,7 @@ export class LogoStylingService {
   /**
    * Get the CSS background color value for a logo background type
    */
-  getLogoBackgroundStyle(
-    logoBackground: 'white' | 'black' | 'dark' | undefined
-  ): string {
+  getLogoBackgroundStyle(logoBackground: 'white' | 'black' | 'dark' | undefined): string {
     switch (logoBackground) {
       case 'white':
         return '#ffffff';
@@ -25,9 +23,7 @@ export class LogoStylingService {
   /**
    * Get CSS classes for logo background
    */
-  getLogoBackgroundClasses(
-    logoBackground: 'white' | 'black' | 'dark' | undefined
-  ): string {
+  getLogoBackgroundClasses(logoBackground: 'white' | 'black' | 'dark' | undefined): string {
     switch (logoBackground) {
       case 'white':
         return 'bg-white';

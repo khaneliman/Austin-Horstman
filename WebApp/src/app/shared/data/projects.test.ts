@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'bun:test';
-import { SHARED_PROJECTS, getProjectsForCompany } from './projects';
+import { describe, expect, it } from 'bun:test';
+import { getProjectsForCompany, SHARED_PROJECTS } from './projects';
 
 describe('Projects Data', () => {
   it('should have shared projects defined', () => {
@@ -17,7 +17,7 @@ describe('Projects Data', () => {
   it('should have valid project structure', () => {
     const projects = getProjectsForCompany('corebts');
 
-    projects.forEach(project => {
+    projects.forEach((project) => {
       expect(project).toHaveProperty('name');
       expect(project).toHaveProperty('route');
       expect(typeof project.name).toBe('string');

@@ -1,5 +1,5 @@
-import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { getCompanyEmploymentRoute } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';

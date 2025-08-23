@@ -42,31 +42,25 @@ export const TECHNOLOGY_SKILLS: readonly TechnologySkill[] = [
 
 // Helper functions to get technologies by skill level
 export function getProficientTechnologies(): TechnologySkill[] {
-  return TECHNOLOGY_SKILLS.filter(tech => (tech.skillLevel ?? 0) >= 4).map(
-    tech => ({ ...tech })
-  );
+  return TECHNOLOGY_SKILLS.filter((tech) => (tech.skillLevel ?? 0) >= 4).map((tech) => ({ ...tech }));
 }
 
 export function getLearnedTechnologies(): TechnologySkill[] {
-  return TECHNOLOGY_SKILLS.filter(
-    tech => (tech.skillLevel ?? 0) >= 2 && (tech.skillLevel ?? 0) <= 3
-  ).map(tech => ({ ...tech }));
+  return TECHNOLOGY_SKILLS.filter((tech) => (tech.skillLevel ?? 0) >= 2 && (tech.skillLevel ?? 0) <= 3).map((tech) => ({
+    ...tech,
+  }));
 }
 
 export function getInterestedTechnologies(): TechnologySkill[] {
-  return TECHNOLOGY_SKILLS.filter(
-    tech => !tech.skillLevel || tech.skillLevel === 1
-  ).map(tech => ({ ...tech }));
+  return TECHNOLOGY_SKILLS.filter((tech) => !tech.skillLevel || tech.skillLevel === 1).map((tech) => ({ ...tech }));
 }
 
 // Get all unique technology names for portfolio calculations
 export function getAllTechnologyNames(): string[] {
-  return TECHNOLOGY_SKILLS.map(tech => tech.name);
+  return TECHNOLOGY_SKILLS.map((tech) => tech.name);
 }
 
 // Get technology by name
 export function getTechnologyByName(name: string): TechnologySkill | undefined {
-  return TECHNOLOGY_SKILLS.find(
-    tech => tech.name.toLowerCase() === name.toLowerCase()
-  );
+  return TECHNOLOGY_SKILLS.find((tech) => tech.name.toLowerCase() === name.toLowerCase());
 }

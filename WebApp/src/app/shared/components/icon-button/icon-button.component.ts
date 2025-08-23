@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
@@ -19,11 +19,7 @@ import { NgIconComponent } from '@ng-icons/core';
 
     <ng-template #linkTemplate>
       <a [href]="href" [target]="target" [rel]="rel" [class]="buttonClasses">
-        <ng-icon
-          [name]="icon"
-          [size]="iconSize"
-          [class]="iconClasses"
-        ></ng-icon>
+        <ng-icon [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
       </a>
     </ng-template>
   `,
@@ -87,11 +83,7 @@ export class IconButtonComponent {
     if (!this.disabled) {
       switch (this.variant) {
         case 'filled':
-          classes.push(
-            `bg-${this.color}-500`,
-            `hover:bg-${this.color}-600`,
-            'text-white'
-          );
+          classes.push(`bg-${this.color}-500`, `hover:bg-${this.color}-600`, 'text-white');
           break;
         case 'outline':
           classes.push(
@@ -103,11 +95,7 @@ export class IconButtonComponent {
           );
           break;
         case 'ghost':
-          classes.push(
-            `text-${this.color}-500`,
-            `hover:bg-${this.color}-100`,
-            'bg-transparent'
-          );
+          classes.push(`text-${this.color}-500`, `hover:bg-${this.color}-100`, 'bg-transparent');
           break;
         case 'gradient':
           classes.push(

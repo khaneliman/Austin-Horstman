@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import {
-  DecorativeBackgroundComponent,
   BackgroundElement,
+  DecorativeBackgroundComponent,
 } from '../decorative-background/decorative-background.component';
 
 export interface HeroButton {
@@ -19,19 +19,11 @@ export interface HeroButton {
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgIconComponent,
-    DecorativeBackgroundComponent,
-  ],
+  imports: [CommonModule, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
   template: `
     <section [class]="sectionClasses">
       <!-- Background decorations -->
-      <app-decorative-background
-        *ngIf="backgroundElements.length > 0"
-        [elements]="backgroundElements"
-      >
+      <app-decorative-background *ngIf="backgroundElements.length > 0" [elements]="backgroundElements">
       </app-decorative-background>
 
       <!-- Additional background overlay -->
@@ -71,13 +63,7 @@ export interface HeroButton {
                   [class]="getButtonClasses(button)"
                   (click)="button.action && button.action()"
                 >
-                  <ng-icon
-                    *ngIf="button.icon"
-                    [name]="button.icon"
-                    size="1.25rem"
-                    class="mr-2"
-                  >
-                  </ng-icon>
+                  <ng-icon *ngIf="button.icon" [name]="button.icon" size="1.25rem" class="mr-2"> </ng-icon>
                   {{ button.text }}
                 </a>
               </div>
@@ -90,10 +76,7 @@ export interface HeroButton {
           </div>
 
           <!-- Right side content (optional) -->
-          <div
-            *ngIf="showRightContent"
-            class="flex items-center justify-center"
-          >
+          <div *ngIf="showRightContent" class="flex items-center justify-center">
             <ng-content select="[slot=right]"></ng-content>
           </div>
         </div>
@@ -232,9 +215,7 @@ export class HeroSectionComponent {
     const classes = ['px-4 py-2 text-sm font-medium rounded-full'];
 
     if (this.textColor === 'light') {
-      classes.push(
-        'bg-white/20 text-white backdrop-blur-sm border border-white/20'
-      );
+      classes.push('bg-white/20 text-white backdrop-blur-sm border border-white/20');
     } else {
       classes.push('bg-blue-100 text-blue-800');
     }
@@ -243,9 +224,7 @@ export class HeroSectionComponent {
   }
 
   get underlineClasses(): string {
-    const classes = [
-      'h-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full',
-    ];
+    const classes = ['h-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full'];
 
     switch (this.size) {
       case 'sm':
@@ -289,30 +268,20 @@ export class HeroSectionComponent {
 
     switch (button.variant) {
       case 'primary':
-        baseClasses.push(
-          'bg-green-500 hover:bg-green-600 text-white shadow-lg'
-        );
+        baseClasses.push('bg-green-500 hover:bg-green-600 text-white shadow-lg');
         break;
       case 'secondary':
         if (this.textColor === 'light') {
-          baseClasses.push(
-            'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40'
-          );
+          baseClasses.push('bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40');
         } else {
-          baseClasses.push(
-            'bg-blue-500 hover:bg-blue-600 text-white shadow-lg'
-          );
+          baseClasses.push('bg-blue-500 hover:bg-blue-600 text-white shadow-lg');
         }
         break;
       case 'outline':
         if (this.textColor === 'light') {
-          baseClasses.push(
-            'border-2 border-white text-white hover:bg-white hover:text-blue-600'
-          );
+          baseClasses.push('border-2 border-white text-white hover:bg-white hover:text-blue-600');
         } else {
-          baseClasses.push(
-            'border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'
-          );
+          baseClasses.push('border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white');
         }
         break;
     }

@@ -1,16 +1,11 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  heroBriefcase,
-  heroBuildingOffice,
-  heroBeaker,
-  heroChartBarSquare,
-} from '@ng-icons/heroicons/outline';
+import { heroBeaker, heroBriefcase, heroBuildingOffice, heroChartBarSquare } from '@ng-icons/heroicons/outline';
+import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
 import { ProfessionalProjectsGridComponent } from '../../shared/components/professional-projects-grid/professional-projects-grid.component';
 import { generateProfessionalProjectsGrid } from '../../shared/data/projects';
-import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
 import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/projects-breadcrumb.component';
 
 @Component({

@@ -8,34 +8,25 @@ export const NRI_NA_ROUTES: Routes = [
     children: [
       {
         path: 'doitbest',
-        loadComponent: () =>
-          import('./doitbest/doitbest.component').then(
-            m => m.NriNaDoItBestComponent
-          ),
+        loadComponent: () => import('./doitbest/doitbest.component').then((m) => m.NriNaDoItBestComponent),
         data: { autoScroll: true },
       },
       {
         path: 'ai-resource-staffing',
         loadComponent: () =>
-          import('./ai-resource-staffing/ai-resource-staffing.component').then(
-            m => m.AiResourceStaffingComponent
-          ),
+          import('./ai-resource-staffing/ai-resource-staffing.component').then((m) => m.AiResourceStaffingComponent),
         data: { autoScroll: true },
       },
       {
         path: 'tax-document-analysis',
         loadComponent: () =>
-          import(
-            './tax-document-analysis/tax-document-analysis.component'
-          ).then(m => m.TaxDocumentAnalysisComponent),
+          import('./tax-document-analysis/tax-document-analysis.component').then((m) => m.TaxDocumentAnalysisComponent),
         data: { autoScroll: true },
       },
       {
         path: 'mulesoft-migrator',
         loadComponent: () =>
-          import('./mulesoft-migrator/mulesoft-migrator.component').then(
-            m => m.MuleSoftMigratorComponent
-          ),
+          import('./mulesoft-migrator/mulesoft-migrator.component').then((m) => m.MuleSoftMigratorComponent),
         data: { autoScroll: true },
       },
     ],
