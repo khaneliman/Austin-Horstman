@@ -134,18 +134,18 @@
                 </div>
                 <div class="text-center">
                   <div class="text-2xl font-bold text-white">
-                    {{ currentCompany.stats.metric1.value }}
+                    {{ currentCompany.stats.projects.value }}
                   </div>
                   <div class="text-sm text-orange-200">
-                    {{ currentCompany.stats.metric1.label }}
+                    {{ currentCompany.stats.projects.label }}
                   </div>
                 </div>
                 <div class="text-center">
                   <div class="text-2xl font-bold text-white">
-                    {{ currentCompany.stats.metric2.value }}
+                    {{ currentCompany.stats.clients.value }}
                   </div>
                   <div class="text-sm text-orange-200">
-                    {{ currentCompany.stats.metric2.label }}
+                    {{ currentCompany.stats.clients.label }}
                   </div>
                 </div>
               </div>
@@ -268,10 +268,10 @@
                     'text-lg font-bold text-' + company.colorScheme.primary
                   "
                 >
-                  {{ company.stats.metric1.value }}
+                  {{ company.stats.projects.value }}
                 </div>
                 <div class="text-xs text-orange-200">
-                  {{ company.stats.metric1.label }}
+                  {{ company.stats.projects.label }}
                 </div>
               </div>
             </div>
@@ -343,19 +343,25 @@
         <div
           class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300"
         >
-          <div class="text-3xl font-bold text-gray-800 mb-2">17</div>
+          <div class="text-3xl font-bold text-gray-800 mb-2">
+            {{ portfolioStats.totalProjects }}
+          </div>
           <div class="text-gray-600 font-medium">Total Projects</div>
         </div>
         <div
           class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300"
         >
-          <div class="text-3xl font-bold text-gray-800 mb-2">5</div>
+          <div class="text-3xl font-bold text-gray-800 mb-2">
+            {{ portfolioStats.totalCompanies }}
+          </div>
           <div class="text-gray-600 font-medium">Companies</div>
         </div>
         <div
           class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300"
         >
-          <div class="text-3xl font-bold text-gray-800 mb-2">20+</div>
+          <div class="text-3xl font-bold text-gray-800 mb-2">
+            {{ portfolioStats.totalTechnologies }}+
+          </div>
           <div class="text-gray-600 font-medium">Technologies</div>
         </div>
       </div>

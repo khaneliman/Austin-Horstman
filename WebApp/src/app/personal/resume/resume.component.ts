@@ -24,7 +24,11 @@ import {
   heroFolder,
   heroInformationCircle,
 } from '@ng-icons/heroicons/outline';
-import { CompanyInfo, COMPANIES } from '../../shared/data/companies';
+import {
+  CompanyInfo,
+  getCompanyWithCalculatedStats,
+  getAllCompanies,
+} from '../../shared/data/companies';
 
 @Component({
   selector: 'app-resume',
@@ -149,13 +153,13 @@ export class ResumeComponent {
     },
   ];
 
-  // Company data
-  currentCompany: CompanyInfo = COMPANIES['nri-na'];
+  // Company data with calculated stats
+  currentCompany: CompanyInfo = getCompanyWithCalculatedStats('nri-na');
   previousCompanies: CompanyInfo[] = [
-    COMPANIES.corebts,
-    COMPANIES.skyline,
-    COMPANIES.west,
-    COMPANIES.bestbuy,
+    getCompanyWithCalculatedStats('corebts'),
+    getCompanyWithCalculatedStats('skyline'),
+    getCompanyWithCalculatedStats('west'),
+    getCompanyWithCalculatedStats('bestbuy'),
   ];
 
   trackByCompanyId(index: number, company: CompanyInfo): string {
@@ -176,12 +180,63 @@ export class ResumeComponent {
       'green-500': '#22c55e',
       'red-600': '#dc2626',
       'orange-500': '#f97316',
+      'orange-600': '#ea580c',
+      'orange-800': '#9a3412',
       'indigo-600': '#4f46e5',
       'sky-400': '#38bdf8',
       'teal-500': '#14b8a6',
-      'orange-600': '#ea580c',
       'gray-900': '#111827',
     };
     return colorMap[colorClass] || '#3b82f6';
+  }
+
+  // Calculated portfolio statistics
+  get portfolioStats() {
+    const allCompanies = getAllCompanies();
+    const totalProjects = allCompanies.reduce((sum, company) => {
+      return sum + company.projects.length;
+    }, 0);
+
+    // Count unique technologies from all companies
+    const allTechnologies = new Set<string>();
+    // Add some common technologies that are used across projects
+    const knownTechnologies = [
+      'Angular',
+      'TypeScript',
+      'C#',
+      '.NET',
+      'Java',
+      'JavaScript',
+      'HTML',
+      'CSS',
+      'SQL',
+      'Azure',
+      'Kubernetes',
+      'Docker',
+      'NgRx',
+      'RxJS',
+      'ASP.NET',
+      'Entity Framework',
+      'Kafka',
+      'Bicep',
+      'Helm',
+      'WPF',
+      'WinForms',
+      'Bootstrap',
+      'jQuery',
+      'Fabric.js',
+      'Azure Blob Storage',
+      'JWT',
+      'SCSS',
+      'Nix',
+      'Lua',
+    ];
+    knownTechnologies.forEach(tech => allTechnologies.add(tech));
+
+    return {
+      totalProjects,
+      totalCompanies: allCompanies.length,
+      totalTechnologies: allTechnologies.size,
+    };
   }
 }
