@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 
 export interface Stat {
@@ -41,24 +41,13 @@ export class StatsGridComponent {
   @Input() containerBackground = false;
   @Input() containerColor = 'blue';
 
-  private colorVariations = [
-    'blue',
-    'green',
-    'purple',
-    'red',
-    'indigo',
-    'yellow',
-    'pink',
-    'teal',
-  ];
+  private colorVariations = ['blue', 'green', 'purple', 'red', 'indigo', 'yellow', 'pink', 'teal'];
 
   get containerClasses(): string {
     const classes = [];
 
     if (this.containerBackground) {
-      classes.push(
-        `bg-gradient-to-r from-${this.containerColor}-50 to-${this.containerColor}-100 rounded-2xl p-8`
-      );
+      classes.push(`bg-gradient-to-r from-${this.containerColor}-50 to-${this.containerColor}-100 rounded-2xl p-8`);
     }
 
     return classes.join(' ');
@@ -86,6 +75,6 @@ export class StatsGridComponent {
       return this.color;
     }
 
-    return this.colorVariations[index % this.colorVariations.length];
+    return this.colorVariations[index % this.colorVariations.length] || 'text-blue-600';
   }
 }

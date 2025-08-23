@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 import { WaveSeparatorComponent } from '../../../shared/components/wave-separator/wave-separator.component';
 
 @Component({
@@ -17,19 +17,18 @@ export class EmploymentComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   ngOnDestroy() {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   ngOnInit(): void {
     const jobs: string[] = [];
     if (this.route && this.route.routeConfig && this.route.routeConfig.children)
-      this.route.routeConfig.children.forEach(x => jobs.push(x.path as string));
+      this.route.routeConfig.children.forEach((x) => jobs.push(x.path as string));
 
-    this.childActivated = new Promise<string>(resolve => {
+    this.childActivated = new Promise<string>((resolve) => {
       this.resolve = resolve;
     });
 
-    if (this.resolve && this.route.snapshot.firstChild)
-      this.resolve(this.route.snapshot.firstChild.url[0].path);
+    if (this.resolve && this.route.snapshot.firstChild) this.resolve(this.route.snapshot.firstChild.url[0]?.path || '');
   }
 }

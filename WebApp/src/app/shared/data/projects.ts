@@ -5,8 +5,7 @@ import { COMPANIES } from './companies';
 export const SHARED_PROJECTS = {
   doitbest: {
     name: 'DoItBest',
-    description:
-      'Backend services and infrastructure modernization with mainframe decommissioning',
+    description: 'Backend services and infrastructure modernization with mainframe decommissioning',
     icon: 'heroCog6Tooth',
     color: 'from-indigo-600 to-blue-800',
     status: 'Production' as const,
@@ -16,8 +15,7 @@ export const SHARED_PROJECTS = {
   kroger: {
     corebts: {
       name: 'Kroger',
-      description:
-        'NgRx state management and Cold Fusion modernization for enterprise retail platform',
+      description: 'NgRx state management and Cold Fusion modernization for enterprise retail platform',
       icon: 'heroShoppingBag',
       color: 'from-green-600 to-emerald-800',
       status: 'Production' as const,
@@ -26,8 +24,7 @@ export const SHARED_PROJECTS = {
     },
     skyline: {
       name: 'Kroger',
-      description:
-        'Enterprise retail platform modernization and inventory management systems',
+      description: 'Enterprise retail platform modernization and inventory management systems',
       icon: 'heroShoppingBag',
       color: 'from-purple-600 to-indigo-800',
       status: 'Production' as const,
@@ -56,9 +53,7 @@ export function getDoItBestProject(company: 'corebts' | 'nri-na'): ProjectInfo {
   };
 }
 
-export function getKrogerProject(
-  company: 'corebts' | 'skyline' | 'nriNa'
-): ProjectInfo {
+export function getKrogerProject(company: 'corebts' | 'skyline' | 'nriNa'): ProjectInfo {
   const project = SHARED_PROJECTS.kroger[company];
   return {
     ...project,
@@ -75,9 +70,7 @@ export function getDoItBestProjectForProfile(): ProjectInfo {
   };
 }
 
-export function getKrogerProjectForProfile(
-  company: 'corebts' | 'skyline' | 'nriNa'
-): ProjectInfo {
+export function getKrogerProjectForProfile(company: 'corebts' | 'skyline' | 'nriNa'): ProjectInfo {
   const project = SHARED_PROJECTS.kroger[company];
   return {
     ...project,
@@ -89,8 +82,7 @@ export function getKrogerProjectForProfile(
 // Detailed project metadata - maps project routes to full project information
 const PROJECT_DETAILS = {
   doitbest: {
-    description:
-      'Backend services and infrastructure modernization with mainframe decommissioning',
+    description: 'Backend services and infrastructure modernization with mainframe decommissioning',
     icon: 'heroCog6Tooth',
     color: 'from-indigo-600 to-blue-800',
     status: 'Production' as const,
@@ -98,16 +90,14 @@ const PROJECT_DETAILS = {
   },
   kroger: {
     corebts: {
-      description:
-        'NgRx state management and Cold Fusion modernization for enterprise retail platform',
+      description: 'NgRx state management and Cold Fusion modernization for enterprise retail platform',
       icon: 'heroShoppingBag',
       color: 'from-green-600 to-emerald-800',
       status: 'Production' as const,
       technologies: ['Angular', 'NgRx', '.NET', 'Azure', 'Cold Fusion Legacy'],
     },
     skyline: {
-      description:
-        'Enterprise retail platform modernization and inventory management systems',
+      description: 'Enterprise retail platform modernization and inventory management systems',
       icon: 'heroShoppingBag',
       color: 'from-purple-600 to-indigo-800',
       status: 'Production' as const,
@@ -185,64 +175,37 @@ const PROJECT_DETAILS = {
     technologies: ['C#', 'WinForms', 'Windows API'],
   },
   'ai-resource-staffing': {
-    description:
-      'AI-powered conversational platform with integrated tools for skills-based resource discovery',
+    description: 'AI-powered conversational platform with integrated tools for skills-based resource discovery',
     icon: 'heroBeaker',
     color: 'from-blue-600 to-sky-700',
     status: 'Production' as const,
-    technologies: [
-      'React',
-      'Remix',
-      'TypeScript',
-      'Azure OpenAI',
-      'SharePoint API',
-      'Microsoft Graph',
-    ],
+    technologies: ['React', 'Remix', 'TypeScript', 'Azure OpenAI', 'SharePoint API', 'Microsoft Graph'],
   },
   'tax-document-analysis': {
-    description:
-      'AI-powered tax document relevance analysis and business impact assessment tool',
+    description: 'AI-powered tax document relevance analysis and business impact assessment tool',
     icon: 'heroDocumentText',
     color: 'from-purple-600 to-indigo-700',
     status: 'Production' as const,
-    technologies: [
-      'React',
-      'Remix',
-      'TypeScript',
-      'Azure OpenAI',
-      'PDF Processing',
-      'Zod Validation',
-    ],
+    technologies: ['React', 'Remix', 'TypeScript', 'Azure OpenAI', 'PDF Processing', 'Zod Validation'],
   },
   'mulesoft-migrator': {
-    description:
-      'Enterprise migration analysis platform for converting MuleSoft projects to .NET applications',
+    description: 'Enterprise migration analysis platform for converting MuleSoft projects to .NET applications',
     icon: 'heroArrowPathRoundedSquare',
     color: 'from-emerald-600 to-teal-700',
     status: 'Production' as const,
-    technologies: [
-      'React Router 7',
-      'TypeScript',
-      'LangGraph',
-      'Claude 4 Sonnet',
-      'OpenAI o3 & o4-mini',
-      'PostgreSQL',
-    ],
+    technologies: ['React Router 7', 'TypeScript', 'LangGraph', 'Claude 4 Sonnet', 'OpenAI o3 & o4-mini', 'PostgreSQL'],
   },
 } as const;
 
 // Helper function to generate ProjectInfo objects from centralized COMPANIES data
-export function getProjectsForCompany(
-  companyKey: keyof typeof COMPANIES
-): ProjectInfo[] {
+export function getProjectsForCompany(companyKey: keyof typeof COMPANIES): ProjectInfo[] {
   const company = COMPANIES[companyKey];
-  return company.projects.map(project => {
+  return company.projects.map((project) => {
     // Special case for Best Buy which uses geeksquad route path
     const routeCompanyKey = companyKey === 'bestbuy' ? 'geeksquad' : companyKey;
 
     if (project.route === 'kroger') {
-      const krogerDetails =
-        PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
+      const krogerDetails = PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
       return {
         name: project.name,
         route: `/projects/professional/${routeCompanyKey}/${project.route}`,
@@ -254,10 +217,7 @@ export function getProjectsForCompany(
       };
     }
 
-    const details =
-      PROJECT_DETAILS[
-        project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>
-      ];
+    const details = PROJECT_DETAILS[project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>];
     return {
       name: project.name,
       route: `/projects/professional/${routeCompanyKey}/${project.route}`,
@@ -271,17 +231,14 @@ export function getProjectsForCompany(
 }
 
 // Helper function for employment components - generates ProjectInfo with absolute routes
-export function getProjectsForEmployment(
-  companyKey: keyof typeof COMPANIES
-): ProjectInfo[] {
+export function getProjectsForEmployment(companyKey: keyof typeof COMPANIES): ProjectInfo[] {
   const company = COMPANIES[companyKey];
-  return company.projects.map(project => {
+  return company.projects.map((project) => {
     // Special case for Best Buy which uses geeksquad route path
     const routeCompanyKey = companyKey === 'bestbuy' ? 'geeksquad' : companyKey;
 
     if (project.route === 'kroger') {
-      const krogerDetails =
-        PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
+      const krogerDetails = PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
       return {
         name: project.name,
         route: `/projects/professional/${routeCompanyKey}/${project.route}`,
@@ -293,10 +250,7 @@ export function getProjectsForEmployment(
       };
     }
 
-    const details =
-      PROJECT_DETAILS[
-        project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>
-      ];
+    const details = PROJECT_DETAILS[project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>];
     return {
       name: project.name,
       route: `/projects/professional/${routeCompanyKey}/${project.route}`,
@@ -317,13 +271,13 @@ export function generateProfessionalProjectsGrid() {
 
       return {
         title: `${company.displayName} Projects`,
-        description: company.description.split('.')[0], // First sentence
+        description: company.description.split('.')[0] || company.description, // First sentence
         company: company.displayName,
         route: company.projectsRoute,
         logo: company.logoSrc,
         theme: company.colorScheme.theme,
         logoBackground: company.logoBackground,
-        projects: company.projects.map(project => ({
+        projects: company.projects.map((project) => ({
           name: project.name,
           route: `/projects/professional/${companyKey}/${project.route}`,
         })),

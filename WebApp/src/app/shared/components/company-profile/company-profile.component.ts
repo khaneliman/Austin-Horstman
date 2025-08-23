@@ -1,58 +1,42 @@
-import {
-  Component,
-  Input,
-  inject,
-  AfterViewInit,
-  ViewChild,
-  ElementRef,
-  OnDestroy,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  RouterModule,
-  Router,
-  NavigationEnd,
-  ActivatedRoute,
-} from '@angular/router';
+import { AfterViewInit, Component, ElementRef, Input, inject, OnDestroy, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  BulletListComponent,
-  BulletListItem,
-} from '../bullet-list/bullet-list.component';
+  heroAcademicCap,
+  heroArchiveBox,
+  heroArrowPathRoundedSquare,
+  heroArrowRight,
+  heroArrowTopRightOnSquare,
+  heroBeaker,
+  heroBookOpen,
+  heroBriefcase,
+  heroBuildingOffice,
+  heroCalendarDays,
+  heroChartBarSquare,
+  heroChartPie,
+  heroCircleStack,
+  heroCodeBracket,
+  heroCog6Tooth,
+  heroDevicePhoneMobile,
+  heroDocumentText,
+  heroGlobeAlt,
+  heroMapPin,
+  heroMusicalNote,
+  heroRectangleStack,
+  heroRocketLaunch,
+  heroShieldCheck,
+  heroShoppingBag,
+} from '@ng-icons/heroicons/outline';
+import { Subject } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
+import type { CompanyInfo } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
+import { BulletListComponent, BulletListItem } from '../bullet-list/bullet-list.component';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
 } from '../decorative-background/decorative-background.component';
-import type { CompanyInfo } from '../../data/companies';
-import {
-  heroArrowTopRightOnSquare,
-  heroMapPin,
-  heroBriefcase,
-  heroCalendarDays,
-  heroAcademicCap,
-  heroCodeBracket,
-  heroBuildingOffice,
-  heroCog6Tooth,
-  heroArrowRight,
-  heroRectangleStack,
-  heroShoppingBag,
-  heroBookOpen,
-  heroMusicalNote,
-  heroDevicePhoneMobile,
-  heroBeaker,
-  heroArchiveBox,
-  heroChartBarSquare,
-  heroCircleStack,
-  heroChartPie,
-  heroGlobeAlt,
-  heroRocketLaunch,
-  heroShieldCheck,
-  heroDocumentText,
-  heroArrowPathRoundedSquare,
-} from '@ng-icons/heroicons/outline';
-import { filter, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
 
 // CompanyInfo is imported above and re-exported for other components
 export type { CompanyInfo };
@@ -71,13 +55,7 @@ export interface ProjectInfo {
   selector: 'app-company-profile',
   templateUrl: './company-profile.component.html',
   styleUrls: ['./company-profile.component.scss'],
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgIconComponent,
-    BulletListComponent,
-    DecorativeBackgroundComponent,
-  ],
+  imports: [CommonModule, RouterModule, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({
       heroArrowTopRightOnSquare,
@@ -145,9 +123,7 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
     },
   ];
 
-  getLogoBackgroundStyle(
-    logoBackground: 'white' | 'black' | 'dark' | undefined
-  ): string {
+  getLogoBackgroundStyle(logoBackground: 'white' | 'black' | 'dark' | undefined): string {
     return this.logoStylingService.getLogoBackgroundStyle(logoBackground);
   }
 
@@ -164,7 +140,7 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
       'bg-orange-100 text-orange-800',
       'bg-gray-100 text-gray-800',
     ];
-    return badgeClasses[index % badgeClasses.length];
+    return badgeClasses[index % badgeClasses.length] || 'bg-blue-100 text-blue-800';
   }
 
   getProjectLinkClass(theme: string): string {
@@ -190,7 +166,7 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.router.events
       .pipe(
-        filter(event => event instanceof NavigationEnd),
+        filter((event) => event instanceof NavigationEnd),
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
@@ -222,10 +198,7 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
     let hasProjectRoute = false;
 
     while (currentRoute) {
-      if (
-        currentRoute.snapshot.data['autoScroll'] === true &&
-        this.projectDetailsSection
-      ) {
+      if (currentRoute.snapshot.data['autoScroll'] === true && this.projectDetailsSection) {
         hasProjectRoute = true;
 
         // Only auto-scroll if the last navigation was NOT to a project route
@@ -246,7 +219,7 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
 
   getAchievementItems(): BulletListItem[] {
     if (!this.company.achievements) return [];
-    return this.company.achievements.map(achievement => ({
+    return this.company.achievements.map((achievement) => ({
       text: achievement,
     }));
   }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -15,21 +15,18 @@ export class EducationComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   ngOnInit(): void {
     const schools: string[] = [];
     if (this.route && this.route.routeConfig && this.route.routeConfig.children)
-      this.route.routeConfig.children.forEach(x =>
-        schools.push(x.path as string)
-      );
+      this.route.routeConfig.children.forEach((x) => schools.push(x.path as string));
 
-    this.childActivated = new Promise<string>(resolve => {
+    this.childActivated = new Promise<string>((resolve) => {
       this.resolve = resolve;
     });
 
-    if (this.route.snapshot.firstChild && this.resolve)
-      this.resolve(this.route.snapshot.firstChild.url[0].path);
+    if (this.route.snapshot.firstChild && this.resolve) this.resolve(this.route.snapshot.firstChild.url[0]?.path || '');
   }
 }
