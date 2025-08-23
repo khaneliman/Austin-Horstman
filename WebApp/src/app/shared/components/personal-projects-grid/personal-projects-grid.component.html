@@ -142,22 +142,6 @@
           <ng-icon name="heroCodeBracket" size="1rem" class="mr-2"></ng-icon>
           GitHub
         </a>
-        <a
-          *ngIf="project.liveUrl"
-          [href]="project.liveUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex-1 bg-gradient-to-r {{
-            getCategoryColor(project.category)
-          }} text-white px-4 py-3 rounded-xl font-semibold text-center text-sm hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
-        >
-          <ng-icon
-            name="heroArrowTopRightOnSquare"
-            size="1rem"
-            class="mr-2"
-          ></ng-icon>
-          Live Demo
-        </a>
         <div
           *ngIf="!project.githubUrl && !project.liveUrl"
           class="flex-1 bg-gradient-to-r {{
