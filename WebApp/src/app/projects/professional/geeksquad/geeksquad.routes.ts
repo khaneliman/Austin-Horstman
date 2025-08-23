@@ -6,7 +6,13 @@ export const GEEKSQUAD_ROUTES: Routes = [
   {
     path: '',
     component: GeeksquadComponent,
-    children: [{ path: 'stat-tracker', component: StatTrackerComponent, data: { autoScroll: true } }],
+    children: [
+      {
+        path: 'stat-tracker',
+        component: StatTrackerComponent,
+        data: { autoScroll: true },
+      },
+    ],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

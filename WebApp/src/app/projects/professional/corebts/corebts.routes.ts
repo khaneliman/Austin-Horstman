@@ -8,8 +8,16 @@ export const COREBTS_ROUTES: Routes = [
     path: '',
     component: CorebtsComponent,
     children: [
-      { path: 'kroger', component: KrogerComponent, data: { autoScroll: true } },
-      { path: 'doitbest', component: DoItBestComponent, data: { autoScroll: true } },
+      {
+        path: 'kroger',
+        component: KrogerComponent,
+        data: { autoScroll: true },
+      },
+      {
+        path: 'doitbest',
+        component: DoItBestComponent,
+        data: { autoScroll: true },
+      },
     ],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
