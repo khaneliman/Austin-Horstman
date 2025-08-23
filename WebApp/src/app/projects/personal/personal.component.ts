@@ -55,5 +55,4 @@ export class PersonalComponent {
   heroTitle = 'Personal Projects & Open Source';
   heroSubtitle =
     'Individual software development projects, open source contributions, and personal portfolio applications showcasing continuous learning and technical exploration.';
-  heroBadge = 'Personal Projects';
 }
