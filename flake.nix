@@ -26,6 +26,7 @@
               docker-compose
 
               # Web development
+              bun
               nodejs_22
               prettier
 
