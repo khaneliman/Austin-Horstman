@@ -43,7 +43,7 @@ export const COMPANIES = {
     website: 'https://www.nri.com/en/worldwide/americas',
     location: 'Appleton, WI',
     position: 'Senior Software Engineer',
-    dateRange: 'Jan 2022 - Current',
+    dateRange: 'Apr 2025 - Current',
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'nri',
@@ -52,12 +52,12 @@ export const COMPANIES = {
       accent: 'sky-600',
     },
     stats: {
-      years: '3+',
-      metric1: { value: '15+', label: 'Projects' },
-      metric2: { value: '20+', label: 'Clients' },
+      years: '7+',
+      metric1: { value: '25+', label: 'Projects' },
+      metric2: { value: '30+', label: 'Clients' },
     },
     description:
-      "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2022, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Senior Software Engineer in the Modern Business Unit, I work with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on cloud-native architectures and scalable enterprise solutions.",
+      "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2025, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Senior Software Engineer in the Modern Business Unit, I continue working with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on cloud-native architectures and scalable enterprise solutions. My total experience spans 7+ years from Skyline Technologies through Core BTS to NRI-NA.",
     achievements: [
       'Drove team-wide agile process improvements as technical leader and scrum advisor, significantly increasing delivery speed and reducing development blockers',
       'Successfully managed complex stakeholder relationships with business users, legacy system maintainers, and architects to create and prioritize backlogs under tight deadlines',
@@ -88,7 +88,7 @@ export const COMPANIES = {
     website: 'https://www.corebts.com',
     location: 'Appleton, WI',
     position: 'Software Engineer → Senior Software Engineer',
-    dateRange: 'Jan 2021 - Jan 2022',
+    dateRange: 'Jan 2021 - Apr 2025',
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'green',
@@ -97,12 +97,12 @@ export const COMPANIES = {
       accent: 'green-500',
     },
     stats: {
-      years: '1',
-      metric1: { value: '5+', label: 'Clients' },
-      metric2: { value: '8+', label: 'Projects' },
+      years: '4.3',
+      metric1: { value: '15+', label: 'Clients' },
+      metric2: { value: '20+', label: 'Projects' },
     },
     description:
-      'Core BTS is a technology consulting company specializing in modern application development and digital transformation solutions. I joined as a Software Engineer in January 2021 and was promoted to Senior Software Engineer during my tenure. In the Modern Business Unit, I worked with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on delivering scalable, maintainable solutions that drive business value and innovation.',
+      'Core BTS is a technology consulting company specializing in modern application development and digital transformation solutions. I joined as a Software Engineer in January 2021 and was promoted to Senior Software Engineer in January 2022. Over my 4+ year tenure in the Modern Business Unit, I worked with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on delivering scalable, maintainable solutions that drive business value and innovation.',
     achievements: [
       'Successfully architected and implemented NgRx state management across multiple Angular applications, modernizing Cold Fusion legacy systems and improving application performance and maintainability',
       'Designed and built a comprehensive PDF rendering and annotation system using Fabric.js and Angular, integrated with Azure Blob Storage backend for scalable document management',
@@ -127,7 +127,7 @@ export const COMPANIES = {
     website: 'https://www.skylinetechnologies.com',
     location: 'Appleton, WI',
     position: 'Software Engineer',
-    dateRange: 'Jul 2019 - Apr 2021',
+    dateRange: 'Oct 2017 - Jan 2021',
     department: 'Development Team',
     colorScheme: {
       theme: 'blue',
@@ -136,9 +136,9 @@ export const COMPANIES = {
       accent: 'cyan-500',
     },
     stats: {
-      years: '2',
-      metric1: { value: '8+', label: 'Projects' },
-      metric2: { value: '15+', label: 'Clients' },
+      years: '3.3',
+      metric1: { value: '12+', label: 'Projects' },
+      metric2: { value: '20+', label: 'Clients' },
     },
     description:
       'Skyline Technologies is a consulting company providing custom software development and technology solutions across multiple industries. As a Software Engineer, I worked on diverse client projects ranging from healthcare applications to retail platforms, developing full-stack solutions with modern frameworks and implementing best practices for scalable, maintainable code.',
@@ -163,8 +163,8 @@ export const COMPANIES = {
     logoBackground: 'white',
     website: 'https://www.west.com',
     location: 'Omaha, NE',
-    position: 'Software Engineer Intern',
-    dateRange: 'May 2018 - Aug 2018',
+    position: 'Software Engineer',
+    dateRange: 'May 2015 - Oct 2017',
     department: 'IT Department',
     colorScheme: {
       theme: 'red',
@@ -173,12 +173,12 @@ export const COMPANIES = {
       accent: 'yellow-600',
     },
     stats: {
-      years: '0.3',
-      metric1: { value: '3', label: 'Projects' },
-      metric2: { value: '5+', label: 'Tools Built' },
+      years: '2.4',
+      metric1: { value: '8+', label: 'Projects' },
+      metric2: { value: '15+', label: 'Tools Built' },
     },
     description:
-      'West Corporation is a global provider of technology-enabled services and solutions. As a Software Engineer Intern in the IT Department, I developed internal tools and automation solutions to improve operational efficiency, including database management systems and employee portal applications using modern web technologies.',
+      'West Corporation is a global provider of technology-enabled services and solutions. As a Software Engineer in the IT Department, I developed internal tools and automation solutions to improve operational efficiency, including database management systems and employee portal applications using modern web technologies.',
     projectsRoute: '/projects/professional/west',
     employmentRoute: '/personal/resume/employment/west',
     projects: [
@@ -197,8 +197,8 @@ export const COMPANIES = {
     logoBackground: 'dark',
     website: 'https://www.bestbuy.com/site/geek-squad',
     location: 'Omaha, NE',
-    position: 'Consultation Agent',
-    dateRange: 'Oct 2017 - May 2018',
+    position: 'Advanced Repair Agent',
+    dateRange: 'Aug 2013 - Jul 2015',
     department: 'Geek Squad Services',
     colorScheme: {
       theme: 'orange',
@@ -207,12 +207,12 @@ export const COMPANIES = {
       accent: 'orange-600',
     },
     stats: {
-      years: '0.7',
-      metric1: { value: '2', label: 'Projects' },
-      metric2: { value: '100+', label: 'Customers Served' },
+      years: '2',
+      metric1: { value: '3+', label: 'Projects' },
+      metric2: { value: '500+', label: 'Customers Served' },
     },
     description:
-      'Best Buy Geek Squad provides technology support and services to customers. As a Consultation Agent, I provided technical support and developed internal tools to improve customer service efficiency, including stat tracking systems and operational dashboards to help agents manage their performance and customer interactions.',
+      'Best Buy Geek Squad provides technology support and services to customers. As an Advanced Repair Agent, I provided technical support and developed internal tools to improve customer service efficiency, including stat tracking systems and operational dashboards to help agents manage their performance and customer interactions. This was my first professional role in technology, building foundational experience in customer service and software development.',
     projectsRoute: '/projects/professional/geeksquad',
     employmentRoute: '/personal/resume/employment/bestbuy',
     projects: [{ name: 'Stat Tracker', route: 'stat-tracker' }],
