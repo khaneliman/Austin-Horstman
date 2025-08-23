@@ -1,64 +1,62 @@
-// Technology skill levels and categories
+// Technology skill levels
 export type SkillLevel = 1 | 2 | 3 | 4 | 5;
-export type TechnologyCategory = 'proficient' | 'learned' | 'interested';
 
 export interface TechnologySkill {
   name: string;
-  category: TechnologyCategory;
-  skillLevel?: SkillLevel; // For proficient and learned technologies
+  skillLevel?: SkillLevel; // Optional - technologies without skill level are "interested"
   description?: string;
 }
 
 // Centralized technology skills data
 export const TECHNOLOGY_SKILLS: readonly TechnologySkill[] = [
-  // Proficient Technologies (with skill levels)
-  { name: 'Angular', category: 'proficient', skillLevel: 5 },
-  { name: 'C#', category: 'proficient', skillLevel: 4 },
-  { name: '.NET', category: 'proficient', skillLevel: 4 },
-  { name: 'TypeScript', category: 'proficient', skillLevel: 5 },
-  { name: 'SQL Server', category: 'proficient', skillLevel: 4 },
-  { name: 'Azure', category: 'proficient', skillLevel: 4 },
-  { name: 'Nix', category: 'proficient', skillLevel: 5 },
-  { name: 'Lua', category: 'proficient', skillLevel: 5 },
-  { name: 'GitHub Actions', category: 'proficient', skillLevel: 5 },
-  { name: 'Git', category: 'proficient', skillLevel: 5 },
+  // High proficiency technologies (4-5 stars)
+  { name: 'Angular', skillLevel: 5 },
+  { name: 'TypeScript', skillLevel: 5 },
+  { name: 'Nix', skillLevel: 5 },
+  { name: 'Lua', skillLevel: 5 },
+  { name: 'GitHub Actions', skillLevel: 5 },
+  { name: 'Git', skillLevel: 5 },
+  { name: 'C#', skillLevel: 4 },
+  { name: '.NET', skillLevel: 4 },
+  { name: 'SQL Server', skillLevel: 4 },
+  { name: 'Azure', skillLevel: 4 },
 
-  // Learned Technologies (with skill levels)
-  { name: 'Docker', category: 'learned', skillLevel: 3 },
-  { name: 'JavaScript', category: 'learned', skillLevel: 3 },
-  { name: 'Rust', category: 'learned', skillLevel: 3 },
-  { name: 'Java', category: 'learned', skillLevel: 3 },
-  { name: 'SCSS', category: 'learned', skillLevel: 3 },
-  { name: 'MySQL', category: 'learned', skillLevel: 3 },
-  { name: 'C++', category: 'learned', skillLevel: 2 },
+  // Moderate proficiency technologies (2-3 stars)
+  { name: 'Docker', skillLevel: 3 },
+  { name: 'JavaScript', skillLevel: 3 },
+  { name: 'Rust', skillLevel: 3 },
+  { name: 'Java', skillLevel: 3 },
+  { name: 'SCSS', skillLevel: 3 },
+  { name: 'MySQL', skillLevel: 3 },
+  { name: 'C++', skillLevel: 2 },
 
-  // Interested Technologies
-  { name: 'Swift', category: 'interested' },
-  { name: 'MAUI', category: 'interested' },
-  { name: 'Leptos', category: 'interested' },
-  { name: 'Svelte', category: 'interested' },
-  { name: 'Rocket (Rust)', category: 'interested' },
-  { name: 'Zig', category: 'interested' },
-  { name: 'Game Development', category: 'interested' },
+  // Interested technologies (no skill level)
+  { name: 'Swift' },
+  { name: 'MAUI' },
+  { name: 'Leptos' },
+  { name: 'Svelte' },
+  { name: 'Rocket (Rust)' },
+  { name: 'Zig' },
+  { name: 'Game Development' },
 ] as const;
 
-// Helper functions to get technologies by category
-export function getTechnologiesByCategory(
-  category: TechnologyCategory
-): TechnologySkill[] {
-  return TECHNOLOGY_SKILLS.filter(tech => tech.category === category);
-}
-
+// Helper functions to get technologies by skill level
 export function getProficientTechnologies(): TechnologySkill[] {
-  return getTechnologiesByCategory('proficient');
+  return TECHNOLOGY_SKILLS.filter(tech => (tech.skillLevel ?? 0) >= 4).map(
+    tech => ({ ...tech })
+  );
 }
 
 export function getLearnedTechnologies(): TechnologySkill[] {
-  return getTechnologiesByCategory('learned');
+  return TECHNOLOGY_SKILLS.filter(
+    tech => (tech.skillLevel ?? 0) >= 2 && (tech.skillLevel ?? 0) <= 3
+  ).map(tech => ({ ...tech }));
 }
 
 export function getInterestedTechnologies(): TechnologySkill[] {
-  return getTechnologiesByCategory('interested');
+  return TECHNOLOGY_SKILLS.filter(
+    tech => !tech.skillLevel || tech.skillLevel === 1
+  ).map(tech => ({ ...tech }));
 }
 
 // Get all unique technology names for portfolio calculations
