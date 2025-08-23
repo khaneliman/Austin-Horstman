@@ -29,6 +29,7 @@ import {
   getCompanyWithCalculatedStats,
   getAllCompanies,
 } from '../../shared/data/companies';
+import { getProjectsForCompany } from '../../shared/data/projects';
 
 @Component({
   selector: 'app-resume',
@@ -197,41 +198,16 @@ export class ResumeComponent {
       return sum + company.projects.length;
     }, 0);
 
-    // Count unique technologies from all companies
+    // Count unique technologies from all company projects
     const allTechnologies = new Set<string>();
-    // Add some common technologies that are used across projects
-    const knownTechnologies = [
-      'Angular',
-      'TypeScript',
-      'C#',
-      '.NET',
-      'Java',
-      'JavaScript',
-      'HTML',
-      'CSS',
-      'SQL',
-      'Azure',
-      'Kubernetes',
-      'Docker',
-      'NgRx',
-      'RxJS',
-      'ASP.NET',
-      'Entity Framework',
-      'Kafka',
-      'Bicep',
-      'Helm',
-      'WPF',
-      'WinForms',
-      'Bootstrap',
-      'jQuery',
-      'Fabric.js',
-      'Azure Blob Storage',
-      'JWT',
-      'SCSS',
-      'Nix',
-      'Lua',
-    ];
-    knownTechnologies.forEach(tech => allTechnologies.add(tech));
+    allCompanies.forEach(company => {
+      const projects = getProjectsForCompany(
+        company.id as keyof typeof import('../../shared/data/companies').COMPANIES
+      );
+      projects.forEach(project => {
+        project.technologies.forEach(tech => allTechnologies.add(tech));
+      });
+    });
 
     return {
       totalProjects,
