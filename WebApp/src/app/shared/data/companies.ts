@@ -21,8 +21,8 @@ export interface CompanyInfo {
   };
   stats: {
     years: string;
-    metric1: { value: string; label: string };
-    metric2: { value: string; label: string };
+    projects: { value: string; label: string };
+    clients: { value: string; label: string };
   };
   description: string;
   achievements?: readonly string[]; // Optional list of key responsibilities/achievements
@@ -53,8 +53,8 @@ export const COMPANIES = {
     },
     stats: {
       years: '7+',
-      metric1: { value: '25+', label: 'Projects' },
-      metric2: { value: '30+', label: 'Clients' },
+      projects: { value: '0', label: 'Projects' },
+      clients: { value: '0', label: 'Clients' },
     },
     description:
       "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2025, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Senior Software Engineer in the Modern Business Unit, I continue working with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on cloud-native architectures and scalable enterprise solutions. My total experience spans 7+ years from Skyline Technologies through Core BTS to NRI-NA.",
@@ -98,8 +98,8 @@ export const COMPANIES = {
     },
     stats: {
       years: '4.3',
-      metric1: { value: '15+', label: 'Clients' },
-      metric2: { value: '20+', label: 'Projects' },
+      projects: { value: '0', label: 'Projects' },
+      clients: { value: '0', label: 'Clients' },
     },
     description:
       'Core BTS is a technology consulting company specializing in modern application development and digital transformation solutions. I joined as a Software Engineer in January 2021 and was promoted to Senior Software Engineer in January 2022. Over my 4+ year tenure in the Modern Business Unit, I worked with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on delivering scalable, maintainable solutions that drive business value and innovation.',
@@ -137,8 +137,8 @@ export const COMPANIES = {
     },
     stats: {
       years: '3.3',
-      metric1: { value: '12+', label: 'Projects' },
-      metric2: { value: '20+', label: 'Clients' },
+      projects: { value: '0', label: 'Projects' },
+      clients: { value: '0', label: 'Clients' },
     },
     description:
       'Skyline Technologies is a consulting company providing custom software development and technology solutions across multiple industries. As a Software Engineer, I worked on diverse client projects ranging from healthcare applications to retail platforms, developing full-stack solutions with modern frameworks and implementing best practices for scalable, maintainable code.',
@@ -174,8 +174,8 @@ export const COMPANIES = {
     },
     stats: {
       years: '2.4',
-      metric1: { value: '8+', label: 'Projects' },
-      metric2: { value: '15+', label: 'Tools Built' },
+      projects: { value: '0', label: 'Projects' },
+      clients: { value: '0', label: 'Tools Built' },
     },
     description:
       'West Corporation is a global provider of technology-enabled services and solutions. As a Software Engineer in the IT Department, I developed internal tools and automation solutions to improve operational efficiency, including database management systems and employee portal applications using modern web technologies.',
@@ -202,14 +202,14 @@ export const COMPANIES = {
     department: 'Geek Squad Services',
     colorScheme: {
       theme: 'orange',
-      primary: 'orange-500',
+      primary: 'orange-800',
       secondary: 'gray-900',
       accent: 'orange-600',
     },
     stats: {
       years: '2',
-      metric1: { value: '3+', label: 'Projects' },
-      metric2: { value: '500+', label: 'Customers Served' },
+      projects: { value: '0', label: 'Projects' },
+      clients: { value: '500+', label: 'Customers Served' },
     },
     description:
       'Best Buy Geek Squad provides technology support and services to customers. As an Advanced Repair Agent, I provided technical support and developed internal tools to improve customer service efficiency, including stat tracking systems and operational dashboards to help agents manage their performance and customer interactions. This was my first professional role in technology, building foundational experience in customer service and software development.',
@@ -224,7 +224,39 @@ export function getCompanyById(id: keyof typeof COMPANIES): CompanyInfo {
   return { ...COMPANIES[id] };
 }
 
+// Calculate dynamic metrics for a company
+export function getCompanyWithCalculatedStats(
+  id: keyof typeof COMPANIES
+): CompanyInfo {
+  const company = { ...COMPANIES[id] } as CompanyInfo;
+  const projectCount = company.projects.length;
+
+  // Update stats with calculated values
+  company.stats.projects = {
+    value: projectCount.toString(),
+    label: 'Projects',
+  };
+
+  company.stats.clients = {
+    value: company.id === 'bestbuy' ? '500+' : projectCount.toString(),
+    label:
+      company.id === 'bestbuy'
+        ? 'Customers Served'
+        : company.id === 'west'
+          ? 'Tools Built'
+          : 'Clients',
+  };
+
+  return company;
+}
+
 export function getAllCompanies(): CompanyInfo[] {
+  return Object.keys(COMPANIES).map(key =>
+    getCompanyWithCalculatedStats(key as keyof typeof COMPANIES)
+  );
+}
+
+export function getAllCompaniesRaw(): CompanyInfo[] {
   return Object.values(COMPANIES).map(company => ({ ...company }));
 }
 
