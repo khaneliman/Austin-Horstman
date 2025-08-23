@@ -1,152 +1,68 @@
 // Company profile component styles with reliable gradients
 @use '../../../../assets/scss/utilities/gradients' as *;
+
 .company-header {
-  &--green {
-    @include company-header-gradient('green');
-  }
-
-  &--blue {
-    @include company-header-gradient('blue');
-  }
-
-  &--red {
-    @include company-header-gradient('red');
-  }
-
-  &--orange {
-    @include company-header-gradient('orange');
-  }
-
-  &--nri {
-    @include company-header-gradient('nri');
+  @each $color in 'green', 'blue', 'red', 'orange', 'nri' {
+    &--#{$color} {
+      @include company-header-gradient($color);
+    }
   }
 }
 
 .stats-section {
-  &--green {
-    @include stats-section-gradient('green');
-  }
-
-  &--blue {
-    @include stats-section-gradient('blue');
-  }
-
-  &--red {
-    @include stats-section-gradient('red');
-  }
-
-  &--orange {
-    @include stats-section-gradient('orange');
+  @each $color in 'green', 'blue', 'red', 'orange' {
+    &--#{$color} {
+      @include stats-section-gradient($color);
+    }
   }
 }
 
 .company-overview {
-  &--green {
-    @include stats-section-gradient('green');
+  @each $color in 'green', 'blue', 'red', 'orange' {
+    &--#{$color} {
+      @include stats-section-gradient($color);
+    }
   }
-
-  &--blue {
-    @include stats-section-gradient('blue');
-  }
-
-  &--red {
-    @include stats-section-gradient('red');
-  }
-
-  &--orange {
-    @include stats-section-gradient('orange');
-  }
-
   &--nri {
     @include stats-section-gradient('blue');
   }
 }
 
 .project-button {
-  &--green {
-    @include project-button-gradient('green');
-    &:hover {
-      @include project-button-gradient('green', true);
-    }
-  }
-
-  &--blue {
-    @include project-button-gradient('blue');
-    &:hover {
-      @include project-button-gradient('blue', true);
-    }
-  }
-
-  &--red {
-    @include project-button-gradient('red');
-    &:hover {
-      @include project-button-gradient('red', true);
-    }
-  }
-
-  &--orange {
-    @include project-button-gradient('orange');
-    &:hover {
-      @include project-button-gradient('orange', true);
-    }
-  }
-
-  &--nri {
-    @include project-button-gradient('nri');
-    &:hover {
-      @include project-button-gradient('nri', true);
+  @each $color in 'green', 'blue', 'red', 'orange', 'nri' {
+    &--#{$color} {
+      @include project-button-gradient($color);
+      &:hover {
+        @include project-button-gradient($color, true);
+      }
     }
   }
 }
 
 // Project card gradient styles for reliable rendering
 .project-card-header {
-  &.from-blue-600.to-indigo-700 {
-    @include project-card-gradient('blue', 'indigo');
-  }
-  &.from-blue-600.to-emerald-800 {
-    @include project-card-gradient('blue', 'emerald');
-  }
-  &.from-indigo-600.to-purple-700 {
-    @include project-card-gradient('indigo', 'purple');
-  }
-  &.from-indigo-600.to-blue-800 {
-    @include project-card-gradient('indigo', 'blue');
-  }
-  &.from-purple-600.to-red-700 {
-    @include project-card-gradient('purple', 'red');
-  }
-  &.from-teal-600.to-green-700 {
-    @include project-card-gradient('teal', 'green');
-  }
-  &.from-green-600.to-emerald-800 {
-    @include project-card-gradient('green', 'emerald');
-  }
-  &.from-red-600.to-orange-800 {
-    @include project-card-gradient('red', 'orange');
-  }
-  &.from-orange-600.to-yellow-800 {
-    @include project-card-gradient('orange', 'yellow');
-  }
-  &.from-orange-500.to-yellow-600 {
-    @include project-card-gradient('orange-light', 'yellow');
-  }
-  &.from-red-500.to-orange-600 {
-    @include project-card-gradient('red-light', 'orange');
-  }
-  &.from-blue-500.to-yellow-600 {
-    @include project-card-gradient('blue-light', 'yellow');
-  }
-  &.from-blue-600.to-yellow-700 {
-    @include project-card-gradient('blue', 'yellow-dark');
-  }
-  &.from-blue-600.to-sky-700 {
-    @include project-card-gradient('blue', 'sky');
-  }
-  &.from-purple-600.to-indigo-700 {
-    @include project-card-gradient('purple', 'indigo');
-  }
-  &.from-emerald-600.to-teal-700 {
-    @include project-card-gradient('emerald', 'teal');
+  $gradients: (
+    ('blue', 'indigo', 'from-blue-600 to-indigo-700'),
+    ('blue', 'emerald', 'from-blue-600 to-emerald-800'),
+    ('indigo', 'purple', 'from-indigo-600 to-purple-700'),
+    ('indigo', 'blue', 'from-indigo-600 to-blue-800'),
+    ('purple', 'red', 'from-purple-600 to-red-700'),
+    ('teal', 'green', 'from-teal-600 to-green-700'),
+    ('green', 'emerald', 'from-green-600 to-emerald-800'),
+    ('red', 'orange', 'from-red-600 to-orange-800'),
+    ('orange', 'yellow', 'from-orange-600 to-yellow-800'),
+    ('orange-light', 'yellow', 'from-orange-500 to-yellow-600'),
+    ('red-light', 'orange', 'from-red-500 to-orange-600'),
+    ('blue-light', 'yellow', 'from-blue-500 to-yellow-600'),
+    ('blue', 'yellow-dark', 'from-blue-600 to-yellow-700'),
+    ('blue', 'sky', 'from-blue-600 to-sky-700'),
+    ('purple', 'indigo', 'from-purple-600 to-indigo-700'),
+    ('emerald', 'teal', 'from-emerald-600 to-teal-700')
+  );
+
+  @each $from, $to, $classes in $gradients {
+    &.#{$classes} {
+      @include project-card-gradient($from, $to);
+    }
   }
 }
