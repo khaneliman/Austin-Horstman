@@ -1,9 +1,10 @@
 // @ts-check
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import angular from 'angular-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
-module.exports = tseslint.config(
+export default tseslint.config(
   {
     files: ['**/*.ts'],
     extends: [
@@ -11,6 +12,7 @@ module.exports = tseslint.config(
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
+      eslintConfigPrettier,
     ],
     processor: angular.processInlineTemplates,
     rules: {
@@ -34,10 +36,7 @@ module.exports = tseslint.config(
   },
   {
     files: ['**/*.html'],
-    extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
-    ],
+    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
     rules: {},
   }
 );
