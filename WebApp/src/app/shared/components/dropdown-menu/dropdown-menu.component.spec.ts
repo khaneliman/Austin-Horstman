@@ -5,7 +5,7 @@ import {
   tick,
 } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 import { DropdownMenuComponent, MenuItem } from './dropdown-menu.component';
@@ -18,9 +18,9 @@ import { DropdownMenuComponent, MenuItem } from './dropdown-menu.component';
   standalone: true,
 })
 class MockNgIconComponent {
-  name!: string;
-  size?: string;
-  class?: string;
+  @Input() name!: string;
+  @Input() size?: string;
+  @Input() class?: string;
 }
 
 describe('DropdownMenuComponent', () => {
