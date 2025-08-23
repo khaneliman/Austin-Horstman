@@ -93,197 +93,351 @@
       </div>
     </div>
 
-    <!-- Employment Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-      <!-- Employment Cards -->
-      <div class="lg:col-span-2 space-y-6">
-        <!-- NRI-NA - Current Position Featured Card -->
+    <!-- Current Position - Featured -->
+    <div class="mb-12">
+      <div class="max-w-5xl mx-auto">
         <div
-          class="bg-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden"
+          class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl"
         >
-          <div class="p-6">
-            <div class="flex items-start space-x-6">
-              <div class="flex-shrink-0 w-1/3">
-                <div class="relative bg-white rounded-xl p-4">
-                  <img
-                    class="w-full h-20 object-contain"
-                    src="assets/images/nri-logo.png"
-                    alt="NRI-NA logo"
-                  />
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Company Logo & Basic Info -->
+            <div
+              class="flex flex-col items-center text-center lg:items-start lg:text-left"
+            >
+              <div
+                class="w-28 h-28 bg-white rounded-2xl p-4 shadow-md mb-4 flex items-center justify-center"
+              >
+                <img
+                  src="assets/images/nri-logo.png"
+                  alt="NRI-NA logo"
+                  class="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-2">NRI-NA</h3>
+              <p class="text-xl font-medium text-orange-200 mb-2">
+                Senior Software Engineer
+              </p>
+              <p class="text-orange-100 mb-2">Appleton, WI</p>
+              <p class="text-orange-100 font-medium mb-4">Jan 2022 - Current</p>
+
+              <!-- Stats -->
+              <div class="flex gap-6 mt-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-white">3+</div>
+                  <div class="text-sm text-orange-200">Years</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-white">15+</div>
+                  <div class="text-sm text-orange-200">Projects</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-white">20+</div>
+                  <div class="text-sm text-orange-200">Clients</div>
                 </div>
               </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-blue-600 mb-3">NRI-NA</h3>
-                <div class="space-y-3">
-                  <div>
-                    <p class="font-semibold text-gray-900">
-                      Senior Software Engineer
-                    </p>
-                    <p class="text-sm text-gray-500 italic">
-                      January 2022 - Current
-                    </p>
-                  </div>
+            </div>
+
+            <!-- Description & Key Achievements -->
+            <div class="lg:col-span-2">
+              <h4 class="text-xl font-semibold text-white mb-4">
+                About the Role
+              </h4>
+              <p class="text-orange-100 leading-relaxed mb-6">
+                NRI-NA is a technology consulting company specializing in modern
+                application development and digital transformation solutions. As
+                a Senior Software Engineer in the Modern Business Unit, I work
+                with diverse clients to build cutting-edge applications using
+                the latest technologies and development practices, focusing on
+                cloud-native architectures and scalable enterprise solutions.
+              </p>
+
+              <h4 class="text-xl font-semibold text-white mb-4">
+                Key Achievements
+              </h4>
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-2 h-2 bg-orange-300 rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p class="text-orange-100 text-sm leading-relaxed">
+                    Drove team-wide agile process improvements as technical
+                    leader and scrum advisor
+                  </p>
                 </div>
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-2 h-2 bg-orange-300 rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p class="text-orange-100 text-sm leading-relaxed">
+                    Architected enterprise-wide secure authentication and
+                    authorization model using JWT
+                  </p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-2 h-2 bg-orange-300 rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p class="text-orange-100 text-sm leading-relaxed">
+                    Designed scalable cloud infrastructure using Bicep and
+                    Kubernetes on Azure
+                  </p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-2 h-2 bg-orange-300 rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p class="text-orange-100 text-sm leading-relaxed">
+                    Led event-driven architecture implementation using Kafka
+                    stream processors
+                  </p>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex gap-4">
+                <a
+                  routerLink="/projects/professional/nri-na"
+                  class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-orange-600 px-6 py-3 rounded-xl font-medium transition-colors"
+                >
+                  <ng-icon name="heroFolder" size="1.125rem"></ng-icon>
+                  View Projects
+                </a>
                 <a
                   routerLink="employment/nri-na"
-                  class="inline-flex items-center mt-4 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 group"
+                  class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3 rounded-xl font-medium transition-colors"
                 >
-                  <span>Learn more</span>
-                  <svg
-                    class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 5l7 7-7 7"
-                    ></path>
-                  </svg>
+                  <ng-icon
+                    name="heroInformationCircle"
+                    size="1.125rem"
+                  ></ng-icon>
+                  Full Details
                 </a>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Core BTS - Historical Position Card with Multiple Roles -->
-        <div
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden my-5"
-        >
-          <div class="p-6">
-            <div class="flex items-start space-x-6">
-              <!-- Image section -->
-              <div class="flex-shrink-0 w-1/3">
-                <div class="relative bg-gray-900 rounded-xl p-4">
-                  <img
-                    alt="Core BTS"
-                    class="w-full h-20 object-contain"
-                    src="assets/images/corebts.png"
-                  />
-                </div>
-              </div>
-
-              <!-- Content section -->
-              <div class="flex-1 min-w-0">
-                <h5 class="text-xl font-bold text-green-600 mb-3 line-clamp-2">
-                  Core BTS
-                </h5>
-                <div class="space-y-3">
-                  <!-- Senior Software Engineer -->
-                  <div>
-                    <p class="text-gray-700 font-medium leading-relaxed">
-                      Senior Software Engineer
-                    </p>
-                    <p class="text-sm text-gray-500 italic">
-                      July 2021 - January 2022
-                    </p>
-                  </div>
-                  <!-- Software Engineer -->
-                  <div>
-                    <p class="text-gray-700 font-medium leading-relaxed">
-                      Software Engineer
-                    </p>
-                    <p class="text-sm text-gray-500 italic">
-                      January 2021 - July 2021
-                    </p>
-                  </div>
-                </div>
-                <a
-                  routerLink="employment/corebts"
-                  class="inline-flex items-center mt-4 text-green-600 hover:text-green-700 font-medium transition-colors duration-200 group"
-                >
-                  <span>Learn more</span>
-                  <svg
-                    class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Other Employment Cards -->
-        <app-card
-          title="Skyline Technologies"
-          imgSrc="assets/images/skyline-technologies.png"
-          [imgDark]="false"
-          description="Software Engineer I"
-          superText="October 2017 - January 2021"
-          link="employment/skyline"
-          linkText="Learn more"
-        ></app-card>
-
-        <app-card
-          title="West Corporation"
-          imgSrc="assets/images/west.jpg"
-          [imgDark]="false"
-          description="Programmer"
-          superText="May 2015 - October 2017"
-          link="employment/west"
-          linkText="Learn more"
-        ></app-card>
-
-        <app-card
-          title="Best Buy"
-          imgSrc="assets/images/geeksquad.jpg"
-          [imgDark]="false"
-          description="Advanced Repair Agent"
-          superText="August 2013 – July 2015"
-          link="employment/bestbuy"
-          linkText="Learn more"
-        ></app-card>
       </div>
+    </div>
 
-      <!-- Professional Illustration -->
-      <div class="lg:col-span-3 flex items-center justify-center">
-        <div class="relative">
-          <!-- Decorative elements -->
-          <div
-            class="absolute -inset-4 bg-gradient-to-r from-white/20 to-white/10 rounded-2xl blur-lg"
-          ></div>
-
-          <!-- Main illustration container -->
-          <div
-            class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20 shadow-2xl"
-          >
-            <img
-              src="./assets/img/ill/ill-2.svg"
-              class="w-full max-w-lg h-auto object-contain filter drop-shadow-2xl"
-              alt="Professional Development Illustration"
-            />
+    <!-- Previous Positions - Grid Layout -->
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-2xl font-semibold text-white mb-8 text-center">
+        Previous Positions
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Core BTS -->
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-white/30"
+        >
+          <div class="flex justify-center mb-4">
+            <div
+              class="w-16 h-16 bg-gray-900 rounded-xl p-3 shadow-sm flex items-center justify-center"
+            >
+              <img
+                src="assets/images/corebts.png"
+                alt="Core BTS logo"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
           </div>
-
-          <!-- Floating achievement icons -->
-          <div
-            class="absolute -top-4 -right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg animate-bounce"
-          >
-            <ng-icon
-              name="heroTrophy"
-              size="1.25rem"
-              class="text-white"
-            ></ng-icon>
+          <div class="text-center">
+            <h4 class="text-lg font-bold text-white mb-2">Core BTS</h4>
+            <p class="text-sm font-medium text-green-300 mb-1">
+              Software Engineer → Senior
+            </p>
+            <p class="text-sm text-orange-200 mb-2">Appleton, WI</p>
+            <p class="text-sm text-orange-100 font-medium mb-4">
+              Jan 2021 - Jan 2022
+            </p>
+            <div class="flex justify-center gap-4 mb-4">
+              <div class="text-center">
+                <div class="text-lg font-bold text-green-300">1</div>
+                <div class="text-xs text-orange-200">Year</div>
+              </div>
+              <div class="text-center">
+                <div class="text-lg font-bold text-green-300">8+</div>
+                <div class="text-xs text-orange-200">Projects</div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                routerLink="/projects/professional/corebts"
+                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-green-600 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroFolder" size="1rem"></ng-icon>
+                Projects
+              </a>
+              <a
+                routerLink="employment/corebts"
+                class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroInformationCircle" size="1rem"></ng-icon>
+                Details
+              </a>
+            </div>
           </div>
+        </div>
 
-          <div
-            class="absolute -bottom-4 -left-4 w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center shadow-lg animate-pulse"
-          >
-            <ng-icon
-              name="heroCodeBracket"
-              size="1.125rem"
-              class="text-white"
-            ></ng-icon>
+        <!-- Skyline Technologies -->
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-white/30"
+        >
+          <div class="flex justify-center mb-4">
+            <div
+              class="w-16 h-16 bg-white rounded-xl p-3 shadow-sm flex items-center justify-center"
+            >
+              <img
+                src="assets/images/skyline-technologies.png"
+                alt="Skyline Technologies logo"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="text-center">
+            <h4 class="text-lg font-bold text-white mb-2">
+              Skyline Technologies
+            </h4>
+            <p class="text-sm font-medium text-blue-300 mb-1">
+              Software Engineer
+            </p>
+            <p class="text-sm text-orange-200 mb-2">Appleton, WI</p>
+            <p class="text-sm text-orange-100 font-medium mb-4">
+              Jul 2019 - Apr 2021
+            </p>
+            <div class="flex justify-center gap-4 mb-4">
+              <div class="text-center">
+                <div class="text-lg font-bold text-blue-300">2</div>
+                <div class="text-xs text-orange-200">Years</div>
+              </div>
+              <div class="text-center">
+                <div class="text-lg font-bold text-blue-300">8+</div>
+                <div class="text-xs text-orange-200">Projects</div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                routerLink="/projects/professional/skyline"
+                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-blue-600 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroFolder" size="1rem"></ng-icon>
+                Projects
+              </a>
+              <a
+                routerLink="employment/skyline"
+                class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroInformationCircle" size="1rem"></ng-icon>
+                Details
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- West Corporation -->
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-white/30"
+        >
+          <div class="flex justify-center mb-4">
+            <div
+              class="w-16 h-16 bg-white rounded-xl p-3 shadow-sm flex items-center justify-center"
+            >
+              <img
+                src="assets/images/west.jpg"
+                alt="West Corporation logo"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="text-center">
+            <h4 class="text-lg font-bold text-white mb-2">West Corporation</h4>
+            <p class="text-sm font-medium text-red-300 mb-1">
+              Software Engineer Intern
+            </p>
+            <p class="text-sm text-orange-200 mb-2">Omaha, NE</p>
+            <p class="text-sm text-orange-100 font-medium mb-4">
+              May 2018 - Aug 2018
+            </p>
+            <div class="flex justify-center gap-4 mb-4">
+              <div class="text-center">
+                <div class="text-lg font-bold text-red-300">0.3</div>
+                <div class="text-xs text-orange-200">Years</div>
+              </div>
+              <div class="text-center">
+                <div class="text-lg font-bold text-red-300">3</div>
+                <div class="text-xs text-orange-200">Projects</div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                routerLink="/projects/professional/west"
+                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-red-600 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroFolder" size="1rem"></ng-icon>
+                Projects
+              </a>
+              <a
+                routerLink="employment/west"
+                class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroInformationCircle" size="1rem"></ng-icon>
+                Details
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Buy Geek Squad -->
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-white/30"
+        >
+          <div class="flex justify-center mb-4">
+            <div
+              class="w-16 h-16 bg-gray-900 rounded-xl p-3 shadow-sm flex items-center justify-center"
+            >
+              <img
+                src="assets/images/geeksquad.jpg"
+                alt="Best Buy Geek Squad logo"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="text-center">
+            <h4 class="text-lg font-bold text-white mb-2">
+              Best Buy Geek Squad
+            </h4>
+            <p class="text-sm font-medium text-orange-300 mb-1">
+              Consultation Agent
+            </p>
+            <p class="text-sm text-orange-200 mb-2">Omaha, NE</p>
+            <p class="text-sm text-orange-100 font-medium mb-4">
+              Oct 2017 - May 2018
+            </p>
+            <div class="flex justify-center gap-4 mb-4">
+              <div class="text-center">
+                <div class="text-lg font-bold text-orange-300">0.7</div>
+                <div class="text-xs text-orange-200">Years</div>
+              </div>
+              <div class="text-center">
+                <div class="text-lg font-bold text-orange-300">2</div>
+                <div class="text-xs text-orange-200">Projects</div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                routerLink="/projects/professional/geeksquad"
+                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-orange-600 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroFolder" size="1rem"></ng-icon>
+                Projects
+              </a>
+              <a
+                routerLink="employment/bestbuy"
+                class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                <ng-icon name="heroInformationCircle" size="1rem"></ng-icon>
+                Details
+              </a>
+            </div>
           </div>
         </div>
       </div>
