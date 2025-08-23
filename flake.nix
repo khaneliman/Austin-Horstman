@@ -27,6 +27,7 @@
 
               # Web development
               bun
+              eslint_d
               nodejs_22
               prettier
 
