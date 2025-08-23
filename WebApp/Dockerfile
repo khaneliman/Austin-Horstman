@@ -1,13 +1,13 @@
-FROM node:alpine
+FROM oven/bun:alpine
 
 RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-RUN npm install -g @angular/cli
+COPY package.json bun.lockb ./
+
+RUN bun install
 
 COPY . .
 
-RUN npm install
-
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+CMD ["bun", "run", "start:dev", "--", "--host", "0.0.0.0"]

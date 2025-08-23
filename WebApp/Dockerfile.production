@@ -1,18 +1,15 @@
 # Build stage
-FROM node:alpine AS build
+FROM oven/bun:alpine AS build
 
 WORKDIR /usr/src/app
 
-# Install Angular CLI globally
-RUN npm install -g @angular/cli
-
 # Copy package files and install dependencies (including dev deps for build)
-COPY package*.json ./
-RUN npm run ci:install
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile
 
 # Copy source code and build for production
 COPY . .
-RUN npm run build:prod
+RUN bun run build:prod
 
 # Production stage with nginx
 FROM nginx:alpine AS production
