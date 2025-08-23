@@ -596,19 +596,28 @@
           <h3 class="text-2xl font-bold text-white">Proficient</h3>
         </div>
         <div class="space-y-4">
-          @for (tech of proficientTechnologies; track tech.name; let last = $last) {
+          @for (
+            tech of proficientTechnologies;
+            track tech.name;
+            let last = $last
+          ) {
             <div
               class="flex items-center justify-between py-2"
-              [class.border-b]="!last"
-              [class.border-white/10]="!last"
+              [ngClass]="!last ? 'border-b border-white/10' : ''"
             >
-              <span class="text-lg text-gray-200 font-medium">{{ tech.name }}</span>
+              <span class="text-lg text-gray-200 font-medium">{{
+                tech.name
+              }}</span>
               <div class="flex space-x-1 star-rating">
                 @for (star of [1, 2, 3, 4, 5]; track star) {
                   <ng-icon
                     name="heroStar"
                     size="0.875rem"
-                    [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
+                    [class]="
+                      star <= (tech.skillLevel ?? 0)
+                        ? 'star-filled'
+                        : 'star-empty'
+                    "
                   ></ng-icon>
                 }
               </div>
@@ -636,19 +645,28 @@
             <h3 class="text-2xl font-bold text-white">Learned</h3>
           </div>
           <div class="space-y-4">
-            @for (tech of learnedTechnologies; track tech.name; let last = $last) {
+            @for (
+              tech of learnedTechnologies;
+              track tech.name;
+              let last = $last
+            ) {
               <div
                 class="flex items-center justify-between py-2"
-                [class.border-b]="!last"
-                [class.border-white/10]="!last"
+                [ngClass]="!last ? 'border-b border-white/10' : ''"
               >
-                <span class="text-lg text-gray-200 font-medium">{{ tech.name }}</span>
+                <span class="text-lg text-gray-200 font-medium">{{
+                  tech.name
+                }}</span>
                 <div class="flex space-x-1 star-rating">
                   @for (star of [1, 2, 3, 4, 5]; track star) {
                     <ng-icon
                       name="heroStar"
                       size="0.875rem"
-                      [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
+                      [class]="
+                        star <= (tech.skillLevel ?? 0)
+                          ? 'star-filled'
+                          : 'star-empty'
+                      "
                     ></ng-icon>
                   }
                 </div>
@@ -677,7 +695,8 @@
             @for (tech of interestedTechnologies; track tech.name) {
               <span
                 class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
-              >{{ tech.name }}</span>
+                >{{ tech.name }}</span
+              >
             }
           </div>
         </div>
