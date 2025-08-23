@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroUser,
@@ -26,7 +26,6 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
   styleUrls: ['./personal.component.scss'],
   imports: [
     RouterOutlet,
-    RouterLink,
     NgIconComponent,
     PersonalProjectsGridComponent,
     HeroSectionComponent,
