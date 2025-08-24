@@ -9,13 +9,28 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <!-- Top separator -->
-    <div *ngIf="direction === 'top' || direction === 'both'" class="overflow-hidden leading-none">
+    <!-- Top separator - Slant style uses polygon, others use path -->
+    <div
+      *ngIf="direction === 'top' || direction === 'both'"
+      [ngClass]="waveStyle === 'slant' ? 'separator separator-top separator-skew' : 'overflow-hidden leading-none'"
+    >
       <svg
+        *ngIf="waveStyle === 'slant'"
+        x="0"
+        y="0"
+        viewBox="0 0 2560 100"
+        preserveAspectRatio="none"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon [attr.points]="getPolygonPoints('top')" [ngStyle]="getPathStyle('top')"></polygon>
+      </svg>
+      <svg
+        *ngIf="waveStyle !== 'slant'"
         class="relative block w-full"
         [attr.height]="svgHeight"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
+        viewBox="0 0 1200 120"
         preserveAspectRatio="none"
       >
         <path [attr.d]="getPathData('top')" [class]="getPathClasses('top')" [ngStyle]="getPathStyle('top')"></path>
@@ -25,13 +40,30 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
     <!-- Content slot -->
     <ng-content></ng-content>
 
-    <!-- Bottom separator -->
-    <div *ngIf="direction === 'bottom' || direction === 'both'" class="overflow-hidden leading-none rotate-180">
+    <!-- Bottom separator - Slant style uses polygon, others use path -->
+    <div
+      *ngIf="direction === 'bottom' || direction === 'both'"
+      [ngClass]="
+        waveStyle === 'slant' ? 'separator separator-bottom separator-skew' : 'overflow-hidden leading-none rotate-180'
+      "
+    >
       <svg
+        *ngIf="waveStyle === 'slant'"
+        x="0"
+        y="0"
+        viewBox="0 0 2560 100"
+        preserveAspectRatio="none"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon [attr.points]="getPolygonPoints('bottom')" [ngStyle]="getPathStyle('bottom')"></polygon>
+      </svg>
+      <svg
+        *ngIf="waveStyle !== 'slant'"
         class="relative block w-full"
         [attr.height]="svgHeight"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
+        viewBox="0 0 1200 120"
         preserveAspectRatio="none"
       >
         <path
@@ -97,6 +129,15 @@ export class WaveSeparatorComponent {
     };
   }
 
+  getPolygonPoints(position: 'top' | 'bottom'): string {
+    // Simple skewed separator - clean triangle/slant shape
+    if (position === 'top') {
+      return '2560 100 2560 0 0 100';
+    } else {
+      return '2560 0 2560 100 0 100';
+    }
+  }
+
   getPathData(position: 'top' | 'bottom'): string {
     const baseFlip = this.flip;
     const positionFlip = position === 'top';
@@ -104,29 +145,29 @@ export class WaveSeparatorComponent {
 
     switch (this.waveStyle) {
       case 'wave':
-        return 'M0,64L48,80C96,96,192,128,288,133.3C384,139,480,117,576,106.7C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z';
+        return 'M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z';
 
       case 'curve':
-        return shouldFlip ? 'M0,160L1440,96L1440,0L0,0Z' : 'M0,96L1440,160L1440,320L0,320Z';
+        return shouldFlip ? 'M0,96L1200,64L1200,0L0,0Z' : 'M0,64L1200,96L1200,120L0,120Z';
 
       case 'zigzag':
         return shouldFlip
-          ? 'M0,128L120,96L240,128L360,64L480,128L600,96L720,128L840,64L960,128L1080,96L1200,128L1440,96L1440,0L0,0Z'
-          : 'M0,64L120,96L240,64L360,128L480,64L600,96L720,64L840,128L960,64L1080,96L1200,64L1440,96L1440,320L0,320Z';
+          ? 'M0,64L120,48L240,64L360,32L480,64L600,48L720,64L840,32L960,64L1080,48L1200,64L1200,0L0,0Z'
+          : 'M0,32L120,48L240,32L360,64L480,32L600,48L720,32L840,64L960,32L1080,48L1200,32L1200,120L0,120Z';
 
       case 'slant':
-        return shouldFlip ? 'M0,320L1440,160L1440,0L0,0Z' : 'M0,160L1440,320L1440,320L0,320Z';
+        return shouldFlip ? 'M0,120L1200,80L1200,0L0,0Z' : 'M0,80L1200,120L1200,120L0,120Z';
 
       case 'triangle':
-        return shouldFlip ? 'M0,320L720,160L1440,320L1440,0L0,0Z' : 'M0,160L720,320L1440,160L1440,320L0,320Z';
+        return shouldFlip ? 'M0,120L600,80L1200,120L1200,0L0,0Z' : 'M0,80L600,120L1200,80L1200,120L0,120Z';
 
       case 'book':
         return shouldFlip
-          ? 'M0,160L240,96L480,160L720,64L960,160L1200,96L1440,128L1440,0L0,0Z'
-          : 'M0,96L240,160L480,96L720,160L960,96L1200,160L1440,128L1440,320L0,320Z';
+          ? 'M0,80L200,64L400,80L600,48L800,80L1000,64L1200,80L1200,0L0,0Z'
+          : 'M0,64L200,80L400,64L600,80L800,64L1000,80L1200,64L1200,120L0,120Z';
 
       default:
-        return 'M0,64L48,80C96,96,192,128,288,133.3C384,139,480,117,576,106.7C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z';
+        return 'M0,32L32,40C64,48,128,64,192,66.7C256,69,320,59,384,53.3C448,48,512,48,576,56C640,64,704,80,768,80C832,80,896,64,928,56L960,48L960,120L928,120C896,120,832,120,768,120C704,120,640,120,576,120C512,120,448,120,384,120C320,120,256,120,192,120C128,120,64,120,32,120L0,120Z';
     }
   }
 }
