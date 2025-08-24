@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'bun:test';
+import { beforeEach, describe, expect, it } from 'bun:test';
 import * as companiesModule from '../../shared/data/companies';
 import * as technologiesModule from '../../shared/data/technologies';
 
