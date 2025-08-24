@@ -1,5 +1,11 @@
 # Build stage
-FROM oven/bun:alpine AS build
+FROM node:22-alpine AS build
+
+# Install Bun
+RUN npm install -g bun
+
+# Verify installations
+RUN node --version && npm --version && bun --version
 
 WORKDIR /usr/src/app
 
@@ -9,6 +15,9 @@ RUN bun install --frozen-lockfile
 
 # Copy source code and build for production
 COPY . .
+
+
+# Build with verbose output
 RUN bun run build:prod
 
 # Production stage with nginx

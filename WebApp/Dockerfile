@@ -1,4 +1,10 @@
-FROM oven/bun:alpine
+FROM node:22-alpine
+
+# Install Bun
+RUN npm install -g bun
+
+# Verify installations
+RUN node --version && npm --version && bun --version
 
 RUN mkdir -p /usr/src/app
 
