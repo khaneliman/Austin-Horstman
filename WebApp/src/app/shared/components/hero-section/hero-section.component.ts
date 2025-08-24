@@ -150,9 +150,9 @@ export class HeroSectionComponent {
   }
 
   get headingClasses(): string {
-    const baseClasses = ['font-bold leading-tight'];
+    const baseClasses = [];
 
-    // Size classes
+    // Size classes first
     switch (this.size) {
       case 'sm':
         baseClasses.push('text-3xl lg:text-4xl');
@@ -168,11 +168,14 @@ export class HeroSectionComponent {
         break;
     }
 
-    // Color classes
+    // Typography and spacing
+    baseClasses.push('font-bold', 'leading-tight', 'mb-4');
+
+    // Color classes last
     if (this.textColor === 'light') {
-      baseClasses.push('text-white mb-4');
+      baseClasses.push('text-white');
     } else {
-      baseClasses.push('text-gray-900 mb-4');
+      baseClasses.push('text-gray-900');
     }
 
     return baseClasses.join(' ');
@@ -224,8 +227,9 @@ export class HeroSectionComponent {
   }
 
   get underlineClasses(): string {
-    const classes = ['h-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full'];
+    const classes = [];
 
+    // Width first
     switch (this.size) {
       case 'sm':
         classes.push('w-16');
@@ -239,10 +243,14 @@ export class HeroSectionComponent {
         break;
     }
 
+    // Height and background
+    classes.push('h-1', 'bg-gradient-to-r', 'from-green-400', 'to-green-600', 'rounded-full');
+
+    // Margin/positioning last
     if (this.alignment === 'center') {
       classes.push('mx-auto');
     } else {
-      classes.push('mx-auto lg:mx-0');
+      classes.push('mx-auto', 'lg:mx-0');
     }
 
     return classes.join(' ');
