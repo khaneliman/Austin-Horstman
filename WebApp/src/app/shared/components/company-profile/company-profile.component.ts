@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Input, inject, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -55,7 +55,7 @@ export interface ProjectInfo {
   selector: 'app-company-profile',
   templateUrl: './company-profile.component.html',
   styleUrls: ['./company-profile.component.scss'],
-  imports: [CommonModule, RouterModule, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
+  imports: [NgClass, RouterModule, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({
       heroArrowTopRightOnSquare,

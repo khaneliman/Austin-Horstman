@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -13,7 +13,7 @@ export interface BreadcrumbItem {
 @Component({
   selector: 'app-breadcrumb',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgIconComponent],
+  imports: [NgFor, NgIf, RouterModule, NgIconComponent],
   providers: [provideIcons({ heroGlobeAlt })],
   template: `
     <nav class="flex mb-8" aria-label="Breadcrumb">

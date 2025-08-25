@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-section-header',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, NgIconComponent],
   template: `
     <div [ngSwitch]="level" [class]="headerClasses">
       <h1 *ngSwitchCase="'h1'" [class]="titleClasses">
