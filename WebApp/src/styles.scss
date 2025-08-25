@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'tailwindcss';
 
+/* Dark mode variant configuration for Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
 /* Custom global styles */
