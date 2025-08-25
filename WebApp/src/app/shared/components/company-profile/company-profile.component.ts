@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Input, inject, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, ElementRef, inject, input, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -85,14 +85,15 @@ export interface ProjectInfo {
     }),
   ],
 })
-export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
-  @Input() company!: CompanyInfo;
-  @Input() projects!: ProjectInfo[];
+export class CompanyProfileComponent implements AfterViewInit {
+  company = input.required<CompanyInfo>();
+  projects = input.required<ProjectInfo[]>();
   @ViewChild('projectDetailsSection') projectDetailsSection!: ElementRef;
 
   private readonly logoStylingService = inject(LogoStylingService);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
+  private readonly destroyRef = inject(DestroyRef);
   private destroy$ = new Subject<void>();
   private lastNavigationWasToProjectRoute = false;
 
@@ -176,11 +177,12 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
 
     // Also check on initial load
     this.checkAndScrollToProjectDetails();
-  }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
+    // Setup cleanup
+    this.destroyRef.onDestroy(() => {
+      this.destroy$.next();
+      this.destroy$.complete();
+    });
   }
 
   private scrollToProjectDetails(): void {
@@ -218,8 +220,9 @@ export class CompanyProfileComponent implements AfterViewInit, OnDestroy {
   }
 
   getAchievementItems(): BulletListItem[] {
-    if (!this.company.achievements) return [];
-    return this.company.achievements.map((achievement) => ({
+    const companyValue = this.company();
+    if (!companyValue.achievements) return [];
+    return companyValue.achievements.map((achievement) => ({
       text: achievement,
     }));
   }

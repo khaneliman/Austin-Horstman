@@ -5,7 +5,7 @@
     class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden max-w-6xl mx-auto"
   >
     <!-- Header section -->
-    <div [class]="'relative px-8 pt-12 pb-8 company-header--' + company.colorScheme.theme">
+    <div [class]="'relative px-8 pt-12 pb-8 company-header--' + company().colorScheme.theme">
       <!-- Decorative elements -->
       <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
 
@@ -13,26 +13,26 @@
       <div class="relative z-10 text-center">
         <div class="inline-block relative group">
           <a
-            [href]="company.website || '#'"
-            [target]="company.website ? '_blank' : '_self'"
+            [href]="company().website || '#'"
+            [target]="company().website ? '_blank' : '_self'"
             class="block"
-            [class.pointer-events-none]="!company.website"
+            [class.pointer-events-none]="!company().website"
           >
             <div
               class="w-32 h-32 rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white transition-colors duration-300"
-              [style.background]="getLogoBackgroundStyle(company.logoBackground)"
-              [ngClass]="'group-hover:border-' + company.colorScheme.primary"
+              [style.background]="getLogoBackgroundStyle(company().logoBackground)"
+              [ngClass]="'group-hover:border-' + company().colorScheme.primary"
             >
-              <img class="w-full h-full object-contain" [src]="company.logoSrc" [alt]="company.logoAlt" />
+              <img class="w-full h-full object-contain" [src]="company().logoSrc" [alt]="company().logoAlt" />
             </div>
           </a>
 
           <!-- Floating external link icon -->
-          @if (company.website) {
+          @if (company().website) {
             <div
               [ngClass]="
                 'absolute -top-2 -right-2 w-8 h-8 bg-' +
-                company.colorScheme.primary +
+                company().colorScheme.primary +
                 ' rounded-full flex items-center justify-center shadow-lg'
               "
             >
@@ -41,26 +41,26 @@
           }
         </div>
 
-        <h2 class="text-4xl font-bold text-white mb-6">{{ company.name }}</h2>
+        <h2 class="text-4xl font-bold text-white mb-6">{{ company().name }}</h2>
 
         <!-- Company details -->
         <div class="flex flex-wrap justify-center gap-6 text-gray-300">
           <div class="flex items-center space-x-2">
             <ng-icon name="heroMapPin" size="1rem" class="text-green-400"></ng-icon>
-            <span>{{ company.location }}</span>
+            <span>{{ company().location }}</span>
           </div>
           <div class="flex items-center space-x-2">
             <ng-icon name="heroBriefcase" size="1rem" class="text-emerald-400"></ng-icon>
-            <span>{{ company.position }}</span>
+            <span>{{ company().position }}</span>
           </div>
           <div class="flex items-center space-x-2">
             <ng-icon name="heroCalendarDays" size="1rem" class="text-lime-400"></ng-icon>
-            <span>{{ company.dateRange }}</span>
+            <span>{{ company().dateRange }}</span>
           </div>
-          @if (company.department) {
+          @if (company().department) {
             <div class="flex items-center space-x-2 w-full justify-center md:w-auto">
               <ng-icon name="heroAcademicCap" size="1rem" class="text-lime-400"></ng-icon>
-              <span>{{ company.department }}</span>
+              <span>{{ company().department }}</span>
             </div>
           }
         </div>
@@ -70,30 +70,30 @@
     <!-- Stats section -->
     <div
       [class]="
-        'px-8 py-6 stats-section--' + company.colorScheme.theme + ' border-b border-gray-100 dark:border-gray-700'
+        'px-8 py-6 stats-section--' + company().colorScheme.theme + ' border-b border-gray-100 dark:border-gray-700'
       "
     >
       <div class="grid grid-cols-3 gap-6">
         <div class="text-center">
           <div class="text-3xl font-bold text-green-600 mb-1">
-            {{ company.stats.years }}
+            {{ company().stats.years }}
           </div>
           <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Years</div>
         </div>
         <div class="text-center">
           <div class="text-3xl font-bold text-emerald-600 mb-1">
-            {{ company.stats.projects.value }}
+            {{ company().stats.projects.value }}
           </div>
           <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">
-            {{ company.stats.projects.label }}
+            {{ company().stats.projects.label }}
           </div>
         </div>
         <div class="text-center">
           <div class="text-3xl font-bold text-lime-600 mb-1">
-            {{ company.stats.clients.value }}
+            {{ company().stats.clients.value }}
           </div>
           <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">
-            {{ company.stats.clients.label }}
+            {{ company().stats.clients.label }}
           </div>
         </div>
       </div>
@@ -108,12 +108,12 @@
             <ng-icon
               name="heroCodeBracket"
               size="1.25rem"
-              [class]="getIconClass(company.colorScheme.theme) + ' mr-3'"
+              [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
             ></ng-icon>
             Featured Projects
           </h3>
-          <div [class]="'grid gap-6 mb-8 ' + (projects.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')">
-            @for (project of projects; track project.name) {
+          <div [class]="'grid gap-6 mb-8 ' + (projects().length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')">
+            @for (project of projects(); track project.name) {
               <div
                 class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
               >
@@ -156,7 +156,7 @@
                     <a
                       [routerLink]="project.route"
                       [class]="
-                        getProjectLinkClass(company.colorScheme.theme) +
+                        getProjectLinkClass(company().colorScheme.theme) +
                         ' font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform'
                       "
                     >
@@ -176,22 +176,22 @@
             <ng-icon
               name="heroBuildingOffice"
               size="1.25rem"
-              [class]="getIconClass(company.colorScheme.theme) + ' mr-3'"
+              [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
             ></ng-icon>
-            About {{ company.name }}
+            About {{ company().name }}
           </h3>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" [class.mb-6]="company.achievements">
-            {{ company.description }}
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" [class.mb-6]="company().achievements">
+            {{ company().description }}
           </p>
 
           <!-- Key Responsibilities & Achievements section -->
-          @if (company.achievements) {
+          @if (company().achievements) {
             <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border border-blue-100 dark:border-gray-600">
               <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
                 <ng-icon
                   name="heroCog6Tooth"
                   size="1rem"
-                  [class]="getIconClass(company.colorScheme.theme) + ' mr-2'"
+                  [class]="getIconClass(company().colorScheme.theme) + ' mr-2'"
                 ></ng-icon>
                 Key Responsibilities & Achievements
               </h4>
@@ -216,13 +216,13 @@
 
         <!-- Actions -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          @if (company.website) {
+          @if (company().website) {
             <a
-              [href]="company.website"
+              [href]="company().website"
               target="_blank"
               [class]="
                 'inline-flex items-center px-6 py-3 project-button--' +
-                company.colorScheme.theme +
+                company().colorScheme.theme +
                 ' text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200'
               "
             >
