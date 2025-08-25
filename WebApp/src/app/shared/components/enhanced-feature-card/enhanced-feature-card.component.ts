@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgIconComponent } from '@ng-icons/core';
+import { RouterLink } from '@angular/router';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroArrowRight, heroArrowTopRightOnSquare } from '@ng-icons/heroicons/outline';
 
 export interface EnhancedFeature {
   title: string;
@@ -17,63 +18,14 @@ export interface EnhancedFeature {
 @Component({
   selector: 'app-enhanced-feature-card',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
-  template: `
-    <div
-      [class]="cardClasses"
-      (click)="handleClick()"
-      (keyup.enter)="handleClick()"
-      (keyup.space)="handleClick()"
-      [tabindex]="isClickable ? 0 : -1"
-      [attr.role]="isClickable ? 'button' : null"
-    >
-      <!-- Image section -->
-      <div *ngIf="feature.image" [class]="imageContainerClasses">
-        <img [src]="feature.image" [alt]="feature.title" class="w-full h-full object-cover" />
-        <div *ngIf="feature.badge" [class]="badgeClasses">
-          {{ feature.badge }}
-        </div>
-      </div>
-
-      <!-- Icon section (when no image) -->
-      <div *ngIf="!feature.image && feature.icon" [class]="iconSectionClasses">
-        <div [class]="iconContainerClasses">
-          <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"> </ng-icon>
-        </div>
-        <div *ngIf="feature.badge && iconPosition === 'top'" [class]="badgeClasses">
-          {{ feature.badge }}
-        </div>
-      </div>
-
-      <!-- Content section -->
-      <div [class]="contentClasses">
-        <!-- Badge for left icon position -->
-        <div *ngIf="feature.badge && (iconPosition === 'left' || iconPosition === 'background')" [class]="badgeClasses">
-          {{ feature.badge }}
-        </div>
-
-        <!-- Icon for left position -->
-        <div *ngIf="feature.icon && iconPosition === 'left'" [class]="leftIconClasses">
-          <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"> </ng-icon>
-        </div>
-
-        <div class="flex-1">
-          <h3 [class]="titleClasses">{{ feature.title }}</h3>
-          <p [class]="descriptionClasses">{{ feature.description }}</p>
-        </div>
-      </div>
-
-      <!-- Footer section -->
-      <div *ngIf="feature.footer" [class]="footerClasses">
-        {{ feature.footer }}
-      </div>
-
-      <!-- Background icon for background position -->
-      <div *ngIf="feature.icon && iconPosition === 'background'" [class]="backgroundIconClasses">
-        <ng-icon [name]="feature.icon" [size]="backgroundIconSize" class="text-gray-100"> </ng-icon>
-      </div>
-    </div>
-  `,
+  imports: [RouterLink, NgIconComponent],
+  providers: [
+    provideIcons({
+      heroArrowRight,
+      heroArrowTopRightOnSquare,
+    }),
+  ],
+  templateUrl: './enhanced-feature-card.component.html',
   styles: [],
 })
 export class EnhancedFeatureCardComponent {
@@ -333,5 +285,31 @@ export class EnhancedFeatureCardComponent {
       default:
         return '4rem';
     }
+  }
+
+  readonly contentContainerClasses = 'relative z-10';
+
+  get headerSectionClasses(): string {
+    const classes = [];
+    if (this.iconPosition === 'left') {
+      classes.push('flex', 'items-start', 'mb-3');
+    }
+    return classes.join(' ');
+  }
+
+  readonly footerSectionClasses =
+    'flex items-center justify-between mt-4 pt-4 border-t border-gray-100 dark:border-gray-700';
+
+  readonly footerTextClasses = 'text-sm text-gray-500 dark:text-gray-400 font-medium';
+
+  get actionIndicatorClasses(): string {
+    return `w-6 h-6 rounded-full bg-${this.colorTheme}-100 dark:bg-${this.colorTheme}-800 text-${this.colorTheme}-600 dark:text-${this.colorTheme}-400 flex items-center justify-center`;
+  }
+
+  get actionIcon(): string {
+    if (this.feature.href) {
+      return 'heroArrowTopRightOnSquare';
+    }
+    return 'heroArrowRight';
   }
 }

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,7 +12,8 @@ import {
   Output,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgIconComponent } from '@ng-icons/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroArrowTopRightOnSquare } from '@ng-icons/heroicons/outline';
 
 export interface MenuItem {
   label?: string;
@@ -33,7 +34,12 @@ export type DropdownWidth = 'sm' | 'md' | 'lg' | 'xl' | 'auto';
 @Component({
   selector: 'app-dropdown-menu',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgIconComponent],
+  imports: [NgClass, RouterModule, NgIconComponent],
+  providers: [
+    provideIcons({
+      heroArrowTopRightOnSquare,
+    }),
+  ],
   templateUrl: './dropdown-menu.component.html',
   styleUrls: ['./dropdown-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -103,7 +109,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
       case 'Enter':
       case ' ':
         event.preventDefault();
-        if (this.focusedIndex >= 0) {
+        if (this.focusedIndex >= 0 && enabledItems[this.focusedIndex]) {
           this.selectItem(enabledItems[this.focusedIndex]);
         }
         break;

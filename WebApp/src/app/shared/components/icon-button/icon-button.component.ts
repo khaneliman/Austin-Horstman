@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-icon-button',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [NgIf, NgClass, NgIconComponent],
   template: `
     <button
       *ngIf="!href; else linkTemplate"

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgIconComponent } from '@ng-icons/core';
@@ -6,7 +6,7 @@ import { NgIconComponent } from '@ng-icons/core';
 @Component({
   selector: 'app-form-input',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [NgIf, NgIconComponent],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
