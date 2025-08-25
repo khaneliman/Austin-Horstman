@@ -47,7 +47,9 @@ export class StatsGridComponent {
     const classes = [];
 
     if (this.containerBackground) {
-      classes.push(`bg-gradient-to-r from-${this.containerColor}-50 to-${this.containerColor}-100 rounded-2xl p-8`);
+      classes.push(
+        `bg-gradient-to-r from-${this.containerColor}-50 to-${this.containerColor}-100 dark:from-${this.containerColor}-900/20 dark:to-${this.containerColor}-800/30 rounded-2xl p-8`
+      );
     }
 
     return classes.join(' ');

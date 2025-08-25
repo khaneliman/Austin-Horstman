@@ -34,7 +34,7 @@ export class StatCardComponent {
     }
 
     if (this.background) {
-      classes.push(`bg-${this.color}-50 rounded-xl p-4`);
+      classes.push(`bg-${this.color}-50 dark:bg-${this.color}-900/20 rounded-xl p-4`);
     }
 
     return classes.join(' ');
@@ -78,7 +78,7 @@ export class StatCardComponent {
   }
 
   get valueClasses(): string {
-    const classes = [`text-${this.color}-600`, 'font-bold', 'mb-1'];
+    const classes = [`text-${this.color}-600`, `dark:text-${this.color}-400`, 'font-bold', 'mb-1'];
 
     switch (this.size) {
       case 'sm':
@@ -96,7 +96,7 @@ export class StatCardComponent {
   }
 
   get labelClasses(): string {
-    const classes = ['text-gray-600'];
+    const classes = ['text-gray-600', 'dark:text-gray-300'];
 
     switch (this.size) {
       case 'sm':

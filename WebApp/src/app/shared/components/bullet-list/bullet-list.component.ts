@@ -159,7 +159,7 @@ export class BulletListComponent {
     const classes = ['flex'];
 
     if (item.highlighted) {
-      classes.push(`bg-${this.colorTheme}-50`, 'rounded-lg', 'p-3', '-mx-3');
+      classes.push(`bg-${this.colorTheme}-50`, `dark:bg-${this.colorTheme}-900/20`, 'rounded-lg', 'p-3', '-mx-3');
     }
 
     return classes.join(' ');
@@ -169,9 +169,9 @@ export class BulletListComponent {
     const classes = ['leading-relaxed'];
 
     if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-900`, 'font-medium');
+      classes.push(`text-${this.colorTheme}-900`, `dark:text-${this.colorTheme}-200`, 'font-medium');
     } else {
-      classes.push('text-gray-700');
+      classes.push('text-gray-700', 'dark:text-gray-300');
     }
 
     return classes.join(' ');
@@ -179,9 +179,9 @@ export class BulletListComponent {
 
   getBulletIconClasses(item: BulletListItem): string {
     if (item.highlighted) {
-      return `text-${this.colorTheme}-600`;
+      return `text-${this.colorTheme}-600 dark:text-${this.colorTheme}-400`;
     }
-    return `text-${this.colorTheme}-500`;
+    return `text-${this.colorTheme}-500 dark:text-${this.colorTheme}-400`;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -189,9 +189,9 @@ export class BulletListComponent {
     const classes = ['font-semibold', 'text-sm'];
 
     if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`);
+      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
     } else {
-      classes.push(`text-${this.colorTheme}-500`);
+      classes.push(`text-${this.colorTheme}-500`, `dark:text-${this.colorTheme}-400`);
     }
 
     return classes.join(' ');
@@ -201,9 +201,9 @@ export class BulletListComponent {
     const classes = ['font-bold'];
 
     if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`);
+      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
     } else {
-      classes.push(`text-${this.colorTheme}-500`);
+      classes.push(`text-${this.colorTheme}-500`, `dark:text-${this.colorTheme}-400`);
     }
 
     return classes.join(' ');
@@ -213,9 +213,9 @@ export class BulletListComponent {
     const classes = ['font-medium'];
 
     if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`);
+      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
     } else {
-      classes.push(`text-${this.colorTheme}-500`);
+      classes.push(`text-${this.colorTheme}-500`, `dark:text-${this.colorTheme}-400`);
     }
 
     return classes.join(' ');
@@ -225,9 +225,9 @@ export class BulletListComponent {
     const classes = ['font-medium'];
 
     if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`);
+      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
     } else {
-      classes.push('text-gray-400');
+      classes.push('text-gray-400', 'dark:text-gray-500');
     }
 
     return classes.join(' ');

@@ -45,7 +45,7 @@ export class SectionHeaderComponent {
   }
 
   get titleClasses(): string {
-    const classes = ['font-bold text-gray-800 flex items-center'];
+    const classes = ['font-bold text-gray-800 dark:text-gray-100 flex items-center'];
 
     if (this.center) {
       classes.push('justify-center');
@@ -84,7 +84,7 @@ export class SectionHeaderComponent {
   }
 
   get descriptionClasses(): string {
-    const classes = ['text-gray-600 leading-relaxed mt-2'];
+    const classes = ['text-gray-600 dark:text-gray-300 leading-relaxed mt-2'];
     if (this.center) {
       classes.push('text-center');
     }

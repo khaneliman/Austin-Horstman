@@ -80,7 +80,7 @@ import { NgIconComponent } from '@ng-icons/core';
       </p>
 
       <!-- Error message -->
-      <p *ngIf="errorMessage" class="mt-1 text-sm text-red-600">
+      <p *ngIf="errorMessage" class="mt-1 text-sm text-red-600 dark:text-red-400">
         {{ errorMessage }}
       </p>
     </div>
@@ -137,9 +137,9 @@ export class FormInputComponent implements ControlValueAccessor {
     }
 
     if (this.hasError) {
-      classes.push('text-red-700');
+      classes.push('text-red-700', 'dark:text-red-400');
     } else {
-      classes.push('text-gray-700');
+      classes.push('text-gray-700', 'dark:text-gray-300');
     }
 
     return classes.join(' ');
@@ -175,26 +175,32 @@ export class FormInputComponent implements ControlValueAccessor {
     // Variant styles
     switch (this.variant) {
       case 'default':
-        classes.push('border border-gray-300 rounded-xl bg-white/50 backdrop-blur-sm');
+        classes.push(
+          'border border-gray-300 dark:border-gray-600 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-gray-900 dark:text-gray-100'
+        );
         break;
       case 'filled':
-        classes.push('border border-gray-300 rounded-xl bg-gray-50');
+        classes.push(
+          'border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100'
+        );
         break;
       case 'outlined':
-        classes.push('border-2 border-gray-300 rounded-xl bg-white');
+        classes.push(
+          'border-2 border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100'
+        );
         break;
     }
 
     // Focus and error states
     if (this.hasError) {
-      classes.push('border-red-300 focus:ring-2 focus:ring-red-500 focus:border-transparent');
+      classes.push('border-red-300 dark:border-red-500 focus:ring-2 focus:ring-red-500 focus:border-transparent');
     } else {
-      classes.push('focus:ring-2 focus:ring-blue-500 focus:border-transparent');
+      classes.push('focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent');
     }
 
     // Disabled state
     if (this.disabled) {
-      classes.push('opacity-50 cursor-not-allowed bg-gray-100');
+      classes.push('opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-700');
     }
 
     return classes.join(' ');
@@ -205,7 +211,7 @@ export class FormInputComponent implements ControlValueAccessor {
   }
 
   get iconClasses(): string {
-    return this.hasError ? 'text-red-400' : 'text-gray-400';
+    return this.hasError ? 'text-red-400 dark:text-red-400' : 'text-gray-400 dark:text-gray-500';
   }
 
   get helpTextClasses(): string {
@@ -223,7 +229,7 @@ export class FormInputComponent implements ControlValueAccessor {
         break;
     }
 
-    classes.push('text-gray-600');
+    classes.push('text-gray-600', 'dark:text-gray-400');
 
     return classes.join(' ');
   }

@@ -23,7 +23,11 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <polygon [attr.points]="getPolygonPoints('top')" [ngStyle]="getPathStyle('top')"></polygon>
+        <polygon
+          [attr.points]="getPolygonPoints('top')"
+          [ngStyle]="getPathStyle('top')"
+          class="dark:!fill-gray-900"
+        ></polygon>
       </svg>
       <svg
         *ngIf="waveStyle !== 'slant'"
@@ -33,7 +37,12 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
         viewBox="0 0 1200 120"
         preserveAspectRatio="none"
       >
-        <path [attr.d]="getPathData('top')" [class]="getPathClasses('top')" [ngStyle]="getPathStyle('top')"></path>
+        <path
+          [attr.d]="getPathData('top')"
+          [class]="getPathClasses('top')"
+          [ngStyle]="getPathStyle('top')"
+          class="dark:!fill-gray-900"
+        ></path>
       </svg>
     </div>
 
@@ -56,7 +65,11 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <polygon [attr.points]="getPolygonPoints('bottom')" [ngStyle]="getPathStyle('bottom')"></polygon>
+        <polygon
+          [attr.points]="getPolygonPoints('bottom')"
+          [ngStyle]="getPathStyle('bottom')"
+          class="dark:!fill-gray-900"
+        ></polygon>
       </svg>
       <svg
         *ngIf="waveStyle !== 'slant'"
@@ -70,6 +83,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
           [attr.d]="getPathData('bottom')"
           [class]="getPathClasses('bottom')"
           [ngStyle]="getPathStyle('bottom')"
+          class="dark:!fill-gray-900"
         ></path>
       </svg>
     </div>
@@ -87,6 +101,7 @@ export class WaveSeparatorComponent {
   @Input() direction: WaveDirection = 'bottom';
   @Input() height: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   @Input() color = 'white';
+  @Input() darkColor?: string;
   @Input() opacity = 100;
   @Input() animate = false;
   @Input() flip = false;

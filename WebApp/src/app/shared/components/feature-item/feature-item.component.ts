@@ -33,6 +33,7 @@ export class FeatureItemComponent {
   get iconContainerClasses(): string {
     const baseClasses = [
       `bg-${this.iconColor}-100`,
+      `dark:bg-${this.iconColor}-900/30`,
       'rounded-full',
       'flex',
       'items-center',
@@ -56,7 +57,7 @@ export class FeatureItemComponent {
   }
 
   get iconClasses(): string {
-    return `text-${this.iconColor}-600`;
+    return `text-${this.iconColor}-600 dark:text-${this.iconColor}-400`;
   }
 
   get iconSize(): string {
@@ -73,7 +74,7 @@ export class FeatureItemComponent {
   }
 
   get titleClasses(): string {
-    const classes = ['font-semibold text-gray-800 mb-1'];
+    const classes = ['font-semibold text-gray-800 dark:text-gray-100 mb-1'];
 
     switch (this.size) {
       case 'sm':
@@ -91,7 +92,7 @@ export class FeatureItemComponent {
   }
 
   get descriptionClasses(): string {
-    const classes = ['text-gray-600'];
+    const classes = ['text-gray-600 dark:text-gray-300'];
 
     switch (this.size) {
       case 'sm':

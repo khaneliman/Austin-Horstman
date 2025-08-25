@@ -100,7 +100,7 @@ export class EnhancedFeatureCardComponent {
     const classes = ['relative', 'overflow-hidden', 'transition-all', 'duration-300'];
 
     // Base card styling
-    classes.push('bg-white', 'border', 'border-gray-200');
+    classes.push('bg-white', 'dark:bg-gray-800', 'border', 'border-gray-200', 'dark:border-gray-700');
 
     // Size and padding
     switch (this.size) {
@@ -121,10 +121,12 @@ export class EnhancedFeatureCardComponent {
         classes.push('shadow-md');
         break;
       case 'highlighted':
-        classes.push(`shadow-lg border-${this.colorTheme}-200 bg-gradient-to-br from-${this.colorTheme}-50 to-white`);
+        classes.push(
+          `shadow-lg border-${this.colorTheme}-200 dark:border-${this.colorTheme}-700 bg-gradient-to-br from-${this.colorTheme}-50 to-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700`
+        );
         break;
       case 'bordered':
-        classes.push(`shadow-md border-2 border-${this.colorTheme}-200`);
+        classes.push(`shadow-md border-2 border-${this.colorTheme}-200 dark:border-${this.colorTheme}-700`);
         break;
       case 'minimal':
         classes.push('shadow-sm');
@@ -175,7 +177,14 @@ export class EnhancedFeatureCardComponent {
   }
 
   get iconContainerClasses(): string {
-    const classes = [`bg-${this.colorTheme}-100`, 'rounded-full', 'flex', 'items-center', 'justify-center'];
+    const classes = [
+      `bg-${this.colorTheme}-100`,
+      `dark:bg-${this.colorTheme}-800`,
+      'rounded-full',
+      'flex',
+      'items-center',
+      'justify-center',
+    ];
 
     if (this.iconPosition === 'top') {
       classes.push('mx-auto', 'mb-4');
@@ -197,7 +206,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get leftIconClasses(): string {
-    return `w-8 h-8 bg-${this.colorTheme}-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
+    return `w-8 h-8 bg-${this.colorTheme}-100 dark:bg-${this.colorTheme}-800 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
   }
 
   get contentClasses(): string {
@@ -211,7 +220,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get titleClasses(): string {
-    const classes = ['font-bold', 'text-gray-900', 'mb-2'];
+    const classes = ['font-bold', 'text-gray-900', 'dark:text-gray-100', 'mb-2'];
 
     switch (this.size) {
       case 'sm':
@@ -229,7 +238,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get descriptionClasses(): string {
-    const classes = ['text-gray-600', 'leading-relaxed'];
+    const classes = ['text-gray-600', 'dark:text-gray-300', 'leading-relaxed'];
 
     switch (this.size) {
       case 'sm':
@@ -250,16 +259,40 @@ export class EnhancedFeatureCardComponent {
     const classes = ['inline-block', 'px-3', 'py-1', 'text-xs', 'font-medium', 'rounded-full'];
 
     if (this.feature.image) {
-      classes.push('absolute', 'top-3', 'right-3', 'bg-white', 'text-gray-800', 'shadow-md');
+      classes.push(
+        'absolute',
+        'top-3',
+        'right-3',
+        'bg-white',
+        'dark:bg-gray-800',
+        'text-gray-800',
+        'dark:text-gray-200',
+        'shadow-md'
+      );
     } else {
-      classes.push(`bg-${this.colorTheme}-100`, `text-${this.colorTheme}-800`, 'mb-2');
+      classes.push(
+        `bg-${this.colorTheme}-100`,
+        `dark:bg-${this.colorTheme}-800`,
+        `text-${this.colorTheme}-800`,
+        `dark:text-${this.colorTheme}-200`,
+        'mb-2'
+      );
     }
 
     return classes.join(' ');
   }
 
   get footerClasses(): string {
-    const classes = ['text-sm', 'text-gray-500', 'mt-4', 'pt-4', 'border-t', 'border-gray-100'];
+    const classes = [
+      'text-sm',
+      'text-gray-500',
+      'dark:text-gray-400',
+      'mt-4',
+      'pt-4',
+      'border-t',
+      'border-gray-100',
+      'dark:border-gray-700',
+    ];
     return classes.join(' ');
   }
 
@@ -269,7 +302,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get iconClasses(): string {
-    return `text-${this.colorTheme}-600`;
+    return `text-${this.colorTheme}-600 dark:text-${this.colorTheme}-400`;
   }
 
   get isClickable(): boolean {
