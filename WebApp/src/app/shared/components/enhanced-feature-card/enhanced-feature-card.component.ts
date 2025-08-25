@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowRight, heroArrowTopRightOnSquare } from '@ng-icons/heroicons/outline';
@@ -29,22 +29,23 @@ export interface EnhancedFeature {
   styles: [],
 })
 export class EnhancedFeatureCardComponent {
-  @Input() feature!: EnhancedFeature;
-  @Input() variant: 'default' | 'highlighted' | 'bordered' | 'minimal' = 'default';
-  @Input() size: 'sm' | 'md' | 'lg' = 'md';
-  @Input() iconPosition: 'top' | 'left' | 'background' = 'top';
-  @Input() colorTheme = 'blue';
-  @Input() hover = true;
-  @Input() clickable = false;
+  feature = input.required<EnhancedFeature>();
+  variant = input<'default' | 'highlighted' | 'bordered' | 'minimal'>('default');
+  size = input<'sm' | 'md' | 'lg'>('md');
+  iconPosition = input<'top' | 'left' | 'background'>('top');
+  colorTheme = input<string>('blue');
+  hover = input<boolean>(true);
+  clickable = input<boolean>(false);
 
-  @Output() cardClick = new EventEmitter<EnhancedFeature>();
+  cardClick = output<EnhancedFeature>();
 
   handleClick(): void {
     if (this.isClickable) {
-      if (this.feature.action) {
-        this.feature.action();
+      const featureValue = this.feature();
+      if (featureValue.action) {
+        featureValue.action();
       }
-      this.cardClick.emit(this.feature);
+      this.cardClick.emit(this.feature());
     }
   }
 
@@ -55,7 +56,7 @@ export class EnhancedFeatureCardComponent {
     classes.push('bg-white', 'dark:bg-gray-800', 'border', 'border-gray-200', 'dark:border-gray-700');
 
     // Size and padding
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('rounded-lg', 'p-4');
         break;
@@ -68,17 +69,17 @@ export class EnhancedFeatureCardComponent {
     }
 
     // Variant styling
-    switch (this.variant) {
+    switch (this.variant()) {
       case 'default':
         classes.push('shadow-md');
         break;
       case 'highlighted':
         classes.push(
-          `shadow-lg border-${this.colorTheme}-200 dark:border-${this.colorTheme}-700 bg-gradient-to-br from-${this.colorTheme}-50 to-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700`
+          `shadow-lg border-${this.colorTheme()}-200 dark:border-${this.colorTheme()}-700 bg-gradient-to-br from-${this.colorTheme()}-50 to-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700`
         );
         break;
       case 'bordered':
-        classes.push(`shadow-md border-2 border-${this.colorTheme}-200 dark:border-${this.colorTheme}-700`);
+        classes.push(`shadow-md border-2 border-${this.colorTheme()}-200 dark:border-${this.colorTheme()}-700`);
         break;
       case 'minimal':
         classes.push('shadow-sm');
@@ -86,7 +87,7 @@ export class EnhancedFeatureCardComponent {
     }
 
     // Hover effects
-    if (this.hover) {
+    if (this.hover()) {
       classes.push('hover:shadow-xl', 'hover:-translate-y-1');
     }
 
@@ -101,7 +102,7 @@ export class EnhancedFeatureCardComponent {
   get imageContainerClasses(): string {
     const classes = ['relative'];
 
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('h-32', 'mb-4');
         break;
@@ -121,7 +122,7 @@ export class EnhancedFeatureCardComponent {
   get iconSectionClasses(): string {
     const classes = [];
 
-    if (this.iconPosition === 'top') {
+    if (this.iconPosition() === 'top') {
       classes.push('text-center', 'mb-4');
     }
 
@@ -130,19 +131,19 @@ export class EnhancedFeatureCardComponent {
 
   get iconContainerClasses(): string {
     const classes = [
-      `bg-${this.colorTheme}-100`,
-      `dark:bg-${this.colorTheme}-800`,
+      `bg-${this.colorTheme()}-100`,
+      `dark:bg-${this.colorTheme()}-800`,
       'rounded-full',
       'flex',
       'items-center',
       'justify-center',
     ];
 
-    if (this.iconPosition === 'top') {
+    if (this.iconPosition() === 'top') {
       classes.push('mx-auto', 'mb-4');
     }
 
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('w-10', 'h-10');
         break;
@@ -158,13 +159,13 @@ export class EnhancedFeatureCardComponent {
   }
 
   get leftIconClasses(): string {
-    return `w-8 h-8 bg-${this.colorTheme}-100 dark:bg-${this.colorTheme}-800 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
+    return `w-8 h-8 bg-${this.colorTheme()}-100 dark:bg-${this.colorTheme()}-800 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
   }
 
   get contentClasses(): string {
     const classes = [];
 
-    if (this.iconPosition === 'left') {
+    if (this.iconPosition() === 'left') {
       classes.push('flex', 'items-start');
     }
 
@@ -174,7 +175,7 @@ export class EnhancedFeatureCardComponent {
   get titleClasses(): string {
     const classes = ['font-bold', 'text-gray-900', 'dark:text-gray-100', 'mb-2'];
 
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-lg');
         break;
@@ -192,7 +193,7 @@ export class EnhancedFeatureCardComponent {
   get descriptionClasses(): string {
     const classes = ['text-gray-600', 'dark:text-gray-300', 'leading-relaxed'];
 
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-sm');
         break;
@@ -210,7 +211,7 @@ export class EnhancedFeatureCardComponent {
   get badgeClasses(): string {
     const classes = ['inline-block', 'px-3', 'py-1', 'text-xs', 'font-medium', 'rounded-full'];
 
-    if (this.feature.image) {
+    if (this.feature().image) {
       classes.push(
         'absolute',
         'top-3',
@@ -223,10 +224,10 @@ export class EnhancedFeatureCardComponent {
       );
     } else {
       classes.push(
-        `bg-${this.colorTheme}-100`,
-        `dark:bg-${this.colorTheme}-800`,
-        `text-${this.colorTheme}-800`,
-        `dark:text-${this.colorTheme}-200`,
+        `bg-${this.colorTheme()}-100`,
+        `dark:bg-${this.colorTheme()}-800`,
+        `text-${this.colorTheme()}-800`,
+        `dark:text-${this.colorTheme()}-200`,
         'mb-2'
       );
     }
@@ -254,15 +255,15 @@ export class EnhancedFeatureCardComponent {
   }
 
   get iconClasses(): string {
-    return `text-${this.colorTheme}-600 dark:text-${this.colorTheme}-400`;
+    return `text-${this.colorTheme()}-600 dark:text-${this.colorTheme()}-400`;
   }
 
   get isClickable(): boolean {
-    return this.clickable || !!this.feature.action || !!this.feature.href || !!this.feature.routerLink;
+    return this.clickable() || !!this.feature().action || !!this.feature().href || !!this.feature().routerLink;
   }
 
   get iconSize(): string {
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         return '1.25rem';
       case 'md':
@@ -275,7 +276,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get backgroundIconSize(): string {
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         return '3rem';
       case 'md':
@@ -291,7 +292,7 @@ export class EnhancedFeatureCardComponent {
 
   get headerSectionClasses(): string {
     const classes = [];
-    if (this.iconPosition === 'left') {
+    if (this.iconPosition() === 'left') {
       classes.push('flex', 'items-start', 'mb-3');
     }
     return classes.join(' ');
@@ -303,11 +304,11 @@ export class EnhancedFeatureCardComponent {
   readonly footerTextClasses = 'text-sm text-gray-500 dark:text-gray-400 font-medium';
 
   get actionIndicatorClasses(): string {
-    return `w-6 h-6 rounded-full bg-${this.colorTheme}-100 dark:bg-${this.colorTheme}-800 text-${this.colorTheme}-600 dark:text-${this.colorTheme}-400 flex items-center justify-center`;
+    return `w-6 h-6 rounded-full bg-${this.colorTheme()}-100 dark:bg-${this.colorTheme()}-800 text-${this.colorTheme()}-600 dark:text-${this.colorTheme()}-400 flex items-center justify-center`;
   }
 
   get actionIcon(): string {
-    if (this.feature.href) {
+    if (this.feature().href) {
       return 'heroArrowTopRightOnSquare';
     }
     return 'heroArrowRight';

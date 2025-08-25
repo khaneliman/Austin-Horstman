@@ -5,19 +5,19 @@
   (keydown.space)="handleClick()"
   [tabindex]="isClickable ? 0 : -1"
   [attr.role]="isClickable ? 'button' : null"
-  [attr.aria-label]="isClickable ? feature.title : null"
+  [attr.aria-label]="isClickable ? feature().title : null"
 >
   <!-- Background Icon (when iconPosition is 'background') -->
-  @if (iconPosition === 'background' && feature.icon) {
+  @if (iconPosition() === 'background' && feature().icon) {
     <div class="absolute inset-0 flex items-center justify-center opacity-5 overflow-hidden">
-      <ng-icon [name]="feature.icon" size="8rem" class="text-current"></ng-icon>
+      <ng-icon [name]="feature().icon" size="8rem" class="text-current"></ng-icon>
     </div>
   }
 
   <!-- Image Section -->
-  @if (feature.image) {
+  @if (feature().image) {
     <div [class]="imageContainerClasses">
-      <img [src]="feature.image" [alt]="feature.title" class="w-full h-full object-cover" />
+      <img [src]="feature().image" [alt]="feature().title" class="w-full h-full object-cover" />
     </div>
   }
 
@@ -26,47 +26,47 @@
     <!-- Header Section with Icon and Badge -->
     <div [class]="headerSectionClasses">
       <!-- Left Icon (when iconPosition is 'left') -->
-      @if (iconPosition === 'left' && feature.icon) {
+      @if (iconPosition() === 'left' && feature().icon) {
         <div [class]="iconContainerClasses">
-          <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
+          <ng-icon [name]="feature().icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
         </div>
       }
 
       <!-- Title and Badge Container -->
       <div class="flex-1">
         <!-- Top Icon (when iconPosition is 'top') -->
-        @if (iconPosition === 'top' && feature.icon) {
+        @if (iconPosition() === 'top' && feature().icon) {
           <div [class]="iconContainerClasses" class="mb-4">
-            <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
+            <ng-icon [name]="feature().icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
           </div>
         }
 
         <!-- Badge -->
-        @if (feature.badge) {
+        @if (feature().badge) {
           <div [class]="badgeClasses">
-            {{ feature.badge }}
+            {{ feature().badge }}
           </div>
         }
 
         <!-- Title -->
         <h3 [class]="titleClasses">
-          {{ feature.title }}
+          {{ feature().title }}
         </h3>
       </div>
     </div>
 
     <!-- Description -->
     <p [class]="descriptionClasses">
-      {{ feature.description }}
+      {{ feature().description }}
     </p>
 
     <!-- Footer Section -->
-    @if (feature.footer || isClickable) {
+    @if (feature().footer || isClickable) {
       <div [class]="footerSectionClasses">
         <!-- Custom Footer Content -->
-        @if (feature.footer) {
+        @if (feature().footer) {
           <div class="flex-1">
-            <p [class]="footerTextClasses">{{ feature.footer }}</p>
+            <p [class]="footerTextClasses">{{ feature().footer }}</p>
           </div>
         }
 
@@ -87,7 +87,7 @@
   </div>
 
   <!-- Router Link Wrapper (when routerLink is provided) -->
-  @if (feature.routerLink) {
-    <a [routerLink]="feature.routerLink" class="absolute inset-0 z-20" aria-hidden="true" tabindex="-1"></a>
+  @if (feature().routerLink) {
+    <a [routerLink]="feature().routerLink" class="absolute inset-0 z-20" aria-hidden="true" tabindex="-1"></a>
   }
 </div>
