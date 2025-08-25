@@ -8,38 +8,45 @@
   [attr.aria-label]="isClickable ? feature.title : null"
 >
   <!-- Background Icon (when iconPosition is 'background') -->
-  <div
-    *ngIf="iconPosition === 'background' && feature.icon"
-    class="absolute inset-0 flex items-center justify-center opacity-5 overflow-hidden"
-  >
-    <ng-icon [name]="feature.icon" size="8rem" class="text-current"></ng-icon>
-  </div>
+  @if (iconPosition === 'background' && feature.icon) {
+    <div class="absolute inset-0 flex items-center justify-center opacity-5 overflow-hidden">
+      <ng-icon [name]="feature.icon" size="8rem" class="text-current"></ng-icon>
+    </div>
+  }
 
   <!-- Image Section -->
-  <div *ngIf="feature.image" [class]="imageContainerClasses">
-    <img [src]="feature.image" [alt]="feature.title" class="w-full h-full object-cover" />
-  </div>
+  @if (feature.image) {
+    <div [class]="imageContainerClasses">
+      <img [src]="feature.image" [alt]="feature.title" class="w-full h-full object-cover" />
+    </div>
+  }
 
   <!-- Content Container -->
   <div [class]="contentContainerClasses">
     <!-- Header Section with Icon and Badge -->
     <div [class]="headerSectionClasses">
       <!-- Left Icon (when iconPosition is 'left') -->
-      <div *ngIf="iconPosition === 'left' && feature.icon" [class]="iconContainerClasses">
-        <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
-      </div>
+      @if (iconPosition === 'left' && feature.icon) {
+        <div [class]="iconContainerClasses">
+          <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
+        </div>
+      }
 
       <!-- Title and Badge Container -->
       <div class="flex-1">
         <!-- Top Icon (when iconPosition is 'top') -->
-        <div *ngIf="iconPosition === 'top' && feature.icon" [class]="iconContainerClasses" class="mb-4">
-          <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
-        </div>
+        @if (iconPosition === 'top' && feature.icon) {
+          <div [class]="iconContainerClasses" class="mb-4">
+            <ng-icon [name]="feature.icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
+          </div>
+        }
 
         <!-- Badge -->
-        <div *ngIf="feature.badge" [class]="badgeClasses">
-          {{ feature.badge }}
-        </div>
+        @if (feature.badge) {
+          <div [class]="badgeClasses">
+            {{ feature.badge }}
+          </div>
+        }
 
         <!-- Title -->
         <h3 [class]="titleClasses">
@@ -54,31 +61,33 @@
     </p>
 
     <!-- Footer Section -->
-    <div *ngIf="feature.footer || isClickable" [class]="footerSectionClasses">
-      <!-- Custom Footer Content -->
-      <div *ngIf="feature.footer" class="flex-1">
-        <p [class]="footerTextClasses">{{ feature.footer }}</p>
-      </div>
+    @if (feature.footer || isClickable) {
+      <div [class]="footerSectionClasses">
+        <!-- Custom Footer Content -->
+        @if (feature.footer) {
+          <div class="flex-1">
+            <p [class]="footerTextClasses">{{ feature.footer }}</p>
+          </div>
+        }
 
-      <!-- Action Indicator -->
-      <div *ngIf="isClickable" class="flex items-center justify-end">
-        <div [class]="actionIndicatorClasses">
-          <ng-icon
-            [name]="actionIcon"
-            size="1rem"
-            class="text-current transition-transform duration-200 group-hover:translate-x-1"
-          ></ng-icon>
-        </div>
+        <!-- Action Indicator -->
+        @if (isClickable) {
+          <div class="flex items-center justify-end">
+            <div [class]="actionIndicatorClasses">
+              <ng-icon
+                [name]="actionIcon"
+                size="1rem"
+                class="text-current transition-transform duration-200 group-hover:translate-x-1"
+              ></ng-icon>
+            </div>
+          </div>
+        }
       </div>
-    </div>
+    }
   </div>
 
   <!-- Router Link Wrapper (when routerLink is provided) -->
-  <a
-    *ngIf="feature.routerLink"
-    [routerLink]="feature.routerLink"
-    class="absolute inset-0 z-20"
-    aria-hidden="true"
-    tabindex="-1"
-  ></a>
+  @if (feature.routerLink) {
+    <a [routerLink]="feature.routerLink" class="absolute inset-0 z-20" aria-hidden="true" tabindex="-1"></a>
+  }
 </div>
