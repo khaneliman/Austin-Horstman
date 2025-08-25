@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -71,7 +70,6 @@ import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.co
   selector: 'app-project-detail-template',
   standalone: true,
   imports: [
-    CommonModule,
     NgIconComponent,
     ProjectNavHeaderComponent,
     BaseCardComponent,

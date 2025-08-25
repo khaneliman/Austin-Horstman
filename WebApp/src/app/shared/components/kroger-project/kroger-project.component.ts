@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -35,7 +34,6 @@ import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-hea
   templateUrl: './kroger-project.component.html',
   styleUrls: ['./kroger-project.component.scss'],
   imports: [
-    CommonModule,
     RouterModule,
     NgIconComponent,
     ProjectNavHeaderComponent,

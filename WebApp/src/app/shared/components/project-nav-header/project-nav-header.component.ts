@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -14,7 +13,7 @@ export interface ProjectNavItem {
 @Component({
   selector: 'app-project-nav-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, NgIconComponent],
+  imports: [RouterLink, NgIconComponent],
   providers: [provideIcons({ heroChevronLeft })],
   templateUrl: './project-nav-header.component.html',
   styleUrls: ['./project-nav-header.component.scss'],

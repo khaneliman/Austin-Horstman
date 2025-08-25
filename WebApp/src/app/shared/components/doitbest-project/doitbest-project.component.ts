@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -36,7 +35,6 @@ import { Stat, StatsGridComponent } from '../stats-grid/stats-grid.component';
   selector: 'app-doitbest-project',
   standalone: true,
   imports: [
-    CommonModule,
     RouterModule,
     NgIconComponent,
     ProjectNavHeaderComponent,
