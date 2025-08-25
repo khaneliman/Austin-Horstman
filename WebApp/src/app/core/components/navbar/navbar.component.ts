@@ -1,4 +1,4 @@
-import { CommonModule, Location, PopStateEvent } from '@angular/common';
+import { Location, PopStateEvent } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
@@ -7,7 +7,7 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule, SocialLinksComponent, ThemeToggleComponent],
+  imports: [RouterModule, SocialLinksComponent, ThemeToggleComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
