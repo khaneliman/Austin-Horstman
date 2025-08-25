@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -38,7 +38,8 @@ import {
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],
   imports: [
-    CommonModule,
+    NgFor,
+    NgClass,
     CardComponent,
     WaveSeparatorComponent,
     RouterLink,

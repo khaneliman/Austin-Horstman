@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -22,7 +22,7 @@ import {
   selector: 'app-technology',
   templateUrl: './technology.component.html',
   styleUrls: ['./technology.component.scss'],
-  imports: [CommonModule, RouterOutlet, NgIconComponent, DecorativeBackgroundComponent, EnhancedFeatureCardComponent],
+  imports: [NgFor, RouterOutlet, NgIconComponent, DecorativeBackgroundComponent, EnhancedFeatureCardComponent],
   providers: [
     provideIcons({
       heroCog6Tooth,
