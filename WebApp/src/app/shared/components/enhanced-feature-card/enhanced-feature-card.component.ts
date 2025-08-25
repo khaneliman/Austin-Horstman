@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
+import { ThemeService } from '../../../core/services/theme.service';
 
 export interface EnhancedFeature {
   title: string;
@@ -21,6 +22,7 @@ export interface EnhancedFeature {
   template: `
     <div
       [class]="cardClasses"
+      [ngStyle]="cardBackgroundStyle"
       (click)="handleClick()"
       (keyup.enter)="handleClick()"
       (keyup.space)="handleClick()"
@@ -48,7 +50,7 @@ export interface EnhancedFeature {
       <!-- Content section -->
       <div [class]="contentClasses">
         <!-- Badge for left icon position -->
-        <div *ngIf="feature.badge && (iconPosition === 'left' || iconPosition === 'background')" [class]="badgeClasses">
+        <div *ngIf="feature.badge && (iconPosition === 'left' || iconPosition === 'background')" [class]="badgeClasses" [ngStyle]="badgeBackgroundStyle">
           {{ feature.badge }}
         </div>
 
@@ -58,8 +60,8 @@ export interface EnhancedFeature {
         </div>
 
         <div class="flex-1">
-          <h3 [class]="titleClasses">{{ feature.title }}</h3>
-          <p [class]="descriptionClasses">{{ feature.description }}</p>
+          <h3 [class]="titleClasses" [ngStyle]="cardTextStyle">{{ feature.title }}</h3>
+          <p [class]="descriptionClasses" [ngStyle]="cardDescriptionStyle">{{ feature.description }}</p>
         </div>
       </div>
 
@@ -86,6 +88,8 @@ export class EnhancedFeatureCardComponent {
   @Input() clickable = false;
 
   @Output() cardClick = new EventEmitter<EnhancedFeature>();
+  
+  private themeService = inject(ThemeService);
 
   handleClick(): void {
     if (this.isClickable) {
@@ -99,8 +103,8 @@ export class EnhancedFeatureCardComponent {
   get cardClasses(): string {
     const classes = ['relative', 'overflow-hidden', 'transition-all', 'duration-300'];
 
-    // Base card styling
-    classes.push('bg-white', 'border', 'border-gray-200');
+    // Base card styling with proper dark mode
+    classes.push('bg-white', 'dark:bg-gray-800', 'border', 'border-gray-200', 'dark:border-gray-700');
 
     // Size and padding
     switch (this.size) {
@@ -115,25 +119,25 @@ export class EnhancedFeatureCardComponent {
         break;
     }
 
-    // Variant styling
+    // Variant styling with dark mode support
     switch (this.variant) {
       case 'default':
-        classes.push('shadow-md');
+        classes.push('shadow-md', 'dark:shadow-xl');
         break;
       case 'highlighted':
-        classes.push(`shadow-lg border-${this.colorTheme}-200 bg-gradient-to-br from-${this.colorTheme}-50 to-white`);
+        classes.push('shadow-lg border-gray-200 dark:border-gray-600 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900');
         break;
       case 'bordered':
-        classes.push(`shadow-md border-2 border-${this.colorTheme}-200`);
+        classes.push('shadow-md border-2 border-gray-200 dark:border-gray-600');
         break;
       case 'minimal':
-        classes.push('shadow-sm');
+        classes.push('shadow-sm', 'dark:shadow-lg');
         break;
     }
 
     // Hover effects
     if (this.hover) {
-      classes.push('hover:shadow-xl', 'hover:-translate-y-1');
+      classes.push('hover:shadow-xl', 'dark:hover:shadow-2xl', 'hover:-translate-y-1');
     }
 
     // Clickable cursor
@@ -175,7 +179,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get iconContainerClasses(): string {
-    const classes = [`bg-${this.colorTheme}-100`, 'rounded-full', 'flex', 'items-center', 'justify-center'];
+    const classes = [`bg-${this.colorTheme}-100`, `dark:bg-${this.colorTheme}-900/30`, 'rounded-full', 'flex', 'items-center', 'justify-center'];
 
     if (this.iconPosition === 'top') {
       classes.push('mx-auto', 'mb-4');
@@ -197,7 +201,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get leftIconClasses(): string {
-    return `w-8 h-8 bg-${this.colorTheme}-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
+    return `w-8 h-8 bg-${this.colorTheme}-100 dark:bg-${this.colorTheme}-900/30 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
   }
 
   get contentClasses(): string {
@@ -211,7 +215,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get titleClasses(): string {
-    const classes = ['font-bold', 'text-gray-900', 'mb-2'];
+    const classes = ['font-bold', 'text-gray-900', 'dark:text-white', 'mb-2'];
 
     switch (this.size) {
       case 'sm':
@@ -229,7 +233,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get descriptionClasses(): string {
-    const classes = ['text-gray-600', 'leading-relaxed'];
+    const classes = ['text-gray-600', 'dark:text-gray-300', 'leading-relaxed'];
 
     switch (this.size) {
       case 'sm':
@@ -250,30 +254,68 @@ export class EnhancedFeatureCardComponent {
     const classes = ['inline-block', 'px-3', 'py-1', 'text-xs', 'font-medium', 'rounded-full'];
 
     if (this.feature.image) {
-      classes.push('absolute', 'top-3', 'right-3', 'bg-white', 'text-gray-800', 'shadow-md');
+      classes.push('absolute', 'top-3', 'right-3', 'bg-white', 'dark:bg-gray-800', 'text-gray-800', 'dark:text-gray-200', 'shadow-md');
     } else {
-      classes.push(`bg-${this.colorTheme}-100`, `text-${this.colorTheme}-800`, 'mb-2');
+      classes.push('bg-blue-100', 'dark:bg-gray-700', 'text-blue-800', 'dark:text-blue-200', 'mb-2');
     }
 
     return classes.join(' ');
   }
 
   get footerClasses(): string {
-    const classes = ['text-sm', 'text-gray-500', 'mt-4', 'pt-4', 'border-t', 'border-gray-100'];
+    const classes = ['text-sm', 'text-gray-500', 'dark:text-gray-400', 'mt-4', 'pt-4', 'border-t', 'border-gray-100', 'dark:border-gray-700'];
     return classes.join(' ');
   }
 
   get backgroundIconClasses(): string {
-    const classes = ['absolute', 'bottom-4', 'right-4', 'opacity-10'];
+    const classes = ['absolute', 'bottom-4', 'right-4', 'opacity-10', 'dark:opacity-5'];
     return classes.join(' ');
   }
 
   get iconClasses(): string {
-    return `text-${this.colorTheme}-600`;
+    return 'text-gray-600 dark:text-gray-300';
   }
 
   get isClickable(): boolean {
     return this.clickable || !!this.feature.action || !!this.feature.href || !!this.feature.routerLink;
+  }
+
+  get cardBackgroundStyle(): { [key: string]: string } {
+    const isDark = this.themeService.isDarkMode();
+    
+    if (this.variant === 'highlighted') {
+      return {
+        'background': isDark 
+          ? 'linear-gradient(to bottom right, #374151, #1f2937)' // gray-700 to gray-800
+          : 'linear-gradient(to bottom right, #f8fafc, #ffffff)'  // slate-50 to white
+      };
+    }
+    
+    return {
+      'background-color': isDark ? '#1f2937' : '#ffffff' // gray-800 or white
+    };
+  }
+
+  get cardTextStyle(): { [key: string]: string } {
+    const isDark = this.themeService.isDarkMode();
+    return {
+      'color': isDark ? '#f9fafb' : '#1f2937' // gray-50 : gray-800
+    };
+  }
+
+  get cardDescriptionStyle(): { [key: string]: string } {
+    const isDark = this.themeService.isDarkMode();
+    return {
+      'color': isDark ? '#d1d5db' : '#6b7280' // gray-300 : gray-500
+    };
+  }
+
+  get badgeBackgroundStyle(): { [key: string]: string } {
+    const isDark = this.themeService.isDarkMode();
+    return {
+      'background-color': isDark ? '#374151' : '#dbeafe', // gray-700 : blue-100
+      'color': isDark ? '#60a5fa' : '#1e40af' // blue-400 : blue-800
+    };
   }
 
   get iconSize(): string {

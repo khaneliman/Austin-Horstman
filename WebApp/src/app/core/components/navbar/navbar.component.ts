@@ -3,10 +3,11 @@ import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@
 import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { SocialLinksComponent } from '../social-links/social-links.component';
+import { ThemeToggleComponent } from '../../../shared/components/theme-toggle/theme-toggle.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule, SocialLinksComponent],
+  imports: [CommonModule, RouterModule, SocialLinksComponent, ThemeToggleComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],

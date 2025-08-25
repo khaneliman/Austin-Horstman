@@ -2,3 +2,90 @@
 @use 'tailwindcss';
 
 /* Custom global styles */
+
+/* Dark mode base styles */
+html,
+body {
+  @apply transition-colors duration-200;
+}
+
+html {
+  @apply bg-white text-gray-900;
+}
+
+html.dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+body {
+  @apply bg-inherit text-inherit;
+}
+
+/* Smooth transitions for theme changes */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Note: Removed problematic light mode overrides that were fighting TailwindCSS */
+
+/* Footer styling should use TailwindCSS classes instead of overrides */
+
+/* Minimal dark mode overrides - let TailwindCSS handle most styling */
+
+/* Footer dark mode */
+.dark footer {
+  background: linear-gradient(to right, rgb(15 23 42), rgb(30 41 59)) !important;
+  border-color: rgb(55 65 81) !important;
+}
+
+.dark footer h3 {
+  color: rgb(96 165 250) !important;
+}
+
+.dark footer p,
+.dark footer div {
+  color: rgb(156 163 175) !important;
+}
+
+.dark footer a {
+  color: rgb(156 163 175) !important;
+  background-color: transparent !important;
+}
+
+.dark footer a:hover {
+  color: rgb(96 165 250) !important;
+  background-color: transparent !important;
+}
+
+/* Specific dark mode footer nav links */
+.dark footer nav a {
+  color: rgb(156 163 175) !important;
+  background-color: transparent !important;
+  background: none !important;
+}
+
+.dark footer nav a:hover {
+  color: rgb(96 165 250) !important;
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* More specific navbar overrides */
+.dark nav {
+  background-color: rgb(17 24 39) !important;
+}
+
+.dark nav * {
+  color: rgb(229 231 235) !important;
+}
+
+.dark nav a:hover,
+.dark nav button:hover {
+  color: rgb(96 165 250) !important;
+}
+
+/* Remove problematic overrides that conflict with Tailwind dark mode classes */

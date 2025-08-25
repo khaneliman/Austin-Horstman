@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ThemeService } from '../core/services/theme.service';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -42,6 +43,19 @@ import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
+  private themeService = inject(ThemeService);
+  
+  get sectionBackgroundColor(): string {
+    return this.themeService.isDarkMode() ? '#111827' : 'white';
+  }
+  
+  get titleTextColor(): string {
+    return this.themeService.isDarkMode() ? '#f9fafb' : '#1f2937'; // gray-50 : gray-800
+  }
+  
+  get subtitleTextColor(): string {
+    return this.themeService.isDarkMode() ? '#d1d5db' : '#4b5563'; // gray-300 : gray-600
+  }
   heroTitle = 'Khaneliman';
   heroSubtitle =
     'Professional Software Engineer with expertise in modern technologies and a passion for building innovative solutions. Ready to adapt and excel in any development environment.';

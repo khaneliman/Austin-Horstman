@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, computed, inject } from '@angular/core';
+import { ThemeService } from '../../../core/services/theme.service';
 
 export type WaveStyle = 'wave' | 'curve' | 'zigzag' | 'slant' | 'triangle' | 'book';
 export type WaveDirection = 'top' | 'bottom' | 'both';
@@ -86,11 +87,29 @@ export class WaveSeparatorComponent {
   @Input() waveStyle: WaveStyle = 'wave';
   @Input() direction: WaveDirection = 'bottom';
   @Input() height: 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Input() color = 'white';
+  @Input() color = 'auto'; // Changed default to 'auto' for theme-aware coloring
   @Input() opacity = 100;
   @Input() animate = false;
   @Input() flip = false;
   @Input() minHeight = '0px';
+
+  private themeService = inject(ThemeService);
+
+  // Computed signal for theme-aware color
+  dynamicColor = computed(() => {
+    if (this.color !== 'auto') {
+      return this.color; // Use provided color if not 'auto'
+    }
+    
+    // For wave separators, we need to match the destination section background
+    // In most cases, wave separators transition INTO a content section
+    // which should be white in light mode and dark in dark mode
+    const isDark = this.themeService.theme() === 'dark';
+    
+    // Content sections typically have white/light backgrounds in light mode
+    // and dark backgrounds in dark mode
+    return isDark ? '#1f2937' : '#ffffff'; // gray-800 in dark, white in light
+  });
 
   get svgHeight(): number {
     switch (this.height) {
@@ -125,7 +144,7 @@ export class WaveSeparatorComponent {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   getPathStyle(position: 'top' | 'bottom'): Record<string, string> {
     return {
-      fill: this.color,
+      fill: this.dynamicColor(),
     };
   }
 

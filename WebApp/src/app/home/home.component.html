@@ -77,17 +77,17 @@
       waveStyle="wave"
       direction="bottom"
       height="lg"
-      color="white"
+      color="auto"
       [flip]="true"
     ></app-wave-separator>
   </div>
 
   <!-- Features section (replacing the commented section) -->
-  <section class="py-20 bg-white">
+  <section class="py-20" [style.background-color]="sectionBackgroundColor">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-800 mb-4">What I Bring</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold mb-4" [style.color]="titleTextColor">What I Bring</h2>
+        <p class="text-xl max-w-3xl mx-auto" [style.color]="subtitleTextColor">
           Combining technical expertise with practical problem-solving to deliver exceptional software solutions.
         </p>
       </div>
