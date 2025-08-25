@@ -1,5 +1,5 @@
 <div
-  class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+  class="group bg-white/10 backdrop-blur-sm dark:bg-gray-800/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-300 dark:border-gray-600 overflow-hidden"
 >
   <div class="p-8">
     <!-- Icon with gradient background -->
@@ -21,12 +21,12 @@
     <h6
       class="text-lg font-bold uppercase tracking-wide mb-2"
       [ngClass]="{
-        'text-blue-600': status === 'primary',
-        'text-green-600': status === 'success',
-        'text-yellow-600': status === 'warning',
-        'text-red-600': status === 'danger',
-        'text-purple-600': status === 'info',
-        'text-gray-600': !status,
+        'text-blue-600 dark:text-blue-400': status === 'primary',
+        'text-green-600 dark:text-green-400': status === 'success',
+        'text-yellow-600 dark:text-yellow-400': status === 'warning',
+        'text-red-600 dark:text-red-400': status === 'danger',
+        'text-purple-600 dark:text-purple-400': status === 'info',
+        'text-gray-600 dark:text-gray-400': !status,
       }"
     >
       {{ title }}
@@ -34,13 +34,13 @@
 
     <!-- Super text -->
     @if (superText) {
-      <p class="text-sm text-gray-500 italic mb-3">
+      <p class="text-sm text-gray-600 dark:text-gray-300 italic mb-3">
         {{ superText }}
       </p>
     }
 
     <!-- Description -->
-    <p class="text-gray-700 leading-relaxed mb-4">
+    <p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
       {{ description }}
     </p>
 
@@ -49,7 +49,7 @@
       <div class="flex flex-wrap gap-2 mb-6">
         @for (tag of tags; track tag) {
           <span
-            class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full border border-yellow-200"
+            class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-sm font-medium rounded-full border border-yellow-200 dark:border-yellow-700"
           >
             {{ tag }}
           </span>
