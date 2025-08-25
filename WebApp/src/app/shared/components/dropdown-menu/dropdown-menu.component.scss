@@ -1,15 +1,8 @@
-// Dropdown Menu Styles
+// Dropdown Menu - Essential styles for accessibility and animations
+// Basic positioning, sizing, z-index, and overflow moved to Tailwind classes in template
+
 .dropdown-menu {
-  // Base menu container
-  min-width: 12rem; // 192px
-  max-width: 20rem; // 320px
-
-  // Ensure proper z-index layering
-  z-index: 1000;
-
-  // Custom scrollbar for long menus
-  max-height: 20rem; // 320px
-  overflow-y: auto;
+  // Custom scrollbar - cannot be replicated with Tailwind
   scrollbar-width: thin;
   scrollbar-color: theme('colors.gray.400') transparent;
 
@@ -95,21 +88,11 @@
 .dropdown-divider {
   height: 1px;
   margin: 0.5rem 0;
-  background: linear-gradient(
-    to right,
-    transparent,
-    theme('colors.gray.200'),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, theme('colors.gray.200'), transparent);
 
   // Dark mode divider
   .bg-gray-800 & {
-    background: linear-gradient(
-      to right,
-      transparent,
-      theme('colors.gray.700'),
-      transparent
-    );
+    background: linear-gradient(to right, transparent, theme('colors.gray.700'), transparent);
   }
 }
 

@@ -1,15 +1,14 @@
-.enhanced-feature-card {
-  position: relative;
+// Enhanced Feature Card - Hybrid Tailwind + custom CSS approach
+// Most positioning and basic styles moved to Tailwind classes
+// Keeping complex animations and variant-specific behaviors
 
+.enhanced-feature-card {
+  // Special hover effects that can't be achieved with Tailwind alone
   &:hover .hover-glow {
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
   }
 
-  &.clickable {
-    cursor: pointer;
-  }
-
-  // Enhanced hover effects for different variants
+  // Variant-specific hover transformations
   &.variant-highlighted:hover {
     transform: translateY(-8px);
   }
@@ -24,46 +23,24 @@
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
-  // Smooth transitions
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  // Action indicator animation
-  .action-indicator {
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+  // Child element hover effects
+  .action-indicator:hover {
+    transform: scale(1.1);
   }
 
-  // Icon container animations
-  .icon-container {
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+  .icon-container:hover {
+    transform: scale(1.05);
   }
 
-  // Background icon subtle animation
-  .background-icon {
-    transition: opacity 0.3s ease;
-
-    &:hover {
-      opacity: 0.1;
-    }
+  .background-icon:hover {
+    opacity: 0.1;
   }
 
-  // Image hover effects
-  img {
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+  img:hover {
+    transform: scale(1.05);
   }
 
-  // Badge pulse effect for highlighted variant
+  // Badge animation for highlighted variant
   &.variant-highlighted .badge {
     animation: pulse 2s infinite;
   }
