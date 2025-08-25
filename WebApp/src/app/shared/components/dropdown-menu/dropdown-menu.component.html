@@ -1,60 +1,19 @@
 <!-- Dropdown Menu -->
-<div
-  *ngIf="isOpen || !showTransition"
-  [class]="menuClasses"
-  [attr.role]="role"
-  [attr.aria-labelledby]="ariaLabelledBy"
-  tabindex="-1"
->
-  <ng-container *ngFor="let item of items; trackBy: trackByFn; let i = index">
-    <!-- Divider -->
-    <div *ngIf="item.divider" [class]="dividerClasses"></div>
+@if (isOpen || !showTransition) {
+  <div [class]="menuClasses" [attr.role]="role" [attr.aria-labelledby]="ariaLabelledBy" tabindex="-1">
+    @for (item of items; track trackByFn($index, item); let i = $index) {
+      <!-- Divider -->
+      @if (item.divider) {
+        <div [class]="dividerClasses"></div>
+      }
 
-    <!-- Regular Menu Item -->
-    <ng-container *ngIf="!item.divider">
-      <!-- Router Link Item -->
-      <a
-        *ngIf="item.routerLink && !item.disabled; else nonRouterItem"
-        [routerLink]="item.routerLink"
-        [queryParams]="item.routerLinkParams"
-        [class]="itemClasses"
-        [attr.id]="item.id"
-        [attr.aria-label]="item.ariaLabel || item.label || ''"
-        [attr.role]="'menuitem'"
-        [attr.tabindex]="0"
-        (click)="onItemClick(item, $event)"
-        (keydown)="onItemKeydown(item, $event, i)"
-      >
-        <ng-icon *ngIf="item.icon" [name]="item.icon" [class]="iconClasses" size="1rem"></ng-icon>
-        <span class="flex-1">{{ item.label || '' }}</span>
-      </a>
-
-      <ng-template #nonRouterItem>
-        <!-- External Link Item -->
-        <a
-          *ngIf="item.href && !item.disabled; else buttonItem"
-          [href]="item.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          [class]="itemClasses"
-          [attr.id]="item.id"
-          [attr.aria-label]="item.ariaLabel || item.label || ''"
-          [attr.role]="'menuitem'"
-          [attr.tabindex]="0"
-          (click)="onItemClick(item, $event)"
-          (keydown)="onItemKeydown(item, $event, i)"
-        >
-          <ng-icon *ngIf="item.icon" [name]="item.icon" [class]="iconClasses" size="1rem"></ng-icon>
-          <span class="flex-1">{{ item.label || '' }}</span>
-          <!-- External link indicator -->
-          <ng-icon name="heroArrowTopRightOnSquare" class="ml-2 flex-shrink-0 opacity-60" size="0.875rem"></ng-icon>
-        </a>
-
-        <ng-template #buttonItem>
-          <!-- Action Button Item -->
-          <button
-            *ngIf="!item.disabled; else disabledItem"
-            type="button"
+      <!-- Regular Menu Item -->
+      @if (!item.divider) {
+        <!-- Router Link Item -->
+        @if (item.routerLink && !item.disabled) {
+          <a
+            [routerLink]="item.routerLink"
+            [queryParams]="item.routerLinkParams"
             [class]="itemClasses"
             [attr.id]="item.id"
             [attr.aria-label]="item.ariaLabel || item.label || ''"
@@ -63,26 +22,70 @@
             (click)="onItemClick(item, $event)"
             (keydown)="onItemKeydown(item, $event, i)"
           >
-            <ng-icon *ngIf="item.icon" [name]="item.icon" [class]="iconClasses" size="1rem"></ng-icon>
+            @if (item.icon) {
+              <ng-icon [name]="item.icon" [class]="iconClasses" size="1rem"></ng-icon>
+            }
             <span class="flex-1">{{ item.label || '' }}</span>
-          </button>
-
-          <!-- Disabled Item -->
-          <ng-template #disabledItem>
-            <div
-              [class]="disabledItemClasses"
+          </a>
+        } @else {
+          <!-- External Link Item -->
+          @if (item.href && !item.disabled) {
+            <a
+              [href]="item.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              [class]="itemClasses"
               [attr.id]="item.id"
               [attr.aria-label]="item.ariaLabel || item.label || ''"
               [attr.role]="'menuitem'"
-              [attr.aria-disabled]="true"
-              [attr.tabindex]="-1"
+              [attr.tabindex]="0"
+              (click)="onItemClick(item, $event)"
+              (keydown)="onItemKeydown(item, $event, i)"
             >
-              <ng-icon *ngIf="item.icon" [name]="item.icon" [class]="iconClasses + ' opacity-50'" size="1rem"></ng-icon>
-              <span class="flex-1 opacity-50">{{ item.label }}</span>
-            </div>
-          </ng-template>
-        </ng-template>
-      </ng-template>
-    </ng-container>
-  </ng-container>
-</div>
+              @if (item.icon) {
+                <ng-icon [name]="item.icon" [class]="iconClasses" size="1rem"></ng-icon>
+              }
+              <span class="flex-1">{{ item.label || '' }}</span>
+              <!-- External link indicator -->
+              <ng-icon name="heroArrowTopRightOnSquare" class="ml-2 flex-shrink-0 opacity-60" size="0.875rem"></ng-icon>
+            </a>
+          } @else {
+            <!-- Action Button Item -->
+            @if (!item.disabled) {
+              <button
+                type="button"
+                [class]="itemClasses"
+                [attr.id]="item.id"
+                [attr.aria-label]="item.ariaLabel || item.label || ''"
+                [attr.role]="'menuitem'"
+                [attr.tabindex]="0"
+                (click)="onItemClick(item, $event)"
+                (keydown)="onItemKeydown(item, $event, i)"
+              >
+                @if (item.icon) {
+                  <ng-icon [name]="item.icon" [class]="iconClasses" size="1rem"></ng-icon>
+                }
+                <span class="flex-1">{{ item.label || '' }}</span>
+              </button>
+            } @else {
+              <!-- Disabled Item -->
+              <div
+                [class]="disabledItemClasses"
+                [attr.id]="item.id"
+                [attr.aria-label]="item.ariaLabel || item.label || ''"
+                [attr.role]="'menuitem'"
+                [attr.aria-disabled]="true"
+                [attr.tabindex]="-1"
+              >
+                @if (item.icon) {
+                  <ng-icon [name]="item.icon" [class]="iconClasses + ' opacity-50'" size="1rem"></ng-icon>
+                }
+                <span class="flex-1 opacity-50">{{ item.label }}</span>
+              </div>
+            }
+          }
+        }
+      }
+    }
+  </div>
+}
