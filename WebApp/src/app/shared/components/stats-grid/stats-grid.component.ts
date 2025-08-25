@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 
@@ -11,7 +11,7 @@ export interface Stat {
 @Component({
   selector: 'app-stats-grid',
   standalone: true,
-  imports: [CommonModule, StatCardComponent],
+  imports: [NgFor, StatCardComponent],
   template: `
     <div [class]="containerClasses">
       <div [class]="gridClasses">

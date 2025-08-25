@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FeatureItemComponent } from '../feature-item/feature-item.component';
 
@@ -11,7 +11,7 @@ export interface Feature {
 @Component({
   selector: 'app-feature-grid',
   standalone: true,
-  imports: [CommonModule, FeatureItemComponent],
+  imports: [NgFor, FeatureItemComponent],
   template: `
     <div [class]="gridClasses">
       <app-feature-item

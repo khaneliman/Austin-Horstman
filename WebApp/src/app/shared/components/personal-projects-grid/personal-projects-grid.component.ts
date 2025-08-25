@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
@@ -30,7 +30,7 @@ export interface PersonalProject {
 @Component({
   selector: 'app-personal-projects-grid',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
+  imports: [NgClass, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
   templateUrl: './personal-projects-grid.component.html',
   styleUrls: ['./personal-projects-grid.component.scss'],
 })

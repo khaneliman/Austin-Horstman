@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { getCompanyEmploymentRoute } from '../../data/companies';
@@ -25,7 +25,7 @@ export interface ProfessionalProject {
 @Component({
   selector: 'app-professional-projects-grid',
   standalone: true,
-  imports: [CommonModule, RouterModule, DecorativeBackgroundComponent],
+  imports: [NgClass, RouterModule, DecorativeBackgroundComponent],
   templateUrl: './professional-projects-grid.component.html',
   styleUrls: ['./professional-projects-grid.component.scss'],
 })
