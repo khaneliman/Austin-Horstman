@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 
 export interface Stat {
@@ -11,6 +11,7 @@ export interface Stat {
 @Component({
   selector: 'app-stats-grid',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgFor, StatCardComponent],
   template: `
     <div [class]="containerClasses">

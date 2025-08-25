@@ -1,4 +1,4 @@
-import { Component, Input, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroChevronLeft } from '@ng-icons/heroicons/outline';
@@ -15,14 +15,15 @@ export interface ProjectNavItem {
   standalone: true,
   imports: [RouterLink, NgIconComponent],
   providers: [provideIcons({ heroChevronLeft })],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './project-nav-header.component.html',
   styleUrls: ['./project-nav-header.component.scss'],
 })
 export class ProjectNavHeaderComponent implements OnInit {
-  @Input() backRoute = '/projects/professional';
-  @Input() backLabel = 'Back to Professional Projects';
-  @Input() hoverColor = 'blue'; // blue, green, red, purple
-  @Input() companyKey = '';
+  backRoute = input<string>('/projects/professional');
+  backLabel = input<string>('Back to Professional Projects');
+  hoverColor = input<string>('blue'); // blue, green, red, purple
+  companyKey = input<string>('');
 
   projects: ProjectNavItem[] = [];
 
@@ -30,9 +31,10 @@ export class ProjectNavHeaderComponent implements OnInit {
   private navService = inject(ProjectNavigationService);
 
   ngOnInit() {
-    if (this.companyKey) {
+    const companyKeyValue = this.companyKey();
+    if (companyKeyValue) {
       const currentRoute = this.router.url;
-      this.projects = this.navService.getNavigationItems(this.companyKey, currentRoute);
+      this.projects = this.navService.getNavigationItems(companyKeyValue, currentRoute);
     }
   }
 

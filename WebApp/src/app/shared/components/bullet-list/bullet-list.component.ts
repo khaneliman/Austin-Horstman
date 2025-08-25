@@ -1,5 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroCheck } from '@ng-icons/heroicons/outline';
 
@@ -15,6 +15,7 @@ export type BulletStyle = 'dot' | 'arrow' | 'check' | 'dash' | 'number' | 'icon'
 @Component({
   selector: 'app-bullet-list',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgFor, NgIf, NgIconComponent],
   providers: [
     provideIcons({

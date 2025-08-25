@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FeatureItemComponent } from '../feature-item/feature-item.component';
 
 export interface Feature {
@@ -11,6 +11,7 @@ export interface Feature {
 @Component({
   selector: 'app-feature-grid',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgFor, FeatureItemComponent],
   template: `
     <div [class]="gridClasses">

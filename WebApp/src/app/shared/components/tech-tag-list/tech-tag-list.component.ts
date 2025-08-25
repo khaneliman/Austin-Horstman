@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TechTagComponent } from '../tech-tag/tech-tag.component';
 
 export interface TechTag {
@@ -10,34 +10,35 @@ export interface TechTag {
   selector: 'app-tech-tag-list',
   standalone: true,
   imports: [TechTagComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [class]="containerClasses">
       <app-tech-tag
-        *ngFor="let tech of technologies"
+        *ngFor="let tech of technologies()"
         [name]="tech.name"
         [color]="tech.color"
-        [size]="size"
-        [variant]="variant"
+        [size]="size()"
+        [variant]="variant()"
       ></app-tech-tag>
     </div>
   `,
   styles: [],
 })
 export class TechTagListComponent {
-  @Input() technologies: TechTag[] = [];
-  @Input() justify: 'start' | 'center' | 'end' = 'center';
-  @Input() size: 'sm' | 'md' = 'sm';
-  @Input() variant: 'filled' | 'outline' | 'ghost' = 'filled';
-  @Input() wrap = true;
+  technologies = input<TechTag[]>([]);
+  justify = input<'start' | 'center' | 'end'>('center');
+  size = input<'sm' | 'md'>('sm');
+  variant = input<'filled' | 'outline' | 'ghost'>('filled');
+  wrap = input<boolean>(true);
 
   get containerClasses(): string {
     const classes = ['flex gap-2'];
 
-    if (this.wrap) {
+    if (this.wrap()) {
       classes.push('flex-wrap');
     }
 
-    switch (this.justify) {
+    switch (this.justify()) {
       case 'start':
         classes.push('justify-start');
         break;

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-feature-item',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
   template: `
     <div class="flex items-start space-x-4">

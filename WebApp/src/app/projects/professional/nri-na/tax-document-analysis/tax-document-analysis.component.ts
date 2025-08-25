@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ProjectDetailTemplateComponent } from '../../../../shared/components/project-detail-template/project-detail-template.component';
 import { getProjectConfiguration } from '../../../../shared/data/project-configurations';
 import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
@@ -9,6 +9,7 @@ import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detai
   styleUrls: ['./tax-document-analysis.component.scss'],
   standalone: true,
   imports: [ProjectDetailTemplateComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaxDocumentAnalysisComponent implements OnInit {
   projectConfig!: ProjectDetailConfig;

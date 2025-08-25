@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -31,8 +31,10 @@ import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-hea
 
 @Component({
   selector: 'app-kroger-project',
+  standalone: true,
   templateUrl: './kroger-project.component.html',
   styleUrls: ['./kroger-project.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
     NgIconComponent,

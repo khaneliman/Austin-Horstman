@@ -1,10 +1,11 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-icon-button',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIf, NgClass, NgIconComponent],
   template: `
     <button

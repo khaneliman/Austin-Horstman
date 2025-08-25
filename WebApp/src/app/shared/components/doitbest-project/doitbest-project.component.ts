@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -34,6 +34,7 @@ import { Stat, StatsGridComponent } from '../stats-grid/stats-grid.component';
 @Component({
   selector: 'app-doitbest-project',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
     NgIconComponent,

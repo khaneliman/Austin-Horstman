@@ -1,5 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import {
@@ -19,15 +19,16 @@ export interface HeroButton {
 @Component({
   selector: 'app-hero-section',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIf, NgFor, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
   template: `
     <section [class]="sectionClasses">
       <!-- Background decorations -->
-      <app-decorative-background *ngIf="backgroundElements.length > 0" [elements]="backgroundElements">
+      <app-decorative-background *ngIf="backgroundElements().length > 0" [elements]="backgroundElements()">
       </app-decorative-background>
 
       <!-- Additional background overlay -->
-      <div *ngIf="overlayGradient" [class]="overlayClasses"></div>
+      <div *ngIf="overlayGradient()" [class]="overlayClasses"></div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div [class]="contentLayoutClasses">
@@ -35,29 +36,29 @@ export interface HeroButton {
           <div [class]="contentClasses">
             <div class="space-y-8">
               <!-- Badge/Category -->
-              <div *ngIf="badge" class="flex justify-center lg:justify-start">
+              <div *ngIf="badge()" class="flex justify-center lg:justify-start">
                 <span [class]="badgeClasses">
-                  {{ badge }}
+                  {{ badge() }}
                 </span>
               </div>
 
               <!-- Main Heading -->
               <div>
                 <h1 [class]="headingClasses">
-                  {{ title }}
+                  {{ title() }}
                 </h1>
-                <div *ngIf="showUnderline" [class]="underlineClasses"></div>
+                <div *ngIf="showUnderline()" [class]="underlineClasses"></div>
               </div>
 
               <!-- Subtitle/Description -->
-              <p *ngIf="subtitle" [class]="subtitleClasses">
-                {{ subtitle }}
+              <p *ngIf="subtitle()" [class]="subtitleClasses">
+                {{ subtitle() }}
               </p>
 
               <!-- Buttons -->
-              <div *ngIf="buttons.length > 0" [class]="buttonContainerClasses">
+              <div *ngIf="buttons().length > 0" [class]="buttonContainerClasses">
                 <a
-                  *ngFor="let button of buttons"
+                  *ngFor="let button of buttons()"
                   [href]="button.href"
                   [routerLink]="button.routerLink"
                   [class]="getButtonClasses(button)"
@@ -69,14 +70,14 @@ export interface HeroButton {
               </div>
 
               <!-- Additional content slot -->
-              <div *ngIf="showContentSlot" class="mt-8">
+              <div *ngIf="showContentSlot()" class="mt-8">
                 <ng-content></ng-content>
               </div>
             </div>
           </div>
 
           <!-- Right side content (optional) -->
-          <div *ngIf="showRightContent" class="flex items-center justify-center">
+          <div *ngIf="showRightContent()" class="flex items-center justify-center">
             <ng-content select="[slot=right]"></ng-content>
           </div>
         </div>
@@ -86,51 +87,55 @@ export interface HeroButton {
   styles: [],
 })
 export class HeroSectionComponent {
-  @Input() title!: string;
-  @Input() subtitle?: string;
-  @Input() badge?: string;
-  @Input() buttons: HeroButton[] = [];
-  @Input() variant: 'default' | 'gradient' | 'minimal' | 'profile' = 'default';
-  @Input() size: 'sm' | 'md' | 'lg' | 'xl' = 'lg';
-  @Input() alignment: 'left' | 'center' = 'center';
-  @Input() layout: 'single' | 'split' = 'single';
-  @Input() backgroundGradient = 'from-blue-600 to-purple-600';
-  @Input() backgroundElements: BackgroundElement[] = [];
-  @Input() overlayGradient?: string;
-  @Input() showUnderline = false;
-  @Input() showContentSlot = false;
-  @Input() showRightContent = false;
-  @Input() minHeight = 'min-h-screen';
-  @Input() textColor: 'light' | 'dark' = 'light';
+  title = input.required<string>();
+  subtitle = input<string>();
+  badge = input<string>();
+  buttons = input<HeroButton[]>([]);
+  variant = input<'default' | 'gradient' | 'minimal' | 'profile'>('default');
+  size = input<'sm' | 'md' | 'lg' | 'xl'>('lg');
+  alignment = input<'left' | 'center'>('center');
+  layout = input<'single' | 'split'>('single');
+  backgroundGradient = input<string>('from-blue-600 to-purple-600');
+  backgroundElements = input<BackgroundElement[]>([]);
+  overlayGradient = input<string>();
+  showUnderline = input<boolean>(false);
+  showContentSlot = input<boolean>(false);
+  showRightContent = input<boolean>(false);
+  minHeight = input<string>('min-h-screen');
+  textColor = input<'light' | 'dark'>('light');
 
   get sectionClasses(): string {
-    const classes = ['relative', this.minHeight, 'overflow-hidden'];
+    const classes = ['relative', this.minHeight(), 'overflow-hidden'];
+    const variantValue = this.variant();
+    const backgroundGradientValue = this.backgroundGradient();
 
-    if (this.variant === 'gradient') {
-      classes.push(`bg-gradient-to-br ${this.backgroundGradient}`);
-    } else if (this.variant === 'minimal') {
+    if (variantValue === 'gradient') {
+      classes.push(`bg-gradient-to-br ${backgroundGradientValue}`);
+    } else if (variantValue === 'minimal') {
       classes.push('bg-gradient-to-br from-slate-50 to-blue-50');
-    } else if (this.variant === 'default') {
-      classes.push(`bg-gradient-to-br ${this.backgroundGradient}`);
+    } else if (variantValue === 'default') {
+      classes.push(`bg-gradient-to-br ${backgroundGradientValue}`);
     }
 
     return classes.join(' ');
   }
 
   get overlayClasses(): string {
-    return `absolute inset-0 ${this.overlayGradient}`;
+    return `absolute inset-0 ${this.overlayGradient()}`;
   }
 
   get contentLayoutClasses(): string {
     const classes = ['items-center'];
+    const layoutValue = this.layout();
+    const sizeValue = this.size();
 
-    if (this.layout === 'split') {
+    if (layoutValue === 'split') {
       classes.push('grid grid-cols-1 lg:grid-cols-2 gap-12');
     } else {
       classes.push('flex justify-center');
     }
 
-    if (this.size === 'xl') {
+    if (sizeValue === 'xl') {
       classes.push('min-h-[80vh]');
     }
 
@@ -139,8 +144,9 @@ export class HeroSectionComponent {
 
   get contentClasses(): string {
     const classes = [];
+    const alignmentValue = this.alignment();
 
-    if (this.alignment === 'center') {
+    if (alignmentValue === 'center') {
       classes.push('text-center');
     } else {
       classes.push('text-center lg:text-left');
@@ -151,9 +157,11 @@ export class HeroSectionComponent {
 
   get headingClasses(): string {
     const baseClasses = [];
+    const sizeValue = this.size();
+    const textColorValue = this.textColor();
 
     // Size classes first
-    switch (this.size) {
+    switch (sizeValue) {
       case 'sm':
         baseClasses.push('text-3xl lg:text-4xl');
         break;
@@ -172,7 +180,7 @@ export class HeroSectionComponent {
     baseClasses.push('font-bold', 'leading-tight', 'mb-4');
 
     // Color classes last
-    if (this.textColor === 'light') {
+    if (textColorValue === 'light') {
       baseClasses.push('text-white');
     } else {
       baseClasses.push('text-gray-900');
@@ -183,9 +191,12 @@ export class HeroSectionComponent {
 
   get subtitleClasses(): string {
     const baseClasses = ['leading-relaxed'];
+    const sizeValue = this.size();
+    const textColorValue = this.textColor();
+    const alignmentValue = this.alignment();
 
     // Size classes
-    switch (this.size) {
+    switch (sizeValue) {
       case 'sm':
         baseClasses.push('text-lg');
         break;
@@ -201,13 +212,13 @@ export class HeroSectionComponent {
     }
 
     // Color and constraints
-    if (this.textColor === 'light') {
+    if (textColorValue === 'light') {
       baseClasses.push('text-blue-100 max-w-2xl');
     } else {
       baseClasses.push('text-gray-600 max-w-2xl');
     }
 
-    if (this.alignment === 'center') {
+    if (alignmentValue === 'center') {
       baseClasses.push('mx-auto');
     }
 
@@ -216,8 +227,9 @@ export class HeroSectionComponent {
 
   get badgeClasses(): string {
     const classes = ['px-4 py-2 text-sm font-medium rounded-full'];
+    const textColorValue = this.textColor();
 
-    if (this.textColor === 'light') {
+    if (textColorValue === 'light') {
       classes.push('bg-white/20 text-white backdrop-blur-sm border border-white/20');
     } else {
       classes.push('bg-blue-100 text-blue-800');
@@ -228,9 +240,11 @@ export class HeroSectionComponent {
 
   get underlineClasses(): string {
     const classes = [];
+    const sizeValue = this.size();
+    const alignmentValue = this.alignment();
 
     // Width first
-    switch (this.size) {
+    switch (sizeValue) {
       case 'sm':
         classes.push('w-16');
         break;
@@ -247,7 +261,7 @@ export class HeroSectionComponent {
     classes.push('h-1', 'bg-gradient-to-r', 'from-green-400', 'to-green-600', 'rounded-full');
 
     // Margin/positioning last
-    if (this.alignment === 'center') {
+    if (alignmentValue === 'center') {
       classes.push('mx-auto');
     } else {
       classes.push('mx-auto', 'lg:mx-0');
@@ -258,8 +272,9 @@ export class HeroSectionComponent {
 
   get buttonContainerClasses(): string {
     const classes = ['flex flex-wrap gap-4'];
+    const alignmentValue = this.alignment();
 
-    if (this.alignment === 'center') {
+    if (alignmentValue === 'center') {
       classes.push('justify-center');
     } else {
       classes.push('justify-center lg:justify-start');
@@ -273,20 +288,21 @@ export class HeroSectionComponent {
       'inline-flex items-center px-8 py-4 font-semibold rounded-lg',
       'transition-all duration-200 hover:shadow-xl transform hover:-translate-y-1',
     ];
+    const textColorValue = this.textColor();
 
     switch (button.variant) {
       case 'primary':
         baseClasses.push('bg-green-500 hover:bg-green-600 text-white shadow-lg');
         break;
       case 'secondary':
-        if (this.textColor === 'light') {
+        if (textColorValue === 'light') {
           baseClasses.push('bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40');
         } else {
           baseClasses.push('bg-blue-500 hover:bg-blue-600 text-white shadow-lg');
         }
         break;
       case 'outline':
-        if (this.textColor === 'light') {
+        if (textColorValue === 'light') {
           baseClasses.push('border-2 border-white text-white hover:bg-white hover:text-blue-600');
         } else {
           baseClasses.push('border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white');

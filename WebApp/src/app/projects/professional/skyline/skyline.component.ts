@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   CompanyInfo,
   CompanyProfileComponent,
@@ -9,9 +9,11 @@ import { getProjectsForCompany } from '../../../shared/data/projects';
 
 @Component({
   selector: 'app-skyline',
+  standalone: true,
   templateUrl: './skyline.component.html',
   styleUrls: ['./skyline.component.scss'],
   imports: [CompanyProfileComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkylineComponent {
   company: CompanyInfo = getCompanyById('skyline');

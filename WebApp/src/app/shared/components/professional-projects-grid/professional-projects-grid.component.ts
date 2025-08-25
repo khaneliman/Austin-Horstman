@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { getCompanyEmploymentRoute } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
@@ -28,6 +28,7 @@ export interface ProfessionalProject {
   imports: [NgClass, RouterModule, DecorativeBackgroundComponent],
   templateUrl: './professional-projects-grid.component.html',
   styleUrls: ['./professional-projects-grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfessionalProjectsGridComponent {
   @Input() projects: ProfessionalProject[] = [];

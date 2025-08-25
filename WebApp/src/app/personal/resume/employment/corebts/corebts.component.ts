@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   CompanyInfo,
   CompanyProfileComponent,
@@ -9,9 +9,11 @@ import { getProjectsForEmployment } from '../../../../shared/data/projects';
 
 @Component({
   selector: 'app-corebts',
+  standalone: true,
   templateUrl: './corebts.component.html',
   styleUrls: ['./corebts.component.scss'],
   imports: [CompanyProfileComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CorebtsComponent {
   company: CompanyInfo = getCompanyById('corebts');

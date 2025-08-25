@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -21,8 +21,10 @@ import {
 
 @Component({
   selector: 'app-home-manager',
+  standalone: true,
   templateUrl: './home-manager.component.html',
   styleUrls: ['./home-manager.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({

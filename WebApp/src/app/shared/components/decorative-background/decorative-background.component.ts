@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 export interface BackgroundElement {
   size: 'sm' | 'md' | 'lg' | 'xl' | 'w-24-h-24' | 'w-32-h-32' | 'w-40-h-40' | 'w-48-h-48';
@@ -14,6 +14,7 @@ export interface BackgroundElement {
 @Component({
   selector: 'app-decorative-background',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgFor],
   template: `
     <div class="absolute inset-0 overflow-hidden pointer-events-none">

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import {
@@ -33,6 +33,7 @@ export interface PersonalProject {
   imports: [NgClass, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
   templateUrl: './personal-projects-grid.component.html',
   styleUrls: ['./personal-projects-grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalProjectsGridComponent {
   @Input() projects: PersonalProject[] = [];

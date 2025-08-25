@@ -1,44 +1,45 @@
 import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-section-header',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, NgIconComponent],
   template: `
-    <div [ngSwitch]="level" [class]="headerClasses">
+    <div [ngSwitch]="level()" [class]="headerClasses">
       <h1 *ngSwitchCase="'h1'" [class]="titleClasses">
-        <ng-icon *ngIf="icon" [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
-        {{ title }}
+        <ng-icon *ngIf="icon()" [name]="icon()" [size]="iconSize" [class]="iconClasses"></ng-icon>
+        {{ title() }}
       </h1>
       <h2 *ngSwitchCase="'h2'" [class]="titleClasses">
-        <ng-icon *ngIf="icon" [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
-        {{ title }}
+        <ng-icon *ngIf="icon()" [name]="icon()" [size]="iconSize" [class]="iconClasses"></ng-icon>
+        {{ title() }}
       </h2>
       <h3 *ngSwitchDefault [class]="titleClasses">
-        <ng-icon *ngIf="icon" [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
-        {{ title }}
+        <ng-icon *ngIf="icon()" [name]="icon()" [size]="iconSize" [class]="iconClasses"></ng-icon>
+        {{ title() }}
       </h3>
     </div>
-    <p *ngIf="description" [class]="descriptionClasses">
-      {{ description }}
+    <p *ngIf="description()" [class]="descriptionClasses">
+      {{ description() }}
     </p>
   `,
   styles: [],
 })
 export class SectionHeaderComponent {
-  @Input() title!: string;
-  @Input() icon?: string;
-  @Input() iconColor = 'blue';
-  @Input() level: 'h1' | 'h2' | 'h3' = 'h2';
-  @Input() description?: string;
-  @Input() center = false;
-  @Input() marginBottom = '6';
+  title = input.required<string>();
+  icon = input<string>();
+  iconColor = input<string>('blue');
+  level = input<'h1' | 'h2' | 'h3'>('h2');
+  description = input<string>();
+  center = input<boolean>(false);
+  marginBottom = input<string>('6');
 
   get headerClasses(): string {
-    const classes = [`mb-${this.marginBottom}`];
-    if (this.center) {
+    const classes = [`mb-${this.marginBottom()}`];
+    if (this.center()) {
       classes.push('text-center');
     }
     return classes.join(' ');
@@ -46,12 +47,14 @@ export class SectionHeaderComponent {
 
   get titleClasses(): string {
     const classes = ['font-bold text-gray-800 dark:text-gray-100 flex items-center'];
+    const centerValue = this.center();
+    const levelValue = this.level();
 
-    if (this.center) {
+    if (centerValue) {
       classes.push('justify-center');
     }
 
-    switch (this.level) {
+    switch (levelValue) {
       case 'h1':
         classes.push('text-4xl');
         break;
@@ -67,11 +70,11 @@ export class SectionHeaderComponent {
   }
 
   get iconClasses(): string {
-    return `text-${this.iconColor}-500 mr-3`;
+    return `text-${this.iconColor()}-500 mr-3`;
   }
 
   get iconSize(): string {
-    switch (this.level) {
+    switch (this.level()) {
       case 'h1':
         return '1.5rem';
       case 'h2':
@@ -85,7 +88,7 @@ export class SectionHeaderComponent {
 
   get descriptionClasses(): string {
     const classes = ['text-gray-600 dark:text-gray-300 leading-relaxed mt-2'];
-    if (this.center) {
+    if (this.center()) {
       classes.push('text-center');
     }
     return classes.join(' ');

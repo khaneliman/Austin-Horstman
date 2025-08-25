@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -22,8 +22,10 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
 
 @Component({
   selector: 'app-personal',
+  standalone: true,
   templateUrl: './personal.component.html',
   styleUrls: ['./personal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterOutlet,
     NgIconComponent,

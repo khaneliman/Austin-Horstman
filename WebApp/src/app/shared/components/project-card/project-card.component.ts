@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -46,6 +46,7 @@ export interface ProjectCardData {
   ],
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
   project = input.required<ProjectCardData>();

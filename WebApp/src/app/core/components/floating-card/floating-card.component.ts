@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 
@@ -12,12 +12,12 @@ import { NgIconComponent } from '@ng-icons/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FloatingCardComponent {
-  @Input() icon: string | undefined;
-  @Input() status: string | undefined;
-  @Input() title: string | undefined;
-  @Input() description: string | undefined;
-  @Input() superText: string | undefined;
-  @Input() link: string | undefined;
-  @Input() linkText: string | undefined;
-  @Input() tags: string[] | undefined;
+  icon = input<string>();
+  status = input<string>();
+  title = input<string>();
+  description = input<string>();
+  superText = input<string>();
+  link = input<string>();
+  linkText = input<string>();
+  tags = input<string[]>();
 }

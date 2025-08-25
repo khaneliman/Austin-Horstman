@@ -1,5 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroGlobeAlt } from '@ng-icons/heroicons/outline';
@@ -15,6 +15,7 @@ export interface BreadcrumbItem {
   standalone: true,
   imports: [NgFor, NgIf, RouterModule, NgIconComponent],
   providers: [provideIcons({ heroGlobeAlt })],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <nav class="flex mb-8" aria-label="Breadcrumb">
       <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -63,5 +64,5 @@ export interface BreadcrumbItem {
   `,
 })
 export class BreadcrumbComponent {
-  @Input() items: BreadcrumbItem[] = [];
+  items = input<BreadcrumbItem[]>([]);
 }

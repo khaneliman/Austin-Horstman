@@ -1,5 +1,4 @@
-import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -20,9 +19,11 @@ import {
 
 @Component({
   selector: 'app-technology',
+  standalone: true,
   templateUrl: './technology.component.html',
   styleUrls: ['./technology.component.scss'],
-  imports: [NgFor, RouterOutlet, NgIconComponent, DecorativeBackgroundComponent, EnhancedFeatureCardComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterOutlet, NgIconComponent, DecorativeBackgroundComponent, EnhancedFeatureCardComponent],
   providers: [
     provideIcons({
       heroCog6Tooth,

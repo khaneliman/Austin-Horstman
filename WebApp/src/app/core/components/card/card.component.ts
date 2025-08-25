@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -6,15 +6,14 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
-  @Input() imgSrc: string | undefined;
-  @Input() imgDark: boolean | undefined;
-  @Input() title: string | undefined;
-  @Input() description: string | undefined;
-  @Input() superText: string | undefined;
-  @Input() link: string | undefined;
-  @Input() linkText: string | undefined;
+  imgSrc = input<string>();
+  imgDark = input<boolean>();
+  title = input<string>();
+  description = input<string>();
+  superText = input<string>();
+  link = input<string>();
+  linkText = input<string>();
 }

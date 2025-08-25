@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
@@ -69,6 +69,7 @@ import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.co
 @Component({
   selector: 'app-project-detail-template',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NgIconComponent,
     ProjectNavHeaderComponent,

@@ -1,12 +1,14 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-education',
+  standalone: true,
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.scss'],
   imports: [RouterOutlet],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);

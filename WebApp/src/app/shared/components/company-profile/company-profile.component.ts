@@ -1,5 +1,14 @@
 import { NgClass } from '@angular/common';
-import { AfterViewInit, Component, DestroyRef, ElementRef, inject, input, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  ElementRef,
+  inject,
+  input,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -53,8 +62,10 @@ export interface ProjectInfo {
 
 @Component({
   selector: 'app-company-profile',
+  standalone: true,
   templateUrl: './company-profile.component.html',
   styleUrls: ['./company-profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass, RouterModule, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroBeaker, heroBriefcase, heroBuildingOffice, heroChartBarSquare } from '@ng-icons/heroicons/outline';
@@ -27,6 +27,7 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
   ],
   templateUrl: './professional.component.html',
   styleUrl: './professional.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfessionalProjectsComponent {
   professionalProjects = generateProfessionalProjectsGrid();

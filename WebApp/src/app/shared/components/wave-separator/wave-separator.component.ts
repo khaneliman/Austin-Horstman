@@ -1,5 +1,5 @@
 import { NgClass, NgIf, NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 export type WaveStyle = 'wave' | 'curve' | 'zigzag' | 'slant' | 'triangle' | 'book';
 export type WaveDirection = 'top' | 'bottom' | 'both';
@@ -7,6 +7,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
 @Component({
   selector: 'app-wave-separator',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIf, NgClass, NgStyle],
   template: `
     <!-- Top separator - Slant style uses polygon, others use path -->

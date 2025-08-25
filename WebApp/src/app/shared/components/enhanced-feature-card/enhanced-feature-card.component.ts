@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowRight, heroArrowTopRightOnSquare } from '@ng-icons/heroicons/outline';
@@ -18,6 +18,7 @@ export interface EnhancedFeature {
 @Component({
   selector: 'app-enhanced-feature-card',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent],
   providers: [
     provideIcons({

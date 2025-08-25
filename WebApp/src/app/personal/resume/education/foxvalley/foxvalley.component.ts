@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -18,8 +18,10 @@ import {
 
 @Component({
   selector: 'app-foxvalley',
+  standalone: true,
   templateUrl: './foxvalley.component.html',
   styleUrls: ['./foxvalley.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({

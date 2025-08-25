@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -79,6 +79,7 @@ export interface ProjectHeader {
 @Component({
   selector: 'app-project-header',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass, RouterLink, NgIconComponent, TechTagListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({
@@ -200,7 +201,16 @@ export class ProjectHeaderComponent {
   }
 
   get iconContainerClasses(): string {
-    const classes = ['bg-white/20', 'rounded-2xl', 'p-4', 'mx-auto', 'shadow-lg', 'border', 'border-white/20'];
+    const classes = [
+      'bg-white/20',
+      'rounded-2xl',
+      'p-4',
+      'mx-auto',
+      'shadow-lg',
+      'border',
+      'border-white/20',
+      'backdrop-blur-sm',
+    ];
 
     switch (this.size) {
       case 'sm':
@@ -235,13 +245,13 @@ export class ProjectHeaderComponent {
 
     switch (this.size) {
       case 'sm':
-        classes.push('text-2xl');
+        classes.push('text-xl', 'md:text-2xl');
         break;
       case 'md':
-        classes.push('text-4xl');
+        classes.push('text-3xl', 'md:text-4xl');
         break;
       case 'lg':
-        classes.push('text-5xl');
+        classes.push('text-4xl', 'md:text-5xl');
         break;
     }
 
@@ -253,13 +263,13 @@ export class ProjectHeaderComponent {
 
     switch (this.size) {
       case 'sm':
-        classes.push('text-base');
+        classes.push('text-sm', 'md:text-base');
         break;
       case 'md':
-        classes.push('text-lg');
+        classes.push('text-base', 'md:text-lg');
         break;
       case 'lg':
-        classes.push('text-xl');
+        classes.push('text-lg', 'md:text-xl');
         break;
     }
 
@@ -273,8 +283,9 @@ export class ProjectHeaderComponent {
       'gap-2',
       'text-white/80',
       'hover:text-white',
-      'transition-colors',
+      'transition-all',
       'duration-200',
+      'hover:-translate-x-1',
       'mb-6',
       'font-medium',
     ].join(' ');
