@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TechTagComponent } from '../tech-tag/tech-tag.component';
 
@@ -10,7 +9,7 @@ export interface TechTag {
 @Component({
   selector: 'app-tech-tag-list',
   standalone: true,
-  imports: [CommonModule, TechTagComponent],
+  imports: [TechTagComponent],
   template: `
     <div [class]="containerClasses">
       <app-tech-tag

@@ -1,10 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tech-tag',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   template: `
     <span [class]="tagClasses">
       {{ name }}
