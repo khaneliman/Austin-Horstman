@@ -2,14 +2,13 @@ import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   ElementRef,
-  EventEmitter,
   HostListener,
-  Input,
   inject,
-  OnDestroy,
+  input,
   OnInit,
-  Output,
+  output,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -44,47 +43,44 @@ export type DropdownWidth = 'sm' | 'md' | 'lg' | 'xl' | 'auto';
   styleUrls: ['./dropdown-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DropdownMenuComponent implements OnInit, OnDestroy {
-  @Input() items: MenuItem[] = [];
-  @Input() position: DropdownPosition = 'left';
-  @Input() width: DropdownWidth = 'md';
-  @Input() isOpen = false;
-  @Input() darkMode = false;
-  @Input() triggerElement?: HTMLElement;
-  @Input() closeOnOutsideClick = true;
-  @Input() closeOnItemClick = true;
-  @Input() showTransition = true;
-  @Input() offset = 8; // Distance from trigger in pixels
-  @Input() ariaLabelledBy?: string;
-  @Input() role = 'menu';
+export class DropdownMenuComponent implements OnInit {
+  items = input<MenuItem[]>([]);
+  position = input<DropdownPosition>('left');
+  width = input<DropdownWidth>('md');
+  isOpen = input<boolean>(false);
+  darkMode = input<boolean>(false);
+  triggerElement = input<HTMLElement | undefined>();
+  closeOnOutsideClick = input<boolean>(true);
+  closeOnItemClick = input<boolean>(true);
+  showTransition = input<boolean>(true);
+  offset = input<number>(8); // Distance from trigger in pixels
+  ariaLabelledBy = input<string | undefined>();
+  role = input<string>('menu');
 
-  @Output() itemClick = new EventEmitter<MenuItem>();
-  @Output() openChange = new EventEmitter<boolean>();
-  @Output() outsideClick = new EventEmitter<Event>();
+  itemClick = output<MenuItem>();
+  openChange = output<boolean>();
+  outsideClick = output<Event>();
 
   private focusedIndex = -1;
   private keyboardNavEnabled = true;
 
   private readonly elementRef = inject(ElementRef<HTMLElement>);
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
-    if (this.isOpen && this.keyboardNavEnabled) {
+    if (this.isOpen() && this.keyboardNavEnabled) {
       this.setupKeyboardNavigation();
     }
   }
 
-  ngOnDestroy(): void {
-    this.focusedIndex = -1;
-  }
-
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
-    if (this.closeOnOutsideClick && this.isOpen) {
+    if (this.closeOnOutsideClick() && this.isOpen()) {
       const target = event.target as HTMLElement;
       const dropdown = this.elementRef.nativeElement;
 
       // Check if click is outside dropdown and trigger element
-      if (!dropdown.contains(target) && (!this.triggerElement || !this.triggerElement.contains(target))) {
+      if (!dropdown.contains(target) && (!this.triggerElement() || !this.triggerElement()!.contains(target))) {
         this.outsideClick.emit(event);
         this.closeMenu();
       }
@@ -93,7 +89,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
 
   @HostListener('keydown', ['$event'])
   onKeydown(event: KeyboardEvent): void {
-    if (!this.isOpen || !this.keyboardNavEnabled) return;
+    if (!this.isOpen() || !this.keyboardNavEnabled) return;
 
     const enabledItems = this.getEnabledMenuItems();
 
@@ -107,17 +103,19 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
         this.navigateUp(enabledItems);
         break;
       case 'Enter':
-      case ' ':
+      case ' ': {
         event.preventDefault();
-        if (this.focusedIndex >= 0 && enabledItems[this.focusedIndex]) {
-          this.selectItem(enabledItems[this.focusedIndex]);
+        const selectedItem = enabledItems[this.focusedIndex];
+        if (this.focusedIndex >= 0 && selectedItem) {
+          this.selectItem(selectedItem);
         }
         break;
+      }
       case 'Escape':
         event.preventDefault();
         this.closeMenu();
-        if (this.triggerElement) {
-          this.triggerElement.focus();
+        if (this.triggerElement()) {
+          this.triggerElement()!.focus();
         }
         break;
       case 'Tab':
@@ -138,7 +136,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
       item.action();
     }
 
-    if (this.closeOnItemClick && !item.divider) {
+    if (this.closeOnItemClick() && !item.divider) {
       this.closeMenu();
     }
   }
@@ -190,7 +188,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   }
 
   private getEnabledMenuItems(): MenuItem[] {
-    return this.items.filter((item) => !item.disabled && !item.divider);
+    return this.items().filter((item) => !item.disabled && !item.divider);
   }
 
   get menuClasses(): string {
@@ -206,14 +204,14 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
     ];
 
     // Dark mode styles
-    if (this.darkMode) {
+    if (this.darkMode()) {
       classes.push('bg-gray-800', 'ring-gray-700');
     } else {
       classes.push('bg-white', 'ring-gray-200');
     }
 
     // Position classes
-    switch (this.position) {
+    switch (this.position()) {
       case 'left':
         classes.push('left-0');
         break;
@@ -226,7 +224,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
     }
 
     // Width classes
-    switch (this.width) {
+    switch (this.width()) {
       case 'sm':
         classes.push('w-40');
         break;
@@ -245,10 +243,10 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
     }
 
     // Transition classes
-    if (this.showTransition) {
+    if (this.showTransition()) {
       classes.push('transition-all', 'duration-200', 'ease-out');
 
-      if (this.isOpen) {
+      if (this.isOpen()) {
         classes.push('opacity-100', 'scale-100');
       } else {
         classes.push('opacity-0', 'scale-95', 'pointer-events-none');
@@ -256,7 +254,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
     }
 
     // Offset positioning
-    classes.push(`mt-${this.offset === 8 ? '2' : '1'}`);
+    classes.push(`mt-${this.offset() === 8 ? '2' : '1'}`);
 
     return classes.join(' ');
   }
@@ -274,7 +272,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
       'focus:outline-none',
     ];
 
-    if (this.darkMode) {
+    if (this.darkMode()) {
       baseClasses.push(
         'text-gray-200',
         'hover:bg-gray-700',
@@ -298,7 +296,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   get disabledItemClasses(): string {
     const classes = ['flex', 'items-center', 'w-full', 'px-4', 'py-2', 'cursor-not-allowed'];
 
-    if (this.darkMode) {
+    if (this.darkMode()) {
       classes.push('text-gray-500');
     } else {
       classes.push('text-gray-400');
@@ -310,7 +308,7 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   get dividerClasses(): string {
     const classes = ['my-2'];
 
-    if (this.darkMode) {
+    if (this.darkMode()) {
       classes.push('border-t', 'border-gray-700');
     } else {
       classes.push('border-t', 'border-gray-100');
