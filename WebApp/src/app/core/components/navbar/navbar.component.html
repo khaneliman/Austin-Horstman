@@ -1,5 +1,5 @@
 <!-- Fixed navigation header -->
-<nav class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-200">
+<nav class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-lg z-50 transition-all duration-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <!-- Left side navigation -->
@@ -7,7 +7,7 @@
         <!-- Home link -->
         <a
           [routerLink]="['/home']"
-          class="text-gray-700 hover:text-blue-600 px-3 py-2 text-lg font-medium transition-colors duration-200"
+          class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-lg font-medium transition-colors duration-200"
         >
           Home
         </a>
@@ -16,7 +16,7 @@
         <div class="relative">
           <button
             (click)="togglePersonalDropdown()"
-            class="text-gray-700 hover:text-blue-600 px-3 py-2 text-lg font-medium flex items-center space-x-1 transition-colors duration-200"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-lg font-medium flex items-center space-x-1 transition-colors duration-200"
             [attr.aria-expanded]="isPersonalDropdownOpen"
           >
             <span>Personal</span>
@@ -34,26 +34,26 @@
           <!-- Personal dropdown menu -->
           <div
             *ngIf="isPersonalDropdownOpen"
-            class="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-lg ring-1 ring-gray-200 py-2"
+            class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 py-2"
           >
             <a
               [routerLink]="['/personal/about']"
               (click)="closeDropdowns()"
-              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+              class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
             >
               About
             </a>
             <a
               [routerLink]="['/personal/contact']"
               (click)="closeDropdowns()"
-              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+              class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
             >
               Contact
             </a>
             <a
               [routerLink]="['/personal/resume']"
               (click)="closeDropdowns()"
-              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+              class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
             >
               Resume
             </a>
@@ -64,7 +64,7 @@
         <div class="relative">
           <button
             (click)="toggleProjectsDropdown()"
-            class="text-gray-700 hover:text-blue-600 px-3 py-2 text-lg font-medium flex items-center space-x-1 transition-colors duration-200"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-lg font-medium flex items-center space-x-1 transition-colors duration-200"
             [attr.aria-expanded]="isProjectsDropdownOpen"
           >
             <span>Projects</span>
@@ -82,27 +82,27 @@
           <!-- Projects dropdown menu -->
           <div
             *ngIf="isProjectsDropdownOpen"
-            class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-200 py-2"
+            class="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 py-2"
           >
             <a
               [routerLink]="['/projects']"
               (click)="closeDropdowns()"
-              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 font-medium"
+              class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150 font-medium"
             >
               All Projects
             </a>
-            <div class="border-t border-gray-100 my-2"></div>
+            <div class="border-t border-gray-100 dark:border-gray-700 my-2"></div>
             <a
               [routerLink]="['/projects/professional']"
               (click)="closeDropdowns()"
-              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+              class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
             >
               Professional Projects
             </a>
             <a
               [routerLink]="['/projects/personal']"
               (click)="closeDropdowns()"
-              class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+              class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
             >
               Personal Projects
             </a>
@@ -110,16 +110,18 @@
         </div>
       </div>
 
-      <!-- Right side - Social links -->
-      <div class="flex items-center">
+      <!-- Right side - Theme toggle and Social links -->
+      <div class="flex items-center space-x-3">
+        <app-theme-toggle></app-theme-toggle>
         <app-social-links location="nav"></app-social-links>
       </div>
 
       <!-- Mobile menu button -->
-      <div class="md:hidden flex items-center">
+      <div class="md:hidden flex items-center space-x-3">
+        <app-theme-toggle></app-theme-toggle>
         <button
           (click)="toggleMobileMenu()"
-          class="text-gray-700 hover:text-blue-600 p-2 transition-colors duration-200"
+          class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 transition-colors duration-200"
           [attr.aria-expanded]="isMobileMenuOpen"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,38 +145,41 @@
     </div>
 
     <!-- Mobile menu -->
-    <div *ngIf="isMobileMenuOpen" class="md:hidden bg-white border-t border-gray-200 py-4">
+    <div
+      *ngIf="isMobileMenuOpen"
+      class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-4"
+    >
       <div class="space-y-4">
         <!-- Mobile Home -->
         <a
           [routerLink]="['/home']"
           (click)="closeMobileMenu()"
-          class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+          class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
         >
           Home
         </a>
 
         <!-- Mobile Personal -->
         <div>
-          <div class="px-4 py-2 text-sm font-medium text-gray-500">Personal</div>
+          <div class="px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400">Personal</div>
           <a
             [routerLink]="['/personal/about']"
             (click)="closeMobileMenu()"
-            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            class="block px-8 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
           >
             About
           </a>
           <a
             [routerLink]="['/personal/contact']"
             (click)="closeMobileMenu()"
-            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            class="block px-8 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
           >
             Contact
           </a>
           <a
             [routerLink]="['/personal/resume']"
             (click)="closeMobileMenu()"
-            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            class="block px-8 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
           >
             Resume
           </a>
@@ -182,32 +187,36 @@
 
         <!-- Mobile Projects -->
         <div>
-          <div class="px-4 py-2 text-sm font-medium text-gray-500">Projects</div>
+          <div class="px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400">Projects</div>
           <a
             [routerLink]="['/projects']"
             (click)="closeMobileMenu()"
-            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 font-medium"
+            class="block px-8 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150 font-medium"
           >
             All Projects
           </a>
           <a
             [routerLink]="['/projects/professional']"
             (click)="closeMobileMenu()"
-            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            class="block px-8 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
           >
             Professional Projects
           </a>
           <a
             [routerLink]="['/projects/personal']"
             (click)="closeMobileMenu()"
-            class="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+            class="block px-8 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
           >
             Personal Projects
           </a>
         </div>
 
-        <!-- Mobile Social Links -->
-        <div class="px-4 pt-4 border-t border-gray-200">
+        <!-- Mobile Theme Toggle and Social Links -->
+        <div class="px-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Theme</span>
+            <app-theme-toggle></app-theme-toggle>
+          </div>
           <app-social-links location="nav"></app-social-links>
         </div>
       </div>
