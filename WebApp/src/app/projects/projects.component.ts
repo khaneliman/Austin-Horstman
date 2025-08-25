@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -23,7 +23,7 @@ import { generateProfessionalProjectsGrid } from '../shared/data/projects';
   selector: 'app-projects',
   standalone: true,
   imports: [
-    CommonModule,
+    NgFor,
     RouterModule,
     NgIconComponent,
     ProfessionalProjectsGridComponent,

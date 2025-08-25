@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -19,14 +18,7 @@ import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave
 
 @Component({
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgIconComponent,
-    HeroSectionComponent,
-    WaveSeparatorComponent,
-    EnhancedFeatureCardComponent,
-  ],
+  imports: [RouterModule, NgIconComponent, HeroSectionComponent, WaveSeparatorComponent, EnhancedFeatureCardComponent],
   providers: [
     provideIcons({
       heroCodeBracket,

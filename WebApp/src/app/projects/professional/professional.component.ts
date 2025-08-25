@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -12,7 +11,6 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
   selector: 'app-professional-projects',
   standalone: true,
   imports: [
-    CommonModule,
     RouterModule,
     NgIconComponent,
     ProfessionalProjectsGridComponent,
