@@ -25,16 +25,17 @@
         Frontend Technologies
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <app-enhanced-feature-card
-          *ngFor="let tech of frontendTechnologies; let i = index"
-          [feature]="tech"
-          variant="highlighted"
-          size="md"
-          iconPosition="left"
-          [colorTheme]="i === 0 ? 'red' : i === 1 ? 'yellow' : 'purple'"
-          [hover]="true"
-        >
-        </app-enhanced-feature-card>
+        @for (tech of frontendTechnologies; track $index; let i = $index) {
+          <app-enhanced-feature-card
+            [feature]="tech"
+            variant="highlighted"
+            size="md"
+            iconPosition="left"
+            [colorTheme]="i === 0 ? 'red' : i === 1 ? 'yellow' : 'purple'"
+            [hover]="true"
+          >
+          </app-enhanced-feature-card>
+        }
       </div>
     </div>
 
@@ -45,16 +46,17 @@
         Backend & Database
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <app-enhanced-feature-card
-          *ngFor="let tech of backendTechnologies; let i = index"
-          [feature]="tech"
-          variant="highlighted"
-          size="md"
-          iconPosition="left"
-          [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'orange' : 'red'"
-          [hover]="true"
-        >
-        </app-enhanced-feature-card>
+        @for (tech of backendTechnologies; track $index; let i = $index) {
+          <app-enhanced-feature-card
+            [feature]="tech"
+            variant="highlighted"
+            size="md"
+            iconPosition="left"
+            [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'orange' : 'red'"
+            [hover]="true"
+          >
+          </app-enhanced-feature-card>
+        }
       </div>
     </div>
 
@@ -91,16 +93,17 @@
         Emerging Technologies & Open Source
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <app-enhanced-feature-card
-          *ngFor="let tech of emergingTechnologies; let i = index"
-          [feature]="tech"
-          variant="highlighted"
-          size="md"
-          iconPosition="left"
-          [colorTheme]="i === 0 ? 'slate' : 'orange'"
-          [hover]="true"
-        >
-        </app-enhanced-feature-card>
+        @for (tech of emergingTechnologies; track $index; let i = $index) {
+          <app-enhanced-feature-card
+            [feature]="tech"
+            variant="highlighted"
+            size="md"
+            iconPosition="left"
+            [colorTheme]="i === 0 ? 'slate' : 'orange'"
+            [hover]="true"
+          >
+          </app-enhanced-feature-card>
+        }
       </div>
     </div>
   </div>

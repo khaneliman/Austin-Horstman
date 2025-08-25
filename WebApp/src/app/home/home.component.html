@@ -94,15 +94,16 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <app-enhanced-feature-card
-          *ngFor="let feature of features; let i = index"
-          [feature]="feature"
-          variant="highlighted"
-          size="lg"
-          [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'green' : 'purple'"
-          [hover]="true"
-        >
-        </app-enhanced-feature-card>
+        @for (feature of features; track feature.title; let i = $index) {
+          <app-enhanced-feature-card
+            [feature]="feature"
+            variant="highlighted"
+            size="lg"
+            [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'green' : 'purple'"
+            [hover]="true"
+          >
+          </app-enhanced-feature-card>
+        }
       </div>
     </div>
   </section>

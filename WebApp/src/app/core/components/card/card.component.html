@@ -7,11 +7,11 @@
       <div class="flex-shrink-0 w-1/3">
         <div class="relative">
           <img
-            alt="{{ title }}"
+            alt="{{ title() }}"
             class="w-full h-32 object-contain rounded-xl"
-            [class.filter]="imgDark"
-            [class.invert]="imgDark"
-            src="{{ imgSrc }}"
+            [class.filter]="imgDark()"
+            [class.invert]="imgDark()"
+            src="{{ imgSrc() }}"
           />
         </div>
       </div>
@@ -19,24 +19,24 @@
       <!-- Content section -->
       <div class="flex-1 min-w-0">
         <h5 class="text-xl font-bold text-green-600 dark:text-green-400 mb-3 line-clamp-2">
-          {{ title }}
+          {{ title() }}
         </h5>
         <div class="space-y-2">
           <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-            {{ description }}
+            {{ description() }}
           </p>
-          @if (superText) {
+          @if (superText()) {
             <p class="text-sm text-gray-500 dark:text-gray-400 italic">
-              {{ superText }}
+              {{ superText() }}
             </p>
           }
         </div>
-        @if (link && linkText) {
+        @if (link() && linkText()) {
           <a
-            routerLink="{{ link }}"
+            [routerLink]="link()"
             class="inline-flex items-center mt-4 text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium transition-colors duration-200 group"
           >
-            <span>{{ linkText }}</span>
+            <span>{{ linkText() }}</span>
             <svg
               class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"

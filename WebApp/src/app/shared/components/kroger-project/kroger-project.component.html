@@ -136,16 +136,17 @@
 
           <!-- Technical Highlights -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <app-enhanced-feature-card
-              *ngFor="let highlight of technicalHighlights; let i = index"
-              [feature]="highlight"
-              variant="highlighted"
-              size="sm"
-              iconPosition="left"
-              [colorTheme]="i === 0 ? 'indigo' : i === 1 ? 'yellow' : i === 2 ? 'red' : 'teal'"
-              [hover]="true"
-            >
-            </app-enhanced-feature-card>
+            @for (highlight of technicalHighlights; track $index; let i = $index) {
+              <app-enhanced-feature-card
+                [feature]="highlight"
+                variant="highlighted"
+                size="sm"
+                iconPosition="left"
+                [colorTheme]="i === 0 ? 'indigo' : i === 1 ? 'yellow' : i === 2 ? 'red' : 'teal'"
+                [hover]="true"
+              >
+              </app-enhanced-feature-card>
+            }
           </div>
         </div>
 
@@ -157,16 +158,17 @@
           </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <app-enhanced-feature-card
-              *ngFor="let capability of keyCapabilities; let i = index"
-              [feature]="capability"
-              variant="highlighted"
-              size="sm"
-              iconPosition="left"
-              [colorTheme]="i === 0 ? 'green' : i === 1 ? 'blue' : i === 2 ? 'purple' : 'orange'"
-              [hover]="true"
-            >
-            </app-enhanced-feature-card>
+            @for (capability of keyCapabilities; track $index; let i = $index) {
+              <app-enhanced-feature-card
+                [feature]="capability"
+                variant="highlighted"
+                size="sm"
+                iconPosition="left"
+                [colorTheme]="i === 0 ? 'green' : i === 1 ? 'blue' : i === 2 ? 'purple' : 'orange'"
+                [hover]="true"
+              >
+              </app-enhanced-feature-card>
+            }
           </div>
         </div>
       </div>

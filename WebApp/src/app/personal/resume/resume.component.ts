@@ -1,5 +1,5 @@
-import { NgClass, NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -35,10 +35,10 @@ import {
 
 @Component({
   selector: 'app-resume',
+  standalone: true,
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],
   imports: [
-    NgFor,
     NgClass,
     CardComponent,
     WaveSeparatorComponent,
@@ -64,6 +64,7 @@ import {
       heroInformationCircle,
     }),
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumeComponent {
   educationBackgroundElements: BackgroundElement[] = [

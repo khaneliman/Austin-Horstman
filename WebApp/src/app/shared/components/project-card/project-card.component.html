@@ -23,12 +23,13 @@
   <!-- Project Details -->
   <div class="p-8">
     <div class="flex flex-wrap gap-2 mb-6">
-      <span
-        *ngFor="let tech of project().technologies"
-        class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium"
-      >
-        {{ tech }}
-      </span>
+      @for (tech of project().technologies; track tech) {
+        <span
+          class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium"
+        >
+          {{ tech }}
+        </span>
+      }
     </div>
 
     <a

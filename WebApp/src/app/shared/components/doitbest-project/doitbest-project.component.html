@@ -148,16 +148,17 @@
 
           <!-- Technical Leadership Highlights -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <app-enhanced-feature-card
-              *ngFor="let highlight of technicalHighlights; let i = index"
-              [feature]="highlight"
-              variant="highlighted"
-              size="sm"
-              iconPosition="left"
-              [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'green' : i === 2 ? 'purple' : 'orange'"
-              [hover]="true"
-            >
-            </app-enhanced-feature-card>
+            @for (highlight of technicalHighlights; track $index; let i = $index) {
+              <app-enhanced-feature-card
+                [feature]="highlight"
+                variant="highlighted"
+                size="sm"
+                iconPosition="left"
+                [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'green' : i === 2 ? 'purple' : 'orange'"
+                [hover]="true"
+              >
+              </app-enhanced-feature-card>
+            }
           </div>
         </app-base-card>
 
@@ -173,16 +174,17 @@
           </app-section-header>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <app-enhanced-feature-card
-              *ngFor="let capability of keyCapabilities; let i = index"
-              [feature]="capability"
-              variant="highlighted"
-              size="sm"
-              iconPosition="left"
-              [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'indigo' : i === 2 ? 'purple' : 'green'"
-              [hover]="true"
-            >
-            </app-enhanced-feature-card>
+            @for (capability of keyCapabilities; track $index; let i = $index) {
+              <app-enhanced-feature-card
+                [feature]="capability"
+                variant="highlighted"
+                size="sm"
+                iconPosition="left"
+                [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'indigo' : i === 2 ? 'purple' : 'green'"
+                [hover]="true"
+              >
+              </app-enhanced-feature-card>
+            }
           </div>
         </app-base-card>
       </div>
