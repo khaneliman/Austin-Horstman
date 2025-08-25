@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroSun, heroMoon } from '@ng-icons/heroicons/outline';
+import { heroMoon, heroSun } from '@ng-icons/heroicons/outline';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
