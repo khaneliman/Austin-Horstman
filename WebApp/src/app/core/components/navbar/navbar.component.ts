@@ -1,7 +1,7 @@
 import { Location, PopStateEvent } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
 import { ThemeToggleComponent } from '../../../shared/components/theme-toggle/theme-toggle.component';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
@@ -13,21 +13,20 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
   styleUrls: ['./navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarComponent implements OnInit, OnDestroy {
-  public isCollapsed = true;
-  public isPersonalDropdownOpen = false;
-  public isProjectsDropdownOpen = false;
-  public isMobileMenuOpen = false;
+export class NavbarComponent implements OnInit {
+  public isCollapsed = signal(true);
+  public isPersonalDropdownOpen = signal(false);
+  public isProjectsDropdownOpen = signal(false);
+  public isMobileMenuOpen = signal(false);
   private lastPoppedUrl: string | undefined;
   private yScrollStack: number[] = [];
-  private destroy$ = new Subject<void>();
-
   public location = inject(Location);
   private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
-    this.router.events.pipe(takeUntil(this.destroy$)).subscribe((event) => {
-      this.isCollapsed = true;
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event) => {
+      this.isCollapsed.set(true);
       if (event instanceof NavigationStart) {
         if (event.url != this.lastPoppedUrl) this.yScrollStack.push(window.scrollY);
       } else if (event instanceof NavigationEnd) {
@@ -41,11 +40,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.location.subscribe((ev: PopStateEvent) => {
       this.lastPoppedUrl = ev.url;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 
   isHome(): boolean {
@@ -67,25 +61,25 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   togglePersonalDropdown(): void {
-    this.isPersonalDropdownOpen = !this.isPersonalDropdownOpen;
-    this.isProjectsDropdownOpen = false;
+    this.isPersonalDropdownOpen.set(!this.isPersonalDropdownOpen());
+    this.isProjectsDropdownOpen.set(false);
   }
 
   toggleProjectsDropdown(): void {
-    this.isProjectsDropdownOpen = !this.isProjectsDropdownOpen;
-    this.isPersonalDropdownOpen = false;
+    this.isProjectsDropdownOpen.set(!this.isProjectsDropdownOpen());
+    this.isPersonalDropdownOpen.set(false);
   }
 
   toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.isMobileMenuOpen.set(!this.isMobileMenuOpen());
   }
 
   closeDropdowns(): void {
-    this.isPersonalDropdownOpen = false;
-    this.isProjectsDropdownOpen = false;
+    this.isPersonalDropdownOpen.set(false);
+    this.isProjectsDropdownOpen.set(false);
   }
 
   closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
+    this.isMobileMenuOpen.set(false);
   }
 }
