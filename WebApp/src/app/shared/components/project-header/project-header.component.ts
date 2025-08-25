@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -79,7 +79,7 @@ export interface ProjectHeader {
 @Component({
   selector: 'app-project-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, NgIconComponent, TechTagListComponent, DecorativeBackgroundComponent],
+  imports: [NgClass, RouterLink, NgIconComponent, TechTagListComponent, DecorativeBackgroundComponent],
   providers: [
     provideIcons({
       heroArrowLeft,

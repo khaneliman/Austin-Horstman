@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 export interface BackgroundElement {
@@ -14,7 +14,7 @@ export interface BackgroundElement {
 @Component({
   selector: 'app-decorative-background',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor],
   template: `
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div

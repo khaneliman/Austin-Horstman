@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { NgIconComponent } from '@ng-icons/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroCheck } from '@ng-icons/heroicons/outline';
 
 export interface BulletListItem {
   text: string;
@@ -14,7 +15,12 @@ export type BulletStyle = 'dot' | 'arrow' | 'check' | 'dash' | 'number' | 'icon'
 @Component({
   selector: 'app-bullet-list',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [NgFor, NgIf, NgIconComponent],
+  providers: [
+    provideIcons({
+      heroCheck,
+    }),
+  ],
   template: `
     <ul [class]="listClasses" [attr.role]="role">
       <li *ngFor="let item of items; trackBy: trackByFn; index as i" [class]="getItemClasses(item, i)">
