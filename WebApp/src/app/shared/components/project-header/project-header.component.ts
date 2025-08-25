@@ -158,7 +158,16 @@ export class ProjectHeaderComponent {
   }
 
   get containerClasses(): string {
-    const baseClasses = ['bg-white', 'rounded-3xl', 'shadow-2xl', 'border', 'border-gray-100', 'overflow-hidden'];
+    const baseClasses = [
+      'bg-white',
+      'dark:bg-gray-800',
+      'rounded-3xl',
+      'shadow-2xl',
+      'border',
+      'border-gray-100',
+      'dark:border-gray-700',
+      'overflow-hidden',
+    ];
 
     if (this.variant === 'minimal') {
       baseClasses.push('shadow-lg');

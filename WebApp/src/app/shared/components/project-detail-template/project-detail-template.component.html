@@ -1,5 +1,5 @@
 <!-- Project Detail Template -->
-<div [class]="'min-h-screen ' + config.backgroundGradient">
+<div class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
   <!-- Project Navigation Header -->
   <app-project-nav-header
     [backRoute]="config.backRoute"
@@ -11,7 +11,9 @@
   <div class="max-w-6xl mx-auto px-6 py-12">
     <!-- Project Header -->
     <div class="mb-8">
-      <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+      <div
+        class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden"
+      >
         <div
           [class]="
             'relative bg-gradient-to-r from-' +
@@ -92,7 +94,10 @@
           [colorTheme]="config.primaryColor"
         ></app-bullet-list>
       </div>
-      <p *ngIf="!config.overview.type || config.overview.type === 'text'" class="text-gray-700 leading-relaxed">
+      <p
+        *ngIf="!config.overview.type || config.overview.type === 'text'"
+        class="text-gray-700 dark:text-gray-300 leading-relaxed"
+      >
         {{ config.overview.content }}
       </p>
     </app-base-card>
@@ -139,7 +144,7 @@
           [colorTheme]="config.primaryColor"
         ></app-bullet-list>
       </div>
-      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 leading-relaxed">
+      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 dark:text-gray-300 leading-relaxed">
         {{ section.content }}
       </p>
     </app-base-card>
@@ -165,7 +170,7 @@
           [colorTheme]="config.primaryColor"
         ></app-bullet-list>
       </div>
-      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 leading-relaxed">
+      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 dark:text-gray-300 leading-relaxed">
         {{ section.content }}
       </p>
     </app-base-card>
