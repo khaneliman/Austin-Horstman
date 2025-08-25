@@ -3,12 +3,14 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  heroArrowRight,
   heroBriefcase,
   heroCodeBracket,
   heroCog6Tooth,
   heroGlobeAlt,
   heroLightBulb,
   heroRectangleStack,
+  heroUser,
   heroWrench,
 } from '@ng-icons/heroicons/outline';
 import { HeroSectionComponent } from '../shared/components/hero-section/hero-section.component';
@@ -30,6 +32,7 @@ import { generateProfessionalProjectsGrid } from '../shared/data/projects';
   ],
   providers: [
     provideIcons({
+      heroArrowRight,
       heroGlobeAlt,
       heroBriefcase,
       heroCog6Tooth,
@@ -37,6 +40,7 @@ import { generateProfessionalProjectsGrid } from '../shared/data/projects';
       heroCodeBracket,
       heroWrench,
       heroLightBulb,
+      heroUser,
     }),
   ],
   templateUrl: './projects.component.html',
