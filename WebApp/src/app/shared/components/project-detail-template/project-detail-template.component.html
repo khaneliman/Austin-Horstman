@@ -45,12 +45,11 @@
             <!-- Technology Tags -->
             <div class="mt-6">
               <div class="flex flex-wrap justify-center gap-3">
-                <span
-                  *ngFor="let tech of config.technologies"
-                  class="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium"
-                >
-                  {{ tech.name }}
-                </span>
+                @for (tech of config.technologies; track tech.name) {
+                  <span class="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium">
+                    {{ tech.name }}
+                  </span>
+                }
               </div>
             </div>
           </div>
@@ -59,19 +58,21 @@
     </div>
 
     <!-- Quick Stats Section -->
-    <div *ngIf="config.showQuickStats && config.quickStats" class="mb-12">
-      <app-stats-grid
-        [stats]="stats"
-        [color]="config.primaryColor"
-        [containerBackground]="true"
-        [containerColor]="config.primaryColor"
-        [columns]="4"
-        [colorVariation]="false"
-        itemSize="md"
-        gap="6"
-      >
-      </app-stats-grid>
-    </div>
+    @if (config.showQuickStats && config.quickStats) {
+      <div class="mb-12">
+        <app-stats-grid
+          [stats]="stats"
+          [color]="config.primaryColor"
+          [containerBackground]="true"
+          [containerColor]="config.primaryColor"
+          [columns]="4"
+          [colorVariation]="false"
+          itemSize="md"
+          gap="6"
+        >
+        </app-stats-grid>
+      </div>
+    }
 
     <!-- Project Overview Section -->
     <app-base-card variant="large" additionalClasses="mb-8">
@@ -84,126 +85,144 @@
       >
       </app-section-header>
 
-      <div *ngIf="config.overview.type === 'html'" [innerHTML]="config.overview.content"></div>
-      <div *ngIf="config.overview.type === 'list'">
-        <app-bullet-list
-          [items]="getListItems(config.overview.items)"
-          bulletStyle="dot"
-          size="md"
-          spacing="normal"
-          [colorTheme]="config.primaryColor"
-        ></app-bullet-list>
-      </div>
-      <p
-        *ngIf="!config.overview.type || config.overview.type === 'text'"
-        class="text-gray-700 dark:text-gray-300 leading-relaxed"
-      >
-        {{ config.overview.content }}
-      </p>
+      @if (config.overview.type === 'html') {
+        <div [innerHTML]="config.overview.content"></div>
+      } @else if (config.overview.type === 'list') {
+        <div>
+          <app-bullet-list
+            [items]="getListItems(config.overview.items)"
+            bulletStyle="dot"
+            size="md"
+            spacing="normal"
+            [colorTheme]="config.primaryColor"
+          ></app-bullet-list>
+        </div>
+      } @else {
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+          {{ config.overview.content }}
+        </p>
+      }
     </app-base-card>
 
     <!-- Key Features Section -->
-    <app-base-card *ngIf="config.features.length > 0" variant="large" additionalClasses="mb-8">
-      <app-section-header
-        title="Key Features"
-        icon="heroSparkles"
-        [iconColor]="config.primaryColor"
-        level="h2"
-        marginBottom="6"
-      >
-      </app-section-header>
+    @if (config.features.length > 0) {
+      <app-base-card variant="large" additionalClasses="mb-8">
+        <app-section-header
+          title="Key Features"
+          icon="heroSparkles"
+          [iconColor]="config.primaryColor"
+          level="h2"
+          marginBottom="6"
+        >
+        </app-section-header>
 
-      <app-feature-grid
-        [features]="features"
-        [columns]="config.gridColumns === 'single' ? 1 : 2"
-        [iconColor]="config.primaryColor"
-        itemSize="md"
-        gap="6"
-      >
-      </app-feature-grid>
-    </app-base-card>
+        <app-feature-grid
+          [features]="features"
+          [columns]="config.gridColumns === 'single' ? 1 : 2"
+          [iconColor]="config.primaryColor"
+          itemSize="md"
+          gap="6"
+        >
+        </app-feature-grid>
+      </app-base-card>
+    }
 
     <!-- Technical Details Sections -->
-    <app-base-card *ngFor="let section of config.technicalDetails" variant="large" additionalClasses="mb-8">
-      <app-section-header
-        [title]="section.title"
-        [icon]="section.icon || 'heroCog6Tooth'"
-        [iconColor]="config.primaryColor"
-        level="h2"
-        marginBottom="6"
-      >
-      </app-section-header>
+    @for (section of config.technicalDetails; track section.title) {
+      <app-base-card variant="large" additionalClasses="mb-8">
+        <app-section-header
+          [title]="section.title"
+          [icon]="section.icon || 'heroCog6Tooth'"
+          [iconColor]="config.primaryColor"
+          level="h2"
+          marginBottom="6"
+        >
+        </app-section-header>
 
-      <div *ngIf="section.type === 'html'" [innerHTML]="section.content"></div>
-      <div *ngIf="section.type === 'list'">
-        <app-bullet-list
-          [items]="getListItems(section.items)"
-          bulletStyle="dot"
-          size="md"
-          spacing="normal"
-          [colorTheme]="config.primaryColor"
-        ></app-bullet-list>
-      </div>
-      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 dark:text-gray-300 leading-relaxed">
-        {{ section.content }}
-      </p>
-    </app-base-card>
+        @if (section.type === 'html') {
+          <div [innerHTML]="section.content"></div>
+        } @else if (section.type === 'list') {
+          <div>
+            <app-bullet-list
+              [items]="getListItems(section.items)"
+              bulletStyle="dot"
+              size="md"
+              spacing="normal"
+              [colorTheme]="config.primaryColor"
+            ></app-bullet-list>
+          </div>
+        } @else {
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            {{ section.content }}
+          </p>
+        }
+      </app-base-card>
+    }
 
     <!-- Special Sections -->
-    <app-base-card *ngFor="let section of config.specialSections" variant="large" additionalClasses="mb-8">
-      <app-section-header
-        [title]="section.title"
-        [icon]="section.icon || 'heroLightBulb'"
-        [iconColor]="config.primaryColor"
-        level="h2"
-        marginBottom="6"
-      >
-      </app-section-header>
+    @for (section of config.specialSections; track section.title) {
+      <app-base-card variant="large" additionalClasses="mb-8">
+        <app-section-header
+          [title]="section.title"
+          [icon]="section.icon || 'heroLightBulb'"
+          [iconColor]="config.primaryColor"
+          level="h2"
+          marginBottom="6"
+        >
+        </app-section-header>
 
-      <div *ngIf="section.type === 'html'" [innerHTML]="section.content"></div>
-      <div *ngIf="section.type === 'list'">
-        <app-bullet-list
-          [items]="getListItems(section.items)"
-          bulletStyle="dot"
-          size="md"
-          spacing="normal"
-          [colorTheme]="config.primaryColor"
-        ></app-bullet-list>
-      </div>
-      <p *ngIf="!section.type || section.type === 'text'" class="text-gray-700 dark:text-gray-300 leading-relaxed">
-        {{ section.content }}
-      </p>
-    </app-base-card>
+        @if (section.type === 'html') {
+          <div [innerHTML]="section.content"></div>
+        } @else if (section.type === 'list') {
+          <div>
+            <app-bullet-list
+              [items]="getListItems(section.items)"
+              bulletStyle="dot"
+              size="md"
+              spacing="normal"
+              [colorTheme]="config.primaryColor"
+            ></app-bullet-list>
+          </div>
+        } @else {
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            {{ section.content }}
+          </p>
+        }
+      </app-base-card>
+    }
 
     <!-- Technology Stack -->
-    <app-base-card *ngIf="config.showTechnicalHighlights" variant="large" additionalClasses="mb-8">
-      <app-section-header
-        title="Technology Stack"
-        icon="heroCodeBracket"
-        [iconColor]="config.primaryColor"
-        level="h2"
-        marginBottom="6"
-      >
-      </app-section-header>
+    @if (config.showTechnicalHighlights) {
+      <app-base-card variant="large" additionalClasses="mb-8">
+        <app-section-header
+          title="Technology Stack"
+          icon="heroCodeBracket"
+          [iconColor]="config.primaryColor"
+          level="h2"
+          marginBottom="6"
+        >
+        </app-section-header>
 
-      <app-tech-tag-list [technologies]="techTags" justify="start" size="sm" variant="filled"> </app-tech-tag-list>
-    </app-base-card>
+        <app-tech-tag-list [technologies]="techTags" justify="start" size="sm" variant="filled"> </app-tech-tag-list>
+      </app-base-card>
+    }
 
     <!-- Project Impact Section -->
-    <div
-      *ngIf="config.showImpactSection && config.impact"
-      [class]="
-        'bg-gradient-to-r from-' +
-        config.primaryColor +
-        '-600 to-' +
-        config.primaryColor +
-        '-700 rounded-2xl p-8 text-white text-center'
-      "
-    >
-      <h2 class="text-2xl font-bold mb-4 text-white text-center">Project Impact</h2>
-      <p [class]="'text-lg text-' + config.primaryColor + '-100 leading-relaxed max-w-2xl mx-auto'">
-        {{ config.impact }}
-      </p>
-    </div>
+    @if (config.showImpactSection && config.impact) {
+      <div
+        [class]="
+          'bg-gradient-to-r from-' +
+          config.primaryColor +
+          '-600 to-' +
+          config.primaryColor +
+          '-700 rounded-2xl p-8 text-white text-center'
+        "
+      >
+        <h2 class="text-2xl font-bold mb-4 text-white text-center">Project Impact</h2>
+        <p [class]="'text-lg text-' + config.primaryColor + '-100 leading-relaxed max-w-2xl mx-auto'">
+          {{ config.impact }}
+        </p>
+      </div>
+    }
   </div>
 </div>
