@@ -1,12 +1,14 @@
 <!-- Modern Footer -->
-<footer class="bg-gradient-to-r from-slate-50 to-blue-50 border-t border-gray-200">
+<footer
+  class="bg-gradient-to-r from-slate-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 border-t border-gray-200 dark:border-gray-700"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Main footer content -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
       <!-- Left side - Message -->
       <div class="text-center lg:text-left">
-        <h3 class="text-2xl font-semibold text-blue-600 mb-2">Thank you for supporting me!</h3>
-        <p class="text-gray-600 text-lg">Let's get in touch on any of these platforms.</p>
+        <h3 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-2">Thank you for supporting me!</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-lg">Let's get in touch on any of these platforms.</p>
       </div>
 
       <!-- Right side - Social links -->
@@ -16,13 +18,16 @@
     </div>
 
     <!-- Divider -->
-    <div class="border-t border-gray-300 pt-8">
+    <div class="border-t border-gray-300 dark:border-gray-600 pt-8">
       <!-- Bottom footer content -->
       <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         <!-- Copyright -->
-        <div class="text-gray-600">
+        <div class="text-gray-600 dark:text-gray-300">
           &copy; {{ currentYear }}
-          <a routerLink="/home" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
+          <a
+            routerLink="/home"
+            class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors duration-200"
+          >
             Austin Horstman
           </a>
           . All rights reserved.
@@ -30,13 +35,22 @@
 
         <!-- Footer navigation -->
         <nav class="flex space-x-6">
-          <a routerLink="/personal/about" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+          <a
+            routerLink="/personal/about"
+            class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-200"
+          >
             About Me
           </a>
-          <a routerLink="/personal/contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+          <a
+            routerLink="/personal/contact"
+            class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-200"
+          >
             Contact Me
           </a>
-          <a routerLink="/personal/resume" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+          <a
+            routerLink="/personal/resume"
+            class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-200"
+          >
             Resume
           </a>
         </nav>

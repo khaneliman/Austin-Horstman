@@ -26,6 +26,11 @@ export class BaseCardComponent {
   get cardClasses(): string {
     const classes = ['bg-' + this.background];
 
+    // Add dark mode support for white background
+    if (this.background === 'white') {
+      classes.push('dark:bg-gray-800');
+    }
+
     // Rounded corners
     classes.push('rounded-' + this.rounded);
 
@@ -34,7 +39,7 @@ export class BaseCardComponent {
 
     // Border
     if (this.border) {
-      classes.push('border border-gray-100');
+      classes.push('border border-gray-100 dark:border-gray-700');
     }
 
     // Padding based on variant
