@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
   <div
     *ngFor="let project of displayedProjects"
-    class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
+    class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
   >
     <!-- Project Header -->
     <div class="relative px-8 py-12 bg-gradient-to-r" [ngClass]="getCategoryColor(project.category)">
@@ -37,11 +37,13 @@
       <div style="flex-grow: 1">
         <!-- Technologies -->
         <div class="mb-6">
-          <h4 class="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">Technologies</h4>
+          <h4 class="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-3 uppercase tracking-wide">
+            Technologies
+          </h4>
           <div class="flex flex-wrap gap-2">
             <span
               *ngFor="let tech of project.technologies"
-              class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full"
             >
               {{ tech }}
             </span>
@@ -50,22 +52,24 @@
 
         <!-- Featured Projects/Components -->
         <div class="mb-6">
-          <h4 class="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">Components:</h4>
+          <h4 class="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-3 uppercase tracking-wide">
+            Components:
+          </h4>
           <div class="space-y-3">
-            <div *ngFor="let proj of project.projects.slice(0, 3)" class="p-3 bg-gray-50 rounded-lg">
+            <div *ngFor="let proj of project.projects.slice(0, 3)" class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
               <div class="flex items-start justify-between">
                 <div class="flex-1">
-                  <h5 class="font-semibold text-gray-800 text-sm">
+                  <h5 class="font-semibold text-gray-800 dark:text-gray-100 text-sm">
                     {{ proj.name }}
                   </h5>
-                  <p class="text-gray-600 text-xs mt-1 line-clamp-2">
+                  <p class="text-gray-600 dark:text-gray-300 text-xs mt-1 line-clamp-2">
                     {{ proj.description }}
                   </p>
                 </div>
                 <a
                   *ngIf="proj.route && proj.route !== ''"
                   [routerLink]="proj.route"
-                  class="text-blue-600 hover:text-blue-800 text-xs font-medium ml-2 whitespace-nowrap"
+                  class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-xs font-medium ml-2 whitespace-nowrap"
                 >
                   View →
                 </a>
@@ -76,8 +80,10 @@
 
         <!-- Key Highlights -->
         <div class="mb-6">
-          <h4 class="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">Key Highlights</h4>
-          <ul class="text-xs text-gray-600 space-y-1">
+          <h4 class="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-3 uppercase tracking-wide">
+            Key Highlights
+          </h4>
+          <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
             <li *ngFor="let highlight of project.highlights.slice(0, 3)" class="flex items-start">
               <ng-icon name="heroCheckCircle" size="0.75rem" class="text-green-500 mr-2 mt-0.5 flex-shrink-0"></ng-icon>
               <span>{{ highlight }}</span>
@@ -93,7 +99,7 @@
           [href]="project.githubUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 bg-gray-900 hover:bg-gray-800 text-white px-4 py-3 rounded-xl font-semibold text-center text-sm hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
+          class="flex-1 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white px-4 py-3 rounded-xl font-semibold text-center text-sm hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
         >
           <ng-icon name="heroCodeBracket" size="1rem" class="mr-2"></ng-icon>
           GitHub
@@ -115,6 +121,6 @@
 <!-- Empty State -->
 <div *ngIf="displayedProjects.length === 0" class="text-center py-16">
   <ng-icon name="heroFolder" size="4rem" class="text-gray-300 mx-auto mb-4"></ng-icon>
-  <h3 class="text-xl font-medium text-gray-600 mb-2">No projects found</h3>
-  <p class="text-gray-500">Check back later for new projects and updates.</p>
+  <h3 class="text-xl font-medium text-gray-600 dark:text-gray-300 mb-2">No projects found</h3>
+  <p class="text-gray-500 dark:text-gray-400">Check back later for new projects and updates.</p>
 </div>
