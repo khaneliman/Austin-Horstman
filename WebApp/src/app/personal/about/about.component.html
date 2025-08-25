@@ -1,5 +1,5 @@
 <!-- Modern Hero Section -->
-<main class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+<main class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
   <!-- Hero Section -->
   <section class="relative pt-32 pb-20">
     <!-- Subtle gradient background -->
@@ -8,7 +8,7 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
         <!-- Profile Card -->
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
           <!-- Profile Header -->
           <div class="relative bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-16">
             <!-- Profile Image -->
@@ -44,24 +44,24 @@
           <div class="px-8 py-12">
             <!-- Quick Stats -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <div class="text-center p-4 bg-blue-50 rounded-xl">
-                <div class="text-2xl font-bold text-blue-600 mb-1">{{ yearsOfExperience() }}+</div>
-                <div class="text-gray-600 text-sm">Years Experience</div>
+              <div class="text-center p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl">
+                <div class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">{{ yearsOfExperience() }}+</div>
+                <div class="text-gray-600 dark:text-gray-300 text-sm">Years Experience</div>
               </div>
-              <div class="text-center p-4 bg-green-50 rounded-xl">
-                <div class="text-2xl font-bold text-green-600 mb-1">50+</div>
-                <div class="text-gray-600 text-sm">Projects Delivered</div>
+              <div class="text-center p-4 bg-green-50 dark:bg-green-900/30 rounded-xl">
+                <div class="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">50+</div>
+                <div class="text-gray-600 dark:text-gray-300 text-sm">Projects Delivered</div>
               </div>
-              <div class="text-center p-4 bg-purple-50 rounded-xl">
-                <div class="text-2xl font-bold text-purple-600 mb-1">15+</div>
-                <div class="text-gray-600 text-sm">Technologies</div>
+              <div class="text-center p-4 bg-purple-50 dark:bg-purple-900/30 rounded-xl">
+                <div class="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">15+</div>
+                <div class="text-gray-600 dark:text-gray-300 text-sm">Technologies</div>
               </div>
             </div>
 
             <!-- About Description -->
             <div class="text-center mb-8">
-              <h2 class="text-2xl font-semibold text-gray-800 mb-4">About Me</h2>
-              <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+              <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">About Me</h2>
+              <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
                 Austin has over {{ yearsOfExperience() }} years of experience in the information technology industry and
                 has played key roles in several .NET desktop, database design and deployments, extract, transform, load
                 processes, and application modernization Angular websites. Passionate about open-source development and
@@ -87,7 +87,7 @@
               </a>
               <a
                 routerLink="/personal/contact"
-                class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-colors duration-200"
+                class="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 transition-colors duration-200"
               >
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>

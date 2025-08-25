@@ -69,22 +69,22 @@
     >
       <path
         d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-        class="fill-white"
+        class="fill-white dark:fill-gray-900"
       ></path>
     </svg>
   </div>
 
   <!-- Contact Form Section -->
-  <section class="py-20 bg-white relative -mt-20">
+  <section class="py-20 bg-white dark:bg-gray-900 relative -mt-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative">
         <!-- Contact form card -->
         <div
-          class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl shadow-2xl p-8 lg:p-12 border border-gray-100"
+          class="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-2xl p-8 lg:p-12 border border-gray-100 dark:border-gray-700"
         >
           <div class="text-center mb-8">
-            <h4 class="text-3xl font-bold text-gray-800 mb-4">Want to work with me?</h4>
-            <p class="text-xl text-gray-600">Your project is very important to me.</p>
+            <h4 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">Want to work with me?</h4>
+            <p class="text-xl text-gray-600 dark:text-gray-300">Your project is very important to me.</p>
           </div>
 
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
