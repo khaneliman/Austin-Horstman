@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -48,8 +48,8 @@ export interface ProjectCardData {
   styleUrls: ['./project-card.component.scss'],
 })
 export class ProjectCardComponent {
-  @Input() project!: ProjectCardData;
-  @Input() buttonColor = 'blue'; // Theme color for the button
+  project = input.required<ProjectCardData>();
+  buttonColor = input<string>('blue'); // Theme color for the button
 
   backgroundElements: BackgroundElement[] = [
     {
