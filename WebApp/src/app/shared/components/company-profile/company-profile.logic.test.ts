@@ -266,8 +266,8 @@ describe('CompanyProfileComponent Logic Tests', () => {
       });
 
       // Test wrapping
-      expect(logic.getTechBadgeClass(10)).toBe(expectedClasses[0]);
-      expect(logic.getTechBadgeClass(15)).toBe(expectedClasses[5]);
+      expect(logic.getTechBadgeClass(10)).toBe(expectedClasses[0]!);
+      expect(logic.getTechBadgeClass(15)).toBe(expectedClasses[5]!);
     });
 
     it('should generate project link classes correctly', () => {
@@ -292,9 +292,9 @@ describe('CompanyProfileComponent Logic Tests', () => {
       const items = logic.getAchievementItems();
 
       expect(items.length).toBe(3);
-      expect(items[0].text).toBe('Developed scalable web applications');
-      expect(items[1].text).toBe('Led technical architecture decisions');
-      expect(items[2].text).toBe('Mentored junior developers');
+      expect(items[0]?.text).toBe('Developed scalable web applications');
+      expect(items[1]?.text).toBe('Led technical architecture decisions');
+      expect(items[2]?.text).toBe('Mentored junior developers');
     });
 
     it('should handle missing achievements', () => {
@@ -408,7 +408,7 @@ describe('CompanyProfileComponent Logic Tests', () => {
 
       const items = logic.getAchievementItems();
       expect(items.length).toBe(10);
-      expect(items[0].text).toContain('Very long achievement number 1');
+      expect(items[0]?.text).toContain('Very long achievement number 1');
     });
 
     it('should handle special characters in data', () => {
@@ -421,7 +421,7 @@ describe('CompanyProfileComponent Logic Tests', () => {
       logic.company = specialCompany;
 
       const items = logic.getAchievementItems();
-      expect(items[0].text).toBe('Achievement with symbols: @#$%^&*()[]{}');
+      expect(items[0]?.text).toBe('Achievement with symbols: @#$%^&*()[]{}');
     });
   });
 
@@ -481,7 +481,10 @@ describe('CompanyProfileComponent Logic Tests', () => {
           logic.company = { ...mockCompanyData, displayName: 'Update 1' };
         },
         () => {
-          logic.projects = [mockProjectsData[0]];
+          const firstProject = mockProjectsData[0];
+          if (firstProject) {
+            logic.projects = [firstProject];
+          }
         },
         () => {
           logic.company = { ...mockCompanyData, displayName: 'Update 2' };

@@ -77,15 +77,20 @@ describe('ProjectCardComponent Logic Tests', () => {
     it('should have proper background element structure', () => {
       const element = logic.backgroundElements[0];
 
-      expect(element.size).toBe('md');
-      expect(element.position).toBe('top-4 right-4');
-      expect(element.color).toBe('white');
-      expect(element.opacity).toBe(10);
-      expect(element.blur).toBe('xl');
+      expect(element).toBeDefined();
+      expect(element?.size).toBe('md');
+      expect(element?.position).toBe('top-4 right-4');
+      expect(element?.color).toBe('white');
+      expect(element?.opacity).toBe(10);
+      expect(element?.blur).toBe('xl');
     });
 
     it('should maintain background elements immutability', () => {
-      const originalElement = { ...logic.backgroundElements[0] };
+      const firstElement = logic.backgroundElements[0];
+      if (!firstElement) {
+        throw new Error('No background element found');
+      }
+      const originalElement = { ...firstElement };
 
       logic.buttonColor = 'green';
       logic.project = { ...mockProjectData, name: 'Changed' };
@@ -219,11 +224,16 @@ describe('ProjectCardComponent Logic Tests', () => {
       });
 
       // Verify state changes are isolated
-      expect(stateSnapshots[0].backgroundElements).toEqual(stateSnapshots[1].backgroundElements);
-      expect(stateSnapshots[1].backgroundElements).toEqual(stateSnapshots[2].backgroundElements);
+      const snapshot0 = stateSnapshots[0];
+      const snapshot1 = stateSnapshots[1];
+      const snapshot2 = stateSnapshots[2];
 
-      expect(stateSnapshots[0].project).toEqual(stateSnapshots[1].project);
-      expect(stateSnapshots[0].buttonColor).not.toBe(stateSnapshots[1].buttonColor);
+      if (snapshot0 && snapshot1 && snapshot2) {
+        expect(snapshot0.backgroundElements).toEqual(snapshot1.backgroundElements);
+        expect(snapshot1.backgroundElements).toEqual(snapshot2.backgroundElements);
+        expect(snapshot0.project).toEqual(snapshot1.project);
+      }
+      expect(stateSnapshots[0]?.buttonColor).not.toBe(stateSnapshots[1]?.buttonColor);
     });
 
     it('should handle concurrent property changes', () => {
