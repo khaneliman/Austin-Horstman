@@ -296,96 +296,17 @@
 
     <!-- Featured Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Featured Project Cards -->
-      <app-floating-card
-        title="Mainframe Modernization"
-        icon="heroCheck"
-        status="success"
-        superText="2022-Current"
-        description="Enterprise retail platform modernization with microservices architecture, event-driven design using Kafka, and cloud-native deployment on Azure. Led architectural decisions and mentored development team."
-        [tags]="['C#', 'Java', 'Kafka', 'Azure', 'Kubernetes']"
-        link="/projects/professional/nri-na/doitbest"
-        linkText="Learn more"
-      ></app-floating-card>
-
-      <app-floating-card
-        title="Document Management System"
-        icon="heroCheck"
-        status="primary"
-        superText="2021"
-        description="Enterprise retail platform with comprehensive document management system, PDF rendering capabilities using Fabric.js, and NgRx state management for Angular applications."
-        [tags]="['Angular', 'NgRx', 'Fabric.js', 'Azure']"
-        link="/projects/professional/corebts/kroger"
-        linkText="Learn more"
-      ></app-floating-card>
-
-      <app-floating-card
-        title="West IT Portal"
-        icon="heroCheck"
-        status="primary"
-        superText="2017"
-        description="I created an ASP.NET MVC website that centralizes all the
-                        sites and tools our IT department needs to access on a daily
-                        basis. I created a web version of my previous database
-                        searching and SSIS job searching tools using ASP.NET MVC,
-                        JavaScript, jQuery, and Bootstrap. I also recreated one of our
-                        work request systems in the website, so that we didn't have to
-                        leave the 'IT Portal' for anything."
-        [tags]="['C#', 'ASP.NET', 'WPF']"
-        link="/projects/professional/west/it-portal"
-        linkText="Learn more"
-      ></app-floating-card>
-
-      <app-floating-card
-        title="OnContact Quick Launch"
-        icon="heroCheck"
-        status="primary"
-        superText="2016"
-        description="I added functionality to one of the tools that was previously
-            created by my supervisor, at the time. It automated the
-            process of clearing local caches and dynamically updating
-            configuration files that the software needed to access client
-            databases. I also added the Database Search functionality to
-            the quick launch so that you could find where the programs
-            were located while loading up the applications."
-        [tags]="['C#', '.NET Framework', 'WinForms']"
-        link="/projects/professional/west/quick-launch"
-        linkText="Learn more"
-      ></app-floating-card>
-
-      <app-floating-card
-        title="Database and SSIS Job Search"
-        icon="heroGlobeAlt"
-        status="success"
-        superText="2016"
-        description="Database Search had a searchable list of the databases on all
-                        West's servers, what version of CRM they were on, and whether
-                        it was a development, test, or production database. The SSIS
-                        job search tool would query West's servers that hosted SQL
-                        Server Agent Jobs and let the user search for jobs and see
-                        what their run schedules were."
-        [tags]="['C#', '.NET Framework', 'WinForms']"
-        link="/projects/professional/west/database-tool"
-        linkText="Learn more"
-      ></app-floating-card>
-
-      <app-floating-card
-        title="Geek Squad Stat Tracker"
-        icon="heroGlobeAlt"
-        status="warning"
-        superText="2015"
-        description="I have written and deployed a software application for
-            tracking statistics at our Geek Squad precinct. It managed the
-            employees, positions, and services that we had at our Geek
-            Squad precinct. It allowed our manager to import corporate
-            budget reports into the database and export reports for
-            employee's individual sales or the sales for a particular day,
-            week, or month. I used SQL Server as the DBMS and included a
-            database creation script with the source code."
-        [tags]="['C#', '.NET Framework', 'WPF']"
-        link="/projects/professional/geeksquad/stat-tracker"
-        linkText="Learn more"
-      ></app-floating-card>
+      @for (project of featuredProjects; track project.route) {
+        <app-floating-card
+          [title]="project.title"
+          [icon]="project.icon"
+          [status]="project.status"
+          [description]="project.description"
+          [tags]="project.technologies"
+          [link]="project.route"
+          linkText="Learn more"
+        ></app-floating-card>
+      }
     </div>
 
     <!-- Personal & Open Source Projects -->
@@ -396,38 +317,18 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <app-floating-card
-          title="Home Manager"
-          icon="heroCodeBracket"
-          status="success"
-          superText="Open Source"
-          description="Nix-based user environment configuration system for managing dotfiles, packages, and system configurations declaratively. Contributed modules and improvements to the ecosystem."
-          [tags]="['Nix', 'Open Source', 'Configuration Management']"
-          link="/projects/personal/home-manager"
-          linkText="Learn more"
-        ></app-floating-card>
-
-        <app-floating-card
-          title="NixVim"
-          icon="heroCodeBracket"
-          status="primary"
-          superText="Open Source"
-          description="Neovim configuration framework using Nix module system for reproducible editor setups. Enables declarative plugin management and configuration."
-          [tags]="['Nix', 'Neovim', 'Lua']"
-          link="/projects/personal/nixvim"
-          linkText="Learn more"
-        ></app-floating-card>
-
-        <app-floating-card
-          title="Nixpkgs"
-          icon="heroCodeBracket"
-          status="primary"
-          superText="Open Source"
-          description="Package repository for Nix package manager with contributions to Darwin (macOS) packages, build scripts, and package definitions for the Nix ecosystem."
-          [tags]="['Nix', 'Darwin', 'Package Management']"
-          link="/projects/personal/nixpkgs"
-          linkText="Learn more"
-        ></app-floating-card>
+        @for (project of personalProjects; track project.route) {
+          <app-floating-card
+            [title]="project.name"
+            [icon]="project.icon"
+            [status]="project.status"
+            [superText]="project.superText"
+            [description]="project.description"
+            [tags]="project.technologies"
+            [link]="project.route"
+            linkText="Learn more"
+          ></app-floating-card>
+        }
       </div>
     </div>
 

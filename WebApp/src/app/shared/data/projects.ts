@@ -1,5 +1,5 @@
 import { ProjectInfo } from '../components/company-profile/company-profile.component';
-import { COMPANIES } from './companies';
+import { COMPANIES, CompanyInfo, getResumeCardStatus } from './companies';
 
 // Shared project configurations that can be reused across different company contexts
 export const SHARED_PROJECTS = {
@@ -284,4 +284,52 @@ export function generateProfessionalProjectsGrid() {
       };
     })
     .filter((item): item is NonNullable<typeof item> => item !== undefined);
+}
+
+// Helper function to generate projects for resume FloatingCard components
+export function getResumeProjectCards() {
+  const allProjects: {
+    title: string;
+    description: string;
+    icon: string;
+    status: 'success' | 'primary' | 'warning' | 'danger' | 'info';
+    technologies: string[];
+    route: string;
+  }[] = [];
+
+  // Get all projects from all companies using existing data
+  Object.entries(COMPANIES).forEach(([companyKey, companyData]) => {
+    const company = companyData as CompanyInfo;
+    company.projects.forEach((project) => {
+      const routeCompanyKey = companyKey === 'bestbuy' ? 'geeksquad' : companyKey;
+
+      if (project.route === 'kroger') {
+        const krogerDetails = PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
+        if (krogerDetails) {
+          allProjects.push({
+            title: project.name,
+            description: krogerDetails.description,
+            icon: krogerDetails.icon,
+            status: getResumeCardStatus(companyKey as keyof typeof COMPANIES),
+            technologies: [...krogerDetails.technologies],
+            route: `/projects/professional/${routeCompanyKey}/${project.route}`,
+          });
+        }
+      } else {
+        const details = PROJECT_DETAILS[project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>];
+        if (details) {
+          allProjects.push({
+            title: project.name,
+            description: details.description,
+            icon: details.icon,
+            status: getResumeCardStatus(companyKey as keyof typeof COMPANIES),
+            technologies: [...details.technologies],
+            route: `/projects/professional/${routeCompanyKey}/${project.route}`,
+          });
+        }
+      }
+    });
+  });
+
+  return allProjects;
 }

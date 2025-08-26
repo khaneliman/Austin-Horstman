@@ -4,16 +4,27 @@ import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
+  heroArrowPathRoundedSquare,
+  heroBeaker,
+  heroBookOpen,
   heroBuildingOffice,
+  heroChartBarSquare,
   heroCheck,
+  heroCircleStack,
   heroCodeBracket,
   heroCog6Tooth,
+  heroDevicePhoneMobile,
+  heroDocumentText,
   heroFolder,
   heroGlobeAlt,
   heroInformationCircle,
   heroLightBulb,
+  heroMusicalNote,
   heroPencil,
   heroRectangleStack,
+  heroRocketLaunch,
+  heroShieldCheck,
+  heroShoppingBag,
   heroStar,
   heroTrophy,
 } from '@ng-icons/heroicons/outline';
@@ -25,6 +36,7 @@ import {
 } from '../../shared/components/decorative-background/decorative-background.component';
 import { WaveSeparatorComponent } from '../../shared/components/wave-separator/wave-separator.component';
 import { CompanyInfo, getAllCompanies, getCompanyWithCalculatedStats } from '../../shared/data/companies';
+import { getResumeProjectCards } from '../../shared/data/projects';
 import {
   getAllTechnologyNames,
   getInterestedTechnologies,
@@ -32,6 +44,7 @@ import {
   getProficientTechnologies,
   TechnologySkill,
 } from '../../shared/data/technologies';
+import { formatDateRange } from '../../shared/utils/date.utils';
 
 @Component({
   selector: 'app-resume',
@@ -62,6 +75,17 @@ import {
       heroCog6Tooth,
       heroFolder,
       heroInformationCircle,
+      heroArrowPathRoundedSquare,
+      heroBeaker,
+      heroBookOpen,
+      heroChartBarSquare,
+      heroCircleStack,
+      heroDevicePhoneMobile,
+      heroDocumentText,
+      heroMusicalNote,
+      heroRocketLaunch,
+      heroShieldCheck,
+      heroShoppingBag,
     }),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -176,6 +200,10 @@ export class ResumeComponent {
   );
   interestedTechnologies: TechnologySkill[] = getInterestedTechnologies();
 
+  // Dynamic project data
+  featuredProjects = getResumeProjectCards().slice(0, 6); // Top 6 for featured section
+  personalProjects = this.getPersonalProjects();
+
   trackByCompanyId(index: number, company: CompanyInfo): string {
     return company.id;
   }
@@ -202,6 +230,46 @@ export class ResumeComponent {
       'gray-900': '#111827',
     };
     return colorMap[colorClass] || '#3b82f6';
+  }
+
+  getDateRange(company: CompanyInfo): string {
+    return formatDateRange(company.dateStart, company.dateEnd);
+  }
+
+  // Get personal/open source projects
+  private getPersonalProjects() {
+    return [
+      {
+        name: 'Home Manager',
+        description:
+          'Nix-based user environment configuration system for managing dotfiles, packages, and system configurations declaratively. Contributed modules and improvements to the ecosystem.',
+        icon: 'heroCodeBracket',
+        status: 'success' as const,
+        technologies: ['Nix', 'Open Source', 'Configuration Management'],
+        route: '/projects/personal/home-manager',
+        superText: 'Open Source',
+      },
+      {
+        name: 'NixVim',
+        description:
+          'Neovim configuration framework using Nix module system for reproducible editor setups. Enables declarative plugin management and configuration.',
+        icon: 'heroCodeBracket',
+        status: 'primary' as const,
+        technologies: ['Nix', 'Neovim', 'Lua'],
+        route: '/projects/personal/nixvim',
+        superText: 'Open Source',
+      },
+      {
+        name: 'Nixpkgs',
+        description:
+          'Package repository for Nix package manager with contributions to Darwin (macOS) packages, build scripts, and package definitions for the Nix ecosystem.',
+        icon: 'heroCodeBracket',
+        status: 'primary' as const,
+        technologies: ['Nix', 'Darwin', 'Package Management'],
+        route: '/projects/personal/nixpkgs',
+        superText: 'Open Source',
+      },
+    ];
   }
 
   // Calculated portfolio statistics
