@@ -11,7 +11,8 @@ export interface CompanyInfo {
   website?: string;
   location: string;
   position: string;
-  dateRange: string;
+  dateStart: string; // Format: 'YYYY-MM' or 'YYYY-MM-DD'
+  dateEnd?: string; // Format: 'YYYY-MM' or 'YYYY-MM-DD', undefined means current
   department?: string;
   colorScheme: {
     theme: string; // 'green', 'blue', 'red', 'orange'
@@ -43,7 +44,7 @@ export const COMPANIES = {
     website: 'https://www.nri.com/en/worldwide/americas',
     location: 'Appleton, WI',
     position: 'Senior Software Engineer',
-    dateRange: 'Apr 2025 - Current',
+    dateStart: '2025-04',
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'nri',
@@ -88,7 +89,8 @@ export const COMPANIES = {
     website: 'https://www.corebts.com',
     location: 'Appleton, WI',
     position: 'Software Engineer → Senior Software Engineer',
-    dateRange: 'Jan 2021 - Apr 2025',
+    dateStart: '2021-01',
+    dateEnd: '2025-04',
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'green',
@@ -127,7 +129,8 @@ export const COMPANIES = {
     website: 'https://www.skylinetechnologies.com',
     location: 'Appleton, WI',
     position: 'Software Engineer',
-    dateRange: 'Oct 2017 - Jan 2021',
+    dateStart: '2017-10',
+    dateEnd: '2021-01',
     department: 'Development Team',
     colorScheme: {
       theme: 'blue',
@@ -164,7 +167,8 @@ export const COMPANIES = {
     website: 'https://www.west.com',
     location: 'Omaha, NE',
     position: 'Software Engineer',
-    dateRange: 'May 2015 - Oct 2017',
+    dateStart: '2015-05',
+    dateEnd: '2017-10',
     department: 'IT Department',
     colorScheme: {
       theme: 'red',
@@ -198,7 +202,8 @@ export const COMPANIES = {
     website: 'https://www.bestbuy.com/site/geek-squad',
     location: 'Omaha, NE',
     position: 'Advanced Repair Agent',
-    dateRange: 'Aug 2013 - Jul 2015',
+    dateStart: '2013-08',
+    dateEnd: '2015-07',
     department: 'Geek Squad Services',
     colorScheme: {
       theme: 'orange',
@@ -276,6 +281,20 @@ export function getCompanyProjectsRoute(companyNameOrId: string): string {
   }
 
   return company.projectsRoute;
+}
+
+// Derive card status based on career progression
+export function getResumeCardStatus(
+  companyId: keyof typeof COMPANIES
+): 'success' | 'primary' | 'warning' | 'danger' | 'info' {
+  // Career progression order (most recent to oldest)
+  const careerOrder: (keyof typeof COMPANIES)[] = ['nri-na', 'corebts', 'skyline', 'west', 'bestbuy'];
+  const index = careerOrder.indexOf(companyId);
+
+  if (index === 0) return 'success'; // Current role
+  if (index === 1) return 'primary'; // Recent role
+  if (index <= 3) return 'primary'; // Mid-career roles
+  return 'warning'; // Early career role
 }
 
 // For professional projects grid compatibility

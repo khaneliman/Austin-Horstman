@@ -119,7 +119,8 @@ describe('ResumeComponent Logic Tests', () => {
         logoBackground: 'white',
         location: 'Test City',
         position: 'Test Position',
-        dateRange: '2020-2021',
+        dateStart: '2020-01',
+        dateEnd: '2021-12',
         colorScheme: {
           theme: 'blue',
           primary: '#000',

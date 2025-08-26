@@ -55,7 +55,7 @@
           </div>
           <div class="flex items-center space-x-2">
             <ng-icon name="heroCalendarDays" size="1rem" class="text-lime-400"></ng-icon>
-            <span>{{ company().dateRange }}</span>
+            <span>{{ getDateRange() }}</span>
           </div>
           @if (company().department) {
             <div class="flex items-center space-x-2 w-full justify-center md:w-auto">

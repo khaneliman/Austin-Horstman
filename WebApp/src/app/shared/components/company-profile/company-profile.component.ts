@@ -41,6 +41,7 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import type { CompanyInfo } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
+import { formatDateRange } from '../../utils/date.utils';
 import { BulletListComponent, BulletListItem } from '../bullet-list/bullet-list.component';
 import {
   BackgroundElement,
@@ -236,5 +237,10 @@ export class CompanyProfileComponent implements AfterViewInit {
     return companyValue.achievements.map((achievement) => ({
       text: achievement,
     }));
+  }
+
+  getDateRange(): string {
+    const companyValue = this.company();
+    return formatDateRange(companyValue.dateStart, companyValue.dateEnd);
   }
 }
