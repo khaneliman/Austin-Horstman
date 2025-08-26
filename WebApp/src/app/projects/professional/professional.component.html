@@ -42,7 +42,9 @@
           >
             <ng-icon name="heroBriefcase" size="1.5rem" class="text-white"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">15+</div>
+          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            {{ portfolioStats().totalProjects }}+
+          </div>
           <div class="text-gray-600 dark:text-gray-300">Total Projects</div>
         </div>
 
@@ -52,7 +54,9 @@
           >
             <ng-icon name="heroBuildingOffice" size="1.5rem" class="text-white"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">4</div>
+          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            {{ portfolioStats().totalCompanies }}
+          </div>
           <div class="text-gray-600 dark:text-gray-300">Companies</div>
         </div>
 
@@ -62,7 +66,9 @@
           >
             <ng-icon name="heroBeaker" size="1.5rem" class="text-white"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">10+</div>
+          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            {{ portfolioStats().totalTechnologies }}+
+          </div>
           <div class="text-gray-600 dark:text-gray-300">Technologies</div>
         </div>
 
@@ -72,7 +78,9 @@
           >
             <ng-icon name="heroChartBarSquare" size="1.5rem" class="text-white"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">7</div>
+          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            {{ portfolioStats().yearsExperience }}+
+          </div>
           <div class="text-gray-600 dark:text-gray-300">Years Experience</div>
         </div>
       </div>
