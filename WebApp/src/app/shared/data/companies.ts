@@ -72,10 +72,10 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/nri-na',
     employmentRoute: '/personal/resume/employment/nri-na',
     projects: [
-      { name: 'Do It Best', route: 'doitbest' },
+      { name: 'MuleSoft Migrator', route: 'mulesoft-migrator' },
       { name: 'AI Resource Staffing', route: 'ai-resource-staffing' },
       { name: 'Tax Document Analysis', route: 'tax-document-analysis' },
-      { name: 'MuleSoft Migrator', route: 'mulesoft-migrator' },
+      { name: 'Do It Best', route: 'doitbest' },
     ],
   },
 
@@ -114,8 +114,8 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/corebts',
     employmentRoute: '/personal/resume/employment/corebts',
     projects: [
-      { name: 'Kroger', route: 'kroger' },
       { name: 'Do It Best', route: 'doitbest' },
+      { name: 'Kroger', route: 'kroger' },
     ],
   },
 
@@ -148,12 +148,12 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/skyline',
     employmentRoute: '/personal/resume/employment/skyline',
     projects: [
-      { name: 'Renaissance Learning', route: 'renaissance-learning' },
-      { name: 'Mile of Music', route: 'mile-of-music' },
-      { name: 'JJ Keller', route: 'jj-keller' },
       { name: 'Express Scripts', route: 'express-scripts' },
+      { name: 'Renaissance Learning', route: 'renaissance-learning' },
       { name: 'ClearTrend', route: 'cleartrend' },
       { name: 'Network Health', route: 'network-health' },
+      { name: 'Mile of Music', route: 'mile-of-music' },
+      { name: 'JJ Keller', route: 'jj-keller' },
     ],
   },
 
