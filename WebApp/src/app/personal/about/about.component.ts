@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { getAllCompanies } from '../../shared/data/companies';
+import { getAllTechnologyNames } from '../../shared/data/technologies';
 
 @Component({
   standalone: true,
@@ -23,6 +25,21 @@ export class AboutComponent {
     }
 
     return years;
+  });
+
+  // Calculate portfolio statistics from actual data
+  protected readonly portfolioStats = computed(() => {
+    const allCompanies = getAllCompanies();
+    const totalProjects = allCompanies.reduce((sum, company) => {
+      return sum + company.projects.length;
+    }, 0);
+
+    const totalTechnologies = getAllTechnologyNames().length;
+
+    return {
+      totalProjects,
+      totalTechnologies,
+    };
   });
 
   resumeShown = false;
