@@ -1,7 +1,18 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgIconComponent } from '@ng-icons/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import {
+  heroCheckCircle,
+  heroCodeBracket,
+  heroCog6Tooth,
+  heroComputerDesktop,
+  heroDevicePhoneMobile,
+  heroFolder,
+  heroGlobeAlt,
+  heroLightBulb,
+  heroWrench,
+} from '@ng-icons/heroicons/outline';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
@@ -31,6 +42,19 @@ export interface PersonalProject {
   selector: 'app-personal-projects-grid',
   standalone: true,
   imports: [NgClass, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
+  providers: [
+    provideIcons({
+      heroCheckCircle,
+      heroCodeBracket,
+      heroCog6Tooth,
+      heroComputerDesktop,
+      heroDevicePhoneMobile,
+      heroFolder,
+      heroGlobeAlt,
+      heroLightBulb,
+      heroWrench,
+    }),
+  ],
   templateUrl: './personal-projects-grid.component.html',
   styleUrls: ['./personal-projects-grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
