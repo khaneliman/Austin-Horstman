@@ -2,11 +2,13 @@ import { NgClass } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   DestroyRef,
   ElementRef,
   inject,
   input,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
@@ -106,8 +108,12 @@ export class CompanyProfileComponent implements AfterViewInit {
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly cdr = inject(ChangeDetectorRef);
   private destroy$ = new Subject<void>();
   private lastNavigationWasToProjectRoute = false;
+
+  // Signal to track child route state reactively
+  hasChildRoute = signal(false);
 
   backgroundElements: BackgroundElement[] = [
     {
@@ -177,24 +183,33 @@ export class CompanyProfileComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    // Listen to router events and update child route state
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
-        // Check if current route has auto-scroll data
+        this.updateChildRouteState();
         this.checkAndScrollToProjectDetails();
       });
 
-    // Also check on initial load
-    this.checkAndScrollToProjectDetails();
+    // Check initial state
+    this.updateChildRouteState();
 
     // Setup cleanup
     this.destroyRef.onDestroy(() => {
       this.destroy$.next();
       this.destroy$.complete();
     });
+  }
+
+  private updateChildRouteState(): void {
+    const hasChild = this.route.firstChild !== null && this.route.children.length > 0;
+    if (this.hasChildRoute() !== hasChild) {
+      this.hasChildRoute.set(hasChild);
+      this.cdr.detectChanges();
+    }
   }
 
   private scrollToProjectDetails(): void {
@@ -242,5 +257,9 @@ export class CompanyProfileComponent implements AfterViewInit {
   getDateRange(): string {
     const companyValue = this.company();
     return formatDateRange(companyValue.dateStart, companyValue.dateEnd);
+  }
+
+  hasActiveChildRoute(): boolean {
+    return this.hasChildRoute();
   }
 }

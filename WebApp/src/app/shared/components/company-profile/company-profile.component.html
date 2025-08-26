@@ -207,12 +207,14 @@
         </div>
 
         <!-- Project content -->
-        <div
-          class="prose prose-lg dark:prose-invert max-w-none mb-8 bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700"
-          #projectDetailsSection
-        >
-          <router-outlet></router-outlet>
-        </div>
+        @if (hasActiveChildRoute()) {
+          <div
+            class="prose prose-lg dark:prose-invert max-w-none mb-8 bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700"
+            #projectDetailsSection
+          >
+            <router-outlet></router-outlet>
+          </div>
+        }
 
         <!-- Actions -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
