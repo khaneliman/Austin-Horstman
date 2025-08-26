@@ -13,13 +13,9 @@ export interface TechTag {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [class]="containerClasses">
-      <app-tech-tag
-        *ngFor="let tech of technologies()"
-        [name]="tech.name"
-        [color]="tech.color"
-        [size]="size()"
-        [variant]="variant()"
-      ></app-tech-tag>
+      @for (tech of technologies(); track tech.name) {
+        <app-tech-tag [name]="tech.name" [color]="tech.color" [size]="size()" [variant]="variant()"></app-tech-tag>
+      }
     </div>
   `,
   styles: [],
