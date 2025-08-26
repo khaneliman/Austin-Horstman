@@ -99,14 +99,43 @@ describe('ResumeComponent Logic Tests', () => {
         .filter((level) => level > 0);
 
       for (let i = 1; i < proficientSkills.length; i++) {
-        expect(proficientSkills[i]).toBeLessThanOrEqual(proficientSkills[i - 1]);
+        const currentSkill = proficientSkills[i];
+        const previousSkill = proficientSkills[i - 1];
+        if (currentSkill !== undefined && previousSkill !== undefined) {
+          expect(currentSkill).toBeLessThanOrEqual(previousSkill);
+        }
       }
     });
   });
 
   describe('Utility Methods', () => {
     it('should track by company id', () => {
-      const company = { id: 'test-id' };
+      const company: companiesModule.CompanyInfo = {
+        id: 'test-id',
+        displayName: 'Test Company',
+        name: 'Test',
+        logoSrc: '/test.png',
+        logoAlt: 'Test Logo',
+        logoBackground: 'white',
+        location: 'Test City',
+        position: 'Test Position',
+        dateRange: '2020-2021',
+        colorScheme: {
+          theme: 'blue',
+          primary: '#000',
+          secondary: '#111',
+          accent: '#222',
+        },
+        stats: {
+          years: '1',
+          projects: { value: '1', label: 'project' },
+          clients: { value: '1', label: 'client' },
+        },
+        description: 'Test company',
+        projectsRoute: '/test',
+        employmentRoute: '/employment/test',
+        projects: [{ name: 'Test Project', route: 'test-project' }],
+      };
       expect(logic.trackByCompanyId(0, company)).toBe('test-id');
     });
 
