@@ -54,7 +54,7 @@ export class EnhancedFeatureCardComponent {
     const classes = ['relative', 'overflow-hidden', 'transition-all', 'duration-300'];
 
     // Base card styling
-    classes.push('bg-white', 'dark:bg-gray-800', 'border', 'border-gray-200', 'dark:border-gray-700');
+    classes.push('border');
 
     // Size and padding
     switch (this.size()) {
@@ -72,18 +72,20 @@ export class EnhancedFeatureCardComponent {
     // Variant styling
     switch (this.variant()) {
       case 'default':
-        classes.push('shadow-md');
+        classes.push('bg-white', 'dark:bg-gray-800', 'border-gray-200', 'dark:border-gray-700', 'shadow-md');
         break;
       case 'highlighted':
-        classes.push(
-          `shadow-lg border-${this.colorTheme()}-200 dark:border-${this.colorTheme()}-700 bg-gradient-to-br from-${this.colorTheme()}-50 to-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700`
-        );
+        classes.push('bg-white', 'dark:bg-gray-800', 'border-gray-200', 'dark:border-gray-700', 'shadow-lg');
         break;
       case 'bordered':
-        classes.push(`shadow-md border-2 border-${this.colorTheme()}-200 dark:border-${this.colorTheme()}-700`);
+        classes.push(
+          `bg-white`,
+          'dark:bg-gray-800',
+          `shadow-md border-2 border-${this.colorTheme()}-200 dark:border-${this.colorTheme()}-700`
+        );
         break;
       case 'minimal':
-        classes.push('shadow-sm');
+        classes.push('bg-white', 'dark:bg-gray-800', 'border-gray-200', 'dark:border-gray-700', 'shadow-sm');
         break;
     }
 
