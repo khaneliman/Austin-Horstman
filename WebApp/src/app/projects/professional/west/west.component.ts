@@ -4,7 +4,7 @@ import {
   CompanyProfileComponent,
   ProjectInfo,
 } from '../../../shared/components/company-profile/company-profile.component';
-import { getCompanyById } from '../../../shared/data/companies';
+import { getCompanyWithCalculatedStats } from '../../../shared/data/companies';
 import { getProjectsForCompany } from '../../../shared/data/projects';
 
 @Component({
@@ -16,6 +16,6 @@ import { getProjectsForCompany } from '../../../shared/data/projects';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WestComponent {
-  company: CompanyInfo = getCompanyById('west');
+  company: CompanyInfo = getCompanyWithCalculatedStats('west');
   projects: ProjectInfo[] = getProjectsForCompany('west');
 }
