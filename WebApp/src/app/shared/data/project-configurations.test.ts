@@ -94,8 +94,9 @@ describe('Project Configurations', () => {
     it('should have renaissance-learning project', () => {
       expect(PROJECT_CONFIGURATIONS['renaissance-learning']).toBeDefined();
       const renaissance = PROJECT_CONFIGURATIONS['renaissance-learning'];
-      expect(renaissance.title).toContain('Renaissance');
-      expect(renaissance.companyKey).toBe('skyline');
+      expect(renaissance).toBeDefined();
+      expect(renaissance?.title).toContain('Renaissance');
+      expect(renaissance?.companyKey).toBe('skyline');
     });
 
     it('should have projects for multiple companies', () => {

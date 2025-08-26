@@ -458,7 +458,7 @@ describe('Project Detail Interfaces', () => {
       expect(specialCharsConfig.title).toContain('&');
       expect(specialCharsConfig.title).toContain('"');
       expect(specialCharsConfig.description).toContain('🚀');
-      expect(specialCharsConfig.technologies[0].name).toBe('C#');
+      expect(specialCharsConfig.technologies[0]?.name).toBe('C#');
     });
   });
 });
