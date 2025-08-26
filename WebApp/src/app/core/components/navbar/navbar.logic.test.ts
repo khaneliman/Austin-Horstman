@@ -254,7 +254,7 @@ describe('NavbarComponent Logic Tests', () => {
       // Perform operations in random order
       for (let i = 0; i < 50; i++) {
         const randomOp = operations[Math.floor(Math.random() * operations.length)];
-        randomOp();
+        randomOp?.();
       }
 
       // Reset and verify clean state

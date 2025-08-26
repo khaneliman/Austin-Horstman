@@ -9,7 +9,7 @@ describe('SocialLinksService', () => {
 
   it('should return social links signal', () => {
     const service = new SocialLinksService();
-    const links = service.socialLinks();
+    const links = service.getSocialLinks();
 
     expect(Array.isArray(links)).toBe(true);
     expect(links.length).toBeGreaterThan(0);
@@ -17,7 +17,7 @@ describe('SocialLinksService', () => {
 
   it('should have valid link structure', () => {
     const service = new SocialLinksService();
-    const links = service.socialLinks();
+    const links = service.getSocialLinks();
 
     links.forEach((link) => {
       expect(link).toHaveProperty('platform');
