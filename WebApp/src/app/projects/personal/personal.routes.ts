@@ -18,5 +18,9 @@ export const PERSONAL_PROJECTS_ROUTES: Routes = [
     path: 'nixpkgs',
     loadComponent: () => import('./nixpkgs/nixpkgs.component').then((m) => m.NixpkgsComponent),
   },
+  {
+    path: 'khanelinix',
+    loadComponent: () => import('./khanelinix/khanelinix.component').then((m) => m.KhanelinixComponent),
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

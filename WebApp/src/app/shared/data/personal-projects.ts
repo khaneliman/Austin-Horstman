@@ -3,6 +3,32 @@ import { PersonalProject } from '../components/personal-projects-grid/personal-p
 export function generatePersonalProjectsGrid(): PersonalProject[] {
   return [
     {
+      id: 'khanelinix',
+      title: 'Khanelinix',
+      description:
+        'Comprehensive Nix configuration for cross-platform system management supporting macOS, NixOS, and WSL with advanced declarative infrastructure',
+      category: 'System Configuration',
+      technologies: ['Nix', 'NixOS', 'Nix-Darwin', 'Home Manager', 'Hyprland', 'Wayland'],
+      featured: true,
+      githubUrl: 'https://github.com/khaneliman/khanelinix',
+      status: 'Active',
+      startDate: '2023-03',
+      projects: [
+        {
+          name: 'Cross-Platform Configuration',
+          description: 'Unified system configuration across macOS, NixOS, and WSL with consistent environments',
+          route: '/projects/personal/khanelinix',
+          technologies: ['Nix', 'NixOS', 'macOS', 'WSL'],
+        },
+      ],
+      highlights: [
+        'Cross-platform system configuration with Nix',
+        'Modern desktop environments with Hyprland/Wayland',
+        'Comprehensive Home Manager integration',
+        'Secret management with sops-nix',
+      ],
+    },
+    {
       id: 'nix-ecosystem',
       title: 'Nix Ecosystem Contributions',
       description:
