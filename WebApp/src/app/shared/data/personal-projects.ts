@@ -8,7 +8,18 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       description:
         'Comprehensive Nix configuration for cross-platform system management supporting macOS, NixOS, and WSL with advanced declarative infrastructure',
       category: 'System Configuration',
-      technologies: ['Nix', 'NixOS', 'Nix-Darwin', 'Home Manager', 'Hyprland', 'Wayland'],
+      technologies: [
+        'Nix',
+        'NixOS',
+        'Nix-Darwin',
+        'nixos-wsl',
+        'Home Manager',
+        'Disko',
+        'lanzaboote',
+        'sops-nix',
+        'Stylix',
+        'Hyprland',
+      ],
       featured: true,
       githubUrl: 'https://github.com/khaneliman/khanelinix',
       status: 'Active',
@@ -34,7 +45,7 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       description:
         'Neovim configuration with 100+ plugins, comprehensive language support, and declarative setup using Nixvim',
       category: 'Development Environment',
-      technologies: ['Nix', 'Nixvim', 'Neovim', 'LSP', 'AI Integration'],
+      technologies: ['Nix', 'Nixvim', 'Neovim', 'LSP', 'Lz.n', 'AI Integration'],
       featured: true,
       githubUrl: 'https://github.com/khaneliman/khanelivim',
       status: 'Active',
@@ -60,7 +71,7 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       description:
         'Open source contributions and maintenance in the Nix ecosystem, focusing on declarative configuration management and reproducible builds',
       category: 'Open Source',
-      technologies: ['Nix', 'Bash', 'GitHub Actions', 'Documentation'],
+      technologies: ['Nix', 'Bash', 'GitHub Actions', 'GitHub App', 'Python', 'Neovim', 'Lua', 'Documentation'],
       featured: true,
       githubUrl: 'https://github.com/khaneliman',
       status: 'Active',
@@ -71,14 +82,14 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
           description:
             'Designed and improved Nix modules for declarative user environment configuration. Refactored modules to support freeform configuration inputs.',
           route: '/projects/personal/home-manager',
-          technologies: ['Nix', 'Documentation'],
+          technologies: ['Nix', 'Github Actions', 'Python', 'Github Apps', 'Documentation'],
         },
         {
           name: 'Nixvim',
           description:
             "Enhanced user experience for creating Neovim configurations using Nix's declarative approach. Created new plugin modules and resolved user experience issues.",
           route: '/projects/personal/nixvim',
-          technologies: ['Nix', 'Neovim', 'Lua'],
+          technologies: ['Nix', 'Neovim', 'Lua', 'Github Actions', 'Python', 'Github Apps'],
         },
         {
           name: 'Nixpkgs',
