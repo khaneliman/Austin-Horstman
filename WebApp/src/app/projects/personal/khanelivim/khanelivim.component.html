@@ -1,0 +1,237 @@
+<!-- Khanelivim Project Profile -->
+<div class="relative pt-16">
+  <!-- Project profile card -->
+  <div
+    class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden max-w-5xl mx-auto"
+  >
+    <!-- Header section -->
+    <div class="relative bg-gradient-to-r from-emerald-900 via-teal-800 to-green-900 px-8 pt-12 pb-8">
+      <!-- Decorative elements -->
+      <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
+
+      <!-- Project logo and info -->
+      <div class="relative z-10 text-center">
+        <div class="inline-block relative group">
+          <a href="https://github.com/khaneliman/khanelivim" target="_blank" class="block">
+            <div
+              class="w-32 h-32 bg-white rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white group-hover:border-emerald-400 transition-colors duration-300"
+            >
+              <ng-icon name="heroCodeBracket" size="4rem" class="text-emerald-600 w-full h-full"></ng-icon>
+            </div>
+          </a>
+
+          <!-- Floating external link icon -->
+          <div
+            class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg"
+          >
+            <ng-icon name="heroArrowTopRightOnSquare" size="1rem" class="text-white"></ng-icon>
+          </div>
+        </div>
+
+        <h2 class="text-4xl font-bold text-white mb-6">Khanelivim</h2>
+
+        <!-- Project details -->
+        <div class="flex flex-wrap justify-center gap-6 text-gray-300">
+          <div class="flex items-center space-x-2">
+            <ng-icon name="heroGlobeAlt" size="1rem" class="text-emerald-400"></ng-icon>
+            <span>Personal Project</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <ng-icon name="heroUser" size="1rem" class="text-gray-400"></ng-icon>
+            <span>Neovim Configuration</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <ng-icon name="heroCommandLine" size="1rem" class="text-teal-300"></ng-icon>
+            <span>Nix / Nixvim / AI-Powered</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <ng-icon name="heroCalendar" size="1rem" class="text-gray-400"></ng-icon>
+            <span>March 2023 - Current</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats section -->
+    <div
+      class="px-8 py-6 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border-b border-gray-100 dark:border-gray-700"
+    >
+      <div class="grid grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-emerald-800 dark:text-emerald-400 mb-1">100+</div>
+          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Plugins</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-teal-600 dark:text-teal-400 mb-1">20+</div>
+          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Languages</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-emerald-700 dark:text-emerald-400 mb-1">AI</div>
+          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Powered</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content section -->
+    <div class="px-8 py-12">
+      <div class="max-w-4xl mx-auto">
+        <!-- Project overview -->
+        <div
+          class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl p-8 mb-8"
+        >
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+            <ng-icon
+              name="heroCodeBracket"
+              size="1.25rem"
+              class="text-emerald-700 dark:text-emerald-400 mr-3"
+            ></ng-icon>
+            About Khanelivim
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            Khanelivim is my comprehensive, Nix-powered Neovim configuration featuring over 100 carefully selected and
+            configured plugins. This project represents a fully declarative, reproducible development environment that
+            integrates cutting-edge AI tools, comprehensive language support, and modern development workflows. Built
+            using Nixvim, it ensures consistent behavior across different machines and platforms while providing a
+            highly customized and efficient coding experience.
+          </p>
+
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-emerald-100 dark:border-gray-600">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
+              <ng-icon name="heroSparkles" size="1rem" class="text-emerald-500 dark:text-emerald-400 mr-2"></ng-icon>
+              AI-Powered Development Features
+            </h4>
+            <app-bullet-list
+              [items]="aiFeatures"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="emerald"
+            ></app-bullet-list>
+          </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <!-- Language Support -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-600 shadow-sm">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <ng-icon name="heroCpuChip" size="1rem" class="text-teal-500 dark:text-teal-400 mr-2"></ng-icon>
+              Comprehensive Language Support
+            </h4>
+            <app-bullet-list
+              [items]="languageSupport"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="emerald"
+            ></app-bullet-list>
+          </div>
+
+          <!-- Development Features -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-600 shadow-sm">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <ng-icon name="heroWrench" size="1rem" class="text-emerald-500 dark:text-emerald-400 mr-2"></ng-icon>
+              Development Experience
+            </h4>
+            <app-bullet-list
+              [items]="developmentFeatures"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="emerald"
+            ></app-bullet-list>
+          </div>
+        </div>
+
+        <!-- Technical Highlights -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-600 shadow-sm mb-8"
+        >
+          <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+            <ng-icon name="heroCog6Tooth" size="1rem" class="text-teal-500 dark:text-teal-400 mr-2"></ng-icon>
+            Technical Highlights
+          </h4>
+          <app-bullet-list
+            [items]="technicalHighlights"
+            bulletStyle="dot"
+            size="sm"
+            spacing="normal"
+            colorTheme="emerald"
+          ></app-bullet-list>
+        </div>
+
+        <!-- Technologies Used -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-600 shadow-sm mb-8"
+        >
+          <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+            <ng-icon name="heroCommandLine" size="1rem" class="text-emerald-500 dark:text-emerald-400 mr-2"></ng-icon>
+            Technologies & AI Integration
+          </h4>
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Nix</span
+            >
+            <span
+              class="bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Nixvim</span
+            >
+            <span
+              class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Neovim</span
+            >
+            <span
+              class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium"
+              >LSP</span
+            >
+            <span
+              class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium"
+              >GitHub Copilot</span
+            >
+            <span
+              class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Claude Code</span
+            >
+            <span
+              class="bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Avante</span
+            >
+            <span
+              class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Blink</span
+            >
+            <span
+              class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Telescope</span
+            >
+            <span
+              class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-4 py-2 rounded-full text-sm font-medium"
+              >Treesitter</span
+            >
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://github.com/khaneliman/khanelivim"
+            target="_blank"
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-700 to-teal-600 hover:from-emerald-800 hover:to-teal-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <ng-icon name="heroArrowTopRightOnSquare" size="1rem" class="mr-3"></ng-icon>
+            <span>View on GitHub</span>
+          </a>
+
+          <a
+            routerLink="/projects/personal"
+            class="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          >
+            <ng-icon name="heroHome" size="1rem" class="mr-3"></ng-icon>
+            <span>Back to Projects</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

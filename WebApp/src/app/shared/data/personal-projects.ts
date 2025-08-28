@@ -29,6 +29,32 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       ],
     },
     {
+      id: 'khanelivim',
+      title: 'Khanelivim',
+      description:
+        'Neovim configuration with 100+ plugins, comprehensive language support, and declarative setup using Nixvim',
+      category: 'Development Environment',
+      technologies: ['Nix', 'Nixvim', 'Neovim', 'LSP', 'AI Integration'],
+      featured: true,
+      githubUrl: 'https://github.com/khaneliman/khanelivim',
+      status: 'Active',
+      startDate: '2023-03',
+      projects: [
+        {
+          name: 'Neovim Editor',
+          description: 'Advanced Neovim setup with GitHub Copilot, Claude Code, and modern completion engines',
+          route: '/projects/personal/khanelivim',
+          technologies: ['Neovim', 'AI', 'LSP', 'Nixvim'],
+        },
+      ],
+      highlights: [
+        '100+ carefully configured plugins',
+        'AI integration with GitHub Copilot and Claude Code',
+        '20+ programming language support',
+        'Fully reproducible with Nix/Nixvim',
+      ],
+    },
+    {
       id: 'nix-ecosystem',
       title: 'Nix Ecosystem Contributions',
       description:

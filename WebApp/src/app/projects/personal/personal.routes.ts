@@ -22,5 +22,9 @@ export const PERSONAL_PROJECTS_ROUTES: Routes = [
     path: 'khanelinix',
     loadComponent: () => import('./khanelinix/khanelinix.component').then((m) => m.KhanelinixComponent),
   },
+  {
+    path: 'khanelivim',
+    loadComponent: () => import('./khanelivim/khanelivim.component').then((m) => m.KhanelivimComponent),
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
