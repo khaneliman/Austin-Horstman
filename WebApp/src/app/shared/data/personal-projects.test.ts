@@ -117,7 +117,7 @@ describe('Personal Projects Data', () => {
 
     // Should include key technologies
     expect(allTechnologies).toContain('Nix');
-    expect(allTechnologies).toContain('Angular');
+    expect(allTechnologies).toContain('Angular 20');
     expect(allTechnologies).toContain('TypeScript');
   });
 
@@ -132,7 +132,7 @@ describe('Personal Projects Data', () => {
     it('should have portfolio website project', () => {
       const portfolioProject = projects.find((p) => p.id === 'portfolio-website');
       expect(portfolioProject).toBeDefined();
-      expect(portfolioProject!.technologies).toContain('Angular');
+      expect(portfolioProject!.technologies).toContain('Angular 20');
       expect(portfolioProject!.liveUrl).toBe('https://austinhorstman.com');
     });
   });

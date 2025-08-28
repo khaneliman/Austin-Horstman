@@ -48,7 +48,7 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       description:
         'Full-stack portfolio application showcasing professional experience and personal projects with modern web technologies',
       category: 'Web Application',
-      technologies: ['Angular', 'TypeScript', '.NET', 'Docker', 'Bootstrap'],
+      technologies: ['Angular 20', 'TypeScript', 'TailwindCSS', 'Bun', '.NET 6', 'Docker'],
       featured: true,
       githubUrl: 'https://github.com/khaneliman/Austin-Horstman',
       liveUrl: 'https://austinhorstman.com',
@@ -57,27 +57,35 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       projects: [
         {
           name: 'Frontend Application',
-          description: 'Angular-based SPA with responsive design, routing, and dynamic content management',
+          description: 'Angular 20+ SPA with standalone components, TailwindCSS styling, and dynamic routing',
           route: '',
-          technologies: ['Angular', 'TypeScript', 'SCSS'],
+          technologies: ['Angular 20', 'TypeScript', 'TailwindCSS', 'SCSS'],
         },
         {
           name: 'Backend API',
           description: '.NET 6 minimal API providing data services and contact form handling',
           route: '',
-          technologies: ['.NET', 'C#', 'REST API'],
+          technologies: ['.NET 6', 'C#', 'REST API'],
+        },
+        {
+          name: 'Modern Tooling',
+          description: 'Bun runtime with Biome linting, Jest testing, and optimized build pipeline',
+          route: '',
+          technologies: ['Bun', 'Biome', 'Jest', 'TypeScript'],
         },
         {
           name: 'DevOps Pipeline',
-          description: 'Containerized deployment with CI/CD automation using Docker and GitHub Actions',
+          description: 'Containerized deployment with CI/CD automation and production optimizations',
           route: '',
-          technologies: ['Docker', 'GitHub Actions', 'CI/CD'],
+          technologies: ['Docker', 'GitHub Actions', 'Jenkins', 'Nginx'],
         },
       ],
       highlights: [
-        'Modern Angular application with standalone components',
-        'Responsive design with Bootstrap customizations',
-        'Full CI/CD pipeline with automated testing',
+        'Latest Angular 20+ with standalone components architecture',
+        'Modern build tooling with Bun runtime and Biome linting',
+        'TailwindCSS + Bootstrap hybrid styling with custom gradients',
+        'Comprehensive testing with Jest and coverage reporting',
+        'Production-ready Docker containers with nginx optimization',
       ],
     },
     {
