@@ -5,7 +5,7 @@
 
   [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapp.yml)
   [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml)
-  [![.NET WebApp Build](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapp.yml)
+  [![Angular WebApp Build](https://github.com/khaneliman/austin-horstman/actions/workflows/angular-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/angular-webapp.yml)
   [![.NET WebApi Build](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml)
   
 ## Description
