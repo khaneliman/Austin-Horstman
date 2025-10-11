@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { getAllCompanies } from '../../shared/data/companies';
+import { getPersonalProfile } from '../../shared/data/profile';
 import { getAllTechnologyNames } from '../../shared/data/technologies';
 
 @Component({
@@ -12,19 +13,14 @@ import { getAllTechnologyNames } from '../../shared/data/technologies';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
+  // Personal profile data
+  protected readonly profile = getPersonalProfile();
+
   private readonly careerStartDate = signal(new Date('2013-08-01')); // When you started at Best Buy Geek Squad
 
   protected readonly yearsOfExperience = computed(() => {
-    const today = new Date();
-    const careerStart = this.careerStartDate();
-    let years = today.getFullYear() - careerStart.getFullYear();
-    const monthDiff = today.getMonth() - careerStart.getMonth();
-
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < careerStart.getDate())) {
-      years--;
-    }
-
-    return years;
+    // Use centralized years of experience from profile
+    return this.profile.yearsOfExperience;
   });
 
   // Calculate portfolio statistics from actual data

@@ -16,6 +16,7 @@ import {
 } from '../shared/components/enhanced-feature-card/enhanced-feature-card.component';
 import { HeroButton, HeroSectionComponent } from '../shared/components/hero-section/hero-section.component';
 import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave-separator.component';
+import { getPersonalProfile } from '../shared/data/profile';
 import { getProficientTechnologies } from '../shared/data/technologies';
 
 @Component({
@@ -37,9 +38,10 @@ import { getProficientTechnologies } from '../shared/data/technologies';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-  heroTitle = 'Khaneliman';
-  heroSubtitle =
-    'Professional Software Engineer with expertise in modern technologies and a passion for building innovative solutions. Ready to adapt and excel in any development environment.';
+  // Personal profile data
+  private profile = getPersonalProfile();
+  heroTitle = this.profile.name;
+  heroSubtitle = this.profile.tagline;
 
   // Get top 6 proficient skills for display
   topSkills = getProficientTechnologies()

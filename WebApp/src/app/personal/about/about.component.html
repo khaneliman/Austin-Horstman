@@ -25,8 +25,8 @@
 
             <!-- Profile Info -->
             <div class="text-center mt-6 text-white">
-              <h1 class="text-4xl font-bold mb-2">Austin Horstman</h1>
-              <p class="text-blue-100 text-xl mb-4">Senior Software Engineer</p>
+              <h1 class="text-4xl font-bold mb-2">{{ profile.name }}</h1>
+              <p class="text-blue-100 text-xl mb-4">{{ profile.title }}</p>
               <div class="flex items-center justify-center text-blue-100">
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path
@@ -35,7 +35,7 @@
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                Fox Crossing, WI
+                {{ profile.location }}
               </div>
             </div>
           </div>
