@@ -18,6 +18,7 @@ import {
 import { HeroButton, HeroSectionComponent } from '../shared/components/hero-section/hero-section.component';
 import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave-separator.component';
 import { getPersonalProfile } from '../shared/data/profile';
+import { getPersonalSkills } from '../shared/data/skills';
 import { getProficientTechnologies } from '../shared/data/technologies';
 
 @Component({
@@ -104,30 +105,6 @@ export class HomeComponent {
     },
   ];
 
-  features: EnhancedFeature[] = [
-    {
-      title: 'Continuous Learning',
-      description:
-        'Driven by curiosity to never stop learning and improving skills. Always exploring emerging technologies and best practices to stay at the forefront of modern development.',
-      icon: 'heroAcademicCap',
-      badge: 'Passionate',
-      footer: 'Growth • Innovation • Excellence',
-    },
-    {
-      title: 'Open Source Leadership',
-      description:
-        'Active contributor and maintainer of large-scale open source projects in the Nix ecosystem. Collaborating with developers worldwide to build tools that empower the community.',
-      icon: 'heroCodeBracket',
-      badge: 'Maintainer',
-      footer: 'Nix • Community • Impact',
-    },
-    {
-      title: 'AI & Developer Productivity',
-      description:
-        'Leading teams in implementing agentic AI solutions to accelerate developer productivity. Teaching and empowering developers to improve their workflows and tooling.',
-      icon: 'heroRocketLaunch',
-      badge: 'Innovator',
-      footer: 'AI • Mentorship • Efficiency',
-    },
-  ];
+  // Get personal skills/features
+  features: EnhancedFeature[] = getPersonalSkills();
 }
