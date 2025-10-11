@@ -5,6 +5,7 @@ import {
   heroCodeBracket,
   heroCog6Tooth,
   heroComputerDesktop,
+  heroDocumentText,
   heroRocketLaunch,
   heroUser,
 } from '@ng-icons/heroicons/outline';
@@ -23,6 +24,7 @@ import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave
     provideIcons({
       heroCodeBracket,
       heroComputerDesktop,
+      heroDocumentText,
       heroRocketLaunch,
       heroCog6Tooth,
       heroUser,
@@ -40,16 +42,16 @@ export class HomeComponent {
 
   heroButtons: HeroButton[] = [
     {
-      text: 'View Projects',
+      text: 'View Resume',
       variant: 'primary',
-      routerLink: '/projects',
-      icon: 'heroCodeBracket',
+      routerLink: '/personal/resume',
+      icon: 'heroDocumentText',
     },
     {
-      text: 'About Me',
+      text: 'View Projects',
       variant: 'secondary',
-      routerLink: '/personal/about',
-      icon: 'heroUser',
+      routerLink: '/projects',
+      icon: 'heroCodeBracket',
     },
   ];
 
