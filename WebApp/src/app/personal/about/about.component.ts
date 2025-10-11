@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { getAllCompanies } from '../../shared/data/companies';
 import { getPersonalProfile } from '../../shared/data/profile';
@@ -15,8 +15,6 @@ import { getAllTechnologyNames } from '../../shared/data/technologies';
 export class AboutComponent {
   // Personal profile data
   protected readonly profile = getPersonalProfile();
-
-  private readonly careerStartDate = signal(new Date('2013-08-01')); // When you started at Best Buy Geek Squad
 
   protected readonly yearsOfExperience = computed(() => {
     // Use centralized years of experience from profile
