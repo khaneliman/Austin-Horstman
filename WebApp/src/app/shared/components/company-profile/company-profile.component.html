@@ -64,6 +64,56 @@
             </div>
           }
         </div>
+
+        <!-- Acquisition Chain & History -->
+        @if ((company().acquisitionChain && company().acquisitionChain!.length > 0) || company().acquiredBy) {
+          <div class="mt-8 max-w-3xl mx-auto">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <h4 class="text-sm font-semibold text-white/90 mb-4 uppercase tracking-wider">Company History</h4>
+
+              <!-- Acquisition Chain (predecessors) -->
+              @if (company().acquisitionChain && company().acquisitionChain!.length > 0) {
+                <div class="space-y-3 mb-4">
+                  @for (acquisition of company().acquisitionChain!; track acquisition.companyId) {
+                    <div class="flex items-start gap-4 pl-4 border-l-2 border-white/30">
+                      <div class="flex-1">
+                        <a
+                          [routerLink]="getCompanyRoute(acquisition.companyId)"
+                          class="text-white font-semibold hover:text-white/80 transition-colors underline decoration-white/40 hover:decoration-white/60"
+                        >
+                          {{ getCompanyName(acquisition.companyId) }}
+                        </a>
+                        <div class="text-white/70 text-sm">{{ acquisition.position }}</div>
+                        <div class="text-white/60 text-xs mt-1">
+                          {{ getAcquisitionDateRange(acquisition.dateStart, acquisition.dateEnd) }}
+                        </div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              }
+
+              <!-- Acquired By (successor) -->
+              @if (company().acquiredBy) {
+                <div class="pt-3 border-t border-white/20">
+                  <div class="flex items-center gap-2 text-white/80 text-sm">
+                    <ng-icon name="heroArrowPathRoundedSquare" size="1rem" class="text-white/60"></ng-icon>
+                    <span
+                      >Acquired by
+                      <a
+                        [routerLink]="getCompanyRoute(company().acquiredBy!.companyId)"
+                        class="font-bold text-white hover:text-white/80 transition-colors underline decoration-white/40 hover:decoration-white/60"
+                      >
+                        {{ getCompanyName(company().acquiredBy!.companyId) }}
+                      </a>
+                      in {{ formatAcquisitionMonth(company().acquiredBy!.acquisitionDate) }}</span
+                    >
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
       </div>
     </div>
 

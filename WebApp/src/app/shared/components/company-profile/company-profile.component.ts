@@ -42,6 +42,7 @@ import {
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import type { CompanyInfo } from '../../data/companies';
+import { getCompanyById } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
 import { formatDateRange } from '../../utils/date.utils';
 import { BulletListComponent, BulletListItem } from '../bullet-list/bullet-list.component';
@@ -257,6 +258,38 @@ export class CompanyProfileComponent implements AfterViewInit {
   getDateRange(): string {
     const companyValue = this.company();
     return formatDateRange(companyValue.dateStart, companyValue.dateEnd);
+  }
+
+  getAcquisitionDateRange(dateStart: string, dateEnd?: string): string {
+    return formatDateRange(dateStart, dateEnd);
+  }
+
+  formatAcquisitionMonth(date: string): string {
+    // Parse YYYY-MM format to readable month/year
+    const [year, month] = date.split('-');
+    if (!month || !year) return date; // Fallback to original date if parsing fails
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthIndex = parseInt(month, 10) - 1;
+    return `${monthNames[monthIndex]} ${year}`;
+  }
+
+  getCompanyName(companyId: string): string {
+    try {
+      const company = getCompanyById(companyId as keyof typeof import('../../data/companies').COMPANIES);
+      return company.displayName;
+    } catch {
+      return companyId; // Fallback to ID if company not found
+    }
+  }
+
+  getCompanyRoute(companyId: string): string {
+    try {
+      const company = getCompanyById(companyId as keyof typeof import('../../data/companies').COMPANIES);
+      return company.employmentRoute;
+    } catch {
+      return '#'; // Fallback to # if company not found
+    }
   }
 
   hasActiveChildRoute(): boolean {

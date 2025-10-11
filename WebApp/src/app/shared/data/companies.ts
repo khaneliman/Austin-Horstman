@@ -2,6 +2,20 @@
 
 import { calculateYearsBetweenDates } from '../utils/date.utils';
 
+// Acquisition history entry
+interface AcquisitionEntry {
+  companyId: string; // References company ID in COMPANIES object
+  dateStart: string;
+  dateEnd?: string;
+  position: string;
+}
+
+// Acquisition successor (what company acquired this one)
+interface AcquisitionSuccessor {
+  companyId: string; // References company ID in COMPANIES object
+  acquisitionDate: string;
+}
+
 // Internal company data structure (without calculated fields)
 interface CompanyData {
   id: string;
@@ -16,6 +30,8 @@ interface CompanyData {
   dateStart: string;
   dateEnd?: string;
   department?: string;
+  acquisitionChain?: readonly AcquisitionEntry[];
+  acquiredBy?: AcquisitionSuccessor;
   colorScheme: {
     theme: string;
     primary: string;
@@ -56,6 +72,20 @@ export const COMPANIES = {
     position: 'Senior Software Engineer',
     dateStart: '2017-10',
     department: 'Modern Business Unit',
+    acquisitionChain: [
+      {
+        companyId: 'corebts',
+        dateStart: '2021-01',
+        dateEnd: '2025-04',
+        position: 'Software Engineer → Senior Software Engineer',
+      },
+      {
+        companyId: 'skyline',
+        dateStart: '2017-10',
+        dateEnd: '2021-01',
+        position: 'Software Engineer',
+      },
+    ],
     colorScheme: {
       theme: 'nri',
       primary: 'blue-500',
@@ -101,6 +131,18 @@ export const COMPANIES = {
     dateStart: '2017-10',
     dateEnd: '2025-04',
     department: 'Modern Business Unit',
+    acquisitionChain: [
+      {
+        companyId: 'skyline',
+        dateStart: '2017-10',
+        dateEnd: '2021-01',
+        position: 'Software Engineer',
+      },
+    ],
+    acquiredBy: {
+      companyId: 'nri-na',
+      acquisitionDate: '2025-04',
+    },
     colorScheme: {
       theme: 'green',
       primary: 'emerald-600',
@@ -140,6 +182,10 @@ export const COMPANIES = {
     dateStart: '2017-10',
     dateEnd: '2021-01',
     department: 'Development Team',
+    acquiredBy: {
+      companyId: 'corebts',
+      acquisitionDate: '2021-01',
+    },
     colorScheme: {
       theme: 'blue',
       primary: 'blue-800',
