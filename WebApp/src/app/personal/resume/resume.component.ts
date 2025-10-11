@@ -29,6 +29,7 @@ import {
   heroStar,
   heroTrophy,
 } from '@ng-icons/heroicons/outline';
+import { heroStarSolid } from '@ng-icons/heroicons/solid';
 import { CardComponent } from '../../core/components/card/card.component';
 import { FloatingCardComponent } from '../../core/components/floating-card/floating-card.component';
 import {
@@ -66,6 +67,7 @@ import { formatDateRange } from '../../shared/utils/date.utils';
       heroTrophy,
       heroCodeBracket,
       heroStar,
+      heroStarSolid,
       heroAcademicCap,
       heroLightBulb,
       heroPencil,

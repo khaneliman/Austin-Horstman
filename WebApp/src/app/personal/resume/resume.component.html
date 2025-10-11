@@ -429,7 +429,7 @@
               <div class="flex space-x-1 star-rating">
                 @for (star of [1, 2, 3, 4, 5]; track star) {
                   <ng-icon
-                    name="heroStar"
+                    [name]="star <= (tech.skillLevel ?? 0) ? 'heroStarSolid' : 'heroStar'"
                     size="0.875rem"
                     [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
                   ></ng-icon>
@@ -457,7 +457,7 @@
                 <div class="flex space-x-1 star-rating">
                   @for (star of [1, 2, 3, 4, 5]; track star) {
                     <ng-icon
-                      name="heroStar"
+                      [name]="star <= (tech.skillLevel ?? 0) ? 'heroStarSolid' : 'heroStar'"
                       size="0.875rem"
                       [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
                     ></ng-icon>
