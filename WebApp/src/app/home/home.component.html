@@ -48,26 +48,13 @@
 
     <!-- Skills tags as content slot -->
     <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-      <span
-        class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
-      >
-        Angular
-      </span>
-      <span
-        class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
-      >
-        TypeScript
-      </span>
-      <span
-        class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
-      >
-        .NET
-      </span>
-      <span
-        class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
-      >
-        Cloud
-      </span>
+      @for (skill of topSkills; track skill) {
+        <span
+          class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
+        >
+          {{ skill }}
+        </span>
+      }
     </div>
   </app-hero-section>
 
