@@ -155,6 +155,53 @@
               </div>
             </div>
           </div>
+
+          <!-- Acquisition History (nested under current company) -->
+          @if (getAcquisitionChainCompanies().length > 0) {
+            <div class="mt-6 border-t border-white/20 pt-6">
+              <h4 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <ng-icon name="heroArrowPathRoundedSquare" size="1.125rem" class="text-orange-200"></ng-icon>
+                Company History (Same Employment)
+              </h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                @for (company of getAcquisitionChainCompanies(); track company.id) {
+                  <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                    <div class="flex items-start gap-4">
+                      <div
+                        [class]="
+                          'w-12 h-12 rounded-lg p-2 shadow-sm flex items-center justify-center flex-shrink-0 ' +
+                          (company.logoBackground === 'white'
+                            ? 'bg-white'
+                            : company.logoBackground === 'dark'
+                              ? 'bg-gray-900'
+                              : 'bg-black')
+                        "
+                      >
+                        <img [src]="company.logoSrc" [alt]="company.logoAlt" class="max-w-full max-h-full object-contain" />
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <h5 class="text-base font-semibold text-white truncate">{{ company.displayName }}</h5>
+                        <p class="text-sm text-orange-200 truncate">{{ company.position }}</p>
+                        <p class="text-xs text-orange-100 mt-1">{{ getDateRange(company) }}</p>
+                        <div class="flex gap-2 mt-2">
+                          <a
+                            [routerLink]="company.employmentRoute"
+                            class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-lg text-xs font-medium transition-colors"
+                          >
+                            <ng-icon name="heroInformationCircle" size="0.875rem"></ng-icon>
+                            Details
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+              <p class="text-xs text-orange-200 mt-4 italic">
+                These represent the same continuous employment through company acquisitions
+              </p>
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -162,8 +209,9 @@
     <!-- Previous Positions - Grid Layout -->
     <div class="max-w-6xl mx-auto">
       <h3 class="text-2xl font-semibold text-white mb-8 text-center">Previous Positions</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        @for (company of previousCompanies; track company.id) {
+      <div class="flex justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
+          @for (company of previousCompanies; track company.id) {
           <div
             class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-white/30"
           >
@@ -229,7 +277,8 @@
               </div>
             </div>
           </div>
-        }
+          }
+        </div>
       </div>
     </div>
   </div>
