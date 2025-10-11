@@ -136,23 +136,14 @@
                 }
               </div>
 
-              <!-- Action Buttons -->
-              <div class="flex gap-4">
-                <a
-                  [routerLink]="currentCompany.projectsRoute"
-                  class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-orange-600 px-6 py-3 rounded-xl font-medium transition-colors"
-                >
-                  <ng-icon name="heroFolder" size="1.125rem"></ng-icon>
-                  View Projects
-                </a>
-                <a
-                  [routerLink]="currentCompany.employmentRoute"
-                  class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3 rounded-xl font-medium transition-colors"
-                >
-                  <ng-icon name="heroInformationCircle" size="1.125rem"></ng-icon>
-                  Full Details
-                </a>
-              </div>
+              <!-- Action Button -->
+              <a
+                [routerLink]="currentCompany.employmentRoute"
+                class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-orange-600 px-6 py-3 rounded-xl font-medium transition-colors"
+              >
+                <ng-icon name="heroBriefcase" size="1.125rem"></ng-icon>
+                Employment Details
+              </a>
             </div>
           </div>
 
@@ -258,23 +249,14 @@
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col gap-2">
-                <a
-                  [routerLink]="company.projectsRoute"
-                  class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
-                  [style.color]="getCompanyColor(company.colorScheme.primary)"
-                >
-                  <ng-icon name="heroFolder" size="1rem"></ng-icon>
-                  Projects
-                </a>
-                <a
-                  [routerLink]="company.employmentRoute"
-                  class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
-                >
-                  <ng-icon name="heroInformationCircle" size="1rem"></ng-icon>
-                  Details
-                </a>
-              </div>
+              <a
+                [routerLink]="company.employmentRoute"
+                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+                [style.color]="getCompanyColor(company.colorScheme.primary)"
+              >
+                <ng-icon name="heroBriefcase" size="1rem"></ng-icon>
+                Employment Details
+              </a>
             </div>
           </div>
           }

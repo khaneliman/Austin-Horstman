@@ -103,6 +103,7 @@ export interface ProjectInfo {
 export class CompanyProfileComponent implements AfterViewInit {
   company = input.required<CompanyInfo>();
   projects = input.required<ProjectInfo[]>();
+  viewMode = input<'employment' | 'projects'>('projects');
   @ViewChild('projectDetailsSection') projectDetailsSection!: ElementRef;
 
   private readonly logoStylingService = inject(LogoStylingService);

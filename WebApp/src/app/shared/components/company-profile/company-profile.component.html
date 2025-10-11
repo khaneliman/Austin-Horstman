@@ -152,109 +152,194 @@
     <!-- Content section -->
     <div class="px-8 py-12">
       <div class="max-w-6xl mx-auto">
-        <!-- Projects Grid -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 flex items-center">
-            <ng-icon
-              name="heroCodeBracket"
-              size="1.25rem"
-              [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
-            ></ng-icon>
-            Featured Projects
-          </h3>
-          <div [class]="'grid gap-6 mb-8 ' + (projects().length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')">
-            @for (project of projects(); track project.name) {
-              <div
-                class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <!-- Project Header -->
-                <div [class]="'relative project-card-header px-6 py-8 text-white bg-gradient-to-r ' + project.color">
-                  <app-decorative-background [elements]="projectBackgroundElements"></app-decorative-background>
-                  <div class="relative z-10">
-                    <div class="flex items-center justify-between mb-4">
-                      <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                        <ng-icon [name]="project.icon" size="1.25rem" class="text-white"></ng-icon>
-                      </div>
-                      <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium">
-                        {{ project.status }}
-                      </span>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-2">
-                      {{ project.name }}
-                    </h4>
-                    <p class="text-white/90 text-sm">{{ project.description }}</p>
-                  </div>
-                </div>
+        <!-- Employment Mode: Company Overview First -->
+        @if (viewMode() === 'employment') {
+          <!-- Company overview -->
+          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <ng-icon
+                name="heroBuildingOffice"
+                size="1.25rem"
+                [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
+              ></ng-icon>
+              About {{ company().name }}
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" [class.mb-6]="company().achievements">
+              {{ company().description }}
+            </p>
 
-                <!-- Project Details -->
-                <div class="p-6">
-                  <p class="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed">
-                    {{ project.description }}
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-4">
-                    @for (tech of project.technologies; track $index) {
-                      <span [class]="'px-3 py-1 text-sm font-medium rounded-full ' + getTechBadgeClass($index)">
-                        {{ tech }}
-                      </span>
-                    }
-                  </div>
-
-                  <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
-                      <!-- Technology badges moved above -->
-                    </div>
-                    <a
-                      [routerLink]="project.route"
-                      [class]="
-                        getProjectLinkClass(company().colorScheme.theme) +
-                        ' font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform'
-                      "
-                    >
-                      View Details
-                      <ng-icon name="heroArrowRight" size="0.75rem" class="ml-2"></ng-icon>
-                    </a>
-                  </div>
-                </div>
+            <!-- Key Responsibilities & Achievements section -->
+            @if (company().achievements) {
+              <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border border-blue-100 dark:border-gray-600">
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
+                  <ng-icon
+                    name="heroCog6Tooth"
+                    size="1rem"
+                    [class]="getIconClass(company().colorScheme.theme) + ' mr-2'"
+                  ></ng-icon>
+                  Key Responsibilities & Achievements
+                </h4>
+                <app-bullet-list
+                  [items]="getAchievementItems()"
+                  bulletStyle="dot"
+                  size="sm"
+                  spacing="normal"
+                  colorTheme="blue"
+                ></app-bullet-list>
               </div>
             }
           </div>
-        </div>
 
-        <!-- Company overview -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-            <ng-icon
-              name="heroBuildingOffice"
-              size="1.25rem"
-              [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
-            ></ng-icon>
-            About {{ company().name }}
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed" [class.mb-6]="company().achievements">
-            {{ company().description }}
-          </p>
-
-          <!-- Key Responsibilities & Achievements section -->
-          @if (company().achievements) {
-            <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border border-blue-100 dark:border-gray-600">
-              <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
+          <!-- Employment Mode: Compact Projects List -->
+          @if (projects().length > 0) {
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
+              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
                 <ng-icon
-                  name="heroCog6Tooth"
-                  size="1rem"
-                  [class]="getIconClass(company().colorScheme.theme) + ' mr-2'"
+                  name="heroCodeBracket"
+                  size="1.25rem"
+                  [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
                 ></ng-icon>
-                Key Responsibilities & Achievements
-              </h4>
-              <app-bullet-list
-                [items]="getAchievementItems()"
-                bulletStyle="dot"
-                size="sm"
-                spacing="normal"
-                colorTheme="blue"
-              ></app-bullet-list>
+                Projects Worked On
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                @for (project of projects(); track project.name) {
+                  <a
+                    [routerLink]="project.route"
+                    class="group flex items-center gap-4 p-4 bg-white dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 hover:shadow-md transition-all duration-200"
+                  >
+                    <div [class]="'w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-gradient-to-r ' + project.color">
+                      <ng-icon [name]="project.icon" size="1rem" class="text-white"></ng-icon>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h4 class="font-semibold text-gray-800 dark:text-gray-100 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {{ project.name }}
+                      </h4>
+                      <p class="text-xs text-gray-500 dark:text-gray-400 truncate">{{ project.status }}</p>
+                    </div>
+                    <ng-icon name="heroArrowRight" size="0.875rem" class="text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-all"></ng-icon>
+                  </a>
+                }
+              </div>
+              <div class="mt-6 text-center">
+                <a
+                  [routerLink]="company().projectsRoute"
+                  [class]="
+                    'inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:shadow-md project-button--' +
+                    company().colorScheme.theme +
+                    ' text-white'
+                  "
+                >
+                  <ng-icon name="heroRectangleStack" size="1rem"></ng-icon>
+                  View All Project Details
+                </a>
+              </div>
             </div>
           }
-        </div>
+        } @else {
+          <!-- Projects Mode: Full Projects Grid -->
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 flex items-center">
+              <ng-icon
+                name="heroCodeBracket"
+                size="1.25rem"
+                [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
+              ></ng-icon>
+              Featured Projects
+            </h3>
+            <div [class]="'grid gap-6 mb-8 ' + (projects().length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')">
+              @for (project of projects(); track project.name) {
+                <div
+                  class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <!-- Project Header -->
+                  <div [class]="'relative project-card-header px-6 py-8 text-white bg-gradient-to-r ' + project.color">
+                    <app-decorative-background [elements]="projectBackgroundElements"></app-decorative-background>
+                    <div class="relative z-10">
+                      <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                          <ng-icon [name]="project.icon" size="1.25rem" class="text-white"></ng-icon>
+                        </div>
+                        <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium">
+                          {{ project.status }}
+                        </span>
+                      </div>
+                      <h4 class="text-xl font-bold text-white mb-2">
+                        {{ project.name }}
+                      </h4>
+                      <p class="text-white/90 text-sm">{{ project.description }}</p>
+                    </div>
+                  </div>
+
+                  <!-- Project Details -->
+                  <div class="p-6">
+                    <p class="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed">
+                      {{ project.description }}
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      @for (tech of project.technologies; track $index) {
+                        <span [class]="'px-3 py-1 text-sm font-medium rounded-full ' + getTechBadgeClass($index)">
+                          {{ tech }}
+                        </span>
+                      }
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                      <div class="flex gap-2">
+                        <!-- Technology badges moved above -->
+                      </div>
+                      <a
+                        [routerLink]="project.route"
+                        [class]="
+                          getProjectLinkClass(company().colorScheme.theme) +
+                          ' font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform'
+                        "
+                      >
+                        View Details
+                        <ng-icon name="heroArrowRight" size="0.75rem" class="ml-2"></ng-icon>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Company overview -->
+          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <ng-icon
+                name="heroBuildingOffice"
+                size="1.25rem"
+                [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
+              ></ng-icon>
+              About {{ company().name }}
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" [class.mb-6]="company().achievements">
+              {{ company().description }}
+            </p>
+
+            <!-- Key Responsibilities & Achievements section -->
+            @if (company().achievements) {
+              <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border border-blue-100 dark:border-gray-600">
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
+                  <ng-icon
+                    name="heroCog6Tooth"
+                    size="1rem"
+                    [class]="getIconClass(company().colorScheme.theme) + ' mr-2'"
+                  ></ng-icon>
+                  Key Responsibilities & Achievements
+                </h4>
+                <app-bullet-list
+                  [items]="getAchievementItems()"
+                  bulletStyle="dot"
+                  size="sm"
+                  spacing="normal"
+                  colorTheme="blue"
+                ></app-bullet-list>
+              </div>
+            }
+          </div>
+        }
 
         <!-- Project content -->
         @if (hasActiveChildRoute()) {

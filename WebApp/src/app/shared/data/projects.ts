@@ -1,5 +1,5 @@
 import { ProjectInfo } from '../components/company-profile/company-profile.component';
-import { COMPANIES, CompanyInfo, getResumeCardStatus } from './companies';
+import { COMPANIES, getResumeCardStatus } from './companies';
 
 // Shared project configurations that can be reused across different company contexts
 export const SHARED_PROJECTS = {
