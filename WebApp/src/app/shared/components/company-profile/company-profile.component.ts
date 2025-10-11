@@ -269,8 +269,20 @@ export class CompanyProfileComponent implements AfterViewInit {
     // Parse YYYY-MM format to readable month/year
     const [year, month] = date.split('-');
     if (!month || !year) return date; // Fallback to original date if parsing fails
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                        'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
     const monthIndex = parseInt(month, 10) - 1;
     return `${monthNames[monthIndex]} ${year}`;
   }

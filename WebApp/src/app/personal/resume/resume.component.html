@@ -168,7 +168,11 @@
                               : 'bg-black')
                         "
                       >
-                        <img [src]="company.logoSrc" [alt]="company.logoAlt" class="max-w-full max-h-full object-contain" />
+                        <img
+                          [src]="company.logoSrc"
+                          [alt]="company.logoAlt"
+                          class="max-w-full max-h-full object-contain"
+                        />
                       </div>
                       <div class="flex-1 min-w-0">
                         <h5 class="text-base font-semibold text-white truncate">{{ company.displayName }}</h5>
@@ -203,62 +207,62 @@
       <div class="flex justify-center">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
           @for (company of previousCompanies; track company.id) {
-          <div
-            class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-white/30"
-          >
-            <div class="flex justify-center mb-4">
-              <div
-                [class]="
-                  'w-16 h-16 rounded-xl p-3 shadow-sm flex items-center justify-center ' +
-                  (company.logoBackground === 'white'
-                    ? 'bg-white'
-                    : company.logoBackground === 'dark'
-                      ? 'bg-gray-900'
-                      : 'bg-black')
-                "
-              >
-                <img [src]="company.logoSrc" [alt]="company.logoAlt" class="max-w-full max-h-full object-contain" />
-              </div>
-            </div>
-            <div class="text-center">
-              <h4 class="text-lg font-bold text-white mb-2">
-                {{ company.displayName }}
-              </h4>
-              <p [class]="'text-sm font-medium mb-1 text-' + company.colorScheme.primary">
-                {{ company.position }}
-              </p>
-              <p class="text-sm text-orange-200 mb-2">{{ company.location }}</p>
-              <p class="text-sm text-orange-100 font-medium mb-4">
-                {{ getDateRange(company) }}
-              </p>
-              <div class="flex justify-center gap-4 mb-4">
-                <div class="text-center">
-                  <div [class]="'text-lg font-bold text-' + company.colorScheme.primary">
-                    {{ company.stats.years }}
-                  </div>
-                  <div class="text-xs text-orange-200">
-                    {{ company.stats.years === '1' ? 'Year' : 'Years' }}
-                  </div>
-                </div>
-                <div class="text-center">
-                  <div [class]="'text-lg font-bold text-' + company.colorScheme.primary">
-                    {{ company.stats.projects.value }}
-                  </div>
-                  <div class="text-xs text-orange-200">
-                    {{ company.stats.projects.label }}
-                  </div>
+            <div
+              class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-white/30"
+            >
+              <div class="flex justify-center mb-4">
+                <div
+                  [class]="
+                    'w-16 h-16 rounded-xl p-3 shadow-sm flex items-center justify-center ' +
+                    (company.logoBackground === 'white'
+                      ? 'bg-white'
+                      : company.logoBackground === 'dark'
+                        ? 'bg-gray-900'
+                        : 'bg-black')
+                  "
+                >
+                  <img [src]="company.logoSrc" [alt]="company.logoAlt" class="max-w-full max-h-full object-contain" />
                 </div>
               </div>
-              <a
-                [routerLink]="company.employmentRoute"
-                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
-                [style.color]="getCompanyColor(company.colorScheme.primary)"
-              >
-                <ng-icon name="heroBriefcase" size="1rem"></ng-icon>
-                Employment Details
-              </a>
+              <div class="text-center">
+                <h4 class="text-lg font-bold text-white mb-2">
+                  {{ company.displayName }}
+                </h4>
+                <p [class]="'text-sm font-medium mb-1 text-' + company.colorScheme.primary">
+                  {{ company.position }}
+                </p>
+                <p class="text-sm text-orange-200 mb-2">{{ company.location }}</p>
+                <p class="text-sm text-orange-100 font-medium mb-4">
+                  {{ getDateRange(company) }}
+                </p>
+                <div class="flex justify-center gap-4 mb-4">
+                  <div class="text-center">
+                    <div [class]="'text-lg font-bold text-' + company.colorScheme.primary">
+                      {{ company.stats.years }}
+                    </div>
+                    <div class="text-xs text-orange-200">
+                      {{ company.stats.years === '1' ? 'Year' : 'Years' }}
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <div [class]="'text-lg font-bold text-' + company.colorScheme.primary">
+                      {{ company.stats.projects.value }}
+                    </div>
+                    <div class="text-xs text-orange-200">
+                      {{ company.stats.projects.label }}
+                    </div>
+                  </div>
+                </div>
+                <a
+                  [routerLink]="company.employmentRoute"
+                  class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+                  [style.color]="getCompanyColor(company.colorScheme.primary)"
+                >
+                  <ng-icon name="heroBriefcase" size="1rem"></ng-icon>
+                  Employment Details
+                </a>
+              </div>
             </div>
-          </div>
           }
         </div>
       </div>

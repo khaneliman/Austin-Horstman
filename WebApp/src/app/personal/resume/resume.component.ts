@@ -188,16 +188,15 @@ export class ResumeComponent {
 
   // Company data with calculated stats
   currentCompany: CompanyInfo = getCompanyWithCalculatedStats('nri-na');
-  previousCompanies: CompanyInfo[] = [
-    getCompanyWithCalculatedStats('west'),
-    getCompanyWithCalculatedStats('bestbuy'),
-  ];
+  previousCompanies: CompanyInfo[] = [getCompanyWithCalculatedStats('west'), getCompanyWithCalculatedStats('bestbuy')];
 
   // Get acquisition chain companies for the current company
   getAcquisitionChainCompanies(): CompanyInfo[] {
     if (!this.currentCompany.acquisitionChain) return [];
     return this.currentCompany.acquisitionChain.map((acquisition) =>
-      getCompanyWithCalculatedStats(acquisition.companyId as keyof typeof import('../../shared/data/companies').COMPANIES)
+      getCompanyWithCalculatedStats(
+        acquisition.companyId as keyof typeof import('../../shared/data/companies').COMPANIES
+      )
     );
   }
 
