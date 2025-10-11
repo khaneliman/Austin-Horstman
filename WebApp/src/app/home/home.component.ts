@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  heroAcademicCap,
   heroCodeBracket,
   heroCog6Tooth,
   heroComputerDesktop,
@@ -24,6 +25,7 @@ import { getProficientTechnologies } from '../shared/data/technologies';
   imports: [RouterModule, NgIconComponent, HeroSectionComponent, WaveSeparatorComponent, EnhancedFeatureCardComponent],
   providers: [
     provideIcons({
+      heroAcademicCap,
       heroCodeBracket,
       heroComputerDesktop,
       heroDocumentText,
@@ -104,28 +106,28 @@ export class HomeComponent {
 
   features: EnhancedFeature[] = [
     {
-      title: 'Modern Development',
+      title: 'Continuous Learning',
       description:
-        'Expert in cutting-edge frameworks and technologies, delivering scalable and maintainable solutions using the latest best practices.',
+        'Driven by curiosity to never stop learning and improving skills. Always exploring emerging technologies and best practices to stay at the forefront of modern development.',
+      icon: 'heroAcademicCap',
+      badge: 'Passionate',
+      footer: 'Growth • Innovation • Excellence',
+    },
+    {
+      title: 'Open Source Leadership',
+      description:
+        'Active contributor and maintainer of large-scale open source projects in the Nix ecosystem. Collaborating with developers worldwide to build tools that empower the community.',
       icon: 'heroCodeBracket',
-      badge: 'Expert',
-      footer: 'Angular • TypeScript • Modern',
+      badge: 'Maintainer',
+      footer: 'Nix • Community • Impact',
     },
     {
-      title: 'System Architecture',
+      title: 'AI & Developer Productivity',
       description:
-        'Designing robust, scalable systems that grow with your business needs while maintaining high performance and reliability.',
-      icon: 'heroCog6Tooth',
-      badge: 'Advanced',
-      footer: 'Scalable • Cloud • Reliable',
-    },
-    {
-      title: 'Innovation Focus',
-      description:
-        'Passionate about exploring emerging technologies and implementing innovative solutions that drive business success.',
+        'Leading teams in implementing agentic AI solutions to accelerate developer productivity. Teaching and empowering developers to improve their workflows and tooling.',
       icon: 'heroRocketLaunch',
-      badge: 'Continuous',
-      footer: 'Innovation • Research • Growth',
+      badge: 'Innovator',
+      footer: 'AI • Mentorship • Efficiency',
     },
   ];
 }
