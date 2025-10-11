@@ -2,16 +2,17 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroBeaker,
-  heroCog6Tooth,
+  heroAcademicCap,
+  heroCodeBracket,
   heroEnvelope,
   heroPaperAirplane,
-  heroPencil,
+  heroRocketLaunch,
   heroUserPlus,
 } from '@ng-icons/heroicons/outline';
 import { BackgroundElement } from '../../shared/components/decorative-background/decorative-background.component';
 import { FormInputComponent } from '../../shared/components/form-input/form-input.component';
 import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
+import { getPersonalSkills, PersonalSkill } from '../../shared/data/skills';
 
 @Component({
   standalone: true,
@@ -21,9 +22,9 @@ import { HeroSectionComponent } from '../../shared/components/hero-section/hero-
   imports: [NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],
   providers: [
     provideIcons({
-      heroCog6Tooth,
-      heroPencil,
-      heroBeaker,
+      heroAcademicCap,
+      heroCodeBracket,
+      heroRocketLaunch,
       heroUserPlus,
       heroEnvelope,
       heroPaperAirplane,
@@ -38,6 +39,9 @@ export class ContactComponent {
 
   heroTitle = "Let's Connect";
   heroSubtitle = "Ready to discuss your next project? I'd love to hear from you.";
+
+  // Get personal skills to display
+  personalSkills: PersonalSkill[] = getPersonalSkills();
 
   backgroundElements: BackgroundElement[] = [
     {
