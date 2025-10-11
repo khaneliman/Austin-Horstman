@@ -4,7 +4,7 @@
     [title]="heroTitle"
     [subtitle]="heroSubtitle"
     variant="gradient"
-    size="lg"
+    size="sm"
     alignment="center"
     backgroundGradient="from-blue-600 to-purple-600"
     [backgroundElements]="backgroundElements"
@@ -13,16 +13,16 @@
     [showContentSlot]="true"
   >
     <!-- Personal Skills grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 mt-2">
       @for (skill of personalSkills; track skill.title) {
         <div class="text-center">
           <div
-            class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl mx-auto mb-6 group hover:scale-110 transition-transform duration-300"
+            class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-3 group hover:scale-110 transition-transform duration-300"
           >
-            <ng-icon [name]="skill.icon" size="2rem" class="text-blue-600"></ng-icon>
+            <ng-icon [name]="skill.icon" size="1.25rem" class="text-blue-600"></ng-icon>
           </div>
-          <h5 class="text-2xl font-bold text-white mb-4">{{ skill.title }}</h5>
-          <p class="text-blue-100 text-lg leading-relaxed">
+          <h5 class="text-lg font-bold text-white mb-2">{{ skill.title }}</h5>
+          <p class="text-blue-100 text-sm leading-snug">
             {{ skill.description }}
           </p>
         </div>
