@@ -299,8 +299,8 @@ export function getResumeProjectCards() {
 
   // Get all projects from all companies using existing data
   Object.entries(COMPANIES).forEach(([companyKey, companyData]) => {
-    const company = companyData as CompanyInfo;
-    company.projects.forEach((project) => {
+    // companyData doesn't have years field yet, so we just access the data directly
+    companyData.projects.forEach((project) => {
       const routeCompanyKey = companyKey === 'bestbuy' ? 'geeksquad' : companyKey;
 
       if (project.route === 'kroger') {

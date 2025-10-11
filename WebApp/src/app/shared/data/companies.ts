@@ -1,35 +1,45 @@
 // Removed circular import - CompanyInfo is now defined here
 
-// Company information interface
-export interface CompanyInfo {
+import { calculateYearsBetweenDates } from '../utils/date.utils';
+
+// Internal company data structure (without calculated fields)
+interface CompanyData {
   id: string;
   displayName: string;
   name: string;
   logoSrc: string;
   logoAlt: string;
-  logoBackground: 'white' | 'black' | 'dark'; // Logo background styling
+  logoBackground: 'white' | 'black' | 'dark';
   website?: string;
   location: string;
   position: string;
-  dateStart: string; // Format: 'YYYY-MM' or 'YYYY-MM-DD'
-  dateEnd?: string; // Format: 'YYYY-MM' or 'YYYY-MM-DD', undefined means current
+  dateStart: string;
+  dateEnd?: string;
   department?: string;
   colorScheme: {
-    theme: string; // 'green', 'blue', 'red', 'orange'
+    theme: string;
     primary: string;
     secondary: string;
     accent: string;
   };
   stats: {
-    years: string;
     projects: { value: string; label: string };
     clients: { value: string; label: string };
   };
   description: string;
-  achievements?: readonly string[]; // Optional list of key responsibilities/achievements
+  achievements?: readonly string[];
   projectsRoute: string;
   employmentRoute: string;
-  projects: readonly { name: string; route: string }[]; // Projects available for this company
+  projects: readonly { name: string; route: string }[];
+}
+
+// Public company information interface (with calculated years field)
+export interface CompanyInfo extends Omit<CompanyData, 'stats'> {
+  stats: {
+    years: string; // Calculated dynamically from dateStart and dateEnd
+    projects: { value: string; label: string };
+    clients: { value: string; label: string };
+  };
 }
 
 // Comprehensive company configurations
@@ -44,7 +54,7 @@ export const COMPANIES = {
     website: 'https://www.nri.com/en/worldwide/americas',
     location: 'Appleton, WI',
     position: 'Senior Software Engineer',
-    dateStart: '2025-04',
+    dateStart: '2017-10',
     department: 'Modern Business Unit',
     colorScheme: {
       theme: 'nri',
@@ -53,7 +63,6 @@ export const COMPANIES = {
       accent: 'sky-600',
     },
     stats: {
-      years: '7+',
       projects: { value: '0', label: 'Projects' },
       clients: { value: '0', label: 'Clients' },
     },
@@ -89,7 +98,7 @@ export const COMPANIES = {
     website: 'https://www.corebts.com',
     location: 'Appleton, WI',
     position: 'Software Engineer → Senior Software Engineer',
-    dateStart: '2021-01',
+    dateStart: '2017-10',
     dateEnd: '2025-04',
     department: 'Modern Business Unit',
     colorScheme: {
@@ -99,7 +108,6 @@ export const COMPANIES = {
       accent: 'green-500',
     },
     stats: {
-      years: '4.3',
       projects: { value: '0', label: 'Projects' },
       clients: { value: '0', label: 'Clients' },
     },
@@ -139,7 +147,6 @@ export const COMPANIES = {
       accent: 'cyan-500',
     },
     stats: {
-      years: '3.3',
       projects: { value: '0', label: 'Projects' },
       clients: { value: '0', label: 'Clients' },
     },
@@ -177,7 +184,6 @@ export const COMPANIES = {
       accent: 'yellow-600',
     },
     stats: {
-      years: '2.4',
       projects: { value: '0', label: 'Projects' },
       clients: { value: '0', label: 'Tools Built' },
     },
@@ -212,7 +218,6 @@ export const COMPANIES = {
       accent: 'orange-600',
     },
     stats: {
-      years: '2',
       projects: { value: '0', label: 'Projects' },
       clients: { value: '500+', label: 'Customers Served' },
     },
@@ -226,26 +231,38 @@ export const COMPANIES = {
 
 // Helper functions for accessing company data
 export function getCompanyById(id: keyof typeof COMPANIES): CompanyInfo {
-  return { ...COMPANIES[id] };
+  const companyData = { ...COMPANIES[id] } as CompanyData;
+  // Calculate years from dates and create CompanyInfo with all required fields
+  return {
+    ...companyData,
+    stats: {
+      ...companyData.stats,
+      years: calculateYearsBetweenDates(companyData.dateStart, companyData.dateEnd),
+    },
+  };
 }
 
 // Calculate dynamic metrics for a company
 export function getCompanyWithCalculatedStats(id: keyof typeof COMPANIES): CompanyInfo {
-  const company = { ...COMPANIES[id] } as CompanyInfo;
-  const projectCount = company.projects.length;
+  const companyData = { ...COMPANIES[id] } as CompanyData;
+  const projectCount = companyData.projects.length;
 
-  // Update stats with calculated values
-  company.stats.projects = {
-    value: projectCount.toString(),
-    label: 'Projects',
+  // Calculate all dynamic stats and create CompanyInfo with all required fields
+  return {
+    ...companyData,
+    stats: {
+      years: calculateYearsBetweenDates(companyData.dateStart, companyData.dateEnd),
+      projects: {
+        value: projectCount.toString(),
+        label: 'Projects',
+      },
+      clients: {
+        value: companyData.id === 'bestbuy' ? '500+' : projectCount.toString(),
+        label:
+          companyData.id === 'bestbuy' ? 'Customers Served' : companyData.id === 'west' ? 'Tools Built' : 'Clients',
+      },
+    },
   };
-
-  company.stats.clients = {
-    value: company.id === 'bestbuy' ? '500+' : projectCount.toString(),
-    label: company.id === 'bestbuy' ? 'Customers Served' : company.id === 'west' ? 'Tools Built' : 'Clients',
-  };
-
-  return company;
 }
 
 export function getAllCompanies(): CompanyInfo[] {
@@ -253,14 +270,36 @@ export function getAllCompanies(): CompanyInfo[] {
 }
 
 export function getAllCompaniesRaw(): CompanyInfo[] {
-  return Object.values(COMPANIES).map((company) => ({ ...company }));
+  return Object.values(COMPANIES).map((company) => {
+    const companyData = company as CompanyData;
+    return {
+      ...companyData,
+      stats: {
+        ...companyData.stats,
+        years: calculateYearsBetweenDates(companyData.dateStart, companyData.dateEnd),
+      },
+    };
+  });
 }
 
 export function getCompanyByName(name: string): CompanyInfo | undefined {
-  return Object.values(COMPANIES).find(
+  const foundCompany = Object.values(COMPANIES).find(
     (company) =>
       company.name.toLowerCase() === name.toLowerCase() || company.displayName.toLowerCase() === name.toLowerCase()
   );
+
+  if (!foundCompany) return undefined;
+
+  const companyData = foundCompany as CompanyData;
+
+  // Add calculated years field
+  return {
+    ...companyData,
+    stats: {
+      ...companyData.stats,
+      years: calculateYearsBetweenDates(companyData.dateStart, companyData.dateEnd),
+    },
+  };
 }
 
 export function getCompanyEmploymentRoute(companyNameOrId: string): string {

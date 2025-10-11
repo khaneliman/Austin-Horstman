@@ -11,7 +11,8 @@ interface CompanyInfo {
   website?: string;
   location: string;
   position: string;
-  dateRange: string;
+  dateStart: string; // Format: 'YYYY-MM' or 'YYYY-MM-DD'
+  dateEnd?: string; // Format: 'YYYY-MM' or 'YYYY-MM-DD', undefined means current
   department?: string;
   colorScheme: {
     theme: string;
@@ -156,7 +157,8 @@ describe('CompanyProfileComponent Logic Tests', () => {
     website: 'https://test-company.com',
     location: 'Test City, ST',
     position: 'Senior Developer',
-    dateRange: 'Jan 2020 - Present',
+    dateStart: '2020-01',
+    dateEnd: undefined, // Current position
     department: 'Engineering',
     colorScheme: {
       theme: 'blue',
@@ -325,7 +327,7 @@ describe('CompanyProfileComponent Logic Tests', () => {
         'logoBackground',
         'location',
         'position',
-        'dateRange',
+        'dateStart',
         'colorScheme',
         'stats',
         'description',
@@ -363,7 +365,8 @@ describe('CompanyProfileComponent Logic Tests', () => {
         logoBackground: 'white',
         location: 'Location',
         position: 'Position',
-        dateRange: 'Date Range',
+        dateStart: '2020-01',
+        dateEnd: '2021-01',
         colorScheme: {
           theme: 'blue',
           primary: 'blue-500',
