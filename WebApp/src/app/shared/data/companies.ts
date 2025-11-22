@@ -69,10 +69,16 @@ export const COMPANIES = {
     logoBackground: 'white',
     website: 'https://www.nri.com/en/worldwide/americas',
     location: 'Appleton, WI',
-    position: 'Senior Software Engineer',
+    position: 'Solution Architect',
     dateStart: '2017-10',
     department: 'Modern Business Unit',
     acquisitionChain: [
+      {
+        companyId: 'nri-na',
+        dateStart: '2025-04',
+        dateEnd: '2025-10',
+        position: 'Senior Software Engineer',
+      },
       {
         companyId: 'corebts',
         dateStart: '2021-01',
@@ -97,7 +103,7 @@ export const COMPANIES = {
       clients: { value: '0', label: 'Clients' },
     },
     description:
-      "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2025, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Senior Software Engineer in the Modern Business Unit, I continue working with diverse clients to build cutting-edge applications using the latest technologies and development practices, focusing on cloud-native architectures and scalable enterprise solutions. My total experience spans 7+ years from Skyline Technologies through Core BTS to NRI-NA.",
+      "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2025, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Solution Architect in the Modern Business Unit, I lead technical architecture and design initiatives for diverse clients, building cutting-edge applications using the latest technologies and development practices, with a focus on cloud-native architectures and scalable enterprise solutions. Throughout my 8+ years from Skyline Technologies through Core BTS to NRI-NA, I have progressed from Software Engineer to Senior Software Engineer to my current Solution Architect role.",
     achievements: [
       'Drove team-wide agile process improvements as technical leader and scrum advisor, significantly increasing delivery speed and reducing development blockers',
       'Successfully managed complex stakeholder relationships with business users, legacy system maintainers, and architects to create and prioritize backlogs under tight deadlines',

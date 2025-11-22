@@ -34,10 +34,10 @@ function calculateYearsOfExperience(): number {
 // Centralized personal profile data
 export const PERSONAL_PROFILE = {
   name: 'Austin Horstman',
-  title: 'Senior Software Engineer',
+  title: 'Solution Architect',
   get tagline(): string {
     const years = calculateYearsOfExperience();
-    return `Senior Software Engineer with ${years}+ years of experience specializing in .NET, Angular, and modern web technologies. Passionate about application modernization, database design, and open-source development in the Nix ecosystem.`;
+    return `Solution Architect with ${years}+ years of experience specializing in .NET, Angular, and modern web technologies. Passionate about application modernization, database design, and open-source development in the Nix ecosystem.`;
   },
   location: 'Fox Crossing, WI',
   get yearsOfExperience(): number {
