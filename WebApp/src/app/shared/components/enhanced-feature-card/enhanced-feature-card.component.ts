@@ -72,10 +72,26 @@ export class EnhancedFeatureCardComponent {
     // Variant styling
     switch (this.variant()) {
       case 'default':
-        classes.push('bg-white', 'dark:bg-slate-900', 'border-stone-200', 'dark:border-slate-700', 'shadow-sm');
+        classes.push(
+          'bg-white',
+          'dark:bg-slate-900',
+          'border-stone-200',
+          'dark:border-slate-700',
+          'shadow-sm',
+          'border-t-4',
+          this.accentBorderClass
+        );
         break;
       case 'highlighted':
-        classes.push('bg-white', 'dark:bg-slate-900', 'border-stone-200', 'dark:border-slate-700', 'shadow-sm');
+        classes.push(
+          'bg-white',
+          'dark:bg-slate-900',
+          'border-stone-200',
+          'dark:border-slate-700',
+          'shadow-sm',
+          'border-t-4',
+          this.accentBorderClass
+        );
         break;
       case 'bordered':
         classes.push(
@@ -85,7 +101,15 @@ export class EnhancedFeatureCardComponent {
         );
         break;
       case 'minimal':
-        classes.push('bg-white', 'dark:bg-slate-900', 'border-stone-200', 'dark:border-slate-700', 'shadow-sm');
+        classes.push(
+          'bg-white',
+          'dark:bg-slate-900',
+          'border-stone-200',
+          'dark:border-slate-700',
+          'shadow-sm',
+          'border-t-4',
+          this.accentBorderClass
+        );
         break;
     }
 
@@ -133,19 +157,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get iconContainerClasses(): string {
-    const classes = [
-      'rounded-lg',
-      'flex',
-      'items-center',
-      'justify-center',
-      'border',
-      'border-teal-300/30',
-      'bg-teal-300/10',
-      'text-teal-200',
-      'dark:border-teal-300/25',
-      'dark:bg-teal-300/10',
-      'dark:text-teal-200',
-    ];
+    const classes = ['rounded-lg', 'flex', 'items-center', 'justify-center', 'border', ...this.iconAccentClasses];
 
     if (this.iconPosition() === 'top') {
       classes.push('mb-8');
@@ -168,6 +180,50 @@ export class EnhancedFeatureCardComponent {
 
   get leftIconClasses(): string {
     return `w-8 h-8 bg-${this.colorTheme()}-100 dark:bg-${this.colorTheme()}-800 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
+  }
+
+  get accentBorderClass(): string {
+    const accentBorders: Record<string, string> = {
+      teal: 'border-t-teal-500 dark:border-t-teal-300',
+      emerald: 'border-t-emerald-500 dark:border-t-emerald-300',
+      amber: 'border-t-amber-400 dark:border-t-amber-300',
+      sky: 'border-t-sky-400 dark:border-t-sky-300',
+      rose: 'border-t-rose-400 dark:border-t-rose-300',
+    };
+
+    return accentBorders[this.colorTheme()] ?? 'border-t-teal-500 dark:border-t-teal-300';
+  }
+
+  get iconAccentClasses(): string[] {
+    const iconAccents: Record<string, string[]> = {
+      teal: ['border-teal-500/25', 'bg-teal-500/10', 'text-teal-700', 'dark:border-teal-300/25', 'dark:text-teal-200'],
+      emerald: [
+        'border-emerald-500/25',
+        'bg-emerald-500/10',
+        'text-emerald-700',
+        'dark:border-emerald-300/25',
+        'dark:text-emerald-200',
+      ],
+      amber: [
+        'border-amber-400/30',
+        'bg-amber-400/15',
+        'text-amber-700',
+        'dark:border-amber-300/30',
+        'dark:text-amber-200',
+      ],
+      sky: ['border-sky-400/30', 'bg-sky-400/15', 'text-sky-700', 'dark:border-sky-300/30', 'dark:text-sky-200'],
+      rose: ['border-rose-400/30', 'bg-rose-400/15', 'text-rose-700', 'dark:border-rose-300/30', 'dark:text-rose-200'],
+    };
+
+    const fallbackClasses = [
+      'border-teal-500/25',
+      'bg-teal-500/10',
+      'text-teal-700',
+      'dark:border-teal-300/25',
+      'dark:text-teal-200',
+    ];
+
+    return iconAccents[this.colorTheme()] ?? fallbackClasses;
   }
 
   get contentClasses(): string {
