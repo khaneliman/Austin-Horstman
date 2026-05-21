@@ -30,11 +30,11 @@ export interface HeroButton {
       <!-- Additional background overlay -->
       <div *ngIf="overlayGradient()" [class]="overlayClasses"></div>
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
         <div [class]="contentLayoutClasses">
           <!-- Left/Main Content -->
           <div [class]="contentClasses">
-            <div class="space-y-8">
+            <div [class]="contentStackClasses">
               <!-- Badge/Category -->
               <div *ngIf="badge()" class="flex justify-center lg:justify-start">
                 <span [class]="badgeClasses">
@@ -130,13 +130,13 @@ export class HeroSectionComponent {
     const sizeValue = this.size();
 
     if (layoutValue === 'split') {
-      classes.push('grid grid-cols-1 lg:grid-cols-2 gap-12');
+      classes.push('grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12');
     } else {
       classes.push('flex justify-center');
     }
 
     if (sizeValue === 'xl') {
-      classes.push('min-h-[80vh]');
+      classes.push('min-h-[72vh] lg:min-h-[80vh]');
     }
 
     return classes.join(' ');
@@ -150,6 +150,17 @@ export class HeroSectionComponent {
       classes.push('text-center');
     } else {
       classes.push('text-center lg:text-left');
+    }
+
+    return classes.join(' ');
+  }
+
+  get contentStackClasses(): string {
+    const classes = ['space-y-6'];
+    const sizeValue = this.size();
+
+    if (sizeValue === 'lg' || sizeValue === 'xl') {
+      classes.push('lg:space-y-8');
     }
 
     return classes.join(' ');
@@ -169,10 +180,10 @@ export class HeroSectionComponent {
         baseClasses.push('text-4xl lg:text-5xl');
         break;
       case 'lg':
-        baseClasses.push('text-5xl lg:text-6xl');
+        baseClasses.push('text-4xl sm:text-5xl lg:text-6xl');
         break;
       case 'xl':
-        baseClasses.push('text-5xl lg:text-7xl');
+        baseClasses.push('text-4xl sm:text-5xl lg:text-7xl');
         break;
     }
 
@@ -204,10 +215,10 @@ export class HeroSectionComponent {
         baseClasses.push('text-xl');
         break;
       case 'lg':
-        baseClasses.push('text-xl lg:text-2xl');
+        baseClasses.push('text-lg sm:text-xl lg:text-2xl');
         break;
       case 'xl':
-        baseClasses.push('text-xl lg:text-2xl');
+        baseClasses.push('text-lg sm:text-xl lg:text-2xl');
         break;
     }
 
@@ -285,7 +296,7 @@ export class HeroSectionComponent {
 
   getButtonClasses(button: HeroButton): string {
     const baseClasses = [
-      'inline-flex items-center px-8 py-4 font-semibold rounded-lg',
+      'inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 font-semibold rounded-lg',
       'transition-all duration-200 hover:shadow-xl transform hover:-translate-y-1',
     ];
     const textColorValue = this.textColor();
