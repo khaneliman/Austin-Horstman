@@ -95,6 +95,8 @@ import { formatDateRange } from '../../shared/utils/date.utils';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumeComponent {
+  private readonly projectAccentPattern = ['primary', 'warning', 'info'];
+
   educationBackgroundElements: BackgroundElement[] = [
     {
       size: 'w-32-h-32',
@@ -219,6 +221,10 @@ export class ResumeComponent {
 
   trackByIndex(index: number): number {
     return index;
+  }
+
+  getProjectAccent(index: number): string {
+    return this.projectAccentPattern[index % this.projectAccentPattern.length] ?? 'primary';
   }
 
   getCompanyColor(colorClass: string): string {

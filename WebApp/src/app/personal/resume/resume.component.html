@@ -337,11 +337,11 @@
 
     <!-- Featured Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (project of featuredProjects; track project.route) {
+      @for (project of featuredProjects; track project.route; let i = $index) {
         <app-floating-card
           [title]="project.title"
           [icon]="project.icon"
-          [status]="project.status"
+          [status]="getProjectAccent(i)"
           [description]="project.description"
           [tags]="project.technologies"
           [link]="project.route"
@@ -358,11 +358,11 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @for (project of personalProjects; track project.route) {
+        @for (project of personalProjects; track project.route; let i = $index) {
           <app-floating-card
             [title]="project.name"
             [icon]="project.icon"
-            [status]="project.status"
+            [status]="getProjectAccent(i)"
             [superText]="project.superText"
             [description]="project.description"
             [tags]="project.technologies"
