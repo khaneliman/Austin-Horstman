@@ -270,6 +270,8 @@ export function generateProfessionalProjectsGrid() {
     .map(([companyKey, company]) => {
       if (!company.projects?.length) return undefined;
 
+      const routeCompanyKey = companyKey === 'bestbuy' ? 'geeksquad' : companyKey;
+
       return {
         title: `${company.displayName} Projects`,
         description: company.description.split('.')[0] || company.description, // First sentence
@@ -280,7 +282,7 @@ export function generateProfessionalProjectsGrid() {
         logoBackground: company.logoBackground,
         projects: company.projects.map((project) => ({
           name: project.name,
-          route: `/projects/professional/${companyKey}/${project.route}`,
+          route: `/projects/professional/${routeCompanyKey}/${project.route}`,
         })),
       };
     })

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { getProjectsForCompany, SHARED_PROJECTS } from './projects';
+import { generateProfessionalProjectsGrid, getProjectsForCompany, SHARED_PROJECTS } from './projects';
 
 describe('Projects Data', () => {
   it('should have shared projects defined', () => {
@@ -31,5 +31,13 @@ describe('Projects Data', () => {
 
     expect(Array.isArray(corebtsProjects)).toBe(true);
     expect(Array.isArray(skylineProjects)).toBe(true);
+  });
+
+  it('should use geeksquad route paths for Best Buy project grid links', () => {
+    const projectsGrid = generateProfessionalProjectsGrid();
+    const bestBuyGrid = projectsGrid.find((company) => company.company === 'Best Buy Geek Squad');
+
+    expect(bestBuyGrid).toBeDefined();
+    expect(bestBuyGrid?.projects[0]?.route).toBe('/projects/professional/geeksquad/stat-tracker');
   });
 });
