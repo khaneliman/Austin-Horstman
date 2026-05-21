@@ -1,5 +1,5 @@
 <!-- Personal Projects Page -->
-<main class="min-h-screen bg-gray-50 dark:bg-gray-900 pt-16">
+<main class="min-h-screen bg-[#f7f3ea] dark:bg-slate-950 pt-16">
   <!-- Hero Section -->
   <app-hero-section
     [title]="heroTitle"
@@ -7,20 +7,21 @@
     variant="gradient"
     size="lg"
     alignment="center"
-    backgroundGradient="from-indigo-600 via-purple-600 to-pink-600"
+    backgroundGradient="from-slate-950 via-teal-950 to-slate-900"
     minHeight="min-h-auto"
     textColor="light"
     [showContentSlot]="true"
   >
-    <app-projects-breadcrumb currentSection="Personal" textColor="text-indigo-200"></app-projects-breadcrumb>
+    <app-projects-breadcrumb currentSection="Personal" textColor="text-teal-100"></app-projects-breadcrumb>
   </app-hero-section>
 
   <!-- Personal Projects Grid -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-900">
+  <section class="py-20 bg-[#f7f3ea] dark:bg-slate-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Personal Project Portfolio</h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold text-slate-950 dark:text-slate-50 mb-4">Personal Project Portfolio</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-teal-500 to-amber-300 rounded-full mx-auto mb-4"></div>
+        <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
           Explore my collection of personal projects spanning open source contributions, web applications, development
           tools, and learning experiments.
         </p>
@@ -31,48 +32,45 @@
   </section>
 
   <!-- Project Categories Overview -->
-  <section class="py-16 bg-white dark:bg-gray-800">
+  <section class="py-16 bg-white dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">Project Categories</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold text-slate-950 dark:text-slate-50 mb-4">Project Categories</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-teal-500 to-amber-300 rounded-full mx-auto mb-4"></div>
+        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
           Projects organized by focus area and technology stack
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center bg-green-50 dark:bg-green-900/20 rounded-2xl p-8">
+        <div class="text-center bg-slate-950 rounded-xl p-8 border border-slate-800 border-t-4 border-t-teal-300">
           <div
-            class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6"
+            class="w-14 h-14 bg-teal-300/15 rounded-lg flex items-center justify-center mx-auto mb-6 border border-teal-300/30"
           >
-            <ng-icon name="heroCodeBracket" size="1.5rem" class="text-white"></ng-icon>
+            <ng-icon name="heroCodeBracket" size="1.5rem" color="rgb(153 246 228)"></ng-icon>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Open Source</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Active contributions to the Nix ecosystem and other open source projects
-          </p>
+          <h3 class="text-xl font-bold text-white mb-3">Open Source</h3>
+          <p class="text-slate-300">Active contributions to the Nix ecosystem and other open source projects</p>
         </div>
 
-        <div class="text-center bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-8">
+        <div class="text-center bg-slate-950 rounded-xl p-8 border border-slate-800 border-t-4 border-t-amber-300">
           <div
-            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6"
+            class="w-14 h-14 bg-amber-300/15 rounded-lg flex items-center justify-center mx-auto mb-6 border border-amber-300/30"
           >
-            <ng-icon name="heroGlobeAlt" size="1.5rem" class="text-white"></ng-icon>
+            <ng-icon name="heroGlobeAlt" size="1.5rem" color="rgb(252 211 77)"></ng-icon>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Web Applications</h3>
-          <p class="text-gray-600 dark:text-gray-300">Full-stack web applications and portfolio sites</p>
+          <h3 class="text-xl font-bold text-white mb-3">Web Applications</h3>
+          <p class="text-slate-300">Full-stack web applications and portfolio sites</p>
         </div>
 
-        <div class="text-center bg-purple-50 dark:bg-purple-900/20 rounded-2xl p-8">
+        <div class="text-center bg-slate-950 rounded-xl p-8 border border-slate-800 border-t-4 border-t-sky-300">
           <div
-            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6"
+            class="w-14 h-14 bg-sky-300/15 rounded-lg flex items-center justify-center mx-auto mb-6 border border-sky-300/30"
           >
-            <ng-icon name="heroWrench" size="1.5rem" class="text-white"></ng-icon>
+            <ng-icon name="heroWrench" size="1.5rem" color="rgb(125 211 252)"></ng-icon>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Development Tools</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Utilities, automation scripts, and development environment configurations
-          </p>
+          <h3 class="text-xl font-bold text-white mb-3">Development Tools</h3>
+          <p class="text-slate-300">Utilities, automation scripts, and development environment configurations</p>
         </div>
       </div>
     </div>

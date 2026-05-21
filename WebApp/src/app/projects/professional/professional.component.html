@@ -1,5 +1,5 @@
 <!-- Professional Projects Page -->
-<main class="min-h-screen bg-gray-50 dark:bg-gray-900 pt-16">
+<main class="min-h-screen bg-[#f7f3ea] dark:bg-slate-950 pt-16">
   <!-- Hero Section -->
   <app-hero-section
     [title]="heroTitle"
@@ -7,16 +7,16 @@
     variant="gradient"
     size="lg"
     alignment="center"
-    backgroundGradient="from-blue-600 via-indigo-600 to-purple-600"
+    backgroundGradient="from-slate-950 via-teal-950 to-slate-900"
     minHeight="min-h-auto"
     textColor="light"
     [showContentSlot]="true"
   >
-    <app-projects-breadcrumb currentSection="Professional" textColor="text-blue-200"></app-projects-breadcrumb>
+    <app-projects-breadcrumb currentSection="Professional" textColor="text-teal-100"></app-projects-breadcrumb>
   </app-hero-section>
 
   <!-- Professional Projects Grid -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-900">
+  <section class="py-20 bg-[#f7f3ea] dark:bg-slate-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <app-professional-projects-grid
         [projects]="professionalProjects"
@@ -26,62 +26,71 @@
   </section>
 
   <!-- Professional Highlights -->
-  <section class="py-16 bg-white dark:bg-gray-800">
+  <section class="py-16 bg-white dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">Professional Highlights</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold text-slate-950 dark:text-slate-50 mb-4">Professional Highlights</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-teal-500 to-amber-300 rounded-full mx-auto mb-4"></div>
+        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
           Key metrics and achievements across all professional project engagements
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="text-center">
+        <div
+          class="text-center rounded-xl border border-stone-200 border-t-4 border-t-teal-500 bg-stone-50 p-6 dark:border-slate-700 dark:border-t-teal-300 dark:bg-slate-950"
+        >
           <div
-            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-14 h-14 bg-teal-500/10 rounded-lg flex items-center justify-center mx-auto mb-4 border border-teal-500/25 dark:bg-teal-300/15 dark:border-teal-300/30"
           >
-            <ng-icon name="heroBriefcase" size="1.5rem" class="text-white"></ng-icon>
+            <ng-icon name="heroBriefcase" size="1.5rem" color="rgb(15 118 110)"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <div class="text-3xl font-bold text-slate-950 dark:text-slate-50 mb-2">
             {{ portfolioStats().totalProjects }}+
           </div>
-          <div class="text-gray-600 dark:text-gray-300">Total Projects</div>
+          <div class="text-slate-600 dark:text-slate-300">Total Projects</div>
         </div>
 
-        <div class="text-center">
+        <div
+          class="text-center rounded-xl border border-stone-200 border-t-4 border-t-amber-400 bg-stone-50 p-6 dark:border-slate-700 dark:border-t-amber-300 dark:bg-slate-950"
+        >
           <div
-            class="w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-14 h-14 bg-amber-400/15 rounded-lg flex items-center justify-center mx-auto mb-4 border border-amber-400/30"
           >
-            <ng-icon name="heroBuildingOffice" size="1.5rem" class="text-white"></ng-icon>
+            <ng-icon name="heroBuildingOffice" size="1.5rem" color="rgb(180 83 9)"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <div class="text-3xl font-bold text-slate-950 dark:text-slate-50 mb-2">
             {{ portfolioStats().totalCompanies }}
           </div>
-          <div class="text-gray-600 dark:text-gray-300">Companies</div>
+          <div class="text-slate-600 dark:text-slate-300">Companies</div>
         </div>
 
-        <div class="text-center">
+        <div
+          class="text-center rounded-xl border border-stone-200 border-t-4 border-t-sky-400 bg-stone-50 p-6 dark:border-slate-700 dark:border-t-sky-300 dark:bg-slate-950"
+        >
           <div
-            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-14 h-14 bg-sky-400/15 rounded-lg flex items-center justify-center mx-auto mb-4 border border-sky-400/30"
           >
-            <ng-icon name="heroBeaker" size="1.5rem" class="text-white"></ng-icon>
+            <ng-icon name="heroBeaker" size="1.5rem" color="rgb(3 105 161)"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <div class="text-3xl font-bold text-slate-950 dark:text-slate-50 mb-2">
             {{ portfolioStats().totalTechnologies }}+
           </div>
-          <div class="text-gray-600 dark:text-gray-300">Technologies</div>
+          <div class="text-slate-600 dark:text-slate-300">Technologies</div>
         </div>
 
-        <div class="text-center">
+        <div
+          class="text-center rounded-xl border border-stone-200 border-t-4 border-t-rose-400 bg-stone-50 p-6 dark:border-slate-700 dark:border-t-rose-300 dark:bg-slate-950"
+        >
           <div
-            class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-14 h-14 bg-rose-400/15 rounded-lg flex items-center justify-center mx-auto mb-4 border border-rose-400/30"
           >
-            <ng-icon name="heroChartBarSquare" size="1.5rem" class="text-white"></ng-icon>
+            <ng-icon name="heroChartBarSquare" size="1.5rem" color="rgb(190 18 60)"></ng-icon>
           </div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <div class="text-3xl font-bold text-slate-950 dark:text-slate-50 mb-2">
             {{ portfolioStats().yearsExperience }}+
           </div>
-          <div class="text-gray-600 dark:text-gray-300">Years Experience</div>
+          <div class="text-slate-600 dark:text-slate-300">Years Experience</div>
         </div>
       </div>
     </div>
