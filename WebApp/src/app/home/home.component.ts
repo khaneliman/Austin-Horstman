@@ -79,8 +79,8 @@ export class HomeComponent {
     {
       size: 'w-48-h-48',
       position: 'top-40 right-20',
-      color: 'purple-300',
-      opacity: 20,
+      color: 'teal-300',
+      opacity: 15,
       blur: '2xl',
       animate: true,
       delay: 1000,
@@ -88,8 +88,8 @@ export class HomeComponent {
     {
       size: 'xl',
       position: 'bottom-40 left-1/4',
-      color: 'blue-300',
-      opacity: 20,
+      color: 'amber-200',
+      opacity: 12,
       blur: 'xl',
       animate: true,
       delay: 500,

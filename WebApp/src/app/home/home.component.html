@@ -1,5 +1,5 @@
 <!-- Modern Hero Section -->
-<main class="min-h-screen relative">
+<main class="min-h-screen relative bg-[#f7f3ea] dark:bg-slate-950">
   <!-- Hero Section with HeroSectionComponent -->
   <app-hero-section
     [title]="heroTitle"
@@ -9,7 +9,7 @@
     size="xl"
     alignment="left"
     layout="split"
-    backgroundGradient="from-blue-600 to-purple-600"
+    backgroundGradient="from-slate-950 via-slate-900 to-teal-950"
     [backgroundElements]="backgroundElements"
     [showUnderline]="true"
     [showRightContent]="true"
@@ -20,28 +20,30 @@
     <div slot="right" class="flex justify-center lg:justify-end">
       <div class="relative">
         <!-- Decorative elements -->
-        <div class="absolute -inset-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur-lg opacity-30"></div>
+        <div class="absolute -inset-4 rounded-xl bg-teal-400/20 blur-2xl"></div>
 
         <!-- Main image container -->
-        <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
+        <div
+          class="relative rounded-xl border border-white/15 bg-white/8 p-6 shadow-2xl shadow-black/30 backdrop-blur-sm"
+        >
           <img
             src="./assets/img/theme/promo-1.png"
-            class="w-full max-w-md h-auto object-contain filter drop-shadow-2xl"
+            class="w-full max-w-md h-auto object-contain drop-shadow-2xl"
             alt="Austin Horstman - Professional Software Engineer"
           />
         </div>
 
         <!-- Floating icons -->
         <div
-          class="absolute -top-4 -right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
+          class="absolute -top-4 -right-4 w-14 h-14 bg-teal-500 rounded-lg flex items-center justify-center shadow-lg"
         >
           <ng-icon name="heroCodeBracket" color="white" size="24"></ng-icon>
         </div>
 
         <div
-          class="absolute -bottom-4 -left-4 w-14 h-14 bg-purple-500 rounded-full flex items-center justify-center shadow-lg"
+          class="absolute -bottom-4 -left-4 w-12 h-12 bg-amber-300 text-slate-950 rounded-lg flex items-center justify-center shadow-lg"
         >
-          <ng-icon name="heroComputerDesktop" color="white" size="20"></ng-icon>
+          <ng-icon name="heroComputerDesktop" size="20"></ng-icon>
         </div>
       </div>
     </div>
@@ -50,7 +52,7 @@
     <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
       @for (skill of topSkills; track skill) {
         <span
-          class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/20"
+          class="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium backdrop-blur-sm border border-white/15"
         >
           {{ skill }}
         </span>
@@ -64,18 +66,18 @@
       waveStyle="wave"
       direction="bottom"
       height="lg"
-      color="white"
-      darkColor="rgb(17 24 39)"
+      color="rgb(247 243 234)"
+      darkColor="rgb(15 23 42)"
       [flip]="true"
     ></app-wave-separator>
   </div>
 
   <!-- Features section (replacing the commented section) -->
-  <section class="py-20 bg-white dark:bg-gray-900">
+  <section class="py-20 bg-[#f7f3ea] dark:bg-slate-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">What I Bring</h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold text-slate-950 dark:text-slate-50 mb-4">What I Bring</h2>
+        <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
           Combining technical expertise with practical problem-solving to deliver exceptional software solutions.
         </p>
       </div>
@@ -86,7 +88,7 @@
             [feature]="feature"
             variant="highlighted"
             size="lg"
-            [colorTheme]="i === 0 ? 'blue' : i === 1 ? 'green' : 'purple'"
+            [colorTheme]="i === 0 ? 'teal' : i === 1 ? 'emerald' : 'amber'"
             [hover]="true"
           >
           </app-enhanced-feature-card>
