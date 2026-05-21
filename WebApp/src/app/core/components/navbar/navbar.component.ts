@@ -93,43 +93,44 @@ export class NavbarComponent implements OnInit {
   }
 
   getDesktopLinkClasses(route: string, exact = false): string {
-    const base = 'px-3 py-2 text-lg font-medium transition-colors duration-200 rounded-lg';
-    const active = 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800';
-    const inactive = 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400';
+    const base = 'px-3 py-2 text-sm font-semibold tracking-tight transition-colors duration-200 rounded-lg';
+    const active = 'text-teal-900 dark:text-teal-200 bg-teal-100/70 dark:bg-teal-950/60';
+    const inactive = 'text-slate-700 dark:text-slate-300 hover:text-teal-900 dark:hover:text-teal-200';
 
     return `${base} ${this.isRouteActive(route, exact) ? active : inactive}`;
   }
 
   getDesktopDropdownButtonClasses(route: string): string {
-    const base = 'px-3 py-2 text-lg font-medium flex items-center space-x-1 transition-colors duration-200 rounded-lg';
-    const active = 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800';
-    const inactive = 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400';
+    const base =
+      'px-3 py-2 text-sm font-semibold tracking-tight flex items-center space-x-1 transition-colors duration-200 rounded-lg';
+    const active = 'text-teal-900 dark:text-teal-200 bg-teal-100/70 dark:bg-teal-950/60';
+    const inactive = 'text-slate-700 dark:text-slate-300 hover:text-teal-900 dark:hover:text-teal-200';
 
     return `${base} ${this.isRouteActive(route) ? active : inactive}`;
   }
 
   getDropdownLinkClasses(route: string, exact = false, emphasized = false): string {
     const base = `block px-4 py-2 transition-colors duration-150 ${emphasized ? 'font-medium' : ''}`;
-    const active = 'bg-blue-50 text-blue-600 dark:bg-gray-700 dark:text-blue-400';
+    const active = 'bg-teal-50 text-teal-900 dark:bg-teal-950/60 dark:text-teal-200';
     const inactive =
-      'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400';
+      'text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-900 dark:hover:text-teal-200';
 
     return `${base} ${this.isRouteActive(route, exact) ? active : inactive}`;
   }
 
   getMobileLinkClasses(route: string, exact = false, nested = false, emphasized = false): string {
     const base = `block py-2 transition-colors duration-150 ${nested ? 'px-8' : 'px-4'} ${emphasized ? 'font-medium' : ''}`;
-    const active = 'bg-blue-50 text-blue-600 dark:bg-gray-700 dark:text-blue-400';
+    const active = 'bg-teal-50 text-teal-900 dark:bg-teal-950/60 dark:text-teal-200';
     const inactive =
-      'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400';
+      'text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-900 dark:hover:text-teal-200';
 
     return `${base} ${this.isRouteActive(route, exact) ? active : inactive}`;
   }
 
   getMobileSectionLabelClasses(route: string): string {
-    const base = 'px-4 py-2 text-sm font-medium';
-    const active = 'text-blue-600 dark:text-blue-400';
-    const inactive = 'text-gray-500 dark:text-gray-400';
+    const base = 'px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]';
+    const active = 'text-teal-900 dark:text-teal-200';
+    const inactive = 'text-slate-500 dark:text-slate-400';
 
     return `${base} ${this.isRouteActive(route) ? active : inactive}`;
   }
