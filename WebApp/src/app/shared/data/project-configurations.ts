@@ -703,82 +703,94 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     hoverColor: 'blue',
 
     // Content
-    title: 'MuleSoft Migrator Platform',
+    title: 'SECURA MuleSoft-to-.NET Migration',
     description:
-      'Comprehensive enterprise migration analysis platform for converting MuleSoft legacy systems to modern .NET applications',
+      'LLM-assisted enterprise modernization that migrated SECURA Insurance MuleSoft systems to custom .NET APIs with feature parity, documentation, and automated tests',
     technologies: [
-      { name: 'React Router 7', color: 'emerald' },
-      { name: 'TypeScript', color: 'teal' },
-      { name: 'LangGraph', color: 'cyan' },
-      { name: 'Claude 4 Sonnet', color: 'blue' },
-      { name: 'OpenAI o3 & o4-mini', color: 'violet' },
-      { name: 'PostgreSQL', color: 'indigo' },
-      { name: 'Tailwind CSS', color: 'purple' },
-      { name: 'Node.js', color: 'green' },
-      { name: 'Zod Validation', color: 'yellow' },
+      { name: '.NET APIs', color: 'emerald' },
+      { name: 'MuleSoft', color: 'teal' },
+      { name: 'TypeScript SDKs', color: 'cyan' },
+      { name: 'Prompt Engineering', color: 'blue' },
+      { name: 'o4-mini', color: 'violet' },
+      { name: 'LLM Agents', color: 'cyan' },
+      { name: 'Claude Code', color: 'orange' },
+      { name: 'Codex CLI', color: 'green' },
+      { name: 'MCP Servers', color: 'blue' },
+      { name: 'Agent Skills', color: 'violet' },
+      { name: 'Custom Prompts', color: 'indigo' },
+      { name: 'Unit Testing', color: 'purple' },
+      { name: 'Claude Sonnet 3.7-4.5', color: 'blue' },
+      { name: 'GPT-5.3 Codex', color: 'violet' },
+      { name: 'GPT-5.4', color: 'indigo' },
+    ],
+    quickStats: [
+      { label: 'Delivery Time', value: '11mo', icon: 'heroClock' },
+      { label: 'Original Estimate', value: '3-4yr', icon: 'heroCalendarDays' },
+      { label: 'License Savings', value: '$500K+/yr', icon: 'heroBanknotes' },
+      { label: 'Parity Target', value: '100%', icon: 'heroCheckCircle' },
     ],
     overview: {
       title: 'Project Overview',
       content:
-        "Developed for Secura Insurance's mainframe modernization initiative, this comprehensive migration analysis platform helps enterprises systematically convert legacy MuleSoft infrastructure to modern .NET applications. The tool uses AI-powered analysis to understand existing MuleSoft projects and generates detailed migration strategies and .NET implementation guidance.",
+        'For SECURA Insurance, I led and built an agent-assisted modernization workflow that migrated legacy MuleSoft services into custom .NET APIs. The project combined deep legacy analysis, generated system documentation, feature-parity implementation, and a new automated unit test foundation so the team could replace the MuleSoft runtime with maintainable internal services.',
       icon: 'heroComputerDesktop',
     },
     features: [
       {
-        title: 'Automated MuleSoft Analysis',
-        description: 'AI-powered analysis of MuleSoft projects with dependency mapping',
+        title: 'Agentic Legacy Analysis',
+        description: 'LLM agents analyzed MuleSoft flows, dependencies, payload contracts, and integration behavior',
         icon: 'heroDocumentArrowUp',
       },
       {
-        title: 'Migration Planning',
-        description: '.NET architecture recommendations and code generation',
+        title: 'Feature-Parity .NET APIs',
+        description: 'Migrated legacy integration behavior into custom .NET APIs with explicit parity tracking',
         icon: 'heroArrowPathRoundedSquare',
       },
       {
-        title: 'Legacy System Inventory',
-        description: 'Comprehensive endpoint inventory and modernization strategies',
+        title: 'MCP Migration Tooling',
+        description: 'Built MCP servers, skills, and commands to automate repository inspection and migration work',
         icon: 'heroRectangleStack',
       },
       {
-        title: 'Progress Tracking',
-        description: 'Interactive migration tracking and progress monitoring',
+        title: 'New Regression Safety Net',
+        description: 'Added unit tests around migrated behavior where the legacy system had no equivalent coverage',
         icon: 'heroChartBarSquare',
       },
     ],
     technicalDetails: [
       {
-        title: 'AI-Powered Analysis Engine',
+        title: 'Agentic Migration System',
         content:
-          'Built with LangGraph workflows using Claude 4 Sonnet and OpenAI o3/o4-mini models for sophisticated MuleSoft project understanding. Features automated analysis of MuleSoft XML configurations, flows, and DataWeave transformations. Identifies global systems, properties, and inter-project relationships. Generates AI-powered summaries of business logic, error handling, and data transformations.',
+          'Started with a custom TypeScript application using the model SDKs, o4-mini, and prompt orchestration available at the beginning of 2025, then migrated the workflow into Claude Code and Codex CLI as the tooling matured. Created LLM agents, reusable skills, custom prompts, commands, and MCP servers that could inspect MuleSoft repositories, summarize flows, identify dependencies, map data transformations, and produce implementation guidance.',
         icon: 'heroCog6Tooth',
       },
       {
-        title: 'Migration Strategy Generation',
+        title: '.NET API Migration',
         content:
-          'Comprehensive .NET migration planning with architectural guidance and implementation patterns. Maps MuleSoft HTTP listeners to .NET Core controllers with proper routing. Converts database connectors to repository patterns using Dapper. Transforms flows and sub-flows into service classes with dependency injection. Migrates properties to appsettings.json and secure configuration patterns.',
+          'Translated MuleSoft HTTP listeners, flows, sub-flows, connector behavior, and error handling into custom .NET APIs with clear service boundaries. The migration preserved externally visible behavior while replacing MuleSoft-specific runtime concerns with maintainable .NET implementation patterns.',
         icon: 'heroArrowPathRoundedSquare',
       },
       {
-        title: 'Full-Stack Platform',
+        title: 'Documentation and Test Coverage',
         content:
-          'React Router 7 application with PostgreSQL backend for comprehensive migration management. Interactive dashboard for project analysis, migration tracking, and code generation. Structured storage of MuleSoft artifacts, flows, properties, and migration progress. Direct repository ingestion and source code linking for development teams.',
+          'Produced full analysis documentation explaining how the legacy systems worked before migration, including endpoint behavior, orchestration logic, data transformations, dependencies, and operational assumptions. Added unit tests for the new APIs to create regression coverage the original MuleSoft implementation did not have.',
         icon: 'heroComputerDesktop',
       },
     ],
     specialSections: [
       {
-        title: 'Migration Workflow',
+        title: 'Model and Workflow Evolution',
         content:
-          'The platform follows a three-phase approach: Analysis phase with automated ingestion and AI-powered analysis of existing MuleSoft projects, Planning phase that generates comprehensive .NET architecture recommendations and migration strategies, and Implementation phase with guided .NET code generation and migration execution with progress tracking.',
+          'The project followed the 2025 model lifecycle from early o4-mini and Claude Sonnet 3.7 usage to Claude Sonnet 4.5, then shifted into GPT-5.3 Codex and GPT-5.4 as those became stronger for repository-scale implementation. The team used a repeatable analyze, document, implement, and verify loop where agents performed legacy discovery, engineers reviewed the findings, .NET APIs were implemented against documented behavior, and tests verified feature parity before rollout.',
         icon: 'heroBeaker',
         type: 'text',
       },
     ],
     impact:
-      'Accelerated enterprise modernization timeline, reduced migration risk through comprehensive analysis, standardized .NET architectural patterns, and enhanced maintainability and scalability.',
+      'Delivered an effort estimated at 3-4 years in 11 months, retired MuleSoft licensing exposure worth roughly $500K+ per year, reduced migration risk through documented legacy behavior, and left SECURA Insurance with custom .NET APIs backed by automated tests.',
 
     // Layout Options
-    showQuickStats: false,
+    showQuickStats: true,
     showTechnicalHighlights: true,
     showImpactSection: true,
     gridColumns: 'single',

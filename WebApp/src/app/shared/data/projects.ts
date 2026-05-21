@@ -189,11 +189,12 @@ const PROJECT_DETAILS = {
     technologies: ['React', 'Remix', 'TypeScript', 'Azure OpenAI', 'PDF Processing', 'Zod Validation'],
   },
   'mulesoft-migrator': {
-    description: 'Enterprise migration analysis platform for converting MuleSoft projects to .NET applications',
+    description:
+      'LLM-assisted SECURA Insurance modernization that migrated MuleSoft systems to custom .NET APIs with feature parity, documentation, and new unit test coverage',
     icon: 'heroArrowPathRoundedSquare',
     color: 'from-emerald-600 to-teal-700',
     status: 'Production' as const,
-    technologies: ['React Router 7', 'TypeScript', 'LangGraph', 'Claude 4 Sonnet', 'OpenAI o3 & o4-mini', 'PostgreSQL'],
+    technologies: ['.NET APIs', 'MuleSoft', 'o4-mini', 'Claude Code', 'Codex CLI', 'MCP Servers'],
   },
 } as const;
 
