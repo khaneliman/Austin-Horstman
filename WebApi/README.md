@@ -24,7 +24,7 @@
   
   *Steps required to install project and how to get the development environment running:*
   
-  You must have the [.NET](https://dotnet.microsoft.com/download/) SDK installed. [.NET](https://dotnet.microsoft.com/download/) 5 is recommended.
+  You must have the [.NET](https://dotnet.microsoft.com/download/) SDK installed. [.NET](https://dotnet.microsoft.com/download/) 10 is recommended.
 
   If this is your first time with dotnet development locally. You must trust the local https development certificates.
 

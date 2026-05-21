@@ -29,7 +29,7 @@
 ### Prerequisites
   
 - **Bun**: Install [Bun](https://bun.sh/) runtime and package manager
-- **.NET SDK**: [.NET](https://dotnet.microsoft.com/download/) 6+ is required for the backend API
+- **.NET SDK**: [.NET](https://dotnet.microsoft.com/download/) 10+ is required for the backend API
 - **Docker** (optional): For containerized deployment
 
 ### Frontend Setup (Angular WebApp)

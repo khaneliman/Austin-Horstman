@@ -32,7 +32,7 @@
               prettier
 
               # .NET development
-              dotnet-sdk
+              dotnet-sdk_10
             ];
 
             shellHook = ''
