@@ -63,15 +63,6 @@ export class ContactComponent {
       animate: true,
       delay: 700,
     },
-    {
-      size: 'sm',
-      position: 'center',
-      color: 'amber-300',
-      opacity: 15,
-      blur: 'md',
-      animate: true,
-      delay: 1000,
-    },
   ];
 
   constructor() {
