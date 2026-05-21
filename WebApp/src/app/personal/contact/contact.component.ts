@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -19,7 +20,7 @@ import { getPersonalSkills, PersonalSkill } from '../../shared/data/skills';
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  imports: [NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],
+  imports: [NgClass, NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],
   providers: [
     provideIcons({
       heroAcademicCap,
@@ -56,7 +57,7 @@ export class ContactComponent {
     {
       size: 'md',
       position: 'bottom-left',
-      color: 'blue-300',
+      color: 'teal-300',
       opacity: 20,
       blur: 'lg',
       animate: true,
@@ -65,7 +66,7 @@ export class ContactComponent {
     {
       size: 'sm',
       position: 'center',
-      color: 'purple-300',
+      color: 'amber-300',
       opacity: 15,
       blur: 'md',
       animate: true,
