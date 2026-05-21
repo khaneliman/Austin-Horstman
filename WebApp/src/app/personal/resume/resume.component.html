@@ -280,57 +280,57 @@
 </section>
 <!-- Projects Section -->
 <section
-  class="relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 py-20 overflow-hidden"
+  class="relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 py-16 overflow-hidden"
 >
   <!-- Animated background elements -->
   <app-decorative-background [elements]="projectsBackgroundElements"></app-decorative-background>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <div class="flex items-center justify-center mb-8">
+    <div class="text-center mb-10">
+      <div class="flex items-center justify-center mb-6">
         <div
-          class="w-20 h-20 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center shadow-2xl"
+          class="w-14 h-14 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center shadow-xl"
         >
-          <ng-icon name="heroRectangleStack" size="2rem" class="text-white"></ng-icon>
+          <ng-icon name="heroRectangleStack" size="1.5rem" class="text-white"></ng-icon>
         </div>
       </div>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">Projects</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Selected Projects</h2>
       <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mx-auto"></div>
     </div>
 
     <!-- Projects Stats -->
-    <div class="text-center mb-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
         <div
-          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
+          class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
         >
-          <div class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+          <div class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
             {{ portfolioStats.totalProjects }}
           </div>
-          <div class="text-gray-600 dark:text-gray-300 font-medium">Total Projects</div>
+          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Total Projects</div>
         </div>
         <div
-          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
+          class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
         >
-          <div class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+          <div class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
             {{ portfolioStats.totalCompanies }}
           </div>
-          <div class="text-gray-600 dark:text-gray-300 font-medium">Companies</div>
+          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Companies</div>
         </div>
         <div
-          class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
+          class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
         >
-          <div class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+          <div class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
             {{ portfolioStats.totalTechnologies }}+
           </div>
-          <div class="text-gray-600 dark:text-gray-300 font-medium">Technologies</div>
+          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Technologies</div>
         </div>
       </div>
     </div>
 
     <!-- Featured Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (project of featuredProjects; track project.route) {
         <app-floating-card
           [title]="project.title"
@@ -345,13 +345,13 @@
     </div>
 
     <!-- Personal & Open Source Projects -->
-    <div class="mt-20">
-      <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">Personal & Open Source</h3>
+    <div class="mt-16">
+      <div class="text-center mb-10">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">Personal & Open Source</h3>
         <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full mx-auto"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @for (project of personalProjects; track project.route) {
           <app-floating-card
             [title]="project.name"
@@ -368,27 +368,29 @@
     </div>
 
     <!-- View All Projects CTA -->
-    <div class="text-center mt-16">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 text-white">
-          <h3 class="text-2xl font-bold mb-4">Professional Portfolio</h3>
-          <p class="text-purple-100 mb-6">
+    <div class="text-center mt-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-6 text-white">
+          <h3 class="text-xl font-bold mb-3">Professional Portfolio</h3>
+          <p class="text-sm text-purple-100 mb-5">
             Explore enterprise projects and technical implementations from my professional career.
           </p>
           <a
             routerLink="/projects/professional"
-            class="px-6 py-3 bg-white text-purple-600 rounded-xl hover:bg-gray-100 transition-colors font-semibold"
+            class="inline-flex px-5 py-2.5 bg-white text-purple-600 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
           >
             View Professional →
           </a>
         </div>
 
-        <div class="bg-gradient-to-r from-indigo-600 to-green-600 rounded-3xl p-8 text-white">
-          <h3 class="text-2xl font-bold mb-4">Personal Projects</h3>
-          <p class="text-indigo-100 mb-6">Discover open source contributions and personal development projects.</p>
+        <div class="bg-gradient-to-r from-indigo-600 to-green-600 rounded-2xl p-6 text-white">
+          <h3 class="text-xl font-bold mb-3">Personal Projects</h3>
+          <p class="text-sm text-indigo-100 mb-5">
+            Discover open source contributions and personal development projects.
+          </p>
           <a
             routerLink="/projects/personal"
-            class="px-6 py-3 bg-white text-indigo-600 rounded-xl hover:bg-gray-100 transition-colors font-semibold"
+            class="inline-flex px-5 py-2.5 bg-white text-indigo-600 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
           >
             View Personal →
           </a>
@@ -398,28 +400,28 @@
   </div>
 </section>
 <!-- Technology Summary Section -->
-<section class="relative bg-gradient-to-br from-slate-900 to-gray-900 py-20 overflow-hidden">
+<section class="relative bg-gradient-to-br from-slate-900 to-gray-900 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="technologyBackgroundElements"></app-decorative-background>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <div class="flex items-center justify-center mb-8">
+    <div class="text-center mb-10">
+      <div class="flex items-center justify-center mb-6">
         <div
-          class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl"
+          class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl"
         >
-          <ng-icon name="heroCog6Tooth" size="2rem" class="text-white"></ng-icon>
+          <ng-icon name="heroCog6Tooth" size="1.5rem" class="text-white"></ng-icon>
         </div>
       </div>
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Technology Summary</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Technology Summary</h2>
       <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
     </div>
 
     <!-- Technology Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
       <!-- Proficient Technologies -->
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
         <div class="flex items-center mb-6">
           <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg mr-4">
             <ng-icon name="heroStar" size="1.125rem" class="text-white"></ng-icon>
@@ -429,7 +431,7 @@
         <div class="space-y-4">
           @for (tech of proficientTechnologies; track tech.name; let last = $last) {
             <div class="flex items-center justify-between py-2" [ngClass]="!last ? 'border-b border-white/10' : ''">
-              <span class="text-lg text-gray-200 font-medium">{{ tech.name }}</span>
+              <span class="text-base text-gray-200 font-medium">{{ tech.name }}</span>
               <div class="flex space-x-1 star-rating">
                 @for (star of [1, 2, 3, 4, 5]; track star) {
                   <ng-icon
@@ -445,9 +447,9 @@
       </div>
 
       <!-- Learning & Interested Technologies -->
-      <div class="space-y-8">
+      <div class="space-y-6">
         <!-- Learned -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
           <div class="flex items-center mb-6">
             <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center shadow-lg mr-4">
               <ng-icon name="heroAcademicCap" size="1.125rem" class="text-white"></ng-icon>
@@ -457,7 +459,7 @@
           <div class="space-y-4">
             @for (tech of learnedTechnologies; track tech.name; let last = $last) {
               <div class="flex items-center justify-between py-2" [ngClass]="!last ? 'border-b border-white/10' : ''">
-                <span class="text-lg text-gray-200 font-medium">{{ tech.name }}</span>
+                <span class="text-base text-gray-200 font-medium">{{ tech.name }}</span>
                 <div class="flex space-x-1 star-rating">
                   @for (star of [1, 2, 3, 4, 5]; track star) {
                     <ng-icon
@@ -473,7 +475,7 @@
         </div>
 
         <!-- Interested -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
           <div class="flex items-center mb-6">
             <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg mr-4">
               <ng-icon name="heroLightBulb" size="1.125rem" class="text-white"></ng-icon>
@@ -493,7 +495,7 @@
     </div>
 
     <!-- Skills visualization -->
-    <div class="mt-16 text-center">
+    <div class="mt-10 text-center">
       <div class="flex items-center justify-center space-x-8 text-gray-300">
         <div class="flex items-center space-x-2">
           <div class="w-4 h-4 bg-green-400 rounded-full"></div>
