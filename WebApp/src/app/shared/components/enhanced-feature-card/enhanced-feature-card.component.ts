@@ -65,17 +65,17 @@ export class EnhancedFeatureCardComponent {
         classes.push('rounded-xl', 'p-6');
         break;
       case 'lg':
-        classes.push('rounded-2xl', 'p-8');
+        classes.push('rounded-xl', 'p-8');
         break;
     }
 
     // Variant styling
     switch (this.variant()) {
       case 'default':
-        classes.push('bg-white', 'dark:bg-gray-800', 'border-gray-200', 'dark:border-gray-700', 'shadow-md');
+        classes.push('bg-white', 'dark:bg-slate-900', 'border-stone-200', 'dark:border-slate-700', 'shadow-sm');
         break;
       case 'highlighted':
-        classes.push('bg-white', 'dark:bg-gray-800', 'border-gray-200', 'dark:border-gray-700', 'shadow-lg');
+        classes.push('bg-white', 'dark:bg-slate-900', 'border-stone-200', 'dark:border-slate-700', 'shadow-sm');
         break;
       case 'bordered':
         classes.push(
@@ -85,13 +85,13 @@ export class EnhancedFeatureCardComponent {
         );
         break;
       case 'minimal':
-        classes.push('bg-white', 'dark:bg-gray-800', 'border-gray-200', 'dark:border-gray-700', 'shadow-sm');
+        classes.push('bg-white', 'dark:bg-slate-900', 'border-stone-200', 'dark:border-slate-700', 'shadow-sm');
         break;
     }
 
     // Hover effects
     if (this.hover()) {
-      classes.push('hover:shadow-xl', 'hover:-translate-y-1');
+      classes.push('hover:shadow-lg', 'hover:-translate-y-0.5');
     }
 
     // Clickable cursor

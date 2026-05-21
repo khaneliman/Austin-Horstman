@@ -1,5 +1,5 @@
 <div
-  class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700 overflow-hidden my-5"
+  class="my-5 overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900"
 >
   <div class="p-6">
     <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
@@ -18,15 +18,15 @@
 
       <!-- Content section -->
       <div class="flex-1 min-w-0">
-        <h5 class="text-xl font-bold text-green-600 dark:text-green-400 mb-3 line-clamp-2">
+        <h5 class="text-xl font-bold text-teal-800 dark:text-teal-200 mb-3 line-clamp-2">
           {{ title() }}
         </h5>
         <div class="space-y-2">
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
             {{ description() }}
           </p>
           @if (superText()) {
-            <p class="text-sm text-gray-500 dark:text-gray-400 italic">
+            <p class="text-sm text-slate-500 dark:text-slate-400 italic">
               {{ superText() }}
             </p>
           }
@@ -34,7 +34,7 @@
         @if (link() && linkText()) {
           <a
             [routerLink]="link()"
-            class="inline-flex items-center mt-4 text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium transition-colors duration-200 group"
+            class="inline-flex items-center mt-4 text-teal-800 dark:text-teal-200 hover:text-teal-950 dark:hover:text-teal-100 font-medium transition-colors duration-200 group"
           >
             <span>{{ linkText() }}</span>
             <svg

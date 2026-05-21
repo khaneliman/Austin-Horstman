@@ -112,7 +112,7 @@ export class HeroSectionComponent {
     if (variantValue === 'gradient') {
       classes.push(`bg-gradient-to-br ${backgroundGradientValue}`);
     } else if (variantValue === 'minimal') {
-      classes.push('bg-gradient-to-br from-slate-50 to-blue-50');
+      classes.push('bg-[#f7f3ea] dark:bg-slate-950');
     } else if (variantValue === 'default') {
       classes.push(`bg-gradient-to-br ${backgroundGradientValue}`);
     }
@@ -130,7 +130,7 @@ export class HeroSectionComponent {
     const sizeValue = this.size();
 
     if (layoutValue === 'split') {
-      classes.push('grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12');
+      classes.push('grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16');
     } else {
       classes.push('flex justify-center');
     }
@@ -188,13 +188,13 @@ export class HeroSectionComponent {
     }
 
     // Typography and spacing
-    baseClasses.push('font-bold', 'leading-tight', 'mb-4');
+    baseClasses.push('font-bold', 'leading-[1.05]', 'mb-4', 'tracking-normal');
 
     // Color classes last
     if (textColorValue === 'light') {
       baseClasses.push('text-white');
     } else {
-      baseClasses.push('text-gray-900');
+      baseClasses.push('text-slate-950 dark:text-slate-50');
     }
 
     return baseClasses.join(' ');
@@ -224,9 +224,9 @@ export class HeroSectionComponent {
 
     // Color and constraints
     if (textColorValue === 'light') {
-      baseClasses.push('text-blue-100 max-w-2xl');
+      baseClasses.push('text-slate-100 max-w-2xl');
     } else {
-      baseClasses.push('text-gray-600 max-w-2xl');
+      baseClasses.push('text-slate-600 dark:text-slate-300 max-w-2xl');
     }
 
     if (alignmentValue === 'center') {
@@ -241,9 +241,9 @@ export class HeroSectionComponent {
     const textColorValue = this.textColor();
 
     if (textColorValue === 'light') {
-      classes.push('bg-white/20 text-white backdrop-blur-sm border border-white/20');
+      classes.push('bg-white/15 text-white backdrop-blur-sm border border-white/20');
     } else {
-      classes.push('bg-blue-100 text-blue-800');
+      classes.push('bg-teal-100 text-teal-900 dark:bg-teal-950/60 dark:text-teal-200');
     }
 
     return classes.join(' ');
@@ -269,7 +269,7 @@ export class HeroSectionComponent {
     }
 
     // Height and background
-    classes.push('h-1', 'bg-gradient-to-r', 'from-green-400', 'to-green-600', 'rounded-full');
+    classes.push('h-1', 'bg-gradient-to-r', 'from-teal-300', 'to-amber-300', 'rounded-full');
 
     // Margin/positioning last
     if (alignmentValue === 'center') {
@@ -297,26 +297,30 @@ export class HeroSectionComponent {
   getButtonClasses(button: HeroButton): string {
     const baseClasses = [
       'inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 font-semibold rounded-lg',
-      'transition-all duration-200 hover:shadow-xl transform hover:-translate-y-1',
+      'transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5',
     ];
     const textColorValue = this.textColor();
 
     switch (button.variant) {
       case 'primary':
-        baseClasses.push('bg-green-500 hover:bg-green-600 text-white shadow-lg');
+        baseClasses.push('bg-teal-700 hover:bg-teal-800 text-white shadow-lg shadow-teal-950/20');
         break;
       case 'secondary':
         if (textColorValue === 'light') {
           baseClasses.push('bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40');
         } else {
-          baseClasses.push('bg-blue-500 hover:bg-blue-600 text-white shadow-lg');
+          baseClasses.push(
+            'bg-slate-900 hover:bg-slate-800 text-white shadow-lg dark:bg-slate-100 dark:text-slate-950'
+          );
         }
         break;
       case 'outline':
         if (textColorValue === 'light') {
-          baseClasses.push('border-2 border-white text-white hover:bg-white hover:text-blue-600');
+          baseClasses.push('border-2 border-white/70 text-white hover:bg-white hover:text-teal-900');
         } else {
-          baseClasses.push('border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white');
+          baseClasses.push(
+            'border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white dark:border-slate-100 dark:text-slate-100'
+          );
         }
         break;
     }
