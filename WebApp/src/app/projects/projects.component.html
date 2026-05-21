@@ -18,6 +18,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8">
         <h2 class="text-2xl font-semibold text-slate-950 dark:text-slate-50 mb-4">Quick Navigation</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto mb-4"></div>
         <p class="text-slate-600 dark:text-slate-300">
           Jump directly to specific company projects or explore by category
         </p>
@@ -25,7 +26,9 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <!-- Professional Work Card -->
-        <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-stone-200 dark:border-slate-700 shadow-sm">
+        <div
+          class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-stone-200 border-t-4 border-t-teal-500 dark:border-slate-700 dark:border-t-teal-300 shadow-sm"
+        >
           <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50 mb-3 flex items-center">
             <ng-icon name="heroBriefcase" size="1.25rem" class="text-teal-800 dark:text-teal-200 mr-3"></ng-icon>
             Professional Work
@@ -68,9 +71,11 @@
         </div>
 
         <!-- Personal Projects Card -->
-        <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-stone-200 dark:border-slate-700 shadow-sm">
+        <div
+          class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-stone-200 border-t-4 border-t-amber-400 dark:border-slate-700 dark:border-t-amber-300 shadow-sm"
+        >
           <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50 mb-3 flex items-center">
-            <ng-icon name="heroUser" size="1.25rem" class="text-teal-800 dark:text-teal-200 mr-3"></ng-icon>
+            <ng-icon name="heroUser" size="1.25rem" class="text-amber-700 dark:text-amber-200 mr-3"></ng-icon>
             Personal Projects
           </h3>
           <p class="text-slate-700 dark:text-slate-300 mb-4">Open source and personal development work</p>
@@ -105,6 +110,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-slate-950 dark:text-slate-50 mb-4">Professional Projects</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto mb-4"></div>
         <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
           Client work and enterprise solutions developed during my tenure at leading technology companies
         </p>
@@ -122,6 +128,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-slate-950 dark:text-slate-50 mb-4">Personal Projects</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto mb-4"></div>
         <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
           Independent development projects showcasing creativity, learning, and technical exploration
         </p>
@@ -134,14 +141,28 @@
       ></app-personal-projects-grid>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 mt-16">
-        @for (category of personalProjectCategories; track category.title) {
+        @for (category of personalProjectCategories; track category.title; let i = $index) {
           <div
-            class="bg-slate-950 dark:bg-slate-950 rounded-xl shadow-lg border border-slate-800 p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            class="bg-slate-950 dark:bg-slate-950 rounded-xl shadow-lg border border-slate-800 border-t-4 p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            [ngClass]="{
+              'border-t-teal-300': i === 0,
+              'border-t-amber-300': i === 1,
+              'border-t-sky-300': i === 2,
+            }"
           >
             <div
-              class="w-14 h-14 bg-teal-300/15 rounded-lg flex items-center justify-center mx-auto mb-6 border border-teal-300/30"
+              class="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6 border"
+              [ngClass]="{
+                'bg-teal-300/15 border-teal-300/30': i === 0,
+                'bg-amber-300/15 border-amber-300/30': i === 1,
+                'bg-sky-300/15 border-sky-300/30': i === 2,
+              }"
             >
-              <ng-icon [name]="category.icon" size="1.5rem" color="rgb(153 246 228)"></ng-icon>
+              <ng-icon
+                [name]="category.icon"
+                size="1.5rem"
+                [color]="i === 1 ? 'rgb(252 211 77)' : i === 2 ? 'rgb(125 211 252)' : 'rgb(153 246 228)'"
+              ></ng-icon>
             </div>
 
             <h3 class="text-xl font-bold text-white mb-3">
@@ -168,19 +189,19 @@
   <section class="py-16 bg-slate-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-        <div>
+        <div class="rounded-xl border border-slate-800 border-t-4 border-t-teal-300 bg-slate-900/60 p-6">
           <div class="text-4xl font-bold text-teal-200 mb-2">{{ portfolioStats().totalProjects }}+</div>
           <div class="text-slate-300">Total Projects</div>
         </div>
-        <div>
-          <div class="text-4xl font-bold text-teal-200 mb-2">{{ portfolioStats().totalCompanies }}</div>
+        <div class="rounded-xl border border-slate-800 border-t-4 border-t-amber-300 bg-slate-900/60 p-6">
+          <div class="text-4xl font-bold text-amber-200 mb-2">{{ portfolioStats().totalCompanies }}</div>
           <div class="text-slate-300">Companies</div>
         </div>
-        <div>
-          <div class="text-4xl font-bold text-teal-200 mb-2">{{ portfolioStats().totalTechnologies }}+</div>
+        <div class="rounded-xl border border-slate-800 border-t-4 border-t-sky-300 bg-slate-900/60 p-6">
+          <div class="text-4xl font-bold text-sky-200 mb-2">{{ portfolioStats().totalTechnologies }}+</div>
           <div class="text-slate-300">Technologies</div>
         </div>
-        <div>
+        <div class="rounded-xl border border-slate-800 border-t-4 border-t-teal-300 bg-slate-900/60 p-6">
           <div class="text-4xl font-bold text-teal-200 mb-2">{{ portfolioStats().yearsExperience }}+</div>
           <div class="text-slate-300">Years Experience</div>
         </div>
