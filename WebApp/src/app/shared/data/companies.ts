@@ -76,7 +76,6 @@ export const COMPANIES = {
       {
         companyId: 'nri-na',
         dateStart: '2025-04',
-        dateEnd: '2025-10',
         position: 'Senior Software Engineer',
       },
       {
