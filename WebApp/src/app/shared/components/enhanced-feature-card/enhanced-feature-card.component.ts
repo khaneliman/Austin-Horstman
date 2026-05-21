@@ -134,16 +134,21 @@ export class EnhancedFeatureCardComponent {
 
   get iconContainerClasses(): string {
     const classes = [
-      `bg-${this.colorTheme()}-100`,
-      `dark:bg-${this.colorTheme()}-800`,
-      'rounded-full',
+      'rounded-lg',
       'flex',
       'items-center',
       'justify-center',
+      'border',
+      'border-teal-300/30',
+      'bg-teal-300/10',
+      'text-teal-200',
+      'dark:border-teal-300/25',
+      'dark:bg-teal-300/10',
+      'dark:text-teal-200',
     ];
 
     if (this.iconPosition() === 'top') {
-      classes.push('mx-auto', 'mb-4');
+      classes.push('mb-8');
     }
 
     switch (this.size()) {
@@ -154,7 +159,7 @@ export class EnhancedFeatureCardComponent {
         classes.push('w-12', 'h-12');
         break;
       case 'lg':
-        classes.push('w-16', 'h-16');
+        classes.push('w-14', 'h-14');
         break;
     }
 
@@ -176,7 +181,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get titleClasses(): string {
-    const classes = ['font-bold', 'text-gray-900', 'dark:text-gray-100', 'mb-2'];
+    const classes = ['font-bold', 'text-slate-950', 'dark:text-slate-50', 'mb-4'];
 
     switch (this.size()) {
       case 'sm':
@@ -194,7 +199,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get descriptionClasses(): string {
-    const classes = ['text-gray-600', 'dark:text-gray-300', 'leading-relaxed'];
+    const classes = ['text-slate-600', 'dark:text-slate-300', 'leading-relaxed'];
 
     switch (this.size()) {
       case 'sm':
@@ -212,7 +217,7 @@ export class EnhancedFeatureCardComponent {
   }
 
   get badgeClasses(): string {
-    const classes = ['inline-block', 'px-3', 'py-1', 'text-xs', 'font-medium', 'rounded-full'];
+    const classes = ['inline-block', 'px-3', 'py-1', 'text-xs', 'font-semibold', 'rounded-full'];
 
     if (this.feature().image) {
       classes.push(
@@ -227,11 +232,13 @@ export class EnhancedFeatureCardComponent {
       );
     } else {
       classes.push(
-        `bg-${this.colorTheme()}-100`,
-        `dark:bg-${this.colorTheme()}-800`,
-        `text-${this.colorTheme()}-800`,
-        `dark:text-${this.colorTheme()}-200`,
-        'mb-2'
+        'mb-4',
+        'border',
+        'border-amber-300/30',
+        'bg-amber-300/10',
+        'text-amber-800',
+        'dark:text-amber-200',
+        'dark:border-amber-300/25'
       );
     }
 
@@ -257,9 +264,7 @@ export class EnhancedFeatureCardComponent {
     return classes.join(' ');
   }
 
-  get iconClasses(): string {
-    return `text-${this.colorTheme()}-600 dark:text-${this.colorTheme()}-400`;
-  }
+  readonly iconClasses = 'text-current';
 
   get isClickable(): boolean {
     return this.clickable() || !!this.feature().action || !!this.feature().href || !!this.feature().routerLink;
@@ -302,9 +307,9 @@ export class EnhancedFeatureCardComponent {
   }
 
   readonly footerSectionClasses =
-    'flex items-center justify-between mt-4 pt-4 border-t border-gray-100 dark:border-gray-700';
+    'flex items-center justify-between mt-6 pt-5 border-t border-stone-200 dark:border-slate-700';
 
-  readonly footerTextClasses = 'text-sm text-gray-500 dark:text-gray-400 font-medium';
+  readonly footerTextClasses = 'text-sm text-slate-500 dark:text-slate-400 font-medium';
 
   get actionIndicatorClasses(): string {
     return `w-6 h-6 rounded-full bg-${this.colorTheme()}-100 dark:bg-${this.colorTheme()}-800 text-${this.colorTheme()}-600 dark:text-${this.colorTheme()}-400 flex items-center justify-center`;
