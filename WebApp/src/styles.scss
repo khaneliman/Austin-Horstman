@@ -5,3 +5,51 @@
 @variant dark (&:where(.dark, .dark *));
 
 /* Custom global styles */
+:root {
+  color-scheme: light;
+  --color-paper: #f7f3ea;
+  --color-ink: #17212b;
+  --color-night: #0b1220;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 8%, rgb(15 118 110 / 0.12), transparent 26rem),
+    linear-gradient(180deg, var(--color-paper), #fffaf1 46%, #ffffff);
+  color: var(--color-ink);
+  font-family: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at 18% 8%, rgb(20 184 166 / 0.12), transparent 28rem),
+    linear-gradient(180deg, var(--color-night), #111827 54%, #0b1220);
+  color: #e5e7eb;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+button,
+.font-mono {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+::selection {
+  background: rgb(20 184 166 / 0.26);
+}
