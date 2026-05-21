@@ -198,6 +198,9 @@ export class CompanyProfileComponent implements AfterViewInit {
 
     // Check initial state
     this.updateChildRouteState();
+    setTimeout(() => {
+      this.checkAndScrollToProjectDetails();
+    }, 0);
 
     // Setup cleanup
     this.destroyRef.onDestroy(() => {
