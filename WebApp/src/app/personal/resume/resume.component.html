@@ -283,9 +283,7 @@
   ></app-wave-separator>
 </section>
 <!-- Projects Section -->
-<section
-  class="relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 py-16 overflow-hidden"
->
+<section class="relative bg-[#f7f3ea] dark:bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="projectsBackgroundElements"></app-decorative-background>
 
@@ -294,41 +292,35 @@
     <div class="text-center mb-10">
       <div class="flex items-center justify-center mb-6">
         <div
-          class="w-14 h-14 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center shadow-xl"
+          class="w-14 h-14 bg-teal-50 dark:bg-teal-950/50 rounded-xl flex items-center justify-center border border-teal-200 dark:border-teal-800 shadow-sm"
         >
-          <ng-icon name="heroRectangleStack" size="1.5rem" class="text-white"></ng-icon>
+          <ng-icon name="heroRectangleStack" size="1.5rem" class="text-teal-800 dark:text-teal-200"></ng-icon>
         </div>
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Selected Projects</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mx-auto"></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-950 dark:text-slate-50 mb-4">Selected Projects</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto"></div>
     </div>
 
     <!-- Projects Stats -->
     <div class="text-center mb-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <div
-          class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
-        >
-          <div class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
+        <div class="bg-white rounded-xl p-4 border border-stone-200 dark:border-slate-700 dark:bg-slate-900 shadow-sm">
+          <div class="text-2xl font-bold text-slate-950 dark:text-slate-50 mb-1">
             {{ portfolioStats.totalProjects }}
           </div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Total Projects</div>
+          <div class="text-sm text-slate-600 dark:text-slate-300 font-medium">Total Projects</div>
         </div>
-        <div
-          class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
-        >
-          <div class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
+        <div class="bg-white rounded-xl p-4 border border-stone-200 dark:border-slate-700 dark:bg-slate-900 shadow-sm">
+          <div class="text-2xl font-bold text-slate-950 dark:text-slate-50 mb-1">
             {{ portfolioStats.totalCompanies }}
           </div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Companies</div>
+          <div class="text-sm text-slate-600 dark:text-slate-300 font-medium">Companies</div>
         </div>
-        <div
-          class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800/50"
-        >
-          <div class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
+        <div class="bg-white rounded-xl p-4 border border-stone-200 dark:border-slate-700 dark:bg-slate-900 shadow-sm">
+          <div class="text-2xl font-bold text-slate-950 dark:text-slate-50 mb-1">
             {{ portfolioStats.totalTechnologies }}+
           </div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Technologies</div>
+          <div class="text-sm text-slate-600 dark:text-slate-300 font-medium">Technologies</div>
         </div>
       </div>
     </div>
@@ -351,8 +343,8 @@
     <!-- Personal & Open Source Projects -->
     <div class="mt-16">
       <div class="text-center mb-10">
-        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">Personal & Open Source</h3>
-        <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full mx-auto"></div>
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-950 dark:text-slate-50 mb-4">Personal & Open Source</h3>
+        <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -374,27 +366,29 @@
     <!-- View All Projects CTA -->
     <div class="text-center mt-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-        <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-6 text-white">
+        <div class="bg-slate-950 rounded-xl p-6 text-white border border-slate-800">
           <h3 class="text-xl font-bold mb-3">Professional Portfolio</h3>
-          <p class="text-sm text-purple-100 mb-5">
+          <p class="text-sm text-slate-300 mb-5">
             Explore enterprise projects and technical implementations from my professional career.
           </p>
           <a
             routerLink="/projects/professional"
-            class="inline-flex px-5 py-2.5 bg-white text-purple-600 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+            class="inline-flex px-5 py-2.5 bg-teal-700 text-white rounded-lg hover:bg-teal-800 transition-colors font-semibold"
           >
             View Professional →
           </a>
         </div>
 
-        <div class="bg-gradient-to-r from-indigo-600 to-green-600 rounded-2xl p-6 text-white">
+        <div
+          class="bg-white rounded-xl p-6 text-slate-950 border border-stone-200 shadow-sm dark:bg-slate-900 dark:text-slate-50 dark:border-slate-700"
+        >
           <h3 class="text-xl font-bold mb-3">Personal Projects</h3>
-          <p class="text-sm text-indigo-100 mb-5">
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-5">
             Discover open source contributions and personal development projects.
           </p>
           <a
             routerLink="/projects/personal"
-            class="inline-flex px-5 py-2.5 bg-white text-indigo-600 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+            class="inline-flex px-5 py-2.5 bg-slate-950 text-white rounded-lg hover:bg-slate-800 transition-colors font-semibold dark:bg-slate-100 dark:text-slate-950"
           >
             View Personal →
           </a>
@@ -404,7 +398,7 @@
   </div>
 </section>
 <!-- Technology Summary Section -->
-<section class="relative bg-gradient-to-br from-slate-900 to-gray-900 py-16 overflow-hidden">
+<section class="relative bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="technologyBackgroundElements"></app-decorative-background>
 
@@ -413,21 +407,23 @@
     <div class="text-center mb-10">
       <div class="flex items-center justify-center mb-6">
         <div
-          class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl"
+          class="w-14 h-14 bg-teal-300/15 rounded-xl flex items-center justify-center border border-teal-300/40 shadow-sm"
         >
-          <ng-icon name="heroCog6Tooth" size="1.5rem" class="text-white"></ng-icon>
+          <ng-icon name="heroCog6Tooth" size="1.5rem" color="rgb(94 234 212)"></ng-icon>
         </div>
       </div>
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Technology Summary</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
+      <div class="w-24 h-1 bg-gradient-to-r from-teal-300 to-amber-300 rounded-full mx-auto"></div>
     </div>
 
     <!-- Technology Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
       <!-- Proficient Technologies -->
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
+      <div class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-xl shadow-black/20">
         <div class="flex items-center mb-6">
-          <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg mr-4">
+          <div
+            class="w-12 h-12 bg-teal-300/15 rounded-lg flex items-center justify-center border border-teal-300/30 mr-4"
+          >
             <ng-icon name="heroStar" size="1.125rem" class="text-white"></ng-icon>
           </div>
           <h3 class="text-2xl font-bold text-white">Proficient</h3>
@@ -453,9 +449,11 @@
       <!-- Learning & Interested Technologies -->
       <div class="space-y-6">
         <!-- Learned -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
+        <div class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-xl shadow-black/20">
           <div class="flex items-center mb-6">
-            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center shadow-lg mr-4">
+            <div
+              class="w-12 h-12 bg-teal-300/15 rounded-lg flex items-center justify-center border border-teal-300/30 mr-4"
+            >
               <ng-icon name="heroAcademicCap" size="1.125rem" class="text-white"></ng-icon>
             </div>
             <h3 class="text-2xl font-bold text-white">Learned</h3>
@@ -479,9 +477,11 @@
         </div>
 
         <!-- Interested -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
+        <div class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-xl shadow-black/20">
           <div class="flex items-center mb-6">
-            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg mr-4">
+            <div
+              class="w-12 h-12 bg-amber-300/15 rounded-lg flex items-center justify-center border border-amber-300/30 mr-4"
+            >
               <ng-icon name="heroLightBulb" size="1.125rem" class="text-white"></ng-icon>
             </div>
             <h3 class="text-2xl font-bold text-white">Interested</h3>
@@ -489,7 +489,7 @@
           <div class="flex flex-wrap gap-3">
             @for (tech of interestedTechnologies; track tech.name) {
               <span
-                class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium border border-purple-500/30"
+                class="px-4 py-2 bg-white/5 text-slate-200 rounded-full text-sm font-medium border border-white/10"
                 >{{ tech.name }}</span
               >
             }
@@ -500,17 +500,17 @@
 
     <!-- Skills visualization -->
     <div class="mt-10 text-center">
-      <div class="flex items-center justify-center space-x-8 text-gray-300">
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-slate-300">
         <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-green-400 rounded-full"></div>
+          <div class="w-4 h-4 bg-teal-300 rounded-full"></div>
           <span class="text-sm font-medium">Expert Level</span>
         </div>
         <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-blue-400 rounded-full"></div>
+          <div class="w-4 h-4 bg-slate-300 rounded-full"></div>
           <span class="text-sm font-medium">Learning</span>
         </div>
         <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-purple-400 rounded-full"></div>
+          <div class="w-4 h-4 bg-amber-300 rounded-full"></div>
           <span class="text-sm font-medium">Exploring</span>
         </div>
       </div>
