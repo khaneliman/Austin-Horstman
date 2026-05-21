@@ -1,6 +1,6 @@
 @if (location === 'nav') {
-  <div class="flex items-center space-x-4">
-    @for (site of socialLinks(); track site.platform) {
+  <div class="flex items-center space-x-2">
+    @for (site of navSocialLinks(); track site.platform) {
       <a
         href="{{ site.link }}"
         target="_blank"
