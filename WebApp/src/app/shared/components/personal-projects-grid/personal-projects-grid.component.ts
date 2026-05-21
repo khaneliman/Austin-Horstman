@@ -110,12 +110,12 @@ export class PersonalProjectsGridComponent {
 
   getStatusColor(status: string): string {
     const statusColors: Record<string, string> = {
-      Active: 'text-green-600 bg-green-100',
-      Maintained: 'text-blue-600 bg-blue-100',
-      Ongoing: 'text-purple-600 bg-purple-100',
-      Completed: 'text-gray-600 bg-gray-100',
-      Archived: 'text-red-600 bg-red-100',
+      Active: 'text-teal-800 bg-teal-50 border border-teal-200',
+      Maintained: 'text-teal-800 bg-teal-50 border border-teal-200',
+      Ongoing: 'text-amber-800 bg-amber-50 border border-amber-200',
+      Completed: 'text-slate-700 bg-stone-100 border border-stone-200',
+      Archived: 'text-rose-800 bg-rose-50 border border-rose-200',
     };
-    return statusColors[status] || 'text-gray-600 bg-gray-100';
+    return statusColors[status] || 'text-slate-700 bg-stone-100 border border-stone-200';
   }
 }
