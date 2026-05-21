@@ -4,8 +4,10 @@
       <a
         href="{{ site.link }}"
         target="_blank"
+        rel="noopener noreferrer"
         title="{{ site.tooltip }}"
-        class="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-50"
+        [attr.aria-label]="site.tooltip"
+        class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
       >
         <ng-icon [name]="site.iconName" size="1.25rem"></ng-icon>
       </a>
@@ -19,8 +21,10 @@
       <a
         target="_blank"
         href="{{ site.link }}"
+        rel="noopener noreferrer"
         title="{{ site.tooltip }}"
-        class="inline-flex items-center justify-center w-10 h-10 bg-white text-gray-600 hover:text-white hover:bg-blue-600 rounded-full shadow-lg transition-colors duration-200"
+        [attr.aria-label]="site.tooltip"
+        class="inline-flex items-center justify-center w-10 h-10 bg-white text-gray-600 hover:text-white hover:bg-blue-600 rounded-full shadow-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
       >
         <ng-icon [name]="site.iconName" size="1rem"></ng-icon>
       </a>
