@@ -390,3 +390,4 @@ FodyWeavers.xsd
 WebApp/khaneliman/apps/austin-horstman/eslint-report.json
 WebApp/khaneliman/package-lock.json
 /output/playwright
+/WebApp/output/playwright
