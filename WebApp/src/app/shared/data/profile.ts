@@ -37,7 +37,7 @@ export const PERSONAL_PROFILE = {
   title: 'Solution Architect',
   get tagline(): string {
     const years = calculateYearsOfExperience();
-    return `Solution Architect with ${years}+ years of experience specializing in .NET, Angular, and modern web technologies. Passionate about application modernization, database design, and open-source development in the Nix ecosystem.`;
+    return `Solution Architect with ${years}+ years of experience modernizing .NET and Angular systems, designing durable data workflows, and helping teams adopt practical open-source and AI-assisted delivery practices.`;
   },
   location: 'Fox Crossing, WI',
   get yearsOfExperience(): number {

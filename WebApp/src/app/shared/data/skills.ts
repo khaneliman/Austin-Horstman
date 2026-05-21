@@ -10,28 +10,28 @@ export interface PersonalSkill {
 // Centralized personal skills data - What I Bring
 export const PERSONAL_SKILLS: readonly PersonalSkill[] = [
   {
-    title: 'Continuous Learning',
+    title: 'Modernization Delivery',
     description:
-      'Driven by curiosity to never stop learning and improving skills. Always exploring emerging technologies and best practices to stay at the forefront of modern development.',
+      'Translates aging business workflows into maintainable web applications with clear boundaries, pragmatic architecture, and migration paths teams can keep shipping against.',
     icon: 'heroAcademicCap',
-    badge: 'Passionate',
-    footer: 'Growth • Innovation • Excellence',
+    badge: 'Enterprise Systems',
+    footer: '.NET • Angular • SQL Server',
   },
   {
     title: 'Open Source Leadership',
     description:
-      'Active contributor and maintainer of large-scale open source projects in the Nix ecosystem. Collaborating with developers worldwide to build tools that empower the community.',
+      'Maintains large-scale Nix ecosystem projects with a bias for repeatable environments, clear contribution paths, and tooling that reduces operational drag.',
     icon: 'heroCodeBracket',
     badge: 'Maintainer',
-    footer: 'Nix • Community • Impact',
+    footer: 'Nix • Developer Tooling • Community',
   },
   {
     title: 'AI & Developer Productivity',
     description:
-      'Leading teams in implementing agentic AI solutions to accelerate developer productivity. Teaching and empowering developers to improve their workflows and tooling.',
+      'Introduces agentic development workflows where they measurably improve delivery: code review support, documentation loops, test generation, and team enablement.',
     icon: 'heroRocketLaunch',
-    badge: 'Innovator',
-    footer: 'AI • Mentorship • Efficiency',
+    badge: 'Team Enablement',
+    footer: 'AI Workflows • Mentorship • Automation',
   },
 ] as const;
 
