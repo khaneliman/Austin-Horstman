@@ -105,6 +105,9 @@ export const COMPANIES = {
     description:
       "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2025, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Solution Architect in the Modern Business Unit, I lead technical architecture and design initiatives for diverse clients, building cutting-edge applications using the latest technologies and development practices, with a focus on cloud-native architectures and scalable enterprise solutions. Throughout my 8+ years from Skyline Technologies through Core BTS to NRI-NA, I have progressed from Software Engineer to Senior Software Engineer to my current Solution Architect role.",
     achievements: [
+      'Led SECURA Insurance MuleSoft-to-.NET modernization, delivering a migration estimated at 3-4 years in 11 months while eliminating roughly $500K+ in annual licensing costs',
+      'Created LLM agents, skills, commands, and MCP servers to analyze legacy MuleSoft systems, document behavior, and guide feature-parity implementation in custom .NET APIs',
+      'Established comprehensive unit test coverage for migrated APIs where no equivalent automated regression suite previously existed',
       'Drove team-wide agile process improvements as technical leader and scrum advisor, significantly increasing delivery speed and reducing development blockers',
       'Successfully managed complex stakeholder relationships with business users, legacy system maintainers, and architects to create and prioritize backlogs under tight deadlines',
       'Established comprehensive mentoring program for junior developers through code reviews, 1-on-1 meetings, and technical concept explanation',
