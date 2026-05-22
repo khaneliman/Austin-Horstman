@@ -4,7 +4,7 @@
       class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-stone-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex flex-col h-full"
     >
       <!-- Project Header -->
-      <div class="relative px-8 py-12 bg-slate-950">
+      <div class="relative px-8 py-12 bg-slate-100 dark:bg-slate-950">
         <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
         <div class="absolute top-4 left-4 flex items-center space-x-2">
           <span class="px-3 py-1 text-xs font-semibold rounded-full" [ngClass]="getStatusColor(project.status)">
@@ -24,14 +24,16 @@
           >
             <ng-icon [name]="getCategoryIcon(project.category)" size="1.75rem" color="rgb(153 246 228)"></ng-icon>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 text-center">
             {{ project.title }}
           </h3>
-          <p class="text-white/90 text-center text-sm leading-relaxed">
+          <p class="text-slate-700 dark:text-white/90 text-center text-sm leading-relaxed">
             {{ project.description }}
           </p>
           <div class="flex justify-center mt-4">
-            <span class="px-3 py-1 bg-white/10 text-slate-200 text-xs font-medium rounded-full border border-white/10">
+            <span
+              class="px-3 py-1 bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-full border border-slate-300 dark:border-white/10"
+            >
               {{ project.category }}
             </span>
           </div>
@@ -118,7 +120,7 @@
               [href]="project.githubUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 bg-slate-950 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-950 px-4 py-3 rounded-lg font-semibold text-center text-sm hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
+              class="flex-1 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-950 px-4 py-3 rounded-lg font-semibold text-center text-sm hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
             >
               <ng-icon name="heroCodeBracket" size="1rem" class="mr-2"></ng-icon>
               GitHub
