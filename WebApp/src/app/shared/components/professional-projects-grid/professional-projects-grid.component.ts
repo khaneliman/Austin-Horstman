@@ -55,15 +55,35 @@ export class ProfessionalProjectsGridComponent {
   }
 
   getHeaderClasses(theme: string): string {
-    const themeClasses: Record<string, string> = {
-      nri: 'from-slate-950 via-blue-950 to-sky-950',
-      green: 'from-slate-950 via-emerald-950 to-teal-950',
-      blue: 'from-slate-950 via-sky-950 to-cyan-950',
-      red: 'from-slate-950 via-red-950 to-stone-950',
-      orange: 'from-slate-950 via-amber-950 to-stone-950',
+    const themeClasses: Record<string, { light: string; dark: string }> = {
+      nri: {
+        light: 'from-slate-100 via-blue-50 to-slate-100',
+        dark: 'dark:from-slate-950 dark:via-blue-950 dark:to-sky-950',
+      },
+      green: {
+        light: 'from-slate-100 via-emerald-50 to-teal-50',
+        dark: 'dark:from-slate-950 dark:via-emerald-950 dark:to-teal-950',
+      },
+      blue: {
+        light: 'from-slate-100 via-sky-50 to-cyan-100',
+        dark: 'dark:from-slate-950 dark:via-sky-950 dark:to-cyan-950',
+      },
+      red: {
+        light: 'from-slate-100 via-red-50 to-stone-100',
+        dark: 'dark:from-slate-950 dark:via-red-950 dark:to-stone-950',
+      },
+      orange: {
+        light: 'from-slate-100 via-amber-50 to-stone-100',
+        dark: 'dark:from-slate-950 dark:via-amber-950 dark:to-stone-950',
+      },
     };
 
-    return `relative px-6 py-8 sm:px-8 sm:py-10 bg-gradient-to-br ${themeClasses[theme] ?? 'from-slate-950 via-teal-950 to-slate-900'}`;
+    const selected = themeClasses[theme] ?? {
+      light: 'from-slate-100 via-teal-50 to-slate-100',
+      dark: 'dark:from-slate-950 dark:via-teal-950 dark:to-slate-900',
+    };
+
+    return `relative px-6 py-8 sm:px-8 sm:py-10 bg-gradient-to-br ${selected.light} ${selected.dark}`;
   }
 
   getAccentClasses(theme: string): string {
