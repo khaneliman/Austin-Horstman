@@ -143,7 +143,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 mt-16">
         @for (category of personalProjectCategories; track category.title; let i = $index) {
           <div
-            class="bg-slate-950 dark:bg-slate-950 rounded-xl shadow-lg border border-slate-800 border-t-4 p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            class="bg-stone-50 dark:bg-slate-950 rounded-xl shadow-lg border border-stone-200 dark:border-slate-800 border-t-4 p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
             [ngClass]="{
               'border-t-teal-300': i === 0,
               'border-t-amber-300': i === 1,
@@ -165,10 +165,10 @@
               ></ng-icon>
             </div>
 
-            <h3 class="text-xl font-bold text-white mb-3">
+            <h3 class="text-xl font-bold text-slate-950 dark:text-white mb-3">
               {{ category.title }}
             </h3>
-            <p class="text-white/90">{{ category.description }}</p>
+            <p class="text-slate-700 dark:text-white/90">{{ category.description }}</p>
           </div>
         }
       </div>
@@ -186,24 +186,40 @@
   </section>
 
   <!-- Quick Stats -->
-  <section class="py-16 bg-slate-950 text-white">
+  <section class="py-16 bg-stone-100 dark:bg-slate-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-        <div class="rounded-xl border border-slate-800 border-t-4 border-t-teal-300 bg-slate-900/60 p-6">
-          <div class="text-4xl font-bold text-teal-200 mb-2">{{ portfolioStats().totalProjects }}+</div>
-          <div class="text-slate-300">Total Projects</div>
+        <div
+          class="rounded-xl border border-stone-200 dark:border-slate-800 border-t-4 border-t-teal-300 bg-white dark:bg-slate-900/60 p-6"
+        >
+          <div class="text-4xl font-bold text-teal-700 dark:text-teal-200 mb-2">
+            {{ portfolioStats().totalProjects }}+
+          </div>
+          <div class="text-slate-600 dark:text-slate-300">Total Projects</div>
         </div>
-        <div class="rounded-xl border border-slate-800 border-t-4 border-t-amber-300 bg-slate-900/60 p-6">
-          <div class="text-4xl font-bold text-amber-200 mb-2">{{ portfolioStats().totalCompanies }}</div>
-          <div class="text-slate-300">Companies</div>
+        <div
+          class="rounded-xl border border-stone-200 dark:border-slate-800 border-t-4 border-t-amber-300 bg-white dark:bg-slate-900/60 p-6"
+        >
+          <div class="text-4xl font-bold text-amber-700 dark:text-amber-200 mb-2">
+            {{ portfolioStats().totalCompanies }}
+          </div>
+          <div class="text-slate-600 dark:text-slate-300">Companies</div>
         </div>
-        <div class="rounded-xl border border-slate-800 border-t-4 border-t-sky-300 bg-slate-900/60 p-6">
-          <div class="text-4xl font-bold text-sky-200 mb-2">{{ portfolioStats().totalTechnologies }}+</div>
-          <div class="text-slate-300">Technologies</div>
+        <div
+          class="rounded-xl border border-stone-200 dark:border-slate-800 border-t-4 border-t-sky-300 bg-white dark:bg-slate-900/60 p-6"
+        >
+          <div class="text-4xl font-bold text-sky-700 dark:text-sky-200 mb-2">
+            {{ portfolioStats().totalTechnologies }}+
+          </div>
+          <div class="text-slate-600 dark:text-slate-300">Technologies</div>
         </div>
-        <div class="rounded-xl border border-slate-800 border-t-4 border-t-teal-300 bg-slate-900/60 p-6">
-          <div class="text-4xl font-bold text-teal-200 mb-2">{{ portfolioStats().yearsExperience }}+</div>
-          <div class="text-slate-300">Years Experience</div>
+        <div
+          class="rounded-xl border border-stone-200 dark:border-slate-800 border-t-4 border-t-teal-300 bg-white dark:bg-slate-900/60 p-6"
+        >
+          <div class="text-4xl font-bold text-teal-700 dark:text-teal-200 mb-2">
+            {{ portfolioStats().yearsExperience }}+
+          </div>
+          <div class="text-slate-600 dark:text-slate-300">Years Experience</div>
         </div>
       </div>
     </div>
