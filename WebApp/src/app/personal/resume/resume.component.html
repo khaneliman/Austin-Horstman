@@ -41,12 +41,12 @@
     waveStyle="slant"
     direction="bottom"
     height="lg"
-    color="rgb(15 23 42)"
+    color="white"
     darkColor="rgb(15 23 42)"
   ></app-wave-separator>
 </section>
 <!-- Employment Section -->
-<section class="relative bg-slate-950 py-20 overflow-hidden">
+<section class="relative bg-[#f7f3ea] dark:bg-slate-950 py-20 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="employmentBackgroundElements"></app-decorative-background>
 
@@ -61,8 +61,8 @@
         </div>
       </div>
       <div class="flex-1">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Employment</h2>
-        <p class="text-xl text-slate-300 leading-relaxed max-w-3xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-slate-950 dark:text-white mb-4">Employment</h2>
+        <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
           Computer Repair Agent, Programmer, Software Engineer, Senior Software Engineer, and Solution Architect
         </p>
         <div class="w-24 h-1 bg-gradient-to-r from-teal-300 to-amber-300 rounded-full mt-4"></div>
@@ -73,7 +73,7 @@
     <div class="mb-12">
       <div class="max-w-5xl mx-auto">
         <div
-          class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-8 border border-white/10 border-t-4 border-t-teal-300 shadow-2xl shadow-black/20"
+          class="bg-white dark:bg-white/[0.04] rounded-xl p-8 border border-stone-200/80 dark:border-white/10 border-t-4 border-t-teal-300 shadow-2xl shadow-black/20"
         >
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Company Logo & Basic Info -->
@@ -85,38 +85,38 @@
                   class="max-w-full max-h-full object-contain"
                 />
               </div>
-              <h3 class="text-3xl font-bold text-white mb-2">
+              <h3 class="text-3xl font-bold text-slate-950 dark:text-white mb-2">
                 {{ currentCompany.displayName }}
               </h3>
-              <p class="text-xl font-medium text-teal-200 mb-2">
+              <p class="text-xl font-medium text-teal-700 dark:text-teal-200 mb-2">
                 {{ currentCompany.position }}
               </p>
-              <p class="text-slate-300 mb-2">{{ currentCompany.location }}</p>
-              <p class="text-slate-300 font-medium mb-4">
+              <p class="text-slate-600 mb-2">{{ currentCompany.location }}</p>
+              <p class="text-slate-600 font-medium mb-4">
                 {{ getDateRange(currentCompany) }}
               </p>
 
               <!-- Stats -->
               <div class="flex gap-6 mt-4">
                 <div class="text-center">
-                  <div class="text-2xl font-bold text-white">
+                  <div class="text-2xl font-bold text-slate-950 dark:text-white">
                     {{ currentCompany.stats.years }}
                   </div>
-                  <div class="text-sm text-slate-400">Years</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Years</div>
                 </div>
                 <div class="text-center">
-                  <div class="text-2xl font-bold text-white">
+                  <div class="text-2xl font-bold text-slate-950 dark:text-white">
                     {{ currentCompany.stats.projects.value }}
                   </div>
-                  <div class="text-sm text-slate-400">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">
                     {{ currentCompany.stats.projects.label }}
                   </div>
                 </div>
                 <div class="text-center">
-                  <div class="text-2xl font-bold text-white">
+                  <div class="text-2xl font-bold text-slate-950 dark:text-white">
                     {{ currentCompany.stats.clients.value }}
                   </div>
-                  <div class="text-sm text-slate-400">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">
                     {{ currentCompany.stats.clients.label }}
                   </div>
                 </div>
@@ -125,17 +125,17 @@
 
             <!-- Description & Key Achievements -->
             <div class="lg:col-span-2">
-              <h4 class="text-xl font-semibold text-white mb-4">About the Role</h4>
-              <p class="text-slate-300 leading-relaxed mb-6">
+              <h4 class="text-xl font-semibold text-slate-900 dark:text-white mb-4">About the Role</h4>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                 {{ currentCompany.description }}
               </p>
 
-              <h4 class="text-xl font-semibold text-white mb-4">Key Achievements</h4>
+              <h4 class="text-xl font-semibold text-slate-900 dark:text-white mb-4">Key Achievements</h4>
               <div class="space-y-3 mb-6">
                 @for (achievement of currentCompany.achievements?.slice(0, 4); track $index) {
                   <div class="flex items-start gap-3">
                     <div class="w-2 h-2 bg-teal-300 rounded-full mt-2 flex-shrink-0"></div>
-                    <p class="text-slate-300 text-sm leading-relaxed">
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                       {{ achievement }}
                     </p>
                   </div>
@@ -155,15 +155,19 @@
 
           <!-- Acquisition History (nested under current company) -->
           @if (getAcquisitionChainCompanies().length > 0) {
-            <div class="mt-6 border-t border-white/20 pt-6">
-              <h4 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <ng-icon name="heroArrowPathRoundedSquare" size="1.125rem" class="text-teal-200"></ng-icon>
+            <div class="mt-6 border-t border-slate-200 dark:border-white/20 pt-6">
+              <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                <ng-icon
+                  name="heroArrowPathRoundedSquare"
+                  size="1.125rem"
+                  class="text-teal-700 dark:text-teal-200"
+                ></ng-icon>
                 Company History (Same Employment)
               </h4>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 @for (company of getAcquisitionChainCompanies(); track company.id) {
                   <div
-                    class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-4 border border-white/10 border-l-4 border-l-amber-300"
+                    class="bg-white dark:bg-white/[0.04] rounded-xl p-4 border border-stone-200 dark:border-white/10 border-l-4 border-l-amber-300"
                   >
                     <div class="flex items-start gap-4">
                       <div
@@ -183,13 +187,15 @@
                         />
                       </div>
                       <div class="flex-1 min-w-0">
-                        <h5 class="text-base font-semibold text-white truncate">{{ company.displayName }}</h5>
-                        <p class="text-sm text-teal-200 truncate">{{ company.position }}</p>
-                        <p class="text-xs text-slate-300 mt-1">{{ getDateRange(company) }}</p>
+                        <h5 class="text-base font-semibold text-slate-900 dark:text-white truncate">
+                          {{ company.displayName }}
+                        </h5>
+                        <p class="text-sm text-teal-700 dark:text-teal-200 truncate">{{ company.position }}</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-300 mt-1">{{ getDateRange(company) }}</p>
                         <div class="flex gap-2 mt-2">
                           <a
                             [routerLink]="company.employmentRoute"
-                            class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-lg text-xs font-medium transition-colors"
+                            class="inline-flex items-center gap-1 bg-teal-700 hover:bg-teal-800 text-white dark:bg-white/10 dark:hover:bg-white/20 dark:text-white px-3 py-1 rounded-lg text-xs font-medium transition-colors"
                           >
                             <ng-icon name="heroInformationCircle" size="0.875rem"></ng-icon>
                             Details
@@ -200,7 +206,7 @@
                   </div>
                 }
               </div>
-              <p class="text-xs text-slate-400 mt-4 italic">
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-4 italic">
                 These represent the same continuous employment through company acquisitions
               </p>
             </div>
@@ -211,12 +217,12 @@
 
     <!-- Previous Positions - Grid Layout -->
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-2xl font-semibold text-white mb-8 text-center">Previous Positions</h3>
+      <h3 class="text-2xl font-semibold text-slate-900 dark:text-white mb-8 text-center">Previous Positions</h3>
       <div class="flex justify-center">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
           @for (company of previousCompanies; track company.id) {
             <div
-              class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-6 border border-white/10 border-t-4 border-t-amber-300 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-teal-300/30"
+              class="bg-white dark:bg-white/[0.04] rounded-xl p-6 border border-stone-200 dark:border-white/10 border-t-4 border-t-amber-300 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-teal-300/30"
             >
               <div class="flex justify-center mb-4">
                 <div
@@ -233,14 +239,14 @@
                 </div>
               </div>
               <div class="text-center">
-                <h4 class="text-lg font-bold text-white mb-2">
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
                   {{ company.displayName }}
                 </h4>
                 <p [class]="'text-sm font-medium mb-1 text-' + company.colorScheme.primary">
                   {{ company.position }}
                 </p>
-                <p class="text-sm text-slate-400 mb-2">{{ company.location }}</p>
-                <p class="text-sm text-slate-300 font-medium mb-4">
+                <p class="text-sm text-slate-600 mb-2">{{ company.location }}</p>
+                <p class="text-sm text-slate-500 dark:text-slate-300 font-medium mb-4">
                   {{ getDateRange(company) }}
                 </p>
                 <div class="flex justify-center gap-4 mb-4">
@@ -248,7 +254,7 @@
                     <div [class]="'text-lg font-bold text-' + company.colorScheme.primary">
                       {{ company.stats.years }}
                     </div>
-                    <div class="text-xs text-slate-400">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">
                       {{ company.stats.years === '1' ? 'Year' : 'Years' }}
                     </div>
                   </div>
@@ -256,7 +262,7 @@
                     <div [class]="'text-lg font-bold text-' + company.colorScheme.primary">
                       {{ company.stats.projects.value }}
                     </div>
-                    <div class="text-xs text-slate-400">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">
                       {{ company.stats.projects.label }}
                     </div>
                   </div>
@@ -376,9 +382,11 @@
     <!-- View All Projects CTA -->
     <div class="text-center mt-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-        <div class="bg-slate-950 rounded-xl p-6 text-white border border-slate-800 border-t-4 border-t-teal-300">
-          <h3 class="text-xl font-bold mb-3">Professional Portfolio</h3>
-          <p class="text-sm text-slate-300 mb-5">
+        <div
+          class="bg-stone-100 dark:bg-slate-950 rounded-xl p-6 border border-slate-300 dark:border-slate-800 border-t-4 border-t-teal-300"
+        >
+          <h3 class="text-xl font-bold text-slate-950 dark:text-white mb-3">Professional Portfolio</h3>
+          <p class="text-sm text-slate-700 dark:text-slate-300 mb-5">
             Explore enterprise projects and technical implementations from my professional career.
           </p>
           <a
@@ -389,14 +397,16 @@
           </a>
         </div>
 
-        <div class="bg-slate-950 rounded-xl p-6 text-white border border-slate-800 border-t-4 border-t-amber-300">
-          <h3 class="text-xl font-bold mb-3">Personal Projects</h3>
-          <p class="text-sm text-slate-300 mb-5">
+        <div
+          class="bg-stone-100 dark:bg-slate-950 rounded-xl p-6 border border-slate-300 dark:border-slate-800 border-t-4 border-t-amber-300"
+        >
+          <h3 class="text-xl font-bold text-slate-950 dark:text-white mb-3">Personal Projects</h3>
+          <p class="text-sm text-slate-700 dark:text-slate-300 mb-5">
             Discover open source contributions and personal development projects.
           </p>
           <a
             routerLink="/projects/personal"
-            class="inline-flex px-5 py-2.5 bg-amber-300 text-slate-950 rounded-lg hover:bg-amber-200 transition-colors font-semibold"
+            class="inline-flex px-5 py-2.5 bg-amber-300 text-slate-950 hover:bg-amber-200 transition-colors font-semibold"
           >
             View Personal →
           </a>
@@ -406,7 +416,7 @@
   </div>
 </section>
 <!-- Technology Summary Section -->
-<section class="relative bg-slate-950 py-16 overflow-hidden">
+<section class="relative bg-stone-100 dark:bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="technologyBackgroundElements"></app-decorative-background>
 
@@ -420,7 +430,7 @@
           <ng-icon name="heroCog6Tooth" size="1.5rem" color="rgb(94 234 212)"></ng-icon>
         </div>
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Technology Summary</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-950 dark:text-white mb-4">Technology Summary</h2>
       <div class="w-24 h-1 bg-gradient-to-r from-teal-300 to-amber-300 rounded-full mx-auto"></div>
     </div>
 
@@ -428,20 +438,23 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
       <!-- Proficient Technologies -->
       <div
-        class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-6 border border-white/10 border-t-4 border-t-teal-300 shadow-xl shadow-black/20"
+        class="bg-white dark:bg-white/[0.04] rounded-xl p-6 border border-stone-200 dark:border-white/10 border-t-4 border-t-teal-300 shadow-sm dark:shadow-black/20"
       >
         <div class="flex items-center mb-6">
           <div
             class="w-12 h-12 bg-teal-300/15 rounded-lg flex items-center justify-center border border-teal-300/30 mr-4"
           >
-            <ng-icon name="heroStar" size="1.125rem" class="text-white"></ng-icon>
+            <ng-icon name="heroStar" size="1.125rem" class="text-slate-700 dark:text-white"></ng-icon>
           </div>
-          <h3 class="text-2xl font-bold text-white">Proficient</h3>
+          <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Proficient</h3>
         </div>
         <div class="space-y-4">
           @for (tech of proficientTechnologies; track tech.name; let last = $last) {
-            <div class="flex items-center justify-between py-2" [ngClass]="!last ? 'border-b border-white/10' : ''">
-              <span class="text-base text-gray-200 font-medium">{{ tech.name }}</span>
+            <div
+              class="flex items-center justify-between py-2"
+              [ngClass]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
+            >
+              <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
               <div class="flex space-x-1 star-rating">
                 @for (star of [1, 2, 3, 4, 5]; track star) {
                   <ng-icon
@@ -460,20 +473,23 @@
       <div class="space-y-6">
         <!-- Learned -->
         <div
-          class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-6 border border-white/10 border-t-4 border-t-sky-300 shadow-xl shadow-black/20"
+          class="bg-white dark:bg-white/[0.04] rounded-xl p-6 border border-stone-200 dark:border-white/10 border-t-4 border-t-sky-300 shadow-sm dark:shadow-black/20"
         >
           <div class="flex items-center mb-6">
             <div
               class="w-12 h-12 bg-teal-300/15 rounded-lg flex items-center justify-center border border-teal-300/30 mr-4"
             >
-              <ng-icon name="heroAcademicCap" size="1.125rem" class="text-white"></ng-icon>
+              <ng-icon name="heroAcademicCap" size="1.125rem" class="text-slate-700 dark:text-white"></ng-icon>
             </div>
-            <h3 class="text-2xl font-bold text-white">Learned</h3>
+            <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Learned</h3>
           </div>
           <div class="space-y-4">
             @for (tech of learnedTechnologies; track tech.name; let last = $last) {
-              <div class="flex items-center justify-between py-2" [ngClass]="!last ? 'border-b border-white/10' : ''">
-                <span class="text-base text-gray-200 font-medium">{{ tech.name }}</span>
+              <div
+                class="flex items-center justify-between py-2"
+                [ngClass]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
+              >
+                <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
                 <div class="flex space-x-1 star-rating">
                   @for (star of [1, 2, 3, 4, 5]; track star) {
                     <ng-icon
@@ -490,20 +506,20 @@
 
         <!-- Interested -->
         <div
-          class="bg-white/[0.04] backdrop-blur-sm rounded-xl p-6 border border-white/10 border-t-4 border-t-amber-300 shadow-xl shadow-black/20"
+          class="bg-white dark:bg-white/[0.04] rounded-xl p-6 border border-stone-200 dark:border-white/10 border-t-4 border-t-amber-300 shadow-sm dark:shadow-black/20"
         >
           <div class="flex items-center mb-6">
             <div
               class="w-12 h-12 bg-amber-300/15 rounded-lg flex items-center justify-center border border-amber-300/30 mr-4"
             >
-              <ng-icon name="heroLightBulb" size="1.125rem" class="text-white"></ng-icon>
+              <ng-icon name="heroLightBulb" size="1.125rem" class="text-slate-700 dark:text-white"></ng-icon>
             </div>
-            <h3 class="text-2xl font-bold text-white">Interested</h3>
+            <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Interested</h3>
           </div>
           <div class="flex flex-wrap gap-3">
             @for (tech of interestedTechnologies; track tech.name) {
               <span
-                class="px-4 py-2 bg-white/5 text-slate-200 rounded-full text-sm font-medium border border-white/10"
+                class="px-4 py-2 bg-stone-100 dark:bg-white/5 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium border border-stone-200 dark:border-white/10"
                 >{{ tech.name }}</span
               >
             }
@@ -514,7 +530,7 @@
 
     <!-- Skills visualization -->
     <div class="mt-10 text-center">
-      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-slate-300">
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-slate-600 dark:text-slate-300">
         <div class="flex items-center space-x-2">
           <div class="w-4 h-4 bg-teal-300 rounded-full"></div>
           <span class="text-sm font-medium">Expert Level</span>
