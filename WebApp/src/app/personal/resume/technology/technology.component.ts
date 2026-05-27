@@ -9,10 +9,6 @@ import {
   heroLightBulb,
 } from '@ng-icons/heroicons/outline';
 import {
-  BackgroundElement,
-  DecorativeBackgroundComponent,
-} from '../../../shared/components/decorative-background/decorative-background.component';
-import {
   EnhancedFeature,
   EnhancedFeatureCardComponent,
 } from '../../../shared/components/enhanced-feature-card/enhanced-feature-card.component';
@@ -23,7 +19,7 @@ import {
   templateUrl: './technology.component.html',
   styleUrls: ['./technology.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, NgIconComponent, DecorativeBackgroundComponent, EnhancedFeatureCardComponent],
+  imports: [RouterOutlet, NgIconComponent, EnhancedFeatureCardComponent],
   providers: [
     provideIcons({
       heroCog6Tooth,
@@ -35,23 +31,6 @@ import {
   ],
 })
 export class TechnologyComponent {
-  backgroundElements: BackgroundElement[] = [
-    {
-      size: 'lg',
-      position: 'top-4 right-4',
-      color: 'white',
-      opacity: 10,
-      blur: 'xl',
-    },
-    {
-      size: 'md',
-      position: 'bottom-4 left-4',
-      color: 'purple-300',
-      opacity: 20,
-      blur: 'lg',
-    },
-  ];
-
   frontendTechnologies: EnhancedFeature[] = [
     {
       title: 'Angular',
