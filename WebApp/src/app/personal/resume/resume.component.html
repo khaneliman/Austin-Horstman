@@ -455,7 +455,7 @@
               [ngClass]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
             >
               <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
-              <div class="flex space-x-1 star-rating">
+              <div class="flex space-x-1 star-rating star-rating--expert">
                 @for (star of [1, 2, 3, 4, 5]; track star) {
                   <ng-icon
                     [name]="star <= (tech.skillLevel ?? 0) ? 'heroStarSolid' : 'heroStar'"
@@ -490,7 +490,7 @@
                 [ngClass]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
               >
                 <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
-                <div class="flex space-x-1 star-rating">
+                <div class="flex space-x-1 star-rating star-rating--learning">
                   @for (star of [1, 2, 3, 4, 5]; track star) {
                     <ng-icon
                       [name]="star <= (tech.skillLevel ?? 0) ? 'heroStarSolid' : 'heroStar'"
@@ -536,7 +536,7 @@
           <span class="text-sm font-medium">Expert Level</span>
         </div>
         <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-slate-300 rounded-full"></div>
+          <div class="w-4 h-4 bg-sky-300 rounded-full"></div>
           <span class="text-sm font-medium">Learning</span>
         </div>
         <div class="flex items-center space-x-2">

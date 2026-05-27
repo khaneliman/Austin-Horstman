@@ -1,7 +1,7 @@
 // Star Rating Styles
 .star-rating {
   .star-filled {
-    color: #fbbf24; // yellow-400
+    color: #fbbf24; // amber-400 (default)
     svg {
       fill: currentColor;
       stroke: currentColor;
@@ -14,5 +14,14 @@
       fill: currentColor;
       stroke: currentColor;
     }
+  }
+
+  // Tier colors aligned with the proficiency legend below the grid
+  &.star-rating--expert .star-filled {
+    color: #2dd4bf; // teal-400 — "Expert Level"
+  }
+
+  &.star-rating--learning .star-filled {
+    color: #38bdf8; // sky-400 — "Learning"
   }
 }
