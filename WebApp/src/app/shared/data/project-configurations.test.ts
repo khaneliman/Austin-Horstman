@@ -69,6 +69,26 @@ describe('Project Configurations', () => {
     });
   });
 
+  it('should route project back links to canonical experience pages', () => {
+    const expectedBackRoutes: Record<string, string> = {
+      bestbuy: '/experience/bestbuy',
+      corebts: '/experience/corebts',
+      'nri-na': '/experience/nri-na',
+      skyline: '/experience/skyline',
+      west: '/experience/west',
+    };
+
+    Object.values(PROJECT_CONFIGURATIONS).forEach((config) => {
+      const expectedBackRoute = expectedBackRoutes[config.companyKey];
+      if (!expectedBackRoute) {
+        throw new Error(`Missing expected back route for ${config.companyKey}`);
+      }
+
+      expect(config.backRoute).toBe(expectedBackRoute);
+      expect(config.backLabel).toContain('Experience');
+    });
+  });
+
   it('should have consistent company keys', () => {
     const validCompanyKeys = ['skyline', 'corebts', 'west', 'geeksquad', 'nri-na', 'bestbuy'];
 

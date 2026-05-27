@@ -19,8 +19,8 @@ export class NriNaDoItBestComponent implements OnInit {
     this.projectConfig = {
       ...getProjectConfiguration('doitbest-platform')!,
       // Override navigation settings for NRI-NA context
-      backRoute: '/projects/professional/nri-na',
-      backLabel: 'Back to NRI-NA Projects',
+      backRoute: '/experience/nri-na',
+      backLabel: 'Back to NRI-NA Experience',
       companyKey: 'nri-na',
     };
   }

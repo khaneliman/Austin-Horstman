@@ -9,8 +9,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'blue',
 
     // Navigation
-    backRoute: '/personal/resume/employment/skyline',
-    backLabel: 'Back to Skyline',
+    backRoute: '/experience/skyline',
+    backLabel: 'Back to Skyline Experience',
     companyKey: 'skyline',
     hoverColor: 'blue',
 
@@ -85,8 +85,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'orange',
 
     // Navigation
-    backRoute: '/projects/professional/west',
-    backLabel: 'Back to West Projects',
+    backRoute: '/experience/west',
+    backLabel: 'Back to West Experience',
     companyKey: 'west',
     hoverColor: 'red',
 
@@ -182,8 +182,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'blue',
 
     // Navigation
-    backRoute: '/projects/professional/west',
-    backLabel: 'Back to West Projects',
+    backRoute: '/experience/west',
+    backLabel: 'Back to West Experience',
     companyKey: 'west',
     hoverColor: 'red',
 
@@ -248,8 +248,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'green',
 
     // Navigation
-    backRoute: '/projects/professional/west',
-    backLabel: 'Back to West Projects',
+    backRoute: '/experience/west',
+    backLabel: 'Back to West Experience',
     companyKey: 'west',
     hoverColor: 'red',
 
@@ -323,8 +323,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'yellow',
 
     // Navigation
-    backRoute: '/projects/professional/geeksquad',
-    backLabel: 'Back to Geek Squad Projects',
+    backRoute: '/experience/bestbuy',
+    backLabel: 'Back to Best Buy Experience',
     companyKey: 'bestbuy',
     hoverColor: 'blue',
 
@@ -420,8 +420,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'green',
 
     // Navigation
-    backRoute: '/projects/professional/corebts',
-    backLabel: 'Back to Core BTS Projects',
+    backRoute: '/experience/corebts',
+    backLabel: 'Back to Core BTS Experience',
     companyKey: 'corebts',
     hoverColor: 'green',
 
@@ -515,8 +515,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'blue',
 
     // Navigation
-    backRoute: '/projects/professional/corebts',
-    backLabel: 'Back to Core BTS Projects',
+    backRoute: '/experience/corebts',
+    backLabel: 'Back to Core BTS Experience',
     companyKey: 'corebts',
     hoverColor: 'blue',
 
@@ -613,8 +613,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'blue',
 
     // Navigation
-    backRoute: '/projects/professional/nri-na',
-    backLabel: 'Back to NRI-NA Projects',
+    backRoute: '/experience/nri-na',
+    backLabel: 'Back to NRI-NA Experience',
     companyKey: 'nri-na',
     hoverColor: 'blue',
 
@@ -697,8 +697,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'emerald',
 
     // Navigation
-    backRoute: '/projects/professional/nri-na',
-    backLabel: 'Back to NRI-NA Projects',
+    backRoute: '/experience/nri-na',
+    backLabel: 'Back to NRI-NA Experience',
     companyKey: 'nri-na',
     hoverColor: 'blue',
 
@@ -803,8 +803,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'purple',
 
     // Navigation
-    backRoute: '/projects/professional/nri-na',
-    backLabel: 'Back to NRI-NA Projects',
+    backRoute: '/experience/nri-na',
+    backLabel: 'Back to NRI-NA Experience',
     companyKey: 'nri-na',
     hoverColor: 'blue',
 
@@ -886,8 +886,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'teal',
 
     // Navigation
-    backRoute: '/projects/professional/skyline',
-    backLabel: 'Back to Skyline Projects',
+    backRoute: '/experience/skyline',
+    backLabel: 'Back to Skyline Experience',
     companyKey: 'skyline',
     hoverColor: 'blue',
 
@@ -979,8 +979,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'red',
 
     // Navigation
-    backRoute: '/projects/professional/skyline',
-    backLabel: 'Back to Skyline Projects',
+    backRoute: '/experience/skyline',
+    backLabel: 'Back to Skyline Experience',
     companyKey: 'skyline',
     hoverColor: 'blue',
 
@@ -1062,8 +1062,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'green',
 
     // Navigation
-    backRoute: '/projects/professional/skyline',
-    backLabel: 'Back to Skyline Projects',
+    backRoute: '/experience/skyline',
+    backLabel: 'Back to Skyline Experience',
     companyKey: 'skyline',
     hoverColor: 'blue',
 
@@ -1140,8 +1140,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'purple',
 
     // Navigation
-    backRoute: '/projects/professional/skyline',
-    backLabel: 'Back to Skyline Projects',
+    backRoute: '/experience/skyline',
+    backLabel: 'Back to Skyline Experience',
     companyKey: 'skyline',
     hoverColor: 'blue',
 
@@ -1222,8 +1222,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     primaryColor: 'emerald',
 
     // Navigation
-    backRoute: '/projects/professional/skyline',
-    backLabel: 'Back to Skyline Projects',
+    backRoute: '/experience/skyline',
+    backLabel: 'Back to Skyline Experience',
     companyKey: 'skyline',
     hoverColor: 'blue',
 

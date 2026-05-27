@@ -20,8 +20,8 @@ export class SkylineKrogerComponent implements OnInit {
       // Override configuration for Skyline-specific routing
       this.projectConfig = {
         ...krogerConfig,
-        backRoute: '/projects/professional/skyline',
-        backLabel: 'Back to Skyline Projects',
+        backRoute: '/experience/skyline',
+        backLabel: 'Back to Skyline Experience',
         companyKey: 'skyline',
         hoverColor: 'blue',
       };
