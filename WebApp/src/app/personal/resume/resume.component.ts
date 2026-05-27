@@ -211,8 +211,11 @@ export class ResumeComponent {
   );
   interestedTechnologies: TechnologySkill[] = getInterestedTechnologies();
 
-  // Dynamic project data
-  featuredProjects = getResumeProjectCards().slice(0, 6); // Top 6 for featured section
+  // Dynamic project data — dedupe by title so projects shared across
+  // companies (e.g. Do It Best, Kroger) only appear once in the featured grid
+  featuredProjects = getResumeProjectCards()
+    .filter((project, index, all) => all.findIndex((other) => other.title === project.title) === index)
+    .slice(0, 6); // Top 6 distinct projects for featured section
   personalProjects = this.getPersonalProjects();
 
   trackByCompanyId(index: number, company: CompanyInfo): string {
