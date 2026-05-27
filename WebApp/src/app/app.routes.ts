@@ -11,5 +11,9 @@ export const routes: Routes = [
     path: 'projects',
     loadChildren: () => import('./projects/projects.routes').then((m) => m.PROJECTS_ROUTES),
   },
+  {
+    path: 'experience',
+    loadChildren: () => import('./experience/experience.routes').then((m) => m.EXPERIENCE_ROUTES),
+  },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
