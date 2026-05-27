@@ -112,7 +112,6 @@ export class CompanyProfileComponent implements AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly cdr = inject(ChangeDetectorRef);
   private destroy$ = new Subject<void>();
-  private lastNavigationWasToProjectRoute = false;
 
   // Signal to track child route state reactively
   hasChildRoute = signal(false);
@@ -229,26 +228,16 @@ export class CompanyProfileComponent implements AfterViewInit {
   private checkAndScrollToProjectDetails(): void {
     // Check if any active child route has autoScroll data set to true
     let currentRoute = this.route.firstChild;
-    let hasProjectRoute = false;
 
     while (currentRoute) {
       if (currentRoute.snapshot.data['autoScroll'] === true && this.projectDetailsSection) {
-        hasProjectRoute = true;
-
-        // Only auto-scroll if the last navigation was NOT to a project route
-        // (i.e., user is coming from project cards, not from another project)
-        if (!this.lastNavigationWasToProjectRoute) {
-          setTimeout(() => {
-            this.scrollToProjectDetails();
-          }, 150);
-        }
+        setTimeout(() => {
+          this.scrollToProjectDetails();
+        }, 150);
         break;
       }
       currentRoute = currentRoute.firstChild;
     }
-
-    // Update the flag for next navigation
-    this.lastNavigationWasToProjectRoute = hasProjectRoute;
   }
 
   getAchievementItems(): BulletListItem[] {

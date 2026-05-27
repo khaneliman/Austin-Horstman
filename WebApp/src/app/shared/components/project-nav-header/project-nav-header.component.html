@@ -1,7 +1,7 @@
 <!-- Project Navigation Header -->
-<div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
-  <div class="max-w-6xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
+<div class="sticky top-16 z-40 border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
       <!-- Left: Back Navigation -->
       <div class="flex items-center space-x-4">
         <a
@@ -21,14 +21,13 @@
 
       <!-- Right: Project Quick Nav -->
       @if (projects.length > 0) {
-        <div class="hidden md:flex items-center space-x-2">
+        <div
+          class="-mx-1 flex snap-x items-center gap-2 overflow-x-auto px-1 pb-1 md:mx-0 md:overflow-visible md:pb-0"
+          aria-label="Project quick navigation"
+        >
           @for (project of projects; track project.route) {
             <a
-              (click)="navigateToProject(project.route, $event)"
-              (keyup.enter)="navigateToProject(project.route, $event)"
-              (keyup.space)="navigateToProject(project.route, $event)"
-              tabindex="0"
-              role="button"
+              [routerLink]="project.route"
               [class]="
                 project.isActive
                   ? 'px-3 py-2 bg-' +
@@ -39,11 +38,12 @@
                     hoverColor() +
                     '-700 dark:text-' +
                     hoverColor() +
-                    '-300 rounded-lg text-sm font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-' +
+                    '-300 rounded-lg text-sm font-medium whitespace-nowrap snap-start focus:outline-none focus:ring-2 focus:ring-' +
                     hoverColor() +
                     '-500'
-                  : 'px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+                  : 'px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium whitespace-nowrap snap-start transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
               "
+              [attr.aria-current]="project.isActive ? 'page' : null"
             >
               {{ project.name }}
             </a>

@@ -1,7 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, input, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroChevronLeft } from '@ng-icons/heroicons/outline';
+import { filter } from 'rxjs/operators';
 import { ProjectNavigationService } from '../../services/project-navigation.service';
 
 export interface ProjectNavItem {
@@ -29,27 +31,25 @@ export class ProjectNavHeaderComponent implements OnInit {
 
   private router = inject(Router);
   private navService = inject(ProjectNavigationService);
+  private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
-    const companyKeyValue = this.companyKey();
-    if (companyKeyValue) {
-      const currentRoute = this.router.url;
-      this.projects = this.navService.getNavigationItems(companyKeyValue, currentRoute);
-    }
+    this.updateProjects(this.router.url);
+
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe((event) => {
+        this.updateProjects(event.urlAfterRedirects);
+      });
   }
 
-  navigateToProject(route: string, event: Event) {
-    event.preventDefault();
+  private updateProjects(currentRoute: string): void {
+    const companyKeyValue = this.companyKey();
+    if (!companyKeyValue) return;
 
-    // Save current scroll position
-    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Navigate to the new route
-    this.router.navigate([route]).then(() => {
-      // Restore scroll position after navigation
-      requestAnimationFrame(() => {
-        window.scrollTo(0, currentScrollY);
-      });
-    });
+    this.projects = this.navService.getNavigationItems(companyKeyValue, currentRoute);
   }
 }
