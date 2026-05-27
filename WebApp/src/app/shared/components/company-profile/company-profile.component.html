@@ -235,15 +235,22 @@
             </div>
           }
         } @else {
+          <!-- Project content first when a reviewer opens a direct project route -->
+          @if (hasActiveChildRoute()) {
+            <div class="mb-10" #projectDetailsSection>
+              <router-outlet></router-outlet>
+            </div>
+          }
+
           <!-- Projects Mode: Full Projects Grid -->
-          <div class="mb-8">
+          <div class="mb-8" [class.mt-12]="hasActiveChildRoute()">
             <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 flex items-center">
               <ng-icon
                 name="heroCodeBracket"
                 size="1.25rem"
                 [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
               ></ng-icon>
-              Featured Projects
+              {{ hasActiveChildRoute() ? 'More Projects at ' + company().name : 'Featured Projects' }}
             </h3>
             <div
               [class]="'grid gap-6 mb-8 ' + (projects().length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')"
@@ -339,16 +346,6 @@
                 ></app-bullet-list>
               </div>
             }
-          </div>
-        }
-
-        <!-- Project content -->
-        @if (hasActiveChildRoute()) {
-          <div
-            class="prose prose-lg dark:prose-invert max-w-none mb-8 bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700"
-            #projectDetailsSection
-          >
-            <router-outlet></router-outlet>
           </div>
         }
 
