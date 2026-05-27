@@ -1,11 +1,11 @@
 name: .NET WebApi Build
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'WebApi/**/*'
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
       - 'WebApi/**/*'
 jobs:
