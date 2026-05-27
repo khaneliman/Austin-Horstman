@@ -4,7 +4,7 @@ import {
   CompanyProfileComponent,
   ProjectInfo,
 } from '../../../../shared/components/company-profile/company-profile.component';
-import { getCompanyById } from '../../../../shared/data/companies';
+import { getCompanyWithCalculatedStats } from '../../../../shared/data/companies';
 import { getProjectsForEmployment } from '../../../../shared/data/projects';
 
 @Component({
@@ -16,6 +16,6 @@ import { getProjectsForEmployment } from '../../../../shared/data/projects';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BestbuyComponent {
-  company: CompanyInfo = getCompanyById('bestbuy');
+  company: CompanyInfo = getCompanyWithCalculatedStats('bestbuy');
   projects: ProjectInfo[] = getProjectsForEmployment('bestbuy');
 }
