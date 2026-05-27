@@ -8,23 +8,28 @@ export const EMPLOYMENT_ROUTES: Routes = [
     children: [
       {
         path: 'bestbuy',
-        loadChildren: () => import('./bestbuy/bestbuy.routes').then((m) => m.BESTBUY_ROUTES),
+        redirectTo: '/experience/bestbuy',
+        pathMatch: 'full',
       },
       {
         path: 'corebts',
-        loadChildren: () => import('./corebts/corebts.routes').then((m) => m.COREBTS_ROUTES),
+        redirectTo: '/experience/corebts',
+        pathMatch: 'full',
       },
       {
         path: 'skyline',
-        loadChildren: () => import('./skyline/skyline.routes').then((m) => m.SKYLINE_ROUTES),
+        redirectTo: '/experience/skyline',
+        pathMatch: 'full',
       },
       {
         path: 'nri-na',
-        loadChildren: () => import('./nri-na/nri-na.routes').then((m) => m.NRI_NA_ROUTES),
+        redirectTo: '/experience/nri-na',
+        pathMatch: 'full',
       },
       {
         path: 'west',
-        loadChildren: () => import('./west/west.routes').then((m) => m.WEST_ROUTES),
+        redirectTo: '/experience/west',
+        pathMatch: 'full',
       },
     ],
   },
