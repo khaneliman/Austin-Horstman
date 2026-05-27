@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { getCompanyEmploymentRoute } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
 import {
   BackgroundElement,
@@ -32,7 +31,6 @@ export interface ProfessionalProject {
 })
 export class ProfessionalProjectsGridComponent {
   @Input() projects: ProfessionalProject[] = [];
-  @Input() showCompanyInfo = true;
 
   private readonly logoStylingService = inject(LogoStylingService);
 
@@ -45,10 +43,6 @@ export class ProfessionalProjectsGridComponent {
       blur: 'xl',
     },
   ];
-
-  getCompanyRoute(companyName: string): string {
-    return getCompanyEmploymentRoute(companyName);
-  }
 
   getLogoBackgroundStyle(logoBackground: 'white' | 'black' | 'dark'): string {
     return this.logoStylingService.getLogoBackgroundStyle(logoBackground);

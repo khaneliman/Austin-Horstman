@@ -412,7 +412,7 @@ export function getCompaniesForProfessionalGrid() {
     title: `${company.displayName} Projects`,
     description: company.description.split('.')[0], // First sentence for brevity
     company: company.displayName,
-    route: company.projectsRoute,
+    route: company.experienceRoute,
     logo: company.logoSrc,
     theme: company.colorScheme.theme,
     logoBackground: company.logoBackground,

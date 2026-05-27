@@ -40,4 +40,12 @@ describe('Projects Data', () => {
     expect(bestBuyGrid).toBeDefined();
     expect(bestBuyGrid?.projects[0]?.route).toBe('/projects/professional/geeksquad/stat-tracker');
   });
+
+  it('should route company grid calls to canonical experience pages', () => {
+    const projectsGrid = generateProfessionalProjectsGrid();
+
+    projectsGrid.forEach((company) => {
+      expect(company.route.startsWith('/experience/')).toBe(true);
+    });
+  });
 });

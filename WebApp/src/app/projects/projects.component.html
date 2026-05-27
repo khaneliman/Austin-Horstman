@@ -19,9 +19,7 @@
       <div class="text-center mb-8">
         <h2 class="text-2xl font-semibold text-slate-950 dark:text-slate-50 mb-4">Quick Navigation</h2>
         <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto mb-4"></div>
-        <p class="text-slate-600 dark:text-slate-300">
-          Jump directly to specific company projects or explore by category
-        </p>
+        <p class="text-slate-600 dark:text-slate-300">Jump directly to role context or explore by project category</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -36,27 +34,27 @@
           <p class="text-slate-700 dark:text-slate-300 mb-4">Projects from employment at various companies</p>
           <div class="flex flex-wrap gap-2 mb-4">
             <a
-              routerLink="/projects/professional/skyline"
+              routerLink="/experience/skyline"
               class="px-3 py-1 bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm hover:bg-teal-50 dark:hover:bg-slate-700 transition-colors"
               >Skyline</a
             >
             <a
-              routerLink="/projects/professional/corebts"
+              routerLink="/experience/corebts"
               class="px-3 py-1 bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm hover:bg-teal-50 dark:hover:bg-slate-700 transition-colors"
               >Core BTS</a
             >
             <a
-              routerLink="/projects/professional/west"
+              routerLink="/experience/west"
               class="px-3 py-1 bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm hover:bg-teal-50 dark:hover:bg-slate-700 transition-colors"
               >West</a
             >
             <a
-              routerLink="/projects/professional/nri-na"
+              routerLink="/experience/nri-na"
               class="px-3 py-1 bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm hover:bg-teal-50 dark:hover:bg-slate-700 transition-colors"
               >NRI-NA</a
             >
             <a
-              routerLink="/projects/professional/geeksquad"
+              routerLink="/experience/bestbuy"
               class="px-3 py-1 bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm hover:bg-teal-50 dark:hover:bg-slate-700 transition-colors"
               >Geek Squad</a
             >
@@ -116,10 +114,7 @@
         </p>
       </div>
 
-      <app-professional-projects-grid
-        [projects]="professionalProjects"
-        [showCompanyInfo]="true"
-      ></app-professional-projects-grid>
+      <app-professional-projects-grid [projects]="professionalProjects"></app-professional-projects-grid>
     </div>
   </section>
 
