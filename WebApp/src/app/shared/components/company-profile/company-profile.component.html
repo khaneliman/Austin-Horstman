@@ -30,11 +30,7 @@
           <!-- Floating external link icon -->
           @if (company().website) {
             <div
-              [ngClass]="
-                'absolute -top-2 -right-2 w-8 h-8 bg-' +
-                company().colorScheme.primary +
-                ' rounded-full flex items-center justify-center shadow-lg'
-              "
+              class="absolute -top-2 -right-2 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center shadow-lg"
             >
               <ng-icon name="heroArrowTopRightOnSquare" size="0.875rem" class="text-white"></ng-icon>
             </div>
@@ -46,20 +42,20 @@
         <!-- Company details -->
         <div class="flex flex-wrap justify-center gap-6 text-gray-300">
           <div class="flex items-center space-x-2">
-            <ng-icon name="heroMapPin" size="1rem" class="text-green-400"></ng-icon>
+            <ng-icon name="heroMapPin" size="1rem" class="text-teal-300"></ng-icon>
             <span>{{ company().location }}</span>
           </div>
           <div class="flex items-center space-x-2">
-            <ng-icon name="heroBriefcase" size="1rem" class="text-emerald-400"></ng-icon>
+            <ng-icon name="heroBriefcase" size="1rem" class="text-teal-300"></ng-icon>
             <span>{{ company().position }}</span>
           </div>
           <div class="flex items-center space-x-2">
-            <ng-icon name="heroCalendarDays" size="1rem" class="text-lime-400"></ng-icon>
+            <ng-icon name="heroCalendarDays" size="1rem" class="text-teal-300"></ng-icon>
             <span>{{ getDateRange() }}</span>
           </div>
           @if (company().department) {
             <div class="flex items-center space-x-2 w-full justify-center md:w-auto">
-              <ng-icon name="heroAcademicCap" size="1rem" class="text-lime-400"></ng-icon>
+              <ng-icon name="heroAcademicCap" size="1rem" class="text-teal-300"></ng-icon>
               <span>{{ company().department }}</span>
             </div>
           }
@@ -118,20 +114,16 @@
     </div>
 
     <!-- Stats section -->
-    <div
-      [class]="
-        'px-8 py-6 stats-section--' + company().colorScheme.theme + ' border-b border-gray-100 dark:border-gray-700'
-      "
-    >
+    <div class="px-8 py-6 bg-stone-50 dark:bg-white/[0.03] border-b border-gray-100 dark:border-gray-700">
       <div class="grid grid-cols-3 gap-6">
         <div class="text-center">
-          <div class="text-3xl font-bold text-green-600 mb-1">
+          <div class="text-3xl font-bold text-teal-700 dark:text-teal-300 mb-1">
             {{ company().stats.years }}
           </div>
           <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Years</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-emerald-600 mb-1">
+          <div class="text-3xl font-bold text-teal-700 dark:text-teal-300 mb-1">
             {{ company().stats.projects.value }}
           </div>
           <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">
@@ -139,7 +131,7 @@
           </div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-lime-600 mb-1">
+          <div class="text-3xl font-bold text-teal-700 dark:text-teal-300 mb-1">
             {{ company().stats.clients.value }}
           </div>
           <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">
