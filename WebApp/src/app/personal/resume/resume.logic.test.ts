@@ -133,6 +133,7 @@ describe('ResumeComponent Logic Tests', () => {
           clients: { value: '1', label: 'client' },
         },
         description: 'Test company',
+        experienceRoute: '/experience/test',
         projectsRoute: '/test',
         employmentRoute: '/employment/test',
         projects: [{ name: 'Test Project', route: 'test-project' }],

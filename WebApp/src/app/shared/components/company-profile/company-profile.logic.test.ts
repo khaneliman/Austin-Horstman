@@ -27,6 +27,7 @@ interface CompanyInfo {
   };
   description: string;
   achievements?: readonly string[];
+  experienceRoute: string;
   projectsRoute: string;
   employmentRoute: string;
   projects: readonly { name: string; route: string }[];
@@ -177,6 +178,7 @@ describe('CompanyProfileComponent Logic Tests', () => {
       'Led technical architecture decisions',
       'Mentored junior developers',
     ],
+    experienceRoute: '/experience/test-company',
     projectsRoute: '/projects/test-company',
     employmentRoute: '/employment/test-company',
     projects: [
@@ -331,6 +333,7 @@ describe('CompanyProfileComponent Logic Tests', () => {
         'colorScheme',
         'stats',
         'description',
+        'experienceRoute',
         'projectsRoute',
         'employmentRoute',
         'projects',
@@ -379,6 +382,7 @@ describe('CompanyProfileComponent Logic Tests', () => {
           clients: { value: '1', label: 'Client' },
         },
         description: 'Description',
+        experienceRoute: '/experience',
         projectsRoute: '/projects',
         employmentRoute: '/employment',
         projects: [],

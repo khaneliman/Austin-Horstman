@@ -291,7 +291,7 @@ export class CompanyProfileComponent implements AfterViewInit {
   getCompanyRoute(companyId: string): string {
     try {
       const company = getCompanyById(companyId as keyof typeof import('../../data/companies').COMPANIES);
-      return company.employmentRoute;
+      return company.experienceRoute;
     } catch {
       return '#'; // Fallback to # if company not found
     }

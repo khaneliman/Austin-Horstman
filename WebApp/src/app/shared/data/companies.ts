@@ -44,6 +44,7 @@ interface CompanyData {
   };
   description: string;
   achievements?: readonly string[];
+  experienceRoute: string;
   projectsRoute: string;
   employmentRoute: string;
   projects: readonly { name: string; route: string }[];
@@ -116,6 +117,7 @@ export const COMPANIES = {
       'Streamlined development workflows and communication channels between development teams and leadership, maintaining high productivity during complex system transitions',
       'Established architectural patterns and security frameworks that became organizational standards for modern application development',
     ],
+    experienceRoute: '/experience/nri-na',
     projectsRoute: '/projects/professional/nri-na',
     employmentRoute: '/personal/resume/employment/nri-na',
     projects: [
@@ -169,6 +171,7 @@ export const COMPANIES = {
       'Implemented enterprise-grade state management patterns that became the standard for subsequent Angular applications across the organization',
       'Delivered seamless Azure integration for document storage and management, enabling scalable and secure file handling for client applications',
     ],
+    experienceRoute: '/experience/corebts',
     projectsRoute: '/projects/professional/corebts',
     employmentRoute: '/personal/resume/employment/corebts',
     projects: [
@@ -206,6 +209,7 @@ export const COMPANIES = {
     },
     description:
       'Skyline Technologies is a consulting company providing custom software development and technology solutions across multiple industries. As a Software Engineer, I worked on diverse client projects ranging from healthcare applications to retail platforms, developing full-stack solutions with modern frameworks and implementing best practices for scalable, maintainable code.',
+    experienceRoute: '/experience/skyline',
     projectsRoute: '/projects/professional/skyline',
     employmentRoute: '/personal/resume/employment/skyline',
     projects: [
@@ -243,6 +247,7 @@ export const COMPANIES = {
     },
     description:
       'West Corporation is a global provider of technology-enabled services and solutions. As a Software Engineer in the IT Department, I developed internal tools and automation solutions to improve operational efficiency, including database management systems and employee portal applications using modern web technologies.',
+    experienceRoute: '/experience/west',
     projectsRoute: '/projects/professional/west',
     employmentRoute: '/personal/resume/employment/west',
     projects: [
@@ -277,6 +282,7 @@ export const COMPANIES = {
     },
     description:
       'Best Buy Geek Squad provides technology support and services to customers. As an Advanced Repair Agent, I provided technical support and developed internal tools to improve customer service efficiency, including stat tracking systems and operational dashboards to help agents manage their performance and customer interactions. This was my first professional role in technology, building foundational experience in customer service and software development.',
+    experienceRoute: '/experience/bestbuy',
     projectsRoute: '/projects/professional/geeksquad',
     employmentRoute: '/personal/resume/employment/bestbuy',
     projects: [{ name: 'Stat Tracker', route: 'stat-tracker' }],
@@ -364,6 +370,16 @@ export function getCompanyEmploymentRoute(companyNameOrId: string): string {
   }
 
   return company.employmentRoute;
+}
+
+export function getCompanyExperienceRoute(companyNameOrId: string): string {
+  const company = COMPANIES[companyNameOrId as keyof typeof COMPANIES] || getCompanyByName(companyNameOrId);
+
+  if (!company) {
+    throw new Error(`Company not found: ${companyNameOrId}`);
+  }
+
+  return company.experienceRoute;
 }
 
 export function getCompanyProjectsRoute(companyNameOrId: string): string {
