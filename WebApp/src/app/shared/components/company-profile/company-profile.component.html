@@ -5,7 +5,7 @@
     class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden max-w-6xl mx-auto"
   >
     <!-- Header section -->
-    <div [class]="'relative px-8 pt-12 pb-8 company-header--' + company().colorScheme.theme">
+    <div class="relative px-8 pt-12 pb-10 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950">
       <!-- Decorative elements -->
       <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
 
@@ -234,11 +234,7 @@
               <div class="mt-6 text-center">
                 <a
                   [routerLink]="company().projectsRoute"
-                  [class]="
-                    'inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:shadow-md project-button--' +
-                    company().colorScheme.theme +
-                    ' text-white'
-                  "
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:shadow-md bg-teal-700 hover:bg-teal-800 text-white"
                 >
                   <ng-icon name="heroRectangleStack" size="1rem"></ng-icon>
                   View All Project Details
@@ -370,11 +366,7 @@
             <a
               [href]="company().website"
               target="_blank"
-              [class]="
-                'inline-flex items-center px-6 py-3 project-button--' +
-                company().colorScheme.theme +
-                ' text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200'
-              "
+              class="inline-flex items-center px-6 py-3 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
               <ng-icon name="heroArrowTopRightOnSquare" size="1rem" class="mr-3"></ng-icon>
               <span>Visit Company Website</span>
