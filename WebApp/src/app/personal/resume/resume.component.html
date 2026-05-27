@@ -1,5 +1,43 @@
 <!-- Education Section -->
-<section class="relative bg-[#f7f3ea] pt-32 pb-16 overflow-hidden dark:bg-slate-950">
+<nav
+  class="sticky top-16 z-30 mt-16 border-b border-stone-200/80 bg-[#fbf8f1]/95 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90"
+  aria-label="Resume sections"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="-mx-1 flex items-center gap-2 overflow-x-auto px-1 py-3">
+      <button
+        type="button"
+        (click)="scrollToSection('education')"
+        class="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-teal-50 hover:text-teal-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-teal-200"
+      >
+        Education
+      </button>
+      <button
+        type="button"
+        (click)="scrollToSection('employment')"
+        class="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-teal-50 hover:text-teal-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-teal-200"
+      >
+        Employment
+      </button>
+      <button
+        type="button"
+        (click)="scrollToSection('projects')"
+        class="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-teal-50 hover:text-teal-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-teal-200"
+      >
+        Projects
+      </button>
+      <button
+        type="button"
+        (click)="scrollToSection('technology')"
+        class="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-teal-50 hover:text-teal-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-teal-200"
+      >
+        Technology
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section id="education" class="relative scroll-mt-32 bg-[#f7f3ea] pt-16 pb-16 overflow-hidden dark:bg-slate-950">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="educationBackgroundElements"></app-decorative-background>
 
@@ -42,7 +80,7 @@
   ></app-wave-separator>
 </section>
 <!-- Employment Section -->
-<section class="relative bg-[#f7f3ea] dark:bg-slate-950 py-16 overflow-hidden">
+<section id="employment" class="relative scroll-mt-32 bg-[#f7f3ea] dark:bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="employmentBackgroundElements"></app-decorative-background>
 
@@ -290,7 +328,7 @@
   ></app-wave-separator>
 </section>
 <!-- Projects Section -->
-<section class="relative bg-[#f7f3ea] dark:bg-slate-950 py-16 overflow-hidden">
+<section id="projects" class="relative scroll-mt-32 bg-[#f7f3ea] dark:bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="projectsBackgroundElements"></app-decorative-background>
 
@@ -413,7 +451,7 @@
   </div>
 </section>
 <!-- Technology Summary Section -->
-<section class="relative bg-stone-100 dark:bg-slate-950 py-16 overflow-hidden">
+<section id="technology" class="relative scroll-mt-32 bg-stone-100 dark:bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="technologyBackgroundElements"></app-decorative-background>
 

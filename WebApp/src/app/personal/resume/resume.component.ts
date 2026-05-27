@@ -254,6 +254,22 @@ export class ResumeComponent {
     return formatDateRange(company.dateStart, company.dateEnd);
   }
 
+  scrollToSection(sectionId: string): void {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+
+    const targetTop = section.getBoundingClientRect().top + window.scrollY - 128;
+    window.scrollTo({ top: Math.max(targetTop, 0), behavior: 'auto' });
+
+    requestAnimationFrame(() => {
+      root.style.scrollBehavior = previousScrollBehavior;
+    });
+  }
+
   // Get personal/open source projects
   private getPersonalProjects() {
     return [
