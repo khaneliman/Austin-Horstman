@@ -25,11 +25,7 @@ import { SocialLinksService } from '../../services';
 export class SocialLinksComponent {
   @Input() location: string | undefined;
 
-  private static readonly navPlatforms = new Set(['github', 'linkedin']);
-
   private socialLinksService = inject(SocialLinksService);
   protected socialLinks = this.socialLinksService.socialLinks$;
-  protected navSocialLinks = computed(() =>
-    this.socialLinks().filter((site) => SocialLinksComponent.navPlatforms.has(site.platform))
-  );
+  protected navSocialLinks = computed(() => this.socialLinksService.getNavSocialLinks());
 }
