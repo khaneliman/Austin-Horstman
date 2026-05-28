@@ -245,14 +245,6 @@ export class ResumeComponent {
     .slice(0, 6); // Top 6 distinct projects for featured section
   personalProjects = this.getPersonalProjects();
 
-  trackByCompanyId(index: number, company: CompanyInfo): string {
-    return company.id;
-  }
-
-  trackByIndex(index: number): number {
-    return index;
-  }
-
   getProjectAccent(index: number): string {
     return this.projectAccentPattern[index % this.projectAccentPattern.length] ?? 'primary';
   }

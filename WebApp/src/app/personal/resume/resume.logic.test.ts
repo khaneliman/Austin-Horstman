@@ -29,14 +29,6 @@ class ResumeComponentLogic {
   learnedTechnologies: technologiesModule.TechnologySkill[];
   interestedTechnologies: technologiesModule.TechnologySkill[];
 
-  trackByCompanyId(index: number, company: companiesModule.CompanyInfo): string {
-    return company.id;
-  }
-
-  trackByIndex(index: number): number {
-    return index;
-  }
-
   getCompanyColor(colorClass: string): string {
     const colorMap: Record<string, string> = {
       'blue-500': '#3b82f6',
@@ -109,41 +101,6 @@ describe('ResumeComponent Logic Tests', () => {
   });
 
   describe('Utility Methods', () => {
-    it('should track by company id', () => {
-      const company: companiesModule.CompanyInfo = {
-        id: 'test-id',
-        displayName: 'Test Company',
-        name: 'Test',
-        logoSrc: '/test.png',
-        logoAlt: 'Test Logo',
-        logoBackground: 'white',
-        location: 'Test City',
-        position: 'Test Position',
-        dateStart: '2020-01',
-        dateEnd: '2021-12',
-        colorScheme: {
-          theme: 'blue',
-          primary: '#000',
-          secondary: '#111',
-          accent: '#222',
-        },
-        stats: {
-          years: '1',
-          projects: { value: '1', label: 'project' },
-          clients: { value: '1', label: 'client' },
-        },
-        description: 'Test company',
-        experienceRoute: '/experience/test',
-        projectsRoute: '/test',
-        projects: [{ name: 'Test Project', route: 'test-project' }],
-      };
-      expect(logic.trackByCompanyId(0, company)).toBe('test-id');
-    });
-
-    it('should track by index', () => {
-      expect(logic.trackByIndex(5)).toBe(5);
-    });
-
     it('should map colors correctly', () => {
       expect(logic.getCompanyColor('blue-500')).toBe('#3b82f6');
       expect(logic.getCompanyColor('invalid')).toBe('#3b82f6');
