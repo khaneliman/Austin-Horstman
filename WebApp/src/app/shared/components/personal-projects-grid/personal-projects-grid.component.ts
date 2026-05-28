@@ -70,7 +70,7 @@ export class PersonalProjectsGridComponent {
   /** How many technology chips to surface (most-common first). */
   private static readonly MAX_FILTER_TAGS = 8;
 
-  private readonly selectedTechs = signal<ReadonlySet<string>>(new Set());
+  private readonly selectedTech = signal<string | null>(null);
 
   backgroundElements: BackgroundElement[] = [
     {
@@ -90,9 +90,9 @@ export class PersonalProjectsGridComponent {
   }
 
   get displayedProjects(): PersonalProject[] {
-    const selected = this.selectedTechs();
-    if (selected.size === 0) return this.baseProjects;
-    return this.baseProjects.filter((project) => project.technologies.some((tech) => selected.has(tech)));
+    const selected = this.selectedTech();
+    if (!selected) return this.baseProjects;
+    return this.baseProjects.filter((project) => project.technologies.includes(selected));
   }
 
   /** Most-common technologies across the base set, with counts; capped and ranked count-desc then alpha. */
@@ -113,23 +113,22 @@ export class PersonalProjectsGridComponent {
     return this.baseProjects.length;
   }
 
-  /** Stable key of the current selection, used to replay the stagger on change. */
+  /** Current selection (empty string when none), used to replay the stagger on change. */
   get selectionKey(): string {
-    return [...this.selectedTechs()].sort().join(',');
+    return this.selectedTech() ?? '';
   }
 
   isTechSelected(tech: string): boolean {
-    return this.selectedTechs().has(tech);
+    return this.selectedTech() === tech;
   }
 
+  /** Select a tech, or clear it when the active chip is clicked again. */
   toggleTech(tech: string): void {
-    const next = new Set(this.selectedTechs());
-    if (!next.delete(tech)) next.add(tech);
-    this.selectedTechs.set(next);
+    this.selectedTech.update((current) => (current === tech ? null : tech));
   }
 
   clearTechs(): void {
-    this.selectedTechs.set(new Set());
+    this.selectedTech.set(null);
   }
 
   getCategoryIcon(category: string): string {
