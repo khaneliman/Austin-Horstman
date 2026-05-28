@@ -193,7 +193,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     headerIcon: 'heroCheck',
     primaryColor: 'blue',
-    styleVariant: 'split',
     casePanel: {
       eyebrow: 'IT Portal Evidence',
       title: 'Consolidated tools, single workflow.',
@@ -271,7 +270,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     headerIcon: 'heroCircleStack',
     primaryColor: 'green',
-    styleVariant: 'split',
     casePanel: {
       eyebrow: 'Infrastructure Evidence',
       title: 'Real-time systems and search telemetry.',
@@ -650,6 +648,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     headerIcon: 'heroBeaker',
     primaryColor: 'blue',
+    styleVariant: 'ledger',
 
     // Navigation
     backRoute: '/experience/nri-na',
@@ -735,6 +734,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     headerIcon: 'heroArrowPathRoundedSquare',
     primaryColor: 'emerald',
+    styleVariant: 'ledger',
 
     // Navigation
     backRoute: '/experience/nri-na',
@@ -1104,6 +1104,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     headerIcon: 'heroArchiveBox',
     primaryColor: 'green',
+    styleVariant: 'compact',
 
     // Navigation
     backRoute: '/experience/skyline',
@@ -1183,6 +1184,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Visual/Branding
     headerIcon: 'heroSpeakerWave',
     primaryColor: 'purple',
+    styleVariant: 'compact',
 
     // Navigation
     backRoute: '/experience/skyline',
