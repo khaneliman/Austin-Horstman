@@ -1,5 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import {
@@ -16,246 +15,184 @@ export interface HeroButton {
   action?: () => void;
 }
 
+export type HeroVariant = 'default' | 'gradient' | 'minimal' | 'profile';
+export type HeroSize = 'sm' | 'md' | 'lg' | 'xl';
+export type HeroAlignment = 'left' | 'center';
+export type HeroLayout = 'single' | 'split';
+
 @Component({
   selector: 'app-hero-section',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgIf, NgFor, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
+  imports: [RouterModule, NgIconComponent, DecorativeBackgroundComponent],
   template: `
-    <section [class]="sectionClasses">
-      <!-- Background decorations -->
-      <app-decorative-background *ngIf="backgroundElements().length > 0" [elements]="backgroundElements()">
-      </app-decorative-background>
+    <section [class]="sectionClasses()">
+      @if (backgroundElements().length > 0) {
+        <app-decorative-background [elements]="backgroundElements()"></app-decorative-background>
+      }
 
-      <!-- Additional background overlay -->
-      <div *ngIf="overlayGradient()" [class]="overlayClasses"></div>
+      @if (overlayGradient(); as og) {
+        <div [class]="'absolute inset-0 ' + og"></div>
+      }
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
-        <div [class]="contentLayoutClasses">
-          <!-- Left/Main Content -->
-          <div [class]="contentClasses">
-            <div [class]="contentStackClasses">
-              <!-- Badge/Category -->
-              <div *ngIf="badge()" class="flex justify-center lg:justify-start">
-                <span [class]="badgeClasses">
-                  {{ badge() }}
-                </span>
-              </div>
+        <div [class]="contentLayoutClasses()">
+          <div [class]="contentClasses()">
+            <div [class]="contentStackClasses()">
+              @if (badge(); as b) {
+                <div class="flex justify-center lg:justify-start">
+                  <span [class]="badgeClasses()">{{ b }}</span>
+                </div>
+              }
 
-              <!-- Main Heading -->
               <div>
-                <h1 [class]="headingClasses">
-                  {{ title() }}
-                </h1>
-                <div *ngIf="showUnderline()" [class]="underlineClasses"></div>
+                <h1 [class]="headingClasses()">{{ title() }}</h1>
+                @if (showUnderline()) {
+                  <div [class]="underlineClasses()"></div>
+                }
               </div>
 
-              <!-- Subtitle/Description -->
-              <p *ngIf="subtitle()" [class]="subtitleClasses">
-                {{ subtitle() }}
-              </p>
+              @if (subtitle(); as st) {
+                <p [class]="subtitleClasses()">{{ st }}</p>
+              }
 
-              <!-- Buttons -->
-              <div *ngIf="buttons().length > 0" [class]="buttonContainerClasses">
-                <a
-                  *ngFor="let button of buttons()"
-                  [href]="button.href"
-                  [routerLink]="button.routerLink"
-                  [class]="getButtonClasses(button)"
-                  (click)="button.action && button.action()"
-                >
-                  <ng-icon *ngIf="button.icon" [name]="button.icon" size="1.25rem" class="mr-2"> </ng-icon>
-                  {{ button.text }}
-                </a>
-              </div>
+              @if (buttons().length > 0) {
+                <div [class]="buttonContainerClasses()">
+                  @for (button of buttons(); track button.text) {
+                    <a
+                      [href]="button.href"
+                      [routerLink]="button.routerLink"
+                      [class]="getButtonClasses(button)"
+                      (click)="button.action && button.action()"
+                    >
+                      @if (button.icon; as bi) {
+                        <ng-icon [name]="bi" size="1.25rem" class="mr-2"></ng-icon>
+                      }
+                      {{ button.text }}
+                    </a>
+                  }
+                </div>
+              }
 
-              <!-- Additional content slot -->
-              <div *ngIf="showContentSlot()" class="mt-8">
-                <ng-content></ng-content>
-              </div>
+              @if (showContentSlot()) {
+                <div class="mt-8">
+                  <ng-content></ng-content>
+                </div>
+              }
             </div>
           </div>
 
-          <!-- Right side content (optional) -->
-          <div *ngIf="showRightContent()" class="flex items-center justify-center">
-            <ng-content select="[slot=right]"></ng-content>
-          </div>
+          @if (showRightContent()) {
+            <div class="flex items-center justify-center">
+              <ng-content select="[slot=right]"></ng-content>
+            </div>
+          }
         </div>
       </div>
     </section>
   `,
-  styles: [],
 })
 export class HeroSectionComponent {
-  title = input.required<string>();
-  subtitle = input<string>();
-  badge = input<string>();
-  buttons = input<HeroButton[]>([]);
-  variant = input<'default' | 'gradient' | 'minimal' | 'profile'>('default');
-  size = input<'sm' | 'md' | 'lg' | 'xl'>('lg');
-  alignment = input<'left' | 'center'>('center');
-  layout = input<'single' | 'split'>('single');
-  backgroundGradient = input<string>('from-blue-600 to-purple-600');
-  backgroundElements = input<BackgroundElement[]>([]);
-  overlayGradient = input<string>();
-  showUnderline = input<boolean>(false);
-  showContentSlot = input<boolean>(false);
-  showRightContent = input<boolean>(false);
-  minHeight = input<string>('min-h-screen');
-  textColor = input<'light' | 'dark'>('light');
+  readonly title = input.required<string>();
+  readonly subtitle = input<string>();
+  readonly badge = input<string>();
+  readonly buttons = input<HeroButton[]>([]);
+  readonly variant = input<HeroVariant>('default');
+  readonly size = input<HeroSize>('lg');
+  readonly alignment = input<HeroAlignment>('center');
+  readonly layout = input<HeroLayout>('single');
+  readonly backgroundGradient = input('from-blue-600 to-purple-600');
+  readonly backgroundElements = input<BackgroundElement[]>([]);
+  readonly overlayGradient = input<string>();
+  readonly showUnderline = input(false);
+  readonly showContentSlot = input(false);
+  readonly showRightContent = input(false);
+  readonly minHeight = input('min-h-screen');
+  readonly textColor = input<'light' | 'dark'>('light');
 
-  get sectionClasses(): string {
+  readonly sectionClasses = computed(() => {
     const classes = ['relative', this.minHeight(), 'overflow-hidden'];
-    const variantValue = this.variant();
-    const backgroundGradientValue = this.backgroundGradient();
-
-    if (variantValue === 'gradient') {
-      classes.push(`bg-gradient-to-br ${backgroundGradientValue}`);
-    } else if (variantValue === 'minimal') {
-      classes.push('bg-[#f7f3ea] dark:bg-slate-950');
-    } else if (variantValue === 'default') {
-      classes.push(`bg-gradient-to-br ${backgroundGradientValue}`);
-    }
-
+    const v = this.variant();
+    if (v === 'gradient' || v === 'default') classes.push(`bg-gradient-to-br ${this.backgroundGradient()}`);
+    else if (v === 'minimal') classes.push('bg-[#f7f3ea] dark:bg-slate-950');
     return classes.join(' ');
-  }
+  });
 
-  get overlayClasses(): string {
-    return `absolute inset-0 ${this.overlayGradient()}`;
-  }
-
-  get contentLayoutClasses(): string {
+  readonly contentLayoutClasses = computed(() => {
     const classes = ['items-center'];
-    const layoutValue = this.layout();
-    const sizeValue = this.size();
-
-    if (layoutValue === 'split') {
-      classes.push('grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16');
-    } else {
-      classes.push('flex justify-center');
-    }
-
-    if (sizeValue === 'xl') {
-      classes.push('min-h-[72vh] lg:min-h-[80vh]');
-    }
-
+    classes.push(
+      this.layout() === 'split' ? 'grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16' : 'flex justify-center'
+    );
+    if (this.size() === 'xl') classes.push('min-h-[72vh] lg:min-h-[80vh]');
     return classes.join(' ');
-  }
+  });
 
-  get contentClasses(): string {
-    const classes = [];
-    const alignmentValue = this.alignment();
+  readonly contentClasses = computed(() =>
+    this.alignment() === 'center' ? 'text-center' : 'text-center lg:text-left'
+  );
 
-    if (alignmentValue === 'center') {
-      classes.push('text-center');
-    } else {
-      classes.push('text-center lg:text-left');
-    }
-
-    return classes.join(' ');
-  }
-
-  get contentStackClasses(): string {
+  readonly contentStackClasses = computed(() => {
     const classes = ['space-y-6'];
-    const sizeValue = this.size();
-
-    if (sizeValue === 'lg' || sizeValue === 'xl') {
-      classes.push('lg:space-y-8');
-    }
-
+    const s = this.size();
+    if (s === 'lg' || s === 'xl') classes.push('lg:space-y-8');
     return classes.join(' ');
-  }
+  });
 
-  get headingClasses(): string {
-    const baseClasses = [];
-    const sizeValue = this.size();
-    const textColorValue = this.textColor();
-
-    // Size classes first
-    switch (sizeValue) {
+  readonly headingClasses = computed(() => {
+    const classes: string[] = [];
+    switch (this.size()) {
       case 'sm':
-        baseClasses.push('text-3xl lg:text-4xl');
+        classes.push('text-3xl lg:text-4xl');
         break;
       case 'md':
-        baseClasses.push('text-4xl lg:text-5xl');
+        classes.push('text-4xl lg:text-5xl');
         break;
       case 'lg':
-        baseClasses.push('text-4xl sm:text-5xl lg:text-6xl');
+        classes.push('text-4xl sm:text-5xl lg:text-6xl');
         break;
       case 'xl':
-        baseClasses.push('text-4xl sm:text-5xl lg:text-7xl');
+        classes.push('text-4xl sm:text-5xl lg:text-7xl');
         break;
     }
+    classes.push('font-bold', 'leading-[1.05]', 'mb-4', 'tracking-normal');
+    classes.push(this.textColor() === 'light' ? 'text-white' : 'text-slate-950 dark:text-slate-50');
+    return classes.join(' ');
+  });
 
-    // Typography and spacing
-    baseClasses.push('font-bold', 'leading-[1.05]', 'mb-4', 'tracking-normal');
-
-    // Color classes last
-    if (textColorValue === 'light') {
-      baseClasses.push('text-white');
-    } else {
-      baseClasses.push('text-slate-950 dark:text-slate-50');
-    }
-
-    return baseClasses.join(' ');
-  }
-
-  get subtitleClasses(): string {
-    const baseClasses = ['leading-relaxed'];
-    const sizeValue = this.size();
-    const textColorValue = this.textColor();
-    const alignmentValue = this.alignment();
-
-    // Size classes
-    switch (sizeValue) {
+  readonly subtitleClasses = computed(() => {
+    const classes = ['leading-relaxed'];
+    switch (this.size()) {
       case 'sm':
-        baseClasses.push('text-lg');
+        classes.push('text-lg');
         break;
       case 'md':
-        baseClasses.push('text-xl');
+        classes.push('text-xl');
         break;
       case 'lg':
-        baseClasses.push('text-lg sm:text-xl lg:text-2xl');
-        break;
       case 'xl':
-        baseClasses.push('text-lg sm:text-xl lg:text-2xl');
+        classes.push('text-lg sm:text-xl lg:text-2xl');
         break;
     }
+    classes.push(
+      this.textColor() === 'light' ? 'text-slate-100 max-w-2xl' : 'text-slate-600 dark:text-slate-300 max-w-2xl'
+    );
+    if (this.alignment() === 'center') classes.push('mx-auto');
+    return classes.join(' ');
+  });
 
-    // Color and constraints
-    if (textColorValue === 'light') {
-      baseClasses.push('text-slate-100 max-w-2xl');
-    } else {
-      baseClasses.push('text-slate-600 dark:text-slate-300 max-w-2xl');
-    }
-
-    if (alignmentValue === 'center') {
-      baseClasses.push('mx-auto');
-    }
-
-    return baseClasses.join(' ');
-  }
-
-  get badgeClasses(): string {
+  readonly badgeClasses = computed(() => {
     const classes = ['px-4 py-2 text-sm font-medium rounded-full'];
-    const textColorValue = this.textColor();
-
-    if (textColorValue === 'light') {
-      classes.push('bg-white/15 text-white backdrop-blur-sm border border-white/20');
-    } else {
-      classes.push('bg-teal-100 text-teal-900 dark:bg-teal-950/60 dark:text-teal-200');
-    }
-
+    classes.push(
+      this.textColor() === 'light'
+        ? 'bg-white/15 text-white backdrop-blur-sm border border-white/20'
+        : 'bg-teal-100 text-teal-900 dark:bg-teal-950/60 dark:text-teal-200'
+    );
     return classes.join(' ');
-  }
+  });
 
-  get underlineClasses(): string {
-    const classes = [];
-    const sizeValue = this.size();
-    const alignmentValue = this.alignment();
-
-    // Width first
-    switch (sizeValue) {
+  readonly underlineClasses = computed(() => {
+    const classes: string[] = [];
+    switch (this.size()) {
       case 'sm':
         classes.push('w-16');
         break;
@@ -267,64 +204,42 @@ export class HeroSectionComponent {
         classes.push('w-24');
         break;
     }
-
-    // Height and background
     classes.push('h-1', 'bg-gradient-to-r', 'from-teal-300', 'to-amber-300', 'rounded-full');
-
-    // Margin/positioning last
-    if (alignmentValue === 'center') {
-      classes.push('mx-auto');
-    } else {
-      classes.push('mx-auto', 'lg:mx-0');
-    }
-
+    classes.push(this.alignment() === 'center' ? 'mx-auto' : 'mx-auto', 'lg:mx-0');
     return classes.join(' ');
-  }
+  });
 
-  get buttonContainerClasses(): string {
+  readonly buttonContainerClasses = computed(() => {
     const classes = ['flex flex-wrap gap-4'];
-    const alignmentValue = this.alignment();
-
-    if (alignmentValue === 'center') {
-      classes.push('justify-center');
-    } else {
-      classes.push('justify-center lg:justify-start');
-    }
-
+    classes.push(this.alignment() === 'center' ? 'justify-center' : 'justify-center lg:justify-start');
     return classes.join(' ');
-  }
+  });
 
   getButtonClasses(button: HeroButton): string {
-    const baseClasses = [
+    const classes = [
       'inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 font-semibold rounded-lg',
       'transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5',
     ];
-    const textColorValue = this.textColor();
-
+    const light = this.textColor() === 'light';
     switch (button.variant) {
       case 'primary':
-        baseClasses.push('bg-teal-700 hover:bg-teal-800 text-white shadow-lg shadow-teal-950/20');
+        classes.push('bg-teal-700 hover:bg-teal-800 text-white shadow-lg shadow-teal-950/20');
         break;
       case 'secondary':
-        if (textColorValue === 'light') {
-          baseClasses.push('bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40');
-        } else {
-          baseClasses.push(
-            'bg-slate-900 hover:bg-slate-800 text-white shadow-lg dark:bg-slate-100 dark:text-slate-950'
-          );
-        }
+        classes.push(
+          light
+            ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40'
+            : 'bg-slate-900 hover:bg-slate-800 text-white shadow-lg dark:bg-slate-100 dark:text-slate-950'
+        );
         break;
       case 'outline':
-        if (textColorValue === 'light') {
-          baseClasses.push('border-2 border-white/70 text-white hover:bg-white hover:text-teal-900');
-        } else {
-          baseClasses.push(
-            'border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white dark:border-slate-100 dark:text-slate-100'
-          );
-        }
+        classes.push(
+          light
+            ? 'border-2 border-white/70 text-white hover:bg-white hover:text-teal-900'
+            : 'border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white dark:border-slate-100 dark:text-slate-100'
+        );
         break;
     }
-
-    return baseClasses.join(' ');
+    return classes.join(' ');
   }
 }
