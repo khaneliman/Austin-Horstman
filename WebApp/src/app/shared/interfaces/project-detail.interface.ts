@@ -39,7 +39,6 @@ export interface ContentSection {
 
 export interface ProjectDetailConfig {
   // Visual/Branding
-  backgroundGradient: string;
   headerIcon: string;
   primaryColor: string;
   styleVariant?: ProjectCaseStyle;

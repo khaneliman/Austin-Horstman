@@ -203,7 +203,6 @@ describe('Project Detail Interfaces', () => {
     it('should validate complete ProjectDetailConfig structure', () => {
       const validConfig: ProjectDetailConfig = {
         // Visual/Branding
-        backgroundGradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
         headerIcon: 'heroBookOpen',
         primaryColor: 'blue',
 
@@ -241,7 +240,6 @@ describe('Project Detail Interfaces', () => {
       };
 
       // Validate required visual properties
-      expect(typeof validConfig.backgroundGradient).toBe('string');
       expect(typeof validConfig.headerIcon).toBe('string');
       expect(typeof validConfig.primaryColor).toBe('string');
 
@@ -266,7 +264,6 @@ describe('Project Detail Interfaces', () => {
 
     it('should handle optional properties', () => {
       const minimalConfig: ProjectDetailConfig = {
-        backgroundGradient: 'bg-gradient-to-r from-red-500 to-red-700',
         headerIcon: 'heroRocketLaunch',
         primaryColor: 'red',
         backRoute: '/projects',
@@ -292,7 +289,6 @@ describe('Project Detail Interfaces', () => {
 
     it('should validate grid column options', () => {
       const singleColumnConfig: ProjectDetailConfig = {
-        backgroundGradient: 'test',
         headerIcon: 'test',
         primaryColor: 'test',
         backRoute: 'test',
@@ -321,7 +317,6 @@ describe('Project Detail Interfaces', () => {
 
     it('should handle complex nested structures', () => {
       const complexConfig: ProjectDetailConfig = {
-        backgroundGradient: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
         headerIcon: 'heroArrowPathRoundedSquare',
         primaryColor: 'emerald',
         backRoute: '/projects/professional/company',
@@ -392,7 +387,6 @@ describe('Project Detail Interfaces', () => {
   describe('Interface Validation Edge Cases', () => {
     it('should handle empty arrays in ProjectDetailConfig', () => {
       const emptyArraysConfig: ProjectDetailConfig = {
-        backgroundGradient: 'test',
         headerIcon: 'test',
         primaryColor: 'test',
         backRoute: 'test',
@@ -432,7 +426,6 @@ describe('Project Detail Interfaces', () => {
 
     it('should handle special characters in all string fields', () => {
       const specialCharsConfig: ProjectDetailConfig = {
-        backgroundGradient: 'bg-gradient-to-r from-red-500 to-red-700',
         headerIcon: 'heroRocketLaunch',
         primaryColor: 'red',
         backRoute: '/projects/special-chars',

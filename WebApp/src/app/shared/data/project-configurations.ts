@@ -4,7 +4,6 @@ import { ProjectDetailConfig } from '../interfaces/project-detail.interface';
 export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
   'renaissance-learning': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
     headerIcon: 'heroBookOpen',
     primaryColor: 'blue',
 
@@ -82,7 +81,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'quick-launch': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroRocketLaunch',
     primaryColor: 'orange',
     styleVariant: 'compact',
@@ -193,7 +191,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'it-portal': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroCheck',
     primaryColor: 'blue',
     styleVariant: 'split',
@@ -272,7 +269,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'database-tool': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroCircleStack',
     primaryColor: 'green',
     styleVariant: 'split',
@@ -361,7 +357,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'stat-tracker': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroGlobeAlt',
     primaryColor: 'yellow',
 
@@ -459,7 +454,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
   // Core BTS Projects
   'kroger-solutions': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-green-50 via-gray-50 to-emerald-50',
     headerIcon: 'heroShoppingBag',
     primaryColor: 'green',
 
@@ -555,7 +549,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'doitbest-platform': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-gray-50 to-indigo-50',
     headerIcon: 'heroCog6Tooth',
     primaryColor: 'blue',
 
@@ -655,7 +648,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
   // NRI-NA Projects
   'ai-resource-staffing': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-sky-50',
     headerIcon: 'heroBeaker',
     primaryColor: 'blue',
 
@@ -741,7 +733,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'mulesoft-migrator': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
     headerIcon: 'heroArrowPathRoundedSquare',
     primaryColor: 'emerald',
 
@@ -849,7 +840,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'tax-document-analysis': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50',
     headerIcon: 'heroDocumentText',
     primaryColor: 'purple',
 
@@ -934,7 +924,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   cleartrend: {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50',
     headerIcon: 'heroChartBar',
     primaryColor: 'teal',
 
@@ -1029,7 +1018,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'express-scripts': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroHeart',
     primaryColor: 'red',
 
@@ -1114,7 +1102,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'jj-keller': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-green-50 via-teal-50 to-blue-50',
     headerIcon: 'heroArchiveBox',
     primaryColor: 'green',
 
@@ -1194,7 +1181,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'mile-of-music': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-purple-50 via-pink-50 to-red-50',
     headerIcon: 'heroSpeakerWave',
     primaryColor: 'purple',
 
@@ -1278,7 +1264,6 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
 
   'network-health': {
     // Visual/Branding
-    backgroundGradient: 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50',
     headerIcon: 'heroHeart',
     primaryColor: 'emerald',
 
