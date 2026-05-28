@@ -46,6 +46,11 @@ interface RepoActivity {
 export class NowComponent {
   readonly asOf = this.formatAsOf(GITHUB_METRICS.asOf);
   readonly totalMergedPrs = GITHUB_METRICS.totalMergedPrs;
+  readonly githubUser = 'khaneliman';
+  readonly githubProfileUrl = `https://github.com/${this.githubUser}`;
+  // ghchart returns a static SVG, no API key required. Teal-500 (#14b8a6)
+  // matches the site accent and reads cleanly on both paper and slate.
+  readonly heatmapUrl = `https://ghchart.rshah.org/14b8a6/${this.githubUser}`;
 
   readonly focusItems: FocusItem[] = [
     {
