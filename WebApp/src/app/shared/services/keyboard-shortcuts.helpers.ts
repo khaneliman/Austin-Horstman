@@ -42,6 +42,8 @@ export const SHORTCUT_GROUPS: readonly ShortcutGroup[] = [
   {
     label: 'Scroll',
     bindings: [
+      { sequence: 'j', description: 'Scroll down' },
+      { sequence: 'k', description: 'Scroll up' },
       { sequence: 'g g', description: 'Jump to top of page' },
       { sequence: 'G', description: 'Jump to bottom of page' },
     ],

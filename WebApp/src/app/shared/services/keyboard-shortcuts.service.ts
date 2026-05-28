@@ -12,6 +12,8 @@ export {
   type ShortcutGroup,
 } from './keyboard-shortcuts.helpers';
 
+const LINE_SCROLL_STEP_PX = 80;
+
 @Injectable({ providedIn: 'root' })
 export class KeyboardShortcutsService {
   private readonly router = inject(Router);
@@ -80,6 +82,18 @@ export class KeyboardShortcutsService {
       return;
     }
 
+    if (event.key === 'j') {
+      event.preventDefault();
+      this.scrollBy(LINE_SCROLL_STEP_PX);
+      return;
+    }
+
+    if (event.key === 'k') {
+      event.preventDefault();
+      this.scrollBy(-LINE_SCROLL_STEP_PX);
+      return;
+    }
+
     this.maybeWakeGrid(event);
   }
 
@@ -115,6 +129,10 @@ export class KeyboardShortcutsService {
     const win = this.document.defaultView;
     const height = this.document.documentElement.scrollHeight;
     win?.scrollTo({ top: height, behavior: 'smooth' });
+  }
+
+  private scrollBy(deltaPx: number): void {
+    this.document.defaultView?.scrollBy({ top: deltaPx, behavior: 'smooth' });
   }
 
   private clearPrefix(): void {
