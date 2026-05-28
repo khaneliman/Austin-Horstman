@@ -78,7 +78,8 @@ const homeManagerNotablePullRequests = [
 ];
 
 const homeManagerMergedPrs = homeManagerNotablePullRequests.length;
-const homeManagerUpdatedAt = homeManagerNotablePullRequests.at(-1)?.mergedAt ?? 'Present';
+const homeManagerUpdatedAt =
+  homeManagerNotablePullRequests[homeManagerNotablePullRequests.length - 1]?.mergedAt ?? 'Present';
 
 @Component({
   selector: 'app-home-manager',
