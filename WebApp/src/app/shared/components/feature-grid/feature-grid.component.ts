@@ -7,6 +7,18 @@ export interface Feature {
   description: string;
 }
 
+export type FeatureGridGap = '2' | '3' | '4' | '5' | '6' | '8' | '10';
+
+const GAP_CLASSES: Record<FeatureGridGap, string> = {
+  '2': 'gap-2',
+  '3': 'gap-3',
+  '4': 'gap-4',
+  '5': 'gap-5',
+  '6': 'gap-6',
+  '8': 'gap-8',
+  '10': 'gap-10',
+};
+
 @Component({
   selector: 'app-feature-grid',
   standalone: true,
@@ -31,10 +43,10 @@ export class FeatureGridComponent {
   readonly columns = input<1 | 2>(2);
   readonly iconColor = input('blue');
   readonly itemSize = input<'sm' | 'md' | 'lg'>('md');
-  readonly gap = input('6');
+  readonly gap = input<FeatureGridGap>('6');
 
   readonly gridClasses = computed(() => {
-    const classes = ['grid', `gap-${this.gap()}`];
+    const classes = ['grid', GAP_CLASSES[this.gap()]];
     classes.push(this.columns() === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2');
     return classes.join(' ');
   });

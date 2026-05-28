@@ -2,6 +2,19 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { NgIconComponent } from '@ng-icons/core';
 
 export type HeadingLevel = 'h1' | 'h2' | 'h3';
+export type SectionHeaderMargin = '0' | '2' | '3' | '4' | '5' | '6' | '8' | '10' | '12';
+
+const MARGIN_CLASSES: Record<SectionHeaderMargin, string> = {
+  '0': 'mb-0',
+  '2': 'mb-2',
+  '3': 'mb-3',
+  '4': 'mb-4',
+  '5': 'mb-5',
+  '6': 'mb-6',
+  '8': 'mb-8',
+  '10': 'mb-10',
+  '12': 'mb-12',
+};
 
 @Component({
   selector: 'app-section-header',
@@ -49,10 +62,12 @@ export class SectionHeaderComponent {
   readonly level = input<HeadingLevel>('h2');
   readonly description = input<string>();
   readonly center = input(false);
-  readonly marginBottom = input('6');
+  readonly marginBottom = input<SectionHeaderMargin>('6');
 
+  // `palette-{iconColor}` (src/_palettes.scss) exposes --p-* shade variables
+  // so the icon's static var-based class resolves correctly.
   readonly headerClasses = computed(() => {
-    const classes = [`mb-${this.marginBottom()}`];
+    const classes = [`palette-${this.iconColor()}`, MARGIN_CLASSES[this.marginBottom()]];
     if (this.center()) classes.push('text-center');
     return classes.join(' ');
   });
@@ -74,7 +89,7 @@ export class SectionHeaderComponent {
     return classes.join(' ');
   });
 
-  readonly iconClasses = computed(() => `text-${this.iconColor()}-500 mr-3`);
+  readonly iconClasses = computed(() => 'text-[var(--p-500)] mr-3');
 
   readonly iconSize = computed(() => {
     switch (this.level()) {
