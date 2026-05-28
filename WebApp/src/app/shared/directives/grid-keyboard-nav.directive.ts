@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, inject, input } from '@angular/core';
+import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 import { type ArrowDirection, inferGridColumns, nextGridIndex } from './grid-keyboard-nav.helpers';
 
 const ARROW_DIRECTIONS: Readonly<Record<string, ArrowDirection>> = {
@@ -8,6 +8,8 @@ const ARROW_DIRECTIONS: Readonly<Record<string, ArrowDirection>> = {
   ArrowDown: 'down',
 };
 
+const ANCHOR_SELECTOR = '[data-card-anchor]';
+
 @Directive({
   selector: '[appGridKeyboardNav]',
   standalone: true,
@@ -15,14 +17,12 @@ const ARROW_DIRECTIONS: Readonly<Record<string, ArrowDirection>> = {
 export class GridKeyboardNavDirective {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
 
-  readonly anchorSelector = input<string>('[data-card-anchor]', { alias: 'appGridKeyboardNav' });
-
   @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
     const direction = ARROW_DIRECTIONS[event.key];
     if (!direction) return;
 
-    const anchors = Array.from(this.host.nativeElement.querySelectorAll<HTMLElement>(this.anchorSelector()));
+    const anchors = Array.from(this.host.nativeElement.querySelectorAll<HTMLElement>(ANCHOR_SELECTOR));
     if (anchors.length < 2) return;
 
     const target = event.target instanceof HTMLElement ? event.target : null;
