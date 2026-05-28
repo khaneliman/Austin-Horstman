@@ -63,37 +63,97 @@ export class NixvimComponent {
 
   contributionsAndAchievements: BulletListItem[] = [
     {
-      text: "Enhanced user experience for creating Neovim configurations using Nix's declarative approach",
+      text: 'Built and stabilized Nixvim plugin/module coverage by adding production-ready plugin modules for AI and LSP workflows.',
     },
     {
-      text: 'Resolved bugs and assisted new users with configuration challenges',
+      text: 'Strengthened runtime reliability by preserving LSP event scope and loading wrapped configs via `VIMINIT`.',
     },
     {
-      text: 'Refactored existing plugin modules to support freeform configuration',
+      text: 'Standardized plugin authoring by reusing a shared plugin scaffold template in the contributor workflow.',
     },
     {
-      text: 'Created new plugin modules to increase user satisfaction and adoption',
+      text: 'Expanded integrations for AI-assisted tooling through dedicated `codecompanion` and `codex` modules.',
     },
     {
-      text: 'Streamlined the process of customizing Neovim with the module system',
+      text: 'Added modules for high-friction editor utilities like `neotab`, `sioyek-highlights`, and `lsp-progress`.',
     },
     {
-      text: 'Focused on making complex editor configurations more accessible',
+      text: 'Improved contributor confidence for plugin onboarding via explicit `contributing` and plugin testing guidance.',
+    },
+  ];
+
+  notablePullRequests: { number: number; title: string; url: string; mergedAt: string; impact: string }[] = [
+    {
+      number: 2602,
+      title: 'mkNeovimPlugin: add lazyLoad with lz-n support',
+      url: 'https://github.com/nix-community/nixvim/pull/2602',
+      mergedAt: '2024-12-10',
+      impact: 'Added lazy-loading support to the shared plugin abstraction used across Nixvim modules.',
+    },
+    {
+      number: 2626,
+      title: 'flake-modules/new-plugin: init',
+      url: 'https://github.com/nix-community/nixvim/pull/2626',
+      mergedAt: '2024-12-15',
+      impact: 'Introduced contributor tooling for scaffolding new plugin modules.',
+    },
+    {
+      number: 3302,
+      title:
+        'flake-modules/new-plugin: tweak template; support normalizing package name automatically; add maintainer support; dry run support',
+      url: 'https://github.com/nix-community/nixvim/pull/3302',
+      mergedAt: '2025-05-08',
+      impact: 'Expanded plugin scaffolding into a practical maintainer workflow with dry-run support.',
+    },
+    {
+      number: 3525,
+      title: 'all-maintainers.nix: init; flake/dev/generate-all-maintainers: init',
+      url: 'https://github.com/nix-community/nixvim/pull/3525',
+      mergedAt: '2025-07-08',
+      impact: 'Added maintainer metadata generation for ownership and review routing.',
+    },
+    {
+      number: 3542,
+      title: 'ci: add tag-maintainers workflow',
+      url: 'https://github.com/nix-community/nixvim/pull/3542',
+      mergedAt: '2025-07-09',
+      impact: 'Added CI automation to route reviews to relevant maintainers.',
+    },
+    {
+      number: 2283,
+      title: 'treewide: iconsPackage -> plugins enabled',
+      url: 'https://github.com/nix-community/nixvim/pull/2283',
+      mergedAt: '2024-09-22',
+      impact: 'Treewide option behavior change with high review activity across plugin modules.',
+    },
+    {
+      number: 4084,
+      title: 'plugins/treesitter: support new api',
+      url: 'https://github.com/nix-community/nixvim/pull/4084',
+      mergedAt: '2025-12-19',
+      impact: 'Updated Treesitter integration for upstream API changes in a core editor feature.',
+    },
+    {
+      number: 4333,
+      title: 'modules/output: load wrapped config via VIMINIT',
+      url: 'https://github.com/nix-community/nixvim/pull/4333',
+      mergedAt: '2026-05-24',
+      impact: 'Fixed wrapped configuration loading in the generated Neovim output path.',
     },
   ];
 
   impactAndCommunity: BulletListItem[] = [
     {
-      text: 'Simplified Neovim configuration management',
+      text: 'Delivered plugin modules that reduce manual Lua setup and keep editor configuration reproducible.',
     },
     {
-      text: 'Improved accessibility for new users',
+      text: 'Improved LSP startup reliability and reduced configuration brittleness for complex language-server setups.',
     },
     {
-      text: 'Enhanced reproducible development environments',
+      text: 'Streamlined AI workflow onboarding through reusable plugin/module contribution patterns.',
     },
     {
-      text: 'Active community support and education',
+      text: 'Expanded the ecosystem footprint by adding high-utility modules used in day-to-day Neovim workflows.',
     },
   ];
 }

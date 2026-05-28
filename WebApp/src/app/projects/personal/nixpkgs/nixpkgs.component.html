@@ -103,6 +103,31 @@
               colorTheme="purple"
             ></app-bullet-list>
           </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-purple-100 dark:border-gray-600 shadow-sm mt-8"
+          >
+            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <ng-icon name="heroCodeBracket" size="1rem" class="text-purple-700 dark:text-purple-400 mr-2"></ng-icon>
+              Representative Merged PRs (GitHub)
+            </h4>
+            <ul class="space-y-3">
+              @for (pr of notablePullRequests; track pr.number) {
+                <li>
+                  <a
+                    class="text-sm font-medium text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-purple-200 underline decoration-purple-300 dark:decoration-purple-500"
+                    [href]="pr.url"
+                    target="_blank"
+                  >
+                    PR #{{ pr.number }} · {{ pr.mergedAt }} — {{ pr.title }}
+                  </a>
+                  <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                    {{ pr.impact }}
+                  </p>
+                </li>
+              }
+            </ul>
+          </div>
         </div>
 
         <!-- Technical Details -->
