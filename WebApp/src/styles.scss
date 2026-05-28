@@ -10,7 +10,8 @@
   color-scheme: light;
   --color-paper: #f7f3ea;
   --color-ink: #17212b;
-  --color-night: #0b1220;
+  --color-night: #020617; // slate-950, matches page main bg-dark
+  --color-on-night: #f8fafc; // slate-50, matches dark mode text
 }
 
 .dark {
@@ -23,9 +24,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 18% 8%, rgb(15 118 110 / 0.12), transparent 26rem),
-    linear-gradient(180deg, var(--color-paper), #fffaf1 46%, #ffffff);
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
@@ -33,10 +32,8 @@ body {
 }
 
 .dark body {
-  background:
-    radial-gradient(circle at 18% 8%, rgb(20 184 166 / 0.12), transparent 28rem),
-    linear-gradient(180deg, var(--color-night), #111827 54%, #0b1220);
-  color: #e5e7eb;
+  background: var(--color-night);
+  color: var(--color-on-night);
 }
 
 h1,
