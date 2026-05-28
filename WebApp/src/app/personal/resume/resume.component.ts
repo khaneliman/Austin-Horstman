@@ -5,6 +5,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
   heroArrowPathRoundedSquare,
+  heroArrowRight,
   heroBeaker,
   heroBookOpen,
   heroBriefcase,
@@ -16,6 +17,7 @@ import {
   heroCog6Tooth,
   heroDevicePhoneMobile,
   heroDocumentText,
+  heroEnvelope,
   heroFolder,
   heroGlobeAlt,
   heroInformationCircle,
@@ -96,6 +98,7 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
       heroStar,
       heroStarSolid,
       heroAcademicCap,
+      heroArrowRight,
       heroLightBulb,
       heroPencil,
       heroBriefcase,
@@ -113,6 +116,7 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
       heroCircleStack,
       heroDevicePhoneMobile,
       heroDocumentText,
+      heroEnvelope,
       heroMusicalNote,
       heroRocketLaunch,
       heroShieldCheck,
@@ -123,6 +127,45 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
 })
 export class ResumeComponent {
   private readonly projectAccentPattern = ['primary', 'warning', 'info'];
+
+  resumeHighlights = [
+    {
+      value: '$500K+',
+      label: 'annual licensing removed',
+      description: 'MuleSoft-to-.NET modernization with feature parity and new regression coverage.',
+    },
+    {
+      value: '11 mo',
+      label: 'delivery window',
+      description: 'Compressed a 3-4 year migration estimate into focused, stakeholder-visible delivery.',
+    },
+    {
+      value: `${GITHUB_METRICS.totalMergedPrs}+`,
+      label: 'merged OSS PRs',
+      description: `Nix ecosystem contribution index as of ${GITHUB_METRICS.asOf}.`,
+    },
+  ];
+
+  resumeActions = [
+    {
+      text: 'Current Role',
+      route: '/experience/nri-na',
+      icon: 'heroBriefcase',
+      style: 'primary',
+    },
+    {
+      text: 'Project Case Studies',
+      route: '/projects',
+      icon: 'heroRectangleStack',
+      style: 'secondary',
+    },
+    {
+      text: 'Contact',
+      route: '/personal/contact',
+      icon: 'heroEnvelope',
+      style: 'secondary',
+    },
+  ];
 
   educationBackgroundElements: BackgroundElement[] = [
     {
