@@ -8,11 +8,11 @@ import {
   heroGlobeAlt,
   heroLightBulb,
 } from '@ng-icons/heroicons/outline';
-import { GITHUB_METRICS } from '../../../shared/data/github-metrics';
 import {
   EnhancedFeature,
   EnhancedFeatureCardComponent,
 } from '../../../shared/components/enhanced-feature-card/enhanced-feature-card.component';
+import { GITHUB_METRICS } from '../../../shared/data/github-metrics';
 
 const getRepoMergedPrs = (repoName: string): number =>
   GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === repoName)?.mergedPrs ?? 0;
