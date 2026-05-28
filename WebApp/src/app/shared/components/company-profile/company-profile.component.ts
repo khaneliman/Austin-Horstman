@@ -9,7 +9,7 @@ import {
   inject,
   input,
   signal,
-  ViewChild,
+  viewChild,
 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -104,7 +104,7 @@ export class CompanyProfileComponent implements AfterViewInit {
   company = input.required<CompanyInfo>();
   projects = input.required<ProjectInfo[]>();
   viewMode = input<'employment' | 'projects'>('projects');
-  @ViewChild('projectDetailsSection') projectDetailsSection!: ElementRef;
+  readonly projectDetailsSection = viewChild.required<ElementRef>('projectDetailsSection');
 
   private readonly logoStylingService = inject(LogoStylingService);
   private readonly router = inject(Router);
@@ -217,8 +217,9 @@ export class CompanyProfileComponent implements AfterViewInit {
   }
 
   private scrollToProjectDetails(): void {
-    if (this.projectDetailsSection) {
-      this.projectDetailsSection.nativeElement.scrollIntoView({
+    const projectDetailsSection = this.projectDetailsSection();
+    if (projectDetailsSection) {
+      projectDetailsSection.nativeElement.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
@@ -230,7 +231,7 @@ export class CompanyProfileComponent implements AfterViewInit {
     let currentRoute = this.route.firstChild;
 
     while (currentRoute) {
-      if (currentRoute.snapshot.data['autoScroll'] === true && this.projectDetailsSection) {
+      if (currentRoute.snapshot.data['autoScroll'] === true && this.projectDetailsSection()) {
         setTimeout(() => {
           this.scrollToProjectDetails();
         }, 150);

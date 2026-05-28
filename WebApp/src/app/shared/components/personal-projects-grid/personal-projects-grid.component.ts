@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -60,9 +60,9 @@ export interface PersonalProject {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalProjectsGridComponent {
-  @Input() projects: PersonalProject[] = [];
-  @Input() showFeaturedOnly = false;
-  @Input() maxProjects?: number;
+  readonly projects = input<PersonalProject[]>([]);
+  readonly showFeaturedOnly = input(false);
+  readonly maxProjects = input<number>();
 
   backgroundElements: BackgroundElement[] = [
     {
@@ -75,9 +75,10 @@ export class PersonalProjectsGridComponent {
   ];
 
   get displayedProjects(): PersonalProject[] {
-    const filtered = this.showFeaturedOnly ? this.projects.filter((p) => p.featured) : this.projects;
+    const filtered = this.showFeaturedOnly() ? this.projects().filter((p) => p.featured) : this.projects();
 
-    return this.maxProjects ? filtered.slice(0, this.maxProjects) : filtered;
+    const maxProjects = this.maxProjects();
+    return maxProjects ? filtered.slice(0, maxProjects) : filtered;
   }
 
   getCategoryIcon(category: string): string {
