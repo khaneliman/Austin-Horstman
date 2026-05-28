@@ -703,7 +703,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     hoverColor: 'blue',
 
     // Content
-    title: 'SECURA MuleSoft-to-.NET Migration',
+    title: 'SECURA MuleSoft Migration to .NET',
     description:
       'LLM-assisted enterprise modernization that migrated SECURA Insurance MuleSoft systems to custom .NET APIs with feature parity, documentation, and automated tests',
     technologies: [

@@ -65,7 +65,6 @@ import { BulletListComponent, BulletListItem } from '../bullet-list/bullet-list.
 import { Feature, FeatureGridComponent } from '../feature-grid/feature-grid.component';
 import { ProjectNavHeaderComponent } from '../project-nav-header/project-nav-header.component';
 import { SectionHeaderComponent } from '../section-header/section-header.component';
-import { Stat, StatsGridComponent } from '../stats-grid/stats-grid.component';
 import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.component';
 
 @Component({
@@ -79,7 +78,6 @@ import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.co
     SectionHeaderComponent,
     TechTagListComponent,
     FeatureGridComponent,
-    StatsGridComponent,
     BulletListComponent,
   ],
   providers: [
@@ -161,16 +159,6 @@ export class ProjectDetailTemplateComponent {
       icon: feature.icon,
       title: feature.title,
       description: feature.description,
-    }));
-  }
-
-  get stats(): Stat[] {
-    const config = this.config();
-    if (!config.quickStats) return [];
-    return config.quickStats.map((stat) => ({
-      icon: stat.icon,
-      value: stat.value,
-      label: stat.label,
     }));
   }
 
