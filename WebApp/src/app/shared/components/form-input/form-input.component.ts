@@ -1,13 +1,16 @@
-import { NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgIconComponent } from '@ng-icons/core';
+
+export type FormInputType = 'text' | 'email' | 'password' | 'number' | 'tel' | 'textarea';
+export type FormInputVariant = 'default' | 'filled' | 'outlined';
+export type FormInputSize = 'sm' | 'md' | 'lg';
 
 @Component({
   selector: 'app-form-input',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgIf, NgIconComponent],
+  imports: [NgIconComponent],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -16,116 +19,107 @@ import { NgIconComponent } from '@ng-icons/core';
     },
   ],
   template: `
-    <div class="group" [class.focused]="isFocused" [class.error]="hasError">
-      <!-- Label -->
-      <label *ngIf="label" [for]="inputId" [class]="labelClasses">
-        {{ label }}
-        <span *ngIf="required" class="text-red-500 ml-1">*</span>
-      </label>
+    <div class="group" [class.focused]="isFocused()" [class.error]="hasError()">
+      @if (label()) {
+        <label [for]="inputId()" [class]="labelClasses()">
+          {{ label() }}
+          @if (required()) {
+            <span class="text-red-500 ml-1">*</span>
+          }
+        </label>
+      }
 
-      <!-- Input container -->
       <div class="relative">
-        <!-- Leading icon -->
-        <div *ngIf="leadingIcon" class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <ng-icon [name]="leadingIcon" size="1rem" [class]="iconClasses"> </ng-icon>
-        </div>
+        @if (leadingIcon(); as li) {
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <ng-icon [name]="li" size="1rem" [class]="iconClasses()"></ng-icon>
+          </div>
+        }
 
-        <!-- Input field -->
-        <input
-          *ngIf="type !== 'textarea'"
-          [id]="inputId"
-          [type]="type"
-          [class]="inputClasses"
-          [placeholder]="placeholder"
-          [disabled]="disabled"
-          [readonly]="readonly"
-          [value]="value"
-          (input)="onInput($event)"
-          (focus)="onFocus()"
-          (blur)="onBlur()"
-        />
+        @if (type() !== 'textarea') {
+          <input
+            [id]="inputId()"
+            [type]="type()"
+            [class]="inputClasses()"
+            [placeholder]="placeholder() ?? ''"
+            [disabled]="disabled()"
+            [readonly]="readonly()"
+            [value]="value()"
+            (input)="onInput($event)"
+            (focus)="onFocus()"
+            (blur)="onBlur()"
+          />
+        } @else {
+          <textarea
+            [id]="inputId()"
+            [class]="textareaClasses()"
+            [placeholder]="placeholder() ?? ''"
+            [disabled]="disabled()"
+            [readonly]="readonly()"
+            [rows]="rows()"
+            [value]="value()"
+            (input)="onInput($event)"
+            (focus)="onFocus()"
+            (blur)="onBlur()"
+          ></textarea>
+        }
 
-        <!-- Textarea -->
-        <textarea
-          *ngIf="type === 'textarea'"
-          [id]="inputId"
-          [class]="textareaClasses"
-          [placeholder]="placeholder"
-          [disabled]="disabled"
-          [readonly]="readonly"
-          [rows]="rows"
-          [value]="value"
-          (input)="onInput($event)"
-          (focus)="onFocus()"
-          (blur)="onBlur()"
-        >
-        </textarea>
-
-        <!-- Trailing icon/button -->
-        <div *ngIf="trailingIcon" class="absolute inset-y-0 right-0 pr-4 flex items-center">
-          <button
-            *ngIf="trailingClickable"
-            type="button"
-            (click)="onTrailingClick()"
-            class="text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            <ng-icon [name]="trailingIcon" size="1rem"></ng-icon>
-          </button>
-          <ng-icon *ngIf="!trailingClickable" [name]="trailingIcon" size="1rem" [class]="iconClasses"> </ng-icon>
-        </div>
+        @if (trailingIcon(); as ti) {
+          <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+            @if (trailingClickable()) {
+              <button
+                type="button"
+                (click)="trailingClick.emit()"
+                class="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <ng-icon [name]="ti" size="1rem"></ng-icon>
+              </button>
+            } @else {
+              <ng-icon [name]="ti" size="1rem" [class]="iconClasses()"></ng-icon>
+            }
+          </div>
+        }
       </div>
 
-      <!-- Help text -->
-      <p *ngIf="helpText" [class]="helpTextClasses">
-        {{ helpText }}
-      </p>
+      @if (helpText(); as ht) {
+        <p [class]="helpTextClasses()">{{ ht }}</p>
+      }
 
-      <!-- Error message -->
-      <p *ngIf="errorMessage" class="mt-1 text-sm text-red-600 dark:text-red-400">
-        {{ errorMessage }}
-      </p>
+      @if (errorMessage(); as em) {
+        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ em }}</p>
+      }
     </div>
   `,
-  styles: [],
 })
 export class FormInputComponent implements ControlValueAccessor {
-  @Input() label?: string;
-  @Input() type: 'text' | 'email' | 'password' | 'number' | 'tel' | 'textarea' = 'text';
-  @Input() placeholder?: string;
-  @Input() helpText?: string;
-  @Input() errorMessage?: string;
-  @Input() leadingIcon?: string;
-  @Input() trailingIcon?: string;
-  @Input() trailingClickable = false;
-  @Input() required = false;
-  @Input() disabled = false;
-  @Input() readonly = false;
-  @Input() variant: 'default' | 'filled' | 'outlined' = 'default';
-  @Input() size: 'sm' | 'md' | 'lg' = 'md';
-  @Input() rows = 4;
-  @Input() inputId = `input-${Math.random().toString(36).substr(2, 9)}`;
+  readonly label = input<string>();
+  readonly type = input<FormInputType>('text');
+  readonly placeholder = input<string>();
+  readonly helpText = input<string>();
+  readonly errorMessage = input<string>();
+  readonly leadingIcon = input<string>();
+  readonly trailingIcon = input<string>();
+  readonly trailingClickable = input(false);
+  readonly required = input(false);
+  readonly readonly = input(false);
+  readonly variant = input<FormInputVariant>('default');
+  readonly size = input<FormInputSize>('md');
+  readonly rows = input(4);
+  readonly inputId = input<string>(`input-${Math.random().toString(36).slice(2, 11)}`);
 
-  @Output() trailingClick = new EventEmitter<void>();
-  @Output() inputFocus = new EventEmitter<void>();
-  @Output() inputBlur = new EventEmitter<void>();
+  readonly trailingClick = output<void>();
+  readonly inputFocus = output<void>();
+  readonly inputBlur = output<void>();
 
-  value = '';
-  isFocused = false;
+  readonly value = signal('');
+  readonly isFocused = signal(false);
+  readonly disabled = signal(false);
 
-  // ControlValueAccessor implementation
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-  private onChange = (_value: string) => {};
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  private onTouched = () => {};
+  readonly hasError = computed(() => !!this.errorMessage());
 
-  get hasError(): boolean {
-    return !!this.errorMessage;
-  }
-
-  get labelClasses(): string {
+  readonly labelClasses = computed(() => {
     const classes = ['block font-medium mb-2'];
-
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-xs');
         break;
@@ -136,32 +130,23 @@ export class FormInputComponent implements ControlValueAccessor {
         classes.push('text-base');
         break;
     }
-
-    if (this.hasError) {
-      classes.push('text-red-700', 'dark:text-red-400');
-    } else {
-      classes.push('text-gray-700', 'dark:text-gray-300');
-    }
-
+    classes.push(
+      ...(this.hasError() ? ['text-red-700', 'dark:text-red-400'] : ['text-gray-700', 'dark:text-gray-300'])
+    );
     return classes.join(' ');
-  }
+  });
 
-  get inputClasses(): string {
+  readonly inputClasses = computed(() => {
     const classes = ['w-full transition-all duration-200'];
+    const leading = !!this.leadingIcon();
+    const trailing = !!this.trailingIcon();
 
-    // Padding based on icons and size
-    if (this.leadingIcon && this.trailingIcon) {
-      classes.push('pl-12 pr-12');
-    } else if (this.leadingIcon) {
-      classes.push('pl-12 pr-4');
-    } else if (this.trailingIcon) {
-      classes.push('pl-4 pr-12');
-    } else {
-      classes.push('px-4');
-    }
+    if (leading && trailing) classes.push('pl-12 pr-12');
+    else if (leading) classes.push('pl-12 pr-4');
+    else if (trailing) classes.push('pl-4 pr-12');
+    else classes.push('px-4');
 
-    // Size-based padding
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('py-2 text-sm');
         break;
@@ -173,8 +158,7 @@ export class FormInputComponent implements ControlValueAccessor {
         break;
     }
 
-    // Variant styles
-    switch (this.variant) {
+    switch (this.variant()) {
       case 'default':
         classes.push(
           'border border-gray-300 dark:border-gray-600 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-gray-900 dark:text-gray-100'
@@ -192,33 +176,26 @@ export class FormInputComponent implements ControlValueAccessor {
         break;
     }
 
-    // Focus and error states
-    if (this.hasError) {
-      classes.push('border-red-300 dark:border-red-500 focus:ring-2 focus:ring-red-500 focus:border-transparent');
-    } else {
-      classes.push('focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent');
-    }
+    classes.push(
+      this.hasError()
+        ? 'border-red-300 dark:border-red-500 focus:ring-2 focus:ring-red-500 focus:border-transparent'
+        : 'focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent'
+    );
 
-    // Disabled state
-    if (this.disabled) {
-      classes.push('opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-700');
-    }
+    if (this.disabled()) classes.push('opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-700');
 
     return classes.join(' ');
-  }
+  });
 
-  get textareaClasses(): string {
-    return this.inputClasses + ' resize-vertical';
-  }
+  readonly textareaClasses = computed(() => `${this.inputClasses()} resize-vertical`);
 
-  get iconClasses(): string {
-    return this.hasError ? 'text-red-400 dark:text-red-400' : 'text-gray-400 dark:text-gray-500';
-  }
+  readonly iconClasses = computed(() =>
+    this.hasError() ? 'text-red-400 dark:text-red-400' : 'text-gray-400 dark:text-gray-500'
+  );
 
-  get helpTextClasses(): string {
+  readonly helpTextClasses = computed(() => {
     const classes = ['mt-1'];
-
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-xs');
         break;
@@ -229,37 +206,36 @@ export class FormInputComponent implements ControlValueAccessor {
         classes.push('text-base');
         break;
     }
-
     classes.push('text-gray-600', 'dark:text-gray-400');
-
     return classes.join(' ');
-  }
+  });
 
-  // Event handlers
+  private onChange: (value: string) => void = () => {
+    // noop
+  };
+  private onTouched: () => void = () => {
+    // noop
+  };
+
   onInput(event: Event): void {
     const target = event.target as HTMLInputElement | HTMLTextAreaElement;
-    this.value = target.value;
-    this.onChange(this.value);
+    this.value.set(target.value);
+    this.onChange(target.value);
   }
 
   onFocus(): void {
-    this.isFocused = true;
+    this.isFocused.set(true);
     this.inputFocus.emit();
   }
 
   onBlur(): void {
-    this.isFocused = false;
+    this.isFocused.set(false);
     this.onTouched();
     this.inputBlur.emit();
   }
 
-  onTrailingClick(): void {
-    this.trailingClick.emit();
-  }
-
-  // ControlValueAccessor methods
-  writeValue(value: string): void {
-    this.value = value || '';
+  writeValue(value: string | null): void {
+    this.value.set(value ?? '');
   }
 
   registerOnChange(fn: (value: string) => void): void {
@@ -271,6 +247,6 @@ export class FormInputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    this.disabled.set(isDisabled);
   }
 }
