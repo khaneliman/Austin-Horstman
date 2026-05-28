@@ -59,7 +59,7 @@ import {
   heroWifi,
   heroWrench,
 } from '@ng-icons/heroicons/outline';
-import { ProjectDetailConfig } from '../../interfaces/project-detail.interface';
+import { ProjectCaseStyle, ProjectDetailConfig } from '../../interfaces/project-detail.interface';
 import { BaseCardComponent } from '../base-card/base-card.component';
 import { BulletListComponent, BulletListItem } from '../bullet-list/bullet-list.component';
 import { Feature, FeatureGridComponent } from '../feature-grid/feature-grid.component';
@@ -192,18 +192,95 @@ export class ProjectDetailTemplateComponent {
   }
 
   protected get mainClass() {
-    const styleVariant = this.config().styleVariant ?? 'ledger';
-
     return [
       'project-detail-template',
       'min-h-screen',
       'text-slate-950',
       'dark:bg-slate-950',
       'dark:text-slate-50',
-      `project-detail-template--${styleVariant}`,
+      this.styleVariantClass,
       this.themeClass,
       this.config().backgroundGradient,
     ].join(' ');
+  }
+
+  protected get casePanelEyebrow(): string {
+    return this.config().casePanel?.eyebrow ?? 'Evidence File';
+  }
+
+  protected get casePanelTitle(): string {
+    return this.config().casePanel?.title ?? `${this.config().title}: implementation evidence`;
+  }
+
+  protected get casePanelStatus(): string {
+    return this.config().casePanel?.status ?? 'case study';
+  }
+
+  protected get sideOverviewEyebrow(): string {
+    return this.config().sidebar?.overviewEyebrow ?? 'Case Overview';
+  }
+
+  protected get sideOverviewText(): string {
+    const overviewText = this.config().sidebar?.overviewText;
+    if (overviewText) {
+      return overviewText;
+    }
+
+    const fallback = this.config().description;
+    if (fallback.length <= 220) {
+      return fallback;
+    }
+
+    return `${fallback.slice(0, 217).trim()}...`;
+  }
+
+  protected get impactHeading(): string {
+    return this.config().sidebar?.impactHeading ?? 'Project Impact';
+  }
+
+  protected get styleVariantClass(): string {
+    const styleVariant = this.config().styleVariant ?? this.resolveStyleVariant();
+    return `project-detail-template--${styleVariant}`;
+  }
+
+  private resolveStyleVariant(): ProjectCaseStyle {
+    const paletteByStyle: Record<string, 'compact' | 'split' | 'ledger'> = {
+      green: 'split',
+      teal: 'split',
+      emerald: 'split',
+      purple: 'compact',
+      violet: 'compact',
+      rose: 'compact',
+      blue: 'compact',
+      cyan: 'compact',
+      orange: 'split',
+      red: 'split',
+      yellow: 'compact',
+      amber: 'compact',
+      indigo: 'ledger',
+    };
+
+    const byPrimary = paletteByStyle[this.config().primaryColor];
+    if (byPrimary) {
+      return byPrimary;
+    }
+
+    const seedSource = `${this.config().title}-${this.config().companyKey}`;
+    let seed = 0;
+    for (let i = 0; i < seedSource.length; i += 1) {
+      seed += seedSource.charCodeAt(i);
+    }
+
+    const idx = Math.abs(seed % 3);
+    if (idx === 0) {
+      return 'ledger';
+    }
+
+    if (idx === 1) {
+      return 'compact';
+    }
+
+    return 'split';
   }
 
   getListItems(items?: string[]): BulletListItem[] {

@@ -39,16 +39,16 @@
           <div class="flex items-start justify-between gap-4 border-b border-stone-200 pb-5 dark:border-slate-800">
             <div>
               <p class="project-detail-template__eyebrow text-xs font-bold uppercase tracking-[0.22em]">
-                {{ config().casePanel?.eyebrow ?? 'Evidence File' }}
+                {{ casePanelEyebrow }}
               </p>
               <h2 class="mt-2 text-2xl font-black text-slate-950 dark:text-white">
-                {{ config().casePanel?.title ?? 'Stack and proof points.' }}
+                {{ casePanelTitle }}
               </h2>
             </div>
             <span
               class="project-detail-template__status rounded-md px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-950"
             >
-              {{ config().casePanel?.status ?? 'detail' }}
+              {{ casePanelStatus }}
             </span>
           </div>
 
@@ -91,13 +91,10 @@
       <aside class="space-y-4 lg:sticky lg:top-36 lg:self-start">
         <div class="project-detail-template__side-card border-l-4 bg-white p-5 shadow-sm dark:bg-slate-900">
           <p class="project-detail-template__eyebrow text-xs font-bold uppercase tracking-[0.18em]">
-            {{ config().sidebar?.overviewEyebrow ?? 'Overview' }}
+            {{ sideOverviewEyebrow }}
           </p>
           <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
-            {{
-              config().sidebar?.overviewText ??
-                'Read the role context, implementation decisions, stack, and project impact from the same case-study data.'
-            }}
+            {{ sideOverviewText }}
           </p>
         </div>
 
@@ -106,7 +103,7 @@
             class="project-detail-template__impact border-l-4 bg-slate-950 p-5 text-white shadow-sm dark:bg-white dark:text-slate-950"
           >
             <p class="project-detail-template__impact-label text-xs font-bold uppercase tracking-[0.18em]">
-              {{ config().sidebar?.impactHeading ?? 'Project Impact' }}
+              {{ impactHeading }}
             </p>
             <p class="mt-3 text-sm leading-6 text-slate-200 dark:text-slate-700">{{ config().impact }}</p>
           </div>
