@@ -3,6 +3,7 @@ import { DestroyRef, Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommandPaletteService } from './command-palette.service';
 import { isEditableTarget, resolveGPrefixRoute, SHORTCUT_PREFIX_TIMEOUT_MS } from './keyboard-shortcuts.helpers';
+import { LinkHintsService } from './link-hints.service';
 import { ShortcutsHelpService } from './shortcuts-help.service';
 
 export {
@@ -19,6 +20,7 @@ export class KeyboardShortcutsService {
   private readonly router = inject(Router);
   private readonly palette = inject(CommandPaletteService);
   private readonly help = inject(ShortcutsHelpService);
+  private readonly linkHints = inject(LinkHintsService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly document = inject(DOCUMENT);
 
@@ -40,6 +42,11 @@ export class KeyboardShortcutsService {
   private handleKey(event: KeyboardEvent): void {
     if (event.metaKey || event.ctrlKey || event.altKey) return;
     if (isEditableTarget(event.target)) return;
+
+    if (this.linkHints.isActive()) {
+      this.handleHintsKey(event);
+      return;
+    }
 
     if (this.pendingPrefix === 'g') {
       const key = event.key;
@@ -94,7 +101,44 @@ export class KeyboardShortcutsService {
       return;
     }
 
+    if (event.key === 'f') {
+      event.preventDefault();
+      this.linkHints.activate();
+      return;
+    }
+
     this.maybeWakeGrid(event);
+  }
+
+  private handleHintsKey(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      this.linkHints.deactivate();
+      return;
+    }
+    if (event.key === 'Backspace') {
+      event.preventDefault();
+      this.linkHints.backspace();
+      return;
+    }
+    if (event.key.length === 1) {
+      event.preventDefault();
+      const target = this.linkHints.appendKey(event.key);
+      if (target) {
+        this.activateHintTarget(target);
+        this.linkHints.deactivate();
+      }
+    }
+  }
+
+  private activateHintTarget(el: HTMLElement): void {
+    if (el.matches('[data-card-anchor]')) {
+      const primary = el.querySelector<HTMLElement>('[data-card-primary]');
+      primary?.click();
+      return;
+    }
+    el.focus({ preventScroll: false });
+    el.click();
   }
 
   /**
