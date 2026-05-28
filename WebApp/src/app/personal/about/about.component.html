@@ -1,6 +1,6 @@
 <main class="min-h-screen overflow-hidden bg-[#f7f3ea] text-slate-950 dark:bg-slate-950 dark:text-slate-50">
   <section
-    class="relative border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_48%,#f7f3ea_48%,#f7f3ea_100%)] pt-28 pb-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,#020617_0%,#12343a_50%,#0f172a_50%,#0f172a_100%)]"
+    class="relative border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_70%,#f7f3ea_70%,#f7f3ea_100%)] pt-28 pb-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,#020617_0%,#12343a_70%,#0f172a_70%,#0f172a_100%)]"
   >
     <div
       class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
@@ -66,15 +66,32 @@
     </div>
   </section>
 
-  <section class="bg-white py-14 dark:bg-slate-900">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-      @for (point of proofPoints(); track point.label) {
-        <article class="border-l-4 border-teal-600 bg-[#f7f3ea] p-6 dark:border-amber-300 dark:bg-slate-950">
-          <p class="text-4xl font-black text-slate-950 dark:text-white">{{ point.value }}</p>
-          <h2 class="mt-3 text-base font-bold text-slate-900 dark:text-slate-100">{{ point.label }}</h2>
-          <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ point.detail }}</p>
-        </article>
-      }
+  <section class="bg-white py-10 dark:bg-slate-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="grid grid-cols-1 border border-stone-200 bg-[#f7f3ea] dark:border-slate-800 dark:bg-slate-950 lg:grid-cols-[0.65fr_1.35fr]"
+      >
+        <div class="border-b border-stone-200 p-6 dark:border-slate-800 lg:border-r lg:border-b-0">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-200">Proof Ledger</p>
+          <h2 class="mt-3 text-3xl font-black leading-tight text-slate-950 dark:text-white">
+            Receipts behind the bio.
+          </h2>
+        </div>
+
+        <dl class="divide-y divide-stone-200 dark:divide-slate-800">
+          @for (point of proofPoints(); track point.label) {
+            <div class="grid grid-cols-1 gap-3 p-5 sm:grid-cols-[8rem_1fr] sm:items-baseline">
+              <dt class="text-3xl font-black text-slate-950 dark:text-white">{{ point.value }}</dt>
+              <dd>
+                <p class="text-sm font-bold uppercase tracking-wide text-slate-900 dark:text-slate-100">
+                  {{ point.label }}
+                </p>
+                <p class="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ point.detail }}</p>
+              </dd>
+            </div>
+          }
+        </dl>
+      </div>
     </div>
   </section>
 
