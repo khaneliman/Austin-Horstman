@@ -3,8 +3,8 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroCalendar,
   heroCodeBracket,
-  heroComputerDesktop,
   heroCog6Tooth,
+  heroComputerDesktop,
   heroCpuChip,
   heroGlobeAlt,
   heroHome,

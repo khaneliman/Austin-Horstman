@@ -6,9 +6,9 @@ import {
   heroCog6Tooth,
   heroComputerDesktop,
   heroGlobeAlt,
-  heroUsers,
   heroHome,
   heroShieldCheck,
+  heroUsers,
   heroWrenchScrewdriver,
 } from '@ng-icons/heroicons/outline';
 import { BulletListComponent, BulletListItem } from '../../../shared/components/bullet-list/bullet-list.component';
