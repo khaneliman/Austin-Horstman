@@ -49,6 +49,22 @@ import {
 } from '../../shared/data/technologies';
 import { formatDateRange } from '../../shared/utils/date.utils';
 
+const TAILWIND_HEX_COLORS: Record<string, string> = {
+  'blue-500': '#3b82f6',
+  'blue-600': '#2563eb',
+  'blue-800': '#1e40af',
+  'emerald-600': '#059669',
+  'green-500': '#22c55e',
+  'red-600': '#dc2626',
+  'orange-500': '#f97316',
+  'orange-600': '#ea580c',
+  'orange-800': '#9a3412',
+  'indigo-600': '#4f46e5',
+  'sky-400': '#38bdf8',
+  'teal-500': '#14b8a6',
+  'gray-900': '#111827',
+};
+
 const getRepoMergedPrs = (repoName: string): number =>
   GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === repoName)?.mergedPrs ?? 0;
 
@@ -242,23 +258,7 @@ export class ResumeComponent {
   }
 
   getCompanyColor(colorClass: string): string {
-    // Map Tailwind color classes to actual CSS colors
-    const colorMap: Record<string, string> = {
-      'blue-500': '#3b82f6',
-      'blue-600': '#2563eb',
-      'blue-800': '#1e40af',
-      'emerald-600': '#059669',
-      'green-500': '#22c55e',
-      'red-600': '#dc2626',
-      'orange-500': '#f97316',
-      'orange-600': '#ea580c',
-      'orange-800': '#9a3412',
-      'indigo-600': '#4f46e5',
-      'sky-400': '#38bdf8',
-      'teal-500': '#14b8a6',
-      'gray-900': '#111827',
-    };
-    return colorMap[colorClass] || '#3b82f6';
+    return TAILWIND_HEX_COLORS[colorClass] ?? '#3b82f6';
   }
 
   getDateRange(company: CompanyInfo): string {
