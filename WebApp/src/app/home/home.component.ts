@@ -70,7 +70,7 @@ export class HomeComponent {
   protected readonly currentCompany: CompanyInfo =
     this.companies.find((company) => !company.dateEnd) ?? getCompanyById('nri-na');
 
-  protected readonly portfolioStats = computed(() => {
+  protected readonly gatewayPanels = computed(() => {
     const today = new Date();
     const careerStart = this.careerStartDate();
     let yearsExperience = today.getFullYear() - careerStart.getFullYear();
@@ -83,23 +83,23 @@ export class HomeComponent {
     return [
       {
         value: `${yearsExperience}+`,
-        label: 'years building software',
-        detail: 'from support tooling to enterprise architecture',
+        label: 'resume path',
+        detail: 'career timeline, current role, education, and technology depth',
       },
       {
-        value: '$500K+',
-        label: 'annual licensing removed',
-        detail: 'through MuleSoft-to-.NET modernization',
+        value: 'Case studies',
+        label: 'project catalog',
+        detail: 'professional delivery stories, selected work, and open-source systems',
       },
       {
-        value: `${this.githubMetrics.totalMergedPrs}+`,
-        label: 'merged OSS PRs',
-        detail: `Nix ecosystem contribution index as of ${this.githubMetrics.asOf}`,
+        value: this.profile.location.split(',')[0] ?? this.profile.location,
+        label: 'personal context',
+        detail: 'how I work, what I value, and the kind of teams I fit best',
       },
       {
-        value: `${this.companies.reduce((total, company) => total + company.projects.length, 0)}+`,
-        label: 'documented projects',
-        detail: 'professional case studies and personal systems work',
+        value: 'Open loop',
+        label: 'contact route',
+        detail: 'direct links for hiring, collaboration, or technical conversation',
       },
     ];
   });
