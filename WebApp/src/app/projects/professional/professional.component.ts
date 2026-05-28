@@ -1,30 +1,34 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroBeaker, heroBriefcase, heroBuildingOffice, heroChartBarSquare } from '@ng-icons/heroicons/outline';
-import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
+import {
+  heroArrowRight,
+  heroBeaker,
+  heroBriefcase,
+  heroBuildingOffice,
+  heroChartBarSquare,
+  heroCodeBracket,
+  heroRocketLaunch,
+} from '@ng-icons/heroicons/outline';
 import { ProfessionalProjectsGridComponent } from '../../shared/components/professional-projects-grid/professional-projects-grid.component';
-import { getAllCompanies } from '../../shared/data/companies';
-import { generateProfessionalProjectsGrid } from '../../shared/data/projects';
+import { getAllCompanies, getCompanyWithCalculatedStats } from '../../shared/data/companies';
+import { generateProfessionalProjectsGrid, getResumeProjectCards } from '../../shared/data/projects';
 import { getAllTechnologyNames } from '../../shared/data/technologies';
 import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/projects-breadcrumb.component';
 
 @Component({
   selector: 'app-professional-projects',
   standalone: true,
-  imports: [
-    RouterModule,
-    NgIconComponent,
-    ProfessionalProjectsGridComponent,
-    HeroSectionComponent,
-    ProjectsBreadcrumbComponent,
-  ],
+  imports: [RouterModule, NgIconComponent, ProfessionalProjectsGridComponent, ProjectsBreadcrumbComponent],
   providers: [
     provideIcons({
+      heroArrowRight,
       heroBriefcase,
       heroBuildingOffice,
       heroBeaker,
       heroChartBarSquare,
+      heroCodeBracket,
+      heroRocketLaunch,
     }),
   ],
   templateUrl: './professional.component.html',
@@ -32,7 +36,13 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfessionalProjectsComponent {
-  professionalProjects = generateProfessionalProjectsGrid();
+  protected readonly professionalProjects = generateProfessionalProjectsGrid();
+  protected readonly currentCompany = getCompanyWithCalculatedStats('nri-na');
+  protected readonly featuredCaseStudies = getResumeProjectCards()
+    .filter((project) =>
+      ['MuleSoft Migrator', 'AI Resource Staffing', 'Tax Document Analysis', 'DoItBest'].includes(project.title)
+    )
+    .slice(0, 4);
 
   private readonly careerStartDate = signal(new Date('2013-08-01')); // When career started at Best Buy Geek Squad
 
@@ -63,7 +73,24 @@ export class ProfessionalProjectsComponent {
     };
   });
 
-  heroTitle = 'Professional Projects';
-  heroSubtitle =
-    'Enterprise solutions and client applications developed during my tenure at leading technology companies, showcasing expertise in modern development practices and scalable system architecture.';
+  protected readonly impactHighlights = [
+    {
+      value: '$500K+',
+      label: 'annual licensing removed',
+      description: 'MuleSoft replacement with custom .NET APIs and test coverage.',
+      icon: 'heroChartBarSquare',
+    },
+    {
+      value: '11 mo',
+      label: 'focused migration delivery',
+      description: 'Delivered against a migration initially estimated at 3-4 years.',
+      icon: 'heroRocketLaunch',
+    },
+    {
+      value: `${this.currentCompany.stats.years}`,
+      label: 'continuous consulting arc',
+      description: 'Skyline to Core BTS to NRI-NA through acquisitions and role growth.',
+      icon: 'heroBriefcase',
+    },
+  ];
 }
