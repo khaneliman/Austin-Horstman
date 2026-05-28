@@ -13,7 +13,13 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { CommandEntry, CommandKind, CommandPaletteService } from '../../../shared/services/command-palette.service';
+import {
+  CommandAction,
+  CommandEntry,
+  CommandKind,
+  CommandPaletteService,
+} from '../../../shared/services/command-palette.service';
+import { ThemeService } from '../../../shared/services/theme.service';
 import { fuzzyMatch, highlightMatch } from '../../../shared/utils/fuzzy-match';
 
 interface RankedEntry {
@@ -27,6 +33,7 @@ const KIND_LABEL: Record<CommandKind, string> = {
   project: 'Case Study',
   personal: 'Open Source',
   tech: 'Tech',
+  action: 'Action',
 };
 
 const KIND_GLYPH: Record<CommandKind, string> = {
@@ -35,6 +42,7 @@ const KIND_GLYPH: Record<CommandKind, string> = {
   project: '§',
   personal: '✦',
   tech: '#',
+  action: '⚡',
 };
 
 @Component({
@@ -47,6 +55,7 @@ const KIND_GLYPH: Record<CommandKind, string> = {
 export class CommandPaletteComponent {
   private readonly service = inject(CommandPaletteService);
   private readonly router = inject(Router);
+  private readonly theme = inject(ThemeService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
 
@@ -149,13 +158,31 @@ export class CommandPaletteComponent {
   }
 
   executeEntry(entry: CommandEntry): void {
+    if (entry.action) {
+      this.runAction(entry.action);
+      this.service.close();
+      return;
+    }
     if (entry.external) {
       window.open(entry.external, '_blank', 'noopener,noreferrer');
       this.service.close();
       return;
     }
-    void this.router.navigateByUrl(entry.route);
+    if (entry.route) {
+      void this.router.navigateByUrl(entry.route);
+    }
     this.service.close();
+  }
+
+  private runAction(action: CommandAction): void {
+    switch (action) {
+      case 'toggle-theme':
+        this.theme.toggleTheme();
+        break;
+      case 'copy-link':
+        void navigator.clipboard?.writeText(window.location.href);
+        break;
+    }
   }
 
   onBackdropClick(event: MouseEvent): void {
