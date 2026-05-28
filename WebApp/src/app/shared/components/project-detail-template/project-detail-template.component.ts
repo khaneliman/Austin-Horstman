@@ -199,7 +199,7 @@ export class ProjectDetailTemplateComponent {
       'dark:bg-slate-950',
       'dark:text-slate-50',
       this.themeClass,
-      this.config().backgroundGradient ?? 'bg-[#f7f3ea]',
+      this.config().backgroundGradient,
     ].join(' ');
   }
 
