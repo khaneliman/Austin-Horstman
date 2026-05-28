@@ -81,8 +81,12 @@ export class BulletListComponent {
   readonly role = input('list');
   readonly subBulletStyle = input<BulletStyle>();
 
+  // Sets the `.palette-{color}` ancestor class that exposes --p-* variables
+  // to all descendants. See src/_palettes.scss.
+  private readonly paletteClass = computed(() => `palette-${this.colorTheme()}`);
+
   readonly listClasses = computed(() => {
-    const classes = ['list-none'];
+    const classes = [this.paletteClass(), 'list-none'];
     switch (this.spacing()) {
       case 'tight':
         classes.push('space-y-1');
@@ -153,8 +157,7 @@ export class BulletListComponent {
   getItemClasses(item: BulletListItem): string {
     const classes = ['flex'];
     if (item.highlighted) {
-      const t = this.colorTheme();
-      classes.push(`bg-${t}-50`, `dark:bg-${t}-900/20`, 'rounded-lg', 'p-3', '-mx-3');
+      classes.push('bg-[var(--p-50)]', 'dark:bg-[var(--p-900-20)]', 'rounded-lg', 'p-3', '-mx-3');
     }
     return classes.join(' ');
   }
@@ -162,8 +165,7 @@ export class BulletListComponent {
   getTextClasses(item: BulletListItem): string {
     const classes = ['leading-relaxed'];
     if (item.highlighted) {
-      const t = this.colorTheme();
-      classes.push(`text-${t}-900`, `dark:text-${t}-200`, 'font-medium');
+      classes.push('text-[var(--p-900)]', 'dark:text-[var(--p-200)]', 'font-medium');
     } else {
       classes.push('text-gray-700', 'dark:text-gray-300');
     }
@@ -171,31 +173,34 @@ export class BulletListComponent {
   }
 
   getBulletIconClasses(item: BulletListItem): string {
-    const t = this.colorTheme();
-    return item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
+    return item.highlighted
+      ? 'text-[var(--p-600)] dark:text-[var(--p-400)]'
+      : 'text-[var(--p-500)] dark:text-[var(--p-400)]';
   }
 
   getNumberClasses(item: BulletListItem): string {
-    const t = this.colorTheme();
-    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
+    const tint = item.highlighted
+      ? 'text-[var(--p-600)] dark:text-[var(--p-400)]'
+      : 'text-[var(--p-500)] dark:text-[var(--p-400)]';
     return `font-semibold text-sm ${tint}`;
   }
 
   getDotClasses(item: BulletListItem): string {
-    const t = this.colorTheme();
-    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
+    const tint = item.highlighted
+      ? 'text-[var(--p-600)] dark:text-[var(--p-400)]'
+      : 'text-[var(--p-500)] dark:text-[var(--p-400)]';
     return `font-bold ${tint}`;
   }
 
   getArrowClasses(item: BulletListItem): string {
-    const t = this.colorTheme();
-    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
+    const tint = item.highlighted
+      ? 'text-[var(--p-600)] dark:text-[var(--p-400)]'
+      : 'text-[var(--p-500)] dark:text-[var(--p-400)]';
     return `font-medium ${tint}`;
   }
 
   getDashClasses(item: BulletListItem): string {
-    const t = this.colorTheme();
-    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : 'text-gray-400 dark:text-gray-500';
+    const tint = item.highlighted ? 'text-[var(--p-600)] dark:text-[var(--p-400)]' : 'text-gray-400 dark:text-gray-500';
     return `font-medium ${tint}`;
   }
 }

@@ -8,8 +8,24 @@
 // `bg-${color}-100`) are invisible to the source-code scanner and therefore
 // never end up in the compiled CSS.
 
-$palette-colors:
-  blue, emerald, teal, cyan, sky, green, indigo, violet, purple, fuchsia, pink, rose, red, orange, amber, yellow;
+$palette-colors: (
+  'blue',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'green',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+  'red',
+  'orange',
+  'amber',
+  'yellow'
+);
 
 @each $color in $palette-colors {
   .palette-#{$color} {
