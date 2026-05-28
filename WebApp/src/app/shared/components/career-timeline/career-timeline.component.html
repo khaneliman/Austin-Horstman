@@ -1,0 +1,62 @@
+@let allEntries = entries();
+<ol class="career-timeline relative mx-auto max-w-4xl px-4 sm:px-6">
+  <span class="career-timeline__spine" aria-hidden="true"></span>
+  @for (entry of allEntries; track entry.id; let i = $index) {
+    <li
+      #entry
+      class="career-timeline__entry relative pl-12 pb-10 sm:pl-16"
+      [attr.data-position]="i === 0 ? 'first' : i === allEntries.length - 1 ? 'last' : 'middle'"
+    >
+      <span
+        class="career-timeline__marker absolute left-2 top-1.5 flex h-4 w-4 items-center justify-center rounded-full border-2 border-teal-500 bg-[var(--color-paper)] dark:border-teal-300 dark:bg-slate-950 sm:left-4"
+        aria-hidden="true"
+      >
+        @if (entry.isCurrent) {
+          <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-teal-500 dark:bg-teal-300"></span>
+        }
+      </span>
+
+      <div class="flex flex-col gap-1.5">
+        <p
+          class="career-timeline__date font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300"
+        >
+          <span>{{ entry.yearStart }}</span>
+          <span class="text-slate-400 dark:text-slate-500">—</span>
+          <span>{{ entry.yearEnd }}</span>
+          @if (entry.isCurrent) {
+            <span
+              class="ml-2 rounded-sm bg-teal-500/15 px-1.5 py-0.5 text-[9px] text-teal-700 dark:bg-teal-300/15 dark:text-teal-200"
+            >
+              CURRENT
+            </span>
+          }
+        </p>
+
+        <h3
+          class="career-timeline__company text-xl font-bold tracking-tight text-slate-950 dark:text-slate-50 sm:text-2xl"
+        >
+          <a
+            [routerLink]="entry.company.experienceRoute"
+            class="transition-colors hover:text-teal-700 dark:hover:text-teal-300"
+          >
+            {{ entry.company.displayName }}
+          </a>
+        </h3>
+
+        <p class="career-timeline__position text-sm text-slate-700 dark:text-slate-300">
+          {{ entry.company.position }}
+        </p>
+
+        <p
+          class="career-timeline__meta font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
+        >
+          <span>{{ entry.range }}</span>
+          <span class="px-1.5 text-slate-300 dark:text-slate-600">·</span>
+          <span>{{ entry.company.location }}</span>
+          <span class="px-1.5 text-slate-300 dark:text-slate-600">·</span>
+          <span>{{ entry.years }}y</span>
+        </p>
+      </div>
+    </li>
+  }
+</ol>

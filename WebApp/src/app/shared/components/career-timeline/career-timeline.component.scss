@@ -1,0 +1,55 @@
+.career-timeline {
+  &__spine {
+    position: absolute;
+    left: 1rem;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(20 184 166 / 0.5) 6%,
+      rgb(20 184 166 / 0.5) 94%,
+      transparent 100%
+    );
+
+    @media (min-width: 640px) {
+      left: 1.5rem;
+    }
+  }
+
+  &__entry {
+    opacity: 0;
+    transform: translateX(-12px);
+    transition:
+      opacity 480ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i + 1}) {
+        transition-delay: #{$i * 60}ms;
+      }
+    }
+  }
+
+  &__marker {
+    box-shadow: 0 0 0 4px var(--color-paper);
+  }
+}
+
+:host-context(.dark) .career-timeline__marker {
+  box-shadow: 0 0 0 4px var(--color-night);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-timeline__entry {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

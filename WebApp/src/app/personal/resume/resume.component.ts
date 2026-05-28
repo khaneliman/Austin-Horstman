@@ -34,6 +34,7 @@ import {
 import { heroStarSolid } from '@ng-icons/heroicons/solid';
 import { CardComponent } from '../../core/components/card/card.component';
 import { FloatingCardComponent } from '../../core/components/floating-card/floating-card.component';
+import { CareerTimelineComponent } from '../../shared/components/career-timeline/career-timeline.component';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
@@ -90,6 +91,7 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
     FloatingCardComponent,
     NgIconComponent,
     DecorativeBackgroundComponent,
+    CareerTimelineComponent,
   ],
   providers: [
     provideIcons({
@@ -131,6 +133,7 @@ export class ResumeComponent {
   // Company data with calculated stats
   currentCompany: CompanyInfo = getCompanyWithCalculatedStats('nri-na');
   previousCompanies: CompanyInfo[] = [getCompanyWithCalculatedStats('west'), getCompanyWithCalculatedStats('bestbuy')];
+  allCompanies: CompanyInfo[] = getAllCompanies();
 
   resumeHighlights = [
     {
