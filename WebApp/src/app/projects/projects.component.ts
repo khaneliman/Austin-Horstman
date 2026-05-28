@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -21,7 +21,6 @@ import { getAllCompanies, getCompanyWithCalculatedStats } from '../shared/data/c
 import { GITHUB_METRICS } from '../shared/data/github-metrics';
 import { generatePersonalProjectsGrid } from '../shared/data/personal-projects';
 import { generateProfessionalProjectsGrid, getResumeProjectCards } from '../shared/data/projects';
-import { getAllTechnologyNames } from '../shared/data/technologies';
 
 @Component({
   selector: 'app-projects',
@@ -52,35 +51,6 @@ export class ProjectsComponent {
   protected readonly companies = getAllCompanies();
   protected readonly githubMetrics = GITHUB_METRICS;
   protected readonly currentCompany = getCompanyWithCalculatedStats('nri-na');
-
-  private readonly careerStartDate = signal(new Date('2013-08-01')); // When career started at Best Buy Geek Squad
-
-  // Calculate portfolio statistics from actual data
-  protected readonly portfolioStats = computed(() => {
-    const allCompanies = getAllCompanies();
-    const totalProjects = allCompanies.reduce((sum, company) => {
-      return sum + company.projects.length;
-    }, 0);
-
-    const totalTechnologies = getAllTechnologyNames().length;
-
-    // Calculate years of experience
-    const today = new Date();
-    const careerStart = this.careerStartDate();
-    let yearsExperience = today.getFullYear() - careerStart.getFullYear();
-    const monthDiff = today.getMonth() - careerStart.getMonth();
-
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < careerStart.getDate())) {
-      yearsExperience--;
-    }
-
-    return {
-      totalProjects,
-      totalCompanies: allCompanies.length,
-      totalTechnologies,
-      yearsExperience,
-    };
-  });
 
   protected readonly featuredCaseStudies = getResumeProjectCards()
     .filter((project) =>
@@ -116,24 +86,30 @@ export class ProjectsComponent {
     },
   ];
 
-  personalProjectCategories = [
+  protected readonly catalogLanes = [
     {
-      title: 'Open Source',
-      description: 'Active contributions to the Nix ecosystem',
-      icon: 'heroCodeBracket',
-      color: 'from-green-600 to-emerald-600',
+      label: 'Professional case studies',
+      route: '/projects/professional',
+      detail: `${this.professionalProjects.length} client and enterprise entries with role, outcome, and implementation context.`,
+      icon: 'heroBriefcase',
     },
     {
-      title: 'Web Applications',
-      description: 'Full-stack web development projects',
+      label: 'Personal systems',
+      route: '/projects/personal',
+      detail: `${this.personalProjects.length} open-source, editor, automation, and portfolio projects outside client delivery.`,
       icon: 'heroGlobeAlt',
-      color: 'from-blue-600 to-indigo-600',
     },
     {
-      title: 'Development Tools',
-      description: 'Utilities and automation tools',
+      label: 'Current consulting arc',
+      route: this.currentCompany.experienceRoute,
+      detail: `${this.currentCompany.displayName} role context with acquisition history, active responsibilities, and current work.`,
+      icon: 'heroRocketLaunch',
+    },
+    {
+      label: 'Open-source evidence',
+      route: '/projects/personal',
+      detail: `Merged Nix ecosystem contributions indexed from GitHub metrics as of ${this.githubMetrics.asOf}.`,
       icon: 'heroWrench',
-      color: 'from-purple-600 to-violet-600',
     },
   ];
 }
