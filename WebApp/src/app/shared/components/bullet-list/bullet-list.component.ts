@@ -1,5 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroCheck } from '@ng-icons/heroicons/outline';
 
@@ -11,81 +10,80 @@ export interface BulletListItem {
 }
 
 export type BulletStyle = 'dot' | 'arrow' | 'check' | 'dash' | 'number' | 'icon';
+export type BulletVariant = 'default' | 'compact' | 'spacious';
+export type BulletSize = 'sm' | 'md' | 'lg';
+export type BulletSpacing = 'tight' | 'normal' | 'loose';
 
 @Component({
   selector: 'app-bullet-list',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgFor, NgIf, NgIconComponent],
-  providers: [
-    provideIcons({
-      heroCheck,
-    }),
-  ],
+  imports: [NgIconComponent],
+  providers: [provideIcons({ heroCheck })],
   template: `
-    <ul [class]="listClasses" [attr.role]="role">
-      <li *ngFor="let item of items; trackBy: trackByFn; index as i" [class]="getItemClasses(item, i)">
-        <div class="flex items-start">
-          <!-- Bullet/Icon/Number -->
-          <div [class]="bulletContainerClasses">
-            <ng-icon
-              *ngIf="bulletStyle === 'icon' && item.icon"
-              [name]="item.icon"
-              [size]="iconSize"
-              [class]="getBulletIconClasses(item)"
-            >
-            </ng-icon>
-            <ng-icon
-              *ngIf="bulletStyle === 'check'"
-              name="heroCheck"
-              [size]="iconSize"
-              [class]="getBulletIconClasses(item)"
-            >
-            </ng-icon>
-            <span *ngIf="bulletStyle === 'number'" [class]="getNumberClasses(item, i)"> {{ i + 1 }}. </span>
-            <span *ngIf="bulletStyle === 'dot'" [class]="getDotClasses(item)"> • </span>
-            <span *ngIf="bulletStyle === 'arrow'" [class]="getArrowClasses(item)"> → </span>
-            <span *ngIf="bulletStyle === 'dash'" [class]="getDashClasses(item)"> – </span>
-          </div>
+    <ul [class]="listClasses()" [attr.role]="role()">
+      @for (item of items(); track item.text; let i = $index) {
+        <li [class]="getItemClasses(item)">
+          <div class="flex items-start">
+            <div [class]="bulletContainerClasses()">
+              @switch (bulletStyle()) {
+                @case ('icon') {
+                  @if (item.icon; as ic) {
+                    <ng-icon [name]="ic" [size]="iconSize()" [class]="getBulletIconClasses(item)"></ng-icon>
+                  }
+                }
+                @case ('check') {
+                  <ng-icon name="heroCheck" [size]="iconSize()" [class]="getBulletIconClasses(item)"></ng-icon>
+                }
+                @case ('number') {
+                  <span [class]="getNumberClasses(item)">{{ i + 1 }}.</span>
+                }
+                @case ('dot') {
+                  <span [class]="getDotClasses(item)">•</span>
+                }
+                @case ('arrow') {
+                  <span [class]="getArrowClasses(item)">→</span>
+                }
+                @case ('dash') {
+                  <span [class]="getDashClasses(item)">–</span>
+                }
+              }
+            </div>
 
-          <!-- Content -->
-          <div [class]="contentClasses">
-            <span [class]="getTextClasses(item)">{{ item.text }}</span>
+            <div [class]="contentClasses()">
+              <span [class]="getTextClasses(item)">{{ item.text }}</span>
 
-            <!-- Sub-items -->
-            <app-bullet-list
-              *ngIf="item.subItems && item.subItems.length > 0"
-              [items]="item.subItems"
-              [bulletStyle]="subBulletStyle || 'dot'"
-              [variant]="variant"
-              [size]="size"
-              [spacing]="spacing"
-              [colorTheme]="colorTheme"
-              class="mt-2"
-            >
-            </app-bullet-list>
+              @if (item.subItems && item.subItems.length > 0) {
+                <app-bullet-list
+                  [items]="item.subItems"
+                  [bulletStyle]="subBulletStyle() ?? 'dot'"
+                  [variant]="variant()"
+                  [size]="size()"
+                  [spacing]="spacing()"
+                  [colorTheme]="colorTheme()"
+                  class="mt-2"
+                ></app-bullet-list>
+              }
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      }
     </ul>
   `,
-  styles: [],
 })
 export class BulletListComponent {
-  @Input() items: BulletListItem[] = [];
-  @Input() bulletStyle: BulletStyle = 'dot';
-  @Input() variant: 'default' | 'compact' | 'spacious' = 'default';
-  @Input() size: 'sm' | 'md' | 'lg' = 'md';
-  @Input() spacing: 'tight' | 'normal' | 'loose' = 'normal';
-  @Input() colorTheme = 'blue';
-  @Input() role = 'list';
-  @Input() subBulletStyle?: BulletStyle;
+  readonly items = input<BulletListItem[]>([]);
+  readonly bulletStyle = input<BulletStyle>('dot');
+  readonly variant = input<BulletVariant>('default');
+  readonly size = input<BulletSize>('md');
+  readonly spacing = input<BulletSpacing>('normal');
+  readonly colorTheme = input('blue');
+  readonly role = input('list');
+  readonly subBulletStyle = input<BulletStyle>();
 
-  get listClasses(): string {
+  readonly listClasses = computed(() => {
     const classes = ['list-none'];
-
-    // Spacing between items
-    switch (this.spacing) {
+    switch (this.spacing()) {
       case 'tight':
         classes.push('space-y-1');
         break;
@@ -96,25 +94,22 @@ export class BulletListComponent {
         classes.push('space-y-4');
         break;
     }
-
-    // Variant-specific styles
-    switch (this.variant) {
+    switch (this.variant()) {
       case 'compact':
         classes.push('text-sm');
         break;
       case 'spacious':
         classes.push('py-2');
         break;
+      case 'default':
+        break;
     }
-
     return classes.join(' ');
-  }
+  });
 
-  get bulletContainerClasses(): string {
+  readonly bulletContainerClasses = computed(() => {
     const classes = ['flex-shrink-0', 'flex', 'items-center', 'justify-center'];
-
-    // Size-based dimensions
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('w-4', 'h-4', 'mr-2');
         break;
@@ -125,15 +120,12 @@ export class BulletListComponent {
         classes.push('w-6', 'h-6', 'mr-4');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 
-  get contentClasses(): string {
+  readonly contentClasses = computed(() => {
     const classes = ['flex-1', 'min-w-0'];
-
-    // Size-based text
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-sm');
         break;
@@ -144,103 +136,66 @@ export class BulletListComponent {
         classes.push('text-lg');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 
-  get iconSize(): string {
-    switch (this.size) {
+  readonly iconSize = computed(() => {
+    switch (this.size()) {
       case 'sm':
         return '0.875rem';
       case 'md':
         return '1rem';
       case 'lg':
         return '1.25rem';
-      default:
-        return '1rem';
     }
-  }
+  });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getItemClasses(item: BulletListItem, _index: number): string {
+  getItemClasses(item: BulletListItem): string {
     const classes = ['flex'];
-
     if (item.highlighted) {
-      classes.push(`bg-${this.colorTheme}-50`, `dark:bg-${this.colorTheme}-900/20`, 'rounded-lg', 'p-3', '-mx-3');
+      const t = this.colorTheme();
+      classes.push(`bg-${t}-50`, `dark:bg-${t}-900/20`, 'rounded-lg', 'p-3', '-mx-3');
     }
-
     return classes.join(' ');
   }
 
   getTextClasses(item: BulletListItem): string {
     const classes = ['leading-relaxed'];
-
     if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-900`, `dark:text-${this.colorTheme}-200`, 'font-medium');
+      const t = this.colorTheme();
+      classes.push(`text-${t}-900`, `dark:text-${t}-200`, 'font-medium');
     } else {
       classes.push('text-gray-700', 'dark:text-gray-300');
     }
-
     return classes.join(' ');
   }
 
   getBulletIconClasses(item: BulletListItem): string {
-    if (item.highlighted) {
-      return `text-${this.colorTheme}-600 dark:text-${this.colorTheme}-400`;
-    }
-    return `text-${this.colorTheme}-500 dark:text-${this.colorTheme}-400`;
+    const t = this.colorTheme();
+    return item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getNumberClasses(item: BulletListItem, _index: number): string {
-    const classes = ['font-semibold', 'text-sm'];
-
-    if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
-    } else {
-      classes.push(`text-${this.colorTheme}-500`, `dark:text-${this.colorTheme}-400`);
-    }
-
-    return classes.join(' ');
+  getNumberClasses(item: BulletListItem): string {
+    const t = this.colorTheme();
+    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
+    return `font-semibold text-sm ${tint}`;
   }
 
   getDotClasses(item: BulletListItem): string {
-    const classes = ['font-bold'];
-
-    if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
-    } else {
-      classes.push(`text-${this.colorTheme}-500`, `dark:text-${this.colorTheme}-400`);
-    }
-
-    return classes.join(' ');
+    const t = this.colorTheme();
+    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
+    return `font-bold ${tint}`;
   }
 
   getArrowClasses(item: BulletListItem): string {
-    const classes = ['font-medium'];
-
-    if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
-    } else {
-      classes.push(`text-${this.colorTheme}-500`, `dark:text-${this.colorTheme}-400`);
-    }
-
-    return classes.join(' ');
+    const t = this.colorTheme();
+    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : `text-${t}-500 dark:text-${t}-400`;
+    return `font-medium ${tint}`;
   }
 
   getDashClasses(item: BulletListItem): string {
-    const classes = ['font-medium'];
-
-    if (item.highlighted) {
-      classes.push(`text-${this.colorTheme}-600`, `dark:text-${this.colorTheme}-400`);
-    } else {
-      classes.push('text-gray-400', 'dark:text-gray-500');
-    }
-
-    return classes.join(' ');
+    const t = this.colorTheme();
+    const tint = item.highlighted ? `text-${t}-600 dark:text-${t}-400` : 'text-gray-400 dark:text-gray-500';
+    return `font-medium ${tint}`;
   }
-
-  readonly trackByFn = (index: number, item: BulletListItem): string | number => {
-    return item.text || index;
-  };
 }
