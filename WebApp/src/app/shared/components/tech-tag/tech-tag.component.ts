@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-tech-tag',
@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <span [class]="tagClasses">
+    <span [class]="tagClasses()">
       {{ name() }}
     </span>
   `,
@@ -17,35 +17,40 @@ export class TechTagComponent {
   size = input<'sm' | 'md'>('sm');
   variant = input<'filled' | 'outline' | 'ghost'>('filled');
 
-  get tagClasses(): string {
-    const classes = ['font-medium rounded-full transition-colors duration-200'];
+  // `palette-{color}` is defined in src/_palettes.scss and exposes the
+  // --p-* shade variables that the variant classes below consume.
+  readonly tagClasses = computed(() => {
+    const classes = [`palette-${this.color()}`, 'font-medium rounded-full transition-colors duration-200'];
 
-    // Size classes
     if (this.size() === 'sm') {
       classes.push('px-3 py-1 text-xs');
     } else {
       classes.push('px-4 py-2 text-sm');
     }
 
-    // Color and variant classes
-    const colorValue = this.color();
     switch (this.variant()) {
       case 'filled':
-        classes.push(`bg-${colorValue}-100 text-${colorValue}-800`);
-        classes.push(`dark:bg-${colorValue}-900/30 dark:text-${colorValue}-300`);
-        classes.push(`hover:bg-${colorValue}-200 dark:hover:bg-${colorValue}-800/50`);
+        classes.push(
+          'bg-[var(--p-100)] text-[var(--p-800)]',
+          'dark:bg-[var(--p-900-30)] dark:text-[var(--p-300)]',
+          'hover:bg-[var(--p-200)] dark:hover:bg-[var(--p-800-50)]'
+        );
         break;
       case 'outline':
-        classes.push(`border border-${colorValue}-200 text-${colorValue}-700`);
-        classes.push(`dark:border-${colorValue}-600 dark:text-${colorValue}-300`);
-        classes.push(`hover:bg-${colorValue}-50 dark:hover:bg-${colorValue}-900/20`);
+        classes.push(
+          'border border-[var(--p-200)] text-[var(--p-700)]',
+          'dark:border-[var(--p-600)] dark:text-[var(--p-300)]',
+          'hover:bg-[var(--p-50)] dark:hover:bg-[var(--p-900-20)]'
+        );
         break;
       case 'ghost':
-        classes.push(`text-${colorValue}-600 hover:bg-${colorValue}-50`);
-        classes.push(`dark:text-${colorValue}-400 dark:hover:bg-${colorValue}-900/20`);
+        classes.push(
+          'text-[var(--p-600)] hover:bg-[var(--p-50)]',
+          'dark:text-[var(--p-400)] dark:hover:bg-[var(--p-900-20)]'
+        );
         break;
     }
 
     return classes.join(' ');
-  }
+  });
 }
