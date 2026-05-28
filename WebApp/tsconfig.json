@@ -20,7 +20,7 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
-    "types": ["bun-types"],
+    "types": ["bun"],
     "paths": {
       "app/*": ["./src/app/*"],
       "core/*": ["./src/app/core/*"],
