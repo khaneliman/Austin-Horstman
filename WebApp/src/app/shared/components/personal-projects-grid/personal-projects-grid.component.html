@@ -1,9 +1,43 @@
+@if (enableFilters()) {
+  <div class="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="Filter projects by category">
+    <button
+      type="button"
+      (click)="selectCategory(null)"
+      [attr.aria-pressed]="selectedCategory() === null"
+      class="rounded-full border px-4 py-1.5 font-mono text-xs font-semibold tracking-wide transition-colors duration-150"
+      [ngClass]="
+        selectedCategory() === null
+          ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-300 dark:bg-teal-300 dark:text-slate-950'
+          : 'border-stone-300 text-slate-700 hover:border-teal-600 hover:text-teal-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-300 dark:hover:text-teal-200'
+      "
+    >
+      All <span class="opacity-70">({{ totalCount }})</span>
+    </button>
+    @for (filter of categoryFilters; track filter.label) {
+      <button
+        type="button"
+        (click)="selectCategory(filter.label)"
+        [attr.aria-pressed]="selectedCategory() === filter.label"
+        class="rounded-full border px-4 py-1.5 font-mono text-xs font-semibold tracking-wide transition-colors duration-150"
+        [ngClass]="
+          selectedCategory() === filter.label
+            ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-300 dark:bg-teal-300 dark:text-slate-950'
+            : 'border-stone-300 text-slate-700 hover:border-teal-600 hover:text-teal-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-300 dark:hover:text-teal-200'
+        "
+      >
+        {{ filter.label }} <span class="opacity-70">({{ filter.count }})</span>
+      </button>
+    }
+  </div>
+}
+
 <div appGridKeyboardNav class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-  @for (project of displayedProjects; track project.title) {
+  @for (project of displayedProjects; track project.title + '|' + selectedCategory(); let i = $index) {
     <div
       data-card-anchor
       tabindex="-1"
-      class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-stone-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex flex-col h-full"
+      class="pp-card bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-stone-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex flex-col h-full"
+      [style.animation-delay.ms]="i * 45"
     >
       <!-- Project Header -->
       <div class="relative px-8 py-12 bg-slate-100 dark:bg-slate-950">

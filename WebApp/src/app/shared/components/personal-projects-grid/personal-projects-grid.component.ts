@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -64,6 +64,10 @@ export class PersonalProjectsGridComponent {
   readonly projects = input<PersonalProject[]>([]);
   readonly showFeaturedOnly = input(false);
   readonly maxProjects = input<number>();
+  /** Opt-in: render a category filter bar above the grid. */
+  readonly enableFilters = input(false);
+
+  readonly selectedCategory = signal<string | null>(null);
 
   backgroundElements: BackgroundElement[] = [
     {
@@ -75,11 +79,35 @@ export class PersonalProjectsGridComponent {
     },
   ];
 
-  get displayedProjects(): PersonalProject[] {
+  /** Projects after the static featured/max inputs, before the live category filter. */
+  private get baseProjects(): PersonalProject[] {
     const filtered = this.showFeaturedOnly() ? this.projects().filter((p) => p.featured) : this.projects();
-
     const maxProjects = this.maxProjects();
     return maxProjects ? filtered.slice(0, maxProjects) : filtered;
+  }
+
+  get displayedProjects(): PersonalProject[] {
+    const category = this.selectedCategory();
+    return category ? this.baseProjects.filter((p) => p.category === category) : this.baseProjects;
+  }
+
+  /** Distinct categories within the base set, with counts, alphabetized. */
+  get categoryFilters(): { label: string; count: number }[] {
+    const counts = new Map<string, number>();
+    for (const project of this.baseProjects) {
+      counts.set(project.category, (counts.get(project.category) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+      .map(([label, count]) => ({ label, count }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }
+
+  get totalCount(): number {
+    return this.baseProjects.length;
+  }
+
+  selectCategory(category: string | null): void {
+    this.selectedCategory.set(category);
   }
 
   getCategoryIcon(category: string): string {
