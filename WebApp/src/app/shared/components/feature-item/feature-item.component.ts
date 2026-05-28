@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
+
+export type FeatureItemSize = 'sm' | 'md' | 'lg';
 
 @Component({
   selector: 'app-feature-item',
@@ -8,75 +10,64 @@ import { NgIconComponent } from '@ng-icons/core';
   imports: [NgIconComponent],
   template: `
     <div class="flex items-start space-x-4">
-      <div [class]="iconContainerClasses">
-        <ng-icon [name]="icon" [size]="iconSize" [class]="iconClasses"></ng-icon>
+      <div [class]="iconContainerClasses()">
+        <ng-icon [name]="icon()" [size]="iconSize()" [class]="iconClasses()"></ng-icon>
       </div>
       <div class="flex-1">
-        <h3 [class]="titleClasses">
-          {{ title }}
-        </h3>
-        <p [class]="descriptionClasses">
-          {{ description }}
-        </p>
+        <h3 [class]="titleClasses()">{{ title() }}</h3>
+        <p [class]="descriptionClasses()">{{ description() }}</p>
       </div>
     </div>
   `,
-  styles: [],
 })
 export class FeatureItemComponent {
-  @Input() icon!: string;
-  @Input() title!: string;
-  @Input() description!: string;
-  @Input() iconColor = 'blue';
-  @Input() size: 'sm' | 'md' | 'lg' = 'md';
+  readonly icon = input.required<string>();
+  readonly title = input.required<string>();
+  readonly description = input.required<string>();
+  readonly iconColor = input('blue');
+  readonly size = input<FeatureItemSize>('md');
 
-  get iconContainerClasses(): string {
-    const baseClasses = [
-      `bg-${this.iconColor}-100`,
-      `dark:bg-${this.iconColor}-900/30`,
+  readonly iconContainerClasses = computed(() => {
+    const color = this.iconColor();
+    const classes = [
+      `bg-${color}-100`,
+      `dark:bg-${color}-900/30`,
       'rounded-full',
       'flex',
       'items-center',
       'justify-center',
       'flex-shrink-0',
     ];
-
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
-        baseClasses.push('w-6 h-6');
+        classes.push('w-6 h-6');
         break;
       case 'md':
-        baseClasses.push('w-8 h-8');
+        classes.push('w-8 h-8');
         break;
       case 'lg':
-        baseClasses.push('w-10 h-10');
+        classes.push('w-10 h-10');
         break;
     }
+    return classes.join(' ');
+  });
 
-    return baseClasses.join(' ');
-  }
+  readonly iconClasses = computed(() => `text-${this.iconColor()}-600 dark:text-${this.iconColor()}-400`);
 
-  get iconClasses(): string {
-    return `text-${this.iconColor}-600 dark:text-${this.iconColor}-400`;
-  }
-
-  get iconSize(): string {
-    switch (this.size) {
+  readonly iconSize = computed(() => {
+    switch (this.size()) {
       case 'sm':
         return '0.75rem';
       case 'md':
         return '0.875rem';
       case 'lg':
         return '1rem';
-      default:
-        return '0.875rem';
     }
-  }
+  });
 
-  get titleClasses(): string {
+  readonly titleClasses = computed(() => {
     const classes = ['font-semibold text-gray-800 dark:text-gray-100 mb-1'];
-
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-sm');
         break;
@@ -87,14 +78,12 @@ export class FeatureItemComponent {
         classes.push('text-lg');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 
-  get descriptionClasses(): string {
+  readonly descriptionClasses = computed(() => {
     const classes = ['text-gray-600 dark:text-gray-300'];
-
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-xs');
         break;
@@ -105,7 +94,6 @@ export class FeatureItemComponent {
         classes.push('text-base');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 }

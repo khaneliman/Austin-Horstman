@@ -1,5 +1,4 @@
-import { NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { FeatureItemComponent } from '../feature-item/feature-item.component';
 
 export interface Feature {
@@ -12,37 +11,31 @@ export interface Feature {
   selector: 'app-feature-grid',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgFor, FeatureItemComponent],
+  imports: [FeatureItemComponent],
   template: `
-    <div [class]="gridClasses">
-      <app-feature-item
-        *ngFor="let feature of features"
-        [icon]="feature.icon"
-        [title]="feature.title"
-        [description]="feature.description"
-        [iconColor]="iconColor"
-        [size]="itemSize"
-      ></app-feature-item>
+    <div [class]="gridClasses()">
+      @for (feature of features(); track feature.title) {
+        <app-feature-item
+          [icon]="feature.icon"
+          [title]="feature.title"
+          [description]="feature.description"
+          [iconColor]="iconColor()"
+          [size]="itemSize()"
+        ></app-feature-item>
+      }
     </div>
   `,
-  styles: [],
 })
 export class FeatureGridComponent {
-  @Input() features: Feature[] = [];
-  @Input() columns: 1 | 2 = 2;
-  @Input() iconColor = 'blue';
-  @Input() itemSize: 'sm' | 'md' | 'lg' = 'md';
-  @Input() gap = '6';
+  readonly features = input<Feature[]>([]);
+  readonly columns = input<1 | 2>(2);
+  readonly iconColor = input('blue');
+  readonly itemSize = input<'sm' | 'md' | 'lg'>('md');
+  readonly gap = input('6');
 
-  get gridClasses(): string {
-    const classes = ['grid', `gap-${this.gap}`];
-
-    if (this.columns === 1) {
-      classes.push('grid-cols-1');
-    } else {
-      classes.push('grid-cols-1 md:grid-cols-2');
-    }
-
+  readonly gridClasses = computed(() => {
+    const classes = ['grid', `gap-${this.gap()}`];
+    classes.push(this.columns() === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2');
     return classes.join(' ');
-  }
+  });
 }

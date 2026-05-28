@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
+
+export type StatCardSize = 'sm' | 'md' | 'lg';
 
 @Component({
   selector: 'app-stat-card',
@@ -7,49 +9,35 @@ import { NgIconComponent } from '@ng-icons/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
   template: `
-    <div [class]="containerClasses">
-      <div [class]="iconContainerClasses">
-        <ng-icon [name]="icon" [size]="iconSize" class="text-white"></ng-icon>
+    <div [class]="containerClasses()">
+      <div [class]="iconContainerClasses()">
+        <ng-icon [name]="icon()" [size]="iconSize()" class="text-white"></ng-icon>
       </div>
-      <div [class]="valueClasses">{{ value }}</div>
-      <div [class]="labelClasses">{{ label }}</div>
+      <div [class]="valueClasses()">{{ value() }}</div>
+      <div [class]="labelClasses()">{{ label() }}</div>
     </div>
   `,
-  styles: [],
 })
 export class StatCardComponent {
-  @Input() icon!: string;
-  @Input() value!: string;
-  @Input() label!: string;
-  @Input() color = 'blue';
-  @Input() size: 'sm' | 'md' | 'lg' = 'md';
-  @Input() center = true;
-  @Input() background = false;
+  readonly icon = input.required<string>();
+  readonly value = input.required<string>();
+  readonly label = input.required<string>();
+  readonly color = input('blue');
+  readonly size = input<StatCardSize>('md');
+  readonly center = input(true);
+  readonly background = input(false);
 
-  get containerClasses(): string {
-    const classes = [];
-
-    if (this.center) {
-      classes.push('text-center');
-    }
-
-    if (this.background) {
-      classes.push(`bg-${this.color}-50 dark:bg-${this.color}-900/20 rounded-xl p-4`);
-    }
-
+  readonly containerClasses = computed(() => {
+    const classes: string[] = [];
+    if (this.center()) classes.push('text-center');
+    if (this.background()) classes.push(`bg-${this.color()}-50 dark:bg-${this.color()}-900/20 rounded-xl p-4`);
     return classes.join(' ');
-  }
+  });
 
-  get iconContainerClasses(): string {
-    const classes = [`bg-${this.color}-500`, 'rounded-xl', 'flex', 'items-center', 'justify-center'];
-
-    if (this.center) {
-      classes.push('mx-auto', 'mb-3');
-    } else {
-      classes.push('mb-2');
-    }
-
-    switch (this.size) {
+  readonly iconContainerClasses = computed(() => {
+    const classes = [`bg-${this.color()}-500`, 'rounded-xl', 'flex', 'items-center', 'justify-center'];
+    classes.push(...(this.center() ? ['mx-auto', 'mb-3'] : ['mb-2']));
+    switch (this.size()) {
       case 'sm':
         classes.push('w-8 h-8');
         break;
@@ -60,27 +48,23 @@ export class StatCardComponent {
         classes.push('w-16 h-16');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 
-  get iconSize(): string {
-    switch (this.size) {
+  readonly iconSize = computed(() => {
+    switch (this.size()) {
       case 'sm':
         return '1rem';
       case 'md':
         return '1.25rem';
       case 'lg':
         return '1.5rem';
-      default:
-        return '1.25rem';
     }
-  }
+  });
 
-  get valueClasses(): string {
-    const classes = [`text-${this.color}-600`, `dark:text-${this.color}-400`, 'font-bold', 'mb-1'];
-
-    switch (this.size) {
+  readonly valueClasses = computed(() => {
+    const classes = [`text-${this.color()}-600`, `dark:text-${this.color()}-400`, 'font-bold', 'mb-1'];
+    switch (this.size()) {
       case 'sm':
         classes.push('text-lg');
         break;
@@ -91,14 +75,12 @@ export class StatCardComponent {
         classes.push('text-3xl');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 
-  get labelClasses(): string {
+  readonly labelClasses = computed(() => {
     const classes = ['text-gray-600', 'dark:text-gray-300'];
-
-    switch (this.size) {
+    switch (this.size()) {
       case 'sm':
         classes.push('text-xs');
         break;
@@ -109,7 +91,6 @@ export class StatCardComponent {
         classes.push('text-base');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 }
