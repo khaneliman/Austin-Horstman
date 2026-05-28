@@ -231,8 +231,8 @@ export function getProjectsForCompany(companyKey: keyof typeof COMPANIES): Proje
   });
 }
 
-// Helper function for employment components - generates ProjectInfo with absolute routes
-export function getProjectsForEmployment(companyKey: keyof typeof COMPANIES): ProjectInfo[] {
+// Helper function for experience components - generates ProjectInfo with absolute routes
+export function getProjectsForExperience(companyKey: keyof typeof COMPANIES): ProjectInfo[] {
   const company = COMPANIES[companyKey];
   return company.projects.map((project) => {
     // Special case for Best Buy which uses geeksquad route path

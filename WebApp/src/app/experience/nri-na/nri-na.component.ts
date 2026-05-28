@@ -5,7 +5,7 @@ import {
   ProjectInfo,
 } from '../../shared/components/company-profile/company-profile.component';
 import { getCompanyWithCalculatedStats } from '../../shared/data/companies';
-import { getProjectsForEmployment } from '../../shared/data/projects';
+import { getProjectsForExperience } from '../../shared/data/projects';
 
 @Component({
   selector: 'app-nri-na',
@@ -18,5 +18,5 @@ import { getProjectsForEmployment } from '../../shared/data/projects';
 export class NriNaComponent {
   company: CompanyInfo = getCompanyWithCalculatedStats('nri-na');
 
-  projects: ProjectInfo[] = getProjectsForEmployment('nri-na');
+  projects: ProjectInfo[] = getProjectsForExperience('nri-na');
 }

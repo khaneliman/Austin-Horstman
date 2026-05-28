@@ -5,7 +5,7 @@ import {
   ProjectInfo,
 } from '../../shared/components/company-profile/company-profile.component';
 import { getCompanyWithCalculatedStats } from '../../shared/data/companies';
-import { getProjectsForEmployment } from '../../shared/data/projects';
+import { getProjectsForExperience } from '../../shared/data/projects';
 
 @Component({
   selector: 'app-corebts',
@@ -18,5 +18,5 @@ import { getProjectsForEmployment } from '../../shared/data/projects';
 export class CorebtsComponent {
   company: CompanyInfo = getCompanyWithCalculatedStats('corebts');
 
-  projects: ProjectInfo[] = getProjectsForEmployment('corebts');
+  projects: ProjectInfo[] = getProjectsForExperience('corebts');
 }
