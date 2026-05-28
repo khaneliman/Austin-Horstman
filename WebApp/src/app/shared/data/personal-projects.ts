@@ -131,7 +131,7 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
         {
           name: 'Waybar',
           description: `Contributed ${waybarMetrics?.mergedPrs ?? 0} merged PRs to the Wayland status bar, including module fixes, new functionality, and stability improvements.`,
-          route: '',
+          route: '/projects/personal/waybar',
           technologies: ['C++', 'GTK', 'Wayland'],
         },
         {

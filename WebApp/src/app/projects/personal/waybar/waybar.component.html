@@ -1,0 +1,121 @@
+<app-personal-case-study-shell
+  eyebrow="Open Source"
+  [title]="title"
+  [description]="description"
+  icon="heroComputerDesktop"
+  theme="blue"
+  [repositoryUrl]="repositoryUrl"
+  evidenceTitle="Public work in a Wayland status bar."
+  [meta]="evidence"
+  [stats]="sideStats"
+  [technologies]="technologies"
+>
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-white">
+        <ng-icon name="heroComputerDesktop" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">About Waybar</h2>
+    </div>
+    <p class="mt-5 leading-8 text-slate-700 dark:text-slate-300">
+      Waybar is a highly customizable status bar for Wayland compositors, written in C++ with GTK. It is widely used
+      across Hyprland, Sway, niri, and other Wayland desktops, with a module system that surfaces system state and an
+      active contributor review process.
+    </p>
+  </article>
+
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-700 text-white">
+        <ng-icon name="heroCodeBracket" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Contributions and Specialization</h2>
+    </div>
+    <div class="mt-5">
+      <app-bullet-list
+        [items]="contributionsAndSpecialization"
+        bulletStyle="dot"
+        size="sm"
+        spacing="normal"
+        colorTheme="blue"
+      ></app-bullet-list>
+    </div>
+  </article>
+
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-300 text-slate-950">
+        <ng-icon name="heroWrenchScrewdriver" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Impact and Scale</h2>
+    </div>
+    <div class="mt-5">
+      <app-bullet-list
+        [items]="impactAndScale"
+        bulletStyle="dot"
+        size="sm"
+        spacing="normal"
+        colorTheme="blue"
+      ></app-bullet-list>
+    </div>
+  </article>
+
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-rose-600 text-white">
+        <ng-icon name="heroServerStack" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Where I Focus</h2>
+    </div>
+    <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <section class="border-l-4 border-blue-600 bg-[var(--color-paper)] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">Hyprland &amp; niri</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Workspace handling, urgent state, and socket-backed event integration for modern Wayland compositors.
+        </p>
+      </section>
+      <section class="border-l-4 border-blue-600 bg-[var(--color-paper)] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">Module Framework</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Enhancements at the shared AModule base that ripple across every module.
+        </p>
+      </section>
+      <section class="border-l-4 border-blue-600 bg-[var(--color-paper)] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">Stability &amp; Performance</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Bounded queues, defensive socket handling, and crash-resistance fixes under real-world load.
+        </p>
+      </section>
+      <section class="border-l-4 border-blue-600 bg-[var(--color-paper)] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">Project Health</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Test organization, clang/treefmt formatting, and reproducible Nix builds and CI.
+        </p>
+      </section>
+    </div>
+  </article>
+
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-white">
+        <ng-icon name="heroUsers" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Representative Merged PRs</h2>
+    </div>
+    <ul class="mt-6 divide-y divide-stone-200 dark:divide-slate-800">
+      @for (pr of notablePullRequests; track pr.number) {
+        <li class="py-4 first:pt-0 last:pb-0">
+          <a
+            class="font-bold text-blue-800 underline decoration-blue-300 underline-offset-4 hover:text-blue-950 dark:text-blue-200 dark:decoration-blue-500 dark:hover:text-blue-100"
+            [href]="pr.url"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PR #{{ pr.number }} · {{ pr.mergedAt }} · {{ pr.title }}
+          </a>
+          <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ pr.impact }}</p>
+        </li>
+      }
+    </ul>
+  </article>
+</app-personal-case-study-shell>

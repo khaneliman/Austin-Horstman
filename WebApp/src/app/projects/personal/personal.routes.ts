@@ -19,6 +19,10 @@ export const PERSONAL_PROJECTS_ROUTES: Routes = [
     loadComponent: () => import('./nixpkgs/nixpkgs.component').then((m) => m.NixpkgsComponent),
   },
   {
+    path: 'waybar',
+    loadComponent: () => import('./waybar/waybar.component').then((m) => m.WaybarComponent),
+  },
+  {
     path: 'khanelinix',
     loadComponent: () => import('./khanelinix/khanelinix.component').then((m) => m.KhanelinixComponent),
   },
