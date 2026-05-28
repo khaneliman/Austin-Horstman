@@ -4,16 +4,7 @@
     <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
       <!-- Left: Back Navigation -->
       <div class="flex items-center space-x-4">
-        <a
-          [routerLink]="backRoute()"
-          [class]="
-            'inline-flex items-center px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-' +
-            hoverColor() +
-            '-600 dark:hover:text-' +
-            hoverColor() +
-            '-400 transition-colors duration-200'
-          "
-        >
+        <a [routerLink]="backRoute()" [class]="backLinkClasses">
           <ng-icon name="heroChevronLeft" size="1rem" class="mr-2"></ng-icon>
           {{ backLabel() }}
         </a>
@@ -28,21 +19,7 @@
           @for (project of projects; track project.route) {
             <a
               [routerLink]="project.route"
-              [class]="
-                project.isActive
-                  ? 'px-3 py-2 bg-' +
-                    hoverColor() +
-                    '-100 dark:bg-' +
-                    hoverColor() +
-                    '-900 text-' +
-                    hoverColor() +
-                    '-700 dark:text-' +
-                    hoverColor() +
-                    '-300 rounded-lg text-sm font-medium whitespace-nowrap snap-start focus:outline-none focus:ring-2 focus:ring-' +
-                    hoverColor() +
-                    '-500'
-                  : 'px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium whitespace-nowrap snap-start transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
-              "
+              [class]="project.isActive ? activeTabClasses : inactiveTabClasses"
               [attr.aria-current]="project.isActive ? 'page' : null"
             >
               {{ project.name }}
