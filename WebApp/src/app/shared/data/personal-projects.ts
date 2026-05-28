@@ -1,11 +1,17 @@
 import { PersonalProject } from '../components/personal-projects-grid/personal-projects-grid.component';
 import { GITHUB_METRICS } from './github-metrics';
 
-const [nixpkgsMetrics, homeManagerMetrics, nixvimMetrics] = [
+const [nixpkgsMetrics, homeManagerMetrics, nixvimMetrics, waybarMetrics] = [
   GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Nixpkgs'),
   GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Home Manager'),
   GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Nixvim'),
+  GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Waybar'),
 ];
+
+// totalMergedPrs spans every tracked repo (including Waybar), so the Nix card
+// uses this Nix-only subtotal instead.
+const nixMergedPrs =
+  (nixpkgsMetrics?.mergedPrs ?? 0) + (homeManagerMetrics?.mergedPrs ?? 0) + (nixvimMetrics?.mergedPrs ?? 0);
 
 export function generatePersonalProjectsGrid(): PersonalProject[] {
   return [
@@ -75,7 +81,7 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
     {
       id: 'nix-ecosystem',
       title: 'Nix Ecosystem Contributions',
-      description: `High-signal open source contribution set across Home Manager (${homeManagerMetrics?.mergedPrs ?? 0}), Nixvim (${nixvimMetrics?.mergedPrs ?? 0}), and Nixpkgs (${nixpkgsMetrics?.mergedPrs ?? 0}) with ${GITHUB_METRICS.totalMergedPrs} merged PRs (as indexed by GitHub author search) as of ${GITHUB_METRICS.asOf}.`,
+      description: `High-signal open source contribution set across Home Manager (${homeManagerMetrics?.mergedPrs ?? 0}), Nixvim (${nixvimMetrics?.mergedPrs ?? 0}), and Nixpkgs (${nixpkgsMetrics?.mergedPrs ?? 0}) with ${nixMergedPrs} merged PRs (as indexed by GitHub author search) as of ${GITHUB_METRICS.asOf}.`,
       category: 'Open Source',
       technologies: ['Nix', 'Bash', 'GitHub Actions', 'GitHub App', 'Python', 'Neovim', 'Lua', 'Documentation'],
       featured: true,
@@ -109,6 +115,43 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
         `Contributed ${homeManagerMetrics?.mergedPrs ?? 0} Home Manager PRs, ${nixvimMetrics?.mergedPrs ?? 0} Nixvim PRs, and ${nixpkgsMetrics?.mergedPrs ?? 0} Nixpkgs PRs (as of ${GITHUB_METRICS.asOf}).`,
         'Focused on contributor-facing quality improvements: stable release workflows, PR scaffolding, metadata consistency, and module reliability.',
         'Expanded package and module reliability for macOS and Linux users via reproducible Nix-based workflows.',
+      ],
+    },
+    {
+      id: 'upstream-contributions',
+      title: 'Upstream Open Source Contributions',
+      description: `Recurring contributions to upstream projects beyond the Nix core, headlined by ${waybarMetrics?.mergedPrs ?? 0} merged PRs to Waybar plus fixes and features across community Neovim plugins and the Hyprland ecosystem (as of ${GITHUB_METRICS.asOf}).`,
+      category: 'Open Source',
+      technologies: ['C++', 'Lua', 'GTK', 'Wayland', 'Neovim', 'Hyprland'],
+      featured: true,
+      githubUrl: 'https://github.com/khaneliman',
+      status: 'Active',
+      startDate: '2023-08',
+      projects: [
+        {
+          name: 'Waybar',
+          description: `Contributed ${waybarMetrics?.mergedPrs ?? 0} merged PRs to the Wayland status bar, including module fixes, new functionality, and stability improvements.`,
+          route: '',
+          technologies: ['C++', 'GTK', 'Wayland'],
+        },
+        {
+          name: 'Neovim Plugins',
+          description:
+            'Fixes and features across community Neovim plugins including avante.nvim, noice.nvim, blink-cmp-spell, indent-tools.nvim, and kulala.',
+          route: '',
+          technologies: ['Lua', 'Neovim'],
+        },
+        {
+          name: 'Hyprland Ecosystem',
+          description: 'Contributions to the Hyprland Wayland compositor and supporting tooling such as hyprqt6engine.',
+          route: '',
+          technologies: ['C++', 'Hyprland', 'Wayland'],
+        },
+      ],
+      highlights: [
+        `${waybarMetrics?.mergedPrs ?? 0} merged PRs to Waybar (as of ${GITHUB_METRICS.asOf})`,
+        'Recurring fixes and features across community Neovim plugins',
+        'Contributions to the Hyprland Wayland ecosystem',
       ],
     },
     {
