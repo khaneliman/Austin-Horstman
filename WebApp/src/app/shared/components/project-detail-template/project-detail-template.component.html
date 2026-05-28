@@ -7,8 +7,8 @@
   ></app-project-nav-header>
 
   <section class="border-b border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
-      <div>
+    <div class="project-detail-template__hero-grid mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="project-detail-template__title-area">
         <p class="project-detail-template__eyebrow text-sm font-bold uppercase tracking-[0.2em]">Case Study</p>
         <div class="mt-5 flex flex-col items-start gap-4 sm:flex-row">
           <div
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <aside class="relative lg:mt-4">
+      <aside class="project-detail-template__case-area relative lg:mt-4">
         <div class="absolute -left-4 top-7 h-24 w-24 border-8 project-detail-template__frame" aria-hidden="true"></div>
         <div class="absolute -right-3 bottom-8 h-16 w-16 project-detail-template__callout" aria-hidden="true"></div>
 
@@ -59,23 +59,43 @@
           </div>
 
           @if (config().showQuickStats && config().quickStats) {
-            <dl class="project-detail-template__evidence-grid mt-5 grid gap-3">
-              @for (stat of config().quickStats; track stat.label) {
-                <div class="border border-stone-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-                  <div class="flex items-center justify-between gap-3">
-                    <dt class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      {{ stat.label }}
-                    </dt>
-                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 text-white">
-                      <ng-icon [name]="stat.icon" size="0.95rem"></ng-icon>
+            @if (resolvedVariant === 'ledger') {
+              <ol class="project-detail-template__evidence-list">
+                @for (stat of config().quickStats; track stat.label; let i = $index) {
+                  <li>
+                    <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400">
+                      {{ formatLedgerIndex(i) }}
                     </span>
+                    <div>
+                      <div class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                        {{ stat.label }}
+                      </div>
+                      <div class="mt-1 text-xl font-black leading-tight text-slate-950 dark:text-white">
+                        {{ stat.value }}
+                      </div>
+                    </div>
+                  </li>
+                }
+              </ol>
+            } @else {
+              <dl class="project-detail-template__evidence-grid mt-5 grid gap-3">
+                @for (stat of config().quickStats; track stat.label) {
+                  <div class="border border-stone-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+                    <div class="flex items-center justify-between gap-3">
+                      <dt class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                        {{ stat.label }}
+                      </dt>
+                      <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 text-white">
+                        <ng-icon [name]="stat.icon" size="0.95rem"></ng-icon>
+                      </span>
+                    </div>
+                    <dd class="mt-3 text-2xl font-black leading-tight text-slate-950 dark:text-white">
+                      {{ stat.value }}
+                    </dd>
                   </div>
-                  <dd class="mt-3 text-2xl font-black leading-tight text-slate-950 dark:text-white">
-                    {{ stat.value }}
-                  </dd>
-                </div>
-              }
-            </dl>
+                }
+              </dl>
+            }
           }
 
           <div class="mt-5 flex flex-wrap gap-2">
@@ -93,8 +113,8 @@
   </section>
 
   <section class="py-12">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-      <aside class="space-y-4 lg:sticky lg:top-36 lg:self-start">
+    <div class="project-detail-template__body-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <aside class="project-detail-template__side-area space-y-4 lg:sticky lg:top-36 lg:self-start">
         <div class="project-detail-template__side-card border-l-4 bg-white p-5 shadow-sm dark:bg-slate-900">
           <p class="project-detail-template__eyebrow text-xs font-bold uppercase tracking-[0.18em]">
             {{ sideOverviewEyebrow }}
@@ -116,7 +136,7 @@
         }
       </aside>
 
-      <div class="min-w-0 space-y-6">
+      <div class="project-detail-template__main-area min-w-0 space-y-6">
         <app-base-card
           variant="large"
           rounded="lg"

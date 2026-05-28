@@ -253,49 +253,16 @@ export class ProjectDetailTemplateComponent {
     return this.config().sidebar?.impactHeading ?? 'Project Impact';
   }
 
-  protected get styleVariantClass(): string {
-    const styleVariant = this.config().styleVariant ?? this.resolveStyleVariant();
-    return `project-detail-template--${styleVariant}`;
+  protected get resolvedVariant(): ProjectCaseStyle {
+    return this.config().styleVariant ?? 'split';
   }
 
-  private resolveStyleVariant(): ProjectCaseStyle {
-    const paletteByStyle: Record<string, 'compact' | 'split' | 'ledger'> = {
-      green: 'split',
-      teal: 'split',
-      emerald: 'split',
-      purple: 'compact',
-      violet: 'compact',
-      rose: 'compact',
-      blue: 'compact',
-      cyan: 'compact',
-      orange: 'split',
-      red: 'split',
-      yellow: 'compact',
-      amber: 'compact',
-      indigo: 'ledger',
-    };
+  protected get styleVariantClass(): string {
+    return `project-detail-template--${this.resolvedVariant}`;
+  }
 
-    const byPrimary = paletteByStyle[this.config().primaryColor];
-    if (byPrimary) {
-      return byPrimary;
-    }
-
-    const seedSource = `${this.config().title}-${this.config().companyKey}`;
-    let seed = 0;
-    for (let i = 0; i < seedSource.length; i += 1) {
-      seed += seedSource.charCodeAt(i);
-    }
-
-    const idx = Math.abs(seed % 3);
-    if (idx === 0) {
-      return 'ledger';
-    }
-
-    if (idx === 1) {
-      return 'compact';
-    }
-
-    return 'split';
+  protected formatLedgerIndex(i: number): string {
+    return String(i + 1).padStart(2, '0');
   }
 
   getListItems(items?: string[]): BulletListItem[] {
