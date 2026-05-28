@@ -1,35 +1,42 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
+  heroArrowRight,
+  heroBriefcase,
+  heroChartBarSquare,
   heroCodeBracket,
   heroCog6Tooth,
   heroComputerDesktop,
   heroDocumentText,
+  heroEnvelope,
+  heroGlobeAlt,
   heroRocketLaunch,
   heroUser,
 } from '@ng-icons/heroicons/outline';
-import { BackgroundElement } from '../shared/components/decorative-background/decorative-background.component';
-import {
-  EnhancedFeature,
-  EnhancedFeatureCardComponent,
-} from '../shared/components/enhanced-feature-card/enhanced-feature-card.component';
-import { HeroButton, HeroSectionComponent } from '../shared/components/hero-section/hero-section.component';
-import { WaveSeparatorComponent } from '../shared/components/wave-separator/wave-separator.component';
+import { CompanyInfo, getAllCompanies, getCompanyById } from '../shared/data/companies';
+import { GITHUB_METRICS } from '../shared/data/github-metrics';
 import { getPersonalProfile } from '../shared/data/profile';
+import { getResumeProjectCards } from '../shared/data/projects';
 import { getPersonalSkills } from '../shared/data/skills';
 import { getProficientTechnologies } from '../shared/data/technologies';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, NgIconComponent, HeroSectionComponent, WaveSeparatorComponent, EnhancedFeatureCardComponent],
+  imports: [RouterModule, NgClass, NgIconComponent],
   providers: [
     provideIcons({
       heroAcademicCap,
+      heroArrowRight,
+      heroBriefcase,
+      heroChartBarSquare,
       heroCodeBracket,
       heroComputerDesktop,
       heroDocumentText,
+      heroEnvelope,
+      heroGlobeAlt,
       heroRocketLaunch,
       heroCog6Tooth,
       heroUser,
@@ -40,70 +47,107 @@ import { getProficientTechnologies } from '../shared/data/technologies';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-  // Personal profile data
-  private profile = getPersonalProfile();
-  heroTitle = this.profile.name;
-  heroSubtitle = this.profile.tagline;
+  protected readonly profile = getPersonalProfile();
+  protected readonly companies = getAllCompanies();
+  protected readonly githubMetrics = GITHUB_METRICS;
+  private readonly careerStartDate = signal(new Date('2013-08-01'));
 
-  // Get top 6 proficient skills for display
-  topSkills = getProficientTechnologies()
+  protected readonly topSkills = getProficientTechnologies()
     .sort((a, b) => (b.skillLevel ?? 0) - (a.skillLevel ?? 0))
-    .slice(0, 6)
+    .slice(0, 8)
     .map((skill) => skill.name);
 
-  heroButtons: HeroButton[] = [
+  protected readonly skills = getPersonalSkills();
+
+  protected readonly selectedProjects = getResumeProjectCards()
+    .filter((project) =>
+      ['MuleSoft Migrator', 'AI Resource Staffing', 'Tax Document Analysis', 'Kroger', 'DoItBest'].includes(
+        project.title
+      )
+    )
+    .slice(0, 4);
+
+  protected readonly currentCompany: CompanyInfo =
+    this.companies.find((company) => !company.dateEnd) ?? getCompanyById('nri-na');
+
+  protected readonly portfolioStats = computed(() => {
+    const today = new Date();
+    const careerStart = this.careerStartDate();
+    let yearsExperience = today.getFullYear() - careerStart.getFullYear();
+    const monthDiff = today.getMonth() - careerStart.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < careerStart.getDate())) {
+      yearsExperience--;
+    }
+
+    return [
+      {
+        value: `${yearsExperience}+`,
+        label: 'years building software',
+        detail: 'from support tooling to enterprise architecture',
+      },
+      {
+        value: '$500K+',
+        label: 'annual licensing removed',
+        detail: 'through MuleSoft-to-.NET modernization',
+      },
+      {
+        value: `${this.githubMetrics.totalMergedPrs}+`,
+        label: 'merged OSS PRs',
+        detail: `Nix ecosystem contribution index as of ${this.githubMetrics.asOf}`,
+      },
+      {
+        value: `${this.companies.reduce((total, company) => total + company.projects.length, 0)}+`,
+        label: 'documented projects',
+        detail: 'professional case studies and personal systems work',
+      },
+    ];
+  });
+
+  protected readonly heroActions = [
     {
       text: 'View Resume',
-      variant: 'primary',
       routerLink: '/personal/resume',
       icon: 'heroDocumentText',
     },
     {
-      text: 'View Projects',
-      variant: 'secondary',
+      text: 'Browse Projects',
       routerLink: '/projects',
       icon: 'heroCodeBracket',
     },
-  ];
-
-  backgroundElements: BackgroundElement[] = [
     {
-      size: 'w-32-h-32',
-      position: 'top-20 left-10',
-      color: 'white',
-      opacity: 10,
-      blur: 'xl',
-      animate: true,
-    },
-    {
-      size: 'w-48-h-48',
-      position: 'top-40 right-20',
-      color: 'teal-300',
-      opacity: 15,
-      blur: '2xl',
-      animate: true,
-      delay: 1000,
-    },
-    {
-      size: 'xl',
-      position: 'bottom-40 left-1/4',
-      color: 'amber-200',
-      opacity: 12,
-      blur: 'xl',
-      animate: true,
-      delay: 500,
-    },
-    {
-      size: 'w-40-h-40',
-      position: 'bottom-20 right-1/3',
-      color: 'white',
-      opacity: 10,
-      blur: '2xl',
-      animate: true,
-      delay: 700,
+      text: 'Contact',
+      routerLink: '/personal/contact',
+      icon: 'heroEnvelope',
     },
   ];
 
-  // Get personal skills/features
-  features: EnhancedFeature[] = getPersonalSkills();
+  protected readonly focusAreas = [
+    {
+      eyebrow: 'Modernization',
+      title: 'Replace expensive legacy platforms without losing behavior',
+      description:
+        'I turn inherited systems into smaller, testable services and keep stakeholders aligned around feature parity, migration risk, and delivery cadence.',
+      icon: 'heroRocketLaunch',
+      accent: 'border-l-teal-500',
+    },
+    {
+      eyebrow: 'Architecture',
+      title: 'Design patterns teams can actually maintain',
+      description:
+        'My work favors clear boundaries, boring reliability, and architecture that supports both today’s release and next year’s handoff.',
+      icon: 'heroBriefcase',
+      accent: 'border-l-amber-400',
+    },
+    {
+      eyebrow: 'Open Source',
+      title: 'Build reproducible environments and contributor workflows',
+      description:
+        'Nix, Home Manager, and Nixvim work gives me daily practice maintaining broad shared tooling with high review standards.',
+      icon: 'heroGlobeAlt',
+      accent: 'border-l-rose-500',
+    },
+  ];
+
+  protected readonly openSourceBreakdown = this.githubMetrics.repoMetrics;
 }
