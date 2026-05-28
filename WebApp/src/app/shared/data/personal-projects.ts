@@ -117,7 +117,7 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       description:
         'Full-stack portfolio application showcasing professional experience and personal projects with modern web technologies',
       category: 'Web Application',
-      technologies: ['Angular 20', 'TypeScript', 'TailwindCSS', 'Bun', '.NET 6', 'Docker'],
+      technologies: ['Angular 20', 'TypeScript', 'TailwindCSS', 'Bun', '.NET 10', 'Docker'],
       featured: true,
       githubUrl: 'https://github.com/khaneliman/Austin-Horstman',
       liveUrl: 'https://austinhorstman.com',
@@ -132,15 +132,15 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
         },
         {
           name: 'Backend API',
-          description: '.NET 6 minimal API providing data services and contact form handling',
+          description: '.NET 10 minimal API providing data services and contact form handling',
           route: '',
-          technologies: ['.NET 6', 'C#', 'REST API'],
+          technologies: ['.NET 10', 'C#', 'REST API'],
         },
         {
           name: 'Modern Tooling',
-          description: 'Bun runtime with Biome linting, Jest testing, and optimized build pipeline',
+          description: "Bun runtime with Biome linting, Bun's native test runner, and optimized build pipeline",
           route: '',
-          technologies: ['Bun', 'Biome', 'Jest', 'TypeScript'],
+          technologies: ['Bun', 'Biome', 'Bun Test', 'TypeScript'],
         },
         {
           name: 'DevOps Pipeline',
@@ -152,8 +152,8 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
       highlights: [
         'Latest Angular 20+ with standalone components architecture',
         'Modern build tooling with Bun runtime and Biome linting',
-        'TailwindCSS + Bootstrap hybrid styling with custom gradients',
-        'Comprehensive testing with Jest and coverage reporting',
+        'TailwindCSS + SCSS styling with custom gradients',
+        "Comprehensive testing with Bun's native test runner and coverage reporting",
         'Production-ready Docker containers with nginx optimization',
       ],
     },
