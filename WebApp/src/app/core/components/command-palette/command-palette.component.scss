@@ -1,0 +1,31 @@
+:host {
+  display: contents;
+}
+
+.command-palette-backdrop {
+  animation: command-palette-fade 120ms ease-out;
+}
+
+.command-palette {
+  animation: command-palette-rise 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes command-palette-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes command-palette-rise {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

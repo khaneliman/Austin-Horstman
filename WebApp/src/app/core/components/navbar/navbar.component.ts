@@ -3,6 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ThemeToggleComponent } from '../../../shared/components/theme-toggle/theme-toggle.component';
+import { CommandPaletteService } from '../../../shared/services/command-palette.service';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
@@ -19,7 +20,12 @@ export class NavbarComponent implements OnInit {
 
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly commandPalette = inject(CommandPaletteService);
   private readonly currentUrl = signal('');
+
+  openCommandPalette(): void {
+    this.commandPalette.open();
+  }
 
   ngOnInit(): void {
     this.currentUrl.set(this.router.url);
