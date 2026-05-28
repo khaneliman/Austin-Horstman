@@ -64,10 +64,13 @@ export class PersonalProjectsGridComponent {
   readonly projects = input<PersonalProject[]>([]);
   readonly showFeaturedOnly = input(false);
   readonly maxProjects = input<number>();
-  /** Opt-in: render a category filter bar above the grid. */
+  /** Opt-in: render a technology filter bar above the grid. */
   readonly enableFilters = input(false);
 
-  readonly selectedCategory = signal<string | null>(null);
+  /** How many technology chips to surface (most-common first). */
+  private static readonly MAX_FILTER_TAGS = 8;
+
+  private readonly selectedTechs = signal<ReadonlySet<string>>(new Set());
 
   backgroundElements: BackgroundElement[] = [
     {
@@ -87,27 +90,46 @@ export class PersonalProjectsGridComponent {
   }
 
   get displayedProjects(): PersonalProject[] {
-    const category = this.selectedCategory();
-    return category ? this.baseProjects.filter((p) => p.category === category) : this.baseProjects;
+    const selected = this.selectedTechs();
+    if (selected.size === 0) return this.baseProjects;
+    return this.baseProjects.filter((project) => project.technologies.some((tech) => selected.has(tech)));
   }
 
-  /** Distinct categories within the base set, with counts, alphabetized. */
-  get categoryFilters(): { label: string; count: number }[] {
+  /** Most-common technologies across the base set, with counts; capped and ranked count-desc then alpha. */
+  get techFilters(): { label: string; count: number }[] {
     const counts = new Map<string, number>();
     for (const project of this.baseProjects) {
-      counts.set(project.category, (counts.get(project.category) ?? 0) + 1);
+      for (const tech of project.technologies) {
+        counts.set(tech, (counts.get(tech) ?? 0) + 1);
+      }
     }
     return [...counts.entries()]
       .map(([label, count]) => ({ label, count }))
-      .sort((a, b) => a.label.localeCompare(b.label));
+      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+      .slice(0, PersonalProjectsGridComponent.MAX_FILTER_TAGS);
   }
 
   get totalCount(): number {
     return this.baseProjects.length;
   }
 
-  selectCategory(category: string | null): void {
-    this.selectedCategory.set(category);
+  /** Stable key of the current selection, used to replay the stagger on change. */
+  get selectionKey(): string {
+    return [...this.selectedTechs()].sort().join(',');
+  }
+
+  isTechSelected(tech: string): boolean {
+    return this.selectedTechs().has(tech);
+  }
+
+  toggleTech(tech: string): void {
+    const next = new Set(this.selectedTechs());
+    if (!next.delete(tech)) next.add(tech);
+    this.selectedTechs.set(next);
+  }
+
+  clearTechs(): void {
+    this.selectedTechs.set(new Set());
   }
 
   getCategoryIcon(category: string): string {

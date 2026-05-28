@@ -1,26 +1,26 @@
 @if (enableFilters()) {
-  <div class="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="Filter projects by category">
+  <div class="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="Filter projects by technology">
     <button
       type="button"
-      (click)="selectCategory(null)"
-      [attr.aria-pressed]="selectedCategory() === null"
+      (click)="clearTechs()"
+      [attr.aria-pressed]="selectionKey === ''"
       class="rounded-full border px-4 py-1.5 font-mono text-xs font-semibold tracking-wide transition-colors duration-150"
       [ngClass]="
-        selectedCategory() === null
+        selectionKey === ''
           ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-300 dark:bg-teal-300 dark:text-slate-950'
           : 'border-stone-300 text-slate-700 hover:border-teal-600 hover:text-teal-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-300 dark:hover:text-teal-200'
       "
     >
       All <span class="opacity-70">({{ totalCount }})</span>
     </button>
-    @for (filter of categoryFilters; track filter.label) {
+    @for (filter of techFilters; track filter.label) {
       <button
         type="button"
-        (click)="selectCategory(filter.label)"
-        [attr.aria-pressed]="selectedCategory() === filter.label"
+        (click)="toggleTech(filter.label)"
+        [attr.aria-pressed]="isTechSelected(filter.label)"
         class="rounded-full border px-4 py-1.5 font-mono text-xs font-semibold tracking-wide transition-colors duration-150"
         [ngClass]="
-          selectedCategory() === filter.label
+          isTechSelected(filter.label)
             ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-300 dark:bg-teal-300 dark:text-slate-950'
             : 'border-stone-300 text-slate-700 hover:border-teal-600 hover:text-teal-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-300 dark:hover:text-teal-200'
         "
@@ -32,7 +32,7 @@
 }
 
 <div appGridKeyboardNav class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-  @for (project of displayedProjects; track project.title + '|' + selectedCategory(); let i = $index) {
+  @for (project of displayedProjects; track project.title + '|' + selectionKey; let i = $index) {
     <div
       data-card-anchor
       tabindex="-1"
