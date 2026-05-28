@@ -1,60 +1,66 @@
-import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
+
+export type HeadingLevel = 'h1' | 'h2' | 'h3';
 
 @Component({
   selector: 'app-section-header',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, NgIconComponent],
+  imports: [NgIconComponent],
   template: `
-    <div [ngSwitch]="level()" [class]="headerClasses">
-      <h1 *ngSwitchCase="'h1'" [class]="titleClasses">
-        <ng-icon *ngIf="icon()" [name]="icon()" [size]="iconSize" [class]="iconClasses"></ng-icon>
-        {{ title() }}
-      </h1>
-      <h2 *ngSwitchCase="'h2'" [class]="titleClasses">
-        <ng-icon *ngIf="icon()" [name]="icon()" [size]="iconSize" [class]="iconClasses"></ng-icon>
-        {{ title() }}
-      </h2>
-      <h3 *ngSwitchDefault [class]="titleClasses">
-        <ng-icon *ngIf="icon()" [name]="icon()" [size]="iconSize" [class]="iconClasses"></ng-icon>
-        {{ title() }}
-      </h3>
+    <div [class]="headerClasses()">
+      @switch (level()) {
+        @case ('h1') {
+          <h1 [class]="titleClasses()">
+            @if (icon(); as ic) {
+              <ng-icon [name]="ic" [size]="iconSize()" [class]="iconClasses()"></ng-icon>
+            }
+            {{ title() }}
+          </h1>
+        }
+        @case ('h2') {
+          <h2 [class]="titleClasses()">
+            @if (icon(); as ic) {
+              <ng-icon [name]="ic" [size]="iconSize()" [class]="iconClasses()"></ng-icon>
+            }
+            {{ title() }}
+          </h2>
+        }
+        @default {
+          <h3 [class]="titleClasses()">
+            @if (icon(); as ic) {
+              <ng-icon [name]="ic" [size]="iconSize()" [class]="iconClasses()"></ng-icon>
+            }
+            {{ title() }}
+          </h3>
+        }
+      }
     </div>
-    <p *ngIf="description()" [class]="descriptionClasses">
-      {{ description() }}
-    </p>
+    @if (description(); as desc) {
+      <p [class]="descriptionClasses()">{{ desc }}</p>
+    }
   `,
-  styles: [],
 })
 export class SectionHeaderComponent {
-  title = input.required<string>();
-  icon = input<string>();
-  iconColor = input<string>('blue');
-  level = input<'h1' | 'h2' | 'h3'>('h2');
-  description = input<string>();
-  center = input<boolean>(false);
-  marginBottom = input<string>('6');
+  readonly title = input.required<string>();
+  readonly icon = input<string>();
+  readonly iconColor = input('blue');
+  readonly level = input<HeadingLevel>('h2');
+  readonly description = input<string>();
+  readonly center = input(false);
+  readonly marginBottom = input('6');
 
-  get headerClasses(): string {
+  readonly headerClasses = computed(() => {
     const classes = [`mb-${this.marginBottom()}`];
-    if (this.center()) {
-      classes.push('text-center');
-    }
+    if (this.center()) classes.push('text-center');
     return classes.join(' ');
-  }
+  });
 
-  get titleClasses(): string {
+  readonly titleClasses = computed(() => {
     const classes = ['font-bold text-gray-800 dark:text-gray-100 flex items-center'];
-    const centerValue = this.center();
-    const levelValue = this.level();
-
-    if (centerValue) {
-      classes.push('justify-center');
-    }
-
-    switch (levelValue) {
+    if (this.center()) classes.push('justify-center');
+    switch (this.level()) {
       case 'h1':
         classes.push('text-4xl');
         break;
@@ -65,15 +71,12 @@ export class SectionHeaderComponent {
         classes.push('text-xl');
         break;
     }
-
     return classes.join(' ');
-  }
+  });
 
-  get iconClasses(): string {
-    return `text-${this.iconColor()}-500 mr-3`;
-  }
+  readonly iconClasses = computed(() => `text-${this.iconColor()}-500 mr-3`);
 
-  get iconSize(): string {
+  readonly iconSize = computed(() => {
     switch (this.level()) {
       case 'h1':
         return '1.5rem';
@@ -81,16 +84,12 @@ export class SectionHeaderComponent {
         return '1.125rem';
       case 'h3':
         return '1rem';
-      default:
-        return '1.125rem';
     }
-  }
+  });
 
-  get descriptionClasses(): string {
+  readonly descriptionClasses = computed(() => {
     const classes = ['text-gray-600 dark:text-gray-300 leading-relaxed mt-2'];
-    if (this.center()) {
-      classes.push('text-center');
-    }
+    if (this.center()) classes.push('text-center');
     return classes.join(' ');
-  }
+  });
 }
