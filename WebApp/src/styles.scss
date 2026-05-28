@@ -56,6 +56,32 @@ button,
   background: rgb(20 184 166 / 0.26);
 }
 
+/* Skip-to-content: visually hidden until focused via keyboard. */
+.skip-to-content {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 200;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  background: #0f766e;
+  color: #f8fafc;
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 25px -10px rgb(15 23 42 / 0.45);
+  transform: translateY(-150%);
+  transition: transform 150ms ease-out;
+
+  &:focus,
+  &:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid #5eead4;
+    outline-offset: 2px;
+  }
+}
+
 /* Editorial rule: hairline divider with a centered teal diamond marker.
    Use within long sections where wave-separator would be too dramatic. */
 .editorial-rule {
