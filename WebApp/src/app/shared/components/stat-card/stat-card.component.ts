@@ -27,15 +27,17 @@ export class StatCardComponent {
   readonly center = input(true);
   readonly background = input(false);
 
+  // `palette-{color}` (src/_palettes.scss) exposes the --p-* shade variables
+  // that the static utility classes below consume.
   readonly containerClasses = computed(() => {
-    const classes: string[] = [];
+    const classes = [`palette-${this.color()}`];
     if (this.center()) classes.push('text-center');
-    if (this.background()) classes.push(`bg-${this.color()}-50 dark:bg-${this.color()}-900/20 rounded-xl p-4`);
+    if (this.background()) classes.push('bg-[var(--p-50)] dark:bg-[var(--p-900-20)] rounded-xl p-4');
     return classes.join(' ');
   });
 
   readonly iconContainerClasses = computed(() => {
-    const classes = [`bg-${this.color()}-500`, 'rounded-xl', 'flex', 'items-center', 'justify-center'];
+    const classes = ['bg-[var(--p-500)]', 'rounded-xl', 'flex', 'items-center', 'justify-center'];
     classes.push(...(this.center() ? ['mx-auto', 'mb-3'] : ['mb-2']));
     switch (this.size()) {
       case 'sm':
@@ -63,7 +65,7 @@ export class StatCardComponent {
   });
 
   readonly valueClasses = computed(() => {
-    const classes = [`text-${this.color()}-600`, `dark:text-${this.color()}-400`, 'font-bold', 'mb-1'];
+    const classes = ['text-[var(--p-600)]', 'dark:text-[var(--p-400)]', 'font-bold', 'mb-1'];
     switch (this.size()) {
       case 'sm':
         classes.push('text-lg');
