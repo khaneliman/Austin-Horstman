@@ -135,7 +135,6 @@ describe('ResumeComponent Logic Tests', () => {
         description: 'Test company',
         experienceRoute: '/experience/test',
         projectsRoute: '/test',
-        employmentRoute: '/employment/test',
         projects: [{ name: 'Test Project', route: 'test-project' }],
       };
       expect(logic.trackByCompanyId(0, company)).toBe('test-id');

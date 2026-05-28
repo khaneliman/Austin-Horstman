@@ -29,7 +29,6 @@ interface CompanyInfo {
   achievements?: readonly string[];
   experienceRoute: string;
   projectsRoute: string;
-  employmentRoute: string;
   projects: readonly { name: string; route: string }[];
 }
 
@@ -180,7 +179,6 @@ describe('CompanyProfileComponent Logic Tests', () => {
     ],
     experienceRoute: '/experience/test-company',
     projectsRoute: '/projects/test-company',
-    employmentRoute: '/employment/test-company',
     projects: [
       { name: 'Project A', route: 'project-a' },
       { name: 'Project B', route: 'project-b' },
@@ -335,7 +333,6 @@ describe('CompanyProfileComponent Logic Tests', () => {
         'description',
         'experienceRoute',
         'projectsRoute',
-        'employmentRoute',
         'projects',
       ];
 
@@ -384,7 +381,6 @@ describe('CompanyProfileComponent Logic Tests', () => {
         description: 'Description',
         experienceRoute: '/experience',
         projectsRoute: '/projects',
-        employmentRoute: '/employment',
         projects: [],
       };
 
