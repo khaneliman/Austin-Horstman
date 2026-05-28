@@ -830,6 +830,12 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     ],
     impact:
       'Delivered an effort estimated at 3-4 years in 11 months, retired MuleSoft licensing exposure worth roughly $500K+ per year, reduced migration risk through documented legacy behavior, and left SECURA Insurance with custom .NET APIs backed by automated tests.',
+    keyTakeaways: [
+      'Compressed a 3-4 year estimate into 11 months by pairing agent-driven legacy analysis with engineer-reviewed .NET implementation.',
+      'Removed roughly $500K+/yr of MuleSoft licensing while preserving externally visible integration behavior.',
+      'Established a repeatable analyze → document → implement → verify loop using Claude Code, Codex CLI, and custom MCP servers.',
+      'Introduced an automated regression test suite where the legacy MuleSoft runtime previously had none.',
+    ],
 
     // Layout Options
     showQuickStats: true,

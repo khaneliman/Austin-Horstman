@@ -62,6 +62,7 @@ export interface ProjectDetailConfig {
   technicalDetails?: ContentSection[];
   specialSections?: ContentSection[];
   impact?: string;
+  keyTakeaways?: string[];
 
   // Layout Options
   showQuickStats: boolean;

@@ -197,6 +197,10 @@
   border-left-color: var(--project-detail-impact);
 }
 
+.project-detail-template__takeaways {
+  border-left-color: var(--project-detail-side);
+}
+
 .project-detail-template__impact-label {
   color: var(--project-detail-impact-label);
 }
