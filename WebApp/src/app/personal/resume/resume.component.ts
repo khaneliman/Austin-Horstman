@@ -128,21 +128,25 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
 export class ResumeComponent {
   private readonly projectAccentPattern = ['primary', 'warning', 'info'];
 
+  // Company data with calculated stats
+  currentCompany: CompanyInfo = getCompanyWithCalculatedStats('nri-na');
+  previousCompanies: CompanyInfo[] = [getCompanyWithCalculatedStats('west'), getCompanyWithCalculatedStats('bestbuy')];
+
   resumeHighlights = [
     {
-      value: '$500K+',
-      label: 'annual licensing removed',
-      description: 'MuleSoft-to-.NET modernization with feature parity and new regression coverage.',
+      value: this.currentCompany.displayName,
+      label: 'current role context',
+      description: `${this.currentCompany.displayName} ${this.currentCompany.department ?? 'consulting'} role with architecture and delivery ownership.`,
     },
     {
-      value: '11 mo',
-      label: 'delivery window',
-      description: 'Compressed a 3-4 year migration estimate into focused, stakeholder-visible delivery.',
+      value: `${this.currentCompany.stats.years}`,
+      label: 'continuous consulting arc',
+      description: 'Skyline to Core BTS to NRI-NA through acquisitions, project delivery, and role growth.',
     },
     {
-      value: `${GITHUB_METRICS.totalMergedPrs}+`,
-      label: 'merged OSS PRs',
-      description: `Nix ecosystem contribution index as of ${GITHUB_METRICS.asOf}.`,
+      value: `${getAllTechnologyNames().length}+`,
+      label: 'technology breadth',
+      description: 'Enterprise platforms, Nix systems, frontend architecture, backend APIs, and AI-assisted workflows.',
     },
   ];
 
@@ -257,10 +261,6 @@ export class ResumeComponent {
       delay: 1000,
     },
   ];
-
-  // Company data with calculated stats
-  currentCompany: CompanyInfo = getCompanyWithCalculatedStats('nri-na');
-  previousCompanies: CompanyInfo[] = [getCompanyWithCalculatedStats('west'), getCompanyWithCalculatedStats('bestbuy')];
 
   // Get acquisition chain companies for the current company
   getAcquisitionChainCompanies(): CompanyInfo[] {
