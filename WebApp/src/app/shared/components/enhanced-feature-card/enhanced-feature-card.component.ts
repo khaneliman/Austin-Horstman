@@ -50,9 +50,10 @@ export class EnhancedFeatureCardComponent {
   }
 
   get cardClasses(): string {
-    const classes = ['relative', 'overflow-hidden', 'transition-all', 'duration-300'];
+    // `palette-{colorTheme}` (src/_palettes.scss) exposes --p-* variables used
+    // by the bordered/left-icon/action-indicator branches below.
+    const classes = [`palette-${this.colorTheme()}`, 'relative', 'overflow-hidden', 'transition-all', 'duration-300'];
 
-    // Base card styling
     classes.push('border');
 
     // Size and padding
@@ -94,9 +95,9 @@ export class EnhancedFeatureCardComponent {
         break;
       case 'bordered':
         classes.push(
-          `bg-white`,
+          'bg-white',
           'dark:bg-gray-800',
-          `shadow-md border-2 border-${this.colorTheme()}-200 dark:border-${this.colorTheme()}-700`
+          'shadow-md border-2 border-[var(--p-200)] dark:border-[var(--p-700)]'
         );
         break;
       case 'minimal':
@@ -177,9 +178,8 @@ export class EnhancedFeatureCardComponent {
     return classes.join(' ');
   }
 
-  get leftIconClasses(): string {
-    return `w-8 h-8 bg-${this.colorTheme()}-100 dark:bg-${this.colorTheme()}-800 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`;
-  }
+  readonly leftIconClasses =
+    'w-8 h-8 bg-[var(--p-100)] dark:bg-[var(--p-800)] rounded-lg flex items-center justify-center mr-4 flex-shrink-0';
 
   get accentBorderClass(): string {
     const accentBorders: Record<string, string> = {
@@ -366,9 +366,8 @@ export class EnhancedFeatureCardComponent {
 
   readonly footerTextClasses = 'text-sm text-slate-500 dark:text-slate-400 font-medium';
 
-  get actionIndicatorClasses(): string {
-    return `w-6 h-6 rounded-full bg-${this.colorTheme()}-100 dark:bg-${this.colorTheme()}-800 text-${this.colorTheme()}-600 dark:text-${this.colorTheme()}-400 flex items-center justify-center`;
-  }
+  readonly actionIndicatorClasses =
+    'w-6 h-6 rounded-full bg-[var(--p-100)] dark:bg-[var(--p-800)] text-[var(--p-600)] dark:text-[var(--p-400)] flex items-center justify-center';
 
   get actionIcon(): string {
     if (this.feature().href) {
