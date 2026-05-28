@@ -4,12 +4,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
+  heroCheckCircle,
   heroCodeBracket,
   heroEnvelope,
   heroPaperAirplane,
   heroRocketLaunch,
   heroUserPlus,
 } from '@ng-icons/heroicons/outline';
+import { SOCIAL_PROFILES } from '../../core/services/social-links.service';
 import { BackgroundElement } from '../../shared/components/decorative-background/decorative-background.component';
 import { FormInputComponent } from '../../shared/components/form-input/form-input.component';
 import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
@@ -24,6 +26,7 @@ import { getPersonalSkills, PersonalSkill } from '../../shared/data/skills';
     provideIcons({
       heroAcademicCap,
       heroCodeBracket,
+      heroCheckCircle,
       heroRocketLaunch,
       heroUserPlus,
       heroEnvelope,
@@ -34,6 +37,8 @@ import { getPersonalSkills, PersonalSkill } from '../../shared/data/skills';
 })
 export class ContactComponent {
   contactForm: FormGroup;
+  preparedMessage = '';
+  submissionState: 'idle' | 'prepared' = 'idle';
 
   private readonly fb = inject(FormBuilder);
 
@@ -42,6 +47,21 @@ export class ContactComponent {
 
   // Get personal skills to display
   personalSkills: PersonalSkill[] = getPersonalSkills();
+
+  contactChannels = [
+    {
+      label: 'LinkedIn',
+      description: 'Best place for project, consulting, or architecture conversations.',
+      href: SOCIAL_PROFILES.links.linkedin,
+      icon: 'heroEnvelope',
+    },
+    {
+      label: 'GitHub',
+      description: 'Useful for open-source, Nix, tooling, and portfolio-code context.',
+      href: SOCIAL_PROFILES.links.github,
+      icon: 'heroCodeBracket',
+    },
+  ];
 
   backgroundElements: BackgroundElement[] = [
     {
@@ -74,12 +94,13 @@ export class ContactComponent {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      // Handle form submission
-      console.log('Form submitted:', this.contactForm.value);
-      // TODO: Implement actual form submission logic
+      const { name, email, message } = this.contactForm.getRawValue();
+      this.preparedMessage = [`Name: ${name}`, `Email: ${email}`, '', message].join('\n');
+      this.submissionState = 'prepared';
     } else {
       // Mark all fields as touched to show validation errors
       this.contactForm.markAllAsTouched();
+      this.submissionState = 'idle';
     }
   }
 }
