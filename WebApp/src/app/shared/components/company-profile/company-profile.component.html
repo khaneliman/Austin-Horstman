@@ -1,376 +1,304 @@
-<!-- Company Profile -->
-<div class="relative pt-32 pb-20">
-  <!-- Company profile card -->
-  <div
-    class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden max-w-6xl mx-auto"
+<section class="min-h-screen bg-[#f7f3ea] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+  <header
+    class="relative overflow-hidden border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_72%,#f7f3ea_72%,#f7f3ea_100%)] pt-16 pb-14 dark:border-slate-800 dark:bg-[linear-gradient(135deg,#020617_0%,#12343a_72%,#0f172a_72%,#0f172a_100%)]"
   >
-    <!-- Header section -->
-    <div class="relative px-8 pt-12 pb-10 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950">
-      <!-- Decorative elements -->
-      <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
+    <div
+      class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
+      aria-hidden="true"
+    ></div>
 
-      <!-- Company logo and info -->
-      <div class="relative z-10 text-center">
-        <div class="inline-block relative group">
-          <a
-            [href]="company().website || '#'"
-            [target]="company().website ? '_blank' : '_self'"
-            class="block"
-            [class.pointer-events-none]="!company().website"
+    <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <aside class="flex items-start justify-center lg:justify-start">
+        <a
+          [href]="company().website || '#'"
+          [target]="company().website ? '_blank' : '_self'"
+          class="group relative block"
+          [class.pointer-events-none]="!company().website"
+        >
+          <div
+            class="relative z-10 flex h-32 w-32 items-center justify-center border border-white/25 p-5 shadow-2xl"
+            [style.background]="getLogoBackgroundStyle(company().logoBackground)"
           >
-            <div
-              class="w-32 h-32 rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white transition-colors duration-300"
-              [style.background]="getLogoBackgroundStyle(company().logoBackground)"
-              [ngClass]="'group-hover:border-' + company().colorScheme.primary"
-            >
-              <img class="w-full h-full object-contain" [src]="company().logoSrc" [alt]="company().logoAlt" />
-            </div>
-          </a>
-
-          <!-- Floating external link icon -->
+            <img class="h-full w-full object-contain" [src]="company().logoSrc" [alt]="company().logoAlt" />
+          </div>
+          <div class="absolute -left-4 top-8 h-24 w-24 border-8 border-teal-300/45" aria-hidden="true"></div>
+          <div class="absolute -right-3 bottom-4 h-14 w-14 bg-rose-500/75" aria-hidden="true"></div>
           @if (company().website) {
             <div
-              class="absolute -top-2 -right-2 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center shadow-lg"
+              class="absolute -right-3 -top-3 z-20 flex h-9 w-9 items-center justify-center rounded-lg bg-amber-300 text-slate-950 shadow-lg transition group-hover:-translate-y-0.5"
             >
-              <ng-icon name="heroArrowTopRightOnSquare" size="0.875rem" class="text-white"></ng-icon>
+              <ng-icon name="heroArrowTopRightOnSquare" size="1rem"></ng-icon>
             </div>
           }
-        </div>
+        </a>
+      </aside>
 
-        <h2 class="text-4xl font-bold text-white mb-6">{{ company().name }}</h2>
+      <div class="relative z-10">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-100">
+          {{ viewMode() === 'employment' ? 'Experience' : 'Professional Projects' }}
+        </p>
+        <h1 class="mt-3 text-5xl font-black leading-none text-white sm:text-6xl">{{ company().name }}</h1>
+        <p class="mt-5 max-w-3xl text-xl font-semibold text-teal-100">{{ company().position }}</p>
 
-        <!-- Company details -->
-        <div class="flex flex-wrap justify-center gap-6 text-gray-300">
-          <div class="flex items-center space-x-2">
-            <ng-icon name="heroMapPin" size="1rem" class="text-teal-300"></ng-icon>
-            <span>{{ company().location }}</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <ng-icon name="heroBriefcase" size="1rem" class="text-teal-300"></ng-icon>
-            <span>{{ company().position }}</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <ng-icon name="heroCalendarDays" size="1rem" class="text-teal-300"></ng-icon>
-            <span>{{ getDateRange() }}</span>
-          </div>
+        <div class="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-slate-100">
+          <span class="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-2">
+            <ng-icon name="heroMapPin" size="1rem" class="text-teal-200"></ng-icon>
+            {{ company().location }}
+          </span>
+          <span class="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-2">
+            <ng-icon name="heroCalendarDays" size="1rem" class="text-teal-200"></ng-icon>
+            {{ getDateRange() }}
+          </span>
           @if (company().department) {
-            <div class="flex items-center space-x-2 w-full justify-center md:w-auto">
-              <ng-icon name="heroAcademicCap" size="1rem" class="text-teal-300"></ng-icon>
-              <span>{{ company().department }}</span>
-            </div>
+            <span class="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-2">
+              <ng-icon name="heroAcademicCap" size="1rem" class="text-teal-200"></ng-icon>
+              {{ company().department }}
+            </span>
           }
         </div>
 
-        <!-- Acquisition Chain & History -->
         @if ((company().acquisitionChain && company().acquisitionChain!.length > 0) || company().acquiredBy) {
-          <div class="mt-8 max-w-3xl mx-auto">
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h4 class="text-sm font-semibold text-white/90 mb-4 uppercase tracking-wider">Company History</h4>
+          <div class="mt-8 max-w-3xl border border-white/15 bg-slate-950/85 p-5 text-white shadow-2xl">
+            <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-amber-200">Company History</h2>
 
-              <!-- Acquisition Chain (predecessors) -->
-              @if (company().acquisitionChain && company().acquisitionChain!.length > 0) {
-                <div class="space-y-3 mb-4">
-                  @for (acquisition of company().acquisitionChain!; track acquisition.companyId) {
-                    <div class="flex items-start gap-4 pl-4 border-l-2 border-white/30">
-                      <div class="flex-1">
-                        <a
-                          [routerLink]="getCompanyRoute(acquisition.companyId)"
-                          class="text-white font-semibold hover:text-white/80 transition-colors underline decoration-white/40 hover:decoration-white/60"
-                        >
-                          {{ getCompanyName(acquisition.companyId) }}
-                        </a>
-                        <div class="text-white/70 text-sm">{{ acquisition.position }}</div>
-                        <div class="text-white/60 text-xs mt-1">
-                          {{ getAcquisitionDateRange(acquisition.dateStart, acquisition.dateEnd) }}
-                        </div>
-                      </div>
-                    </div>
-                  }
-                </div>
-              }
-
-              <!-- Acquired By (successor) -->
-              @if (company().acquiredBy) {
-                <div class="pt-3 border-t border-white/20">
-                  <div class="flex items-center gap-2 text-white/80 text-sm">
-                    <ng-icon name="heroArrowPathRoundedSquare" size="1rem" class="text-white/60"></ng-icon>
-                    <span
-                      >Acquired by
-                      <a
-                        [routerLink]="getCompanyRoute(company().acquiredBy!.companyId)"
-                        class="font-bold text-white hover:text-white/80 transition-colors underline decoration-white/40 hover:decoration-white/60"
-                      >
-                        {{ getCompanyName(company().acquiredBy!.companyId) }}
-                      </a>
-                      in {{ formatAcquisitionMonth(company().acquiredBy!.acquisitionDate) }}</span
+            @if (company().acquisitionChain && company().acquisitionChain!.length > 0) {
+              <div class="mt-4 space-y-3">
+                @for (acquisition of company().acquisitionChain!; track acquisition.companyId) {
+                  <div class="border-l-2 border-teal-200/50 pl-4">
+                    <a
+                      [routerLink]="getCompanyRoute(acquisition.companyId)"
+                      class="font-bold text-white underline decoration-white/30 transition hover:text-teal-100 hover:decoration-teal-100"
                     >
+                      {{ getCompanyName(acquisition.companyId) }}
+                    </a>
+                    <p class="mt-1 text-sm text-slate-200">{{ acquisition.position }}</p>
+                    <p class="mt-1 text-xs font-semibold text-slate-300">
+                      {{ getAcquisitionDateRange(acquisition.dateStart, acquisition.dateEnd) }}
+                    </p>
                   </div>
-                </div>
-              }
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-
-    <!-- Stats section -->
-    <div class="px-8 py-6 bg-stone-50 dark:bg-white/[0.03] border-b border-gray-100 dark:border-gray-700">
-      <div class="grid grid-cols-3 gap-6">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-teal-700 dark:text-teal-300 mb-1">
-            {{ company().stats.years }}
-          </div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Years</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-teal-700 dark:text-teal-300 mb-1">
-            {{ company().stats.projects.value }}
-          </div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">
-            {{ company().stats.projects.label }}
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-teal-700 dark:text-teal-300 mb-1">
-            {{ company().stats.clients.value }}
-          </div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">
-            {{ company().stats.clients.label }}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Content section -->
-    <div class="px-8 py-12">
-      <div class="max-w-6xl mx-auto">
-        <!-- Employment Mode: Company Overview First -->
-        @if (viewMode() === 'employment') {
-          <!-- Company overview -->
-          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-              <ng-icon
-                name="heroBuildingOffice"
-                size="1.25rem"
-                [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
-              ></ng-icon>
-              About {{ company().name }}
-            </h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" [class.mb-6]="company().achievements">
-              {{ company().description }}
-            </p>
-
-            <!-- Key Responsibilities & Achievements section -->
-            @if (company().achievements) {
-              <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border border-blue-100 dark:border-gray-600">
-                <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
-                  <ng-icon
-                    name="heroCog6Tooth"
-                    size="1rem"
-                    [class]="getIconClass(company().colorScheme.theme) + ' mr-2'"
-                  ></ng-icon>
-                  Key Responsibilities & Achievements
-                </h4>
-                <app-bullet-list
-                  [items]="getAchievementItems()"
-                  bulletStyle="dot"
-                  size="sm"
-                  spacing="normal"
-                  colorTheme="blue"
-                ></app-bullet-list>
-              </div>
-            }
-          </div>
-
-          <!-- Employment Mode: Compact Projects List -->
-          @if (projects().length > 0) {
-            <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
-              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-                <ng-icon
-                  name="heroCodeBracket"
-                  size="1.25rem"
-                  [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
-                ></ng-icon>
-                Projects Worked On
-              </h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                @for (project of projects(); track project.name) {
-                  <a
-                    [routerLink]="project.route"
-                    class="group flex items-center gap-4 p-4 bg-white dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 hover:shadow-md transition-all duration-200"
-                  >
-                    <div
-                      [class]="
-                        'w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-gradient-to-r ' +
-                        project.color
-                      "
-                    >
-                      <ng-icon [name]="project.icon" size="1rem" class="text-white"></ng-icon>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <h4
-                        class="font-semibold text-gray-800 dark:text-gray-100 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-                      >
-                        {{ project.name }}
-                      </h4>
-                      <p class="text-xs text-gray-500 dark:text-gray-400 truncate">{{ project.status }}</p>
-                    </div>
-                    <ng-icon
-                      name="heroArrowRight"
-                      size="0.875rem"
-                      class="text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-all"
-                    ></ng-icon>
-                  </a>
                 }
               </div>
-              <div class="mt-6 text-center">
+            }
+
+            @if (company().acquiredBy) {
+              <div class="mt-4 border-t border-white/15 pt-4 text-sm text-slate-200">
+                <ng-icon name="heroArrowPathRoundedSquare" size="1rem" class="mr-2 inline text-teal-200"></ng-icon>
+                Acquired by
                 <a
-                  [routerLink]="company().projectsRoute"
-                  class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:shadow-md bg-teal-700 hover:bg-teal-800 text-white"
+                  [routerLink]="getCompanyRoute(company().acquiredBy!.companyId)"
+                  class="font-bold text-white underline decoration-white/30 transition hover:text-teal-100"
                 >
-                  <ng-icon name="heroRectangleStack" size="1rem"></ng-icon>
-                  View All Project Details
+                  {{ getCompanyName(company().acquiredBy!.companyId) }}
                 </a>
-              </div>
-            </div>
-          }
-        } @else {
-          <!-- Project content first when a reviewer opens a direct project route -->
-          @if (hasActiveChildRoute()) {
-            <div class="mb-10" #projectDetailsSection>
-              <router-outlet></router-outlet>
-            </div>
-          }
-
-          <!-- Projects Mode: Full Projects Grid -->
-          <div class="mb-8" [class.mt-12]="hasActiveChildRoute()">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 flex items-center">
-              <ng-icon
-                name="heroCodeBracket"
-                size="1.25rem"
-                [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
-              ></ng-icon>
-              {{ hasActiveChildRoute() ? 'More Projects at ' + company().name : 'Featured Projects' }}
-            </h3>
-            <div
-              [class]="'grid gap-6 mb-8 ' + (projects().length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')"
-            >
-              @for (project of projects(); track project.name) {
-                <div
-                  class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  <!-- Project Header -->
-                  <div [class]="'relative project-card-header px-6 py-8 text-white bg-gradient-to-r ' + project.color">
-                    <app-decorative-background [elements]="projectBackgroundElements"></app-decorative-background>
-                    <div class="relative z-10">
-                      <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                          <ng-icon [name]="project.icon" size="1.25rem" class="text-white"></ng-icon>
-                        </div>
-                        <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium">
-                          {{ project.status }}
-                        </span>
-                      </div>
-                      <h4 class="text-xl font-bold text-white mb-2">
-                        {{ project.name }}
-                      </h4>
-                      <p class="text-white/90 text-sm">{{ project.description }}</p>
-                    </div>
-                  </div>
-
-                  <!-- Project Details -->
-                  <div class="p-6">
-                    <p class="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed">
-                      {{ project.description }}
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                      @for (tech of project.technologies; track $index) {
-                        <span [class]="'px-3 py-1 text-sm font-medium rounded-full ' + getTechBadgeClass($index)">
-                          {{ tech }}
-                        </span>
-                      }
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                      <div class="flex gap-2">
-                        <!-- Technology badges moved above -->
-                      </div>
-                      <a
-                        [routerLink]="project.route"
-                        [class]="
-                          getProjectLinkClass(company().colorScheme.theme) +
-                          ' font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform'
-                        "
-                      >
-                        View Details
-                        <ng-icon name="heroArrowRight" size="0.75rem" class="ml-2"></ng-icon>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              }
-            </div>
-          </div>
-
-          <!-- Company overview -->
-          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-              <ng-icon
-                name="heroBuildingOffice"
-                size="1.25rem"
-                [class]="getIconClass(company().colorScheme.theme) + ' mr-3'"
-              ></ng-icon>
-              About {{ company().name }}
-            </h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" [class.mb-6]="company().achievements">
-              {{ company().description }}
-            </p>
-
-            <!-- Key Responsibilities & Achievements section -->
-            @if (company().achievements) {
-              <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border border-blue-100 dark:border-gray-600">
-                <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
-                  <ng-icon
-                    name="heroCog6Tooth"
-                    size="1rem"
-                    [class]="getIconClass(company().colorScheme.theme) + ' mr-2'"
-                  ></ng-icon>
-                  Key Responsibilities & Achievements
-                </h4>
-                <app-bullet-list
-                  [items]="getAchievementItems()"
-                  bulletStyle="dot"
-                  size="sm"
-                  spacing="normal"
-                  colorTheme="blue"
-                ></app-bullet-list>
+                in {{ formatAcquisitionMonth(company().acquiredBy!.acquisitionDate) }}
               </div>
             }
           </div>
         }
-
-        <!-- Actions -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          @if (company().website) {
-            <a
-              [href]="company().website"
-              target="_blank"
-              class="inline-flex items-center px-6 py-3 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-            >
-              <ng-icon name="heroArrowTopRightOnSquare" size="1rem" class="mr-3"></ng-icon>
-              <span>Visit Company Website</span>
-            </a>
-          }
-
-          <a
-            routerLink="/personal/resume"
-            class="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-semibold rounded-xl border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-          >
-            <ng-icon name="heroRectangleStack" size="1rem" class="mr-3"></ng-icon>
-            <span>See Full Resume</span>
-          </a>
-        </div>
       </div>
     </div>
-  </div>
-</div>
+  </header>
+
+  <section class="bg-white py-8 dark:bg-slate-900">
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-4 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8"
+    >
+      <p class="text-sm font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Role Ledger</p>
+      <dl class="grid flex-1 grid-cols-1 gap-0 border border-stone-200 dark:border-slate-800 sm:grid-cols-3">
+        <div
+          class="flex items-baseline justify-between gap-4 border-b border-stone-200 px-5 py-4 dark:border-slate-800 sm:block sm:border-b-0 sm:border-r"
+        >
+          <dt class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Years</dt>
+          <dd class="text-2xl font-black text-slate-950 dark:text-white">{{ company().stats.years }}</dd>
+        </div>
+        <div
+          class="flex items-baseline justify-between gap-4 border-b border-stone-200 px-5 py-4 dark:border-slate-800 sm:block sm:border-b-0 sm:border-r"
+        >
+          <dt class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+            {{ company().stats.projects.label }}
+          </dt>
+          <dd class="text-2xl font-black text-slate-950 dark:text-white">{{ company().stats.projects.value }}</dd>
+        </div>
+        <div class="flex items-baseline justify-between gap-4 px-5 py-4 sm:block">
+          <dt class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+            {{ company().stats.clients.label }}
+          </dt>
+          <dd class="text-2xl font-black text-slate-950 dark:text-white">{{ company().stats.clients.value }}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    @if (viewMode() === 'employment') {
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-200">Role Context</p>
+          <h2 class="mt-3 text-3xl font-black text-slate-950 dark:text-white">About {{ company().name }}</h2>
+          <p class="mt-5 leading-8 text-slate-700 dark:text-slate-300">{{ company().description }}</p>
+        </article>
+
+        @if (company().achievements) {
+          <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <p class="text-sm font-bold uppercase tracking-[0.2em] text-amber-700 dark:text-amber-200">
+              Responsibilities & Achievements
+            </p>
+            <h2 class="mt-3 text-3xl font-black text-slate-950 dark:text-white">What changed here.</h2>
+            <div class="mt-5">
+              <app-bullet-list
+                [items]="getAchievementItems()"
+                bulletStyle="dot"
+                size="sm"
+                spacing="normal"
+                colorTheme="blue"
+              ></app-bullet-list>
+            </div>
+          </article>
+        }
+      </div>
+
+      @if (projects().length > 0) {
+        <section class="mt-10 border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p class="text-sm font-bold uppercase tracking-[0.2em] text-rose-700 dark:text-rose-300">Selected Work</p>
+              <h2 class="mt-3 text-3xl font-black text-slate-950 dark:text-white">Projects in this role.</h2>
+            </div>
+            <a
+              [routerLink]="company().projectsRoute"
+              class="inline-flex w-fit items-center gap-2 rounded-lg bg-teal-700 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-800 hover:shadow-lg"
+            >
+              View project catalog
+              <ng-icon name="heroArrowRight" size="1rem"></ng-icon>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            @for (project of projects(); track project.name) {
+              <a
+                [routerLink]="project.route"
+                class="group border border-stone-200 bg-[#f7f3ea] p-5 transition duration-200 hover:-translate-y-0.5 hover:border-teal-500 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    [class]="
+                      'flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-r text-white ' +
+                      project.color
+                    "
+                  >
+                    <ng-icon [name]="project.icon" size="1.1rem"></ng-icon>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <h3
+                      class="text-xl font-black text-slate-950 transition group-hover:text-teal-800 dark:text-white dark:group-hover:text-teal-200"
+                    >
+                      {{ project.name }}
+                    </h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ project.description }}</p>
+                  </div>
+                  <ng-icon
+                    name="heroArrowRight"
+                    size="1rem"
+                    class="text-slate-400 transition group-hover:translate-x-1"
+                  ></ng-icon>
+                </div>
+              </a>
+            }
+          </div>
+        </section>
+      }
+    } @else {
+      @if (hasActiveChildRoute()) {
+        <div class="mb-10" #projectDetailsSection>
+          <router-outlet></router-outlet>
+        </div>
+      }
+
+      <section class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <div class="mb-6">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-200">
+            {{ hasActiveChildRoute() ? 'More Project Work' : 'Featured Projects' }}
+          </p>
+          <h2 class="mt-3 text-3xl font-black text-slate-950 dark:text-white">
+            {{ hasActiveChildRoute() ? 'More projects at ' + company().name : 'Project case studies.' }}
+          </h2>
+        </div>
+
+        <div [class]="'grid gap-5 ' + (projects().length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')">
+          @for (project of projects(); track project.name) {
+            <article
+              class="group overflow-hidden border border-stone-200 bg-[#f7f3ea] shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-teal-500 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950"
+            >
+              <div [class]="'bg-gradient-to-r p-6 text-white ' + project.color">
+                <div class="mb-4 flex items-center justify-between">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-white/20">
+                    <ng-icon [name]="project.icon" size="1.25rem"></ng-icon>
+                  </div>
+                  <span class="rounded-md bg-white/20 px-3 py-1 text-xs font-bold">{{ project.status }}</span>
+                </div>
+                <h3 class="text-2xl font-black text-white">{{ project.name }}</h3>
+                <p class="mt-2 text-sm leading-6 text-white/90">{{ project.description }}</p>
+              </div>
+
+              <div class="p-6">
+                <div class="mb-5 flex flex-wrap gap-2">
+                  @for (tech of project.technologies; track $index) {
+                    <span [class]="'px-3 py-1 text-xs font-bold rounded-md ' + getTechBadgeClass($index)">
+                      {{ tech }}
+                    </span>
+                  }
+                </div>
+                <a
+                  [routerLink]="project.route"
+                  class="inline-flex items-center gap-2 text-sm font-bold text-teal-800 transition group-hover:translate-x-1 dark:text-teal-200"
+                >
+                  View details
+                  <ng-icon name="heroArrowRight" size="0.875rem"></ng-icon>
+                </a>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="mt-10 border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-amber-700 dark:text-amber-200">Company Context</p>
+        <h2 class="mt-3 text-3xl font-black text-slate-950 dark:text-white">About {{ company().name }}</h2>
+        <p class="mt-5 leading-8 text-slate-700 dark:text-slate-300">{{ company().description }}</p>
+
+        @if (company().achievements) {
+          <div class="mt-6 border-t border-stone-200 pt-6 dark:border-slate-800">
+            <app-bullet-list
+              [items]="getAchievementItems()"
+              bulletStyle="dot"
+              size="sm"
+              spacing="normal"
+              colorTheme="blue"
+            ></app-bullet-list>
+          </div>
+        }
+      </section>
+    }
+
+    <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
+      @if (company().website) {
+        <a
+          [href]="company().website"
+          target="_blank"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-700 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-800 hover:shadow-lg"
+        >
+          Company website
+          <ng-icon name="heroArrowTopRightOnSquare" size="1rem"></ng-icon>
+        </a>
+      }
+
+      <a
+        routerLink="/personal/resume"
+        class="inline-flex items-center justify-center gap-2 rounded-lg border border-stone-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:border-teal-700 hover:text-teal-800 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-teal-200 dark:hover:text-teal-200"
+      >
+        Full resume
+        <ng-icon name="heroArrowRight" size="1rem"></ng-icon>
+      </a>
+    </div>
+  </section>
+</section>

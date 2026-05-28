@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -46,10 +45,6 @@ import { getCompanyById } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
 import { formatDateRange } from '../../utils/date.utils';
 import { BulletListComponent, BulletListItem } from '../bullet-list/bullet-list.component';
-import {
-  BackgroundElement,
-  DecorativeBackgroundComponent,
-} from '../decorative-background/decorative-background.component';
 
 // CompanyInfo is imported above and re-exported for other components
 export type { CompanyInfo };
@@ -70,7 +65,7 @@ export interface ProjectInfo {
   templateUrl: './company-profile.component.html',
   styleUrls: ['./company-profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, RouterModule, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
+  imports: [RouterModule, NgIconComponent, BulletListComponent],
   providers: [
     provideIcons({
       heroArrowTopRightOnSquare,
@@ -115,33 +110,6 @@ export class CompanyProfileComponent implements AfterViewInit {
 
   // Signal to track child route state reactively
   hasChildRoute = signal(false);
-
-  backgroundElements: BackgroundElement[] = [
-    {
-      size: 'lg',
-      position: 'top-4 right-4',
-      color: 'white', // Will be dynamically replaced
-      opacity: 10,
-      blur: 'xl',
-    },
-    {
-      size: 'md',
-      position: 'bottom-4 left-4',
-      color: 'white', // Will be dynamically replaced
-      opacity: 10,
-      blur: 'lg',
-    },
-  ];
-
-  projectBackgroundElements: BackgroundElement[] = [
-    {
-      size: 'sm',
-      position: 'top-3 right-3',
-      color: 'white',
-      opacity: 10,
-      blur: 'lg',
-    },
-  ];
 
   getLogoBackgroundStyle(logoBackground: 'white' | 'black' | 'dark' | undefined): string {
     return this.logoStylingService.getLogoBackgroundStyle(logoBackground);
