@@ -5,6 +5,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { LinkHintsComponent } from './core/components/link-hints/link-hints.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { ShortcutsHelpComponent } from './core/components/shortcuts-help/shortcuts-help.component';
+import { TerminalEasterEggComponent } from './core/components/terminal-easter-egg/terminal-easter-egg.component';
 import { KeyboardShortcutsService } from './shared/services/keyboard-shortcuts.service';
 import { ThemeService } from './shared/services/theme.service';
 
@@ -18,6 +19,7 @@ import { ThemeService } from './shared/services/theme.service';
     CommandPaletteComponent,
     ShortcutsHelpComponent,
     LinkHintsComponent,
+    TerminalEasterEggComponent,
   ],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

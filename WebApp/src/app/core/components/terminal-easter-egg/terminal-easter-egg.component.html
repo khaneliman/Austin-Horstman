@@ -1,0 +1,57 @@
+@if (isOpen()) {
+  <div
+    class="term-backdrop fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm"
+    (click)="onBackdropClick($event)"
+    role="presentation"
+  >
+    <div
+      class="term-window flex h-[28rem] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-teal-500/30 bg-slate-950 font-mono text-sm text-teal-100 shadow-2xl shadow-slate-950/60"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Hidden terminal"
+    >
+      <div class="flex items-center gap-2 border-b border-white/10 px-4 py-2.5">
+        <span class="h-3 w-3 rounded-full bg-rose-500/80" aria-hidden="true"></span>
+        <span class="h-3 w-3 rounded-full bg-amber-400/80" aria-hidden="true"></span>
+        <span class="h-3 w-3 rounded-full bg-emerald-400/80" aria-hidden="true"></span>
+        <span class="ml-2 text-[11px] uppercase tracking-[0.2em] text-slate-400">khaneliman&#64;portfolio: ~</span>
+        <button
+          type="button"
+          (click)="close()"
+          class="ml-auto rounded px-1.5 text-[11px] uppercase tracking-widest text-slate-500 hover:text-slate-200"
+          aria-label="Close terminal"
+        >
+          esc
+        </button>
+      </div>
+
+      <div #scrollRegion class="flex-1 overflow-y-auto px-4 py-3 leading-6">
+        @for (line of lines(); track $index) {
+          @if (line.kind === 'in') {
+            <p class="text-slate-300"><span class="text-teal-400" aria-hidden="true">❯</span> {{ line.text }}</p>
+          } @else {
+            <p class="whitespace-pre-wrap text-teal-100/90">{{ line.text }}</p>
+          }
+        }
+      </div>
+
+      <div class="flex items-center gap-2 border-t border-white/10 px-4 py-2.5">
+        <span class="text-teal-400" aria-hidden="true">❯</span>
+        <input
+          #cmdInput
+          type="text"
+          [value]="command()"
+          (input)="command.set($any($event.target).value)"
+          (keydown.enter)="submit()"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          class="term-caret flex-1 bg-transparent text-teal-100 placeholder:text-slate-600 focus:outline-none"
+          placeholder="type a command…"
+          aria-label="Terminal command input"
+        />
+      </div>
+    </div>
+  </div>
+}
