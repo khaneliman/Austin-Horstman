@@ -21,6 +21,7 @@ import {
 } from '../../../shared/services/command-palette.service';
 import { ThemeService } from '../../../shared/services/theme.service';
 import { fuzzyMatch, highlightMatch } from '../../../shared/utils/fuzzy-match';
+import { SOCIAL_PROFILES } from '../../services/social-links.service';
 
 interface RankedEntry {
   entry: CommandEntry;
@@ -44,6 +45,52 @@ const KIND_GLYPH: Record<CommandKind, string> = {
   tech: '#',
   action: '⚡',
 };
+
+// Side-effecting and outbound commands. Declared here (not in the service)
+// because they reach core-layer concerns: the theme service, the clipboard,
+// and SOCIAL_PROFILES — importing those into shared/ would invert the layering.
+const ACTION_ENTRIES: CommandEntry[] = [
+  {
+    id: 'action:theme',
+    kind: 'action',
+    label: 'Toggle theme',
+    hint: 'Switch between light and dark',
+    action: 'toggle-theme',
+    keywords: 'dark light mode appearance color scheme',
+  },
+  {
+    id: 'action:copy-link',
+    kind: 'action',
+    label: 'Copy link to this page',
+    hint: 'Copy the current URL to your clipboard',
+    action: 'copy-link',
+    keywords: 'share url clipboard',
+  },
+  {
+    id: 'action:github',
+    kind: 'action',
+    label: 'GitHub',
+    hint: 'github.com/khaneliman',
+    external: SOCIAL_PROFILES.links.github,
+    keywords: 'open source code repositories nix',
+  },
+  {
+    id: 'action:linkedin',
+    kind: 'action',
+    label: 'LinkedIn',
+    hint: 'Connect professionally',
+    external: SOCIAL_PROFILES.links.linkedin,
+    keywords: 'connect network hire',
+  },
+  {
+    id: 'action:hire',
+    kind: 'action',
+    label: 'sudo hire-me',
+    hint: 'Jump to the contact page',
+    route: '/personal/contact',
+    keywords: 'hire job contact work opportunity recruit',
+  },
+];
 
 @Component({
   selector: 'app-command-palette',
@@ -100,7 +147,7 @@ export class CommandPaletteComponent {
   });
 
   constructor() {
-    this.index.set(this.service.buildIndex());
+    this.index.set([...this.service.buildIndex(), ...ACTION_ENTRIES]);
 
     effect(() => {
       if (this.isOpen()) {
