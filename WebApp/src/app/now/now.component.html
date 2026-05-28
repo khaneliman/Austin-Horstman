@@ -83,11 +83,82 @@
     </a>
   </section>
 
+  <section class="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Recently shipped</h2>
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Last few days</p>
+    </div>
+
+    <ol class="mt-6 divide-y divide-stone-200/80 dark:divide-slate-800">
+      @for (item of recentlyShipped; track item.href) {
+        <li>
+          <a
+            [href]="item.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col gap-1 py-3.5 transition-colors duration-150 hover:bg-stone-100/60 dark:hover:bg-slate-900/40 sm:flex-row sm:items-baseline sm:gap-4"
+          >
+            <span
+              class="w-16 flex-none font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400"
+            >
+              {{ formatShipDate(item.date) }}
+            </span>
+            <span
+              class="flex-1 text-sm font-medium text-slate-900 group-hover:text-teal-700 dark:text-slate-100 dark:group-hover:text-teal-300"
+            >
+              {{ item.title }}
+            </span>
+            <span class="flex flex-none items-center gap-2">
+              <span
+                class="now-tag now-tag--{{
+                  item.tag
+                }} rounded-sm px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest"
+              >
+                {{ tagLabels[item.tag] }}
+              </span>
+              <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400">{{ item.repo }}</span>
+            </span>
+          </a>
+        </li>
+      }
+    </ol>
+
+    <p class="mt-4 text-xs text-slate-500 dark:text-slate-400">
+      Curated highlights — for the full firehose see the
+      <a
+        [href]="githubProfileUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline decoration-teal-500/40 underline-offset-4 hover:decoration-teal-500"
+        >GitHub profile</a
+      >.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Currently exploring</h2>
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">In flight</p>
+    </div>
+
+    <ul class="mt-6 space-y-4">
+      @for (item of exploring; track item.title) {
+        <li class="flex gap-4">
+          <span class="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-teal-500 dark:bg-teal-300" aria-hidden="true"></span>
+          <div>
+            <p class="text-sm font-bold text-slate-900 dark:text-white">{{ item.title }}</p>
+            <p class="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-400">{{ item.body }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+  </section>
+
   <section class="mx-auto max-w-4xl px-4 pb-20 sm:px-6 lg:px-8">
     <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
-      <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Open-source activity</h2>
+      <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Lifetime totals</h2>
       <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-        {{ totalMergedPrs }} merged PRs
+        {{ totalMergedPrs }} merged PRs · as of {{ asOf }}
       </p>
     </div>
 

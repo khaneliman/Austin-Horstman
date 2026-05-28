@@ -25,6 +25,19 @@ interface RepoActivity {
   mergedPrs: number;
 }
 
+interface ShippedItem {
+  title: string;
+  repo: string;
+  date: string; // ISO YYYY-MM-DD
+  href: string;
+  tag: 'release' | 'feature' | 'maintenance' | 'workflow' | 'upstream';
+}
+
+interface ExploringItem {
+  title: string;
+  body: string;
+}
+
 @Component({
   selector: 'app-now',
   standalone: true,
@@ -79,6 +92,74 @@ export class NowComponent {
     },
   ];
 
+  readonly recentlyShipped: ShippedItem[] = [
+    {
+      title: 'home-manager: set 26.05 as stable',
+      repo: 'nix-community/home-manager',
+      date: '2026-05-25',
+      href: 'https://github.com/nix-community/home-manager/pull/9390',
+      tag: 'release',
+    },
+    {
+      title: 'kulala-core: init at 0.6.0; vimPlugins.kulala-nvim → 6.1.0',
+      repo: 'NixOS/nixpkgs',
+      date: '2026-05-24',
+      href: 'https://github.com/NixOS/nixpkgs/pull/523733',
+      tag: 'feature',
+    },
+    {
+      title: 'fix(parser): parse implicit first request',
+      repo: 'mistweaverco/kulala-core',
+      date: '2026-05-26',
+      href: 'https://github.com/mistweaverco/kulala-core/pull/45',
+      tag: 'upstream',
+    },
+    {
+      title: 'luarocks-packages-updater: normalize license metadata',
+      repo: 'NixOS/nixpkgs',
+      date: '2026-05-24',
+      href: 'https://github.com/NixOS/nixpkgs/pull/523736',
+      tag: 'workflow',
+    },
+    {
+      title: 'yaziPlugins: commit updates separately',
+      repo: 'NixOS/nixpkgs',
+      date: '2026-05-25',
+      href: 'https://github.com/NixOS/nixpkgs/pull/523689',
+      tag: 'workflow',
+    },
+    {
+      title: 'luaPackages + vimPlugins update burst (2026-05-24)',
+      repo: 'NixOS/nixpkgs',
+      date: '2026-05-26',
+      href: 'https://github.com/NixOS/nixpkgs/pulls?q=is%3Apr+author%3Akhaneliman+is%3Amerged',
+      tag: 'maintenance',
+    },
+  ];
+
+  readonly tagLabels: Record<ShippedItem['tag'], string> = {
+    release: 'Release cut',
+    feature: 'New package',
+    maintenance: 'Maintenance',
+    workflow: 'Workflow',
+    upstream: 'Upstream',
+  };
+
+  readonly exploring: ExploringItem[] = [
+    {
+      title: 'Separated updater commits',
+      body: 'Splitting batch-package updates into per-package commits so reviewers can land them independently and updaters can resume mid-batch.',
+    },
+    {
+      title: 'AI/LSP plugin coverage in Nixvim',
+      body: 'Closing gaps in Nixvim module coverage for AI tooling (Copilot, Claude Code, Codex CLI) and recent LSP additions.',
+    },
+    {
+      title: 'Portfolio reading-mode polish',
+      body: 'Pushing this site toward a print-grade case-study reader — progress bar, takeaways, and print stylesheet just landed.',
+    },
+  ];
+
   readonly openSourceRepos: RepoActivity[] = [
     {
       name: 'Nixpkgs',
@@ -104,6 +185,13 @@ export class NowComponent {
     return new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
+      day: 'numeric',
+    });
+  }
+
+  formatShipDate(date: string): string {
+    return new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
+      month: 'short',
       day: 'numeric',
     });
   }

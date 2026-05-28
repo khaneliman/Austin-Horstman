@@ -13,3 +13,55 @@
     opacity: 1;
   }
 }
+
+.now-tag {
+  --tag-bg: rgb(100 116 139 / 0.12);
+  --tag-fg: rgb(71 85 105);
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+
+  &--release {
+    --tag-bg: rgb(245 158 11 / 0.18);
+    --tag-fg: rgb(180 83 9);
+  }
+
+  &--feature {
+    --tag-bg: rgb(20 184 166 / 0.18);
+    --tag-fg: rgb(13 148 136);
+  }
+
+  &--workflow {
+    --tag-bg: rgb(99 102 241 / 0.16);
+    --tag-fg: rgb(67 56 202);
+  }
+
+  &--upstream {
+    --tag-bg: rgb(16 185 129 / 0.16);
+    --tag-fg: rgb(4 120 87);
+  }
+}
+
+:host-context(.dark) .now-tag {
+  --tag-bg: rgb(148 163 184 / 0.14);
+  --tag-fg: rgb(203 213 225);
+
+  &--release {
+    --tag-bg: rgb(251 191 36 / 0.16);
+    --tag-fg: rgb(253 224 71);
+  }
+
+  &--feature {
+    --tag-bg: rgb(45 212 191 / 0.18);
+    --tag-fg: rgb(94 234 212);
+  }
+
+  &--workflow {
+    --tag-bg: rgb(129 140 248 / 0.18);
+    --tag-fg: rgb(165 180 252);
+  }
+
+  &--upstream {
+    --tag-bg: rgb(52 211 153 / 0.18);
+    --tag-fg: rgb(110 231 183);
+  }
+}
