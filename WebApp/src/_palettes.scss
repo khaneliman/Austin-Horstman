@@ -1,0 +1,30 @@
+// Palette CSS variables for component-level theming.
+//
+// Apply `.palette-{color}` to an element (or any ancestor) to expose accent
+// variables that descendants consume via static Tailwind arbitrary-value
+// classes like `bg-[var(--p-100)]` or `dark:bg-[var(--p-900-30)]`.
+//
+// This avoids the Tailwind v4 JIT trap where runtime-built class names (e.g.
+// `bg-${color}-100`) are invisible to the source-code scanner and therefore
+// never end up in the compiled CSS.
+
+$palette-colors:
+  blue, emerald, teal, cyan, sky, green, indigo, violet, purple, fuchsia, pink, rose, red, orange, amber, yellow;
+
+@each $color in $palette-colors {
+  .palette-#{$color} {
+    --p-50: var(--color-#{$color}-50);
+    --p-100: var(--color-#{$color}-100);
+    --p-200: var(--color-#{$color}-200);
+    --p-300: var(--color-#{$color}-300);
+    --p-400: var(--color-#{$color}-400);
+    --p-500: var(--color-#{$color}-500);
+    --p-600: var(--color-#{$color}-600);
+    --p-700: var(--color-#{$color}-700);
+    --p-800: var(--color-#{$color}-800);
+    --p-900: var(--color-#{$color}-900);
+    --p-900-20: color-mix(in srgb, var(--color-#{$color}-900) 20%, transparent);
+    --p-900-30: color-mix(in srgb, var(--color-#{$color}-900) 30%, transparent);
+    --p-800-50: color-mix(in srgb, var(--color-#{$color}-800) 50%, transparent);
+  }
+}
