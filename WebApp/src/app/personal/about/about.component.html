@@ -1,118 +1,170 @@
-<!-- Modern Hero Section -->
-<main class="min-h-screen bg-[#f7f3ea] dark:bg-slate-950">
-  <!-- Hero Section -->
-  <section class="relative pt-32 pb-20">
-    <!-- Subtle gradient background -->
+<main class="min-h-screen overflow-hidden bg-[#f7f3ea] text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+  <section
+    class="relative border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_48%,#f7f3ea_48%,#f7f3ea_100%)] pt-28 pb-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,#020617_0%,#12343a_50%,#0f172a_50%,#0f172a_100%)]"
+  >
     <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgb(20_184_166_/_0.12),transparent_28rem)]"
+      class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
+      aria-hidden="true"
     ></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-        <!-- Profile Card -->
-        <div
-          class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-stone-200 border-t-4 border-t-teal-500 dark:border-slate-700 dark:border-t-teal-300 overflow-hidden"
+    <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
+      <div>
+        <p
+          class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur"
         >
-          <!-- Profile Header -->
-          <div class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 px-8 py-16">
-            <!-- Profile Image -->
-            <div class="flex justify-center">
-              <div class="relative">
-                <img
-                  src="./assets/images/austin2.jpg"
-                  alt="Austin Horstman profile photo"
-                  class="w-32 h-32 rounded-xl ring-4 ring-white/80 object-cover shadow-lg"
-                />
-                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-teal-400 rounded-lg ring-4 ring-slate-950"></div>
-              </div>
-            </div>
+          <ng-icon name="heroMapPin" size="1rem"></ng-icon>
+          {{ profile.location }}
+        </p>
 
-            <!-- Profile Info -->
-            <div class="text-center mt-6 text-white">
-              <h1 class="text-4xl font-bold mb-2">{{ profile.name }}</h1>
-              <p class="text-teal-100 text-xl mb-4">{{ profile.title }}</p>
-              <div class="flex items-center justify-center text-slate-300">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                {{ profile.location }}
-              </div>
-            </div>
+        <h1 class="max-w-4xl text-5xl font-black leading-none text-white sm:text-6xl">
+          I build the bridge between legacy pressure and modern delivery.
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-100">
+          {{ profile.name }} is a {{ profile.title }} focused on application modernization, practical architecture,
+          reproducible developer environments, and open-source maintenance that helps teams keep shipping.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          @for (step of nextSteps; track step.label; let i = $index) {
+            <a
+              [routerLink]="step.route"
+              class="inline-flex min-h-12 items-center gap-2 rounded-lg px-5 py-3 text-sm font-bold transition duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+              [ngClass]="
+                i === 0
+                  ? 'bg-amber-300 text-slate-950 shadow-amber-950/20 hover:bg-amber-200'
+                  : 'border border-white/25 bg-white/10 text-white hover:bg-white/20'
+              "
+            >
+              <ng-icon [name]="step.icon" size="1.05rem"></ng-icon>
+              {{ step.label }}
+            </a>
+          }
+        </div>
+      </div>
+
+      <aside class="relative flex items-end justify-center lg:justify-end">
+        <div class="relative w-full max-w-md">
+          <div class="absolute -left-4 top-10 h-28 w-28 border-8 border-teal-300/45" aria-hidden="true"></div>
+          <div class="absolute -right-3 bottom-14 h-20 w-20 bg-rose-500/75" aria-hidden="true"></div>
+          <div class="relative border border-white/20 bg-slate-950/80 p-4 shadow-2xl shadow-slate-950/30 backdrop-blur">
+            <img
+              src="./assets/images/austin2.jpg"
+              alt="Austin Horstman profile photo"
+              class="aspect-[4/5] w-full object-cover"
+            />
           </div>
-
-          <!-- Content Section -->
-          <div class="px-8 py-12">
-            <!-- Quick Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <div
-                class="text-center p-4 bg-stone-50 dark:bg-slate-950 rounded-xl border border-stone-200 border-t-4 border-t-teal-500 dark:border-slate-700 dark:border-t-teal-300"
-              >
-                <div class="text-2xl font-bold text-teal-800 dark:text-teal-200 mb-1">{{ yearsOfExperience() }}+</div>
-                <div class="text-slate-600 dark:text-slate-300 text-sm">Years Experience</div>
-              </div>
-              <div
-                class="text-center p-4 bg-stone-50 dark:bg-slate-950 rounded-xl border border-stone-200 border-t-4 border-t-amber-400 dark:border-slate-700 dark:border-t-amber-300"
-              >
-                <div class="text-2xl font-bold text-amber-700 dark:text-amber-200 mb-1">
-                  {{ portfolioStats().totalProjects }}+
-                </div>
-                <div class="text-slate-600 dark:text-slate-300 text-sm">Projects Delivered</div>
-              </div>
-              <div
-                class="text-center p-4 bg-stone-50 dark:bg-slate-950 rounded-xl border border-stone-200 border-t-4 border-t-sky-400 dark:border-slate-700 dark:border-t-sky-300"
-              >
-                <div class="text-2xl font-bold text-sky-700 dark:text-sky-200 mb-1">
-                  {{ portfolioStats().totalTechnologies }}+
-                </div>
-                <div class="text-slate-600 dark:text-slate-300 text-sm">Technologies</div>
-              </div>
-            </div>
-
-            <!-- About Description -->
-            <div class="text-center mb-8">
-              <h2 class="text-2xl font-semibold text-slate-950 dark:text-slate-50 mb-4">About Me</h2>
-              <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto mb-6"></div>
-              <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto">
-                Austin has over {{ yearsOfExperience() }} years of experience in the information technology industry and
-                has played key roles in several .NET desktop, database design and deployments, extract, transform, load
-                processes, and application modernization Angular websites. Passionate about open-source development and
-                is a maintainer in the Nix ecosystem and various Linux projects.
-              </p>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                routerLink="/personal/resume"
-                class="inline-flex items-center px-6 py-3 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg transition-colors duration-200"
-              >
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                  <path
-                    fill-rule="evenodd"
-                    d="M4 5a2 2 0 012-2v1a1 1 0 001 1h6a1 1 0 001-1V3a2 2 0 012 2v6.5a2.5 2.5 0 01-2.5 2.5h-7A2.5 2.5 0 014 11.5V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                View Resume
-              </a>
-              <a
-                routerLink="/personal/contact"
-                class="inline-flex items-center px-6 py-3 bg-amber-300 hover:bg-amber-200 text-slate-950 font-medium rounded-lg border border-amber-200 transition-colors duration-200"
-              >
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
-                Get in Touch
-              </a>
-            </div>
+          <div
+            class="absolute -bottom-7 left-5 right-5 border border-stone-200 bg-white p-5 shadow-xl dark:border-slate-700 dark:bg-slate-900"
+          >
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-200">Current Role</p>
+            <h2 class="mt-1 text-xl font-black text-slate-950 dark:text-white">{{ currentCompany.position }}</h2>
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">{{ currentCompany.displayName }}</p>
           </div>
         </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-white py-14 dark:bg-slate-900">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      @for (point of proofPoints(); track point.label) {
+        <article class="border-l-4 border-teal-600 bg-[#f7f3ea] p-6 dark:border-amber-300 dark:bg-slate-950">
+          <p class="text-4xl font-black text-slate-950 dark:text-white">{{ point.value }}</p>
+          <h2 class="mt-3 text-base font-bold text-slate-900 dark:text-slate-100">{{ point.label }}</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ point.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-rose-700 dark:text-rose-300">Operating Style</p>
+        <h2 class="mt-3 text-4xl font-black leading-tight text-slate-950 dark:text-white">
+          Useful modernization is part engineering, part translation.
+        </h2>
+        <p class="mt-5 text-lg leading-8 text-slate-700 dark:text-slate-300">
+          My work sits where old systems, business expectations, and new architecture collide. I like making that space
+          less ambiguous: document behavior, write tests where none existed, create migration paths, and keep teams
+          oriented around what changed and why.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5">
+        @for (principle of principles; track principle.title) {
+          <article
+            class="border border-stone-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900"
+            [ngClass]="principle.accent"
+          >
+            <div class="flex gap-5">
+              <div
+                class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+              >
+                <ng-icon [name]="principle.icon" size="1.35rem"></ng-icon>
+              </div>
+              <div>
+                <h3 class="text-2xl font-black text-slate-950 dark:text-white">{{ principle.title }}</h3>
+                <p class="mt-3 leading-7 text-slate-700 dark:text-slate-300">{{ principle.description }}</p>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-stone-200 bg-slate-950 py-20 text-white dark:border-slate-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-amber-300">Strengths</p>
+        <h2 class="mt-3 text-4xl font-black leading-tight">What I bring into teams and codebases.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+        @for (skill of skills; track skill.title) {
+          <article class="border border-white/10 bg-white/[0.04] p-6">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-amber-300 text-slate-950">
+              <ng-icon [name]="skill.icon" size="1.35rem"></ng-icon>
+            </div>
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-teal-200">{{ skill.badge }}</p>
+            <h3 class="mt-2 text-2xl font-black text-white">{{ skill.title }}</h3>
+            <p class="mt-4 leading-7 text-slate-300">{{ skill.description }}</p>
+            <p class="mt-5 border-t border-white/10 pt-4 text-sm font-bold text-slate-400">{{ skill.footer }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 dark:bg-slate-900">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-200">Next Step</p>
+        <h2 class="mt-3 text-4xl font-black leading-tight text-slate-950 dark:text-white">
+          Go from biography to evidence.
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-slate-700 dark:text-slate-300">
+          The resume and project catalog show the role context, case studies, and technologies behind this summary.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          routerLink="/personal/resume"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-700 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-800 hover:shadow-lg"
+        >
+          Resume
+          <ng-icon name="heroArrowRight" size="1rem"></ng-icon>
+        </a>
+        <a
+          routerLink="/projects"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-stone-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:border-teal-700 hover:text-teal-800 dark:border-slate-700 dark:text-white dark:hover:border-teal-200 dark:hover:text-teal-200"
+        >
+          Projects
+          <ng-icon name="heroArrowRight" size="1rem"></ng-icon>
+        </a>
       </div>
     </div>
   </section>
