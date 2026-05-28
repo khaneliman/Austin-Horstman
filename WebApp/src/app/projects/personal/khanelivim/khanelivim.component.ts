@@ -1,26 +1,105 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroArrowTopRightOnSquare,
   heroCalendar,
   heroCodeBracket,
+  heroComputerDesktop,
   heroCog6Tooth,
-  heroCommandLine,
   heroCpuChip,
   heroGlobeAlt,
   heroHome,
   heroSparkles,
-  heroStar,
-  heroUser,
-  heroUsers,
-  heroWrench,
+  heroWrenchScrewdriver,
 } from '@ng-icons/heroicons/outline';
 import { BulletListComponent, BulletListItem } from '../../../shared/components/bullet-list/bullet-list.component';
 import {
-  BackgroundElement,
-  DecorativeBackgroundComponent,
-} from '../../../shared/components/decorative-background/decorative-background.component';
+  PersonalCaseStudyMeta,
+  PersonalCaseStudyShellComponent,
+  PersonalCaseStudyStat,
+} from '../shared/personal-case-study-shell.component';
+
+const aiFeatures: BulletListItem[] = [
+  {
+    text: 'GitHub Copilot integration for intelligent code completion.',
+  },
+  {
+    text: 'Claude Code integration for advanced AI-powered development.',
+  },
+  {
+    text: 'Avante completion engine with multiple AI providers.',
+  },
+  {
+    text: 'Blink completion for fast and context-aware suggestions.',
+  },
+];
+
+const languageSupport: BulletListItem[] = [
+  {
+    text: 'Language Server Protocol (LSP) for diverse language ecosystems.',
+  },
+  {
+    text: 'Advanced Rust workflows through rust-analyzer.',
+  },
+  {
+    text: 'TypeScript and JavaScript with comprehensive tooling.',
+  },
+  {
+    text: 'Java development with eclipse.jdt.ls.',
+  },
+  {
+    text: 'Nix language support with nil and associated helper tools.',
+  },
+  {
+    text: 'Go, Python, C++, and many additional language integrations.',
+  },
+];
+
+const developmentFeatures: BulletListItem[] = [
+  {
+    text: 'Fuzzy finding with Telescope for files, symbols, and text.',
+  },
+  {
+    text: 'Git workflow support with LazyGit and Gitsigns.',
+  },
+  {
+    text: 'Debugging and test execution with nvim-dap and related integrations.',
+  },
+  {
+    text: 'File-manager and explorer workflows with Yazi and Neo-tree.',
+  },
+  {
+    text: 'Theming, statusline, and interface ergonomics for long coding sessions.',
+  },
+];
+
+const technicalHighlights: BulletListItem[] = [
+  {
+    text: 'Fully declarative configuration using Nix and Nixvim.',
+  },
+  {
+    text: 'Reproducible setup across machines with stable startup behavior.',
+  },
+  {
+    text: 'Modular plugin architecture for fast customization and reuse.',
+  },
+  {
+    text: 'High-density tooling for navigation, search, and context switching.',
+  },
+];
+
+const technologyStack = [
+  'Nix',
+  'Nixvim',
+  'Neovim',
+  'LSP',
+  'GitHub Copilot',
+  'Claude Code',
+  'Avante',
+  'Blink',
+  'Telescope',
+  'TreeSitter',
+  'nvim-dap',
+];
 
 @Component({
   selector: 'app-khanelivim',
@@ -28,115 +107,68 @@ import {
   templateUrl: './khanelivim.component.html',
   styleUrls: ['./khanelivim.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
+  imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],
   providers: [
     provideIcons({
-      heroArrowTopRightOnSquare,
       heroCodeBracket,
       heroCog6Tooth,
-      heroCommandLine,
+      heroCpuChip,
       heroGlobeAlt,
       heroHome,
-      heroUser,
       heroCalendar,
-      heroStar,
-      heroUsers,
       heroSparkles,
-      heroCpuChip,
-      heroWrench,
+      heroComputerDesktop,
+      heroWrenchScrewdriver,
     }),
   ],
 })
 export class KhanelivimComponent {
-  backgroundElements: BackgroundElement[] = [
+  readonly title = 'Khanelivim';
+  readonly description =
+    'A declarative Neovim setup built with Nixvim, combining AI-assisted completion, LSP coverage, and curated plugin architecture for a repeatable developer workflow.';
+  readonly repositoryUrl = 'https://github.com/khaneliman/khanelivim';
+  readonly technologies = technologyStack;
+
+  readonly evidence: PersonalCaseStudyMeta[] = [
     {
-      size: 'lg',
-      position: 'top-4 right-4',
-      color: 'emerald-500',
-      opacity: 10,
-      blur: 'xl',
+      label: 'Language Areas',
+      value: `${languageSupport.length}+`,
+      icon: 'heroCpuChip',
     },
     {
-      size: 'md',
-      position: 'bottom-4 left-4',
-      color: 'teal-500',
-      opacity: 10,
-      blur: 'lg',
+      label: 'AI Integrations',
+      value: `${aiFeatures.length}`,
+      icon: 'heroSparkles',
+    },
+    {
+      label: 'Repository Type',
+      value: 'Personal Workflow',
+      icon: 'heroHome',
+    },
+    {
+      label: 'Started',
+      value: 'March 2023',
+      icon: 'heroCalendar',
     },
   ];
 
-  aiFeatures: BulletListItem[] = [
+  readonly sideStats: PersonalCaseStudyStat[] = [
     {
-      text: 'GitHub Copilot integration for intelligent code completion',
+      label: 'Editor Architecture',
+      value: `${technologyStack.length} integrated tool choices were selected for fast, composable editor behavior.`,
     },
     {
-      text: 'Claude Code integration for advanced AI-powered development',
+      label: 'Workflow Benefit',
+      value: 'Keeps code completion, language tooling, and navigation consistent across machines.',
     },
     {
-      text: 'Avante completion engine with multiple AI providers',
-    },
-    {
-      text: 'Blink completion for ultra-fast code suggestions',
-    },
-  ];
-
-  languageSupport: BulletListItem[] = [
-    {
-      text: 'Language Server Protocol (LSP) for 20+ programming languages',
-    },
-    {
-      text: 'Advanced Rust development with rust-analyzer',
-    },
-    {
-      text: 'TypeScript/JavaScript with comprehensive tooling',
-    },
-    {
-      text: 'Java development with eclipse.jdt.ls',
-    },
-    {
-      text: 'Nix language support with nil LSP',
-    },
-    {
-      text: 'Go, Python, C++, and many more languages',
+      label: 'Focus Area',
+      value: 'A reproducible setup tuned for AI-assisted, high-throughput software engineering.',
     },
   ];
 
-  developmentFeatures: BulletListItem[] = [
-    {
-      text: 'Fuzzy finding with Telescope for files, symbols, and text',
-    },
-    {
-      text: 'Advanced Git integration with LazyGit and Gitsigns',
-    },
-    {
-      text: 'Debugging support with nvim-dap',
-    },
-    {
-      text: 'Testing framework integration',
-    },
-    {
-      text: 'Multiple file managers (Yazi, Neo-tree)',
-    },
-    {
-      text: 'Customizable UI with modern themes and statuslines',
-    },
-  ];
-
-  technicalHighlights: BulletListItem[] = [
-    {
-      text: 'Fully declarative configuration using Nix and Nixvim',
-    },
-    {
-      text: 'Reproducible setup across different machines and platforms',
-    },
-    {
-      text: 'Modular plugin architecture for easy customization',
-    },
-    {
-      text: 'Comprehensive keymapping and navigation optimization',
-    },
-    {
-      text: '100+ carefully configured and integrated plugins',
-    },
-  ];
+  readonly aiFeatures = aiFeatures;
+  readonly languageSupport = languageSupport;
+  readonly developmentFeatures = developmentFeatures;
+  readonly technicalHighlights = technicalHighlights;
 }
