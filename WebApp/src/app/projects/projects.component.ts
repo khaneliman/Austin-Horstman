@@ -81,7 +81,7 @@ export class ProjectsComponent {
     {
       value: `${GITHUB_METRICS.totalMergedPrs}+`,
       label: 'merged open-source PRs',
-      description: `Nixpkgs, Home Manager, and Nixvim contributions indexed as of ${GITHUB_METRICS.asOf}.`,
+      description: `Nixpkgs, Home Manager, Nixvim, and Waybar contributions indexed as of ${GITHUB_METRICS.asOf}.`,
       icon: 'heroCodeBracket',
     },
   ];

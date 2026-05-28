@@ -180,6 +180,12 @@ export class NowComponent {
       description: 'New plugin modules (AI/LSP), startup + runtime stability',
       mergedPrs: GITHUB_METRICS.repoMetrics.find((r) => r.repo === 'Nixvim')?.mergedPrs ?? 0,
     },
+    {
+      name: 'Waybar',
+      href: 'https://github.com/Alexays/Waybar/pulls?q=is%3Apr+author%3Akhaneliman',
+      description: 'Module fixes, new functionality, and runtime stability for the Wayland status bar',
+      mergedPrs: GITHUB_METRICS.repoMetrics.find((r) => r.repo === 'Waybar')?.mergedPrs ?? 0,
+    },
   ];
 
   private formatAsOf(date: string): string {

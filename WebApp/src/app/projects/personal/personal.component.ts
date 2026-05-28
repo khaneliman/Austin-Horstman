@@ -80,7 +80,7 @@ export class PersonalComponent {
     {
       label: 'Open-source maintenance',
       metric: `${GITHUB_METRICS.totalMergedPrs}+`,
-      detail: `Merged PRs across Nixpkgs, Home Manager, and Nixvim as indexed on ${this.evidenceDate}.`,
+      detail: `Merged PRs across Nixpkgs, Home Manager, Nixvim, and Waybar as indexed on ${this.evidenceDate}.`,
       route: '/projects/personal/nixpkgs',
       icon: 'heroCodeBracket',
       accent: 'bg-teal-700 text-white',
