@@ -56,7 +56,7 @@ export class KeyboardShortcutsService {
       return;
     }
 
-    if (event.key === '/') {
+    if (event.key === '/' || event.key === ':') {
       event.preventDefault();
       this.palette.open();
       return;

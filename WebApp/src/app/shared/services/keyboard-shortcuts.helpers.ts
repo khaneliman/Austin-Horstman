@@ -34,6 +34,7 @@ export const SHORTCUT_GROUPS: readonly ShortcutGroup[] = [
     bindings: [
       { sequence: '⌘ K', description: 'Open command palette' },
       { sequence: '/', description: 'Open command palette' },
+      { sequence: ':', description: 'Open command palette (vim-style)' },
       { sequence: '?', description: 'Toggle this cheatsheet' },
       { sequence: 'Esc', description: 'Close overlay' },
     ],
