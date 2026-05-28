@@ -9,6 +9,7 @@ const ARROW_DIRECTIONS: Readonly<Record<string, ArrowDirection>> = {
 };
 
 const ANCHOR_SELECTOR = '[data-card-anchor]';
+const PRIMARY_SELECTOR = '[data-card-primary]';
 
 @Directive({
   selector: '[appGridKeyboardNav]',
@@ -19,6 +20,18 @@ export class GridKeyboardNavDirective {
 
   @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Enter' || event.key === ' ') {
+      const target = event.target instanceof HTMLElement ? event.target : null;
+      if (target?.matches(ANCHOR_SELECTOR)) {
+        const primary = target.querySelector<HTMLElement>(PRIMARY_SELECTOR);
+        if (primary) {
+          event.preventDefault();
+          primary.click();
+        }
+      }
+      return;
+    }
+
     const direction = ARROW_DIRECTIONS[event.key];
     if (!direction) return;
 
