@@ -9,7 +9,7 @@ export type FeatureItemSize = 'sm' | 'md' | 'lg';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
   template: `
-    <div class="flex items-start space-x-4">
+    <div [class]="rootClasses()">
       <div [class]="iconContainerClasses()">
         <ng-icon [name]="icon()" [size]="iconSize()" [class]="iconClasses()"></ng-icon>
       </div>
@@ -27,11 +27,14 @@ export class FeatureItemComponent {
   readonly iconColor = input('blue');
   readonly size = input<FeatureItemSize>('md');
 
+  // `palette-{color}` (defined in src/_palettes.scss) exposes --p-* shade
+  // variables so the icon's static var-based classes resolve correctly.
+  readonly rootClasses = computed(() => `palette-${this.iconColor()} flex items-start space-x-4`);
+
   readonly iconContainerClasses = computed(() => {
-    const color = this.iconColor();
     const classes = [
-      `bg-${color}-100`,
-      `dark:bg-${color}-900/30`,
+      'bg-[var(--p-100)]',
+      'dark:bg-[var(--p-900-30)]',
       'rounded-full',
       'flex',
       'items-center',
@@ -52,7 +55,7 @@ export class FeatureItemComponent {
     return classes.join(' ');
   });
 
-  readonly iconClasses = computed(() => `text-${this.iconColor()}-600 dark:text-${this.iconColor()}-400`);
+  readonly iconClasses = computed(() => 'text-[var(--p-600)] dark:text-[var(--p-400)]');
 
   readonly iconSize = computed(() => {
     switch (this.size()) {
