@@ -55,6 +55,7 @@ export interface ProjectDetailConfig {
   // Content
   title: string;
   description: string;
+  outcome?: string;
   technologies: TechnologyTag[];
   quickStats?: QuickStat[];
   overview: ContentSection;

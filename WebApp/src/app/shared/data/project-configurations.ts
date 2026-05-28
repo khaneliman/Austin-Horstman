@@ -18,6 +18,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'Renaissance Learning Platform',
     description:
       'Comprehensive educational assessment and learning platform serving millions of students worldwide with personalized reading and math programs.',
+    outcome:
+      'Delivered adaptive learning experiences that improved literacy and math outcomes for millions of students.',
     technologies: [
       { name: '.NET Core', color: 'purple' },
       { name: 'C#', color: 'blue' },
@@ -106,6 +108,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'OnContact Quick Launch',
     description:
       'A streamlined desktop application that provides instant access to OnContact CRM functionality, enabling rapid customer lookup and interaction management for support teams.',
+    outcome:
+      'Reduced support call turnaround time by giving representatives instant customer lookup and interaction context.',
     technologies: [
       { name: 'C#', color: 'purple' },
       { name: '.NET Framework', color: 'blue' },
@@ -215,6 +219,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'West IT Portal',
     description:
       'A comprehensive web portal that centralized all IT department tools and resources into a single, unified platform for streamlined daily operations.',
+    outcome: 'Eliminated fragmented IT workflows by consolidating daily tools into one secure operations portal.',
     technologies: [
       { name: 'ASP.NET MVC', color: 'blue' },
       { name: 'C#', color: 'purple' },
@@ -293,6 +298,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'Database and SSIS Job Search',
     description:
       "A powerful desktop application providing searchable interfaces for database management and SSIS job monitoring across West Corporation's server infrastructure.",
+    outcome:
+      'Cut troubleshooting time from hours to minutes with instant cross-server database discovery and SSIS monitoring.',
     technologies: [
       { name: 'C#', color: 'purple' },
       { name: '.NET Framework', color: 'blue' },
@@ -368,6 +375,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'Geek Squad Stat Tracker',
     description:
       'A comprehensive desktop application for tracking sales statistics, managing employees, and analyzing performance data at a Best Buy Geek Squad precinct.',
+    outcome: 'Improved manager visibility and reduced sales reporting effort from hours to minutes.',
     technologies: [
       { name: 'C#', color: 'purple' },
       { name: '.NET Framework', color: 'blue' },
@@ -464,6 +472,7 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Content
     title: 'Kroger',
     description: 'Enterprise retail platform modernization and inventory management system development',
+    outcome: 'Modernized core retail operations to improve stock accuracy and optimize inventory decisions at scale.',
     technologies: [
       { name: 'Angular 15+', color: 'red' },
       { name: '.NET Core 6', color: 'blue' },
@@ -559,6 +568,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Content
     title: 'Do It Best',
     description: 'Hardware retailer backend services and infrastructure modernization project',
+    outcome:
+      'Shipped a resilient cloud-first modernization that improved scalability, reliability, and operational continuity.',
     technologies: [
       { name: 'C# .NET', color: 'red' },
       { name: 'Java Spring Boot', color: 'blue' },
@@ -658,6 +669,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'AI Resource Staffing Tool',
     description:
       'Intelligent resource allocation system using AI to match skills, availability, and project requirements',
+    outcome:
+      'Accelerated staffing decisions with better skill alignment, improving utilization and project allocation throughput.',
     technologies: [
       { name: 'Microsoft Graph API', color: 'blue' },
       { name: 'GraphQL', color: 'indigo' },
@@ -742,6 +755,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'SECURA MuleSoft Migration to .NET',
     description:
       'LLM-assisted enterprise modernization that migrated SECURA Insurance MuleSoft systems to custom .NET APIs with feature parity, documentation, and automated tests',
+    outcome:
+      'Reduced migration duration from an estimated 3-4 years to 11 months while preserving integration behavior.',
     technologies: [
       { name: '.NET APIs', color: 'emerald' },
       { name: 'MuleSoft', color: 'teal' },
@@ -847,6 +862,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Content
     title: 'Tax Document Analysis System',
     description: 'LLM-powered system for automated tax document ingestion and business impact analysis',
+    outcome:
+      'Standardized tax-impact triage by producing confidence-based summaries for faster cross-jurisdiction review.',
     technologies: [
       { name: 'React', color: 'purple' },
       { name: 'Remix', color: 'indigo' },
@@ -931,6 +948,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'ClearTrend Healthcare Analytics',
     description:
       'Advanced healthcare analytics and reporting platform providing comprehensive insights into clinical data, patient outcomes, and operational metrics for healthcare organizations.',
+    outcome:
+      'Enabled leadership decisions with faster clinical and operational analytics at enterprise healthcare scale.',
     technologies: [
       { name: 'ASP.NET', color: 'blue' },
       { name: 'C#', color: 'purple' },
@@ -1023,6 +1042,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Content
     title: 'Express Scripts Pharmacy Platform',
     description: 'Full-stack pharmaceutical rebates management system with Angular frontend and .NET Core APIs',
+    outcome:
+      'Streamlined rebate processing workflows and automated reporting through modern web architecture and CI/CD.',
     technologies: [
       { name: 'Angular', color: 'red' },
       { name: '.NET Core', color: 'orange' },
@@ -1106,6 +1127,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     // Content
     title: 'J.J. Keller Compliance Platform',
     description: 'Native iOS application for regulatory compliance management and safety documentation',
+    outcome:
+      'Improved field safety workflows with offline-first compliance inspections and faster documentation capture.',
     technologies: [
       { name: 'iOS Native', color: 'green' },
       { name: 'Swift', color: 'teal' },
@@ -1185,6 +1208,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'Mile of Music Festival',
     description:
       "Mobile application for Appleton's premier music festival featuring live performance schedules and interactive maps",
+    outcome:
+      'Enhanced festival navigation by centralizing schedules, maps, and artist updates in one mobile experience.',
     technologies: [
       { name: 'Xamarin', color: 'purple' },
       { name: 'C#', color: 'pink' },
@@ -1267,6 +1292,8 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     title: 'Network Health Plan',
     description:
       'Comprehensive healthcare management platform providing member services, claims processing, and administrative tools for a Wisconsin-based health insurance organization.',
+    outcome:
+      'Improved member service and internal efficiency through consolidated enrollment, claims, and provider workflow tools.',
     technologies: [
       { name: 'ASP.NET', color: 'blue' },
       { name: 'C#', color: 'purple' },

@@ -216,6 +216,21 @@ export class ProjectDetailTemplateComponent {
     return this.config().casePanel?.status ?? 'case study';
   }
 
+  protected get outcome(): string {
+    const explicitOutcome = this.config().outcome?.trim();
+    if (explicitOutcome) {
+      return explicitOutcome;
+    }
+
+    const cleanedImpact = this.config().impact?.trim();
+    if (cleanedImpact) {
+      return cleanedImpact.length <= 140 ? cleanedImpact : `${cleanedImpact.slice(0, 137).trim()}...`;
+    }
+
+    const fallback = this.config().description.trim();
+    return `${this.config().title}: ${fallback.length > 110 ? `${fallback.slice(0, 107).trim()}...` : fallback}`;
+  }
+
   protected get sideOverviewEyebrow(): string {
     return this.config().sidebar?.overviewEyebrow ?? 'Case Overview';
   }
