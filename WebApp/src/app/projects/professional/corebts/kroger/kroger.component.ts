@@ -6,7 +6,6 @@ import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detai
 @Component({
   selector: 'app-kroger',
   template: `<app-project-detail-template [config]="projectConfig"></app-project-detail-template>`,
-  styleUrls: ['./kroger.component.scss'],
   standalone: true,
   imports: [ProjectDetailTemplateComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

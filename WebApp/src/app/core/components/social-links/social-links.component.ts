@@ -9,7 +9,6 @@ import { SocialLinksService } from '../../services';
   imports: [NgIconComponent],
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',
-  styleUrls: ['./social-links.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     provideIcons({

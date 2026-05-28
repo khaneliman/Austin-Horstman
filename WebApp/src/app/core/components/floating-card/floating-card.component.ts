@@ -8,7 +8,6 @@ import { NgIconComponent } from '@ng-icons/core';
   imports: [RouterModule, NgClass, NgIconComponent],
   selector: 'app-floating-card',
   templateUrl: './floating-card.component.html',
-  styleUrls: ['./floating-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FloatingCardComponent {

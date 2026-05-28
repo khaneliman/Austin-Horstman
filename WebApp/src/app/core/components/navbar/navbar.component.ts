@@ -10,7 +10,6 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
   imports: [RouterModule, SocialLinksComponent, ThemeToggleComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent implements OnInit {

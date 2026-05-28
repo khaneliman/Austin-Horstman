@@ -9,7 +9,6 @@ import { Component, input } from '@angular/core';
       <ng-content></ng-content>
     </div>
   `,
-  styles: [],
 })
 export class BaseCardComponent {
   variant = input<'small' | 'medium' | 'large'>('medium');

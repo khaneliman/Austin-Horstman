@@ -4,7 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   selector: 'app-separator',
   templateUrl: './separator.component.html',
-  styleUrls: ['./separator.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SeparatorComponent {}

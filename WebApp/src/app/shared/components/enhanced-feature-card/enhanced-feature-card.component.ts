@@ -27,7 +27,6 @@ export interface EnhancedFeature {
     }),
   ],
   templateUrl: './enhanced-feature-card.component.html',
-  styles: [],
 })
 export class EnhancedFeatureCardComponent {
   feature = input.required<EnhancedFeature>();

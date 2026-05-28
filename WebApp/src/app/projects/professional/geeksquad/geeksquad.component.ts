@@ -11,7 +11,6 @@ import { getProjectsForCompany } from '../../../shared/data/projects';
   selector: 'app-geeksquad',
   standalone: true,
   templateUrl: './geeksquad.component.html',
-  styleUrls: ['./geeksquad.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CompanyProfileComponent],
 })

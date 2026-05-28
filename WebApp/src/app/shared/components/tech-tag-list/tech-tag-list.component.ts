@@ -18,7 +18,6 @@ export interface TechTag {
       }
     </div>
   `,
-  styles: [],
 })
 export class TechTagListComponent {
   technologies = input<TechTag[]>([]);

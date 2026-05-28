@@ -24,7 +24,6 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
   selector: 'app-personal',
   standalone: true,
   templateUrl: './personal.component.html',
-  styleUrls: ['./personal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterOutlet,

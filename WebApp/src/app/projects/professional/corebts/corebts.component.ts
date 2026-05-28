@@ -11,7 +11,6 @@ import { getProjectsForCompany } from '../../../shared/data/projects';
   selector: 'app-corebts',
   standalone: true,
   templateUrl: './corebts.component.html',
-  styleUrls: ['./corebts.component.scss'],
   imports: [CompanyProfileComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

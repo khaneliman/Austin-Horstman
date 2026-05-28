@@ -10,7 +10,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       {{ name() }}
     </span>
   `,
-  styles: [],
 })
 export class TechTagComponent {
   name = input.required<string>();

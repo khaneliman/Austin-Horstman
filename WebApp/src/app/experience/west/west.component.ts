@@ -11,7 +11,6 @@ import { getProjectsForExperience } from '../../shared/data/projects';
   selector: 'app-west',
   standalone: true,
   templateUrl: './west.component.html',
-  styleUrls: ['./west.component.scss'],
   imports: [CompanyProfileComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

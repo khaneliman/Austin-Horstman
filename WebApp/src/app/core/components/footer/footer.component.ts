@@ -7,7 +7,6 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
   imports: [RouterModule, SocialLinksComponent],
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {

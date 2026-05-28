@@ -37,7 +37,6 @@ import { getProficientTechnologies } from '../shared/data/technologies';
   ],
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {

@@ -5,7 +5,6 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-personal',
   standalone: true,
   templateUrl: './personal.component.html',
-  styleUrls: ['./personal.component.scss'],
   imports: [RouterOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

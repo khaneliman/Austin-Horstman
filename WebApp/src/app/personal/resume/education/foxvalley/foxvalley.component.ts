@@ -20,7 +20,6 @@ import {
   selector: 'app-foxvalley',
   standalone: true,
   templateUrl: './foxvalley.component.html',
-  styleUrls: ['./foxvalley.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
   providers: [

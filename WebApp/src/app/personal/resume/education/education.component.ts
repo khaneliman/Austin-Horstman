@@ -5,7 +5,6 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-education',
   standalone: true,
   templateUrl: './education.component.html',
-  styleUrls: ['./education.component.scss'],
   imports: [RouterOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

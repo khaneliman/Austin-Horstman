@@ -19,7 +19,6 @@ import { getPersonalSkills, PersonalSkill } from '../../shared/data/skills';
   standalone: true,
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
   imports: [NgClass, NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],
   providers: [
     provideIcons({
