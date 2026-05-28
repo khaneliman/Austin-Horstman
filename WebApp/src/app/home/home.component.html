@@ -217,7 +217,7 @@
           <article class="border border-stone-200 bg-[var(--color-paper)] p-6 dark:border-slate-800 dark:bg-slate-950">
             <div class="flex items-center justify-between gap-4">
               <h3 class="text-2xl font-black text-slate-950 dark:text-white">{{ repo.repo }}</h3>
-              <p class="text-3xl font-black text-rose-700 dark:text-rose-300">{{ repo.mergedPrs }}</p>
+              <p class="text-3xl font-black text-rose-700 dark:text-rose-300" [appCountUp]="repo.mergedPrs"></p>
             </div>
             <p class="mt-2 text-sm font-semibold text-slate-600 dark:text-slate-300">merged pull requests</p>
           </article>

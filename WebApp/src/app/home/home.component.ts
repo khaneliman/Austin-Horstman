@@ -22,10 +22,11 @@ import { getPersonalProfile } from '../shared/data/profile';
 import { getResumeProjectCards } from '../shared/data/projects';
 import { getPersonalSkills } from '../shared/data/skills';
 import { getProficientTechnologies } from '../shared/data/technologies';
+import { CountUpDirective } from '../shared/directives/count-up.directive';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, NgClass, NgIconComponent],
+  imports: [RouterModule, NgClass, NgIconComponent, CountUpDirective],
   providers: [
     provideIcons({
       heroAcademicCap,
