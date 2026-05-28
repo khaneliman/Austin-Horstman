@@ -169,6 +169,40 @@ export class ProjectDetailTemplateComponent {
     }));
   }
 
+  protected get themeClass() {
+    const primaryColor = this.config().primaryColor;
+
+    const accentClassMap: Record<string, string> = {
+      amber: 'project-detail-template--orange',
+      blue: 'project-detail-template--blue',
+      green: 'project-detail-template--green',
+      orange: 'project-detail-template--orange',
+      purple: 'project-detail-template--purple',
+      rose: 'project-detail-template--red',
+      red: 'project-detail-template--red',
+      yellow: 'project-detail-template--yellow',
+      teal: 'project-detail-template--teal',
+      emerald: 'project-detail-template--emerald',
+      indigo: 'project-detail-template--blue',
+      violet: 'project-detail-template--purple',
+      default: 'project-detail-template--blue',
+    };
+
+    return accentClassMap[primaryColor] ?? accentClassMap['default'];
+  }
+
+  protected get mainClass() {
+    return [
+      'project-detail-template',
+      'min-h-screen',
+      'text-slate-950',
+      'dark:bg-slate-950',
+      'dark:text-slate-50',
+      this.themeClass,
+      this.config().backgroundGradient ?? 'bg-[#f7f3ea]',
+    ].join(' ');
+  }
+
   getListItems(items?: string[]): BulletListItem[] {
     if (!items) return [];
     return items.map((item) => ({ text: item }));

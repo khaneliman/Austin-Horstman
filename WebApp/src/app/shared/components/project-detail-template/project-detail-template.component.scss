@@ -1,2 +1,153 @@
-// Project Detail Template Component Styles
-// Additional component-specific styles can be added here if needed
+// Editorial Document direction:
+// - Page surface is uniform (cream in light, slate-950 in dark) regardless of palette.
+// - Project palette drives only the small accent points: eyebrow text, decorative
+//   frame/callout shapes, side and impact card border-left, impact label.
+// - Status pill is a single system color so it reads as a recurring "FILED" stamp.
+// - Variants define LAYOUT only (evidence-grid column count), never color.
+
+.project-detail-template {
+  --project-detail-primary: #0d9488;
+  --project-detail-frame: #5eead488;
+  --project-detail-callout: #fb7185;
+  --project-detail-status: #fcd34d;
+  --project-detail-side: #0d9488;
+  --project-detail-impact: #0d9488;
+  --project-detail-impact-label: #99f6e4;
+  --project-detail-evidence-grid: 2;
+}
+
+.project-detail-template--teal {
+  --project-detail-primary: #0d9488;
+  --project-detail-frame: #5eead488;
+  --project-detail-callout: #14b8a6;
+  --project-detail-side: #0d9488;
+  --project-detail-impact: #0d9488;
+  --project-detail-impact-label: #99f6e4;
+}
+
+.project-detail-template--emerald {
+  --project-detail-primary: #059669;
+  --project-detail-frame: #6ee7b78a;
+  --project-detail-callout: #10b981;
+  --project-detail-side: #059669;
+  --project-detail-impact: #059669;
+  --project-detail-impact-label: #a7f3d0;
+}
+
+.project-detail-template--green {
+  --project-detail-primary: #16a34a;
+  --project-detail-frame: #86efac8a;
+  --project-detail-callout: #22c55e;
+  --project-detail-side: #16a34a;
+  --project-detail-impact: #16a34a;
+  --project-detail-impact-label: #bbf7d0;
+}
+
+.project-detail-template--blue {
+  --project-detail-primary: #2563eb;
+  --project-detail-frame: #93c5fd8a;
+  --project-detail-callout: #3b82f6;
+  --project-detail-side: #2563eb;
+  --project-detail-impact: #2563eb;
+  --project-detail-impact-label: #bfdbfe;
+}
+
+.project-detail-template--purple {
+  --project-detail-primary: #7c3aed;
+  --project-detail-frame: #c4b5fd8a;
+  --project-detail-callout: #8b5cf6;
+  --project-detail-side: #7c3aed;
+  --project-detail-impact: #7c3aed;
+  --project-detail-impact-label: #ddd6fe;
+}
+
+.project-detail-template--red {
+  --project-detail-primary: #be123c;
+  --project-detail-frame: #fca5a58a;
+  --project-detail-callout: #e11d48;
+  --project-detail-side: #be123c;
+  --project-detail-impact: #be123c;
+  --project-detail-impact-label: #fecdd3;
+}
+
+.project-detail-template--orange {
+  --project-detail-primary: #ea580c;
+  --project-detail-frame: #fdba748a;
+  --project-detail-callout: #f97316;
+  --project-detail-side: #ea580c;
+  --project-detail-impact: #ea580c;
+  --project-detail-impact-label: #fed7aa;
+}
+
+.project-detail-template--yellow {
+  --project-detail-primary: #ca8a04;
+  --project-detail-frame: #fde68a8a;
+  --project-detail-callout: #eab308;
+  --project-detail-side: #ca8a04;
+  --project-detail-impact: #ca8a04;
+  --project-detail-impact-label: #fde68a;
+}
+
+// Variants define LAYOUT ONLY. No color overrides.
+.project-detail-template--ledger {
+  --project-detail-evidence-grid: 2;
+}
+
+.project-detail-template--compact {
+  --project-detail-evidence-grid: 2;
+}
+
+.project-detail-template--split {
+  --project-detail-evidence-grid: 2;
+}
+
+.project-detail-template--split :is(.project-detail-template__evidence-panel, .project-detail-template__eyebrow) {
+  transition: all 0.2s ease;
+}
+
+// Evidence panel surface is uniform across palettes (matches page background).
+.project-detail-template__evidence-panel {
+  background: #f7f3ea;
+}
+
+.project-detail-template__evidence-grid {
+  grid-template-columns: repeat(var(--project-detail-evidence-grid), minmax(0, 1fr));
+}
+
+:host-context(.dark) .project-detail-template__evidence-panel,
+.dark .project-detail-template__evidence-panel {
+  background: #020617;
+}
+
+.project-detail-template__eyebrow {
+  color: var(--project-detail-primary);
+}
+
+.project-detail-template__frame {
+  border-color: var(--project-detail-frame);
+}
+
+.project-detail-template__callout {
+  background-color: var(--project-detail-callout);
+}
+
+.project-detail-template__status {
+  background: var(--project-detail-status);
+}
+
+.project-detail-template__side-card {
+  border-left-color: var(--project-detail-side);
+}
+
+.project-detail-template__impact {
+  border-left-color: var(--project-detail-impact);
+}
+
+.project-detail-template__impact-label {
+  color: var(--project-detail-impact-label);
+}
+
+:host-context(.dark) .project-detail-template__impact-label,
+.dark .project-detail-template__impact-label {
+  color: #d4d4d8;
+}
