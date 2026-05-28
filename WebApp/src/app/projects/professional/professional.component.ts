@@ -73,23 +73,23 @@ export class ProfessionalProjectsComponent {
     };
   });
 
-  protected readonly impactHighlights = [
+  protected readonly deliveryThread = [
     {
-      value: '$500K+',
-      label: 'annual licensing removed',
-      description: 'MuleSoft replacement with custom .NET APIs and test coverage.',
+      label: 'Modernization pressure',
+      detail: 'MuleSoft replacement with custom .NET APIs, feature parity, and test coverage.',
+      marker: '$500K+ annual licensing removed',
       icon: 'heroChartBarSquare',
     },
     {
-      value: '11 mo',
-      label: 'focused migration delivery',
-      description: 'Delivered against a migration initially estimated at 3-4 years.',
+      label: 'Compressed delivery',
+      detail: 'Delivered against a migration initially estimated at 3-4 years.',
+      marker: '11 month focused migration',
       icon: 'heroRocketLaunch',
     },
     {
-      value: `${this.currentCompany.stats.years}`,
-      label: 'continuous consulting arc',
-      description: 'Skyline to Core BTS to NRI-NA through acquisitions and role growth.',
+      label: 'Consulting arc',
+      detail: 'Skyline to Core BTS to NRI-NA through acquisitions and role growth.',
+      marker: `${this.currentCompany.stats.years} continuous role context`,
       icon: 'heroBriefcase',
     },
   ];
