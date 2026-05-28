@@ -192,12 +192,15 @@ export class ProjectDetailTemplateComponent {
   }
 
   protected get mainClass() {
+    const styleVariant = this.config().styleVariant ?? 'ledger';
+
     return [
       'project-detail-template',
       'min-h-screen',
       'text-slate-950',
       'dark:bg-slate-950',
       'dark:text-slate-50',
+      `project-detail-template--${styleVariant}`,
       this.themeClass,
       this.config().backgroundGradient,
     ].join(' ');

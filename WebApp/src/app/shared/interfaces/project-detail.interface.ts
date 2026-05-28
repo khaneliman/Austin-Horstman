@@ -15,6 +15,20 @@ export interface Feature {
   icon: string;
 }
 
+export type ProjectCaseStyle = 'ledger' | 'split' | 'compact';
+
+export interface CasePanelConfig {
+  eyebrow?: string;
+  title?: string;
+  status?: string;
+}
+
+export interface SidebarPanelConfig {
+  overviewEyebrow?: string;
+  overviewText?: string;
+  impactHeading?: string;
+}
+
 export interface ContentSection {
   title: string;
   content: string;
@@ -28,6 +42,9 @@ export interface ProjectDetailConfig {
   backgroundGradient: string;
   headerIcon: string;
   primaryColor: string;
+  styleVariant?: ProjectCaseStyle;
+  casePanel?: CasePanelConfig;
+  sidebar?: SidebarPanelConfig;
 
   // Navigation
   backRoute: string;

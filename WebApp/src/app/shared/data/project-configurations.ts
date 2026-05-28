@@ -83,6 +83,18 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroRocketLaunch',
     primaryColor: 'orange',
+    styleVariant: 'compact',
+    casePanel: {
+      eyebrow: 'Desktop Stack',
+      title: 'Desktop entry and lookup performance.',
+      status: 'desktop',
+    },
+    sidebar: {
+      overviewEyebrow: 'Support Surface',
+      overviewText:
+        'Built for support operations, this case study focuses on reducing lookup latency and reducing context switching during live customer calls.',
+      impactHeading: 'Operational Lift',
+    },
 
     // Navigation
     backRoute: '/experience/west',
@@ -180,6 +192,18 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroCheck',
     primaryColor: 'blue',
+    styleVariant: 'split',
+    casePanel: {
+      eyebrow: 'IT Portal Evidence',
+      title: 'Consolidated tools, single workflow.',
+      status: 'enterprise',
+    },
+    sidebar: {
+      overviewEyebrow: 'Worksite Focus',
+      overviewText:
+        'This implementation replaced fragmented internal utility pages with a shared operational entry point that aligns support, tools, and work requests.',
+      impactHeading: 'Team Acceleration',
+    },
 
     // Navigation
     backRoute: '/experience/west',
@@ -246,6 +270,18 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     backgroundGradient: 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50',
     headerIcon: 'heroCircleStack',
     primaryColor: 'green',
+    styleVariant: 'split',
+    casePanel: {
+      eyebrow: 'Infrastructure Evidence',
+      title: 'Real-time systems and search telemetry.',
+      status: 'ops',
+    },
+    sidebar: {
+      overviewEyebrow: 'Operational View',
+      overviewText:
+        'The application unified database discovery and SSIS operations into a single workflow with rapid lookup, reducing failure investigation overhead.',
+      impactHeading: 'Operational Reliability',
+    },
 
     // Navigation
     backRoute: '/experience/west',
