@@ -14,7 +14,6 @@ import {
   heroRocketLaunch,
 } from '@ng-icons/heroicons/outline';
 import { getAllCompanies, getCompanyWithCalculatedStats } from '../../shared/data/companies';
-import { GITHUB_METRICS } from '../../shared/data/github-metrics';
 import { getPersonalProfile } from '../../shared/data/profile';
 import { getPersonalSkills } from '../../shared/data/skills';
 import { getAllTechnologyNames } from '../../shared/data/technologies';
@@ -44,7 +43,6 @@ export class AboutComponent {
   protected readonly profile = getPersonalProfile();
   protected readonly currentCompany = getCompanyWithCalculatedStats('nri-na');
   protected readonly skills = getPersonalSkills();
-  protected readonly githubMetrics = GITHUB_METRICS;
 
   protected readonly yearsOfExperience = computed(() => {
     // Use centralized years of experience from profile
@@ -69,23 +67,23 @@ export class AboutComponent {
   protected readonly proofPoints = computed(() => [
     {
       value: `${this.yearsOfExperience()}+`,
-      label: 'years in software and technology',
-      detail: 'from hands-on support to solution architecture',
+      label: 'years across software and support',
+      detail: 'from repair benches and help desks into enterprise architecture',
     },
     {
-      value: '$500K+',
-      label: 'annual licensing removed',
-      detail: 'through MuleSoft-to-.NET modernization work',
+      value: 'NRI-NA',
+      label: 'current consulting home',
+      detail: `${this.currentCompany.position} in the ${this.currentCompany.department}`,
     },
     {
-      value: `${this.githubMetrics.totalMergedPrs}+`,
-      label: 'merged open-source PRs',
-      detail: `Nix ecosystem contribution index as of ${this.githubMetrics.asOf}`,
+      value: 'WI',
+      label: 'based in Fox Crossing',
+      detail: 'remote-friendly collaborator with Midwest roots and practical communication habits',
     },
     {
       value: `${this.portfolioStats().totalTechnologies}+`,
-      label: 'technologies represented',
-      detail: 'across enterprise, open-source, and personal systems',
+      label: 'tools I can discuss honestly',
+      detail: 'spanning enterprise delivery, Nix systems, editor workflows, and web applications',
     },
   ]);
 
