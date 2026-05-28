@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
@@ -147,17 +147,17 @@ import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.co
   styleUrl: './project-detail-template.component.scss',
 })
 export class ProjectDetailTemplateComponent {
-  @Input({ required: true }) config!: ProjectDetailConfig;
+  readonly config = input.required<ProjectDetailConfig>();
 
   get techTags(): TechTag[] {
-    return this.config.technologies.map((tech) => ({
+    return this.config().technologies.map((tech) => ({
       name: tech.name,
-      color: tech.color || this.config.primaryColor,
+      color: tech.color || this.config().primaryColor,
     }));
   }
 
   get features(): Feature[] {
-    return this.config.features.map((feature) => ({
+    return this.config().features.map((feature) => ({
       icon: feature.icon,
       title: feature.title,
       description: feature.description,
@@ -165,8 +165,9 @@ export class ProjectDetailTemplateComponent {
   }
 
   get stats(): Stat[] {
-    if (!this.config.quickStats) return [];
-    return this.config.quickStats.map((stat) => ({
+    const config = this.config();
+    if (!config.quickStats) return [];
+    return config.quickStats.map((stat) => ({
       icon: stat.icon,
       value: stat.value,
       label: stat.label,
@@ -174,7 +175,7 @@ export class ProjectDetailTemplateComponent {
   }
 
   getTechTagsForHeader(): TechTag[] {
-    return this.config.technologies.map((tech) => ({
+    return this.config().technologies.map((tech) => ({
       name: tech.name,
       color: 'white', // White color for header tags on colored background
     }));

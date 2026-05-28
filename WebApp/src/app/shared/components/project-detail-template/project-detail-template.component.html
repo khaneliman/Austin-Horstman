@@ -2,10 +2,10 @@
 <div class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
   <!-- Project Navigation Header -->
   <app-project-nav-header
-    [backRoute]="config.backRoute"
-    [backLabel]="config.backLabel"
-    [companyKey]="config.companyKey"
-    [hoverColor]="config.hoverColor"
+    [backRoute]="config().backRoute"
+    [backLabel]="config().backLabel"
+    [companyKey]="config().companyKey"
+    [hoverColor]="config().hoverColor"
   ></app-project-nav-header>
 
   <div class="max-w-6xl mx-auto px-6 py-12">
@@ -17,35 +17,35 @@
         <div
           [class]="
             'relative bg-gradient-to-r from-' +
-            config.primaryColor +
+            config().primaryColor +
             '-600 to-' +
-            config.primaryColor +
+            config().primaryColor +
             '-700 px-8 pt-12 pb-8'
           "
         >
           <!-- Decorative elements -->
           <div
-            [class]="'absolute top-4 right-4 w-20 h-20 bg-' + config.primaryColor + '/10 rounded-full blur-xl'"
+            [class]="'absolute top-4 right-4 w-20 h-20 bg-' + config().primaryColor + '/10 rounded-full blur-xl'"
           ></div>
           <div
-            [class]="'absolute bottom-4 left-4 w-16 h-16 bg-' + config.primaryColor + '/10 rounded-full blur-lg'"
+            [class]="'absolute bottom-4 left-4 w-16 h-16 bg-' + config().primaryColor + '/10 rounded-full blur-lg'"
           ></div>
 
           <div class="relative z-10 text-center">
             <div [class]="'w-24 h-24 bg-white/20 rounded-2xl p-4 mx-auto mb-6 shadow-lg border border-white/20'">
-              <ng-icon [name]="config.headerIcon" size="2rem" class="text-white w-full h-full"></ng-icon>
+              <ng-icon [name]="config().headerIcon" size="2rem" class="text-white w-full h-full"></ng-icon>
             </div>
             <h1 class="text-4xl font-bold text-white mb-4">
-              {{ config.title }}
+              {{ config().title }}
             </h1>
             <p class="text-white/90 text-lg leading-relaxed max-w-2xl mx-auto">
-              {{ config.description }}
+              {{ config().description }}
             </p>
 
             <!-- Technology Tags -->
             <div class="mt-6">
               <div class="flex flex-wrap justify-center gap-3">
-                @for (tech of config.technologies; track tech.name) {
+                @for (tech of config().technologies; track tech.name) {
                   <span class="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium">
                     {{ tech.name }}
                   </span>
@@ -58,13 +58,13 @@
     </div>
 
     <!-- Quick Stats Section -->
-    @if (config.showQuickStats && config.quickStats) {
+    @if (config().showQuickStats && config().quickStats) {
       <div class="mb-12">
         <app-stats-grid
           [stats]="stats"
-          [color]="config.primaryColor"
+          [color]="config().primaryColor"
           [containerBackground]="true"
-          [containerColor]="config.primaryColor"
+          [containerColor]="config().primaryColor"
           [columns]="4"
           [colorVariation]="false"
           itemSize="md"
@@ -77,40 +77,40 @@
     <!-- Project Overview Section -->
     <app-base-card variant="large" additionalClasses="mb-8">
       <app-section-header
-        [title]="config.overview.title"
-        [icon]="config.overview.icon || 'heroBookOpen'"
-        [iconColor]="config.primaryColor"
+        [title]="config().overview.title"
+        [icon]="config().overview.icon || 'heroBookOpen'"
+        [iconColor]="config().primaryColor"
         level="h2"
         marginBottom="6"
       >
       </app-section-header>
 
-      @if (config.overview.type === 'html') {
-        <div [innerHTML]="config.overview.content"></div>
-      } @else if (config.overview.type === 'list') {
+      @if (config().overview.type === 'html') {
+        <div [innerHTML]="config().overview.content"></div>
+      } @else if (config().overview.type === 'list') {
         <div>
           <app-bullet-list
-            [items]="getListItems(config.overview.items)"
+            [items]="getListItems(config().overview.items)"
             bulletStyle="dot"
             size="md"
             spacing="normal"
-            [colorTheme]="config.primaryColor"
+            [colorTheme]="config().primaryColor"
           ></app-bullet-list>
         </div>
       } @else {
         <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-          {{ config.overview.content }}
+          {{ config().overview.content }}
         </p>
       }
     </app-base-card>
 
     <!-- Key Features Section -->
-    @if (config.features.length > 0) {
+    @if (config().features.length > 0) {
       <app-base-card variant="large" additionalClasses="mb-8">
         <app-section-header
           title="Key Features"
           icon="heroSparkles"
-          [iconColor]="config.primaryColor"
+          [iconColor]="config().primaryColor"
           level="h2"
           marginBottom="6"
         >
@@ -118,8 +118,8 @@
 
         <app-feature-grid
           [features]="features"
-          [columns]="config.gridColumns === 'single' ? 1 : 2"
-          [iconColor]="config.primaryColor"
+          [columns]="config().gridColumns === 'single' ? 1 : 2"
+          [iconColor]="config().primaryColor"
           itemSize="md"
           gap="6"
         >
@@ -128,12 +128,12 @@
     }
 
     <!-- Technical Details Sections -->
-    @for (section of config.technicalDetails; track section.title) {
+    @for (section of config().technicalDetails; track section.title) {
       <app-base-card variant="large" additionalClasses="mb-8">
         <app-section-header
           [title]="section.title"
           [icon]="section.icon || 'heroCog6Tooth'"
-          [iconColor]="config.primaryColor"
+          [iconColor]="config().primaryColor"
           level="h2"
           marginBottom="6"
         >
@@ -148,7 +148,7 @@
               bulletStyle="dot"
               size="md"
               spacing="normal"
-              [colorTheme]="config.primaryColor"
+              [colorTheme]="config().primaryColor"
             ></app-bullet-list>
           </div>
         } @else {
@@ -160,12 +160,12 @@
     }
 
     <!-- Special Sections -->
-    @for (section of config.specialSections; track section.title) {
+    @for (section of config().specialSections; track section.title) {
       <app-base-card variant="large" additionalClasses="mb-8">
         <app-section-header
           [title]="section.title"
           [icon]="section.icon || 'heroLightBulb'"
-          [iconColor]="config.primaryColor"
+          [iconColor]="config().primaryColor"
           level="h2"
           marginBottom="6"
         >
@@ -180,7 +180,7 @@
               bulletStyle="dot"
               size="md"
               spacing="normal"
-              [colorTheme]="config.primaryColor"
+              [colorTheme]="config().primaryColor"
             ></app-bullet-list>
           </div>
         } @else {
@@ -192,12 +192,12 @@
     }
 
     <!-- Technology Stack -->
-    @if (config.showTechnicalHighlights) {
+    @if (config().showTechnicalHighlights) {
       <app-base-card variant="large" additionalClasses="mb-8">
         <app-section-header
           title="Technology Stack"
           icon="heroCodeBracket"
-          [iconColor]="config.primaryColor"
+          [iconColor]="config().primaryColor"
           level="h2"
           marginBottom="6"
         >
@@ -208,19 +208,19 @@
     }
 
     <!-- Project Impact Section -->
-    @if (config.showImpactSection && config.impact) {
+    @if (config().showImpactSection && config().impact) {
       <div
         [class]="
           'bg-gradient-to-r from-' +
-          config.primaryColor +
+          config().primaryColor +
           '-600 to-' +
-          config.primaryColor +
+          config().primaryColor +
           '-700 rounded-2xl p-8 text-white text-center'
         "
       >
         <h2 class="text-2xl font-bold mb-4 text-white text-center">Project Impact</h2>
-        <p [class]="'text-lg text-' + config.primaryColor + '-100 leading-relaxed max-w-2xl mx-auto'">
-          {{ config.impact }}
+        <p [class]="'text-lg text-' + config().primaryColor + '-100 leading-relaxed max-w-2xl mx-auto'">
+          {{ config().impact }}
         </p>
       </div>
     }
