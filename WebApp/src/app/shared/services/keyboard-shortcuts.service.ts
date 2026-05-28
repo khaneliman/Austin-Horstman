@@ -65,7 +65,33 @@ export class KeyboardShortcutsService {
     if (event.key === '?') {
       event.preventDefault();
       this.help.toggle();
+      return;
     }
+
+    this.maybeWakeGrid(event);
+  }
+
+  /**
+   * When the user presses an arrow key on a page that has a card grid, focus
+   * the first card so the grid's keyboard nav directive takes over. Only fires
+   * when nothing specific is focused (body or <main>), so it does not steal
+   * arrow keys from inputs, links, the navbar, or overlays.
+   */
+  private maybeWakeGrid(event: KeyboardEvent): void {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowRight') return;
+    if (this.palette.isOpen() || this.help.isOpen()) return;
+
+    const active = this.document.activeElement;
+    const tag = active?.tagName;
+    const isUntargeted = !active || tag === 'BODY' || tag === 'MAIN';
+    if (!isUntargeted) return;
+
+    const firstCard = this.document.querySelector<HTMLElement>('[data-card-anchor]');
+    if (!firstCard) return;
+
+    event.preventDefault();
+    firstCard.focus();
+    firstCard.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
   private clearPrefix(): void {
