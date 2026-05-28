@@ -8,10 +8,18 @@ import {
   heroGlobeAlt,
   heroLightBulb,
 } from '@ng-icons/heroicons/outline';
+import { GITHUB_METRICS } from '../../../shared/data/github-metrics';
 import {
   EnhancedFeature,
   EnhancedFeatureCardComponent,
 } from '../../../shared/components/enhanced-feature-card/enhanced-feature-card.component';
+
+const getRepoMergedPrs = (repoName: string): number =>
+  GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === repoName)?.mergedPrs ?? 0;
+
+const homeManagerPrs = getRepoMergedPrs('Home Manager');
+const nixvimPrs = getRepoMergedPrs('Nixvim');
+const nixpkgsPrs = getRepoMergedPrs('Nixpkgs');
 
 @Component({
   selector: 'app-technology',
@@ -83,8 +91,7 @@ export class TechnologyComponent {
   emergingTechnologies: EnhancedFeature[] = [
     {
       title: 'Nix Ecosystem',
-      description:
-        'Active maintainer in Nixpkgs, Home Manager, and Nixvim projects. Specializes in declarative system configuration and reproducible builds.',
+      description: `Active maintainer/regular contributor across Nixpkgs, Home Manager, and Nixvim with ${homeManagerPrs}, ${nixvimPrs}, and ${nixpkgsPrs} merged PRs respectively (GitHub author search as of ${GITHUB_METRICS.asOf}). Focus on declarative environments, plugin/module quality, and reproducible builds.`,
       icon: 'heroLightBulb',
       badge: 'Maintainer',
       footer: 'Open Source • Declarative • Reproducible',

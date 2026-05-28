@@ -1,4 +1,11 @@
 import { PersonalProject } from '../components/personal-projects-grid/personal-projects-grid.component';
+import { GITHUB_METRICS } from './github-metrics';
+
+const [nixpkgsMetrics, homeManagerMetrics, nixvimMetrics] = [
+  GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Nixpkgs'),
+  GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Home Manager'),
+  GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Nixvim'),
+];
 
 export function generatePersonalProjectsGrid(): PersonalProject[] {
   return [
@@ -68,8 +75,7 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
     {
       id: 'nix-ecosystem',
       title: 'Nix Ecosystem Contributions',
-      description:
-        'Open source contributions and maintenance in the Nix ecosystem, focusing on declarative configuration management and reproducible builds',
+      description: `High-signal open source contribution set across Home Manager (${homeManagerMetrics?.mergedPrs ?? 0}), Nixvim (${nixvimMetrics?.mergedPrs ?? 0}), and Nixpkgs (${nixpkgsMetrics?.mergedPrs ?? 0}) with ${GITHUB_METRICS.totalMergedPrs} merged PRs (as indexed by GitHub author search) as of ${GITHUB_METRICS.asOf}.`,
       category: 'Open Source',
       technologies: ['Nix', 'Bash', 'GitHub Actions', 'GitHub App', 'Python', 'Neovim', 'Lua', 'Documentation'],
       featured: true,
@@ -80,29 +86,29 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
         {
           name: 'Home Manager',
           description:
-            'Designed and improved Nix modules for declarative user environment configuration. Refactored modules to support freeform configuration inputs.',
+            'Contributed module and workflow improvements for Home Manager, including legacy compatibility support and module reliability updates.',
           route: '/projects/personal/home-manager',
-          technologies: ['Nix', 'Github Actions', 'Python', 'Github Apps', 'Documentation'],
+          technologies: ['Nix', 'Github Actions', 'NixOS', 'Linux', 'Documentation'],
         },
         {
           name: 'Nixvim',
           description:
-            "Enhanced user experience for creating Neovim configurations using Nix's declarative approach. Created new plugin modules and resolved user experience issues.",
+            'Added new plugin modules (including AI/LSP and editor tooling integrations) and stabilized startup/runtime behavior in Nixvim.',
           route: '/projects/personal/nixvim',
-          technologies: ['Nix', 'Neovim', 'Lua', 'Github Actions', 'Python', 'Github Apps'],
+          technologies: ['Nix', 'Neovim', 'Lua', 'Github Actions'],
         },
         {
           name: 'Nixpkgs',
           description:
-            'Maintains packages and infrastructure for the Nix package manager. Specializes in Darwin (macOS) platform maintenance and package updates.',
+            'Handled package update bursts and metadata improvements across vimPlugins, yaziPlugins, and luaPackages, including updater and changelog workflows.',
           route: '/projects/personal/nixpkgs',
           technologies: ['Nix', 'macOS', 'Package Management'],
         },
       ],
       highlights: [
-        'Active maintainer in multiple Nix ecosystem projects',
-        'Contributed to improving developer experience',
-        'Focus on macOS platform compatibility',
+        `Contributed ${homeManagerMetrics?.mergedPrs ?? 0} Home Manager PRs, ${nixvimMetrics?.mergedPrs ?? 0} Nixvim PRs, and ${nixpkgsMetrics?.mergedPrs ?? 0} Nixpkgs PRs (as of ${GITHUB_METRICS.asOf}).`,
+        'Focused on contributor-facing quality improvements: stable release workflows, PR scaffolding, metadata consistency, and module reliability.',
+        'Expanded package and module reliability for macOS and Linux users via reproducible Nix-based workflows.',
       ],
     },
     {

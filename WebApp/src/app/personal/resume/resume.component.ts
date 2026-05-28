@@ -38,6 +38,7 @@ import {
 } from '../../shared/components/decorative-background/decorative-background.component';
 import { WaveSeparatorComponent } from '../../shared/components/wave-separator/wave-separator.component';
 import { CompanyInfo, getAllCompanies, getCompanyWithCalculatedStats } from '../../shared/data/companies';
+import { GITHUB_METRICS } from '../../shared/data/github-metrics';
 import { getResumeProjectCards } from '../../shared/data/projects';
 import {
   getAllTechnologyNames,
@@ -47,6 +48,16 @@ import {
   TechnologySkill,
 } from '../../shared/data/technologies';
 import { formatDateRange } from '../../shared/utils/date.utils';
+
+const getRepoMergedPrs = (repoName: string): number =>
+  GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === repoName)?.mergedPrs ?? 0;
+
+const nixpkgsMergedPrs = getRepoMergedPrs('Nixpkgs');
+const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 
 @Component({
   selector: 'app-resume',
@@ -276,7 +287,7 @@ export class ResumeComponent {
       {
         name: 'Home Manager',
         description:
-          'Nix-based user environment configuration system for managing dotfiles, packages, and system configurations declaratively. Contributed modules and improvements to the ecosystem.',
+          'Maintainer-level contributor to Home Manager with merged PRs around SSH, Hyprland, and module reliability (stable release and CI maintenance included).',
         icon: 'heroCodeBracket',
         status: 'success' as const,
         technologies: ['Nix', 'Open Source', 'Configuration Management'],
@@ -286,7 +297,7 @@ export class ResumeComponent {
       {
         name: 'NixVim',
         description:
-          'Neovim configuration framework using Nix module system for reproducible editor setups. Enables declarative plugin management and configuration.',
+          'Contributor to Nixvim adding AI/LSP-focused plugin modules and runtime fixes like event-safe LSP attach handling and VIMINIT output loading.',
         icon: 'heroCodeBracket',
         status: 'primary' as const,
         technologies: ['Nix', 'Neovim', 'Lua'],
@@ -295,8 +306,7 @@ export class ResumeComponent {
       },
       {
         name: 'Nixpkgs',
-        description:
-          'Package repository for Nix package manager with contributions to Darwin (macOS) packages, build scripts, and package definitions for the Nix ecosystem.',
+        description: `High-volume package maintainer in Nixpkgs (${nixpkgsMergedPrs} merged PRs) as of ${nixpkgsUpdatedAt}, driving package updates, metadata consistency, and Lua/Neovim plugin health.`,
         icon: 'heroCodeBracket',
         status: 'primary' as const,
         technologies: ['Nix', 'Darwin', 'Package Management'],
