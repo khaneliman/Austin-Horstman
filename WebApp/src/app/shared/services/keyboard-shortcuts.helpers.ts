@@ -40,6 +40,13 @@ export const SHORTCUT_GROUPS: readonly ShortcutGroup[] = [
     ],
   },
   {
+    label: 'Scroll',
+    bindings: [
+      { sequence: 'g g', description: 'Jump to top of page' },
+      { sequence: 'G', description: 'Jump to bottom of page' },
+    ],
+  },
+  {
     label: 'Project grids',
     bindings: [
       { sequence: '↑ ↓ ← →', description: 'Move between cards when one is focused' },

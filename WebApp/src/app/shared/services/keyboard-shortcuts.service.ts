@@ -40,8 +40,14 @@ export class KeyboardShortcutsService {
     if (isEditableTarget(event.target)) return;
 
     if (this.pendingPrefix === 'g') {
-      const route = resolveGPrefixRoute(event.key);
+      const key = event.key;
       this.clearPrefix();
+      if (key === 'g') {
+        event.preventDefault();
+        this.scrollToTop();
+        return;
+      }
+      const route = resolveGPrefixRoute(key);
       if (route) {
         event.preventDefault();
         void this.router.navigateByUrl(route);
@@ -53,6 +59,12 @@ export class KeyboardShortcutsService {
       event.preventDefault();
       this.pendingPrefix = 'g';
       this.pendingTimer = setTimeout(() => this.clearPrefix(), SHORTCUT_PREFIX_TIMEOUT_MS);
+      return;
+    }
+
+    if (event.key === 'G') {
+      event.preventDefault();
+      this.scrollToBottom();
       return;
     }
 
@@ -92,6 +104,17 @@ export class KeyboardShortcutsService {
     event.preventDefault();
     firstCard.focus();
     firstCard.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
+  private scrollToTop(): void {
+    const win = this.document.defaultView;
+    win?.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  private scrollToBottom(): void {
+    const win = this.document.defaultView;
+    const height = this.document.documentElement.scrollHeight;
+    win?.scrollTo({ top: height, behavior: 'smooth' });
   }
 
   private clearPrefix(): void {
