@@ -55,6 +55,15 @@ export const SHORTCUT_GROUPS: readonly ShortcutGroup[] = [
       { sequence: 'Enter', description: 'Open the focused card' },
     ],
   },
+  {
+    label: 'Link hints',
+    bindings: [
+      { sequence: 'f', description: 'Show hint labels on every visible link' },
+      { sequence: 'a–l', description: 'Type the label to follow that link' },
+      { sequence: 'Backspace', description: 'Undo the last typed character' },
+      { sequence: 'Esc', description: 'Cancel hints' },
+    ],
+  },
 ];
 
 export const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = SHORTCUT_GROUPS.flatMap((group) => group.bindings);
