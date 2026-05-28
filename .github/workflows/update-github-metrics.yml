@@ -1,0 +1,51 @@
+name: Update GitHub Metrics
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Update contribution metrics
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: khaneliman
+        run: |
+          node .github/scripts/update-github-metrics.mjs
+
+      - name: Check for changed files
+        id: changes
+        run: |
+          if git diff --quiet -- WebApp/src/app/shared/data/github-metrics.ts; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create pull request with updated metrics
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update github contribution metrics'
+          title: 'chore: refresh GitHub contribution metrics'
+          body: |
+            This PR updates contribution counts and the "as of" date from GitHub.
+
+            Updated files:
+            - `WebApp/src/app/shared/data/github-metrics.ts`
+
+            Both portfolio summary and resume copy now read values from this generated metrics file.
+          branch: chore/update-github-metrics
+          add-paths: |
+            WebApp/src/app/shared/data/github-metrics.ts
+          delete-branch: true
