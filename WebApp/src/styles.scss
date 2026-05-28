@@ -56,6 +56,42 @@ button,
   background: rgb(20 184 166 / 0.26);
 }
 
+/* Editorial rule: hairline divider with a centered teal diamond marker.
+   Use within long sections where wave-separator would be too dramatic. */
+.editorial-rule {
+  position: relative;
+  height: 1px;
+  margin: 2.5rem auto;
+  background: linear-gradient(to right, transparent, rgb(15 23 42 / 0.12) 30%, rgb(15 23 42 / 0.12) 70%, transparent);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #14b8a6;
+    transform: translate(-50%, -50%) rotate(45deg);
+    box-shadow: 0 0 0 4px var(--color-paper);
+  }
+}
+
+.dark .editorial-rule {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgb(248 250 252 / 0.16) 30%,
+    rgb(248 250 252 / 0.16) 70%,
+    transparent
+  );
+
+  &::after {
+    background: #5eead4;
+    box-shadow: 0 0 0 4px var(--color-night);
+  }
+}
+
 /* Print: hide app chrome and force ink-on-paper rendering globally. */
 @media print {
   app-navbar,
