@@ -55,3 +55,31 @@ button,
 ::selection {
   background: rgb(20 184 166 / 0.26);
 }
+
+/* Print: hide app chrome and force ink-on-paper rendering globally. */
+@media print {
+  app-navbar,
+  app-footer,
+  app-command-palette,
+  app-project-nav-header {
+    display: none !important;
+  }
+
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  body * {
+    text-shadow: none !important;
+  }
+
+  main {
+    background: white !important;
+  }
+}

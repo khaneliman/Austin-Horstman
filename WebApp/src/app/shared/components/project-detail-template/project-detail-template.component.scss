@@ -209,3 +209,64 @@
 .dark .project-detail-template__impact-label {
   color: #d4d4d8;
 }
+
+@media print {
+  // Scoped layout tweaks for the case-study body. Global chrome
+  // (navbar, footer, command palette) is hidden from styles.scss
+  // because component view encapsulation cannot reach those elements.
+  .project-detail-template__progress,
+  .project-detail-template__frame,
+  .project-detail-template__callout {
+    display: none !important;
+  }
+
+  .project-detail-template {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+
+    .project-detail-template__hero-grid,
+    .project-detail-template__body-grid {
+      display: block !important;
+    }
+
+    .project-detail-template__side-area {
+      position: static !important;
+      margin-bottom: 1.25rem;
+
+      > * {
+        page-break-inside: avoid;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    app-base-card {
+      display: block;
+      page-break-inside: avoid;
+      border-top: 1px solid #d4d4d8;
+      padding-top: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .project-detail-template__evidence-panel,
+    .project-detail-template__side-card,
+    .project-detail-template__impact,
+    .project-detail-template__takeaways {
+      border: 1px solid #d4d4d8 !important;
+      border-left-width: 3px !important;
+      page-break-inside: avoid;
+      box-shadow: none !important;
+    }
+
+    h1,
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+
+    a {
+      color: black !important;
+      text-decoration: underline;
+    }
+  }
+}
