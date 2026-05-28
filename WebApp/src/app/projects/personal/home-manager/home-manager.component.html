@@ -1,197 +1,120 @@
-<!-- Home Manager Project Profile -->
-<div class="relative pt-16">
-  <!-- Project profile card -->
-  <div
-    class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden max-w-5xl mx-auto"
-  >
-    <!-- Header section -->
-    <div class="relative bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 px-8 pt-12 pb-8">
-      <!-- Decorative elements -->
-      <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
-
-      <!-- Project logo and info -->
-      <div class="relative z-10 text-center">
-        <div class="inline-block relative group">
-          <a href="https://github.com/nix-community/home-manager" target="_blank" class="block">
-            <div
-              class="w-32 h-32 bg-white rounded-full p-6 mx-auto mb-6 shadow-2xl border-4 border-white group-hover:border-blue-400 transition-colors duration-300"
-            >
-              <ng-icon name="heroHome" size="4rem" class="text-blue-600 w-full h-full"></ng-icon>
-            </div>
-          </a>
-
-          <!-- Floating external link icon -->
-          <div
-            class="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg"
-          >
-            <ng-icon name="heroArrowTopRightOnSquare" size="1rem" class="text-white"></ng-icon>
-          </div>
-        </div>
-
-        <h2 class="text-4xl font-bold text-white mb-6">Home Manager</h2>
-
-        <!-- Project details -->
-        <div class="flex flex-wrap justify-center gap-6 text-gray-300">
-          <div class="flex items-center space-x-2">
-            <ng-icon name="heroGlobeAlt" size="1rem" class="text-blue-400"></ng-icon>
-            <span>Nix Community</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <ng-icon name="heroUser" size="1rem" class="text-gray-400"></ng-icon>
-            <span>Open Source Maintainer</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <ng-icon name="heroCommandLine" size="1rem" class="text-indigo-300"></ng-icon>
-            <span>Nix / System Configuration</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <ng-icon name="heroCalendar" size="1rem" class="text-gray-400"></ng-icon>
-            <span>October 2024 - Current</span>
-          </div>
-        </div>
-      </div>
+<app-personal-case-study-shell
+  eyebrow="Open Source"
+  [title]="title"
+  [description]="description"
+  icon="heroHome"
+  [repositoryUrl]="repositoryUrl"
+  evidenceTitle="Maintenance and workflow modernization."
+  [meta]="evidence"
+  [stats]="sideStats"
+  [technologies]="technologies"
+>
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-white">
+        <ng-icon name="heroHome" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">About Home Manager</h2>
     </div>
+    <p class="mt-5 leading-8 text-slate-700 dark:text-slate-300">
+      Home Manager is a declarative system for user environments built on Nix modules. It lets users reproduce their
+      shell, app, and service settings consistently across machines with reviewable, versioned configuration
+      definitions.
+    </p>
+  </article>
 
-    <!-- Stats section -->
-    <div
-      class="px-8 py-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-b border-gray-100 dark:border-gray-700"
-    >
-      <div class="grid grid-cols-3 gap-6">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-blue-800 dark:text-blue-400 mb-1">Maintainer</div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Role</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">Nix</div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Technology</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-1">Active</div>
-          <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Status</div>
-        </div>
-      </div>
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-700 text-white">
+        <ng-icon name="heroCodeBracket" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Contributions and Focus Areas</h2>
     </div>
+    <div class="mt-5">
+      <app-bullet-list
+        [items]="contributionsAndFocusAreas"
+        bulletStyle="dot"
+        size="sm"
+        spacing="normal"
+        colorTheme="teal"
+      ></app-bullet-list>
+    </div>
+  </article>
 
-    <!-- Content section -->
-    <div class="px-8 py-12">
-      <div class="max-w-4xl mx-auto">
-        <!-- Project overview -->
-        <div
-          class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-8"
-        >
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-            <ng-icon name="heroHome" size="1.25rem" class="text-blue-700 dark:text-blue-400 mr-3"></ng-icon>
-            About Home Manager
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            Home Manager is a system for managing a user environment using the Nix package manager. It allows users to
-            declaratively configure their dotfiles, applications, and user-specific settings using Nix's powerful module
-            system. This provides reproducible and version-controlled user environments that can be easily shared across
-            multiple machines.
-          </p>
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500 text-slate-950">
+        <ng-icon name="heroCog6Tooth" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Operational Themes</h2>
+    </div>
+    <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <section class="border-l-4 border-teal-600 bg-[#f7f3ea] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">Activation Stability</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Reduced brittle startup behavior in mixed shell and service environments through targeted module fixes.
+        </p>
+      </section>
+      <section class="border-l-4 border-teal-600 bg-[#f7f3ea] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">Migration Paths</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Added compatibility patterns and explicit migration guidance for legacy configuration formats.
+        </p>
+      </section>
+      <section class="border-l-4 border-teal-600 bg-[#f7f3ea] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">Module Ergonomics</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Improved module integration for browser, networking, and desktop-facing options.
+        </p>
+      </section>
+      <section class="border-l-4 border-teal-600 bg-[#f7f3ea] p-4 dark:bg-slate-950">
+        <h3 class="font-bold text-slate-950 dark:text-white">CI and Review Throughput</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          Split CI and improved module test execution to make high-volume review cycles quicker and more reliable.
+        </p>
+      </section>
+    </div>
+  </article>
 
-          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-blue-100 dark:border-gray-600">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 flex items-center">
-              <ng-icon name="heroCodeBracket" size="1rem" class="text-blue-500 dark:text-blue-400 mr-2"></ng-icon>
-              My Contributions & Focus Areas
-            </h4>
-            <app-bullet-list
-              [items]="contributionsAndFocusAreas"
-              bulletStyle="dot"
-              size="sm"
-              spacing="normal"
-              colorTheme="blue"
-            ></app-bullet-list>
-          </div>
-        </div>
-
-        <div
-          class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-blue-100 dark:border-gray-600 shadow-sm mb-8"
-        >
-          <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-            <ng-icon name="heroCodeBracket" size="1rem" class="text-blue-700 dark:text-blue-400 mr-2"></ng-icon>
-            Representative Merged PRs (GitHub)
-          </h4>
-          <ul class="space-y-3">
-            @for (pr of notablePullRequests; track pr.number) {
-              <li>
-                <a
-                  class="text-sm font-medium text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-200 underline decoration-blue-300 dark:decoration-blue-500"
-                  [href]="pr.url"
-                  target="_blank"
-                >
-                  PR #{{ pr.number }} · {{ pr.mergedAt }} — {{ pr.title }}
-                </a>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                  {{ pr.impact }}
-                </p>
-              </li>
-            }
-          </ul>
-        </div>
-
-        <!-- Technical Details -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-600 shadow-sm">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-              <ng-icon name="heroCog6Tooth" size="1rem" class="text-indigo-500 dark:text-indigo-400 mr-2"></ng-icon>
-              Technologies Used
-            </h4>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium"
-                >Nix</span
-              >
-              <span
-                class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-sm font-medium"
-                >NixOS Module System</span
-              >
-              <span
-                class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium"
-                >Shell Scripting</span
-              >
-              <span
-                class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm font-medium"
-                >System Administration</span
-              >
-            </div>
-          </div>
-
-          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-600 shadow-sm">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
-              <ng-icon name="heroUsers" size="1rem" class="text-green-500 dark:text-green-400 mr-2"></ng-icon>
-              Impact & Community
-            </h4>
-            <app-bullet-list
-              [items]="impactAndCommunity"
-              bulletStyle="dot"
-              size="sm"
-              spacing="normal"
-              colorTheme="blue"
-            ></app-bullet-list>
-          </div>
-        </div>
-
-        <!-- Actions -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-700 text-white">
+        <ng-icon name="heroUsers" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Representative Merged PRs</h2>
+    </div>
+    <ul class="mt-6 divide-y divide-stone-200 dark:divide-slate-800">
+      @for (pr of notablePullRequests; track pr.number) {
+        <li class="py-4 first:pt-0 last:pb-0">
           <a
-            href="https://github.com/nix-community/home-manager"
+            class="font-bold text-teal-800 underline decoration-teal-300 underline-offset-4 hover:text-teal-950 dark:text-teal-200 dark:decoration-teal-500 dark:hover:text-teal-100"
+            [href]="pr.url"
             target="_blank"
-            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-700 to-indigo-600 hover:from-blue-800 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            rel="noopener noreferrer"
           >
-            <ng-icon name="heroArrowTopRightOnSquare" size="1rem" class="mr-3"></ng-icon>
-            <span>View on GitHub</span>
+            PR #{{ pr.number }} · {{ pr.mergedAt }} · {{ pr.title }}
           </a>
+          <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ pr.impact }}</p>
+        </li>
+      }
+    </ul>
+  </article>
 
-          <a
-            routerLink="/projects/personal"
-            class="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-          >
-            <ng-icon name="heroHome" size="1rem" class="mr-3"></ng-icon>
-            <span>Back to Projects</span>
-          </a>
-        </div>
-      </div>
+  <article class="border border-stone-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+    <div class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-white">
+        <ng-icon name="heroWrenchScrewdriver" size="1rem"></ng-icon>
+      </span>
+      <h2 class="text-2xl font-black text-slate-950 dark:text-white">Impact and Community</h2>
     </div>
-  </div>
-</div>
+    <div class="mt-5">
+      <app-bullet-list
+        [items]="impactAndCommunity"
+        bulletStyle="dot"
+        size="sm"
+        spacing="normal"
+        colorTheme="teal"
+      ></app-bullet-list>
+    </div>
+  </article>
+</app-personal-case-study-shell>
