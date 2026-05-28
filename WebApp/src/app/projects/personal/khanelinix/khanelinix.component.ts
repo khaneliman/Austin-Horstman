@@ -1,25 +1,90 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroArrowTopRightOnSquare,
   heroCalendar,
   heroCodeBracket,
   heroCog6Tooth,
-  heroCommandLine,
   heroComputerDesktop,
   heroGlobeAlt,
+  heroUsers,
   heroHome,
   heroShieldCheck,
-  heroStar,
-  heroUser,
-  heroUsers,
+  heroWrenchScrewdriver,
 } from '@ng-icons/heroicons/outline';
 import { BulletListComponent, BulletListItem } from '../../../shared/components/bullet-list/bullet-list.component';
 import {
-  BackgroundElement,
-  DecorativeBackgroundComponent,
-} from '../../../shared/components/decorative-background/decorative-background.component';
+  PersonalCaseStudyMeta,
+  PersonalCaseStudyShellComponent,
+  PersonalCaseStudyStat,
+} from '../shared/personal-case-study-shell.component';
+
+const keyFeatures: BulletListItem[] = [
+  {
+    text: 'Modular system configuration across macOS, NixOS, and Windows Subsystem for Linux (WSL).',
+  },
+  {
+    text: 'Comprehensive Home Manager configurations for reproducible user environments.',
+  },
+  {
+    text: 'Custom Neovim configuration integration (Khanelivim).',
+  },
+  {
+    text: 'Secret management with sops-nix for secure configuration.',
+  },
+  {
+    text: 'Continuous integration and caching support with Cachix.',
+  },
+  {
+    text: 'Organization through flake-parts for modular maintainability.',
+  },
+];
+
+const technicalHighlights: BulletListItem[] = [
+  {
+    text: 'Advanced declarative system configuration with Nix flakes.',
+  },
+  {
+    text: 'Cross-platform consistency across Linux/macOS/WSL boundaries.',
+  },
+  {
+    text: 'Custom library functions extending nixpkgs and system behavior.',
+  },
+  {
+    text: 'Reproducible development environment setup for day-to-day workflows.',
+  },
+  {
+    text: 'Modern desktop configurations using Hyprland and Wayland.',
+  },
+];
+
+const supportedPlatforms: BulletListItem[] = [
+  {
+    text: 'macOS with nix-darwin integration.',
+  },
+  {
+    text: 'NixOS with custom system configurations.',
+  },
+  {
+    text: 'Windows Subsystem for Linux (WSL).',
+  },
+  {
+    text: 'Consistent Home Manager behavior across all supported systems.',
+  },
+];
+
+const khanelinixTechnologies = [
+  'Nix',
+  'NixOS',
+  'Nix-Darwin',
+  'Home Manager',
+  'Flake Parts',
+  'Hyprland',
+  'Wayland',
+  'sops-nix',
+  'Cachix',
+];
+
+const khanelinixStarted = 'March 2023';
 
 @Component({
   selector: 'app-khanelinix',
@@ -27,93 +92,67 @@ import {
   templateUrl: './khanelinix.component.html',
   styleUrls: ['./khanelinix.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
+  imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],
   providers: [
     provideIcons({
-      heroArrowTopRightOnSquare,
       heroCodeBracket,
       heroCog6Tooth,
-      heroCommandLine,
+      heroComputerDesktop,
       heroGlobeAlt,
       heroHome,
-      heroUser,
-      heroCalendar,
-      heroStar,
-      heroUsers,
-      heroComputerDesktop,
       heroShieldCheck,
+      heroCalendar,
+      heroUsers,
+      heroWrenchScrewdriver,
     }),
   ],
 })
 export class KhanelinixComponent {
-  backgroundElements: BackgroundElement[] = [
+  readonly title = 'Khanelinix';
+  readonly description =
+    'A personal Nix system that unifies workstation and user environment management across macOS, NixOS, and WSL with explicit modular boundaries.';
+  readonly repositoryUrl = 'https://github.com/khaneliman/khanelinix';
+  readonly technologies = khanelinixTechnologies;
+
+  readonly evidence: PersonalCaseStudyMeta[] = [
     {
-      size: 'lg',
-      position: 'top-4 right-4',
-      color: 'violet-500',
-      opacity: 10,
-      blur: 'xl',
+      label: 'Platforms',
+      value: `${supportedPlatforms.length}`,
+      icon: 'heroGlobeAlt',
     },
     {
-      size: 'md',
-      position: 'bottom-4 left-4',
-      color: 'purple-500',
-      opacity: 10,
-      blur: 'lg',
+      label: 'Configuration Scope',
+      value: 'System + User',
+      icon: 'heroHome',
+    },
+    {
+      label: 'Primary Domain',
+      value: 'Infrastructure',
+      icon: 'heroCodeBracket',
+    },
+    {
+      label: 'Started',
+      value: khanelinixStarted,
+      icon: 'heroCalendar',
     },
   ];
 
-  keyFeatures: BulletListItem[] = [
+  readonly sideStats: PersonalCaseStudyStat[] = [
     {
-      text: 'Modular system configuration across macOS, NixOS, and WSL platforms',
+      label: 'Systems Focus',
+      value: `${khanelinixTechnologies.length} technologies selected to support a consistent multi-platform workflow.`,
     },
     {
-      text: 'Comprehensive Home Manager configurations for reproducible user environments',
+      label: 'Design Direction',
+      value: 'Modular flakes and reusable patterns to keep environments predictable across OS boundaries.',
     },
     {
-      text: 'Custom Neovim configuration integration (Khanelivim)',
-    },
-    {
-      text: 'Secret management with sops-nix for secure configuration',
-    },
-    {
-      text: 'Continuous integration with Cachix for binary caching',
-    },
-    {
-      text: 'Organized using flake-parts for maximum modularity and maintainability',
+      label: 'Practical Impact',
+      value: 'A single configuration model for desktop, terminal, and dotfiles that travels with your tools.',
     },
   ];
 
-  technicalHighlights: BulletListItem[] = [
-    {
-      text: 'Advanced declarative system configuration with Nix flakes',
-    },
-    {
-      text: 'Cross-platform compatibility and consistency',
-    },
-    {
-      text: 'Custom library functions extending nixpkgs functionality',
-    },
-    {
-      text: 'Reproducible development environment setup',
-    },
-    {
-      text: 'Modern desktop configurations with Hyprland and Wayland',
-    },
-  ];
-
-  supportedPlatforms: BulletListItem[] = [
-    {
-      text: 'macOS with nix-darwin integration',
-    },
-    {
-      text: 'NixOS with custom system configurations',
-    },
-    {
-      text: 'Windows Subsystem for Linux (WSL)',
-    },
-    {
-      text: 'Consistent Home Manager configurations across all platforms',
-    },
-  ];
+  readonly keyFeatures = keyFeatures;
+  readonly technicalHighlights = technicalHighlights;
+  readonly supportedPlatforms = supportedPlatforms;
 }
