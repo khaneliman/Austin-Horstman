@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-  @for (project of projects; track project.company) {
+  @for (project of projects(); track project.company) {
     <div
       class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-t-4 border-stone-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex flex-col h-full"
       [ngClass]="getAccentClasses(project.theme)"
