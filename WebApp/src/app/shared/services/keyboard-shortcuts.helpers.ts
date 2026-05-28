@@ -38,6 +38,13 @@ export const SHORTCUT_GROUPS: readonly ShortcutGroup[] = [
       { sequence: 'Esc', description: 'Close overlay' },
     ],
   },
+  {
+    label: 'Project grids',
+    bindings: [
+      { sequence: '↑ ↓ ← →', description: 'Move between cards when one is focused' },
+      { sequence: 'Enter', description: 'Open the focused card' },
+    ],
+  },
 ];
 
 export const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = SHORTCUT_GROUPS.flatMap((group) => group.bindings);
