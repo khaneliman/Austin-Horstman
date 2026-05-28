@@ -45,6 +45,7 @@ import { CountUpDirective } from '../shared/directives/count-up.directive';
   ],
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {

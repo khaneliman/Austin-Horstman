@@ -1,0 +1,29 @@
+// Hero load choreography: each tagged element rises and fades in once on
+// load, staggered by its own --reveal-delay. animation-fill-mode: both keeps
+// the pre-animation (hidden) and post-animation (settled) states pinned, so
+// the content never flashes before its turn.
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-reveal {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+// Reduced motion: show everything immediately, no transform or fade.
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
