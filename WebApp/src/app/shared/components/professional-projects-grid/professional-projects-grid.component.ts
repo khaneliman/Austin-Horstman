@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { GridKeyboardNavDirective } from '../../directives/grid-keyboard-nav.directive';
 import { LogoStylingService } from '../../services/logo-styling.service';
 import {
   BackgroundElement,
@@ -57,7 +58,7 @@ const VISIBLE_PROJECTS_LIMIT = 4;
 @Component({
   selector: 'app-professional-projects-grid',
   standalone: true,
-  imports: [NgClass, RouterModule, DecorativeBackgroundComponent],
+  imports: [NgClass, RouterModule, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   templateUrl: './professional-projects-grid.component.html',
   styleUrls: ['./professional-projects-grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

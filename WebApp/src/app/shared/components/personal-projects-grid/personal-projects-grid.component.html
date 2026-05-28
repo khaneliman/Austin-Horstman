@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+<div appGridKeyboardNav class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
   @for (project of displayedProjects; track project.title) {
     <div
       class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-stone-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex flex-col h-full"
@@ -120,6 +120,7 @@
               [href]="project.githubUrl"
               target="_blank"
               rel="noopener noreferrer"
+              data-card-anchor
               class="flex-1 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-950 px-4 py-3 rounded-lg font-semibold text-center text-sm hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
             >
               <ng-icon name="heroCodeBracket" size="1rem" class="mr-2"></ng-icon>

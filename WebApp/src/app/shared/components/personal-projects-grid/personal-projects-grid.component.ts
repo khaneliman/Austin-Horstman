@@ -13,6 +13,7 @@ import {
   heroLightBulb,
   heroWrench,
 } from '@ng-icons/heroicons/outline';
+import { GridKeyboardNavDirective } from '../../directives/grid-keyboard-nav.directive';
 import {
   BackgroundElement,
   DecorativeBackgroundComponent,
@@ -41,7 +42,7 @@ export interface PersonalProject {
 @Component({
   selector: 'app-personal-projects-grid',
   standalone: true,
-  imports: [NgClass, RouterModule, NgIconComponent, DecorativeBackgroundComponent],
+  imports: [NgClass, RouterModule, NgIconComponent, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   providers: [
     provideIcons({
       heroCheckCircle,

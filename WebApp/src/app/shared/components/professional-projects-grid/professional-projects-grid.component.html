@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+<div appGridKeyboardNav class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
   @for (project of projects(); track project.company) {
     <div
       class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-t-4 border-stone-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex flex-col h-full"
@@ -71,6 +71,7 @@
         <div class="flex flex-col sm:flex-row gap-3 mt-auto">
           <a
             [routerLink]="project.route"
+            data-card-anchor
             class="flex-1 bg-teal-700 hover:bg-teal-800 text-white px-6 py-3 rounded-lg font-semibold text-center hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
           >
             View Experience
