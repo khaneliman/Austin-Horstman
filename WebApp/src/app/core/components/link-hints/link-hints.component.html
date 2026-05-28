@@ -1,0 +1,12 @@
+@if (isActive()) {
+  <div class="link-hints-layer pointer-events-none fixed inset-0 z-[200]" aria-hidden="true">
+    @for (hint of renderedHints(); track trackHint($index, hint)) {
+      <span class="link-hint-label" [style.top.px]="hint.top" [style.left.px]="hint.left">
+        @if (hint.typed) {
+          <span class="link-hint-typed">{{ hint.typed }}</span>
+        }
+        <span class="link-hint-remaining">{{ hint.remaining }}</span>
+      </span>
+    }
+  </div>
+}
