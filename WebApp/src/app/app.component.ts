@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CommandPaletteComponent } from './core/components/command-palette/command-palette.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { KeyboardShortcutsService } from './shared/services/keyboard-shortcuts.service';
 import { ThemeService } from './shared/services/theme.service';
 
 @Component({
@@ -15,4 +16,9 @@ import { ThemeService } from './shared/services/theme.service';
 export class AppComponent {
   title = 'test';
   private readonly themeService = inject(ThemeService);
+  private readonly keyboardShortcuts = inject(KeyboardShortcutsService);
+
+  constructor() {
+    this.keyboardShortcuts.init();
+  }
 }
