@@ -2,24 +2,13 @@ import { beforeEach, describe, expect, it } from 'bun:test';
 
 // Mock the component class to test only the logic methods
 class NavbarLogic {
-  public isCollapsed = true;
   public isPersonalDropdownOpen = false;
   public isProjectsDropdownOpen = false;
   public isMobileMenuOpen = false;
+  private currentPath = '/home';
 
-  // Mock location service
-  private _mockPath = '/home';
-
-  setMockPath(path: string) {
-    this._mockPath = path;
-  }
-
-  prepareExternalUrl(url: string): string {
-    return `#${url}`;
-  }
-
-  path(): string {
-    return this._mockPath;
+  setCurrentPath(path: string) {
+    this.currentPath = path;
   }
 
   togglePersonalDropdown(): void {
@@ -45,14 +34,9 @@ class NavbarLogic {
     this.isMobileMenuOpen = false;
   }
 
-  isHome(): boolean {
-    const url = this.prepareExternalUrl(this.path());
-    return url === '#/home';
-  }
-
-  isDocumentation(): boolean {
-    const url = this.prepareExternalUrl(this.path());
-    return url === '#/documentation';
+  isRouteActive(route: string, exact = false): boolean {
+    const path = this.currentPath.split(/[?#]/)[0] || '/home';
+    return exact ? path === route : path === route || path.startsWith(`${route}/`);
   }
 }
 
@@ -65,7 +49,6 @@ describe('NavbarComponent Logic Tests', () => {
 
   describe('Initial State', () => {
     it('should have correct default state', () => {
-      expect(logic.isCollapsed).toBe(true);
       expect(logic.isPersonalDropdownOpen).toBe(false);
       expect(logic.isProjectsDropdownOpen).toBe(false);
       expect(logic.isMobileMenuOpen).toBe(false);
@@ -144,29 +127,27 @@ describe('NavbarComponent Logic Tests', () => {
   });
 
   describe('Route Detection', () => {
-    it('should detect home route', () => {
-      logic.setMockPath('/home');
-      expect(logic.isHome()).toBe(true);
-
-      logic.setMockPath('/personal');
-      expect(logic.isHome()).toBe(false);
+    it('matches exact route', () => {
+      logic.setCurrentPath('/home');
+      expect(logic.isRouteActive('/home', true)).toBe(true);
+      expect(logic.isRouteActive('/personal', true)).toBe(false);
     });
 
-    it('should detect documentation route', () => {
-      logic.setMockPath('/documentation');
-      expect(logic.isDocumentation()).toBe(true);
-
-      logic.setMockPath('/home');
-      expect(logic.isDocumentation()).toBe(false);
+    it('matches nested routes when exact is false', () => {
+      logic.setCurrentPath('/personal/resume/education');
+      expect(logic.isRouteActive('/personal')).toBe(true);
+      expect(logic.isRouteActive('/personal/resume')).toBe(true);
+      expect(logic.isRouteActive('/personal/resume/education', true)).toBe(true);
     });
 
-    it('should handle edge cases', () => {
-      logic.setMockPath('');
-      expect(logic.isHome()).toBe(false);
-      expect(logic.isDocumentation()).toBe(false);
+    it('strips query and fragment from current path', () => {
+      logic.setCurrentPath('/projects?tab=pro#section');
+      expect(logic.isRouteActive('/projects', true)).toBe(true);
+    });
 
-      logic.setMockPath('/home/nested');
-      expect(logic.isHome()).toBe(false);
+    it('falls back to /home when current path is empty', () => {
+      logic.setCurrentPath('');
+      expect(logic.isRouteActive('/home', true)).toBe(true);
     });
   });
 
@@ -178,7 +159,6 @@ describe('NavbarComponent Logic Tests', () => {
       expect(logic.isPersonalDropdownOpen).toBe(true);
       expect(logic.isMobileMenuOpen).toBe(true);
       expect(logic.isProjectsDropdownOpen).toBe(false);
-      expect(logic.isCollapsed).toBe(true);
     });
 
     it('should handle rapid state changes without errors', () => {
@@ -211,19 +191,6 @@ describe('NavbarComponent Logic Tests', () => {
     });
   });
 
-  describe('URL Processing', () => {
-    it('should process URLs correctly', () => {
-      expect(logic.prepareExternalUrl('/home')).toBe('#/home');
-      expect(logic.prepareExternalUrl('/documentation')).toBe('#/documentation');
-      expect(logic.prepareExternalUrl('')).toBe('#');
-    });
-
-    it('should handle special characters in URLs', () => {
-      logic.setMockPath('/test-route-with-dashes');
-      expect(logic.prepareExternalUrl(logic.path())).toBe('#/test-route-with-dashes');
-    });
-  });
-
   describe('Performance', () => {
     it('should handle many operations efficiently', () => {
       const startTime = performance.now();
@@ -234,8 +201,8 @@ describe('NavbarComponent Logic Tests', () => {
         logic.toggleMobileMenu();
         logic.closeDropdowns();
         logic.closeMobileMenu();
-        logic.isHome();
-        logic.isDocumentation();
+        logic.isRouteActive('/home', true);
+        logic.isRouteActive('/projects');
       }
 
       const endTime = performance.now();

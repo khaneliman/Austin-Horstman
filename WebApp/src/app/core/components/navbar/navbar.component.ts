@@ -1,7 +1,7 @@
-import { Location, PopStateEvent } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { ThemeToggleComponent } from '../../../shared/components/theme-toggle/theme-toggle.component';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
@@ -14,68 +14,41 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent implements OnInit {
-  public isCollapsed = signal(true);
-  public isPersonalDropdownOpen = signal(false);
-  public isProjectsDropdownOpen = signal(false);
-  public isMobileMenuOpen = signal(false);
-  private lastPoppedUrl: string | undefined;
-  private yScrollStack: number[] = [];
-  public location = inject(Location);
-  private router = inject(Router);
-  private destroyRef = inject(DestroyRef);
-  private currentUrl = signal('');
+  readonly isPersonalDropdownOpen = signal(false);
+  readonly isProjectsDropdownOpen = signal(false);
+  readonly isMobileMenuOpen = signal(false);
+
+  private readonly router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly currentUrl = signal('');
 
   ngOnInit(): void {
     this.currentUrl.set(this.router.url);
 
-    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event) => {
-      this.isCollapsed.set(true);
-      if (event instanceof NavigationStart) {
-        if (event.url != this.lastPoppedUrl) this.yScrollStack.push(window.scrollY);
-      } else if (event instanceof NavigationEnd) {
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe((event) => {
         this.currentUrl.set(event.urlAfterRedirects);
-        if (event.url == this.lastPoppedUrl) {
-          this.lastPoppedUrl = undefined;
-          window.scrollTo(0, this.yScrollStack.pop() as number);
-        } else window.scrollTo(0, 0);
-      }
-    });
-
-    this.location.subscribe((ev: PopStateEvent) => {
-      this.lastPoppedUrl = ev.url;
-    });
-  }
-
-  isHome(): boolean {
-    const titlee = this.location.prepareExternalUrl(this.location.path());
-
-    if (titlee === '#/home') {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  isDocumentation(): boolean {
-    const titlee = this.location.prepareExternalUrl(this.location.path());
-    if (titlee === '#/documentation') {
-      return true;
-    } else {
-      return false;
-    }
+        this.closeDropdowns();
+        this.closeMobileMenu();
+      });
   }
 
   togglePersonalDropdown(): void {
-    this.isPersonalDropdownOpen.set(!this.isPersonalDropdownOpen());
+    this.isPersonalDropdownOpen.update((open) => !open);
     this.isProjectsDropdownOpen.set(false);
   }
 
   toggleProjectsDropdown(): void {
-    this.isProjectsDropdownOpen.set(!this.isProjectsDropdownOpen());
+    this.isProjectsDropdownOpen.update((open) => !open);
     this.isPersonalDropdownOpen.set(false);
   }
 
   toggleMobileMenu(): void {
-    this.isMobileMenuOpen.set(!this.isMobileMenuOpen());
+    this.isMobileMenuOpen.update((open) => !open);
   }
 
   closeDropdowns(): void {
@@ -96,7 +69,6 @@ export class NavbarComponent implements OnInit {
     const base = 'px-3 py-2 text-sm font-semibold tracking-tight transition-colors duration-200 rounded-lg';
     const active = 'text-teal-900 dark:text-teal-200 bg-teal-100/70 dark:bg-teal-950/60';
     const inactive = 'text-slate-700 dark:text-slate-300 hover:text-teal-900 dark:hover:text-teal-200';
-
     return `${base} ${this.isRouteActive(route, exact) ? active : inactive}`;
   }
 
@@ -105,7 +77,6 @@ export class NavbarComponent implements OnInit {
       'px-3 py-2 text-sm font-semibold tracking-tight flex items-center space-x-1 transition-colors duration-200 rounded-lg';
     const active = 'text-teal-900 dark:text-teal-200 bg-teal-100/70 dark:bg-teal-950/60';
     const inactive = 'text-slate-700 dark:text-slate-300 hover:text-teal-900 dark:hover:text-teal-200';
-
     return `${base} ${this.isRouteActive(route) ? active : inactive}`;
   }
 
@@ -114,7 +85,6 @@ export class NavbarComponent implements OnInit {
     const active = 'bg-teal-50 text-teal-900 dark:bg-teal-950/60 dark:text-teal-200';
     const inactive =
       'text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-900 dark:hover:text-teal-200';
-
     return `${base} ${this.isRouteActive(route, exact) ? active : inactive}`;
   }
 
@@ -123,7 +93,6 @@ export class NavbarComponent implements OnInit {
     const active = 'bg-teal-50 text-teal-900 dark:bg-teal-950/60 dark:text-teal-200';
     const inactive =
       'text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-900 dark:hover:text-teal-200';
-
     return `${base} ${this.isRouteActive(route, exact) ? active : inactive}`;
   }
 
@@ -131,7 +100,6 @@ export class NavbarComponent implements OnInit {
     const base = 'px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]';
     const active = 'text-teal-900 dark:text-teal-200';
     const inactive = 'text-slate-500 dark:text-slate-400';
-
     return `${base} ${this.isRouteActive(route) ? active : inactive}`;
   }
 }
