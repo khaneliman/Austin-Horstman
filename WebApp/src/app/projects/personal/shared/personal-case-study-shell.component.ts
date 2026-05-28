@@ -21,12 +21,14 @@ export interface PersonalCaseStudyStat {
   providers: [provideIcons({ heroArrowLeft, heroArrowTopRightOnSquare })],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="min-h-screen bg-[#f7f3ea] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+    <main
+      [class]="'min-h-screen bg-[#f7f3ea] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50 ' + themeClass()"
+    >
       <nav class="border-b border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <a
             [routerLink]="backRoute()"
-            class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition hover:text-teal-700 dark:text-slate-300 dark:hover:text-teal-200"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition dark:text-slate-300 hover:opacity-90"
           >
             <ng-icon name="heroArrowLeft" size="1rem"></ng-icon>
             {{ backLabel() }}
@@ -46,7 +48,7 @@ export interface PersonalCaseStudyStat {
       <section class="border-b border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
           <div>
-            <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-200">
+            <p class="case-study-shell__eyebrow text-sm font-bold uppercase tracking-[0.2em] dark:text-slate-200">
               {{ eyebrow() }}
             </p>
             <div class="mt-5 flex flex-col items-start gap-4 sm:flex-row">
@@ -69,21 +71,19 @@ export interface PersonalCaseStudyStat {
           </div>
 
           <aside class="relative lg:mt-4">
-            <div class="absolute -left-4 top-7 h-24 w-24 border-8 border-teal-300/45" aria-hidden="true"></div>
-            <div class="absolute -right-3 bottom-8 h-16 w-16 bg-rose-500/85" aria-hidden="true"></div>
+            <div class="absolute -left-4 top-7 h-24 w-24 border-8 case-study-shell__frame" aria-hidden="true"></div>
+            <div class="absolute -right-3 bottom-8 h-16 w-16 case-study-shell__callout" aria-hidden="true"></div>
 
             <div
               class="relative border border-stone-200 bg-[#f7f3ea] p-5 shadow-xl dark:border-slate-800 dark:bg-slate-950"
             >
               <div class="flex items-start justify-between gap-4 border-b border-stone-200 pb-5 dark:border-slate-800">
                 <div>
-                  <p class="text-xs font-bold uppercase tracking-[0.22em] text-teal-700 dark:text-teal-200">
-                    Evidence File
-                  </p>
+                  <p class="case-study-shell__eyebrow text-xs font-bold uppercase tracking-[0.22em]">Evidence File</p>
                   <h2 class="mt-2 text-2xl font-black text-slate-950 dark:text-white">{{ evidenceTitle() }}</h2>
                 </div>
                 <span
-                  class="rounded-md bg-amber-300 px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-950"
+                  class="case-study-shell__status rounded-md px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-950"
                 >
                   active
                 </span>
@@ -93,7 +93,9 @@ export interface PersonalCaseStudyStat {
                 @for (item of meta(); track item.label) {
                   <div class="border border-stone-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
                     <div class="flex items-center justify-between gap-3">
-                      <dt class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                      <dt
+                        class="case-study-shell__meta-label text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+                      >
                         {{ item.label }}
                       </dt>
                       <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 text-white">
@@ -125,8 +127,8 @@ export interface PersonalCaseStudyStat {
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
           <aside class="space-y-4 lg:sticky lg:top-36 lg:self-start">
             @for (stat of stats(); track stat.label) {
-              <article class="border-l-4 border-teal-600 bg-white p-5 shadow-sm dark:bg-slate-900">
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-200">
+              <article class="case-study-shell__stat border-l-4 bg-white p-5 shadow-sm dark:bg-slate-900">
+                <p class="case-study-shell__eyebrow text-xs font-bold uppercase tracking-[0.18em]">
                   {{ stat.label }}
                 </p>
                 <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ stat.value }}</p>
@@ -141,6 +143,76 @@ export interface PersonalCaseStudyStat {
       </section>
     </main>
   `,
+  styles: `
+    .case-study-shell {
+      --case-primary: #0d9488;
+      --case-soft: #5eead4b3;
+      --case-callout: #fb7185;
+      --case-status: #facc15;
+      --case-stat-border: #0d9488;
+    }
+
+    .case-study-shell--teal {
+      --case-primary: #0d9488;
+      --case-soft: #5eead4b3;
+      --case-callout: #fb7185;
+      --case-status: #facc15;
+      --case-stat-border: #0d9488;
+    }
+
+    .case-study-shell--emerald {
+      --case-primary: #059669;
+      --case-soft: #6ee7b7b3;
+      --case-callout: #34d399;
+      --case-status: #22d3ee;
+      --case-stat-border: #059669;
+    }
+
+    .case-study-shell--blue {
+      --case-primary: #2563eb;
+      --case-soft: #93c5fdb3;
+      --case-callout: #93c5fd;
+      --case-status: #93c5fd;
+      --case-stat-border: #2563eb;
+    }
+
+    .case-study-shell--violet {
+      --case-primary: #7c3aed;
+      --case-soft: #c4b5fd99;
+      --case-callout: #e879f9;
+      --case-status: #f472b6;
+      --case-stat-border: #7c3aed;
+    }
+
+    .case-study-shell--rose {
+      --case-primary: #be123c;
+      --case-soft: #fda4af99;
+      --case-callout: #fb7185;
+      --case-status: #fbbf24;
+      --case-stat-border: #be123c;
+    }
+
+    .case-study-shell__eyebrow,
+    .case-study-shell__meta-label {
+      color: var(--case-primary);
+    }
+
+    .case-study-shell__frame {
+      border-color: var(--case-soft);
+    }
+
+    .case-study-shell__callout {
+      background-color: var(--case-callout);
+    }
+
+    .case-study-shell__status {
+      background: var(--case-status);
+    }
+
+    .case-study-shell__stat {
+      border-left-color: var(--case-stat-border);
+    }
+  `,
 })
 export class PersonalCaseStudyShellComponent {
   readonly title = input.required<string>();
@@ -151,7 +223,12 @@ export class PersonalCaseStudyShellComponent {
   readonly backRoute = input('/projects/personal');
   readonly backLabel = input('Back to Personal Projects');
   readonly evidenceTitle = input('Work that can be inspected.');
+  readonly theme = input<'teal' | 'emerald' | 'blue' | 'violet' | 'rose'>('teal');
   readonly meta = input<PersonalCaseStudyMeta[]>([]);
   readonly stats = input<PersonalCaseStudyStat[]>([]);
   readonly technologies = input<string[]>([]);
+
+  protected themeClass() {
+    return `case-study-shell case-study-shell--${this.theme()}`;
+  }
 }
