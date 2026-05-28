@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  HostListener,
+  inject,
+  input,
+  PLATFORM_ID,
+  signal,
+} from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
@@ -146,6 +156,47 @@ import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.co
 })
 export class ProjectDetailTemplateComponent {
   readonly config = input.required<ProjectDetailConfig>();
+
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+  protected readonly scrollProgress = signal(0);
+
+  protected readonly estimatedMinutes = computed(() => {
+    const cfg = this.config();
+    const chunks: string[] = [cfg.title, cfg.description, cfg.outcome ?? '', cfg.impact ?? '', cfg.overview.content];
+    for (const item of cfg.overview.items ?? []) chunks.push(item);
+    for (const section of cfg.technicalDetails ?? []) {
+      chunks.push(section.title, section.content);
+      for (const item of section.items ?? []) chunks.push(item);
+    }
+    for (const section of cfg.specialSections ?? []) {
+      chunks.push(section.title, section.content);
+      for (const item of section.items ?? []) chunks.push(item);
+    }
+    for (const stat of cfg.quickStats ?? []) chunks.push(stat.label, stat.value);
+    for (const feature of cfg.features) chunks.push(feature.title, feature.description);
+
+    const words = chunks
+      .join(' ')
+      .replace(/<[^>]+>/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean).length;
+    return Math.max(1, Math.round(words / 220));
+  });
+
+  @HostListener('window:scroll')
+  @HostListener('window:resize')
+  onScroll(): void {
+    if (!this.isBrowser) return;
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    if (total <= 0) {
+      this.scrollProgress.set(0);
+      return;
+    }
+    const ratio = Math.min(1, Math.max(0, window.scrollY / total));
+    this.scrollProgress.set(ratio);
+  }
 
   get techTags(): TechTag[] {
     return this.config().technologies.map((tech) => ({
