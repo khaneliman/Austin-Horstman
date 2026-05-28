@@ -51,7 +51,7 @@
     </div>
     <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
       @for (language of languageSupport; track language.text) {
-        <section class="border-l-4 border-teal-600 bg-[#f7f3ea] p-4 dark:bg-slate-950">
+        <section class="border-l-4 border-teal-600 bg-[var(--color-paper)] p-4 dark:bg-slate-950">
           <p class="text-sm leading-6 text-slate-700 dark:text-slate-300">
             {{ language.text }}
           </p>

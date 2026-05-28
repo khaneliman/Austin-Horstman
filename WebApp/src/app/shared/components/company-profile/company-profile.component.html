@@ -1,6 +1,6 @@
-<section class="min-h-screen bg-[#f7f3ea] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+<section class="min-h-screen bg-[var(--color-paper)] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
   <header
-    class="relative overflow-hidden border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_72%,#f7f3ea_72%,#f7f3ea_100%)] pt-16 pb-14 dark:border-slate-800 dark:bg-[linear-gradient(135deg,#020617_0%,#12343a_72%,#0f172a_72%,#0f172a_100%)]"
+    class="relative overflow-hidden border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_72%,var(--color-paper)_72%,var(--color-paper)_100%)] pt-16 pb-14 dark:border-slate-800 dark:bg-[linear-gradient(135deg,var(--color-night)_0%,#12343a_72%,#0f172a_72%,#0f172a_100%)]"
   >
     <div
       class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
@@ -177,7 +177,7 @@
             @for (project of projects(); track project.name) {
               <a
                 [routerLink]="project.route"
-                class="group border border-stone-200 bg-[#f7f3ea] p-5 transition duration-200 hover:-translate-y-0.5 hover:border-teal-500 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950"
+                class="group border border-stone-200 bg-[var(--color-paper)] p-5 transition duration-200 hover:-translate-y-0.5 hover:border-teal-500 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950"
               >
                 <div class="flex items-start gap-4">
                   <div
@@ -227,7 +227,7 @@
         <div [class]="'grid gap-5 ' + (projects().length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')">
           @for (project of projects(); track project.name) {
             <article
-              class="group overflow-hidden border border-stone-200 bg-[#f7f3ea] shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-teal-500 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950"
+              class="group overflow-hidden border border-stone-200 bg-[var(--color-paper)] shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-teal-500 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950"
             >
               <div [class]="'bg-gradient-to-r p-6 text-white ' + project.color">
                 <div class="mb-4 flex items-center justify-between">

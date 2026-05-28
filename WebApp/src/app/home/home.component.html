@@ -1,6 +1,6 @@
-<main class="min-h-screen overflow-hidden bg-[#f7f3ea] text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+<main class="min-h-screen overflow-hidden bg-[var(--color-paper)] text-slate-950 dark:bg-slate-950 dark:text-slate-50">
   <section
-    class="relative border-b border-stone-200 bg-[linear-gradient(135deg,#111827_0%,#102f34_70%,#f7f3ea_70%,#f7f3ea_100%)] pt-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,#020617_0%,#12343a_70%,#0f172a_70%,#0f172a_100%)]"
+    class="relative border-b border-stone-200 bg-[linear-gradient(135deg,#111827_0%,#102f34_70%,var(--color-paper)_70%,var(--color-paper)_100%)] pt-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,var(--color-night)_0%,#12343a_70%,#0f172a_70%,#0f172a_100%)]"
   >
     <div
       class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
@@ -91,7 +91,7 @@
   <section class="bg-white py-14 dark:bg-slate-900">
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
       @for (panel of gatewayPanels(); track panel.label) {
-        <article class="border-l-4 border-teal-600 bg-[#f7f3ea] p-6 dark:border-amber-300 dark:bg-slate-950">
+        <article class="border-l-4 border-teal-600 bg-[var(--color-paper)] p-6 dark:border-amber-300 dark:bg-slate-950">
           <p class="text-4xl font-black text-slate-950 dark:text-white">{{ panel.value }}</p>
           <h2 class="mt-3 text-base font-bold text-slate-900 dark:text-slate-100">{{ panel.label }}</h2>
           <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{{ panel.detail }}</p>
@@ -214,7 +214,7 @@
 
       <div class="grid grid-cols-1 gap-4">
         @for (repo of openSourceBreakdown; track repo.repo) {
-          <article class="border border-stone-200 bg-[#f7f3ea] p-6 dark:border-slate-800 dark:bg-slate-950">
+          <article class="border border-stone-200 bg-[var(--color-paper)] p-6 dark:border-slate-800 dark:bg-slate-950">
             <div class="flex items-center justify-between gap-4">
               <h3 class="text-2xl font-black text-slate-950 dark:text-white">{{ repo.repo }}</h3>
               <p class="text-3xl font-black text-rose-700 dark:text-rose-300">{{ repo.mergedPrs }}</p>
@@ -226,7 +226,7 @@
     </div>
   </section>
 
-  <section class="bg-[#f7f3ea] py-20 dark:bg-slate-950">
+  <section class="bg-[var(--color-paper)] py-20 dark:bg-slate-950">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 max-w-3xl">
         <p class="text-sm font-bold uppercase tracking-[0.2em] text-amber-700 dark:text-amber-200">Core Strengths</p>

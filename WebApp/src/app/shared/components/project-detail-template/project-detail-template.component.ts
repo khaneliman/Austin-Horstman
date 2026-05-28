@@ -195,7 +195,7 @@ export class ProjectDetailTemplateComponent {
     return [
       'project-detail-template',
       'min-h-screen',
-      'bg-[#f7f3ea]',
+      'bg-[var(--color-paper)]',
       'text-slate-950',
       'dark:bg-slate-950',
       'dark:text-slate-50',

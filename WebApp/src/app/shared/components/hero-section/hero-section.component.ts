@@ -114,7 +114,7 @@ export class HeroSectionComponent {
     const classes = ['relative', this.minHeight(), 'overflow-hidden'];
     const v = this.variant();
     if (v === 'gradient' || v === 'default') classes.push(`bg-gradient-to-br ${this.backgroundGradient()}`);
-    else if (v === 'minimal') classes.push('bg-[#f7f3ea] dark:bg-slate-950');
+    else if (v === 'minimal') classes.push('bg-[var(--color-paper)] dark:bg-slate-950');
     return classes.join(' ');
   });
 

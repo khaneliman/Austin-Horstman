@@ -22,7 +22,9 @@ export interface PersonalCaseStudyStat {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <main
-      [class]="'min-h-screen bg-[#f7f3ea] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50 ' + themeClass()"
+      [class]="
+        'min-h-screen bg-[var(--color-paper)] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50 ' + themeClass()
+      "
     >
       <nav class="border-b border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
@@ -75,7 +77,7 @@ export interface PersonalCaseStudyStat {
             <div class="absolute -right-3 bottom-8 h-16 w-16 case-study-shell__callout" aria-hidden="true"></div>
 
             <div
-              class="relative border border-stone-200 bg-[#f7f3ea] p-5 shadow-xl dark:border-slate-800 dark:bg-slate-950"
+              class="relative border border-stone-200 bg-[var(--color-paper)] p-5 shadow-xl dark:border-slate-800 dark:bg-slate-950"
             >
               <div class="flex items-start justify-between gap-4 border-b border-stone-200 pb-5 dark:border-slate-800">
                 <div>

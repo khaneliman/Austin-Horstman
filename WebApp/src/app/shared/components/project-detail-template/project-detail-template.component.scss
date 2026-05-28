@@ -107,7 +107,7 @@
 
 // Evidence panel surface is uniform across palettes (matches page background).
 .project-detail-template__evidence-panel {
-  background: #f7f3ea;
+  background: var(--color-paper);
 }
 
 .project-detail-template__evidence-grid {
@@ -116,7 +116,7 @@
 
 :host-context(.dark) .project-detail-template__evidence-panel,
 .dark .project-detail-template__evidence-panel {
-  background: #020617;
+  background: var(--color-night);
 }
 
 .project-detail-template__eyebrow {

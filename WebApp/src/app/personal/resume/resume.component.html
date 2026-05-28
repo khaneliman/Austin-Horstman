@@ -1,5 +1,5 @@
 <section
-  class="relative overflow-hidden border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_70%,#f7f3ea_70%,#f7f3ea_100%)] pt-28 pb-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,#020617_0%,#12343a_70%,#0f172a_70%,#0f172a_100%)]"
+  class="relative overflow-hidden border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_70%,var(--color-paper)_70%,var(--color-paper)_100%)] pt-28 pb-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,var(--color-night)_0%,#12343a_70%,#0f172a_70%,#0f172a_100%)]"
 >
   <div
     class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
@@ -117,7 +117,10 @@
   </div>
 </nav>
 
-<section id="education" class="relative scroll-mt-32 bg-[#f7f3ea] pt-16 pb-16 overflow-hidden dark:bg-slate-950">
+<section
+  id="education"
+  class="relative scroll-mt-32 bg-[var(--color-paper)] pt-16 pb-16 overflow-hidden dark:bg-slate-950"
+>
   <!-- Animated background elements -->
   <app-decorative-background [elements]="educationBackgroundElements"></app-decorative-background>
 
@@ -160,7 +163,7 @@
   ></app-wave-separator>
 </section>
 <!-- Employment Section -->
-<section id="employment" class="relative scroll-mt-32 bg-[#f7f3ea] dark:bg-slate-950 py-16 overflow-hidden">
+<section id="employment" class="relative scroll-mt-32 bg-[var(--color-paper)] dark:bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="employmentBackgroundElements"></app-decorative-background>
 
@@ -408,7 +411,7 @@
   ></app-wave-separator>
 </section>
 <!-- Projects Section -->
-<section id="projects" class="relative scroll-mt-32 bg-[#f7f3ea] dark:bg-slate-950 py-16 overflow-hidden">
+<section id="projects" class="relative scroll-mt-32 bg-[var(--color-paper)] dark:bg-slate-950 py-16 overflow-hidden">
   <!-- Animated background elements -->
   <app-decorative-background [elements]="projectsBackgroundElements"></app-decorative-background>
 
