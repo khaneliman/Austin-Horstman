@@ -12,17 +12,35 @@ export interface ShortcutBinding {
   description: string;
 }
 
-export const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = [
-  { sequence: 'g h', description: 'Go to Home' },
-  { sequence: 'g a', description: 'Go to About' },
-  { sequence: 'g c', description: 'Go to Contact' },
-  { sequence: 'g r', description: 'Go to Resume' },
-  { sequence: 'g p', description: 'Go to Projects' },
-  { sequence: 'g n', description: 'Go to Now' },
-  { sequence: '/', description: 'Open command palette' },
-  { sequence: '⌘ K', description: 'Open command palette' },
-  { sequence: 'Esc', description: 'Close overlay' },
+export interface ShortcutGroup {
+  label: string;
+  bindings: readonly ShortcutBinding[];
+}
+
+export const SHORTCUT_GROUPS: readonly ShortcutGroup[] = [
+  {
+    label: 'Navigate',
+    bindings: [
+      { sequence: 'g h', description: 'Home' },
+      { sequence: 'g a', description: 'About' },
+      { sequence: 'g c', description: 'Contact' },
+      { sequence: 'g r', description: 'Resume' },
+      { sequence: 'g p', description: 'Projects' },
+      { sequence: 'g n', description: 'Now' },
+    ],
+  },
+  {
+    label: 'Global',
+    bindings: [
+      { sequence: '⌘ K', description: 'Open command palette' },
+      { sequence: '/', description: 'Open command palette' },
+      { sequence: '?', description: 'Toggle this cheatsheet' },
+      { sequence: 'Esc', description: 'Close overlay' },
+    ],
+  },
 ];
+
+export const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = SHORTCUT_GROUPS.flatMap((group) => group.bindings);
 
 export const SHORTCUT_PREFIX_TIMEOUT_MS = 1500;
 

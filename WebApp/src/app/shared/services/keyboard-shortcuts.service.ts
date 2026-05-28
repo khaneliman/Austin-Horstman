@@ -3,13 +3,20 @@ import { DestroyRef, Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommandPaletteService } from './command-palette.service';
 import { isEditableTarget, resolveGPrefixRoute, SHORTCUT_PREFIX_TIMEOUT_MS } from './keyboard-shortcuts.helpers';
+import { ShortcutsHelpService } from './shortcuts-help.service';
 
-export { SHORTCUT_BINDINGS, type ShortcutBinding } from './keyboard-shortcuts.helpers';
+export {
+  SHORTCUT_BINDINGS,
+  SHORTCUT_GROUPS,
+  type ShortcutBinding,
+  type ShortcutGroup,
+} from './keyboard-shortcuts.helpers';
 
 @Injectable({ providedIn: 'root' })
 export class KeyboardShortcutsService {
   private readonly router = inject(Router);
   private readonly palette = inject(CommandPaletteService);
+  private readonly help = inject(ShortcutsHelpService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly document = inject(DOCUMENT);
 
@@ -52,6 +59,12 @@ export class KeyboardShortcutsService {
     if (event.key === '/') {
       event.preventDefault();
       this.palette.open();
+      return;
+    }
+
+    if (event.key === '?') {
+      event.preventDefault();
+      this.help.toggle();
     }
   }
 
