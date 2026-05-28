@@ -1,33 +1,37 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroArrowTopRightOnSquare,
   heroCalendar,
   heroCodeBracket,
   heroCog6Tooth,
-  heroCommandLine,
   heroCubeTransparent,
   heroGlobeAlt,
   heroServerStack,
-  heroStar,
   heroUser,
   heroUsers,
   heroWrenchScrewdriver,
 } from '@ng-icons/heroicons/outline';
 import { BulletListComponent, BulletListItem } from '../../../shared/components/bullet-list/bullet-list.component';
-import {
-  BackgroundElement,
-  DecorativeBackgroundComponent,
-} from '../../../shared/components/decorative-background/decorative-background.component';
 import { GITHUB_METRICS } from '../../../shared/data/github-metrics';
+import {
+  PersonalCaseStudyMeta,
+  PersonalCaseStudyShellComponent,
+  PersonalCaseStudyStat,
+} from '../shared/personal-case-study-shell.component';
 
 const nixpkgsMergedPrs = GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === 'Nixpkgs')?.mergedPrs ?? 0;
-const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+
+function formatMetricDate(date: string): string {
+  const [year = '0', month = '1', day = '1'] = date.split('-');
+
+  return new Date(Number(year), Number(month) - 1, Number(day)).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const nixpkgsUpdatedAt = formatMetricDate(GITHUB_METRICS.asOf);
 
 @Component({
   selector: 'app-nixpkgs',
@@ -35,18 +39,15 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
   templateUrl: './nixpkgs.component.html',
   styleUrls: ['./nixpkgs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],
+  imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],
   providers: [
     provideIcons({
-      heroArrowTopRightOnSquare,
       heroCodeBracket,
       heroCog6Tooth,
-      heroCommandLine,
       heroGlobeAlt,
       heroCubeTransparent,
       heroUser,
       heroCalendar,
-      heroStar,
       heroUsers,
       heroWrenchScrewdriver,
       heroServerStack,
@@ -54,20 +55,48 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
   ],
 })
 export class NixpkgsComponent {
-  backgroundElements: BackgroundElement[] = [
+  readonly title = 'Nixpkgs Maintenance';
+  readonly description =
+    'High-volume open-source package maintenance across Nixpkgs, focused on updater workflows, metadata quality, Darwin compatibility, and editor/tooling ecosystems.';
+  readonly repositoryUrl = 'https://github.com/NixOS/nixpkgs';
+  readonly technologies = ['Nix', 'NixOS', 'Darwin/macOS', 'Shell Scripting', 'CI/CD'];
+
+  readonly evidence: PersonalCaseStudyMeta[] = [
     {
-      size: 'lg',
-      position: 'top-4 right-4',
-      color: 'violet-500',
-      opacity: 10,
-      blur: 'xl',
+      label: 'Merged PRs',
+      value: `${nixpkgsMergedPrs}+`,
+      icon: 'heroCodeBracket',
     },
     {
-      size: 'md',
-      position: 'bottom-4 left-4',
-      color: 'purple-500',
-      opacity: 10,
-      blur: 'lg',
+      label: 'Repository Scale',
+      value: '80k+',
+      icon: 'heroServerStack',
+    },
+    {
+      label: 'Specialty',
+      value: 'Darwin',
+      icon: 'heroGlobeAlt',
+    },
+    {
+      label: 'Active Since',
+      value: 'May 2023',
+      icon: 'heroCalendar',
+    },
+  ];
+
+  readonly sideStats: PersonalCaseStudyStat[] = [
+    {
+      label: 'Contribution Record',
+      value: `Contributed ${nixpkgsMergedPrs} merged Nixpkgs PRs as of ${nixpkgsUpdatedAt}.`,
+    },
+    {
+      label: 'Maintenance Focus',
+      value: 'Updater reliability, package metadata, plugin ecosystems, and Darwin-adjacent package quality.',
+    },
+    {
+      label: 'Why It Matters',
+      value:
+        'This is public, inspectable engineering work in a large repository with reviewer standards and real users.',
     },
   ];
 
