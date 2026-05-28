@@ -3,9 +3,37 @@ import { ResumeComponent } from './resume.component';
 
 export const RESUME_ROUTES: Routes = [
   { path: '', component: ResumeComponent },
+
+  // TODO: Remove these legacy employment redirects after old shared links/search results have aged out.
+  {
+    path: 'employment/bestbuy',
+    redirectTo: '/experience/bestbuy',
+    pathMatch: 'full',
+  },
+  {
+    path: 'employment/corebts',
+    redirectTo: '/experience/corebts',
+    pathMatch: 'full',
+  },
+  {
+    path: 'employment/skyline',
+    redirectTo: '/experience/skyline',
+    pathMatch: 'full',
+  },
+  {
+    path: 'employment/nri-na',
+    redirectTo: '/experience/nri-na',
+    pathMatch: 'full',
+  },
+  {
+    path: 'employment/west',
+    redirectTo: '/experience/west',
+    pathMatch: 'full',
+  },
   {
     path: 'employment',
-    loadChildren: () => import('./employment/employment.routes').then((m) => m.EMPLOYMENT_ROUTES),
+    redirectTo: '/personal/resume',
+    pathMatch: 'full',
   },
   {
     path: 'education',
