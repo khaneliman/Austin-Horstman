@@ -10,6 +10,7 @@ import {
   heroSparkles,
 } from '@ng-icons/heroicons/outline';
 import { GITHUB_METRICS } from '../shared/data/github-metrics';
+import { CountUpDirective } from '../shared/directives/count-up.directive';
 
 interface FocusItem {
   eyebrow: string;
@@ -44,7 +45,7 @@ interface ExploringItem {
   templateUrl: './now.component.html',
   styleUrl: './now.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, NgIconComponent],
+  imports: [RouterLink, NgIconComponent, CountUpDirective],
   providers: [
     provideIcons({
       heroSparkles,

@@ -158,7 +158,7 @@
     <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
       <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Lifetime totals</h2>
       <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-        {{ totalMergedPrs }} merged PRs · as of {{ asOf }}
+        <span [appCountUp]="totalMergedPrs"></span> merged PRs · as of {{ asOf }}
       </p>
     </div>
 
@@ -173,9 +173,10 @@
           >
             <div class="flex items-start justify-between">
               <span class="text-base font-bold text-slate-950 dark:text-white">{{ repo.name }}</span>
-              <span class="font-mono text-2xl font-black leading-none text-teal-700 dark:text-teal-300">
-                {{ repo.mergedPrs }}
-              </span>
+              <span
+                class="font-mono text-2xl font-black leading-none text-teal-700 dark:text-teal-300"
+                [appCountUp]="repo.mergedPrs"
+              ></span>
             </div>
             <p class="mt-2 text-xs leading-5 text-slate-600 dark:text-slate-400">{{ repo.description }}</p>
             <span
