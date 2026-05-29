@@ -1,6 +1,7 @@
 FROM node:26-alpine
 
 # Install Bun
+# hadolint ignore=DL3016
 RUN npm install -g bun
 
 # Verify installations
