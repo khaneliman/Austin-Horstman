@@ -1,2 +1,29 @@
-// Project navigation header styles
-// Uses Tailwind classes, no custom CSS needed for this component
+.project-nav-header__quick-nav {
+  position: relative;
+}
+
+.project-nav-header__quick-nav::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -0.25rem;
+  bottom: 0.25rem;
+  width: 2rem;
+  pointer-events: none;
+  background: linear-gradient(to right, rgb(255 255 255 / 0), #fff 75%);
+}
+
+.project-nav-header__quick-nav-scroll {
+  scrollbar-width: thin;
+  scroll-padding-inline: 0.25rem 2rem;
+}
+
+:host-context(.dark) .project-nav-header__quick-nav::after {
+  background: linear-gradient(to right, rgb(31 41 55 / 0), #1f2937 75%);
+}
+
+@media (min-width: 768px) {
+  .project-nav-header__quick-nav::after {
+    display: none;
+  }
+}

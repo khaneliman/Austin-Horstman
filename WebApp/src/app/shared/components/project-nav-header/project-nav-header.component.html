@@ -12,19 +12,21 @@
 
       <!-- Right: Project Quick Nav -->
       @if (projects.length > 0) {
-        <div
-          class="-mx-1 flex snap-x items-center gap-2 overflow-x-auto px-1 pb-1 md:mx-0 md:overflow-visible md:pb-0"
-          aria-label="Project quick navigation"
-        >
-          @for (project of projects; track project.route) {
-            <a
-              [routerLink]="project.route"
-              [class]="project.isActive ? activeTabClasses : inactiveTabClasses"
-              [attr.aria-current]="project.isActive ? 'page' : null"
-            >
-              {{ project.name }}
-            </a>
-          }
+        <div class="project-nav-header__quick-nav w-full min-w-0 md:w-auto">
+          <div
+            class="project-nav-header__quick-nav-scroll -mx-1 flex snap-x items-center gap-2 overflow-x-auto px-1 pb-1 pr-8 md:mx-0 md:overflow-visible md:pb-0 md:pr-0"
+            aria-label="Project quick navigation"
+          >
+            @for (project of projects; track project.route) {
+              <a
+                [routerLink]="project.route"
+                [class]="project.isActive ? activeTabClasses : inactiveTabClasses"
+                [attr.aria-current]="project.isActive ? 'page' : null"
+              >
+                {{ project.name }}
+              </a>
+            }
+          </div>
         </div>
       }
     </div>
