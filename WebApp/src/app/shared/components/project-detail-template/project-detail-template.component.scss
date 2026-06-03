@@ -13,7 +13,7 @@
   --project-detail-side: var(--project-detail-primary);
   --project-detail-impact: var(--project-detail-primary);
   --project-detail-impact-label: #99f6e4;
-  --project-detail-evidence-grid: 2;
+  --project-detail-evidence-grid: 1;
 }
 
 .project-detail-template--teal {
@@ -122,14 +122,20 @@
 
 // --split: default — two-column hero, sidebar-left body, stat tiles in evidence
 .project-detail-template--split {
-  --project-detail-evidence-grid: 2;
+  @media (min-width: 640px) {
+    --project-detail-evidence-grid: 2;
+  }
 }
 
 // --compact: stacked single-column hero and body, denser stat-tile grid
 .project-detail-template--compact {
-  --project-detail-evidence-grid: 3;
+  @media (min-width: 640px) {
+    --project-detail-evidence-grid: 2;
+  }
 
   @media (min-width: 1024px) {
+    --project-detail-evidence-grid: 3;
+
     .project-detail-template__hero-grid {
       grid-template-columns: 1fr;
       grid-template-areas: 'title' 'case';
