@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { ThemePickerComponent } from '../../../shared/components/theme-picker/theme-picker.component';
 import { ThemeToggleComponent } from '../../../shared/components/theme-toggle/theme-toggle.component';
 import { CommandPaletteService } from '../../../shared/services/command-palette.service';
 import { ShortcutsHelpService } from '../../../shared/services/shortcuts-help.service';
@@ -9,7 +10,7 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, SocialLinksComponent, ThemeToggleComponent],
+  imports: [RouterModule, SocialLinksComponent, ThemePickerComponent, ThemeToggleComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

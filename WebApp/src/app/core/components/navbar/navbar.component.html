@@ -151,6 +151,7 @@
         >
           ?
         </button>
+        <app-theme-picker></app-theme-picker>
         <app-theme-toggle></app-theme-toggle>
         <app-social-links location="nav"></app-social-links>
       </div>
@@ -255,8 +256,12 @@
           <!-- Mobile Theme Toggle and Social Links -->
           <div class="px-4 pt-4 border-t border-stone-200 dark:border-slate-800">
             <div class="flex items-center justify-between mb-4">
-              <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Theme</span>
+              <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Mode</span>
               <app-theme-toggle></app-theme-toggle>
+            </div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Theme</span>
+              <app-theme-picker></app-theme-picker>
             </div>
             <app-social-links location="nav"></app-social-links>
           </div>
