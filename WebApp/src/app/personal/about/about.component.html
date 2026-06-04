@@ -1,6 +1,6 @@
 <main class="min-h-screen overflow-hidden bg-[var(--color-paper)] text-slate-950 dark:bg-slate-950 dark:text-slate-50">
   <section
-    class="relative border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_70%,var(--color-paper)_70%,var(--color-paper)_100%)] pt-28 pb-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,var(--color-night)_0%,#12343a_70%,#0f172a_70%,#0f172a_100%)]"
+    class="relative border-b border-stone-200 bg-[linear-gradient(135deg,var(--color-hero-start)_0%,var(--color-hero-mid)_70%,var(--color-paper)_70%,var(--color-paper)_100%)] pt-28 pb-16 dark:border-slate-800 dark:bg-[linear-gradient(135deg,var(--color-hero-start)_0%,var(--color-hero-mid)_70%,var(--color-night)_70%,var(--color-night)_100%)]"
   >
     <div
       class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
@@ -46,7 +46,7 @@
       <aside class="relative flex items-end justify-center lg:justify-end">
         <div class="relative w-full max-w-md">
           <div class="absolute -left-4 top-10 h-28 w-28 border-8 border-teal-300/45" aria-hidden="true"></div>
-          <div class="absolute -right-3 bottom-14 h-20 w-20 bg-rose-500/75" aria-hidden="true"></div>
+          <div class="absolute -right-3 bottom-14 h-20 w-20 bg-purple-400/75" aria-hidden="true"></div>
           <div class="relative border border-white/20 bg-slate-950/80 p-4 shadow-2xl shadow-slate-950/30 backdrop-blur">
             <img
               src="./assets/images/austin2.jpg"
@@ -55,7 +55,7 @@
             />
           </div>
           <div
-            class="absolute -bottom-7 left-5 right-5 border border-stone-200 bg-white p-5 shadow-xl dark:border-slate-700 dark:bg-slate-900"
+            class="absolute -bottom-7 left-5 right-5 border border-stone-200 bg-[var(--color-surface-raised)] p-5 shadow-xl dark:border-slate-700 dark:bg-slate-900"
           >
             <p class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-200">Current Role</p>
             <h2 class="mt-1 text-xl font-black text-slate-950 dark:text-white">{{ currentCompany.position }}</h2>
@@ -66,7 +66,7 @@
     </div>
   </section>
 
-  <section class="bg-white py-10 dark:bg-slate-900">
+  <section class="bg-[var(--color-surface)] py-10 dark:bg-slate-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div
         class="grid grid-cols-1 border border-stone-200 bg-[var(--color-paper)] dark:border-slate-800 dark:bg-slate-950 lg:grid-cols-[0.65fr_1.35fr]"

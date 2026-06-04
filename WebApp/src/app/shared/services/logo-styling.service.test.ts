@@ -18,7 +18,7 @@ describe('LogoStylingService', () => {
     });
 
     it('should return dark background for "dark"', () => {
-      expect(service.getLogoBackgroundStyle('dark')).toBe('#111827');
+      expect(service.getLogoBackgroundStyle('dark')).toBe('#11111b');
     });
 
     it('should return default white background for undefined', () => {

@@ -7,9 +7,9 @@
   font-size: 11px;
   font-weight: 600;
   line-height: 1.3;
-  color: #1a1a1a;
-  background: #fde68a;
-  border: 1px solid #b45309;
+  color: var(--color-night);
+  background: var(--color-accent-warm);
+  border: 1px solid color-mix(in srgb, var(--color-accent-warm) 70%, var(--color-night));
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   text-transform: lowercase;
@@ -18,10 +18,10 @@
 }
 
 .link-hint-typed {
-  color: #9ca3af;
+  color: color-mix(in srgb, var(--color-night) 45%, var(--color-accent-warm));
   margin-right: 1px;
 }
 
 .link-hint-remaining {
-  color: #1a1a1a;
+  color: var(--color-night);
 }

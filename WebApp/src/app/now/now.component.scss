@@ -3,7 +3,11 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top right, rgb(20 184 166 / 0.06), transparent 60%);
+    background: radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--color-accent-cyan) 10%, transparent),
+      transparent 60%
+    );
     opacity: 0;
     transition: opacity 200ms ease-out;
     pointer-events: none;
@@ -15,53 +19,53 @@
 }
 
 .now-tag {
-  --tag-bg: rgb(100 116 139 / 0.12);
-  --tag-fg: rgb(71 85 105);
+  --tag-bg: color-mix(in srgb, var(--color-muted) 14%, transparent);
+  --tag-fg: var(--color-muted);
   background: var(--tag-bg);
   color: var(--tag-fg);
 
   &--release {
-    --tag-bg: rgb(245 158 11 / 0.18);
-    --tag-fg: rgb(180 83 9);
+    --tag-bg: color-mix(in srgb, var(--color-accent-warm) 18%, transparent);
+    --tag-fg: var(--color-amber-700);
   }
 
   &--feature {
-    --tag-bg: rgb(20 184 166 / 0.18);
-    --tag-fg: rgb(13 148 136);
+    --tag-bg: color-mix(in srgb, var(--color-accent-cyan) 18%, transparent);
+    --tag-fg: var(--color-teal-700);
   }
 
   &--workflow {
-    --tag-bg: rgb(99 102 241 / 0.16);
-    --tag-fg: rgb(67 56 202);
+    --tag-bg: color-mix(in srgb, var(--color-accent-strong) 16%, transparent);
+    --tag-fg: var(--color-purple-700);
   }
 
   &--upstream {
-    --tag-bg: rgb(16 185 129 / 0.16);
-    --tag-fg: rgb(4 120 87);
+    --tag-bg: color-mix(in srgb, var(--color-green-500) 16%, transparent);
+    --tag-fg: var(--color-green-700);
   }
 }
 
 :host-context(.dark) .now-tag {
-  --tag-bg: rgb(148 163 184 / 0.14);
-  --tag-fg: rgb(203 213 225);
+  --tag-bg: color-mix(in srgb, var(--color-slate-300) 14%, transparent);
+  --tag-fg: var(--color-slate-50);
 
   &--release {
-    --tag-bg: rgb(251 191 36 / 0.16);
-    --tag-fg: rgb(253 224 71);
+    --tag-bg: color-mix(in srgb, var(--color-accent-warm) 16%, transparent);
+    --tag-fg: var(--color-amber-300);
   }
 
   &--feature {
-    --tag-bg: rgb(45 212 191 / 0.18);
-    --tag-fg: rgb(94 234 212);
+    --tag-bg: color-mix(in srgb, var(--color-accent-cyan) 18%, transparent);
+    --tag-fg: var(--color-teal-300);
   }
 
   &--workflow {
-    --tag-bg: rgb(129 140 248 / 0.18);
-    --tag-fg: rgb(165 180 252);
+    --tag-bg: color-mix(in srgb, var(--color-accent-strong) 18%, transparent);
+    --tag-fg: var(--color-purple-300);
   }
 
   &--upstream {
-    --tag-bg: rgb(52 211 153 / 0.18);
-    --tag-fg: rgb(110 231 183);
+    --tag-bg: color-mix(in srgb, var(--color-green-300) 18%, transparent);
+    --tag-fg: var(--color-green-300);
   }
 }

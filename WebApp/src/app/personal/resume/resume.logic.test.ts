@@ -31,21 +31,21 @@ class ResumeComponentLogic {
 
   getCompanyColor(colorClass: string): string {
     const colorMap: Record<string, string> = {
-      'blue-500': '#3b82f6',
-      'blue-600': '#2563eb',
-      'blue-800': '#1e40af',
-      'emerald-600': '#059669',
-      'green-500': '#22c55e',
-      'red-600': '#dc2626',
-      'orange-500': '#f97316',
-      'orange-600': '#ea580c',
-      'orange-800': '#9a3412',
-      'indigo-600': '#4f46e5',
-      'sky-400': '#38bdf8',
-      'teal-500': '#14b8a6',
-      'gray-900': '#111827',
+      'blue-500': '#1e66f5',
+      'blue-600': '#1e66f5',
+      'blue-800': '#1445a7',
+      'emerald-600': '#179299',
+      'green-500': '#40a02b',
+      'red-600': '#d20f39',
+      'orange-500': '#fe640b',
+      'orange-600': '#fe640b',
+      'orange-800': '#d55409',
+      'indigo-600': '#4e5cac',
+      'sky-400': '#04a5e5',
+      'teal-500': '#179299',
+      'gray-900': '#4c4f69',
     };
-    return colorMap[colorClass] || '#3b82f6';
+    return colorMap[colorClass] || '#1e66f5';
   }
 
   get portfolioStats() {
@@ -102,8 +102,8 @@ describe('ResumeComponent Logic Tests', () => {
 
   describe('Utility Methods', () => {
     it('should map colors correctly', () => {
-      expect(logic.getCompanyColor('blue-500')).toBe('#3b82f6');
-      expect(logic.getCompanyColor('invalid')).toBe('#3b82f6');
+      expect(logic.getCompanyColor('blue-500')).toBe('#1e66f5');
+      expect(logic.getCompanyColor('invalid')).toBe('#1e66f5');
     });
   });
 

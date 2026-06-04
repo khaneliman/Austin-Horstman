@@ -6,70 +6,70 @@
 // - Variants define LAYOUT only (evidence-grid column count), never color.
 
 .project-detail-template {
-  --project-detail-primary: #0d9488;
-  --project-detail-frame: #5eead488;
-  --project-detail-callout: #fb7185;
-  --project-detail-status: #fcd34d;
+  --project-detail-primary: var(--color-teal-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-teal-300) 55%, transparent);
+  --project-detail-callout: var(--color-rose-400);
+  --project-detail-status: var(--color-amber-300);
   --project-detail-side: var(--project-detail-primary);
   --project-detail-impact: var(--project-detail-primary);
-  --project-detail-impact-label: #99f6e4;
+  --project-detail-impact-label: var(--color-teal-200);
   --project-detail-evidence-grid: 1;
 }
 
 .project-detail-template--teal {
-  --project-detail-primary: #0d9488;
-  --project-detail-frame: #5eead488;
-  --project-detail-callout: #14b8a6;
-  --project-detail-impact-label: #99f6e4;
+  --project-detail-primary: var(--color-teal-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-teal-300) 55%, transparent);
+  --project-detail-callout: var(--color-teal-500);
+  --project-detail-impact-label: var(--color-teal-200);
 }
 
 .project-detail-template--emerald {
-  --project-detail-primary: #059669;
-  --project-detail-frame: #6ee7b78a;
-  --project-detail-callout: #10b981;
-  --project-detail-impact-label: #a7f3d0;
+  --project-detail-primary: var(--color-emerald-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-emerald-300) 55%, transparent);
+  --project-detail-callout: var(--color-emerald-500);
+  --project-detail-impact-label: var(--color-emerald-200);
 }
 
 .project-detail-template--green {
-  --project-detail-primary: #16a34a;
-  --project-detail-frame: #86efac8a;
-  --project-detail-callout: #22c55e;
-  --project-detail-impact-label: #bbf7d0;
+  --project-detail-primary: var(--color-green-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-green-300) 55%, transparent);
+  --project-detail-callout: var(--color-green-500);
+  --project-detail-impact-label: var(--color-green-200);
 }
 
 .project-detail-template--blue {
-  --project-detail-primary: #2563eb;
-  --project-detail-frame: #93c5fd8a;
-  --project-detail-callout: #3b82f6;
-  --project-detail-impact-label: #bfdbfe;
+  --project-detail-primary: var(--color-blue-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-blue-300) 55%, transparent);
+  --project-detail-callout: var(--color-blue-500);
+  --project-detail-impact-label: var(--color-blue-200);
 }
 
 .project-detail-template--purple {
-  --project-detail-primary: #7c3aed;
-  --project-detail-frame: #c4b5fd8a;
-  --project-detail-callout: #8b5cf6;
-  --project-detail-impact-label: #ddd6fe;
+  --project-detail-primary: var(--color-purple-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-purple-300) 55%, transparent);
+  --project-detail-callout: var(--color-purple-500);
+  --project-detail-impact-label: var(--color-purple-200);
 }
 
 .project-detail-template--red {
-  --project-detail-primary: #be123c;
-  --project-detail-frame: #fca5a58a;
-  --project-detail-callout: #e11d48;
-  --project-detail-impact-label: #fecdd3;
+  --project-detail-primary: var(--color-rose-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-rose-300) 55%, transparent);
+  --project-detail-callout: var(--color-rose-500);
+  --project-detail-impact-label: var(--color-rose-200);
 }
 
 .project-detail-template--orange {
-  --project-detail-primary: #ea580c;
-  --project-detail-frame: #fdba748a;
-  --project-detail-callout: #f97316;
-  --project-detail-impact-label: #fed7aa;
+  --project-detail-primary: var(--color-orange-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-orange-300) 55%, transparent);
+  --project-detail-callout: var(--color-orange-500);
+  --project-detail-impact-label: var(--color-orange-200);
 }
 
 .project-detail-template--yellow {
-  --project-detail-primary: #ca8a04;
-  --project-detail-frame: #fde68a8a;
-  --project-detail-callout: #eab308;
-  --project-detail-impact-label: #fde68a;
+  --project-detail-primary: var(--color-amber-600);
+  --project-detail-frame: color-mix(in srgb, var(--color-amber-300) 55%, transparent);
+  --project-detail-callout: var(--color-amber-500);
+  --project-detail-impact-label: var(--color-amber-200);
 }
 
 // Evidence panel surface is uniform across palettes (matches page background).
@@ -213,7 +213,19 @@
 
 :host-context(.dark) .project-detail-template__impact-label,
 .dark .project-detail-template__impact-label {
-  color: #d4d4d8;
+  color: var(--color-slate-100);
+}
+
+:host-context(.dark) .project-detail-template--purple,
+.dark .project-detail-template--purple {
+  --project-detail-primary: var(--color-purple-300);
+  --project-detail-impact-label: var(--color-purple-200);
+}
+
+:host-context(.dark) .project-detail-template--red,
+.dark .project-detail-template--red {
+  --project-detail-primary: var(--color-rose-300);
+  --project-detail-impact-label: var(--color-rose-200);
 }
 
 @media print {
@@ -249,7 +261,7 @@
     app-base-card {
       display: block;
       page-break-inside: avoid;
-      border-top: 1px solid #d4d4d8;
+      border-top: 1px solid #bcc0cc;
       padding-top: 0.75rem;
       margin-top: 1rem;
     }
@@ -258,7 +270,7 @@
     .project-detail-template__side-card,
     .project-detail-template__impact,
     .project-detail-template__takeaways {
-      border: 1px solid #d4d4d8 !important;
+      border: 1px solid #bcc0cc !important;
       border-left-width: 3px !important;
       page-break-inside: avoid;
       box-shadow: none !important;

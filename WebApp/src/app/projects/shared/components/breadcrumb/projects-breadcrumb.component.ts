@@ -11,9 +11,9 @@ import { heroChevronRight } from '@ng-icons/heroicons/outline';
   providers: [provideIcons({ heroChevronRight })],
   template: `
     <div class="flex justify-center items-center space-x-2" [class]="textColor()">
-      <a routerLink="/projects" class="hover:text-white transition-colors"> Projects </a>
+      <a routerLink="/projects" class="transition-colors hover:text-teal-900 dark:hover:text-teal-100"> Projects </a>
       <ng-icon name="heroChevronRight" size="0.75rem"></ng-icon>
-      <span class="text-white font-medium">{{ currentSection() }}</span>
+      <span class="font-medium">{{ currentSection() }}</span>
     </div>
   `,
 })

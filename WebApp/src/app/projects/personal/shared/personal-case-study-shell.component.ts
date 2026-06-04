@@ -147,51 +147,61 @@ export interface PersonalCaseStudyStat {
   `,
   styles: `
     .case-study-shell {
-      --case-primary: #0d9488;
-      --case-soft: #5eead4b3;
-      --case-callout: #fb7185;
-      --case-status: #facc15;
-      --case-stat-border: #0d9488;
+      --case-primary: var(--color-teal-600);
+      --case-soft: color-mix(in srgb, var(--color-teal-300) 70%, transparent);
+      --case-callout: var(--color-rose-400);
+      --case-status: var(--color-amber-300);
+      --case-stat-border: var(--color-teal-600);
     }
 
     .case-study-shell--teal {
-      --case-primary: #0d9488;
-      --case-soft: #5eead4b3;
-      --case-callout: #fb7185;
-      --case-status: #facc15;
-      --case-stat-border: #0d9488;
+      --case-primary: var(--color-teal-600);
+      --case-soft: color-mix(in srgb, var(--color-teal-300) 70%, transparent);
+      --case-callout: var(--color-rose-400);
+      --case-status: var(--color-amber-300);
+      --case-stat-border: var(--color-teal-600);
     }
 
     .case-study-shell--emerald {
-      --case-primary: #059669;
-      --case-soft: #6ee7b7b3;
-      --case-callout: #34d399;
-      --case-status: #22d3ee;
-      --case-stat-border: #059669;
+      --case-primary: var(--color-emerald-600);
+      --case-soft: color-mix(in srgb, var(--color-emerald-300) 70%, transparent);
+      --case-callout: var(--color-emerald-400);
+      --case-status: var(--color-cyan-300);
+      --case-stat-border: var(--color-emerald-600);
     }
 
     .case-study-shell--blue {
-      --case-primary: #2563eb;
-      --case-soft: #93c5fdb3;
-      --case-callout: #93c5fd;
-      --case-status: #93c5fd;
-      --case-stat-border: #2563eb;
+      --case-primary: var(--color-blue-600);
+      --case-soft: color-mix(in srgb, var(--color-blue-300) 70%, transparent);
+      --case-callout: var(--color-blue-300);
+      --case-status: var(--color-blue-300);
+      --case-stat-border: var(--color-blue-600);
     }
 
     .case-study-shell--violet {
-      --case-primary: #7c3aed;
-      --case-soft: #c4b5fd99;
-      --case-callout: #e879f9;
-      --case-status: #f472b6;
-      --case-stat-border: #7c3aed;
+      --case-primary: var(--color-violet-600);
+      --case-soft: color-mix(in srgb, var(--color-violet-300) 60%, transparent);
+      --case-callout: var(--color-fuchsia-400);
+      --case-status: var(--color-pink-400);
+      --case-stat-border: var(--color-violet-600);
     }
 
     .case-study-shell--rose {
-      --case-primary: #be123c;
-      --case-soft: #fda4af99;
-      --case-callout: #fb7185;
-      --case-status: #fbbf24;
-      --case-stat-border: #be123c;
+      --case-primary: var(--color-rose-600);
+      --case-soft: color-mix(in srgb, var(--color-rose-300) 60%, transparent);
+      --case-callout: var(--color-rose-400);
+      --case-status: var(--color-amber-300);
+      --case-stat-border: var(--color-rose-600);
+    }
+
+    :host-context(.dark) .case-study-shell--violet {
+      --case-primary: var(--color-violet-300);
+      --case-stat-border: var(--color-violet-300);
+    }
+
+    :host-context(.dark) .case-study-shell--rose {
+      --case-primary: var(--color-rose-300);
+      --case-stat-border: var(--color-rose-300);
     }
 
     .case-study-shell__eyebrow,

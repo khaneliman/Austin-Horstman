@@ -6,7 +6,7 @@ export type BaseCardShadow = 'sm' | 'lg' | 'xl' | '2xl';
 export type BaseCardVariant = 'small' | 'medium' | 'large';
 
 const BACKGROUND_CLASSES: Record<BaseCardBackground, string> = {
-  white: 'bg-white dark:bg-gray-800',
+  white: 'bg-[var(--color-surface-raised)] dark:bg-gray-800',
   transparent: 'bg-transparent',
   'slate-50': 'bg-slate-50 dark:bg-slate-900',
   'gray-50': 'bg-gray-50 dark:bg-gray-900',

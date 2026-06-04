@@ -14,7 +14,7 @@ export class LogoStylingService {
       case 'black':
         return '#000000';
       case 'dark':
-        return '#111827';
+        return '#11111b';
       default:
         return '#ffffff';
     }

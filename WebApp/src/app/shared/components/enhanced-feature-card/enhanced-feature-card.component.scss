@@ -5,7 +5,7 @@
 .enhanced-feature-card {
   // Special hover effects that can't be achieved with Tailwind alone
   &:hover .hover-glow {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 30%, transparent);
   }
 
   // Variant-specific hover transformations
@@ -19,8 +19,8 @@
 
   &.variant-minimal:hover {
     box-shadow:
-      0 10px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      0 10px 25px -5px color-mix(in srgb, var(--color-night) 10%, transparent),
+      0 10px 10px -5px color-mix(in srgb, var(--color-night) 4%, transparent);
   }
 
   // Child element hover effects
@@ -57,7 +57,7 @@
 
   // Accessibility improvements
   &:focus-within {
-    outline: 2px solid theme('colors.blue.500');
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
 

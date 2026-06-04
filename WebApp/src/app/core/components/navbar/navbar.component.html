@@ -1,6 +1,6 @@
 <!-- Fixed navigation header -->
 <nav
-  class="fixed top-0 w-full z-50 border-b border-stone-200/80 bg-[#fbf8f1]/90 shadow-sm backdrop-blur-xl transition-all duration-200 dark:border-slate-800 dark:bg-slate-950/85"
+  class="fixed top-0 w-full z-50 border-b border-stone-200/80 bg-[var(--color-surface)]/90 shadow-sm backdrop-blur-xl transition-all duration-200 dark:border-slate-800 dark:bg-slate-950/85"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
@@ -38,7 +38,7 @@
           <!-- Personal dropdown menu -->
           @if (isPersonalDropdownOpen()) {
             <div
-              class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 py-2"
+              class="absolute left-0 mt-2 w-48 rounded-xl bg-[var(--color-surface-raised)] py-2 shadow-lg ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700"
             >
               <a
                 [routerLink]="['/personal/about']"
@@ -91,7 +91,7 @@
           <!-- Projects dropdown menu -->
           @if (isProjectsDropdownOpen()) {
             <div
-              class="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 py-2"
+              class="absolute left-0 mt-2 w-56 rounded-xl bg-[var(--color-surface-raised)] py-2 shadow-lg ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700"
             >
               <a
                 [routerLink]="['/projects']"
@@ -160,7 +160,7 @@
         <app-theme-toggle></app-theme-toggle>
         <button
           (click)="toggleMobileMenu()"
-          class="rounded-lg p-2 text-slate-700 transition-colors duration-200 hover:bg-stone-200/60 hover:text-teal-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbf8f1] dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
+          class="rounded-lg p-2 text-slate-700 transition-colors duration-200 hover:bg-stone-200/60 hover:text-teal-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
           [attr.aria-expanded]="isMobileMenuOpen()"
           aria-controls="mobile-navigation"
           aria-label="Toggle navigation menu"
@@ -181,7 +181,7 @@
     @if (isMobileMenuOpen()) {
       <div
         id="mobile-navigation"
-        class="md:hidden border-t border-stone-200/80 bg-[#fbf8f1] py-4 dark:border-slate-800 dark:bg-slate-950"
+        class="md:hidden border-t border-stone-200/80 bg-[var(--color-surface)] py-4 dark:border-slate-800 dark:bg-slate-950"
       >
         <div class="space-y-4">
           <!-- Mobile Home -->

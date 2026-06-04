@@ -52,20 +52,23 @@ import {
 } from '../../shared/data/technologies';
 import { formatDateRange } from '../../shared/utils/date.utils';
 
+// Company accent colors used as readable inline text color (see getCompanyColor).
+// Mapped to vivid Catppuccin Latte hues; `-800` keys take a darker shade so
+// same-family companies (e.g. NRI blue-500 vs Skyline blue-800) stay distinct.
 const TAILWIND_HEX_COLORS: Record<string, string> = {
-  'blue-500': '#3b82f6',
-  'blue-600': '#2563eb',
-  'blue-800': '#1e40af',
-  'emerald-600': '#059669',
-  'green-500': '#22c55e',
-  'red-600': '#dc2626',
-  'orange-500': '#f97316',
-  'orange-600': '#ea580c',
-  'orange-800': '#9a3412',
-  'indigo-600': '#4f46e5',
-  'sky-400': '#38bdf8',
-  'teal-500': '#14b8a6',
-  'gray-900': '#111827',
+  'blue-500': '#1e66f5', // blue
+  'blue-600': '#1e66f5', // blue
+  'blue-800': '#1445a7', // blue (darker shade)
+  'emerald-600': '#179299', // teal
+  'green-500': '#40a02b', // green
+  'red-600': '#d20f39', // red
+  'orange-500': '#fe640b', // peach
+  'orange-600': '#fe640b', // peach
+  'orange-800': '#d55409', // peach (darker shade)
+  'indigo-600': '#4e5cac', // lavender (darker shade)
+  'sky-400': '#04a5e5', // sky
+  'teal-500': '#179299', // teal
+  'gray-900': '#4c4f69', // text
 };
 
 const getRepoMergedPrs = (repoName: string): number =>
@@ -296,7 +299,7 @@ export class ResumeComponent {
   }
 
   getCompanyColor(colorClass: string): string {
-    return TAILWIND_HEX_COLORS[colorClass] ?? '#3b82f6';
+    return TAILWIND_HEX_COLORS[colorClass] ?? '#1e66f5';
   }
 
   getDateRange(company: CompanyInfo): string {

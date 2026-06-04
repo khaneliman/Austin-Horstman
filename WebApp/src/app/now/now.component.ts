@@ -62,9 +62,9 @@ export class NowComponent {
   readonly totalMergedPrs = GITHUB_METRICS.totalMergedPrs;
   readonly githubUser = 'khaneliman';
   readonly githubProfileUrl = `https://github.com/${this.githubUser}`;
-  // ghchart returns a static SVG, no API key required. Teal-500 (#14b8a6)
+  // ghchart returns a static SVG, no API key required. Catppuccin teal (#179299)
   // matches the site accent and reads cleanly on both paper and slate.
-  readonly heatmapUrl = `https://ghchart.rshah.org/14b8a6/${this.githubUser}`;
+  readonly heatmapUrl = `https://ghchart.rshah.org/179299/${this.githubUser}`;
 
   readonly focusItems: FocusItem[] = [
     {
