@@ -2,7 +2,7 @@
 // testable under Bun without pulling in the Angular DI runtime.
 
 /** Palette axis — keep in sync with the themes defined in `_themes.scss`. */
-export type ThemeName = 'classic' | 'catppuccin' | 'tokyo-night';
+export type ThemeName = 'classic' | 'catppuccin' | 'tokyo-night' | 'gruvbox';
 
 export interface ThemeOption {
   readonly id: ThemeName;
@@ -14,6 +14,7 @@ export const AVAILABLE_THEMES: readonly ThemeOption[] = [
   { id: 'classic', label: 'Classic' },
   { id: 'catppuccin', label: 'Catppuccin' },
   { id: 'tokyo-night', label: 'Tokyo Night' },
+  { id: 'gruvbox', label: 'Gruvbox' },
 ];
 
 export const DEFAULT_PALETTE: ThemeName = 'classic';
