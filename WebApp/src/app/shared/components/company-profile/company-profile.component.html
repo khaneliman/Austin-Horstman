@@ -1,13 +1,15 @@
 <section class="min-h-screen bg-[var(--color-paper)] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
   <header
-    class="relative overflow-hidden border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_72%,var(--color-paper)_72%,var(--color-paper)_100%)] pt-16 pb-14 dark:border-slate-800 dark:bg-[linear-gradient(135deg,var(--color-night)_0%,#12343a_72%,#0f172a_72%,#0f172a_100%)]"
+    class="relative overflow-hidden border-b border-stone-200 bg-[linear-gradient(135deg,#0f172a_0%,#12343a_100%)] pt-16 pb-14 dark:border-slate-800 dark:bg-[linear-gradient(135deg,var(--color-night)_0%,#12343a_100%)] lg:bg-[linear-gradient(135deg,#0f172a_0%,#12343a_88%,var(--color-paper)_88%,var(--color-paper)_100%)] lg:dark:bg-[linear-gradient(135deg,var(--color-night)_0%,#12343a_88%,#0f172a_88%,#0f172a_100%)]"
   >
     <div
       class="absolute inset-x-0 top-0 h-24 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0_1px,transparent_1px_80px)]"
       aria-hidden="true"
     ></div>
 
-    <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+    <div
+      class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[13rem_minmax(0,1fr)] lg:px-8"
+    >
       <aside class="flex items-start justify-center lg:justify-start">
         <a
           [href]="company().website || '#'"
@@ -37,10 +39,12 @@
         <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-100">
           {{ viewMode() === 'employment' ? 'Experience' : 'Professional Projects' }}
         </p>
-        <h1 class="mt-3 text-5xl font-black leading-none text-white sm:text-6xl">{{ company().name }}</h1>
+        <h1 class="mt-3 max-w-3xl break-words text-5xl font-black leading-tight text-white sm:text-6xl">
+          {{ company().name }}
+        </h1>
         <p class="mt-5 max-w-3xl text-xl font-semibold text-teal-100">{{ company().position }}</p>
 
-        <div class="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-slate-100">
+        <div class="mt-6 flex max-w-3xl flex-wrap gap-3 text-sm font-semibold text-slate-100">
           <span class="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-2">
             <ng-icon name="heroMapPin" size="1rem" class="text-teal-200"></ng-icon>
             {{ company().location }}
