@@ -3,8 +3,8 @@ import { AVAILABLE_THEMES, DEFAULT_PALETTE, isThemeName, normalizeThemeName } fr
 
 describe('ThemeService palette logic', () => {
   describe('AVAILABLE_THEMES', () => {
-    it('exposes classic and catppuccin', () => {
-      expect(AVAILABLE_THEMES.map((t) => t.id)).toEqual(['classic', 'catppuccin']);
+    it('exposes the registered palettes', () => {
+      expect(AVAILABLE_THEMES.map((t) => t.id)).toEqual(['classic', 'catppuccin', 'tokyo-night']);
     });
 
     it('defaults to classic', () => {
