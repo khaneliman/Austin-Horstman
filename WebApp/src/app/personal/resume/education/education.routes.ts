@@ -6,7 +6,10 @@ export const EDUCATION_ROUTES: Routes = [
   {
     path: '',
     component: EducationComponent,
-    children: [{ path: 'foxvalley', component: FoxvalleyComponent }],
+    children: [
+      { path: '', redirectTo: 'foxvalley', pathMatch: 'full' },
+      { path: 'foxvalley', component: FoxvalleyComponent },
+    ],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
