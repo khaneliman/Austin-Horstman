@@ -1,10 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="classic">
   <head>
     <meta charset="utf-8" />
     <title>Austin Horstman - Full Stack Developer Portfolio</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Apply persisted theme before first paint to avoid a flash of the wrong theme. -->
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          var mode = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (mode === 'dark' || (!mode && prefersDark)) {
+            root.classList.add('dark');
+          }
+          var palette = localStorage.getItem('theme-palette');
+          root.dataset.theme = palette === 'catppuccin' || palette === 'classic' ? palette : 'classic';
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- SEO Meta Tags -->
     <meta
