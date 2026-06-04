@@ -391,3 +391,6 @@ WebApp/khaneliman/apps/austin-horstman/eslint-report.json
 WebApp/khaneliman/package-lock.json
 /output/playwright
 /WebApp/output/playwright
+
+# Playwright CLI scratch artifacts (snapshots, screenshots, console logs)
+.playwright-cli/
