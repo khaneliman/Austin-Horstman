@@ -17,7 +17,7 @@
             root.classList.add('dark');
           }
           var palette = localStorage.getItem('theme-palette');
-          var themes = ['classic', 'catppuccin', 'tokyo-night', 'gruvbox'];
+          var themes = ['classic', 'catppuccin', 'tokyo-night', 'gruvbox', 'solarized'];
           root.dataset.theme = themes.indexOf(palette) !== -1 ? palette : 'classic';
         } catch (e) {}
       })();

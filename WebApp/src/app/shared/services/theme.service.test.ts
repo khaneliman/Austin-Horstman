@@ -4,7 +4,13 @@ import { AVAILABLE_THEMES, DEFAULT_PALETTE, isThemeName, normalizeThemeName } fr
 describe('ThemeService palette logic', () => {
   describe('AVAILABLE_THEMES', () => {
     it('exposes the registered palettes', () => {
-      expect(AVAILABLE_THEMES.map((t) => t.id)).toEqual(['classic', 'catppuccin', 'tokyo-night', 'gruvbox']);
+      expect(AVAILABLE_THEMES.map((t) => t.id)).toEqual([
+        'classic',
+        'catppuccin',
+        'tokyo-night',
+        'gruvbox',
+        'solarized',
+      ]);
     });
 
     it('defaults to classic', () => {
