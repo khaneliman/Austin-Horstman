@@ -6,8 +6,15 @@ on:
   workflow_dispatch:
 
 permissions:
+  checks: read
   contents: write
   pull-requests: write
+  statuses: read
+
+env:
+  METRICS_BRANCH: chore/update-github-metrics
+  METRICS_FILE: WebApp/src/app/shared/data/github-metrics.ts
+  METRICS_PR_TITLE: 'chore: refresh GitHub contribution metrics'
 
 jobs:
   update-metrics:
@@ -49,3 +56,122 @@ jobs:
           add-paths: |
             WebApp/src/app/shared/data/github-metrics.ts
           delete-branch: true
+
+  merge-monthly-metrics:
+    if: github.event_name == 'schedule'
+    needs: update-metrics
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check monthly merge window
+        id: merge-window
+        run: |
+          day_of_month="$(date -u +%e | tr -d ' ')"
+
+          if [ "$day_of_month" -le 7 ]; then
+            echo "should_merge=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_merge=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping monthly merge outside first Monday window."
+          fi
+
+      - name: Find metrics pull request
+        if: steps.merge-window.outputs.should_merge == 'true'
+        id: metrics-pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_number="$(
+            gh pr list \
+              --repo "$GITHUB_REPOSITORY" \
+              --head "$METRICS_BRANCH" \
+              --base "$GITHUB_REF_NAME" \
+              --state open \
+              --json number \
+              --jq '.[0].number // ""'
+          )"
+
+          if [ -z "$pr_number" ]; then
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "No open metrics PR found."
+            exit 0
+          fi
+
+          echo "found=true" >> "$GITHUB_OUTPUT"
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+
+      - name: Validate metrics pull request
+        if: steps.metrics-pr.outputs.found == 'true'
+        id: validate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_number="${{ steps.metrics-pr.outputs.number }}"
+          pr_json="$(
+            gh pr view "$pr_number" \
+              --repo "$GITHUB_REPOSITORY" \
+              --json author,baseRefName,headRefName,headRefOid,isDraft,title
+          )"
+          author="$(jq -r '.author.login' <<< "$pr_json")"
+          base_ref="$(jq -r '.baseRefName' <<< "$pr_json")"
+          head_ref="$(jq -r '.headRefName' <<< "$pr_json")"
+          head_oid="$(jq -r '.headRefOid' <<< "$pr_json")"
+          is_draft="$(jq -r '.isDraft' <<< "$pr_json")"
+          title="$(jq -r '.title' <<< "$pr_json")"
+          changed_files="$(gh pr diff "$pr_number" --repo "$GITHUB_REPOSITORY" --name-only)"
+
+          if [ "$author" != "app/github-actions" ]; then
+            echo "Unexpected PR author: $author"
+            exit 1
+          fi
+
+          if [ "$base_ref" != "$GITHUB_REF_NAME" ]; then
+            echo "Unexpected base branch: $base_ref"
+            exit 1
+          fi
+
+          if [ "$head_ref" != "$METRICS_BRANCH" ]; then
+            echo "Unexpected head branch: $head_ref"
+            exit 1
+          fi
+
+          if [ "$is_draft" != "false" ]; then
+            echo "Metrics PR is draft."
+            exit 1
+          fi
+
+          if [ "$title" != "$METRICS_PR_TITLE" ]; then
+            echo "Unexpected PR title: $title"
+            exit 1
+          fi
+
+          if [ "$changed_files" != "$METRICS_FILE" ]; then
+            echo "Unexpected files changed:"
+            echo "$changed_files"
+            exit 1
+          fi
+
+          echo "head_oid=$head_oid" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for checks
+        if: steps.metrics-pr.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr checks "${{ steps.metrics-pr.outputs.number }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --watch \
+            --fail-fast \
+            --interval 30
+
+      - name: Merge metrics pull request
+        if: steps.metrics-pr.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge "${{ steps.metrics-pr.outputs.number }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --squash \
+            --delete-branch \
+            --match-head-commit "${{ steps.validate.outputs.head_oid }}" \
+            --subject "$METRICS_PR_TITLE" \
+            --body "Monthly automated merge of generated GitHub metrics."
