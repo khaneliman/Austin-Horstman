@@ -109,14 +109,17 @@ jobs:
           pr_json="$(
             gh pr view "$pr_number" \
               --repo "$GITHUB_REPOSITORY" \
-              --json author,baseRefName,headRefName,headRefOid,isDraft,title
+              --json author,baseRefName,headRefName,headRefOid,headRepositoryOwner,isCrossRepository,isDraft,title
           )"
           author="$(jq -r '.author.login' <<< "$pr_json")"
           base_ref="$(jq -r '.baseRefName' <<< "$pr_json")"
           head_ref="$(jq -r '.headRefName' <<< "$pr_json")"
           head_oid="$(jq -r '.headRefOid' <<< "$pr_json")"
+          head_repo_owner="$(jq -r '.headRepositoryOwner.login' <<< "$pr_json")"
+          is_cross_repo="$(jq -r '.isCrossRepository' <<< "$pr_json")"
           is_draft="$(jq -r '.isDraft' <<< "$pr_json")"
           title="$(jq -r '.title' <<< "$pr_json")"
+          repo_owner="${GITHUB_REPOSITORY%%/*}"
           changed_files="$(gh pr diff "$pr_number" --repo "$GITHUB_REPOSITORY" --name-only)"
 
           if [ "$author" != "app/github-actions" ]; then
@@ -131,6 +134,16 @@ jobs:
 
           if [ "$head_ref" != "$METRICS_BRANCH" ]; then
             echo "Unexpected head branch: $head_ref"
+            exit 1
+          fi
+
+          if [ "$is_cross_repo" != "false" ]; then
+            echo "Metrics PR must come from this repository, not a fork."
+            exit 1
+          fi
+
+          if [ "$head_repo_owner" != "$repo_owner" ]; then
+            echo "Unexpected head repository owner: $head_repo_owner"
             exit 1
           fi
 
