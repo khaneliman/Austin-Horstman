@@ -13,12 +13,12 @@ export interface GitHubMetrics {
 }
 
 export const GITHUB_METRICS: GitHubMetrics = {
-  asOf: '2026-07-13',
-  totalMergedPrs: 1565,
+  asOf: '2026-08-03',
+  totalMergedPrs: 1595,
   repoMetrics: [
-    { repo: 'Nixpkgs', mergedPrs: 800 },
-    { repo: 'Home Manager', mergedPrs: 458 },
-    { repo: 'Nixvim', mergedPrs: 253 },
+    { repo: 'Nixpkgs', mergedPrs: 820 },
+    { repo: 'Home Manager', mergedPrs: 467 },
+    { repo: 'Nixvim', mergedPrs: 254 },
     { repo: 'Waybar', mergedPrs: 54 },
   ],
 };
