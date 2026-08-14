@@ -18,6 +18,7 @@
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Docker Deployment](#docker-deployment)
 * [Contributing](#contributing)
 * [Tests](#tests)
 * [License](#license)
@@ -75,6 +76,24 @@ cd WebApp
 bun run build:prod         # Production build
 bun run docker:build       # Docker production build
 ```
+
+## Docker Deployment
+
+Production Compose uses the hardened image and binds WebApp to `127.0.0.1:8080`:
+
+```bash
+docker compose up --build --detach
+```
+
+WebApi remains available on the internal Docker network. Compose publishes no WebApi host port.
+
+Use the explicit development configuration when you need the development servers:
+
+```bash
+docker compose -f docker-compose.development.yml up --build
+```
+
+Read the [homelab deployment controls](docs/homelab-deployment.md) before configuring the Unraid template or reverse proxy.
   
 ## Contributing
   
