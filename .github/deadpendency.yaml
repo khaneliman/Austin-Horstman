@@ -1,8 +1,6 @@
 additional-dependency-files:
-  - path: WebApp/khaneliman/package.json
+  - path: WebApp/package.json
     type: npm-package-json
-  - path: WebApp/WebApp.csproj
-    type: dotnet-csharp-project
   - path: WebApi/WebApi.csproj
     type: dotnet-csharp-project
 
@@ -10,5 +8,5 @@ ignore-failures:
   csharp:
     - Microsoft.VisualStudio.Azure.Containers.Tools.Targets
   javascript:
-    - karma-chrome-launcher 
+    - karma-chrome-launcher
     - karma-junit-reporter

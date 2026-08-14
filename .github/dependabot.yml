@@ -1,38 +1,43 @@
 version: 2
 updates:
-  # Maintain dependencies for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
     commit-message:
-      # Prefix all commit messages with "npm: "
-      prefix: ".github" 
-  - package-ecosystem: "npm"
-    directory: "/WebApp/khaneliman/"
+      prefix: ci
+
+  - package-ecosystem: bun
+    directory: /WebApp
     schedule:
-      interval: "daily"
+      interval: daily
     commit-message:
-      # Prefix all commit messages with "npm: "
-      prefix: "package-lock.json" 
-  - package-ecosystem: "docker"
-    directory: "/WebApp"
+      prefix: deps(webapp)
+
+  - package-ecosystem: nuget
+    directory: /WebApi
     schedule:
-      interval: "daily"
+      interval: daily
     commit-message:
-      # Prefix all commit messages with "[docker] " (no colon, but a trailing whitespace)
-      prefix: "Dockerfile"
-  - package-ecosystem: "docker"
-    directory: "/WebApi"
+      prefix: deps(webapi)
+
+  - package-ecosystem: dotnet-sdk
+    directory: /WebApi
     schedule:
-      interval: "daily"
+      interval: daily
     commit-message:
-      # Prefix all commit messages with "[docker] " (no colon, but a trailing whitespace)
-      prefix: "Dockerfile"
-  - package-ecosystem: "docker"
-    directory: "/"
+      prefix: deps(dotnet)
+
+  - package-ecosystem: docker
+    directory: /WebApp
     schedule:
-      interval: "daily"
+      interval: daily
     commit-message:
-      # Prefix all commit messages with "[docker] " (no colon, but a trailing whitespace)
-      prefix: "docker-compose.yml"
+      prefix: deps(webapp-image)
+
+  - package-ecosystem: docker
+    directory: /WebApi
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: deps(webapi-image)
