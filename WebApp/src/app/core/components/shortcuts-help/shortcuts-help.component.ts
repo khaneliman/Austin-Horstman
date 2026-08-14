@@ -16,7 +16,7 @@ export class ShortcutsHelpComponent {
   readonly groups = SHORTCUT_GROUPS;
 
   @HostListener('document:keydown.escape', ['$event'])
-  handleEscape(event: KeyboardEvent): void {
+  handleEscape(event: Event): void {
     if (!this.isOpen()) return;
     event.preventDefault();
     this.service.close();

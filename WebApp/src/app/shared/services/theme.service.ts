@@ -2,8 +2,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { effect, Injectable, inject, PLATFORM_ID, signal } from '@angular/core';
 import { AVAILABLE_THEMES, DEFAULT_PALETTE, isThemeName, normalizeThemeName, ThemeName } from './theme-palette';
 
-export { AVAILABLE_THEMES, DEFAULT_PALETTE, isThemeName, normalizeThemeName } from './theme-palette';
 export type { ThemeName, ThemeOption } from './theme-palette';
+export { AVAILABLE_THEMES, DEFAULT_PALETTE, isThemeName, normalizeThemeName } from './theme-palette';
 
 /** Light/dark axis. */
 export type Theme = 'light' | 'dark';

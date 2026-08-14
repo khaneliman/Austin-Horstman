@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroMoon, heroSun } from '@ng-icons/heroicons/outline';
 import { ThemeService } from '../../services/theme.service';
@@ -8,6 +8,7 @@ import { ThemeService } from '../../services/theme.service';
   standalone: true,
   imports: [NgIconComponent],
   providers: [provideIcons({ heroSun, heroMoon })],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <button
       (click)="toggleTheme()"

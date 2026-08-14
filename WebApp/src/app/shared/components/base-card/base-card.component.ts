@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 export type BaseCardBackground = 'white' | 'transparent' | 'slate-50' | 'gray-50';
 export type BaseCardRounded = 'lg' | 'xl' | '2xl' | '3xl';
@@ -36,6 +36,7 @@ const VARIANT_PADDING: Record<BaseCardVariant, string> = {
   selector: 'app-base-card',
   standalone: true,
   imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [class]="cardClasses" [attr.role]="role()">
       <ng-content></ng-content>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroCheck, heroSwatch } from '@ng-icons/heroicons/outline';
 import { ThemeName, ThemeService } from '../../services/theme.service';
@@ -8,6 +8,7 @@ import { ThemeName, ThemeService } from '../../services/theme.service';
   standalone: true,
   imports: [NgIconComponent],
   providers: [provideIcons({ heroSwatch, heroCheck })],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="relative">
       <button
