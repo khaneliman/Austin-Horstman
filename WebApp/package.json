@@ -38,7 +38,7 @@
     "ci:build": "bunx @angular/cli build --configuration production",
     "ci:full": "bun run ci:clean && bun run ci:test && bun run ci:build",
     "docker:build": "docker build -f Dockerfile.production -t webapp-prod . --load",
-    "docker:run": "docker run -d -p 8080:80 --name webapp-test webapp-prod",
+    "docker:run": "docker run -d -p 127.0.0.1:8080:8080 --name webapp-test webapp-prod",
     "docker:stop": "docker stop webapp-test && docker rm webapp-test",
     "docker:test": "bun run docker:build && bun run docker:run"
   },

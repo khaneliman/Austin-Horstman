@@ -1,20 +1,18 @@
-FROM node:26-alpine
+FROM docker.io/library/node:26-alpine@sha256:aadf416b2cdce311a8811ba3f0608a61b77dbf997500e2eafe781b51f6a0b019
 
-# Install Bun
 # hadolint ignore=DL3016
-RUN npm install -g bun
-
-# Verify installations
-RUN node --version && npm --version && bun --version
-
-RUN mkdir -p /usr/src/app
+RUN npm install --global bun@1.3.14
 
 WORKDIR /usr/src/app
 
-COPY package.json bun.lock ./
+COPY --chown=node:node package.json bun.lock ./
 
-RUN bun install
+USER node
 
-COPY . .
+RUN bun install --frozen-lockfile
+
+COPY --chown=node:node . .
+
+EXPOSE 4200
 
 CMD ["bun", "run", "start:dev", "--", "--host", "0.0.0.0"]

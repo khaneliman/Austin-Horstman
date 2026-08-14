@@ -1,0 +1,14 @@
+.angular
+.env
+.env.*
+.git
+.github
+.npmrc
+coverage
+dist
+Dockerfile*
+node_modules
+*.key
+*.log
+*.pem
+*.pfx
