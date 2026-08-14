@@ -1,0 +1,42 @@
+services:
+  webapi:
+    build:
+      context: ./WebApi
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "127.0.0.1:${WEBAPI_DEV_PORT:-5000}:8080"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    pids_limit: 128
+    mem_limit: 256m
+    cpus: 1.00
+    networks:
+      - development
+
+  webapp:
+    build:
+      context: ./WebApp
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:${WEBAPP_DEV_PORT:-4200}:4200"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    pids_limit: 256
+    mem_limit: 1g
+    cpus: 2.00
+    networks:
+      - development
+
+networks:
+  development:

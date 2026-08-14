@@ -1,8 +1,11 @@
 **/.classpath
 **/.dockerignore
 **/.env
+**/.env.*
 **/.git
+**/.github
 **/.gitignore
+**/.npmrc
 **/.project
 **/.settings
 **/.toolstarget
@@ -11,6 +14,10 @@
 **/*.*proj.user
 **/*.dbmdl
 **/*.jfm
+**/*.key
+**/*.log
+**/*.pem
+**/*.pfx
 **/azds.yaml
 **/bin
 **/charts
