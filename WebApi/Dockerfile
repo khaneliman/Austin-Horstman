@@ -4,7 +4,7 @@ ENV ASPNETCORE_HTTP_PORTS=8080 \
     DOTNET_EnableDiagnostics=0
 EXPOSE 8080
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0.300@sha256:c0790639332692a0d56cdd81ed581cfd24d040d9839764c138994866df89a3b6 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0.400@sha256:e1fc6e423f543119c406d24e2e687d67c569f18f04a37a8b0005d80ad0dcee80 AS build
 WORKDIR /src
 COPY WebApi.csproj packages.lock.json ./
 RUN dotnet restore "WebApi.csproj" --locked-mode
