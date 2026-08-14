@@ -11,15 +11,19 @@ on:
 jobs:
   build-api:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
         with:
-          dotnet-version: 10.0.x
+          global-json-file: WebApi/global.json
+          cache: true
+          cache-dependency-path: WebApi/packages.lock.json
       - name: Restore dependencies
-        run: dotnet restore WebApi/
+        run: dotnet restore WebApi/ --locked-mode
       - name: Build
-        run: dotnet build WebApi/ --no-restore
+        run: dotnet build WebApi/ --configuration Release --no-restore
       - name: Test
-        run: dotnet test WebApi/ --no-build --verbosity normal
+        run: dotnet test WebApi/ --configuration Release --no-build --verbosity normal
