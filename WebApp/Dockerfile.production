@@ -5,6 +5,8 @@ RUN npm install --global bun@1.3.14
 
 WORKDIR /usr/src/app
 
+RUN chown node:node /usr/src/app
+
 # Copy package files and install dependencies (including dev deps for build)
 COPY --chown=node:node package.json bun.lock ./
 
