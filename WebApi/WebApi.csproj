@@ -8,13 +8,14 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-	<ContainerDevelopmentMode>Regular</ContainerDevelopmentMode>
-	<DockerfileFastModeStage>base</DockerfileFastModeStage>
+    <ContainerDevelopmentMode>Regular</ContainerDevelopmentMode>
+    <DockerfileFastModeStage>base</DockerfileFastModeStage>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
   </ItemGroup>
 
 </Project>
