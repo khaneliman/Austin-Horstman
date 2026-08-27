@@ -40,7 +40,7 @@
         "prettier": "^3.9.6",
         "typescript": "~6.0.3",
         "typescript-eslint": "8.67.0",
-        "webpack-bundle-analyzer": "^5.3.1",
+        "webpack-bundle-analyzer": "^5.3.2",
       },
     },
   },
@@ -1709,7 +1709,7 @@
 
     "webpack": ["webpack@5.109.2", "", { "dependencies": { "@types/estree": "^1.0.8", "@types/json-schema": "^7.0.15", "@webassemblyjs/ast": "^1.14.1", "@webassemblyjs/wasm-edit": "^1.14.1", "@webassemblyjs/wasm-parser": "^1.14.1", "acorn": "^8.16.0", "browserslist": "^4.28.1", "chrome-trace-event": "^1.0.2", "enhanced-resolve": "^5.24.4", "es-module-lexer": "^2.1.0", "eslint-scope": "5.1.1", "events": "^3.2.0", "graceful-fs": "^4.2.11", "mime-db": "^1.54.0", "minimizer-webpack-plugin": "^5.6.1", "neo-async": "^2.6.2", "schema-utils": "^4.3.3", "tapable": "^2.3.0", "watchpack": "^2.5.2", "webpack-sources": "^3.5.1" }, "bin": { "webpack": "bin/webpack.js" } }, "sha512-U9/cvLzxObKNEZ9+TtdqrHM5/9z3lgl2c+c4BzbqGxFQvQvBAq87yql5A8pQ+rrMbS496MZJeF5enVBndIy2hw=="],
 
-    "webpack-bundle-analyzer": ["webpack-bundle-analyzer@5.3.1", "", { "dependencies": { "@discoveryjs/json-ext": "^0.6.3", "acorn": "^8.0.4", "acorn-walk": "^8.0.0", "commander": "^14.0.2", "escape-string-regexp": "^5.0.0", "html-escaper": "^3.0.3", "opener": "^1.5.2", "picocolors": "^1.0.0", "sirv": "^3.0.2", "ws": "^8.19.0" }, "bin": { "webpack-bundle-analyzer": "lib/bin/analyzer.js" } }, "sha512-wP2EusncRGL1tZyMHC/umLkjPdYMkTL9nPEKh8G8dkYCJ9TyF6xnXFqjhdqmv5J900irN/g0P5jMvLT22krEXQ=="],
+    "webpack-bundle-analyzer": ["webpack-bundle-analyzer@5.3.2", "", { "dependencies": { "@discoveryjs/json-ext": "^0.6.3", "acorn": "^8.0.4", "acorn-walk": "^8.0.0", "commander": "^14.0.2", "escape-string-regexp": "^5.0.0", "html-escaper": "^3.0.3", "opener": "^1.5.2", "picocolors": "^1.0.0", "sirv": "^3.0.2", "ws": "^8.19.0" }, "bin": { "webpack-bundle-analyzer": "lib/bin/analyzer.js" } }, "sha512-IagCa/GrdxSz+ba9OMgK7UCfQp97HtXbgjXu7ObcqmRo9PTp0d+24rgY+mIFOx7JPQ9bo6FGsqZhA55rYRZrrQ=="],
 
     "webpack-dev-middleware": ["webpack-dev-middleware@8.0.3", "", { "dependencies": { "memfs": "^4.56.10", "mime-types": "^3.0.2", "on-finished": "^2.4.1", "range-parser": "^1.2.1", "schema-utils": "^4.3.3" }, "peerDependencies": { "webpack": "^5.101.0" }, "optionalPeers": ["webpack"] }, "sha512-zWrde9VZDiRaFuWsjHO40wm9LxxtXEk8DdzFXdU7eU5ZpiANnZZDBbZgN3guxbEoKqUHd9YupBmynyioz42nkA=="],
 
