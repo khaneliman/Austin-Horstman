@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'bun:test';
-import { generateProfessionalProjectsGrid, getProjectsForCompany, SHARED_PROJECTS } from './projects';
+import {
+  generateProfessionalProjectsGrid,
+  getProjectsForCompany,
+  getResumeProjectCards,
+  SHARED_PROJECTS,
+} from './projects';
 
 describe('Projects Data', () => {
   it('should have shared projects defined', () => {
@@ -47,5 +52,14 @@ describe('Projects Data', () => {
     projectsGrid.forEach((company) => {
       expect(company.route.startsWith('/experience/')).toBe(true);
     });
+  });
+
+  it('should expose FarmLink as an NRI-NA project card', () => {
+    const farmLink = getResumeProjectCards().find((project) => project.title === 'FarmLink Modernization');
+
+    expect(farmLink).toBeDefined();
+    expect(farmLink?.route).toBe('/projects/professional/nri-na/farmlink-modernization');
+    expect(farmLink?.technologies).toContain('Blazor');
+    expect(farmLink?.technologies).toContain('Azure DevOps');
   });
 });

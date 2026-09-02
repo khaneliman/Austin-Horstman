@@ -844,6 +844,112 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     gridColumns: 'single',
   },
 
+  'farmlink-modernization': {
+    // Visual/Branding
+    headerIcon: 'heroArrowPathRoundedSquare',
+    primaryColor: 'blue',
+    styleVariant: 'ledger',
+
+    // Navigation
+    backRoute: '/experience/nri-na',
+    backLabel: 'Back to NRI-NA Experience',
+    companyKey: 'nri-na',
+    hoverColor: 'blue',
+
+    // Content
+    title: 'FarmLink Modernization',
+    description:
+      "AI-assisted rewrite of SECURA Insurance's 40-year-old FarmLink rating and quoting desktop front end with Blazor and .NET",
+    outcome:
+      'Delivered the complete browser-based front end in 90 days and passed all 1,369 parity tests without changing a single rating result.',
+    technologies: [
+      { name: 'Blazor', color: 'blue' },
+      { name: '.NET', color: 'indigo' },
+      { name: 'AI Agents', color: 'cyan' },
+      { name: 'Azure DevOps', color: 'teal' },
+      { name: 'Requirements Mapping', color: 'slate' },
+      { name: 'Agent Skills', color: 'violet' },
+      { name: 'Custom Plugins', color: 'purple' },
+    ],
+    quickStats: [
+      { label: 'Delivery Time', value: '90 days', icon: 'heroClock' },
+      { label: 'Core Team', value: '6 people', icon: 'heroUserGroup' },
+      { label: 'Parity Tests', value: '1,369', icon: 'heroCheckCircle' },
+      { label: 'Recognition', value: '2026 Impact Award', icon: 'heroStar' },
+    ],
+    overview: {
+      title: 'Project Overview',
+      content:
+        "SECURA Insurance needed to replace FarmLink's 40-year-old desktop front end, which had limited documentation, Windows 11 compatibility issues, and heavy reliance on institutional knowledge. A six-person core team delivered the browser-based replacement in 90 days. Full-solution validation passed 1,369 of 1,369 parity tests without changing a single rating result.",
+      icon: 'heroComputerDesktop',
+    },
+    features: [
+      {
+        title: 'AI-Assisted Discovery',
+        description: 'Documented legacy behavior and mapped requirements from a system with limited documentation',
+        icon: 'heroDocumentArrowUp',
+      },
+      {
+        title: 'Front-End Parity',
+        description: 'Delivered quote search, policy views, underwriting screens, and rating integration in Blazor',
+        icon: 'heroArrowPathRoundedSquare',
+      },
+      {
+        title: 'Existing System Integration',
+        description:
+          'Connected the new web application to the existing rating engine and quote and policy data services',
+        icon: 'heroLink',
+      },
+      {
+        title: 'Parity Validation',
+        description: 'Passed all 1,369 automated tests without changing a single rating result',
+        icon: 'heroCheckCircle',
+      },
+    ],
+    technicalDetails: [
+      {
+        title: 'AI-Assisted Delivery Workflow',
+        content:
+          'The team used AI agents for code generation, requirements extraction, and validation, with Azure DevOps managing the backlog. Custom skills and plugins supported migration work and reviews while engineers maintained human oversight of AI-generated output.',
+        icon: 'heroCog6Tooth',
+      },
+      {
+        title: 'Blazor Front-End Rewrite',
+        content:
+          "Replaced FarmLink's desktop front end with a browser-based Blazor and .NET application. The new application preserved the insurer's existing rating engine and quote and policy data services.",
+        icon: 'heroCodeBracket',
+      },
+      {
+        title: 'Delivery Pace',
+        content:
+          'Reached the document-generation stage within roughly 25 business days and completed all major user-interface areas by day 40. Ongoing demonstrations and validation guided each successive sprint.',
+        icon: 'heroChartBarSquare',
+      },
+    ],
+    specialSections: [
+      {
+        title: 'Recognition',
+        content: 'The FarmLink modernization received a 2026 Insurance Technology Impact Award.',
+        icon: 'heroStar',
+        type: 'text',
+      },
+    ],
+    impact:
+      'Reduced a front-end replacement estimated at more than two years to 90 days while preserving rating parity across all 1,369 automated tests.',
+    keyTakeaways: [
+      'Expanded a 90-day proof of concept into the complete browser-based FarmLink front end.',
+      'A six-person core team delivered work previously estimated at more than two years.',
+      'Passed 1,369 of 1,369 parity tests without changing a single rating result.',
+      'Received a 2026 Insurance Technology Impact Award.',
+    ],
+
+    // Layout Options
+    showQuickStats: true,
+    showTechnicalHighlights: true,
+    showImpactSection: true,
+    gridColumns: 'single',
+  },
+
   'tax-document-analysis': {
     // Visual/Branding
     headerIcon: 'heroDocumentText',

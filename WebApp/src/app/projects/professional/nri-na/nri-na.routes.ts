@@ -29,5 +29,11 @@ export const NRI_NA_ROUTES: Routes = [
       import('./mulesoft-migrator/mulesoft-migrator.component').then((m) => m.MuleSoftMigratorComponent),
     data: { autoScroll: true },
   },
+  {
+    path: 'farmlink-modernization',
+    loadComponent: () =>
+      import('./farmlink-modernization/farmlink-modernization.component').then((m) => m.FarmLinkModernizationComponent),
+    data: { autoScroll: true },
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

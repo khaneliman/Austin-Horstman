@@ -196,6 +196,14 @@ const PROJECT_DETAILS = {
     status: 'Production' as const,
     technologies: ['.NET APIs', 'MuleSoft', 'o4-mini', 'Claude Code', 'Codex CLI', 'MCP Servers'],
   },
+  'farmlink-modernization': {
+    description:
+      "AI-assisted rewrite of SECURA Insurance's 40-year-old FarmLink desktop front end with Blazor and .NET",
+    icon: 'heroArrowPathRoundedSquare',
+    color: 'from-blue-600 to-cyan-700',
+    status: 'Completed' as const,
+    technologies: ['Blazor', '.NET', 'AI Agents', 'Azure DevOps', 'Agent Skills', 'Custom Plugins'],
+  },
 } as const;
 
 // Helper function to generate ProjectInfo objects from centralized COMPANIES data

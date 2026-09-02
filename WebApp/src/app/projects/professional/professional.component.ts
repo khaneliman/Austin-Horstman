@@ -39,7 +39,9 @@ export class ProfessionalProjectsComponent {
   protected readonly currentCompany = getCompanyWithCalculatedStats('nri-na');
   protected readonly featuredCaseStudies = getResumeProjectCards()
     .filter((project) =>
-      ['MuleSoft Migrator', 'AI Resource Staffing', 'Tax Document Analysis', 'DoItBest'].includes(project.title)
+      ['MuleSoft Migrator', 'FarmLink Modernization', 'AI Resource Staffing', 'Tax Document Analysis'].includes(
+        project.title
+      )
     )
     .slice(0, 4);
 

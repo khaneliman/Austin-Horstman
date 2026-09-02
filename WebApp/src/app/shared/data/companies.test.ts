@@ -30,4 +30,24 @@ describe('Companies Data', () => {
     expect(Array.isArray(companies)).toBe(true);
     expect(companies.length).toBeGreaterThan(0);
   });
+
+  it('should include the FarmLink modernization in NRI-NA projects and achievements', () => {
+    const nriNa = COMPANIES['nri-na'];
+    const achievements = nriNa.achievements ?? [];
+
+    expect(nriNa.projects).toContainEqual({ name: 'FarmLink Modernization', route: 'farmlink-modernization' });
+    expect(achievements.some((achievement) => achievement.includes('90-day'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('six-person team'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('1,369 automated parity tests'))).toBe(true);
+    expect(
+      achievements.some((achievement) =>
+        achievement.includes(
+          'custom AI skills and plugins for FarmLink to support backlog management, legacy requirements extraction, migration work, and reviews'
+        )
+      )
+    ).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('2026 Insurance Technology Impact Award'))).toBe(
+      true
+    );
+  });
 });

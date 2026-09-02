@@ -104,6 +104,10 @@ export const COMPANIES = {
     description:
       "NRI-NA is a technology consulting company specializing in modern application development and digital transformation solutions. In 2025, Nomura Research Institute acquired Core BTS, expanding the company's global reach and enterprise capabilities. As a Solution Architect in the Modern Business Unit, I lead technical architecture and design initiatives for diverse clients, building cutting-edge applications using the latest technologies and development practices, with a focus on cloud-native architectures and scalable enterprise solutions. Throughout my 8+ years from Skyline Technologies through Core BTS to NRI-NA, I have progressed from Software Engineer to Senior Software Engineer to my current Solution Architect role.",
     achievements: [
+      "Turned a 90-day proof of concept into SECURA Insurance's complete FarmLink front-end rewrite with a six-person team, replacing a 40-year-old desktop application with Blazor and .NET",
+      'Passed all 1,369 automated parity tests without changing a single rating result on work previously estimated at more than two years',
+      'Created custom AI skills and plugins for FarmLink to support backlog management, legacy requirements extraction, migration work, and reviews',
+      'Earned a 2026 Insurance Technology Impact Award for the FarmLink modernization',
       'Led SECURA Insurance MuleSoft-to-.NET modernization, delivering a migration estimated at 3-4 years in 11 months while eliminating roughly $500K+ in annual licensing costs',
       'Created LLM agents, skills, commands, and MCP servers to analyze legacy MuleSoft systems, document behavior, and guide feature-parity implementation in custom .NET APIs',
       'Established comprehensive unit test coverage for migrated APIs where no equivalent automated regression suite previously existed',
@@ -119,6 +123,7 @@ export const COMPANIES = {
     experienceRoute: '/experience/nri-na',
     projectsRoute: '/projects/professional/nri-na',
     projects: [
+      { name: 'FarmLink Modernization', route: 'farmlink-modernization' },
       { name: 'MuleSoft Migrator', route: 'mulesoft-migrator' },
       { name: 'AI Resource Staffing', route: 'ai-resource-staffing' },
       { name: 'Tax Document Analysis', route: 'tax-document-analysis' },

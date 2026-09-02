@@ -124,5 +124,23 @@ describe('Project Configurations', () => {
       const uniqueCompanies = new Set(companyKeys);
       expect(uniqueCompanies.size).toBeGreaterThan(1);
     });
+
+    it('should have the FarmLink modernization case study', () => {
+      const farmLink = PROJECT_CONFIGURATIONS['farmlink-modernization'];
+
+      expect(farmLink).toBeDefined();
+      expect(farmLink?.title).toBe('FarmLink Modernization');
+      expect(farmLink?.companyKey).toBe('nri-na');
+      expect(farmLink?.description).toContain('Blazor');
+      expect(farmLink?.outcome).toContain('90 days');
+      expect(farmLink?.outcome).toContain('1,369 parity tests');
+      expect(farmLink?.technologies.map((technology) => technology.name)).toContain('Agent Skills');
+      expect(farmLink?.technologies.map((technology) => technology.name)).toContain('Custom Plugins');
+      expect(farmLink?.quickStats?.find((stat) => stat.label === 'Recognition')?.icon).toBe('heroStar');
+      expect(farmLink?.quickStats?.find((stat) => stat.label === 'Core Team')?.value).toBe('6 people');
+      expect(farmLink?.specialSections?.find((section) => section.title === 'Recognition')?.content).toContain(
+        '2026 Insurance Technology Impact Award'
+      );
+    });
   });
 });
