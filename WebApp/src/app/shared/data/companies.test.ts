@@ -50,4 +50,19 @@ describe('Companies Data', () => {
       true
     );
   });
+
+  it('should include the Underwriting Workbench in NRI-NA projects and achievements', () => {
+    const nriNa = COMPANIES['nri-na'];
+    const achievements = nriNa.achievements ?? [];
+
+    expect(nriNa.projects).toContainEqual({ name: 'Underwriting Workbench', route: 'underwriting-workbench' });
+    expect(achievements.some((achievement) => achievement.includes('front-end and API layers'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('email-based intake'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('manual data entry'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('manual approval workflows'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('AI classification pipeline'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('data-enrichment workflows'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('90-day proof of concept'))).toBe(true);
+    expect(achievements.some((achievement) => achievement.includes('manual-processing costs'))).toBe(true);
+  });
 });

@@ -108,6 +108,10 @@ export const COMPANIES = {
       'Passed all 1,369 automated parity tests without changing a single rating result on work previously estimated at more than two years',
       'Created custom AI skills and plugins for FarmLink to support backlog management, legacy requirements extraction, migration work, and reviews',
       'Earned a 2026 Insurance Technology Impact Award for the FarmLink modernization',
+      "Designed and implemented SECURA Insurance's Underwriting Workbench front-end and API layers with a small team, replacing spreadsheet and email-based intake, manual data entry, and manual approval workflows",
+      'Built an AI classification pipeline that converts emailed forms and attachments into structured records for underwriter review and correction',
+      'Added data-enrichment workflows that retrieve information from external endpoints and use AI-assisted normalization before underwriting review',
+      'Expanded a 90-day proof of concept into a longer-term modernization effort focused on reducing manual-processing costs',
       'Led SECURA Insurance MuleSoft-to-.NET modernization, delivering a migration estimated at 3-4 years in 11 months while eliminating roughly $500K+ in annual licensing costs',
       'Created LLM agents, skills, commands, and MCP servers to analyze legacy MuleSoft systems, document behavior, and guide feature-parity implementation in custom .NET APIs',
       'Established comprehensive unit test coverage for migrated APIs where no equivalent automated regression suite previously existed',
@@ -124,6 +128,7 @@ export const COMPANIES = {
     projectsRoute: '/projects/professional/nri-na',
     projects: [
       { name: 'FarmLink Modernization', route: 'farmlink-modernization' },
+      { name: 'Underwriting Workbench', route: 'underwriting-workbench' },
       { name: 'MuleSoft Migrator', route: 'mulesoft-migrator' },
       { name: 'AI Resource Staffing', route: 'ai-resource-staffing' },
       { name: 'Tax Document Analysis', route: 'tax-document-analysis' },

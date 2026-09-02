@@ -204,6 +204,21 @@ const PROJECT_DETAILS = {
     status: 'Completed' as const,
     technologies: ['Blazor', '.NET', 'AI Agents', 'Azure DevOps', 'Agent Skills', 'Custom Plugins'],
   },
+  'underwriting-workbench': {
+    description:
+      'AI-assisted underwriting platform that replaces spreadsheet and email intake with structured classification, enrichment, and human review workflows',
+    icon: 'heroDocumentText',
+    color: 'from-cyan-600 to-blue-700',
+    status: 'Long-term' as const,
+    technologies: [
+      'AI-Assisted Development',
+      'API Design',
+      'AI Classification',
+      'Email Ingestion',
+      'Data Enrichment',
+      'Human Review',
+    ],
+  },
 } as const;
 
 // Helper function to generate ProjectInfo objects from centralized COMPANIES data

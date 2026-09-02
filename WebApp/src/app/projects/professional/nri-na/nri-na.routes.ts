@@ -35,5 +35,11 @@ export const NRI_NA_ROUTES: Routes = [
       import('./farmlink-modernization/farmlink-modernization.component').then((m) => m.FarmLinkModernizationComponent),
     data: { autoScroll: true },
   },
+  {
+    path: 'underwriting-workbench',
+    loadComponent: () =>
+      import('./underwriting-workbench/underwriting-workbench.component').then((m) => m.UnderwritingWorkbenchComponent),
+    data: { autoScroll: true },
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

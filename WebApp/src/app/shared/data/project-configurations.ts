@@ -844,6 +844,110 @@ export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
     gridColumns: 'single',
   },
 
+  'underwriting-workbench': {
+    // Visual/Branding
+    headerIcon: 'heroDocumentText',
+    primaryColor: 'cyan',
+    styleVariant: 'ledger',
+
+    // Navigation
+    backRoute: '/experience/nri-na',
+    backLabel: 'Back to NRI-NA Experience',
+    companyKey: 'nri-na',
+    hoverColor: 'blue',
+
+    // Content
+    title: 'Underwriting Workbench',
+    description:
+      'AI-assisted underwriting platform that replaces spreadsheet and email intake with structured classification, enrichment, and human review workflows',
+    outcome:
+      'Extended a 90-day proof of concept into a longer-term project that converts emailed submissions into structured, enriched records for underwriter review.',
+    technologies: [
+      { name: 'AI-Assisted Development', color: 'cyan' },
+      { name: 'API Design', color: 'blue' },
+      { name: 'AI Classification', color: 'violet' },
+      { name: 'Email Ingestion', color: 'indigo' },
+      { name: 'Data Enrichment', color: 'teal' },
+      { name: 'Human Review', color: 'slate' },
+    ],
+    quickStats: [
+      { label: 'Initial Scope', value: '90-day POC', icon: 'heroClock' },
+      { label: 'Delivery', value: 'Long-term', icon: 'heroArrowPath' },
+      { label: 'Intake', value: 'Email + files', icon: 'heroDocumentArrowUp' },
+      { label: 'Review', value: 'Underwriter', icon: 'heroUser' },
+    ],
+    overview: {
+      title: 'Project Overview',
+      content:
+        'SECURA Insurance relied on spreadsheets, emailed forms and attachments, manual data entry, and manual approval steps for underwriting intake. A small team designed and implemented a new application with front-end and API layers, structured submission data, and an underwriter review workflow.',
+      icon: 'heroClipboardDocumentList',
+    },
+    features: [
+      {
+        title: 'Automated Submission Intake',
+        description: 'Processes forms and attachments received through email instead of relying on manual data entry',
+        icon: 'heroDocumentArrowUp',
+      },
+      {
+        title: 'AI Classification',
+        description: 'Parses submitted form text and stores the extracted values as structured application data',
+        icon: 'heroSparkles',
+      },
+      {
+        title: 'Underwriter Review',
+        description: 'Presents classified data for an underwriter to review and correct before it moves forward',
+        icon: 'heroUser',
+      },
+      {
+        title: 'Data Enrichment',
+        description: 'Retrieves data from external endpoints and uses AI-assisted normalization to align the results',
+        icon: 'heroCloudArrowDown',
+      },
+    ],
+    technicalDetails: [
+      {
+        title: 'AI-Assisted Application Delivery',
+        content: 'The team used AI to help design and implement the application front end and API layers.',
+        icon: 'heroCodeBracket',
+      },
+      {
+        title: 'Classification Pipeline',
+        content:
+          'The ingestion workflow parses text from emailed forms and attachments, classifies the submitted information, and persists it in a structured format. The workbench then exposes the record for human review and correction.',
+        icon: 'heroCircleStack',
+      },
+      {
+        title: 'Enrichment and Normalization',
+        content:
+          'A later workflow retrieves supporting information from multiple external endpoints. AI-assisted normalization converts inconsistent source data into a consistent representation for the underwriter.',
+        icon: 'heroArrowPathRoundedSquare',
+      },
+    ],
+    specialSections: [
+      {
+        title: 'Proof of Concept to Long-Term Delivery',
+        content:
+          'The work began as a 90-day proof of concept with a small team. It continued as a longer-term modernization effort focused on reducing spreadsheet handling, manual data entry, and manual-processing costs.',
+        icon: 'heroRocketLaunch',
+        type: 'text',
+      },
+    ],
+    impact:
+      'Replaces manual email and spreadsheet handling with structured intake, AI-assisted classification, data enrichment, and underwriter-controlled correction. The longer-term effort targets lower manual-processing costs without removing human review.',
+    keyTakeaways: [
+      'Extended a 90-day proof of concept into a longer-term underwriting modernization effort.',
+      'Converted emailed forms and attachments into structured records through an AI classification pipeline.',
+      'Kept underwriters in control by making extracted and enriched data reviewable and correctable.',
+      'Reduced dependence on spreadsheets, manual data entry, and manual approval steps.',
+    ],
+
+    // Layout Options
+    showQuickStats: true,
+    showTechnicalHighlights: true,
+    showImpactSection: true,
+    gridColumns: 'single',
+  },
+
   'farmlink-modernization': {
     // Visual/Branding
     headerIcon: 'heroArrowPathRoundedSquare',

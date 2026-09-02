@@ -142,5 +142,24 @@ describe('Project Configurations', () => {
         '2026 Insurance Technology Impact Award'
       );
     });
+
+    it('should have the Underwriting Workbench case study', () => {
+      const workbench = PROJECT_CONFIGURATIONS['underwriting-workbench'];
+
+      expect(workbench).toBeDefined();
+      expect(workbench?.title).toBe('Underwriting Workbench');
+      expect(workbench?.companyKey).toBe('nri-na');
+      expect(workbench?.outcome).toContain('90-day proof of concept');
+      expect(workbench?.outcome).toContain('longer-term project');
+      expect(workbench?.technologies.map((technology) => technology.name)).toContain('AI Classification');
+      expect(workbench?.technologies.map((technology) => technology.name)).toContain('Data Enrichment');
+      expect(workbench?.quickStats?.find((stat) => stat.label === 'Delivery')?.value).toBe('Long-term');
+      expect(workbench?.quickStats?.find((stat) => stat.label === 'Review')?.value).toBe('Underwriter');
+      expect(workbench?.features.map((feature) => feature.title)).toContain('Automated Submission Intake');
+      expect(workbench?.features.map((feature) => feature.title)).toContain('Underwriter Review');
+      expect(
+        workbench?.technicalDetails?.find((section) => section.title === 'AI-Assisted Application Delivery')?.content
+      ).toBe('The team used AI to help design and implement the application front end and API layers.');
+    });
   });
 });

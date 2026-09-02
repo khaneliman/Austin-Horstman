@@ -62,4 +62,16 @@ describe('Projects Data', () => {
     expect(farmLink?.technologies).toContain('Blazor');
     expect(farmLink?.technologies).toContain('Azure DevOps');
   });
+
+  it('should expose the Underwriting Workbench as an NRI-NA project card', () => {
+    const workbench = getResumeProjectCards().find((project) => project.title === 'Underwriting Workbench');
+
+    expect(workbench).toBeDefined();
+    expect(workbench?.route).toBe('/projects/professional/nri-na/underwriting-workbench');
+    expect(workbench?.technologies).toContain('AI Classification');
+    expect(workbench?.technologies).toContain('Data Enrichment');
+
+    const profileProject = getProjectsForCompany('nri-na').find((project) => project.name === 'Underwriting Workbench');
+    expect(profileProject?.status).toBe('Long-term');
+  });
 });
