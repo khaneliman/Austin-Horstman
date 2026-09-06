@@ -29,7 +29,7 @@
         "@angular-devkit/build-angular": "^22.1.4",
         "@angular/cli": "^22.1.4",
         "@angular/compiler-cli": "^22.1.3",
-        "@angular/localize": "^22.1.2",
+        "@angular/localize": "^22.1.3",
         "@biomejs/biome": "2.5.10",
         "@types/bun": "^1.3.14",
         "angular-eslint": "^22.1.0",
@@ -107,7 +107,7 @@
 
     "@angular/forms": ["@angular/forms@22.1.2", "", { "dependencies": { "@standard-schema/spec": "^1.0.0", "tslib": "^2.3.0", "zod": "^4.0.10" }, "peerDependencies": { "@angular/common": "22.1.2", "@angular/core": "22.1.2", "@angular/platform-browser": "22.1.2", "rxjs": "^6.5.3 || ^7.4.0" } }, "sha512-pKDYSNKje/jox74KzswBdX4sL7kJ8OFkJwLnqng8oc7a/NVl/Vf4/Xq4kyowRAdtPcZfLTUnZG6s0qbegfV5mg=="],
 
-    "@angular/localize": ["@angular/localize@22.1.2", "", { "dependencies": { "@babel/core": "8.0.1", "tinyglobby": "^0.2.12", "yargs": "^18.0.0" }, "peerDependencies": { "@angular/compiler": "22.1.2", "@angular/compiler-cli": "22.1.2" }, "bin": { "localize-extract": "tools/bundles/src/extract/cli.js", "localize-migrate": "tools/bundles/src/migrate/cli.js", "localize-translate": "tools/bundles/src/translate/cli.js" } }, "sha512-FOCVI/DPmPtDOVHhpAJ6xPaTi924KAcw9GBoh1ne8/l6/aj6oVwfR36qM+3RNhkxqQjVr2Bbu8roihk07s8I1Q=="],
+    "@angular/localize": ["@angular/localize@22.1.3", "", { "dependencies": { "@babel/core": "8.0.1", "tinyglobby": "^0.2.12", "yargs": "^18.0.0" }, "peerDependencies": { "@angular/compiler": "22.1.3", "@angular/compiler-cli": "22.1.3" }, "bin": { "localize-extract": "tools/bundles/src/extract/cli.js", "localize-migrate": "tools/bundles/src/migrate/cli.js", "localize-translate": "tools/bundles/src/translate/cli.js" } }, "sha512-/u0nCz2AY+RXB4HUdw3Y7C/ZiierPPmUuWR/nDPCylHwllVdMKpi6PPtKvfzgM5ZvaISzDghTVykOVjU7obMhg=="],
 
     "@angular/platform-browser": ["@angular/platform-browser@22.1.2", "", { "dependencies": { "tslib": "^2.3.0" }, "peerDependencies": { "@angular/animations": "22.1.2", "@angular/common": "22.1.2", "@angular/core": "22.1.2" }, "optionalPeers": ["@angular/animations"] }, "sha512-MQO735ve/tk4gLsWbw8NyBD/DxPfbbmf1pM/vp6K7tZz2xyysMXilqF/k8PBdQBZVOofST8S13inZHQ35nHuRA=="],
 
