@@ -10,7 +10,7 @@
         "@angular/compiler": "^22.1.2",
         "@angular/core": "^22.1.3",
         "@angular/forms": "^22.1.2",
-        "@angular/platform-browser": "^22.1.2",
+        "@angular/platform-browser": "^22.1.3",
         "@angular/platform-browser-dynamic": "^22.1.3",
         "@angular/router": "^22.1.2",
         "@ng-icons/bootstrap-icons": "^35.0.1",
@@ -109,7 +109,7 @@
 
     "@angular/localize": ["@angular/localize@22.1.2", "", { "dependencies": { "@babel/core": "8.0.1", "tinyglobby": "^0.2.12", "yargs": "^18.0.0" }, "peerDependencies": { "@angular/compiler": "22.1.2", "@angular/compiler-cli": "22.1.2" }, "bin": { "localize-extract": "tools/bundles/src/extract/cli.js", "localize-migrate": "tools/bundles/src/migrate/cli.js", "localize-translate": "tools/bundles/src/translate/cli.js" } }, "sha512-FOCVI/DPmPtDOVHhpAJ6xPaTi924KAcw9GBoh1ne8/l6/aj6oVwfR36qM+3RNhkxqQjVr2Bbu8roihk07s8I1Q=="],
 
-    "@angular/platform-browser": ["@angular/platform-browser@22.1.2", "", { "dependencies": { "tslib": "^2.3.0" }, "peerDependencies": { "@angular/animations": "22.1.2", "@angular/common": "22.1.2", "@angular/core": "22.1.2" }, "optionalPeers": ["@angular/animations"] }, "sha512-MQO735ve/tk4gLsWbw8NyBD/DxPfbbmf1pM/vp6K7tZz2xyysMXilqF/k8PBdQBZVOofST8S13inZHQ35nHuRA=="],
+    "@angular/platform-browser": ["@angular/platform-browser@22.1.3", "", { "dependencies": { "tslib": "^2.3.0" }, "peerDependencies": { "@angular/animations": "22.1.3", "@angular/common": "22.1.3", "@angular/core": "22.1.3" }, "optionalPeers": ["@angular/animations"] }, "sha512-A8McE6AclwZa2ese4jMfZZu+qZfBFQ4Hl6CaMpzJ1C6Vv6+sXkLu9pouTosJEsUE+etVdepDsqau90lhzgw3Eg=="],
 
     "@angular/platform-browser-dynamic": ["@angular/platform-browser-dynamic@22.1.3", "", { "dependencies": { "tslib": "^2.3.0" }, "peerDependencies": { "@angular/common": "22.1.3", "@angular/compiler": "22.1.3", "@angular/core": "22.1.3", "@angular/platform-browser": "22.1.3" } }, "sha512-dXI8U7C4QZOvWIA2VWPFjGQjJ6ceHlYRkShdvaluKmml6CxxPPvirjwQGj+G/syfAaArSzLijK4hM9xDuMo41w=="],
 
