@@ -319,6 +319,7 @@ export function getResumeProjectCards() {
     description: string;
     icon: string;
     status: 'success' | 'primary' | 'warning' | 'danger' | 'info';
+    company: string;
     technologies: string[];
     route: string;
   }[] = [];
@@ -337,6 +338,7 @@ export function getResumeProjectCards() {
             description: krogerDetails.description,
             icon: krogerDetails.icon,
             status: getResumeCardStatus(companyKey as keyof typeof COMPANIES),
+            company: companyData.displayName,
             technologies: [...krogerDetails.technologies],
             route: `/projects/professional/${routeCompanyKey}/${project.route}`,
           });
@@ -349,6 +351,7 @@ export function getResumeProjectCards() {
             description: details.description,
             icon: details.icon,
             status: getResumeCardStatus(companyKey as keyof typeof COMPANIES),
+            company: companyData.displayName,
             technologies: [...details.technologies],
             route: `/projects/professional/${routeCompanyKey}/${project.route}`,
           });

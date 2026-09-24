@@ -74,4 +74,12 @@ describe('Projects Data', () => {
     const profileProject = getProjectsForCompany('nri-na').find((project) => project.name === 'Underwriting Workbench');
     expect(profileProject?.status).toBe('Long-term');
   });
+
+  it('should label resume project cards with the company that delivered them', () => {
+    const cards = getResumeProjectCards();
+
+    expect(cards.find((project) => project.title === 'FarmLink Modernization')?.company).toBe('NRI-NA');
+    expect(cards.find((project) => project.title === 'Kroger')?.company).toBe('Core BTS');
+    expect(cards.find((project) => project.title === 'Stat Tracker')?.company).toBe('Best Buy Geek Squad');
+  });
 });
