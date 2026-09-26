@@ -96,16 +96,19 @@ export interface PersonalCaseStudyStat {
               <dl class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 @for (item of meta(); track item.label) {
                   <div class="border border-stone-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-                    <div class="flex items-center justify-between gap-3">
-                      <dt
+                    <dt class="flex items-center justify-between gap-3">
+                      <span
                         class="case-study-shell__meta-label text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400"
                       >
                         {{ item.label }}
-                      </dt>
-                      <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 text-white">
+                      </span>
+                      <span
+                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 text-white"
+                        aria-hidden="true"
+                      >
                         <ng-icon [name]="item.icon" size="0.95rem"></ng-icon>
                       </span>
-                    </div>
+                    </dt>
                     <dd class="mt-3 text-2xl font-black leading-tight text-slate-950 dark:text-white">
                       {{ item.value }}
                     </dd>
