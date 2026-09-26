@@ -178,8 +178,14 @@
   background: var(--color-night);
 }
 
+// Accent text is the primary nudged toward black (light) or white (dark) so
+// every palette clears 4.5:1 while keeping its hue.
 .project-detail-template__eyebrow {
-  color: var(--project-detail-primary);
+  color: color-mix(in oklab, var(--project-detail-primary) 72%, black);
+}
+
+:host-context(.dark) .project-detail-template__eyebrow {
+  color: color-mix(in oklab, var(--project-detail-primary) 50%, white);
 }
 
 .project-detail-template__frame {

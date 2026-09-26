@@ -209,9 +209,16 @@ export interface PersonalCaseStudyStat {
       --case-stat-border: var(--color-rose-300);
     }
 
+    /* Accent text is the primary nudged toward black (light) or white (dark)
+       so every palette clears 4.5:1 while keeping its hue. */
     .case-study-shell__eyebrow,
     .case-study-shell__meta-label {
-      color: var(--case-primary);
+      color: color-mix(in oklab, var(--case-primary) 72%, black);
+    }
+
+    :host-context(.dark) .case-study-shell__eyebrow,
+    :host-context(.dark) .case-study-shell__meta-label {
+      color: color-mix(in oklab, var(--case-primary) 50%, white);
     }
 
     .case-study-shell__frame {
