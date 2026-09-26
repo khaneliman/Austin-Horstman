@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly commandPalette = inject(CommandPaletteService);
   private readonly shortcutsHelp = inject(ShortcutsHelpService);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly currentUrl = signal('');
   private readonly personalMenu = viewChild.required<ElementRef<HTMLElement>>('personalMenu');
   private readonly projectsMenu = viewChild.required<ElementRef<HTMLElement>>('projectsMenu');
@@ -101,6 +102,8 @@ export class NavbarComponent implements OnInit {
   }
 
   protected onEscape(): void {
+    // An open theme picker closes itself on Escape; keep the menu around it open.
+    if (this.host.nativeElement.querySelector('app-theme-picker [role="menu"]')) return;
     if (this.isPersonalDropdownOpen()) {
       this.isPersonalDropdownOpen.set(false);
       this.personalToggle().nativeElement.focus();
