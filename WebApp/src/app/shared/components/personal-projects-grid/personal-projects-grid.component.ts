@@ -56,7 +56,7 @@ export interface PersonalProject {
     }),
   ],
   templateUrl: './personal-projects-grid.component.html',
-  styleUrls: ['./personal-projects-grid.component.scss'],
+  styleUrl: './personal-projects-grid.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalProjectsGridComponent {
