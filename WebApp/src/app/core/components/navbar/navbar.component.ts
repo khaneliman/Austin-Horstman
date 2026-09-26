@@ -16,6 +16,7 @@ import { ThemeToggleComponent } from '../../../shared/components/theme-toggle/th
 import { CommandPaletteService } from '../../../shared/services/command-palette.service';
 import { ShortcutsHelpService } from '../../../shared/services/shortcuts-help.service';
 import { SocialLinksComponent } from '../social-links/social-links.component';
+import { isActiveRoute } from './navbar.helpers';
 
 @Component({
   standalone: true,
@@ -114,8 +115,7 @@ export class NavbarComponent implements OnInit {
   }
 
   isRouteActive(route: string, exact = false): boolean {
-    const path = this.currentUrl().split(/[?#]/)[0] || '/home';
-    return exact ? path === route : path === route || path.startsWith(`${route}/`);
+    return isActiveRoute(this.currentUrl(), route, exact);
   }
 
   getDesktopLinkClasses(route: string, exact = false): string {
