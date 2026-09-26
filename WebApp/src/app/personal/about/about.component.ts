@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  heroAcademicCap,
   heroArrowRight,
   heroBriefcase,
   heroChartBarSquare,
@@ -25,6 +26,7 @@ import { getAllTechnologyNames } from '../../shared/data/technologies';
   imports: [RouterLink, NgClass, NgIconComponent],
   providers: [
     provideIcons({
+      heroAcademicCap,
       heroArrowRight,
       heroBriefcase,
       heroChartBarSquare,
