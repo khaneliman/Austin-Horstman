@@ -174,8 +174,7 @@
   border-left: 1px solid var(--project-detail-frame);
 }
 
-:host-context(.dark) .project-detail-template__evidence-panel,
-.dark .project-detail-template__evidence-panel {
+:host-context(.dark) .project-detail-template__evidence-panel {
   background: var(--color-night);
 }
 
@@ -211,19 +210,16 @@
   color: var(--project-detail-impact-label);
 }
 
-:host-context(.dark) .project-detail-template__impact-label,
-.dark .project-detail-template__impact-label {
+:host-context(.dark) .project-detail-template__impact-label {
   color: var(--color-slate-100);
 }
 
-:host-context(.dark) .project-detail-template--purple,
-.dark .project-detail-template--purple {
+:host-context(.dark) .project-detail-template--purple {
   --project-detail-primary: var(--color-purple-300);
   --project-detail-impact-label: var(--color-purple-200);
 }
 
-:host-context(.dark) .project-detail-template--red,
-.dark .project-detail-template--red {
+:host-context(.dark) .project-detail-template--red {
   --project-detail-primary: var(--color-rose-300);
   --project-detail-impact-label: var(--color-rose-200);
 }
