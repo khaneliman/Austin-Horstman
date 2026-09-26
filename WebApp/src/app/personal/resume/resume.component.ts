@@ -69,6 +69,16 @@ const TAILWIND_HEX_COLORS: Record<string, string> = {
   'gray-900': '#4c4f69', // text
 };
 
+// Company accent text classes spelled out in full so Tailwind generates them;
+// class names assembled at runtime ('text-' + color) never reach the stylesheet.
+const COMPANY_TEXT_CLASSES: Readonly<Record<string, string>> = {
+  'blue-500': 'text-blue-500 dark:text-blue-300',
+  'blue-800': 'text-blue-800 dark:text-blue-300',
+  'emerald-600': 'text-emerald-600 dark:text-emerald-300',
+  'orange-800': 'text-orange-800 dark:text-orange-300',
+  'red-600': 'text-red-600 dark:text-red-400',
+};
+
 const getRepoMergedPrs = (repoName: string): number =>
   GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === repoName)?.mergedPrs ?? 0;
 
@@ -295,6 +305,10 @@ export class ResumeComponent {
 
   getCompanyColor(colorClass: string): string {
     return TAILWIND_HEX_COLORS[colorClass] ?? '#1e66f5';
+  }
+
+  getCompanyTextClass(colorClass: string): string {
+    return COMPANY_TEXT_CLASSES[colorClass] ?? 'text-teal-700 dark:text-teal-300';
   }
 
   getDateRange(company: CompanyInfo): string {
