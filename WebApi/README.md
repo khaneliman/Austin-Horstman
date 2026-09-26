@@ -1,10 +1,10 @@
 # Austin Horstman Dotnet Angular App
 
-  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/khaneliman/austin-horstman-angular?style=flat&logo=appveyor)
-  ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/khaneliman/austin-horstman-angular?style=flat&logo=appveyor)
+  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/khaneliman/austin-horstman?style=flat&logo=appveyor)
+  ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/khaneliman/austin-horstman?style=flat&logo=appveyor)
 
-  [![Docker WebApi](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/docker-WebApi.yml)
-  [![.NET WebApi Build](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman-angular/actions/workflows/dotnet-WebApi.yml)
+  [![Docker WebApi](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml)
+  [![.NET WebApi Build](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml)
   
 ## Description
   

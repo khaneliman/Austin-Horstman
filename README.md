@@ -4,7 +4,7 @@
   ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/khaneliman/austin-horstman?style=flat&logo=appveyor)
 
   [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapp.yml)
-  [![Docker WebApp - Develop](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml)
+  [![Docker WebApi - Develop](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml)
   [![Angular WebApp Build](https://github.com/khaneliman/austin-horstman/actions/workflows/angular-webapp.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/angular-webapp.yml)
   [![.NET WebApi Build](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml)
   
@@ -12,7 +12,7 @@
   
   *The what, why, and how:*
   
-  Personal portfolio website showcasing professional experience, projects, and skills. Built with Angular 20.x and powered by Bun for optimal performance. The application features a modern navigation system, interactive project showcases, and comprehensive professional information. Contains all projects related to my time as a software engineer and detailed resume information for anyone interested in learning more.
+  Personal portfolio website showcasing professional experience, projects, and skills. Built with Angular 22.x and powered by Bun for optimal performance. The application features a modern navigation system, interactive project showcases, and comprehensive professional information. Contains all projects related to my time as a software engineer and detailed resume information for anyone interested in learning more.
 
 ## Table of Contents
 
@@ -99,7 +99,7 @@ Read the [homelab deployment controls](docs/homelab-deployment.md) before config
   
   *If you would like to contribute it, you can follow these guidelines for how to do so.*
   
-* Create feature branches and submit a PR into develop.
+* Create feature branches and submit a PR into main.
   
 ## Tests
   
@@ -118,9 +118,6 @@ bun run test:ci            # Run tests for CI environment
 ### Backend Tests (.NET)
   
 ```bash
-cd WebApp
-dotnet test                # Run .NET tests for WebApp
-      
 cd WebApi
 dotnet test                # Run .NET tests for WebApi
 ```
@@ -131,7 +128,7 @@ dotnet test                # Run .NET tests for WebApi
 cd WebApp
 bun run check              # Run full quality check (lint + format + test)
 bun run lint               # Lint code
-bun run format             # Format code with Prettier
+bun run format             # Format code with Biome and Prettier
 bun run typecheck          # TypeScript compilation check
 ```
 
