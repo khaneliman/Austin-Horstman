@@ -16,12 +16,14 @@
         </a>
 
         <!-- Personal dropdown -->
-        <div class="relative">
+        <div #personalMenu class="relative">
           <button
+            #personalToggle
+            type="button"
             (click)="togglePersonalDropdown()"
             [class]="getDesktopDropdownButtonClasses('/personal')"
             [attr.aria-expanded]="isPersonalDropdownOpen()"
-            aria-haspopup="true"
+            aria-controls="nav-personal-menu"
           >
             <span>Personal</span>
             <svg
@@ -38,6 +40,7 @@
           <!-- Personal dropdown menu -->
           @if (isPersonalDropdownOpen()) {
             <div
+              id="nav-personal-menu"
               class="absolute left-0 mt-2 w-48 rounded-xl bg-[var(--color-surface-raised)] py-2 shadow-lg ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700"
             >
               <a
@@ -69,12 +72,14 @@
         </div>
 
         <!-- Projects dropdown -->
-        <div class="relative">
+        <div #projectsMenu class="relative">
           <button
+            #projectsToggle
+            type="button"
             (click)="toggleProjectsDropdown()"
             [class]="getDesktopDropdownButtonClasses('/projects')"
             [attr.aria-expanded]="isProjectsDropdownOpen()"
-            aria-haspopup="true"
+            aria-controls="nav-projects-menu"
           >
             <span>Projects</span>
             <svg
@@ -91,6 +96,7 @@
           <!-- Projects dropdown menu -->
           @if (isProjectsDropdownOpen()) {
             <div
+              id="nav-projects-menu"
               class="absolute left-0 mt-2 w-56 rounded-xl bg-[var(--color-surface-raised)] py-2 shadow-lg ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700"
             >
               <a
@@ -160,6 +166,8 @@
       <div class="md:hidden flex items-center space-x-3">
         <app-theme-toggle></app-theme-toggle>
         <button
+          #mobileToggle
+          type="button"
           (click)="toggleMobileMenu()"
           class="rounded-lg p-2 text-slate-700 transition-colors duration-200 hover:bg-stone-200/60 hover:text-teal-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
           [attr.aria-expanded]="isMobileMenuOpen()"

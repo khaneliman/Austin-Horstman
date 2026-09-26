@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  ElementRef,
+  inject,
+  OnInit,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -14,6 +23,10 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(document:click)': 'onDocumentClick($event)',
+    '(document:keydown.escape)': 'onEscape()',
+  },
 })
 export class NavbarComponent implements OnInit {
   readonly isPersonalDropdownOpen = signal(false);
@@ -25,6 +38,11 @@ export class NavbarComponent implements OnInit {
   private readonly commandPalette = inject(CommandPaletteService);
   private readonly shortcutsHelp = inject(ShortcutsHelpService);
   private readonly currentUrl = signal('');
+  private readonly personalMenu = viewChild.required<ElementRef<HTMLElement>>('personalMenu');
+  private readonly projectsMenu = viewChild.required<ElementRef<HTMLElement>>('projectsMenu');
+  private readonly personalToggle = viewChild.required<ElementRef<HTMLButtonElement>>('personalToggle');
+  private readonly projectsToggle = viewChild.required<ElementRef<HTMLButtonElement>>('projectsToggle');
+  private readonly mobileToggle = viewChild.required<ElementRef<HTMLButtonElement>>('mobileToggle');
 
   openCommandPalette(): void {
     this.commandPalette.open();
@@ -70,6 +88,29 @@ export class NavbarComponent implements OnInit {
 
   closeMobileMenu(): void {
     this.isMobileMenuOpen.set(false);
+  }
+
+  protected onDocumentClick(event: MouseEvent): void {
+    const target = event.target as Node | null;
+    if (this.isPersonalDropdownOpen() && !this.personalMenu().nativeElement.contains(target)) {
+      this.isPersonalDropdownOpen.set(false);
+    }
+    if (this.isProjectsDropdownOpen() && !this.projectsMenu().nativeElement.contains(target)) {
+      this.isProjectsDropdownOpen.set(false);
+    }
+  }
+
+  protected onEscape(): void {
+    if (this.isPersonalDropdownOpen()) {
+      this.isPersonalDropdownOpen.set(false);
+      this.personalToggle().nativeElement.focus();
+    } else if (this.isProjectsDropdownOpen()) {
+      this.isProjectsDropdownOpen.set(false);
+      this.projectsToggle().nativeElement.focus();
+    } else if (this.isMobileMenuOpen()) {
+      this.isMobileMenuOpen.set(false);
+      this.mobileToggle().nativeElement.focus();
+    }
   }
 
   isRouteActive(route: string, exact = false): boolean {
