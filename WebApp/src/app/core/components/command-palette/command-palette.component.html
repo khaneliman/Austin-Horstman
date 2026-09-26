@@ -15,6 +15,12 @@
         <input
           #searchInput
           type="text"
+          role="combobox"
+          aria-label="Search pages, case studies, and projects"
+          aria-autocomplete="list"
+          aria-controls="command-palette-results"
+          [attr.aria-expanded]="results().length > 0"
+          [attr.aria-activedescendant]="results().length ? 'command-palette-option-' + activeIndex() : null"
           [value]="query()"
           (input)="onQueryChange($any($event.target).value)"
           placeholder="Jump to a page, case study, or project…"
@@ -35,11 +41,15 @@
             No matches. Try a company, project, or page name.
           </p>
         } @else {
-          <ul class="flex flex-col gap-0.5 px-2">
+          <ul id="command-palette-results" role="listbox" aria-label="Results" class="flex flex-col gap-0.5 px-2">
             @for (item of results(); track trackEntry($index, item); let i = $index) {
-              <li>
+              <li role="none">
                 <button
                   type="button"
+                  role="option"
+                  tabindex="-1"
+                  [id]="'command-palette-option-' + i"
+                  [attr.aria-selected]="activeIndex() === i"
                   (click)="executeEntry(item.entry)"
                   (mouseenter)="activeIndex.set(i)"
                   [class]="
@@ -60,9 +70,9 @@
                         }}</span>
                       }
                     </span>
-                    <span class="truncate text-xs text-slate-500 dark:text-slate-400">{{ item.entry.hint }}</span>
+                    <span class="truncate text-xs text-slate-600 dark:text-slate-400">{{ item.entry.hint }}</span>
                   </span>
-                  <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
+                  <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
                     {{ kindLabel[item.entry.kind] }}
                   </span>
                 </button>
@@ -76,7 +86,7 @@
         class="flex items-center justify-between border-t border-stone-200/80 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500 dark:border-slate-800 dark:text-slate-400"
       >
         <span>↑ ↓ navigate · ⏎ open</span>
-        <span>{{ results().length }} results</span>
+        <span role="status">{{ results().length }} results</span>
       </div>
     </div>
   </div>
