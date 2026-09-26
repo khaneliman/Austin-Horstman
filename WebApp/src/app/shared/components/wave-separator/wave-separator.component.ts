@@ -1,4 +1,3 @@
-import { NgStyle } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 export type WaveStyle = 'wave' | 'curve' | 'zigzag' | 'slant' | 'triangle' | 'book';
@@ -8,7 +7,6 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
   selector: 'app-wave-separator',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgStyle],
   template: `
     @if (showTop()) {
       <div
@@ -25,7 +23,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
           >
             <polygon
               [attr.points]="getPolygonPoints('top')"
-              [ngStyle]="pathStyle()"
+              [style.fill]="color()"
               class="dark:!fill-gray-900"
             ></polygon>
           </svg>
@@ -40,7 +38,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
             <path
               [attr.d]="getPathData('top')"
               [class]="pathClasses()"
-              [ngStyle]="pathStyle()"
+              [style.fill]="color()"
               class="dark:!fill-gray-900"
             ></path>
           </svg>
@@ -69,7 +67,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
           >
             <polygon
               [attr.points]="getPolygonPoints('bottom')"
-              [ngStyle]="pathStyle()"
+              [style.fill]="color()"
               class="dark:!fill-gray-900"
             ></polygon>
           </svg>
@@ -84,7 +82,7 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
             <path
               [attr.d]="getPathData('bottom')"
               [class]="pathClasses()"
-              [ngStyle]="pathStyle()"
+              [style.fill]="color()"
               class="dark:!fill-gray-900"
             ></path>
           </svg>
@@ -131,8 +129,6 @@ export class WaveSeparatorComponent {
     if (this.animate()) classes.push('animate-pulse');
     return classes.join(' ');
   });
-
-  readonly pathStyle = computed<Record<string, string>>(() => ({ fill: this.color() }));
 
   getPolygonPoints(position: 'top' | 'bottom'): string {
     return position === 'top' ? '2560 100 2560 0 0 100' : '2560 0 2560 100 0 100';
