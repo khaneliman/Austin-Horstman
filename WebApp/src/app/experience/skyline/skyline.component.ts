@@ -9,7 +9,6 @@ import { getProjectsForExperience } from '../../shared/data/projects';
 
 @Component({
   selector: 'app-skyline',
-  standalone: true,
   templateUrl: './skyline.component.html',
   imports: [CompanyProfileComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

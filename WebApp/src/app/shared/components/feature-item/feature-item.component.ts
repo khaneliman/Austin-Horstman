@@ -5,7 +5,6 @@ export type FeatureItemSize = 'sm' | 'md' | 'lg';
 
 @Component({
   selector: 'app-feature-item',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
   template: `

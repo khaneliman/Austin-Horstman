@@ -5,7 +5,6 @@ export type WaveDirection = 'top' | 'bottom' | 'both';
 
 @Component({
   selector: 'app-wave-separator',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (showTop()) {

@@ -21,7 +21,6 @@ const GAP_CLASSES: Record<FeatureGridGap, string> = {
 
 @Component({
   selector: 'app-feature-grid',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [FeatureItemComponent],
   template: `

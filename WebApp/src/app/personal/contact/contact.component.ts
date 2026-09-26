@@ -17,7 +17,6 @@ import { HeroSectionComponent } from '../../shared/components/hero-section/hero-
 import { getPersonalSkills, PersonalSkill } from '../../shared/data/skills';
 
 @Component({
-  standalone: true,
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   imports: [NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],

@@ -15,7 +15,6 @@ const getFarmLinkProjectConfiguration = (): ProjectDetailConfig => {
 @Component({
   selector: 'app-farmlink-modernization',
   template: `<app-project-detail-template [config]="projectConfig"></app-project-detail-template>`,
-  standalone: true,
   imports: [ProjectDetailTemplateComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

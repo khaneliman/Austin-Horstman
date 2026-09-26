@@ -40,7 +40,6 @@ export interface PersonalProject {
 
 @Component({
   selector: 'app-personal-projects-grid',
-  standalone: true,
   imports: [RouterLink, NgIconComponent, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   providers: [
     provideIcons({

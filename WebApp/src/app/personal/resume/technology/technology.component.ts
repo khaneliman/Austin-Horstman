@@ -23,7 +23,6 @@ const nixpkgsPrs = getRepoMergedPrs('Nixpkgs');
 
 @Component({
   selector: 'app-technology',
-  standalone: true,
   templateUrl: './technology.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, NgIconComponent, EnhancedFeatureCardComponent],

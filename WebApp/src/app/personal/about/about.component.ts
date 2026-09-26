@@ -19,7 +19,6 @@ import { getPersonalSkills } from '../../shared/data/skills';
 import { getAllTechnologyNames } from '../../shared/data/technologies';
 
 @Component({
-  standalone: true,
   selector: 'app-about',
   templateUrl: './about.component.html',
   imports: [RouterLink, NgIconComponent],

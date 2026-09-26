@@ -17,7 +17,6 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
 
 @Component({
   selector: 'app-professional-projects',
-  standalone: true,
   imports: [RouterLink, NgIconComponent, ProfessionalProjectsGridComponent, ProjectsBreadcrumbComponent],
   providers: [
     provideIcons({

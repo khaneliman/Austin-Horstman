@@ -17,7 +17,6 @@ export interface EnhancedFeature {
 
 @Component({
   selector: 'app-enhanced-feature-card',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent],
   providers: [

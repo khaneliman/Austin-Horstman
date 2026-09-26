@@ -82,7 +82,6 @@ const nixvimUpdatedAt = '2026-05-24';
 
 @Component({
   selector: 'app-nixvim',
-  standalone: true,
   templateUrl: './nixvim.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],

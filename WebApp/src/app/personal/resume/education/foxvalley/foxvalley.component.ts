@@ -18,7 +18,6 @@ import {
 
 @Component({
   selector: 'app-foxvalley',
-  standalone: true,
   templateUrl: './foxvalley.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent, BulletListComponent, DecorativeBackgroundComponent],

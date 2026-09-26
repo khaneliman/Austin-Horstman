@@ -18,7 +18,6 @@ const MARGIN_CLASSES: Record<SectionHeaderMargin, string> = {
 
 @Component({
   selector: 'app-section-header',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
   template: `

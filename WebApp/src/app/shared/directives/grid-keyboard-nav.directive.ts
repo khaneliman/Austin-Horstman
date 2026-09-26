@@ -13,7 +13,6 @@ const PRIMARY_SELECTOR = '[data-card-primary]';
 
 @Directive({
   selector: '[appGridKeyboardNav]',
-  standalone: true,
   host: {
     '(keydown)': 'handleKeydown($event)',
   },

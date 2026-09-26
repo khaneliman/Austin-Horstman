@@ -56,7 +56,6 @@ const VISIBLE_PROJECTS_LIMIT = 4;
 
 @Component({
   selector: 'app-professional-projects-grid',
-  standalone: true,
   imports: [RouterLink, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   templateUrl: './professional-projects-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

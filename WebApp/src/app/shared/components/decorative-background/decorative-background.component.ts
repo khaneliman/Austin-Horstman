@@ -42,7 +42,6 @@ const BLUR_CLASSES: Record<NonNullable<BackgroundElement['blur']>, string> = {
 
 @Component({
   selector: 'app-decorative-background',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="absolute inset-0 overflow-hidden pointer-events-none">

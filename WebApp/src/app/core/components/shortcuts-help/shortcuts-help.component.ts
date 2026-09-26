@@ -5,7 +5,6 @@ import { ShortcutsHelpService } from '../../../shared/services/shortcuts-help.se
 
 @Component({
   selector: 'app-shortcuts-help',
-  standalone: true,
   templateUrl: './shortcuts-help.component.html',
   styleUrl: './shortcuts-help.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

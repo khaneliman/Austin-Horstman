@@ -11,7 +11,6 @@ interface RenderedHint {
 
 @Component({
   selector: 'app-link-hints',
-  standalone: true,
   templateUrl: './link-hints.component.html',
   styleUrl: './link-hints.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

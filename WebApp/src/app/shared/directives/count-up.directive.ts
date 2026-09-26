@@ -11,7 +11,6 @@ import { countUpValue, formatCount } from './count-up.helpers';
  */
 @Directive({
   selector: '[appCountUp]',
-  standalone: true,
 })
 export class CountUpDirective implements OnInit {
   readonly appCountUp = input.required<number, unknown>({ transform: numberAttribute });

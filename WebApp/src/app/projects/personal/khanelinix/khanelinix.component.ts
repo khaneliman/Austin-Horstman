@@ -88,7 +88,6 @@ const khanelinixStarted = 'March 2023';
 
 @Component({
   selector: 'app-khanelinix',
-  standalone: true,
   templateUrl: './khanelinix.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],

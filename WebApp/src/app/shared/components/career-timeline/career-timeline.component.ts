@@ -53,7 +53,6 @@ function effectiveStartDate(company: CompanyInfo): string {
 
 @Component({
   selector: 'app-career-timeline',
-  standalone: true,
   templateUrl: './career-timeline.component.html',
   styleUrl: './career-timeline.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

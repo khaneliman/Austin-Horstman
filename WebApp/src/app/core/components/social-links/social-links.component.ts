@@ -5,7 +5,6 @@ import { simpleFacebook, simpleGithub, simpleGitlab, simpleInstagram, simpleX } 
 import { SocialLinksService } from '../../services/social-links.service';
 
 @Component({
-  standalone: true,
   imports: [NgIconComponent],
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',

@@ -14,7 +14,6 @@ export interface ProjectNavItem {
 
 @Component({
   selector: 'app-project-nav-header',
-  standalone: true,
   imports: [RouterLink, NgIconComponent],
   providers: [provideIcons({ heroChevronLeft })],
   changeDetection: ChangeDetectionStrategy.OnPush,

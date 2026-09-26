@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
-  standalone: true,
   imports: [RouterLink, SocialLinksComponent],
   selector: 'app-footer',
   templateUrl: './footer.component.html',

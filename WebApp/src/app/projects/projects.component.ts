@@ -23,7 +23,6 @@ import { generateProfessionalProjectsGrid, getResumeProjectCards } from '../shar
 
 @Component({
   selector: 'app-projects',
-  standalone: true,
   imports: [RouterLink, NgIconComponent, ProfessionalProjectsGridComponent, PersonalProjectsGridComponent],
   providers: [
     provideIcons({

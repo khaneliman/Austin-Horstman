@@ -15,7 +15,6 @@ const getUnderwritingWorkbenchProjectConfiguration = (): ProjectDetailConfig => 
 @Component({
   selector: 'app-underwriting-workbench',
   template: `<app-project-detail-template [config]="projectConfig"></app-project-detail-template>`,
-  standalone: true,
   imports: [ProjectDetailTemplateComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

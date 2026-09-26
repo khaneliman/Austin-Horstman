@@ -5,7 +5,6 @@ import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
-  standalone: true,
   imports: [NgIconComponent],
   providers: [provideIcons({ heroSun, heroMoon })],
   changeDetection: ChangeDetectionStrategy.OnPush,

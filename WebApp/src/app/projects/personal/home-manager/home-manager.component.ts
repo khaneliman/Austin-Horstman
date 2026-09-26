@@ -83,7 +83,6 @@ const homeManagerUpdatedAt =
 
 @Component({
   selector: 'app-home-manager',
-  standalone: true,
   templateUrl: './home-manager.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],

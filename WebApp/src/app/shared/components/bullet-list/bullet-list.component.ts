@@ -16,7 +16,6 @@ export type BulletSpacing = 'tight' | 'normal' | 'loose';
 
 @Component({
   selector: 'app-bullet-list',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
   providers: [provideIcons({ heroCheck })],

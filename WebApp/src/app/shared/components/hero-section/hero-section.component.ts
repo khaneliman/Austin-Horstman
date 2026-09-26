@@ -22,7 +22,6 @@ export type HeroLayout = 'single' | 'split';
 
 @Component({
   selector: 'app-hero-section',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent, DecorativeBackgroundComponent],
   template: `

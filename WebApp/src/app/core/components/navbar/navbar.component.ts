@@ -19,7 +19,6 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
 import { isActiveRoute } from './navbar.helpers';
 
 @Component({
-  standalone: true,
   imports: [RouterLink, SocialLinksComponent, ThemePickerComponent, ThemeToggleComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

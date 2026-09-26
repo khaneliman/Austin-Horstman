@@ -8,7 +8,6 @@ export interface TechTag {
 
 @Component({
   selector: 'app-tech-tag-list',
-  standalone: true,
   imports: [TechTagComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `

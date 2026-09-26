@@ -5,7 +5,6 @@ import { heroChevronRight } from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-projects-breadcrumb',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent],
   providers: [provideIcons({ heroChevronRight })],

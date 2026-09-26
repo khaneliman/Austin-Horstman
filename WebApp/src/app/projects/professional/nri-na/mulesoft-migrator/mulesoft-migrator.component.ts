@@ -6,7 +6,6 @@ import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detai
 @Component({
   selector: 'app-mulesoft-migrator',
   template: `<app-project-detail-template [config]="projectConfig"></app-project-detail-template>`,
-  standalone: true,
   imports: [ProjectDetailTemplateComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

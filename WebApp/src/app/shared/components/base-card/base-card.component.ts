@@ -34,7 +34,6 @@ const VARIANT_PADDING: Record<BaseCardVariant, string> = {
 
 @Component({
   selector: 'app-base-card',
-  standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `

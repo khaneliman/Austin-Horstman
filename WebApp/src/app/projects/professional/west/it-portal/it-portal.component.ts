@@ -4,7 +4,6 @@ import { getProjectConfiguration } from '../../../../shared/data/project-configu
 import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detail.interface';
 
 @Component({
-  standalone: true,
   selector: 'app-it-portal',
   template: ` <app-project-detail-template [config]="projectConfig"> </app-project-detail-template> `,
   imports: [ProjectDetailTemplateComponent],

@@ -24,7 +24,6 @@ import { getProficientTechnologies } from '../shared/data/technologies';
 import { CountUpDirective } from '../shared/directives/count-up.directive';
 
 @Component({
-  standalone: true,
   imports: [RouterLink, NgIconComponent, CountUpDirective],
   providers: [
     provideIcons({

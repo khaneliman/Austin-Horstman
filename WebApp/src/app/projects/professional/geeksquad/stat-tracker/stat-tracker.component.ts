@@ -6,7 +6,6 @@ import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detai
 @Component({
   selector: 'app-stat-tracker',
   template: `<app-project-detail-template [config]="projectConfig"></app-project-detail-template>`,
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ProjectDetailTemplateComponent],
 })

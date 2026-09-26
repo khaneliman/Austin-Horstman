@@ -41,7 +41,6 @@ interface ExploringItem {
 
 @Component({
   selector: 'app-now',
-  standalone: true,
   templateUrl: './now.component.html',
   styleUrl: './now.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -81,7 +81,6 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
 
 @Component({
   selector: 'app-resume',
-  standalone: true,
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.scss',
   imports: [

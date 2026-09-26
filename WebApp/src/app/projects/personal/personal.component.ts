@@ -34,7 +34,6 @@ function formatMetricDate(date: string): string {
 
 @Component({
   selector: 'app-personal',
-  standalone: true,
   templateUrl: './personal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterOutlet, NgIconComponent, PersonalProjectsGridComponent, ProjectsBreadcrumbComponent],

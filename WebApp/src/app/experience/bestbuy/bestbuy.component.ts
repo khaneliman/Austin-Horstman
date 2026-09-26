@@ -9,7 +9,6 @@ import { getProjectsForExperience } from '../../shared/data/projects';
 
 @Component({
   selector: 'app-bestbuy',
-  standalone: true,
   templateUrl: './bestbuy.component.html',
   imports: [CompanyProfileComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

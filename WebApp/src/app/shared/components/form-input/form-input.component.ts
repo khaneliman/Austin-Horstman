@@ -8,7 +8,6 @@ export type FormInputSize = 'sm' | 'md' | 'lg';
 
 @Component({
   selector: 'app-form-input',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
   providers: [

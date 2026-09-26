@@ -16,7 +16,6 @@ export interface PersonalCaseStudyStat {
 
 @Component({
   selector: 'app-personal-case-study-shell',
-  standalone: true,
   imports: [RouterLink, NgIconComponent],
   providers: [provideIcons({ heroArrowLeft, heroArrowTopRightOnSquare })],
   changeDetection: ChangeDetectionStrategy.OnPush,

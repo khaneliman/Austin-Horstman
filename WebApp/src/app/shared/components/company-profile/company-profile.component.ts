@@ -48,7 +48,6 @@ export interface ProjectInfo {
 
 @Component({
   selector: 'app-company-profile',
-  standalone: true,
   templateUrl: './company-profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgIconComponent, BulletListComponent],
