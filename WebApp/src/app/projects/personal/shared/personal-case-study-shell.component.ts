@@ -20,7 +20,7 @@ export interface PersonalCaseStudyStat {
   providers: [provideIcons({ heroArrowLeft, heroArrowTopRightOnSquare })],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main
+    <div
       [class]="
         'min-h-screen bg-[var(--color-paper)] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50 ' + themeClass()
       "
@@ -142,7 +142,7 @@ export interface PersonalCaseStudyStat {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   `,
   styles: `
     .case-study-shell {
