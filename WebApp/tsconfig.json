@@ -19,20 +19,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "types": ["bun"],
-    "paths": {
-      "app/*": ["./src/app/*"],
-      "core/*": ["./src/app/core/*"],
-      "home/*": ["./src/app/home/*"],
-      "personal/*": ["./src/app/personal/*"],
-      "about/*": ["./src/app/personal/about/*"],
-      "contacts/*": ["./src/app/personal/contacts/*"],
-      "education/*": ["./src/app/personal/education/*"],
-      "employment/*": ["./src/app/personal/employment/*"],
-      "resume/*": ["./src/app/personal/resume/*"],
-      "technology/*": ["./src/app/personal/technology/*"],
-      "projects/*": ["./src/app/projects/*"]
-    }
+    "types": ["bun"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
