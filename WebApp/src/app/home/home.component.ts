@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
@@ -25,7 +25,7 @@ import { CountUpDirective } from '../shared/directives/count-up.directive';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, NgIconComponent, CountUpDirective],
+  imports: [RouterLink, NgIconComponent, CountUpDirective],
   providers: [
     provideIcons({
       heroAcademicCap,

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroCheckCircle,
@@ -41,7 +41,7 @@ export interface PersonalProject {
 @Component({
   selector: 'app-personal-projects-grid',
   standalone: true,
-  imports: [RouterModule, NgIconComponent, DecorativeBackgroundComponent, GridKeyboardNavDirective],
+  imports: [RouterLink, NgIconComponent, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   providers: [
     provideIcons({
       heroCheckCircle,

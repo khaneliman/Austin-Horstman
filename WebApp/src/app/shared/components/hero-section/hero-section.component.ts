@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import {
   BackgroundElement,
@@ -24,7 +24,7 @@ export type HeroLayout = 'single' | 'split';
   selector: 'app-hero-section',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule, NgIconComponent, DecorativeBackgroundComponent],
+  imports: [RouterLink, NgIconComponent, DecorativeBackgroundComponent],
   template: `
     <section [class]="sectionClasses()">
       @if (backgroundElements().length > 0) {

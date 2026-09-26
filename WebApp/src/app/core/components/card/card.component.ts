@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterLink],
   selector: 'app-card',
   templateUrl: './card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

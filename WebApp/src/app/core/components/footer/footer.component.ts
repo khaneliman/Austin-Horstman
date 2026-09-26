@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, SocialLinksComponent],
+  imports: [RouterLink, SocialLinksComponent],
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

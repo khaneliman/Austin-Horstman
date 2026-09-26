@@ -9,7 +9,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ThemePickerComponent } from '../../../shared/components/theme-picker/theme-picker.component';
 import { ThemeToggleComponent } from '../../../shared/components/theme-toggle/theme-toggle.component';
@@ -20,7 +20,7 @@ import { isActiveRoute } from './navbar.helpers';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, SocialLinksComponent, ThemePickerComponent, ThemeToggleComponent],
+  imports: [RouterLink, SocialLinksComponent, ThemePickerComponent, ThemeToggleComponent],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
