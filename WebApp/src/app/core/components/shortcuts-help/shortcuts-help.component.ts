@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SHORTCUT_GROUPS } from '../../../shared/services/keyboard-shortcuts.helpers';
 import { KeyboardShortcutsService } from '../../../shared/services/keyboard-shortcuts.service';
 import { ShortcutsHelpService } from '../../../shared/services/shortcuts-help.service';
@@ -9,6 +9,9 @@ import { ShortcutsHelpService } from '../../../shared/services/shortcuts-help.se
   templateUrl: './shortcuts-help.component.html',
   styleUrl: './shortcuts-help.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(document:keydown.escape)': 'handleEscape($event)',
+  },
 })
 export class ShortcutsHelpComponent {
   private readonly service = inject(ShortcutsHelpService);
@@ -22,7 +25,6 @@ export class ShortcutsHelpComponent {
     this.shortcuts.setSingleKeysEnabled((event.target as HTMLInputElement).checked);
   }
 
-  @HostListener('document:keydown.escape', ['$event'])
   handleEscape(event: Event): void {
     if (!this.isOpen()) return;
     event.preventDefault();

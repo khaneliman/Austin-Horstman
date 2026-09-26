@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, inject } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 import { type ArrowDirection, inferGridColumns, nextGridIndex } from './grid-keyboard-nav.helpers';
 
 const ARROW_DIRECTIONS: Readonly<Record<string, ArrowDirection>> = {
@@ -14,11 +14,13 @@ const PRIMARY_SELECTOR = '[data-card-primary]';
 @Directive({
   selector: '[appGridKeyboardNav]',
   standalone: true,
+  host: {
+    '(keydown)': 'handleKeydown($event)',
+  },
 })
 export class GridKeyboardNavDirective {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
 
-  @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter' || event.key === ' ') {
       const target = event.target instanceof HTMLElement ? event.target : null;
