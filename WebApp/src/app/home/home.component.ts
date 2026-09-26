@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -22,6 +22,10 @@ import { getResumeProjectCards } from '../shared/data/projects';
 import { getPersonalSkills } from '../shared/data/skills';
 import { getProficientTechnologies } from '../shared/data/technologies';
 import { CountUpDirective } from '../shared/directives/count-up.directive';
+
+// Local midnight on August 1, 2013. A date-only ISO string would parse as UTC
+// and land on July 31 in US time zones.
+const CAREER_START = new Date(2013, 7, 1);
 
 @Component({
   imports: [RouterLink, NgIconComponent, CountUpDirective],
@@ -50,7 +54,6 @@ export class HomeComponent {
   protected readonly profile = getPersonalProfile();
   protected readonly companies = getAllCompanies();
   protected readonly githubMetrics = GITHUB_METRICS;
-  private readonly careerStartDate = signal(new Date('2013-08-01'));
 
   protected readonly topSkills = getProficientTechnologies()
     .sort((a, b) => (b.skillLevel ?? 0) - (a.skillLevel ?? 0))
@@ -72,7 +75,7 @@ export class HomeComponent {
 
   protected readonly gatewayPanels = computed(() => {
     const today = new Date();
-    const careerStart = this.careerStartDate();
+    const careerStart = CAREER_START;
     let yearsExperience = today.getFullYear() - careerStart.getFullYear();
     const monthDiff = today.getMonth() - careerStart.getMonth();
 
