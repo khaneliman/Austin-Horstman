@@ -50,7 +50,7 @@
 
         @for (group of groups; track group.label) {
           <section>
-            <h3 class="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+            <h3 class="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-slate-600 dark:text-slate-400">
               {{ group.label }}
             </h3>
             <ul class="flex flex-col gap-1.5">
@@ -72,7 +72,7 @@
       </div>
 
       <div
-        class="flex items-center justify-between border-t border-stone-200/80 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500 dark:border-slate-800 dark:text-slate-400"
+        class="flex items-center justify-between border-t border-stone-200/80 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-600 dark:border-slate-800 dark:text-slate-400"
       >
         <span>{{ singleKeysEnabled() ? 'Press ? to toggle' : 'Single-key shortcuts off' }}</span>
         <span>Esc to close</span>

@@ -62,7 +62,7 @@ const TAILWIND_HEX_COLORS: Record<string, string> = {
   'red-600': '#d20f39', // red
   'orange-500': '#fe640b', // peach
   'orange-600': '#fe640b', // peach
-  'orange-800': '#d55409', // peach (darker shade)
+  'orange-800': '#c24e08', // peach (darker shade)
   'indigo-600': '#4e5cac', // lavender (darker shade)
   'sky-400': '#04a5e5', // sky
   'teal-500': '#179299', // teal

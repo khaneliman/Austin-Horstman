@@ -15,7 +15,7 @@
         >Derek Sivers' /now movement</a
       >.
     </p>
-    <p class="mt-4 font-mono text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+    <p class="mt-4 font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
       Last refreshed · {{ asOf }}
     </p>
   </section>
@@ -33,7 +33,7 @@
               <ng-icon [name]="item.icon" size="1.15rem"></ng-icon>
             </span>
             <div class="min-w-0">
-              <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+              <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-600 dark:text-slate-400">
                 {{ item.eyebrow }}
               </p>
               <h2 class="mt-1.5 text-lg font-bold leading-snug text-slate-950 dark:text-white">
@@ -50,7 +50,7 @@
   <section class="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
     <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
       <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Contribution graph</h2>
-      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
         github.com/&#64;{{ githubUser }}
       </p>
     </div>
@@ -86,7 +86,7 @@
   <section class="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
     <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
       <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Recently shipped</h2>
-      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Last few days</p>
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">Last few days</p>
     </div>
 
     <ol class="mt-6 divide-y divide-stone-200/80 dark:divide-slate-800">
@@ -99,7 +99,7 @@
             class="group flex flex-col gap-1 py-3.5 transition-colors duration-150 hover:bg-stone-100/60 dark:hover:bg-slate-900/40 sm:flex-row sm:items-baseline sm:gap-4"
           >
             <span
-              class="w-16 flex-none font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400"
+              class="w-16 flex-none font-mono text-[11px] uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400"
             >
               {{ formatShipDate(item.date) }}
             </span>
@@ -116,14 +116,14 @@
               >
                 {{ tagLabels[item.tag] }}
               </span>
-              <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400">{{ item.repo }}</span>
+              <span class="font-mono text-[11px] text-slate-600 dark:text-slate-400">{{ item.repo }}</span>
             </span>
           </a>
         </li>
       }
     </ol>
 
-    <p class="mt-4 text-xs text-slate-500 dark:text-slate-400">
+    <p class="mt-4 text-xs text-slate-600 dark:text-slate-400">
       Curated highlights — for the full firehose see the
       <a
         [href]="githubProfileUrl"
@@ -138,7 +138,7 @@
   <section class="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
     <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
       <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Currently exploring</h2>
-      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">In flight</p>
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">In flight</p>
     </div>
 
     <ul class="mt-6 space-y-4">
@@ -157,7 +157,7 @@
   <section class="mx-auto max-w-4xl px-4 pb-20 sm:px-6 lg:px-8">
     <div class="flex items-baseline justify-between border-b border-stone-200/80 pb-3 dark:border-slate-800">
       <h2 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Lifetime totals</h2>
-      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
         <span [appCountUp]="totalMergedPrs"></span> merged PRs · as of {{ asOf }}
       </p>
     </div>
@@ -180,7 +180,7 @@
             </div>
             <p class="mt-2 text-xs leading-5 text-slate-600 dark:text-slate-400">{{ repo.description }}</p>
             <span
-              class="mt-auto pt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 group-hover:text-teal-600 dark:group-hover:text-teal-300"
+              class="mt-auto pt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-300"
             >
               View PRs →
             </span>
@@ -189,7 +189,7 @@
       }
     </ul>
 
-    <p class="mt-6 text-xs text-slate-500 dark:text-slate-400">
+    <p class="mt-6 text-xs text-slate-600 dark:text-slate-400">
       Counts reflect merged pull requests across the GitHub author search and are refreshed by a scheduled action. For
       project breakdowns and write-ups, see
       <a

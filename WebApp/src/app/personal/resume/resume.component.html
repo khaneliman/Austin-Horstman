@@ -187,7 +187,7 @@
     <!-- Career Timeline -->
     <div class="mb-8">
       <div class="mb-6 flex items-center justify-center">
-        <span class="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+        <span class="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-slate-600 dark:text-slate-400">
           Career Timeline
         </span>
       </div>
@@ -223,8 +223,8 @@
               <p class="text-xl font-medium text-teal-700 dark:text-teal-200 mb-2">
                 {{ currentCompany.position }}
               </p>
-              <p class="text-slate-600 mb-2">{{ currentCompany.location }}</p>
-              <p class="text-slate-600 font-medium mb-4">
+              <p class="text-slate-600 mb-2 dark:text-slate-400">{{ currentCompany.location }}</p>
+              <p class="text-slate-600 font-medium mb-4 dark:text-slate-400">
                 {{ getDateRange(currentCompany) }}
               </p>
 
@@ -234,13 +234,13 @@
                   <div class="text-2xl font-bold text-slate-950 dark:text-white">
                     {{ currentCompany.stats.years }}
                   </div>
-                  <div class="text-sm text-slate-500 dark:text-slate-400">Years</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-400">Years</div>
                 </div>
                 <div class="text-center">
                   <div class="text-2xl font-bold text-slate-950 dark:text-white">
                     {{ currentCompany.stats.projects.value }}
                   </div>
-                  <div class="text-sm text-slate-500 dark:text-slate-400">
+                  <div class="text-sm text-slate-600 dark:text-slate-400">
                     {{ currentCompany.stats.projects.label }}
                   </div>
                 </div>
@@ -248,7 +248,7 @@
                   <div class="text-2xl font-bold text-slate-950 dark:text-white">
                     {{ currentCompany.stats.clients.value }}
                   </div>
-                  <div class="text-sm text-slate-500 dark:text-slate-400">
+                  <div class="text-sm text-slate-600 dark:text-slate-400">
                     {{ currentCompany.stats.clients.label }}
                   </div>
                 </div>
@@ -323,7 +323,7 @@
                           {{ company.displayName }}
                         </h5>
                         <p class="text-sm text-teal-700 dark:text-teal-200 truncate">{{ company.position }}</p>
-                        <p class="text-xs text-slate-500 dark:text-slate-300 mt-1">{{ getDateRange(company) }}</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">{{ getDateRange(company) }}</p>
                         <div class="flex gap-2 mt-2">
                           <a
                             [routerLink]="company.experienceRoute"
@@ -338,7 +338,7 @@
                   </div>
                 }
               </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-4 italic">
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-4 italic">
                 These represent the same continuous employment through company acquisitions
               </p>
             </div>
@@ -376,8 +376,8 @@
               <p [class]="'text-sm font-medium mb-1 ' + getCompanyTextClass(company.colorScheme.primary)">
                 {{ company.position }}
               </p>
-              <p class="text-sm text-slate-600 mb-2">{{ company.location }}</p>
-              <p class="text-sm text-slate-500 dark:text-slate-300 font-medium mb-4">
+              <p class="text-sm text-slate-600 mb-2 dark:text-slate-400">{{ company.location }}</p>
+              <p class="text-sm text-slate-600 dark:text-slate-300 font-medium mb-4">
                 {{ getDateRange(company) }}
               </p>
               <div class="flex justify-center gap-4 mb-4">
@@ -385,7 +385,7 @@
                   <div [class]="'text-lg font-bold ' + getCompanyTextClass(company.colorScheme.primary)">
                     {{ company.stats.years }}
                   </div>
-                  <div class="text-xs text-slate-500 dark:text-slate-400">
+                  <div class="text-xs text-slate-600 dark:text-slate-400">
                     {{ company.stats.years === '1' ? 'Year' : 'Years' }}
                   </div>
                 </div>
@@ -393,7 +393,7 @@
                   <div [class]="'text-lg font-bold ' + getCompanyTextClass(company.colorScheme.primary)">
                     {{ company.stats.projects.value }}
                   </div>
-                  <div class="text-xs text-slate-500 dark:text-slate-400">
+                  <div class="text-xs text-slate-600 dark:text-slate-400">
                     {{ company.stats.projects.label }}
                   </div>
                 </div>

@@ -26,22 +26,22 @@
 
   &--release {
     --tag-bg: color-mix(in srgb, var(--color-accent-warm) 18%, transparent);
-    --tag-fg: var(--color-amber-700);
+    --tag-fg: var(--color-amber-800);
   }
 
   &--feature {
     --tag-bg: color-mix(in srgb, var(--color-accent-cyan) 18%, transparent);
-    --tag-fg: var(--color-teal-700);
+    --tag-fg: var(--color-teal-800);
   }
 
   &--workflow {
     --tag-bg: color-mix(in srgb, var(--color-accent-strong) 16%, transparent);
-    --tag-fg: var(--color-purple-700);
+    --tag-fg: var(--color-purple-800);
   }
 
   &--upstream {
     --tag-bg: color-mix(in srgb, var(--color-green-500) 16%, transparent);
-    --tag-fg: var(--color-green-700);
+    --tag-fg: var(--color-green-800);
   }
 }
 

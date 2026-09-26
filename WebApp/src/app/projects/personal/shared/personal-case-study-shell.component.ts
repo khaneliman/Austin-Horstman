@@ -98,7 +98,7 @@ export interface PersonalCaseStudyStat {
                   <div class="border border-stone-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
                     <dt class="flex items-center justify-between gap-3">
                       <span
-                        class="case-study-shell__meta-label text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+                        class="case-study-shell__meta-label text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400"
                       >
                         {{ item.label }}
                       </span>
