@@ -70,6 +70,14 @@ export const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = SHORTCUT_GROUPS.fla
 
 export const SHORTCUT_PREFIX_TIMEOUT_MS = 1500;
 
+/** localStorage key for the single-key shortcut switch (WCAG 2.1.4). */
+export const SINGLE_KEY_SHORTCUTS_STORAGE_KEY = 'single-key-shortcuts';
+
+/** Single-key shortcuts stay on unless the visitor explicitly turned them off. */
+export function parseSingleKeyPreference(stored: string | null | undefined): boolean {
+  return stored !== 'off';
+}
+
 export function isEditableTarget(target: EventTarget | null): boolean {
   if (!target) return false;
   const el = target as { tagName?: string; isContentEditable?: boolean };

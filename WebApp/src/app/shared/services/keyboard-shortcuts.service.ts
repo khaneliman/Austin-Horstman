@@ -1,8 +1,14 @@
 import { DOCUMENT } from '@angular/common';
-import { DestroyRef, Injectable, inject } from '@angular/core';
+import { DestroyRef, Injectable, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommandPaletteService } from './command-palette.service';
-import { isEditableTarget, resolveGPrefixRoute, SHORTCUT_PREFIX_TIMEOUT_MS } from './keyboard-shortcuts.helpers';
+import {
+  isEditableTarget,
+  parseSingleKeyPreference,
+  resolveGPrefixRoute,
+  SHORTCUT_PREFIX_TIMEOUT_MS,
+  SINGLE_KEY_SHORTCUTS_STORAGE_KEY,
+} from './keyboard-shortcuts.helpers';
 import { LinkHintsService } from './link-hints.service';
 import { ShortcutsHelpService } from './shortcuts-help.service';
 
@@ -28,6 +34,23 @@ export class KeyboardShortcutsService {
   private pendingTimer: ReturnType<typeof setTimeout> | null = null;
   private initialized = false;
 
+  private readonly _singleKeysEnabled = signal(parseSingleKeyPreference(this.readPreference()));
+  /** Whether single-character shortcuts (j, k, g, f, /, ?, ...) respond. Modifier shortcuts are unaffected. */
+  readonly singleKeysEnabled = this._singleKeysEnabled.asReadonly();
+
+  setSingleKeysEnabled(enabled: boolean): void {
+    this._singleKeysEnabled.set(enabled);
+    try {
+      this.document.defaultView?.localStorage.setItem(SINGLE_KEY_SHORTCUTS_STORAGE_KEY, enabled ? 'on' : 'off');
+    } catch {
+      // Storage can be unavailable (privacy modes); the choice still applies for this visit.
+    }
+    if (!enabled) {
+      this.clearPrefix();
+      this.linkHints.deactivate();
+    }
+  }
+
   init(): void {
     if (this.initialized) return;
     this.initialized = true;
@@ -40,6 +63,7 @@ export class KeyboardShortcutsService {
   }
 
   private handleKey(event: KeyboardEvent): void {
+    if (!this._singleKeysEnabled()) return;
     if (event.metaKey || event.ctrlKey || event.altKey) return;
     if (isEditableTarget(event.target)) return;
 
@@ -177,6 +201,14 @@ export class KeyboardShortcutsService {
 
   private scrollBy(deltaPx: number): void {
     this.document.defaultView?.scrollBy({ top: deltaPx, behavior: 'smooth' });
+  }
+
+  private readPreference(): string | null {
+    try {
+      return this.document.defaultView?.localStorage.getItem(SINGLE_KEY_SHORTCUTS_STORAGE_KEY) ?? null;
+    } catch {
+      return null;
+    }
   }
 
   private clearPrefix(): void {

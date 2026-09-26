@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'bun:test';
-import { isEditableTarget, resolveGPrefixRoute, SHORTCUT_BINDINGS } from './keyboard-shortcuts.helpers';
+import {
+  isEditableTarget,
+  parseSingleKeyPreference,
+  resolveGPrefixRoute,
+  SHORTCUT_BINDINGS,
+} from './keyboard-shortcuts.helpers';
 
 describe('keyboard-shortcuts helpers', () => {
   describe('resolveGPrefixRoute', () => {
@@ -43,6 +48,19 @@ describe('keyboard-shortcuts helpers', () => {
     it('returns false for non-editable elements', () => {
       expect(isEditableTarget(target('DIV'))).toBe(false);
       expect(isEditableTarget(target('BUTTON'))).toBe(false);
+    });
+  });
+
+  describe('parseSingleKeyPreference', () => {
+    it('defaults to enabled when nothing is stored', () => {
+      expect(parseSingleKeyPreference(null)).toBe(true);
+      expect(parseSingleKeyPreference(undefined)).toBe(true);
+    });
+
+    it('is disabled only by an explicit off', () => {
+      expect(parseSingleKeyPreference('off')).toBe(false);
+      expect(parseSingleKeyPreference('on')).toBe(true);
+      expect(parseSingleKeyPreference('garbage')).toBe(true);
     });
   });
 
