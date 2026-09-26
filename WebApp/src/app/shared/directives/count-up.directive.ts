@@ -1,23 +1,13 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  DestroyRef,
-  Directive,
-  ElementRef,
-  inject,
-  input,
-  NgZone,
-  numberAttribute,
-  OnInit,
-  PLATFORM_ID,
-} from '@angular/core';
+import { DestroyRef, Directive, ElementRef, inject, input, numberAttribute, OnInit, PLATFORM_ID } from '@angular/core';
 import { countUpValue, formatCount } from './count-up.helpers';
 
 /**
  * Counts the host element's text from 0 up to a target the first time it
  * scrolls into view. Owns the element's text content, so the host should not
  * also interpolate a value. Honors prefers-reduced-motion and SSR by writing
- * the final value immediately. The rAF loop runs outside Angular since it
- * mutates textContent directly and needs no change detection.
+ * the final value immediately. The rAF loop mutates textContent directly, so
+ * it never needs change detection.
  */
 @Directive({
   selector: '[appCountUp]',
@@ -29,7 +19,6 @@ export class CountUpDirective implements OnInit {
   readonly countUpDuration = input(1100, { transform: numberAttribute });
 
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly zone = inject(NgZone);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -48,21 +37,19 @@ export class CountUpDirective implements OnInit {
 
     this.write(0, suffix);
 
-    this.zone.runOutsideAngular(() => {
-      const observer = new IntersectionObserver(
-        (records) => {
-          for (const record of records) {
-            if (record.isIntersecting) {
-              observer.unobserve(record.target);
-              this.animate(target, suffix);
-            }
+    const observer = new IntersectionObserver(
+      (records) => {
+        for (const record of records) {
+          if (record.isIntersecting) {
+            observer.unobserve(record.target);
+            this.animate(target, suffix);
           }
-        },
-        { threshold: 0.4 }
-      );
-      observer.observe(this.el.nativeElement);
-      this.destroyRef.onDestroy(() => observer.disconnect());
-    });
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(this.el.nativeElement);
+    this.destroyRef.onDestroy(() => observer.disconnect());
   }
 
   private prefersReducedMotion(): boolean {
