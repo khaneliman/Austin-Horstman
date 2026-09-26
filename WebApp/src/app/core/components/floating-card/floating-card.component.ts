@@ -1,11 +1,10 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, NgClass, NgIconComponent],
+  imports: [RouterModule, NgIconComponent],
   selector: 'app-floating-card',
   templateUrl: './floating-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

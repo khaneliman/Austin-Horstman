@@ -28,7 +28,7 @@
             <a
               [routerLink]="action.route"
               class="inline-flex min-h-12 items-center gap-2 rounded-lg px-5 py-3 text-sm font-bold transition duration-200 hover:-translate-y-0.5 hover:shadow-xl"
-              [ngClass]="
+              [class]="
                 action.style === 'primary'
                   ? 'bg-amber-300 text-slate-950 shadow-amber-950/20 hover:bg-amber-200'
                   : 'border border-white/25 bg-white/10 text-white hover:bg-white/20'
@@ -582,7 +582,7 @@
           @for (tech of proficientTechnologies; track tech.name; let last = $last) {
             <div
               class="flex items-center justify-between py-2"
-              [ngClass]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
+              [class]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
             >
               <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
               <div class="flex space-x-1 star-rating star-rating--expert">
@@ -617,7 +617,7 @@
             @for (tech of learnedTechnologies; track tech.name; let last = $last) {
               <div
                 class="flex items-center justify-between py-2"
-                [ngClass]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
+                [class]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
               >
                 <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
                 <div class="flex space-x-1 star-rating star-rating--learning">

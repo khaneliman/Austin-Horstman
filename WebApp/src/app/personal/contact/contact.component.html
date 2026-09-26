@@ -19,11 +19,12 @@
         <div class="text-center">
           <div
             class="w-14 h-14 rounded-xl flex items-center justify-center border shadow-lg mx-auto mb-3 group hover:scale-105 transition-transform duration-300"
-            [ngClass]="{
-              'bg-teal-300/15 border-teal-300/30': i === 0,
-              'bg-emerald-300/15 border-emerald-300/30': i === 1,
-              'bg-sky-300/15 border-sky-300/30': i === 2,
-            }"
+            [class.bg-teal-300/15]="i === 0"
+            [class.border-teal-300/30]="i === 0"
+            [class.bg-emerald-300/15]="i === 1"
+            [class.border-emerald-300/30]="i === 1"
+            [class.bg-sky-300/15]="i === 2"
+            [class.border-sky-300/30]="i === 2"
           >
             <ng-icon
               [name]="skill.icon"

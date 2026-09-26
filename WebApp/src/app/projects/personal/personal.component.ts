@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -38,14 +37,7 @@ function formatMetricDate(date: string): string {
   standalone: true,
   templateUrl: './personal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    NgClass,
-    RouterLink,
-    RouterOutlet,
-    NgIconComponent,
-    PersonalProjectsGridComponent,
-    ProjectsBreadcrumbComponent,
-  ],
+  imports: [RouterLink, RouterOutlet, NgIconComponent, PersonalProjectsGridComponent, ProjectsBreadcrumbComponent],
   providers: [
     provideIcons({
       heroArrowRight,

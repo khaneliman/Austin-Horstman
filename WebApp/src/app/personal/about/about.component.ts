@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -23,7 +22,7 @@ import { getAllTechnologyNames } from '../../shared/data/technologies';
   standalone: true,
   selector: 'app-about',
   templateUrl: './about.component.html',
-  imports: [RouterLink, NgClass, NgIconComponent],
+  imports: [RouterLink, NgIconComponent],
   providers: [
     provideIcons({
       heroAcademicCap,

@@ -5,7 +5,7 @@
       (click)="clearTechs()"
       [attr.aria-pressed]="selectionKey === ''"
       class="rounded-full border px-4 py-1.5 font-mono text-xs font-semibold tracking-wide transition-colors duration-150"
-      [ngClass]="
+      [class]="
         selectionKey === ''
           ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-300 dark:bg-teal-300 dark:text-slate-950'
           : 'border-stone-300 text-slate-700 hover:border-teal-600 hover:text-teal-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-300 dark:hover:text-teal-200'
@@ -19,7 +19,7 @@
         (click)="toggleTech(filter.label)"
         [attr.aria-pressed]="isTechSelected(filter.label)"
         class="rounded-full border px-4 py-1.5 font-mono text-xs font-semibold tracking-wide transition-colors duration-150"
-        [ngClass]="
+        [class]="
           isTechSelected(filter.label)
             ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-300 dark:bg-teal-300 dark:text-slate-950'
             : 'border-stone-300 text-slate-700 hover:border-teal-600 hover:text-teal-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-300 dark:hover:text-teal-200'
@@ -43,7 +43,7 @@
       <div class="relative px-8 py-12 bg-slate-100 dark:bg-slate-950">
         <app-decorative-background [elements]="backgroundElements"></app-decorative-background>
         <div class="absolute top-4 left-4 flex items-center space-x-2">
-          <span class="px-3 py-1 text-xs font-semibold rounded-full" [ngClass]="getStatusColor(project.status)">
+          <span class="px-3 py-1 text-xs font-semibold rounded-full" [class]="getStatusColor(project.status)">
             {{ project.status }}
           </span>
           @if (project.featured) {

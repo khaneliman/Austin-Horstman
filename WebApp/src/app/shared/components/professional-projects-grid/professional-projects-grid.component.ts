@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { GridKeyboardNavDirective } from '../../directives/grid-keyboard-nav.directive';
@@ -58,7 +57,7 @@ const VISIBLE_PROJECTS_LIMIT = 4;
 @Component({
   selector: 'app-professional-projects-grid',
   standalone: true,
-  imports: [NgClass, RouterModule, DecorativeBackgroundComponent, GridKeyboardNavDirective],
+  imports: [RouterModule, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   templateUrl: './professional-projects-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

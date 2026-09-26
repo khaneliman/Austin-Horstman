@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -26,7 +25,7 @@ import { CountUpDirective } from '../shared/directives/count-up.directive';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, NgClass, NgIconComponent, CountUpDirective],
+  imports: [RouterModule, NgIconComponent, CountUpDirective],
   providers: [
     provideIcons({
       heroAcademicCap,

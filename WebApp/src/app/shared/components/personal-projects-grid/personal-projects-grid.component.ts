@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -42,7 +41,7 @@ export interface PersonalProject {
 @Component({
   selector: 'app-personal-projects-grid',
   standalone: true,
-  imports: [NgClass, RouterModule, NgIconComponent, DecorativeBackgroundComponent, GridKeyboardNavDirective],
+  imports: [RouterModule, NgIconComponent, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   providers: [
     provideIcons({
       heroCheckCircle,

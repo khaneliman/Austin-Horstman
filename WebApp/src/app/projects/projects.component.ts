@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -25,7 +24,7 @@ import { generateProfessionalProjectsGrid, getResumeProjectCards } from '../shar
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RouterModule, NgClass, NgIconComponent, ProfessionalProjectsGridComponent, PersonalProjectsGridComponent],
+  imports: [RouterModule, NgIconComponent, ProfessionalProjectsGridComponent, PersonalProjectsGridComponent],
   providers: [
     provideIcons({
       heroArrowRight,

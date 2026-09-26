@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -86,7 +85,6 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],
   imports: [
-    NgClass,
     CardComponent,
     WaveSeparatorComponent,
     RouterLink,

@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -21,7 +20,7 @@ import { getPersonalSkills, PersonalSkill } from '../../shared/data/skills';
   standalone: true,
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  imports: [NgClass, NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],
+  imports: [NgIconComponent, FormInputComponent, ReactiveFormsModule, HeroSectionComponent],
   providers: [
     provideIcons({
       heroAcademicCap,
