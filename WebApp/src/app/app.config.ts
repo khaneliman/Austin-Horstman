@@ -1,4 +1,3 @@
-import { provideHttpClient, withXhr } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideNgIconsConfig } from '@ng-icons/core';
@@ -14,7 +13,6 @@ export const appConfig: ApplicationConfig = {
         anchorScrolling: 'enabled',
       })
     ),
-    provideHttpClient(withXhr()),
     provideNgIconsConfig({
       size: '1.5em',
       color: 'currentColor',
