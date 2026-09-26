@@ -1,13 +1,13 @@
-import { isPlatformBrowser } from '@angular/common';
 import {
+  afterNextRender,
   ChangeDetectionStrategy,
   Component,
   computed,
-  HostListener,
+  DestroyRef,
+  ElementRef,
   inject,
   input,
-  PLATFORM_ID,
-  signal,
+  viewChild,
 } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -157,9 +157,35 @@ import { TechTag, TechTagListComponent } from '../tech-tag-list/tech-tag-list.co
 export class ProjectDetailTemplateComponent {
   readonly config = input.required<ProjectDetailConfig>();
 
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly isBrowser = isPlatformBrowser(this.platformId);
-  protected readonly scrollProgress = signal(0);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly progressBar = viewChild.required<ElementRef<HTMLElement>>('progressBar');
+
+  constructor() {
+    // The reading-progress bar follows every scroll frame. Writing its transform
+    // directly from a passive listener keeps scrolling from re-running change
+    // detection over the whole case study.
+    afterNextRender(() => {
+      let frame = 0;
+      const update = () => {
+        frame = 0;
+        const doc = document.documentElement;
+        const total = doc.scrollHeight - doc.clientHeight;
+        const ratio = total > 0 ? Math.min(1, Math.max(0, window.scrollY / total)) : 0;
+        this.progressBar().nativeElement.style.transform = `scaleX(${ratio})`;
+      };
+      const schedule = () => {
+        frame ||= requestAnimationFrame(update);
+      };
+      window.addEventListener('scroll', schedule, { passive: true });
+      window.addEventListener('resize', schedule, { passive: true });
+      update();
+      this.destroyRef.onDestroy(() => {
+        window.removeEventListener('scroll', schedule);
+        window.removeEventListener('resize', schedule);
+        cancelAnimationFrame(frame);
+      });
+    });
+  }
 
   protected readonly estimatedMinutes = computed(() => {
     const cfg = this.config();
@@ -184,41 +210,20 @@ export class ProjectDetailTemplateComponent {
     return Math.max(1, Math.round(words / 220));
   });
 
-  @HostListener('window:scroll')
-  @HostListener('window:resize')
-  onScroll(): void {
-    if (!this.isBrowser) return;
-    const doc = document.documentElement;
-    const total = doc.scrollHeight - doc.clientHeight;
-    if (total <= 0) {
-      this.scrollProgress.set(0);
-      return;
-    }
-    const ratio = Math.min(1, Math.max(0, window.scrollY / total));
-    this.scrollProgress.set(ratio);
-  }
-
-  get techTags(): TechTag[] {
-    return this.config().technologies.map((tech) => ({
+  protected readonly techTags = computed<TechTag[]>(() =>
+    this.config().technologies.map((tech) => ({
       name: tech.name,
       color: tech.color || this.config().primaryColor,
-    }));
-  }
+    }))
+  );
 
-  get features(): Feature[] {
-    return this.config().features.map((feature) => ({
+  protected readonly features = computed<Feature[]>(() =>
+    this.config().features.map((feature) => ({
       icon: feature.icon,
       title: feature.title,
       description: feature.description,
-    }));
-  }
-
-  getTechTagsForHeader(): TechTag[] {
-    return this.config().technologies.map((tech) => ({
-      name: tech.name,
-      color: 'white', // White color for header tags on colored background
-    }));
-  }
+    }))
+  );
 
   protected get themeClass() {
     const primaryColor = this.config().primaryColor;

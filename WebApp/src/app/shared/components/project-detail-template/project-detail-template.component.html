@@ -1,7 +1,8 @@
 <main [class]="mainClass">
   <div
+    #progressBar
     class="project-detail-template__progress fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-teal-500/80 transition-transform duration-75 ease-out dark:bg-teal-300/80"
-    [style.transform]="'scaleX(' + scrollProgress() + ')'"
+    style="transform: scaleX(0)"
     aria-hidden="true"
   ></div>
 
@@ -218,7 +219,7 @@
             </app-section-header>
 
             <app-feature-grid
-              [features]="features"
+              [features]="features()"
               [columns]="config().gridColumns === 'single' ? 1 : 2"
               [iconColor]="config().primaryColor"
               itemSize="md"
@@ -312,7 +313,7 @@
             >
             </app-section-header>
 
-            <app-tech-tag-list [technologies]="techTags" justify="start" size="sm" variant="filled">
+            <app-tech-tag-list [technologies]="techTags()" justify="start" size="sm" variant="filled">
             </app-tech-tag-list>
           </app-base-card>
         }
