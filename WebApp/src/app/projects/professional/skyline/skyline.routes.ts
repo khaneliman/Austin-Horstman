@@ -5,13 +5,8 @@ import { JjKellerComponent } from './jj-keller/jj-keller.component';
 import { MileOfMusicComponent } from './mile-of-music/mile-of-music.component';
 import { NetworkHealthComponent } from './network-health/network-health.component';
 import { RenaissanceLearningComponent } from './renaissance-learning/renaissance-learning.component';
-import { SkylineComponent } from './skyline.component';
 
 export const SKYLINE_ROUTES: Routes = [
-  {
-    path: '',
-    component: SkylineComponent,
-  },
   {
     path: 'renaissance-learning',
     component: RenaissanceLearningComponent,
@@ -42,5 +37,5 @@ export const SKYLINE_ROUTES: Routes = [
     component: NetworkHealthComponent,
     data: { autoScroll: true },
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '/experience/skyline' },
 ];

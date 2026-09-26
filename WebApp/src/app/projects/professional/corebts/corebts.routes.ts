@@ -1,13 +1,8 @@
 import { Routes } from '@angular/router';
-import { CorebtsComponent } from './corebts.component';
 import { DoItBestComponent } from './doitbest/doitbest.component';
 import { KrogerComponent } from './kroger/kroger.component';
 
 export const COREBTS_ROUTES: Routes = [
-  {
-    path: '',
-    component: CorebtsComponent,
-  },
   {
     path: 'kroger',
     component: KrogerComponent,
@@ -18,5 +13,5 @@ export const COREBTS_ROUTES: Routes = [
     component: DoItBestComponent,
     data: { autoScroll: true },
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '/experience/corebts' },
 ];

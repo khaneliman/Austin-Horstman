@@ -1,11 +1,6 @@
 import { Routes } from '@angular/router';
-import { NriNaComponent } from './nri-na.component';
 
 export const NRI_NA_ROUTES: Routes = [
-  {
-    path: '',
-    component: NriNaComponent,
-  },
   {
     path: 'doitbest',
     loadComponent: () => import('./doitbest/doitbest.component').then((m) => m.NriNaDoItBestComponent),
@@ -41,5 +36,5 @@ export const NRI_NA_ROUTES: Routes = [
       import('./underwriting-workbench/underwriting-workbench.component').then((m) => m.UnderwritingWorkbenchComponent),
     data: { autoScroll: true },
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '/experience/nri-na' },
 ];
