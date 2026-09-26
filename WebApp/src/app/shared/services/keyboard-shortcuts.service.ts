@@ -63,9 +63,11 @@ export class KeyboardShortcutsService {
   }
 
   private handleKey(event: KeyboardEvent): void {
-    if (!this._singleKeysEnabled()) return;
     if (event.metaKey || event.ctrlKey || event.altKey) return;
     if (isEditableTarget(event.target)) return;
+    // The off switch covers character keys (WCAG 2.1.4); arrow keys still wake
+    // the card grid.
+    if (!this._singleKeysEnabled() && event.key.length === 1) return;
 
     if (this.linkHints.isActive()) {
       this.handleHintsKey(event);
