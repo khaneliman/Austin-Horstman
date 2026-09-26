@@ -11,7 +11,7 @@
     "build": "bunx @angular/cli build",
     "build:dev": "bunx @angular/cli build --configuration development",
     "build:prod": "bunx @angular/cli build --configuration production",
-    "build:analyze": "bunx @angular/cli build --configuration production --stats-json && bunx webpack-bundle-analyzer dist/web-app/browser/stats.json",
+    "build:analyze": "bunx @angular/cli build --configuration production --stats-json && bunx esbuild-visualizer --metadata dist/web-app/stats.json --filename dist/web-app/stats.html --open",
     "watch": "bunx @angular/cli build --watch --configuration development --poll 2000",
     "watch:prod": "bunx @angular/cli build --watch --configuration production --poll 2000",
     "test": "bun test",
@@ -80,13 +80,13 @@
     "@eslint/js": "^10.0.1",
     "@types/bun": "^1.3.14",
     "angular-eslint": "^22.1.0",
+    "esbuild-visualizer": "^0.7.0",
     "eslint": "^10.9.0",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^17.3.0",
     "prettier": "^3.9.6",
     "typescript": "~6.0.3",
-    "typescript-eslint": "8.67.0",
-    "webpack-bundle-analyzer": "^5.3.1"
+    "typescript-eslint": "8.67.0"
   }
 }
