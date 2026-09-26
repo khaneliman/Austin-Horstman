@@ -1,27 +1,24 @@
 # WebApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+Angular 22 front end for the portfolio, built and tested with [Bun](https://bun.sh/).
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+bun install
+bun run start:dev      # dev server on http://localhost:4200
+bun run build:prod     # production build in dist/web-app
+bun run build:analyze  # production build plus a bundle treemap in dist/web-app/stats.html
+```
 
-## Code scaffolding
+## Checks
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+bun run test           # Bun unit tests for helpers, data, and routes
+bun run typecheck      # tsc --noEmit
+bun run lint           # angular-eslint
+bun run format:check   # Biome for TypeScript, Prettier for templates
+bun run check          # lint, format check, and tests with coverage
+```
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+See the [repository README](../README.md) for Docker and deployment.
