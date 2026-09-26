@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { bootstrapLinkedin } from '@ng-icons/bootstrap-icons';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { simpleFacebook, simpleGithub, simpleGitlab, simpleInstagram, simpleX } from '@ng-icons/simple-icons';
-import { SocialLinksService } from '../../services';
+import { SocialLinksService } from '../../services/social-links.service';
 
 @Component({
   standalone: true,
