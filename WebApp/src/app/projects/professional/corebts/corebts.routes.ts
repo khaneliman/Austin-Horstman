@@ -1,15 +1,8 @@
 import { Routes } from '@angular/router';
-import { DoItBestComponent } from './doitbest/doitbest.component';
-import { KrogerComponent } from './kroger/kroger.component';
+import { caseStudyRoute } from '../case-study';
 
 export const COREBTS_ROUTES: Routes = [
-  {
-    path: 'kroger',
-    component: KrogerComponent,
-  },
-  {
-    path: 'doitbest',
-    component: DoItBestComponent,
-  },
+  caseStudyRoute('kroger', { project: 'kroger-solutions' }),
+  caseStudyRoute('doitbest', { project: 'doitbest-platform' }),
   { path: '**', redirectTo: '/experience/corebts' },
 ];

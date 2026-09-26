@@ -1,10 +1,7 @@
 import { Routes } from '@angular/router';
-import { StatTrackerComponent } from './stat-tracker/stat-tracker.component';
+import { caseStudyRoute } from '../case-study';
 
 export const GEEKSQUAD_ROUTES: Routes = [
-  {
-    path: 'stat-tracker',
-    component: StatTrackerComponent,
-  },
+  caseStudyRoute('stat-tracker', { project: 'stat-tracker' }),
   { path: '**', redirectTo: '/experience/bestbuy' },
 ];

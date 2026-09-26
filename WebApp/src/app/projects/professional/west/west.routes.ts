@@ -1,20 +1,9 @@
 import { Routes } from '@angular/router';
-import { DatabaseToolComponent } from './database-tool/database-tool.component';
-import { ItPortalComponent } from './it-portal/it-portal.component';
-import { QuickLaunchComponent } from './quick-launch/quick-launch.component';
+import { caseStudyRoute } from '../case-study';
 
 export const WEST_ROUTES: Routes = [
-  {
-    path: 'database-tool',
-    component: DatabaseToolComponent,
-  },
-  {
-    path: 'it-portal',
-    component: ItPortalComponent,
-  },
-  {
-    path: 'quick-launch',
-    component: QuickLaunchComponent,
-  },
+  caseStudyRoute('database-tool', { project: 'database-tool' }),
+  caseStudyRoute('it-portal', { project: 'it-portal' }),
+  caseStudyRoute('quick-launch', { project: 'quick-launch' }),
   { path: '**', redirectTo: '/experience/west' },
 ];
