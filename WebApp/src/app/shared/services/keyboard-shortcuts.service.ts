@@ -185,22 +185,24 @@ export class KeyboardShortcutsService {
 
     event.preventDefault();
     firstCard.focus();
-    firstCard.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    firstCard.scrollIntoView({ block: 'nearest' });
   }
 
+  // Scrolls inherit the root's CSS scroll-behavior, which is smooth unless the
+  // visitor prefers reduced motion (see styles.scss).
   private scrollToTop(): void {
     const win = this.document.defaultView;
-    win?.scrollTo({ top: 0, behavior: 'smooth' });
+    win?.scrollTo({ top: 0 });
   }
 
   private scrollToBottom(): void {
     const win = this.document.defaultView;
     const height = this.document.documentElement.scrollHeight;
-    win?.scrollTo({ top: height, behavior: 'smooth' });
+    win?.scrollTo({ top: height });
   }
 
   private scrollBy(deltaPx: number): void {
-    this.document.defaultView?.scrollBy({ top: deltaPx, behavior: 'smooth' });
+    this.document.defaultView?.scrollBy({ top: deltaPx });
   }
 
   private readPreference(): string | null {
