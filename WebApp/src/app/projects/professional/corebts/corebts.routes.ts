@@ -6,12 +6,10 @@ export const COREBTS_ROUTES: Routes = [
   {
     path: 'kroger',
     component: KrogerComponent,
-    data: { autoScroll: true },
   },
   {
     path: 'doitbest',
     component: DoItBestComponent,
-    data: { autoScroll: true },
   },
   { path: '**', redirectTo: '/experience/corebts' },
 ];

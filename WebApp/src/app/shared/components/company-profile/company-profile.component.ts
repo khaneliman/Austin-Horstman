@@ -1,16 +1,5 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DestroyRef,
-  ElementRef,
-  inject,
-  input,
-  signal,
-  viewChild,
-} from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroAcademicCap,
@@ -38,9 +27,7 @@ import {
   heroShieldCheck,
   heroShoppingBag,
 } from '@ng-icons/heroicons/outline';
-import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
-import type { CompanyInfo } from '../../data/companies';
+import type { COMPANIES, CompanyInfo } from '../../data/companies';
 import { getCompanyById } from '../../data/companies';
 import { LogoStylingService } from '../../services/logo-styling.service';
 import { formatDateRange } from '../../utils/date.utils';
@@ -64,7 +51,7 @@ export interface ProjectInfo {
   standalone: true,
   templateUrl: './company-profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule, NgIconComponent, BulletListComponent],
+  imports: [RouterLink, NgIconComponent, BulletListComponent],
   providers: [
     provideIcons({
       heroArrowTopRightOnSquare,
@@ -94,118 +81,14 @@ export interface ProjectInfo {
     }),
   ],
 })
-export class CompanyProfileComponent implements AfterViewInit {
-  company = input.required<CompanyInfo>();
-  projects = input.required<ProjectInfo[]>();
-  viewMode = input<'employment' | 'projects'>('projects');
-  readonly projectDetailsSection = viewChild.required<ElementRef>('projectDetailsSection');
+export class CompanyProfileComponent {
+  readonly company = input.required<CompanyInfo>();
+  readonly projects = input.required<ProjectInfo[]>();
 
   private readonly logoStylingService = inject(LogoStylingService);
-  private readonly router = inject(Router);
-  private readonly route = inject(ActivatedRoute);
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly cdr = inject(ChangeDetectorRef);
-  private destroy$ = new Subject<void>();
-
-  // Signal to track child route state reactively
-  hasChildRoute = signal(false);
 
   getLogoBackgroundStyle(logoBackground: 'white' | 'black' | 'dark' | undefined): string {
     return this.logoStylingService.getLogoBackgroundStyle(logoBackground);
-  }
-
-  getTechBadgeClass(index: number): string {
-    const badgeClasses = [
-      'bg-blue-100 text-blue-800',
-      'bg-green-100 text-green-800',
-      'bg-purple-100 text-purple-800',
-      'bg-indigo-100 text-indigo-800',
-      'bg-pink-100 text-pink-800',
-      'bg-yellow-100 text-yellow-800',
-      'bg-red-100 text-red-800',
-      'bg-teal-100 text-teal-800',
-      'bg-orange-100 text-orange-800',
-      'bg-gray-100 text-gray-800',
-    ];
-    return badgeClasses[index % badgeClasses.length] || 'bg-blue-100 text-blue-800';
-  }
-
-  getProjectLinkClass(theme: string): string {
-    const linkClasses = {
-      green: 'text-green-600 hover:text-green-800',
-      blue: 'text-blue-600 hover:text-blue-800',
-      red: 'text-red-600 hover:text-red-800',
-      orange: 'text-orange-600 hover:text-orange-800',
-    };
-    return linkClasses[theme as keyof typeof linkClasses] || linkClasses.green;
-  }
-
-  getIconClass(theme: string): string {
-    const iconClasses = {
-      green: 'text-green-500',
-      blue: 'text-blue-500',
-      red: 'text-red-500',
-      orange: 'text-orange-500',
-    };
-    return iconClasses[theme as keyof typeof iconClasses] || iconClasses.green;
-  }
-
-  ngAfterViewInit(): void {
-    // Listen to router events and update child route state
-    this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(() => {
-        this.updateChildRouteState();
-        this.checkAndScrollToProjectDetails();
-      });
-
-    // Check initial state
-    this.updateChildRouteState();
-    setTimeout(() => {
-      this.checkAndScrollToProjectDetails();
-    }, 0);
-
-    // Setup cleanup
-    this.destroyRef.onDestroy(() => {
-      this.destroy$.next();
-      this.destroy$.complete();
-    });
-  }
-
-  private updateChildRouteState(): void {
-    const hasChild = this.route.firstChild !== null && this.route.children.length > 0;
-    if (this.hasChildRoute() !== hasChild) {
-      this.hasChildRoute.set(hasChild);
-      this.cdr.detectChanges();
-    }
-  }
-
-  private scrollToProjectDetails(): void {
-    const projectDetailsSection = this.projectDetailsSection();
-    if (projectDetailsSection) {
-      projectDetailsSection.nativeElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  }
-
-  private checkAndScrollToProjectDetails(): void {
-    // Check if any active child route has autoScroll data set to true
-    let currentRoute = this.route.firstChild;
-
-    while (currentRoute) {
-      if (currentRoute.snapshot.data['autoScroll'] === true && this.projectDetailsSection()) {
-        setTimeout(() => {
-          this.scrollToProjectDetails();
-        }, 150);
-        break;
-      }
-      currentRoute = currentRoute.firstChild;
-    }
   }
 
   getAchievementItems(): BulletListItem[] {
@@ -249,8 +132,7 @@ export class CompanyProfileComponent implements AfterViewInit {
 
   getCompanyName(companyId: string): string {
     try {
-      const company = getCompanyById(companyId as keyof typeof import('../../data/companies').COMPANIES);
-      return company.displayName;
+      return getCompanyById(companyId as keyof typeof COMPANIES).displayName;
     } catch {
       return companyId; // Fallback to ID if company not found
     }
@@ -258,14 +140,9 @@ export class CompanyProfileComponent implements AfterViewInit {
 
   getCompanyRoute(companyId: string): string {
     try {
-      const company = getCompanyById(companyId as keyof typeof import('../../data/companies').COMPANIES);
-      return company.experienceRoute;
+      return getCompanyById(companyId as keyof typeof COMPANIES).experienceRoute;
     } catch {
       return '#'; // Fallback to # if company not found
     }
-  }
-
-  hasActiveChildRoute(): boolean {
-    return this.hasChildRoute();
   }
 }

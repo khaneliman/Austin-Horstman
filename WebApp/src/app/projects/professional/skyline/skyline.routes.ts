@@ -10,32 +10,26 @@ export const SKYLINE_ROUTES: Routes = [
   {
     path: 'renaissance-learning',
     component: RenaissanceLearningComponent,
-    data: { autoScroll: true },
   },
   {
     path: 'mile-of-music',
     component: MileOfMusicComponent,
-    data: { autoScroll: true },
   },
   {
     path: 'jj-keller',
     component: JjKellerComponent,
-    data: { autoScroll: true },
   },
   {
     path: 'express-scripts',
     component: ExpressScriptsComponent,
-    data: { autoScroll: true },
   },
   {
     path: 'cleartrend',
     component: CleartrendComponent,
-    data: { autoScroll: true },
   },
   {
     path: 'network-health',
     component: NetworkHealthComponent,
-    data: { autoScroll: true },
   },
   { path: '**', redirectTo: '/experience/skyline' },
 ];

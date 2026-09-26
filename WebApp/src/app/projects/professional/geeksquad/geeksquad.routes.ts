@@ -5,7 +5,6 @@ export const GEEKSQUAD_ROUTES: Routes = [
   {
     path: 'stat-tracker',
     component: StatTrackerComponent,
-    data: { autoScroll: true },
   },
   { path: '**', redirectTo: '/experience/bestbuy' },
 ];
