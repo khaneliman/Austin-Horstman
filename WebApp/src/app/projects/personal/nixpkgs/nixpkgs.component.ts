@@ -37,7 +37,6 @@ const nixpkgsUpdatedAt = formatMetricDate(GITHUB_METRICS.asOf);
   selector: 'app-nixpkgs',
   standalone: true,
   templateUrl: './nixpkgs.component.html',
-  styleUrls: ['./nixpkgs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],
   providers: [

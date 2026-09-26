@@ -31,7 +31,6 @@ import { ProjectsBreadcrumbComponent } from '../shared/components/breadcrumb/pro
     }),
   ],
   templateUrl: './professional.component.html',
-  styleUrl: './professional.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfessionalProjectsComponent {

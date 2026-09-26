@@ -42,7 +42,6 @@ import { generateProfessionalProjectsGrid, getResumeProjectCards } from '../shar
     }),
   ],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {

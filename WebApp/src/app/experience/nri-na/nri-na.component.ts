@@ -11,7 +11,6 @@ import { getProjectsForExperience } from '../../shared/data/projects';
   selector: 'app-nri-na',
   standalone: true,
   templateUrl: './nri-na.component.html',
-  styleUrls: ['./nri-na.component.scss'],
   imports: [CompanyProfileComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

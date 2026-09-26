@@ -60,7 +60,6 @@ const VISIBLE_PROJECTS_LIMIT = 4;
   standalone: true,
   imports: [NgClass, RouterModule, DecorativeBackgroundComponent, GridKeyboardNavDirective],
   templateUrl: './professional-projects-grid.component.html',
-  styleUrls: ['./professional-projects-grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfessionalProjectsGridComponent {

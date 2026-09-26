@@ -6,7 +6,6 @@ import { ProjectDetailConfig } from '../../../../shared/interfaces/project-detai
 @Component({
   selector: 'app-ai-resource-staffing',
   template: `<app-project-detail-template [config]="projectConfig"></app-project-detail-template>`,
-  styleUrls: ['./ai-resource-staffing.component.scss'],
   standalone: true,
   imports: [ProjectDetailTemplateComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

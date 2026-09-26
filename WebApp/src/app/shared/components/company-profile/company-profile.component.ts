@@ -63,7 +63,6 @@ export interface ProjectInfo {
   selector: 'app-company-profile',
   standalone: true,
   templateUrl: './company-profile.component.html',
-  styleUrls: ['./company-profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterModule, NgIconComponent, BulletListComponent],
   providers: [

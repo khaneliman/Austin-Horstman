@@ -90,7 +90,6 @@ const khanelinixStarted = 'March 2023';
   selector: 'app-khanelinix',
   standalone: true,
   templateUrl: './khanelinix.component.html',
-  styleUrls: ['./khanelinix.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],
   providers: [

@@ -36,7 +36,6 @@ const waybarUpdatedAt = formatMetricDate(GITHUB_METRICS.asOf);
   selector: 'app-waybar',
   standalone: true,
   templateUrl: './waybar.component.html',
-  styleUrls: ['./waybar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],
   providers: [

@@ -105,7 +105,6 @@ const technologyStack = [
   selector: 'app-khanelivim',
   standalone: true,
   templateUrl: './khanelivim.component.html',
-  styleUrls: ['./khanelivim.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent, BulletListComponent, PersonalCaseStudyShellComponent],
   providers: [
