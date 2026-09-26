@@ -346,46 +346,6 @@ export function getAllCompaniesRaw(): CompanyInfo[] {
   });
 }
 
-export function getCompanyByName(name: string): CompanyInfo | undefined {
-  const foundCompany = Object.values(COMPANIES).find(
-    (company) =>
-      company.name.toLowerCase() === name.toLowerCase() || company.displayName.toLowerCase() === name.toLowerCase()
-  );
-
-  if (!foundCompany) return undefined;
-
-  const companyData = foundCompany as CompanyData;
-
-  // Add calculated years field
-  return {
-    ...companyData,
-    stats: {
-      ...companyData.stats,
-      years: calculateYearsBetweenDates(companyData.dateStart, companyData.dateEnd),
-    },
-  };
-}
-
-export function getCompanyExperienceRoute(companyNameOrId: string): string {
-  const company = COMPANIES[companyNameOrId as keyof typeof COMPANIES] || getCompanyByName(companyNameOrId);
-
-  if (!company) {
-    throw new Error(`Company not found: ${companyNameOrId}`);
-  }
-
-  return company.experienceRoute;
-}
-
-export function getCompanyProjectsRoute(companyNameOrId: string): string {
-  const company = COMPANIES[companyNameOrId as keyof typeof COMPANIES] || getCompanyByName(companyNameOrId);
-
-  if (!company) {
-    throw new Error(`Company not found: ${companyNameOrId}`);
-  }
-
-  return company.projectsRoute;
-}
-
 // Derive card status based on career progression
 export function getResumeCardStatus(
   companyId: keyof typeof COMPANIES

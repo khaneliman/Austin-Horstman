@@ -8,11 +8,9 @@ import {
   ElementRef,
   inject,
   input,
-  OnDestroy,
   PLATFORM_ID,
   viewChildren,
 } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { CompanyInfo } from '../../data/companies';
 import { calculateYearsBetweenDates, formatDateRange } from '../../utils/date.utils';
@@ -61,7 +59,7 @@ function effectiveStartDate(company: CompanyInfo): string {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink],
 })
-export class CareerTimelineComponent implements AfterViewInit, OnDestroy {
+export class CareerTimelineComponent implements AfterViewInit {
   readonly companies = input.required<readonly CompanyInfo[]>();
 
   private readonly platformId = inject(PLATFORM_ID);
@@ -107,12 +105,5 @@ export class CareerTimelineComponent implements AfterViewInit, OnDestroy {
     }
 
     this.destroyRef.onDestroy(() => this.observer?.disconnect());
-
-    // Re-observe if entries change later (signal-driven).
-    takeUntilDestroyed(this.destroyRef);
-  }
-
-  ngOnDestroy(): void {
-    this.observer?.disconnect();
   }
 }

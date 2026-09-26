@@ -25,7 +25,6 @@ import { ThemeService } from './shared/services/theme.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  title = 'test';
   private readonly themeService = inject(ThemeService);
   private readonly keyboardShortcuts = inject(KeyboardShortcutsService);
 

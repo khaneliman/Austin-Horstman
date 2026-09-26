@@ -29,7 +29,6 @@ import {
   heroShieldCheck,
   heroShoppingBag,
   heroStar,
-  heroTrophy,
 } from '@ng-icons/heroicons/outline';
 import { heroStarSolid } from '@ng-icons/heroicons/solid';
 import { CardComponent } from '../../core/components/card/card.component';
@@ -98,7 +97,6 @@ const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDa
   ],
   providers: [
     provideIcons({
-      heroTrophy,
       heroCodeBracket,
       heroStar,
       heroStarSolid,
