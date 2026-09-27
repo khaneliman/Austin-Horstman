@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, signal } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroCheck, heroSwatch } from '@ng-icons/heroicons/outline';
 import { ThemeName, ThemeService } from '../../services/theme.service';
@@ -8,6 +8,10 @@ import { ThemeName, ThemeService } from '../../services/theme.service';
   imports: [NgIconComponent],
   providers: [provideIcons({ heroSwatch, heroCheck })],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(document:click)': 'onDocumentClick($event)',
+    '(document:keydown.escape)': 'onEscape()',
+  },
   template: `
     <div class="relative">
       <button
@@ -70,14 +74,12 @@ export class ThemePickerComponent {
     this.isOpen.set(false);
   }
 
-  @HostListener('document:click', ['$event'])
   protected onDocumentClick(event: MouseEvent): void {
     if (this.isOpen() && !this.host.nativeElement.contains(event.target)) {
       this.isOpen.set(false);
     }
   }
 
-  @HostListener('document:keydown.escape')
   protected onEscape(): void {
     this.isOpen.set(false);
   }

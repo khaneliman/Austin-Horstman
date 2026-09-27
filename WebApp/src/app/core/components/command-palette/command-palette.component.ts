@@ -5,7 +5,6 @@ import {
   DestroyRef,
   ElementRef,
   effect,
-  HostListener,
   inject,
   signal,
   viewChild,
@@ -108,6 +107,9 @@ const ACTION_ENTRIES: CommandEntry[] = [
   templateUrl: './command-palette.component.html',
   styleUrl: './command-palette.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(document:keydown)': 'handleShortcut($event)',
+  },
 })
 export class CommandPaletteComponent {
   private readonly service = inject(CommandPaletteService);
@@ -176,7 +178,6 @@ export class CommandPaletteComponent {
       .subscribe(() => this.service.close());
   }
 
-  @HostListener('document:keydown', ['$event'])
   handleShortcut(event: KeyboardEvent): void {
     const isCommandKey = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k';
     if (isCommandKey) {

@@ -1,13 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  effect,
-  HostListener,
-  inject,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, effect, inject, signal, viewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { isEditableTarget } from '../../../shared/services/keyboard-shortcuts.helpers';
 import { ThemeService } from '../../../shared/services/theme.service';
@@ -30,6 +21,10 @@ interface TerminalLine {
   templateUrl: './terminal-easter-egg.component.html',
   styleUrl: './terminal-easter-egg.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(document:keydown)': 'onKeydown($event)',
+    '(document:keydown.escape)': 'onEscape()',
+  },
 })
 export class TerminalEasterEggComponent {
   private readonly router = inject(Router);
@@ -55,7 +50,6 @@ export class TerminalEasterEggComponent {
     });
   }
 
-  @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent): void {
     if (this.isOpen()) return;
     if (event.metaKey || event.ctrlKey || event.altKey) return;
@@ -68,7 +62,6 @@ export class TerminalEasterEggComponent {
     }
   }
 
-  @HostListener('document:keydown.escape')
   onEscape(): void {
     if (this.isOpen()) this.close();
   }
