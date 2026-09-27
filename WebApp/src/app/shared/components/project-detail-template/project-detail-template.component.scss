@@ -5,71 +5,21 @@
 // - Status pill is a single system color so it reads as a recurring "FILED" stamp.
 // - Variants define LAYOUT only (evidence-grid column count), never color.
 
+// Accents read the palette family set by the `.palette-*` class on the same
+// element (see `_palettes.scss`).
 .project-detail-template {
-  --project-detail-primary: var(--color-teal-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-teal-300) 55%, transparent);
-  --project-detail-callout: var(--color-rose-400);
+  --project-detail-primary: var(--p-600);
+  --project-detail-frame: color-mix(in srgb, var(--p-300) 55%, transparent);
+  --project-detail-callout: var(--p-500);
   --project-detail-status: var(--color-amber-300);
-  --project-detail-side: var(--project-detail-primary);
-  --project-detail-impact: var(--project-detail-primary);
-  --project-detail-impact-label: var(--color-teal-200);
+  --project-detail-impact-label: var(--p-200);
   --project-detail-evidence-grid: 1;
 }
 
-.project-detail-template--teal {
-  --project-detail-primary: var(--color-teal-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-teal-300) 55%, transparent);
-  --project-detail-callout: var(--color-teal-500);
-  --project-detail-impact-label: var(--color-teal-200);
-}
-
-.project-detail-template--emerald {
-  --project-detail-primary: var(--color-emerald-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-emerald-300) 55%, transparent);
-  --project-detail-callout: var(--color-emerald-500);
-  --project-detail-impact-label: var(--color-emerald-200);
-}
-
-.project-detail-template--green {
-  --project-detail-primary: var(--color-green-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-green-300) 55%, transparent);
-  --project-detail-callout: var(--color-green-500);
-  --project-detail-impact-label: var(--color-green-200);
-}
-
-.project-detail-template--blue {
-  --project-detail-primary: var(--color-blue-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-blue-300) 55%, transparent);
-  --project-detail-callout: var(--color-blue-500);
-  --project-detail-impact-label: var(--color-blue-200);
-}
-
-.project-detail-template--purple {
-  --project-detail-primary: var(--color-purple-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-purple-300) 55%, transparent);
-  --project-detail-callout: var(--color-purple-500);
-  --project-detail-impact-label: var(--color-purple-200);
-}
-
-.project-detail-template--red {
-  --project-detail-primary: var(--color-rose-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-rose-300) 55%, transparent);
-  --project-detail-callout: var(--color-rose-500);
-  --project-detail-impact-label: var(--color-rose-200);
-}
-
-.project-detail-template--orange {
-  --project-detail-primary: var(--color-orange-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-orange-300) 55%, transparent);
-  --project-detail-callout: var(--color-orange-500);
-  --project-detail-impact-label: var(--color-orange-200);
-}
-
-.project-detail-template--yellow {
-  --project-detail-primary: var(--color-amber-600);
-  --project-detail-frame: color-mix(in srgb, var(--color-amber-300) 55%, transparent);
-  --project-detail-callout: var(--color-amber-500);
-  --project-detail-impact-label: var(--color-amber-200);
+// Purple and rose 600 are too dark for accent text in dark mode.
+:host-context(.dark) .project-detail-template.palette-purple,
+:host-context(.dark) .project-detail-template.palette-rose {
+  --project-detail-primary: var(--p-300);
 }
 
 // Evidence panel surface is uniform across palettes (matches page background).
@@ -200,16 +150,10 @@
   background: var(--project-detail-status);
 }
 
-.project-detail-template__side-card {
-  border-left-color: var(--project-detail-side);
-}
-
-.project-detail-template__impact {
-  border-left-color: var(--project-detail-impact);
-}
-
+.project-detail-template__side-card,
+.project-detail-template__impact,
 .project-detail-template__takeaways {
-  border-left-color: var(--project-detail-side);
+  border-left-color: var(--project-detail-primary);
 }
 
 .project-detail-template__impact-label {
@@ -218,16 +162,6 @@
 
 :host-context(.dark) .project-detail-template__impact-label {
   color: var(--color-slate-100);
-}
-
-:host-context(.dark) .project-detail-template--purple {
-  --project-detail-primary: var(--color-purple-300);
-  --project-detail-impact-label: var(--color-purple-200);
-}
-
-:host-context(.dark) .project-detail-template--red {
-  --project-detail-primary: var(--color-rose-300);
-  --project-detail-impact-label: var(--color-rose-200);
 }
 
 @media print {

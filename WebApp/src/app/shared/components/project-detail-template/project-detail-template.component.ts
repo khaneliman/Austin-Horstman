@@ -225,25 +225,22 @@ export class ProjectDetailTemplateComponent {
   );
 
   protected get themeClass() {
-    const primaryColor = this.config().primaryColor;
-
-    const accentClassMap: Record<string, string> = {
-      amber: 'project-detail-template--orange',
-      blue: 'project-detail-template--blue',
-      green: 'project-detail-template--green',
-      orange: 'project-detail-template--orange',
-      purple: 'project-detail-template--purple',
-      rose: 'project-detail-template--red',
-      red: 'project-detail-template--red',
-      yellow: 'project-detail-template--yellow',
-      teal: 'project-detail-template--teal',
-      emerald: 'project-detail-template--emerald',
-      indigo: 'project-detail-template--blue',
-      violet: 'project-detail-template--purple',
-      default: 'project-detail-template--blue',
+    const families: Record<string, string> = {
+      amber: 'orange',
+      blue: 'blue',
+      green: 'green',
+      orange: 'orange',
+      purple: 'purple',
+      rose: 'rose',
+      red: 'rose',
+      yellow: 'amber',
+      teal: 'teal',
+      emerald: 'emerald',
+      indigo: 'blue',
+      violet: 'purple',
     };
 
-    return accentClassMap[primaryColor] ?? accentClassMap['default'];
+    return `palette-${families[this.config().primaryColor] ?? 'blue'}`;
   }
 
   protected get mainClass() {
