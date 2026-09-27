@@ -85,6 +85,7 @@ export class TerminalEasterEggComponent {
       this.lines.update((lines) => [...lines, ...result.output.map((text): TerminalLine => ({ kind: 'out', text }))]);
     }
     if (result.toggleTheme) this.theme.toggleTheme();
+    if (result.setPalette) this.theme.setThemeName(result.setPalette);
     if (result.navigate) void this.router.navigateByUrl(result.navigate);
     if (result.close) this.close();
 

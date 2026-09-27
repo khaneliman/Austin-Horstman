@@ -1,3 +1,5 @@
+import { AVAILABLE_THEMES, isThemeName, ThemeName } from '../../../shared/services/theme-palette';
+
 /** Outcome of interpreting one terminal line. The component performs effects. */
 export interface TerminalResult {
   /** Lines to echo beneath the prompt. */
@@ -8,8 +10,10 @@ export interface TerminalResult {
   close?: boolean;
   /** Router URL to navigate to. */
   navigate?: string;
-  /** Flip the color theme. */
+  /** Flip the color theme (light / dark). */
   toggleTheme?: boolean;
+  /** Switch the active color palette. */
+  setPalette?: ThemeName;
 }
 
 const HELP_LINES = [
@@ -20,6 +24,8 @@ const HELP_LINES = [
   '  nix           the daily driver',
   '  vim           ...good luck',
   '  theme         flip light / dark',
+  '  theme <name>  switch colorscheme',
+  '  theme list    show colorschemes',
   '  sudo hire-me  start a conversation',
   '  clear         wipe the screen',
   '  exit          close this',
@@ -27,11 +33,29 @@ const HELP_LINES = [
 
 const EXIT_WORDS = new Set(['exit', 'quit', 'q', ':q', ':q!', ':wq']);
 
+/** Resolve the `theme …` subcommand family. */
+function runThemeCommand(arg: string): TerminalResult {
+  if (!arg) return { output: ['flipping the lights...'], toggleTheme: true };
+  if (arg === 'list' || arg === 'ls') {
+    return {
+      output: ['colorschemes:', ...AVAILABLE_THEMES.map((t) => `  ${t.id}`), "try 'theme gruvbox'"],
+    };
+  }
+  if (isThemeName(arg)) {
+    return { output: [`colorscheme set: ${arg}`], setPalette: arg };
+  }
+  return { output: [`theme: unknown colorscheme '${arg}'. try 'theme list'.`] };
+}
+
 /** Interpret a single command line. Pure: all effects are described, not run. */
 export function runTerminalCommand(raw: string): TerminalResult {
   const input = raw.trim();
   if (!input) return { output: [] };
   const lower = input.toLowerCase();
+
+  if (lower === 'theme' || lower.startsWith('theme ')) {
+    return runThemeCommand(lower.slice('theme'.length).trim());
+  }
 
   switch (lower) {
     case 'help':
@@ -58,8 +82,6 @@ export function runTerminalCommand(raw: string): TerminalResult {
     case 'nano':
     case 'emacs':
       return { output: [`${lower}: opened. (to exit, try the Konami code... or just :q)`] };
-    case 'theme':
-      return { output: ['flipping the lights...'], toggleTheme: true };
     case 'sudo hire-me':
       return { output: ['access granted. routing you to contact...'], navigate: '/personal/contact', close: true };
     case 'clear':

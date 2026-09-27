@@ -20,6 +20,25 @@ describe('runTerminalCommand', () => {
     expect(runTerminalCommand('theme').toggleTheme).toBe(true);
   });
 
+  it('switches palette on theme <name>', () => {
+    const result = runTerminalCommand('theme gruvbox');
+    expect(result.setPalette).toBe('gruvbox');
+    expect(result.toggleTheme).toBeUndefined();
+  });
+
+  it('lists palettes on theme list', () => {
+    const result = runTerminalCommand('theme list');
+    expect(result.output[0]).toContain('colorschemes');
+    expect(result.output.some((line) => line.includes('catppuccin'))).toBe(true);
+    expect(result.setPalette).toBeUndefined();
+  });
+
+  it('rejects an unknown palette', () => {
+    const result = runTerminalCommand('theme dracula');
+    expect(result.setPalette).toBeUndefined();
+    expect(result.output[0]).toContain('unknown colorscheme');
+  });
+
   it('navigates to contact and closes on sudo hire-me', () => {
     const result = runTerminalCommand('sudo hire-me');
     expect(result.navigate).toBe('/personal/contact');
