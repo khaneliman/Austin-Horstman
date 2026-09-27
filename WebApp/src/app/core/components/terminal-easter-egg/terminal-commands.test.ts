@@ -39,6 +39,12 @@ describe('runTerminalCommand', () => {
     expect(result.output[0]).toContain('unknown colorscheme');
   });
 
+  it('prints system specs on neofetch', () => {
+    const result = runTerminalCommand('neofetch');
+    expect(result.output.some((line) => line.includes('NixOS'))).toBe(true);
+    expect(result.output.some((line) => line.includes('neovim'))).toBe(true);
+  });
+
   it('navigates to contact and closes on sudo hire-me', () => {
     const result = runTerminalCommand('sudo hire-me');
     expect(result.navigate).toBe('/personal/contact');

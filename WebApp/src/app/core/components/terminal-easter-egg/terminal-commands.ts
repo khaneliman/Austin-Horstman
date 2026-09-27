@@ -1,3 +1,4 @@
+import { GITHUB_METRICS } from '../../../shared/data/github-metrics';
 import { AVAILABLE_THEMES, isThemeName, ThemeName } from '../../../shared/services/theme-palette';
 
 /** Outcome of interpreting one terminal line. The component performs effects. */
@@ -23,12 +24,27 @@ const HELP_LINES = [
   '  ls            what lives here',
   '  nix           the daily driver',
   '  vim           ...good luck',
+  '  neofetch      system specs',
   '  theme         flip light / dark',
   '  theme <name>  switch colorscheme',
   '  theme list    show colorschemes',
   '  sudo hire-me  start a conversation',
   '  clear         wipe the screen',
   '  exit          close this',
+];
+
+// neofetch's nixos_small logo. Keep it ASCII: the web font has no block
+// characters, and fallback glyph widths break the column alignment.
+const NEOFETCH_LINES = [
+  String.raw`  \\  \\ //     austin@khanelinix`,
+  String.raw` ==\\__\\/ //   -----------------`,
+  String.raw`   //   \\//    os       NixOS (flakes)`,
+  '==//     //==   editor   neovim · nixvim',
+  String.raw` //\\___//      shell    zsh`,
+  String.raw`// /\\  \\==    wm       Hyprland`,
+  String.raw`  // \\  \\     bar      Waybar`,
+  '                dotfiles github:khaneliman/khanelinix',
+  `                uptime   ${GITHUB_METRICS.totalMergedPrs}+ merged open-source PRs`,
 ];
 
 const EXIT_WORDS = new Set(['exit', 'quit', 'q', ':q', ':q!', ':wq']);
@@ -78,6 +94,9 @@ export function runTerminalCommand(raw: string): TerminalResult {
           'reproducible by design — if it builds on my machine, it builds on yours.',
         ],
       };
+    case 'neofetch':
+    case 'fastfetch':
+      return { output: NEOFETCH_LINES };
     case 'vim':
     case 'nano':
     case 'emacs':
