@@ -1,12 +1,16 @@
 import { Injectable, signal } from '@angular/core';
 import { COMPANIES } from '../data/companies';
 import { generatePersonalProjectsGrid } from '../data/personal-projects';
+import { ThemeName } from './theme-palette';
 
 export type CommandKind = 'page' | 'company' | 'project' | 'personal' | 'tech' | 'action';
 
 // Side-effecting commands handled by the palette component, which owns the
 // router, theme service, and clipboard. Navigational entries leave this unset.
-export type CommandAction = 'toggle-theme' | 'copy-link';
+export type CommandAction =
+  | { kind: 'toggle-theme' }
+  | { kind: 'copy-link' }
+  | { kind: 'set-palette'; palette: ThemeName };
 
 export interface CommandEntry {
   id: string;

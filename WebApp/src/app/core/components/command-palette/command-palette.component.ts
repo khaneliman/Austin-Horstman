@@ -20,6 +20,7 @@ import {
   CommandPaletteService,
 } from '../../../shared/services/command-palette.service';
 import { ThemeService } from '../../../shared/services/theme.service';
+import { AVAILABLE_THEMES } from '../../../shared/services/theme-palette';
 import { fuzzyMatch, highlightMatch } from '../../../shared/utils/fuzzy-match';
 import { SOCIAL_PROFILES } from '../../services/social-links.service';
 
@@ -55,7 +56,7 @@ const ACTION_ENTRIES: CommandEntry[] = [
     kind: 'action',
     label: 'Toggle theme',
     hint: 'Switch between light and dark',
-    action: 'toggle-theme',
+    action: { kind: 'toggle-theme' },
     keywords: 'dark light mode appearance color scheme',
   },
   {
@@ -63,7 +64,7 @@ const ACTION_ENTRIES: CommandEntry[] = [
     kind: 'action',
     label: 'Copy link to this page',
     hint: 'Copy the current URL to your clipboard',
-    action: 'copy-link',
+    action: { kind: 'copy-link' },
     keywords: 'share url clipboard',
   },
   {
@@ -90,6 +91,16 @@ const ACTION_ENTRIES: CommandEntry[] = [
     route: '/personal/contact',
     keywords: 'hire job contact work opportunity recruit',
   },
+  ...AVAILABLE_THEMES.map(
+    (option): CommandEntry => ({
+      id: `action:theme:${option.id}`,
+      kind: 'action',
+      label: `Theme: ${option.label}`,
+      hint: 'Switch color palette',
+      action: { kind: 'set-palette', palette: option.id },
+      keywords: `colorscheme palette theme nvim neovim ${option.id}`,
+    })
+  ),
 ];
 
 @Component({
@@ -222,12 +233,15 @@ export class CommandPaletteComponent {
   }
 
   private runAction(action: CommandAction): void {
-    switch (action) {
+    switch (action.kind) {
       case 'toggle-theme':
         this.theme.toggleTheme();
         break;
       case 'copy-link':
         void navigator.clipboard?.writeText(window.location.href);
+        break;
+      case 'set-palette':
+        this.theme.setThemeName(action.palette);
         break;
     }
   }
