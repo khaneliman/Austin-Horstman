@@ -27,7 +27,6 @@ interface TerminalLine {
  */
 @Component({
   selector: 'app-terminal-easter-egg',
-  standalone: true,
   templateUrl: './terminal-easter-egg.component.html',
   styleUrl: './terminal-easter-egg.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

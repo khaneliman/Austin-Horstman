@@ -105,7 +105,6 @@ const ACTION_ENTRIES: CommandEntry[] = [
 
 @Component({
   selector: 'app-command-palette',
-  standalone: true,
   templateUrl: './command-palette.component.html',
   styleUrl: './command-palette.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

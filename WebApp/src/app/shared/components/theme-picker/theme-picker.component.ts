@@ -5,7 +5,6 @@ import { ThemeName, ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-theme-picker',
-  standalone: true,
   imports: [NgIconComponent],
   providers: [provideIcons({ heroSwatch, heroCheck })],
   changeDetection: ChangeDetectionStrategy.OnPush,
