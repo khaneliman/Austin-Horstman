@@ -47,7 +47,9 @@
         <div class="relative w-full max-w-md">
           <div class="absolute -left-4 top-10 h-28 w-28 border-8 border-teal-300/45" aria-hidden="true"></div>
           <div class="absolute -right-3 bottom-14 h-20 w-20 bg-[var(--color-decor)]/75" aria-hidden="true"></div>
-          <div class="relative border border-white/20 bg-slate-950/80 p-4 shadow-2xl shadow-slate-950/30 backdrop-blur">
+          <div
+            class="relative border border-white/20 bg-[var(--color-night)]/80 p-4 shadow-2xl shadow-[color:var(--color-night)]/30 backdrop-blur"
+          >
             <img
               src="./assets/images/austin2.jpg"
               alt="Austin Horstman profile photo"
@@ -117,7 +119,7 @@
           >
             <div class="flex gap-5">
               <div
-                class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-[var(--color-night)] text-white dark:bg-white dark:text-slate-950"
               >
                 <ng-icon [name]="principle.icon" size="1.35rem"></ng-icon>
               </div>
@@ -132,7 +134,7 @@
     </div>
   </section>
 
-  <section class="border-y border-stone-200 bg-slate-950 py-20 text-white dark:border-slate-800">
+  <section class="border-y border-stone-200 bg-[var(--color-night)] py-20 text-white dark:border-slate-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 max-w-3xl">
         <p class="text-sm font-bold uppercase tracking-[0.2em] text-amber-300">Strengths</p>

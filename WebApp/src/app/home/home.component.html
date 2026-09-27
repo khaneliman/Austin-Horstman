@@ -60,7 +60,9 @@
         <div class="relative w-full max-w-xl">
           <div class="absolute -left-5 top-12 h-32 w-32 border-8 border-teal-300/45" aria-hidden="true"></div>
           <div class="absolute -right-3 bottom-20 h-24 w-24 bg-[var(--color-decor)]/75" aria-hidden="true"></div>
-          <div class="relative border border-white/20 bg-slate-950/80 p-4 shadow-2xl shadow-slate-950/30 backdrop-blur">
+          <div
+            class="relative border border-white/20 bg-[var(--color-night)]/80 p-4 shadow-2xl shadow-[color:var(--color-night)]/30 backdrop-blur"
+          >
             <img
               src="./assets/images/austin2.jpg"
               class="aspect-[5/4] w-full object-cover object-[50%_28%]"
@@ -80,7 +82,7 @@
               </div>
               <a
                 [routerLink]="currentCompany.experienceRoute"
-                class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white transition hover:bg-teal-700 dark:bg-slate-50 dark:text-slate-950"
+                class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-[var(--color-night)] text-white transition hover:bg-teal-700 dark:bg-slate-50 dark:text-slate-950"
                 aria-label="View current experience"
               >
                 <ng-icon name="heroArrowRight" size="1.2rem"></ng-icon>
@@ -126,7 +128,7 @@
             >
               <div class="flex gap-5">
                 <div
-                  class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                  class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-[var(--color-night)] text-white dark:bg-white dark:text-slate-950"
                 >
                   <ng-icon [name]="area.icon" size="1.35rem"></ng-icon>
                 </div>
@@ -145,7 +147,7 @@
     </div>
   </section>
 
-  <section class="border-y border-stone-200 bg-slate-950 py-20 text-white dark:border-slate-800">
+  <section class="border-y border-stone-200 bg-[var(--color-night)] py-20 text-white dark:border-slate-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
         <div class="max-w-3xl">

@@ -41,7 +41,7 @@ export interface PersonalCaseStudyStat {
             [href]="repositoryUrl()"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-700 dark:bg-white dark:text-slate-950"
+            class="inline-flex items-center gap-2 rounded-lg bg-[var(--color-night)] px-4 py-2 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-700 dark:bg-white dark:text-slate-950"
           >
             Repository
             <ng-icon name="heroArrowTopRightOnSquare" size="0.95rem"></ng-icon>
@@ -57,7 +57,7 @@ export interface PersonalCaseStudyStat {
             </p>
             <div class="mt-5 flex flex-col items-start gap-4 sm:flex-row">
               <div
-                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-[var(--color-night)] text-white dark:bg-white dark:text-slate-950"
               >
                 <ng-icon [name]="icon()" size="1.5rem"></ng-icon>
               </div>
@@ -103,7 +103,7 @@ export interface PersonalCaseStudyStat {
                         {{ item.label }}
                       </span>
                       <span
-                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 text-white"
+                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-night)] text-white"
                         aria-hidden="true"
                       >
                         <ng-icon [name]="item.icon" size="0.95rem"></ng-icon>

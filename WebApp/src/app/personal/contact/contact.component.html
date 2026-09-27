@@ -1,13 +1,13 @@
 <div class="min-h-screen relative bg-[var(--color-paper)] dark:bg-slate-950">
   <!-- Hero Section -->
   <app-hero-section
-    class="block pt-16 bg-slate-950"
+    class="block pt-16 bg-[var(--color-night)]"
     [title]="heroTitle"
     [subtitle]="heroSubtitle"
     variant="gradient"
     size="sm"
     alignment="center"
-    backgroundGradient="from-slate-950 via-slate-900 to-teal-950"
+    backgroundGradient="from-[var(--color-night)] via-[var(--color-hero-start)] to-teal-950"
     [backgroundElements]="backgroundElements"
     minHeight="min-h-auto"
     textColor="light"
@@ -79,7 +79,7 @@
             >
               <div class="flex items-start gap-4">
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-[var(--color-night)] text-white dark:bg-white dark:text-slate-950"
                 >
                   <ng-icon [name]="channel.icon" size="1.15rem"></ng-icon>
                 </div>

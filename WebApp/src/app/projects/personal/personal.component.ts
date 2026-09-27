@@ -82,7 +82,7 @@ export class PersonalComponent {
       detail: this.systemProject?.description ?? 'Cross-platform Nix configuration and declarative infrastructure.',
       route: '/projects/personal/khanelinix',
       icon: 'heroComputerDesktop',
-      accent: 'bg-slate-950 text-white dark:bg-white dark:text-slate-950',
+      accent: 'bg-[var(--color-night)] text-white dark:bg-white dark:text-slate-950',
     },
     {
       label: 'Editor workflow',

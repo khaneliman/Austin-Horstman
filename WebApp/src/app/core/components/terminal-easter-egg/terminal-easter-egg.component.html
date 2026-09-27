@@ -1,11 +1,11 @@
 @if (isOpen()) {
   <div
-    class="term-backdrop fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm"
+    class="term-backdrop fixed inset-0 z-[120] flex items-center justify-center bg-[var(--color-night)]/70 p-4 backdrop-blur-sm"
     (click)="onBackdropClick($event)"
     role="presentation"
   >
     <div
-      class="term-window flex h-[28rem] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-teal-500/30 bg-slate-950 font-mono text-sm text-teal-100 shadow-2xl shadow-slate-950/60"
+      class="term-window flex h-[28rem] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-teal-500/30 bg-[var(--color-night)] font-mono text-sm text-teal-100 shadow-2xl shadow-[color:var(--color-night)]/60"
       role="dialog"
       aria-modal="true"
       aria-label="Hidden terminal"

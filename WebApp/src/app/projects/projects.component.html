@@ -13,7 +13,7 @@
         <div class="mt-8 flex flex-wrap gap-3">
           <a
             routerLink="/projects/professional"
-            class="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-lg dark:bg-white dark:text-slate-950"
+            class="inline-flex items-center gap-2 rounded-lg bg-[var(--color-night)] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-lg dark:bg-white dark:text-slate-950"
           >
             <ng-icon name="heroBriefcase" size="1rem"></ng-icon>
             Professional Work
@@ -55,7 +55,9 @@
                 </dt>
                 <dd class="min-w-0">
                   <div class="flex items-center gap-2">
-                    <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-950 text-white">
+                    <span
+                      class="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-night)] text-white"
+                    >
                       <ng-icon [name]="highlight.icon" size="1rem"></ng-icon>
                     </span>
                     <p class="text-sm font-bold uppercase tracking-wide text-slate-900 dark:text-slate-100">
@@ -192,7 +194,7 @@
                   i === 0
                     ? 'bg-teal-700 text-white'
                     : i === 1
-                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950'
+                      ? 'bg-[var(--color-night)] text-white dark:bg-white dark:text-slate-950'
                       : i === 2
                         ? 'bg-amber-300 text-slate-950'
                         : 'bg-rose-600 text-white'
@@ -216,7 +218,7 @@
     </div>
   </section>
 
-  <section class="bg-slate-950 py-16 text-white">
+  <section class="bg-[var(--color-night)] py-16 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
         <div class="max-w-3xl">

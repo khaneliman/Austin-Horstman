@@ -60,7 +60,7 @@
         </div>
 
         @if ((company().acquisitionChain && company().acquisitionChain!.length > 0) || company().acquiredBy) {
-          <div class="mt-8 max-w-3xl border border-white/15 bg-slate-950/85 p-5 text-white shadow-2xl">
+          <div class="mt-8 max-w-3xl border border-white/15 bg-[var(--color-night)]/85 p-5 text-white shadow-2xl">
             <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-amber-200">Company History</h2>
 
             @if (company().acquisitionChain && company().acquisitionChain!.length > 0) {

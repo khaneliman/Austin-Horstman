@@ -19,7 +19,7 @@
         <p class="project-detail-template__eyebrow text-sm font-bold uppercase tracking-[0.2em]">Case Study</p>
         <div class="mt-5 flex flex-col items-start gap-4 sm:flex-row">
           <div
-            class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+            class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-[var(--color-night)] text-white dark:bg-white dark:text-slate-950"
           >
             <ng-icon [name]="config().headerIcon" size="1.5rem"></ng-icon>
           </div>
@@ -100,7 +100,7 @@
                         {{ stat.label }}
                       </span>
                       <span
-                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 text-white"
+                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-night)] text-white"
                         aria-hidden="true"
                       >
                         <ng-icon [name]="stat.icon" size="0.95rem"></ng-icon>
@@ -143,7 +143,7 @@
 
         @if (config().showImpactSection && config().impact) {
           <div
-            class="project-detail-template__impact border-l-4 bg-slate-950 p-5 text-white shadow-sm dark:bg-slate-900 dark:text-slate-50"
+            class="project-detail-template__impact border-l-4 bg-[var(--color-night)] p-5 text-white shadow-sm dark:bg-slate-900 dark:text-slate-50"
           >
             <p class="project-detail-template__impact-label text-xs font-bold uppercase tracking-[0.18em]">
               {{ impactHeading }}
