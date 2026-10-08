@@ -1,27 +1,11 @@
-// Star Rating Styles
-.star-rating {
-  .star-filled {
-    color: var(--color-amber-400);
-    svg {
-      fill: currentColor;
-      stroke: currentColor;
-    }
+@media print {
+  :host ::ng-deep app-decorative-background,
+  :host ::ng-deep app-wave-separator {
+    display: none;
   }
 
-  .star-empty {
-    color: var(--color-gray-400);
-    svg {
-      fill: currentColor;
-      stroke: currentColor;
-    }
-  }
-
-  // Tier colors aligned with the proficiency legend below the grid
-  &.star-rating--expert .star-filled {
-    color: var(--color-teal-400);
-  }
-
-  &.star-rating--learning .star-filled {
-    color: var(--color-sky-400);
+  section {
+    overflow: visible;
+    padding-block: 1rem;
   }
 }

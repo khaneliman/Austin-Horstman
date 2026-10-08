@@ -29,7 +29,6 @@ import {
   heroShoppingBag,
   heroStar,
 } from '@ng-icons/heroicons/outline';
-import { heroStarSolid } from '@ng-icons/heroicons/solid';
 import { CardComponent } from '../../core/components/card/card.component';
 import { FloatingCardComponent } from '../../core/components/floating-card/floating-card.component';
 import { CareerTimelineComponent } from '../../shared/components/career-timeline/career-timeline.component';
@@ -40,7 +39,7 @@ import {
 import { WaveSeparatorComponent } from '../../shared/components/wave-separator/wave-separator.component';
 import { CompanyInfo, getAllCompanies, getCompanyWithCalculatedStats } from '../../shared/data/companies';
 import { GITHUB_METRICS } from '../../shared/data/github-metrics';
-import { getResumeProjectCards } from '../../shared/data/projects';
+import { getResumeProjectCards, selectProjectCards } from '../../shared/data/projects';
 import {
   getAllTechnologyNames,
   getInterestedTechnologies,
@@ -102,7 +101,6 @@ const nixpkgsUpdatedAt = formatIsoDate(GITHUB_METRICS.asOf);
     provideIcons({
       heroCodeBracket,
       heroStar,
-      heroStarSolid,
       heroAcademicCap,
       heroArrowRight,
       heroLightBulb,
@@ -288,11 +286,11 @@ export class ResumeComponent {
   );
   interestedTechnologies: TechnologySkill[] = getInterestedTechnologies();
 
-  // Dynamic project data — dedupe by title so projects shared across
-  // companies (e.g. Do It Best, Kroger) only appear once in the featured grid
-  featuredProjects = getResumeProjectCards()
-    .filter((project, index, all) => all.findIndex((other) => other.title === project.title) === index)
-    .slice(0, 6); // Top 6 distinct projects for featured section
+  readonly featuredProjects = selectProjectCards(getResumeProjectCards(), [
+    'nri-na/mulesoft-migrator',
+    'nri-na/underwriting-workbench',
+    'nri-na/farmlink-modernization',
+  ]);
   personalProjects = this.getPersonalProjects();
 
   getProjectAccent(index: number): string {
@@ -360,22 +358,5 @@ export class ResumeComponent {
         superText: 'Open Source',
       },
     ];
-  }
-
-  // Calculated portfolio statistics
-  get portfolioStats() {
-    const allCompanies = getAllCompanies();
-    const totalProjects = allCompanies.reduce((sum, company) => {
-      return sum + company.projects.length;
-    }, 0);
-
-    // Use the centralized technology skills data for total count
-    const totalTechnologies = getAllTechnologyNames().length;
-
-    return {
-      totalProjects,
-      totalCompanies: allCompanies.length,
-      totalTechnologies,
-    };
   }
 }

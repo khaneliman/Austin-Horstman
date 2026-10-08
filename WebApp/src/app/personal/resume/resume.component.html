@@ -319,10 +319,10 @@
                         />
                       </div>
                       <div class="flex-1 min-w-0">
-                        <h5 class="text-base font-semibold text-slate-900 dark:text-white truncate">
+                        <h5 class="text-base font-semibold text-slate-900 dark:text-white">
                           {{ company.displayName }}
                         </h5>
-                        <p class="text-sm text-teal-700 dark:text-teal-200 truncate">{{ company.position }}</p>
+                        <p class="text-sm text-teal-700 dark:text-teal-200">{{ company.position }}</p>
                         <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">{{ getDateRange(company) }}</p>
                         <div class="flex gap-2 mt-2">
                           <a
@@ -441,39 +441,9 @@
       <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto"></div>
     </div>
 
-    <!-- Projects Stats -->
-    <div class="text-center mb-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <div
-          class="bg-white rounded-xl p-4 border border-stone-200 border-t-4 border-t-teal-500 dark:border-slate-700 dark:border-t-teal-300 dark:bg-slate-900 shadow-sm"
-        >
-          <div class="text-2xl font-bold text-slate-950 dark:text-slate-50 mb-1">
-            {{ portfolioStats.totalProjects }}
-          </div>
-          <div class="text-sm text-slate-600 dark:text-slate-300 font-medium">Total Projects</div>
-        </div>
-        <div
-          class="bg-white rounded-xl p-4 border border-stone-200 border-t-4 border-t-amber-400 dark:border-slate-700 dark:border-t-amber-300 dark:bg-slate-900 shadow-sm"
-        >
-          <div class="text-2xl font-bold text-slate-950 dark:text-slate-50 mb-1">
-            {{ portfolioStats.totalCompanies }}
-          </div>
-          <div class="text-sm text-slate-600 dark:text-slate-300 font-medium">Companies</div>
-        </div>
-        <div
-          class="bg-white rounded-xl p-4 border border-stone-200 border-t-4 border-t-sky-400 dark:border-slate-700 dark:border-t-sky-300 dark:bg-slate-900 shadow-sm"
-        >
-          <div class="text-2xl font-bold text-slate-950 dark:text-slate-50 mb-1">
-            {{ portfolioStats.totalTechnologies }}+
-          </div>
-          <div class="text-sm text-slate-600 dark:text-slate-300 font-medium">Technologies</div>
-        </div>
-      </div>
-    </div>
-
     <!-- Featured Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (project of featuredProjects; track project.route; let i = $index) {
+      @for (project of featuredProjects; track project.id; let i = $index) {
         <app-floating-card
           [title]="project.title"
           [icon]="project.icon"
@@ -493,20 +463,17 @@
         <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-amber-300 rounded-full mx-auto"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @for (project of personalProjects; track project.route; let i = $index) {
-          <app-floating-card
-            [title]="project.name"
-            [icon]="project.icon"
-            [status]="getProjectAccent(i)"
-            [superText]="project.superText"
-            [description]="project.description"
-            [tags]="project.technologies"
-            [link]="project.route"
-            linkText="Learn more"
-          ></app-floating-card>
+      <ul class="max-w-5xl mx-auto space-y-4">
+        @for (project of personalProjects; track project.route) {
+          <li class="bg-white dark:bg-white/[0.04] rounded-xl p-5 border border-stone-200 dark:border-white/10">
+            <h4 class="font-semibold text-teal-800 dark:text-teal-200">
+              <a [routerLink]="project.route">{{ project.name }}</a>
+            </h4>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{{ project.description }}</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{{ project.technologies.join(', ') }}</p>
+          </li>
         }
-      </div>
+      </ul>
     </div>
 
     <!-- View All Projects CTA -->
@@ -564,116 +531,34 @@
       <div class="w-24 h-1 bg-gradient-to-r from-teal-300 to-amber-300 rounded-full mx-auto"></div>
     </div>
 
-    <!-- Technology Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-      <!-- Proficient Technologies -->
-      <div
-        class="bg-white dark:bg-white/[0.04] rounded-xl p-6 border border-stone-200 dark:border-white/10 border-t-4 border-t-teal-300 shadow-sm dark:shadow-black/20"
+    <p class="text-center mb-6">
+      <a routerLink="/personal/resume/technology" class="font-semibold text-teal-800 dark:text-teal-200"
+        >View technology details</a
       >
-        <div class="flex items-center mb-6">
-          <div
-            class="w-12 h-12 bg-teal-300/15 rounded-lg flex items-center justify-center border border-teal-300/30 mr-4"
-          >
-            <ng-icon name="heroStar" size="1.125rem" class="text-slate-700 dark:text-white"></ng-icon>
-          </div>
-          <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Proficient</h3>
-        </div>
-        <div class="space-y-4">
-          @for (tech of proficientTechnologies; track tech.name; let last = $last) {
-            <div
-              class="flex items-center justify-between py-2"
-              [class]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
-            >
-              <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
-              <div class="flex space-x-1 star-rating star-rating--expert">
-                @for (star of [1, 2, 3, 4, 5]; track star) {
-                  <ng-icon
-                    [name]="star <= (tech.skillLevel ?? 0) ? 'heroStarSolid' : 'heroStar'"
-                    size="0.875rem"
-                    [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
-                  ></ng-icon>
+    </p>
+    <div class="max-w-5xl mx-auto space-y-4">
+      @for (
+        group of [
+          { title: 'Proficient', skills: proficientTechnologies },
+          { title: 'Learned', skills: learnedTechnologies },
+          { title: 'Interested', skills: interestedTechnologies },
+        ];
+        track group.title
+      ) {
+        <div class="bg-white dark:bg-white/[0.04] rounded-xl p-5 border border-stone-200 dark:border-white/10">
+          <h3 class="text-lg font-bold text-slate-950 dark:text-white mb-3">{{ group.title }}</h3>
+          <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-700 dark:text-slate-200">
+            @for (tech of group.skills; track tech.name) {
+              <li>
+                {{ tech.name }}
+                @if (tech.skillLevel !== undefined) {
+                  <span class="text-slate-600 dark:text-slate-400"> ({{ tech.skillLevel }}/5)</span>
                 }
-              </div>
-            </div>
-          }
-        </div>
-      </div>
-
-      <!-- Learning & Interested Technologies -->
-      <div class="space-y-6">
-        <!-- Learned -->
-        <div
-          class="bg-white dark:bg-white/[0.04] rounded-xl p-6 border border-stone-200 dark:border-white/10 border-t-4 border-t-sky-300 shadow-sm dark:shadow-black/20"
-        >
-          <div class="flex items-center mb-6">
-            <div
-              class="w-12 h-12 bg-teal-300/15 rounded-lg flex items-center justify-center border border-teal-300/30 mr-4"
-            >
-              <ng-icon name="heroAcademicCap" size="1.125rem" class="text-slate-700 dark:text-white"></ng-icon>
-            </div>
-            <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Learned</h3>
-          </div>
-          <div class="space-y-4">
-            @for (tech of learnedTechnologies; track tech.name; let last = $last) {
-              <div
-                class="flex items-center justify-between py-2"
-                [class]="!last ? 'border-b border-stone-200 dark:border-white/10' : ''"
-              >
-                <span class="text-base text-gray-700 dark:text-gray-200 font-medium">{{ tech.name }}</span>
-                <div class="flex space-x-1 star-rating star-rating--learning">
-                  @for (star of [1, 2, 3, 4, 5]; track star) {
-                    <ng-icon
-                      [name]="star <= (tech.skillLevel ?? 0) ? 'heroStarSolid' : 'heroStar'"
-                      size="0.875rem"
-                      [class]="star <= (tech.skillLevel ?? 0) ? 'star-filled' : 'star-empty'"
-                    ></ng-icon>
-                  }
-                </div>
-              </div>
+              </li>
             }
-          </div>
+          </ul>
         </div>
-
-        <!-- Interested -->
-        <div
-          class="bg-white dark:bg-white/[0.04] rounded-xl p-6 border border-stone-200 dark:border-white/10 border-t-4 border-t-amber-300 shadow-sm dark:shadow-black/20"
-        >
-          <div class="flex items-center mb-6">
-            <div
-              class="w-12 h-12 bg-amber-300/15 rounded-lg flex items-center justify-center border border-amber-300/30 mr-4"
-            >
-              <ng-icon name="heroLightBulb" size="1.125rem" class="text-slate-700 dark:text-white"></ng-icon>
-            </div>
-            <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Interested</h3>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            @for (tech of interestedTechnologies; track tech.name) {
-              <span
-                class="px-4 py-2 bg-stone-100 dark:bg-white/5 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium border border-stone-200 dark:border-white/10"
-                >{{ tech.name }}</span
-              >
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Skills visualization -->
-    <div class="mt-10 text-center">
-      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-slate-600 dark:text-slate-300">
-        <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-teal-300 rounded-full"></div>
-          <span class="text-sm font-medium">Expert Level</span>
-        </div>
-        <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-sky-300 rounded-full"></div>
-          <span class="text-sm font-medium">Learning</span>
-        </div>
-        <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-amber-300 rounded-full"></div>
-          <span class="text-sm font-medium">Exploring</span>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </section>
