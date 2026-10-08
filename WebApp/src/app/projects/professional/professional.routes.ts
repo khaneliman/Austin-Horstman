@@ -5,7 +5,10 @@ export const PROFESSIONAL_ROUTES: Routes = [
   {
     path: '',
     title: 'Professional Projects | Austin Horstman',
-    data: { description: 'Explore Austin Horstman’s professional software projects.' },
+    data: {
+      catalogueDefault: 'professional',
+      description: 'Explore Austin Horstman’s professional software projects.',
+    },
     component: ProfessionalProjectsComponent,
   },
   { path: 'nri-na', redirectTo: '/experience/nri-na', pathMatch: 'full' },
