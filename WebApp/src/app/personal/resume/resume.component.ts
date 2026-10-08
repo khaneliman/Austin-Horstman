@@ -48,7 +48,7 @@ import {
   getProficientTechnologies,
   TechnologySkill,
 } from '../../shared/data/technologies';
-import { formatDateRange } from '../../shared/utils/date.utils';
+import { formatDateRange, formatIsoDate } from '../../shared/utils/date.utils';
 
 // Company accent colors used as readable inline text color (see getCompanyColor).
 // Mapped to vivid Catppuccin Latte hues; `-800` keys take a darker shade so
@@ -83,11 +83,7 @@ const getRepoMergedPrs = (repoName: string): number =>
   GITHUB_METRICS.repoMetrics.find((metric) => metric.repo === repoName)?.mergedPrs ?? 0;
 
 const nixpkgsMergedPrs = getRepoMergedPrs('Nixpkgs');
-const nixpkgsUpdatedAt = new Date(`${GITHUB_METRICS.asOf}T00:00:00Z`).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const nixpkgsUpdatedAt = formatIsoDate(GITHUB_METRICS.asOf);
 
 @Component({
   selector: 'app-resume',
