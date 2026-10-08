@@ -46,7 +46,7 @@
   box-shadow: 0 0 0 4px var(--color-night);
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media print, (prefers-reduced-motion: reduce) {
   .career-timeline__entry {
     opacity: 1;
     transform: none;

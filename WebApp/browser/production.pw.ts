@@ -323,3 +323,22 @@ runtimeTest('catalogue handles personal child technologies and empty results', a
   await expect(page.getByLabel('Company', { exact: true })).toHaveValue('');
   await expect(page.getByLabel('Technology', { exact: true })).toHaveValue('');
 });
+
+runtimeTest('Career history stays visible when printing', async ({ page }, testInfo) => {
+  await page.goto('/personal/resume');
+  await expect(page.getByRole('heading', { name: 'Education', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Employment', exact: true })).toBeVisible();
+  await page.emulateMedia({ media: 'print' });
+  const entries = page.locator('.career-timeline__entry');
+  expect(await entries.count()).toBeGreaterThan(0);
+  for (const entry of await entries.all()) {
+    await expect(entry).toHaveCSS('opacity', '1');
+    await expect(entry).toHaveCSS('transform', 'none');
+    await expect(entry).toBeVisible();
+  }
+  await testInfo.attach('Resume print', {
+    body: await page.pdf({ format: 'A4', printBackground: true }),
+    contentType: 'application/pdf',
+  });
+  await page.emulateMedia({ media: 'screen' });
+});
