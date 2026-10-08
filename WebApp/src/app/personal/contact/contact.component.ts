@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -38,6 +39,9 @@ export class ContactComponent {
   preparedMessage = '';
   submissionState: 'idle' | 'prepared' = 'idle';
 
+  readonly copyState = signal<'idle' | 'copying' | 'copied' | 'failed'>('idle');
+
+  private readonly document = inject(DOCUMENT);
   private readonly fb = inject(FormBuilder);
 
   heroTitle = "Let's Connect";
@@ -90,7 +94,37 @@ export class ContactComponent {
     });
   }
 
+  async copyMessage(draft: HTMLElement): Promise<void> {
+    if (this.submissionState !== 'prepared' || this.copyState() === 'copying') {
+      return;
+    }
+
+    const message = this.preparedMessage;
+    this.copyState.set('copying');
+    try {
+      const clipboard = this.document.defaultView?.navigator.clipboard;
+      if (!clipboard) {
+        throw new Error('Clipboard unavailable');
+      }
+      await clipboard.writeText(message);
+      if (this.preparedMessage === message && this.submissionState === 'prepared') {
+        this.copyState.set('copied');
+      }
+    } catch {
+      if (this.preparedMessage === message && this.submissionState === 'prepared') {
+        this.copyState.set('failed');
+        draft.focus();
+        const selection = this.document.getSelection();
+        const range = this.document.createRange();
+        range.selectNodeContents(draft);
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+      }
+    }
+  }
+
   onSubmit(): void {
+    this.copyState.set('idle');
     if (this.contactForm.valid) {
       const { name, email, message } = this.contactForm.getRawValue();
       this.preparedMessage = [`Name: ${name}`, `Email: ${email}`, '', message].join('\n');

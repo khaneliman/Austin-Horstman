@@ -133,11 +133,60 @@ runtimeTest('contact prepares an exact draft without sending', async ({ page }) 
     if (request.method() !== 'GET') outgoing.push(request.url());
   });
   await page.getByRole('button', { name: 'Prepare Message' }).click();
-  await expect(page.getByRole('status').locator('pre')).toHaveText(
+  await expect(page.getByLabel('Prepared message draft')).toHaveText(
     'Name: Smoke Visitor\nEmail: visitor@example.com\n\nDiscuss a portfolio project.'
   );
   expect(outgoing).toEqual([]);
 });
+
+for (const mode of ['copied', 'denied', 'unavailable'] as const) {
+  runtimeTest(`contact draft copying: ${mode}`, async ({ page }) => {
+    await page.addInitScript((mode) => {
+      let copied = '';
+      Object.defineProperty(navigator, 'clipboard', {
+        configurable: true,
+        value:
+          mode === 'unavailable'
+            ? undefined
+            : {
+                writeText: async (text: string) => {
+                  if (mode === 'denied') throw new DOMException('Denied', 'NotAllowedError');
+                  copied = text;
+                },
+                readText: async () => copied,
+              },
+      });
+    }, mode);
+    await page.goto('/personal/contact');
+    await page.getByRole('textbox', { name: 'Your Name' }).fill('Smoke Visitor');
+    await page.getByRole('textbox', { name: 'Email Address' }).fill('visitor@example.com');
+    await page.getByRole('textbox', { name: /^Message/ }).fill('Context with <markup> & punctuation.\nSecond line.');
+    const outgoing: string[] = [];
+    page.on('request', (request) => {
+      if (request.method() !== 'GET') outgoing.push(request.url());
+    });
+    await page.getByRole('button', { name: 'Prepare Message' }).click();
+    const expected =
+      'Name: Smoke Visitor\nEmail: visitor@example.com\n\nContext with <markup> & punctuation.\nSecond line.';
+    const draft = page.getByLabel('Prepared message draft');
+    await expect(draft).toHaveText(expected);
+    await page.getByRole('button', { name: 'Copy draft', exact: true }).focus();
+    await page.keyboard.press('Enter');
+    if (mode === 'copied') {
+      await expect(page.getByText('Draft copied.', { exact: false })).toBeVisible();
+      expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(expected);
+    } else {
+      await expect(page.getByText("Copying wasn't available.", { exact: false })).toBeVisible();
+      await expect(draft).toBeFocused();
+      expect(await page.evaluate(() => document.getSelection()?.toString())).toBe(expected);
+    }
+    await page.getByRole('textbox', { name: /^Message/ }).fill('A different prepared draft.');
+    await page.getByRole('button', { name: 'Prepare Message' }).click();
+    await expect(page.getByText('Draft copied.', { exact: false })).toBeHidden();
+    await expect(page.getByText("Copying wasn't available.", { exact: false })).toBeHidden();
+    expect(outgoing).toEqual([]);
+  });
+}
 
 runtimeTest('production app-shell caching and security headers', async ({ page, request }) => {
   await page.goto('/home');
