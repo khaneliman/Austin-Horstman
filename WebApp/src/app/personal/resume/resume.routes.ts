@@ -2,7 +2,12 @@ import { Routes } from '@angular/router';
 import { ResumeComponent } from './resume.component';
 
 export const RESUME_ROUTES: Routes = [
-  { path: '', component: ResumeComponent },
+  {
+    path: '',
+    title: 'Resume | Austin Horstman',
+    data: { description: 'Austin Horstman’s career, education, and software development experience.' },
+    component: ResumeComponent,
+  },
 
   // TODO: Remove these legacy employment redirects after old shared links/search results have aged out.
   {
