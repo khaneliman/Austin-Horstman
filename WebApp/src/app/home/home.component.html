@@ -168,7 +168,7 @@
       </div>
 
       <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
-        @for (project of selectedProjects; track project.route) {
+        @for (project of selectedProjects; track project.id) {
           <a
             [routerLink]="project.route"
             class="group border border-white/10 bg-white/[0.04] p-6 transition duration-200 hover:-translate-y-0.5 hover:border-amber-300/70 hover:bg-white/[0.08]"
@@ -177,6 +177,11 @@
               <div>
                 <p class="text-xs font-bold uppercase tracking-[0.18em] text-teal-200">{{ project.company }}</p>
                 <h3 class="mt-2 text-2xl font-black text-white">{{ project.title }}</h3>
+                @if (project.isNew) {
+                  <span class="mt-2 inline-block rounded-md bg-amber-300 px-2 py-1 text-xs font-bold text-slate-950"
+                    >New · In development</span
+                  >
+                }
               </div>
               <ng-icon
                 name="heroArrowRight"

@@ -18,7 +18,7 @@ import {
 import { CompanyInfo, getAllCompanies, getCompanyById } from '../shared/data/companies';
 import { GITHUB_METRICS } from '../shared/data/github-metrics';
 import { getPersonalProfile } from '../shared/data/profile';
-import { getResumeProjectCards } from '../shared/data/projects';
+import { getResumeProjectCards, selectProjectCards } from '../shared/data/projects';
 import { getPersonalSkills } from '../shared/data/skills';
 import { getProficientTechnologies } from '../shared/data/technologies';
 import { CountUpDirective } from '../shared/directives/count-up.directive';
@@ -62,13 +62,12 @@ export class HomeComponent {
 
   protected readonly skills = getPersonalSkills();
 
-  protected readonly selectedProjects = getResumeProjectCards()
-    .filter((project) =>
-      ['MuleSoft Migrator', 'AI Resource Staffing', 'Tax Document Analysis', 'Kroger', 'DoItBest'].includes(
-        project.title
-      )
-    )
-    .slice(0, 4);
+  protected readonly selectedProjects = selectProjectCards(getResumeProjectCards(), [
+    'nri-na/mulesoft-migrator',
+    'nri-na/underwriting-workbench',
+    'nri-na/farmlink-modernization',
+    'nri-na/accident-health',
+  ]);
 
   protected readonly currentCompany: CompanyInfo =
     this.companies.find((company) => !company.dateEnd) ?? getCompanyById('nri-na');
