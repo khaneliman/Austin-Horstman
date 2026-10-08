@@ -2,7 +2,12 @@ import { Routes } from '@angular/router';
 import { ProfessionalProjectsComponent } from './professional.component';
 
 export const PROFESSIONAL_ROUTES: Routes = [
-  { path: '', component: ProfessionalProjectsComponent },
+  {
+    path: '',
+    title: 'Professional Projects | Austin Horstman',
+    data: { description: 'Explore Austin Horstman’s professional software projects.' },
+    component: ProfessionalProjectsComponent,
+  },
   { path: 'nri-na', redirectTo: '/experience/nri-na', pathMatch: 'full' },
   {
     path: 'nri-na',
