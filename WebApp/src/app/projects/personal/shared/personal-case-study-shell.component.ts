@@ -25,14 +25,11 @@ export interface PersonalCaseStudyStat {
         'min-h-screen bg-[var(--color-paper)] pt-16 text-slate-950 dark:bg-slate-950 dark:text-slate-50 ' + themeClass()
       "
     >
-      <nav
-        class="border-b border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-900"
-        aria-label="Case study"
-      >
+      <nav class="border-b border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-900" aria-label="Case study">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <a
             [routerLink]="backRoute()"
-            class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition dark:text-slate-300 hover:opacity-90"
+            class="-my-2 inline-flex items-center gap-2 py-2 text-sm font-semibold text-slate-600 transition dark:text-slate-300 hover:opacity-90"
           >
             <ng-icon name="heroArrowLeft" size="1rem"></ng-icon>
             {{ backLabel() }}

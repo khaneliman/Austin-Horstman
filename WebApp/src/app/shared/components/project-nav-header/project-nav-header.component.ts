@@ -164,6 +164,6 @@ export class ProjectNavHeaderComponent {
     const palette =
       ProjectNavHeaderComponent.BACK_LINK_HOVER_CLASSES[this.hoverColor()] ??
       ProjectNavHeaderComponent.BACK_LINK_HOVER_CLASSES['blue'];
-    return `inline-flex items-center gap-2 rounded-sm text-sm font-medium text-slate-600 dark:text-slate-300 ${palette} transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-400`;
+    return `-my-2 inline-flex items-center gap-2 rounded-sm py-2 text-sm font-medium text-slate-600 dark:text-slate-300 ${palette} transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-400`;
   }
 }
