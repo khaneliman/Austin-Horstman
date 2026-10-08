@@ -174,8 +174,8 @@ export function generatePersonalProjectsGrid(): PersonalProject[] {
           technologies: ['Angular 20', 'TypeScript', 'TailwindCSS', 'SCSS'],
         },
         {
-          name: 'Backend API',
-          description: '.NET 10 minimal API providing data services and contact form handling',
+          name: 'Demo API',
+          description: 'Optional .NET 10 weather forecast demo; the portfolio frontend does not depend on it',
           route: '',
           technologies: ['.NET 10', 'C#', 'REST API'],
         },
