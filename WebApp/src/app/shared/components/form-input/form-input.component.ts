@@ -10,6 +10,7 @@ export type FormInputSize = 'sm' | 'md' | 'lg';
   selector: 'app-form-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIconComponent],
+  host: { class: 'block' },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
