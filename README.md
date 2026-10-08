@@ -30,7 +30,8 @@ _Steps required to install project and how to get the development environment ru
 ### Prerequisites
 
 - **Bun**: Install [Bun](https://bun.sh/) runtime and package manager
-- **.NET SDK**: [.NET](https://dotnet.microsoft.com/download/) 10+ is required for the backend API
+- **.NET SDK** (demo only): Use the exact SDK pinned in `WebApi/global.json` for the optional WebApi demo
+- **Node.js 22+** (demo tests only): Runs the built-in HTTP integration tests
 - **Docker** (optional): For containerized deployment
 
 ### Frontend Setup (Angular WebApp)
@@ -41,7 +42,7 @@ bun install                # Install dependencies
 bun run start:dev          # Start development server
 ```
 
-### Backend Setup (.NET WebAPI)
+### Optional demo setup (.NET WebApi)
 
 If this is your first time with dotnet development locally, you must trust the local https development certificates:
 
@@ -62,7 +63,7 @@ bun run build:dev          # Development build
 bun run watch              # Watch mode development
 ```
 
-### Backend Development
+### Optional demo development
 
 ```bash
 cd WebApi
@@ -85,7 +86,13 @@ Production Compose uses the hardened image and binds WebApp to `127.0.0.1:8080`:
 docker compose up --build --detach
 ```
 
-WebApi remains available on the internal Docker network. Compose publishes no WebApi host port.
+The default stack runs only the frontend. WebApi is a template demo, not a portfolio dependency. Opt in explicitly:
+
+```bash
+docker compose --profile demo up --build --detach
+```
+
+The demo API is available only on the internal Docker network. Compose publishes no WebApi host port.
 
 Use the explicit development configuration when you need the development servers:
 
@@ -115,12 +122,18 @@ bun run test:watch         # Run tests in watch mode
 bun run test:ci            # Run tests for CI environment
 ```
 
-### Backend Tests (.NET)
+### Optional demo endpoint tests
+
+Use the pinned .NET SDK and Node.js 22+. Run inside `WebApi` so `global.json` selects the SDK:
 
 ```bash
 cd WebApi
-dotnet test                # Run .NET tests for WebApi
+dotnet restore --locked-mode
+dotnet build --configuration Release --no-restore
+node --test tests/endpoints.test.mjs
 ```
+
+These execute three HTTP integration tests against the Release DLL in Production: weather forecast data and two Swagger routes that must return 404. There is no .NET test project; `dotnet test` does not exercise these endpoints.
 
 ### Quality Assurance
 

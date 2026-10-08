@@ -6,11 +6,15 @@
 [![Docker WebApi](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/docker-webapi.yml)
 [![.NET WebApi Build](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml/badge.svg)](https://github.com/khaneliman/austin-horstman/actions/workflows/dotnet-webapi.yml)
 
+## Demo status
+
+WebApi is the ASP.NET Core weather forecast template, not a backend dependency of the portfolio. Production Compose runs only WebApp by default. From the repository root, opt in with `docker compose --profile demo up --build --detach`. The demo remains on the internal network with no host API port.
+
 ## Description
 
 _The what, why, and how:_
 
-Personal website for myself. Used to house the information about myself for others to familiarize them with me, as a person. It contains all the projects that I work on related to my time as a software engineer and my resume for anyone interested in learning more.
+A retained ASP.NET Core sample exposing `GET /WeatherForecast`. The portfolio frontend does not call it.
 
 ## Table of Contents
 
@@ -24,7 +28,7 @@ Personal website for myself. Used to house the information about myself for othe
 
 _Steps required to install project and how to get the development environment running:_
 
-You must have the [.NET](https://dotnet.microsoft.com/download/) SDK installed. [.NET](https://dotnet.microsoft.com/download/) 10 is recommended.
+Use the exact [.NET](https://dotnet.microsoft.com/download/) SDK pinned in `global.json`. Node.js 22+ is required for the endpoint tests.
 
 If this is your first time with dotnet development locally. You must trust the local https development certificates.
 
@@ -34,6 +38,7 @@ If this is your first time with dotnet development locally. You must trust the l
 
 _Instructions and examples for use:_
 
+    cd WebApi
     dotnet watch run
 
 ## Contributing
@@ -46,7 +51,16 @@ _If you would like to contribute it, you can follow these guidelines for how to 
 
 _Tests for application and how to run them:_
 
-    dotnet test
+Run inside `WebApi` so `global.json` selects the SDK:
+
+```bash
+cd WebApi
+dotnet restore --locked-mode
+dotnet build --configuration Release --no-restore
+node --test tests/endpoints.test.mjs
+```
+
+The Node built-in runner starts the Release DLL in Production on a dynamically assigned loopback HTTP port, waits for the listening message, and stops it afterward. Three HTTP tests check five forecasts (dates, Celsius range, derived Fahrenheit, and summaries) and verify Swagger UI and JSON both return 404 in Production. No external test packages or containers are needed. There is no .NET test project; `dotnet test` does not execute these checks.
 
 ## License
 

@@ -5,17 +5,25 @@ Repository controls cannot protect Unraid shares if the live container mounts th
 ## Security boundary
 
 - WebApp serves static files over HTTP on container port `8080`.
-- WebApi remains in the project. Production Compose gives it no host port.
+- WebApi is an optional template demo, disabled by default. When enabled, Production Compose gives it no host port.
 - Neither service needs host files, Docker control sockets, devices, or elevated privileges.
 - A reverse proxy must provide public TLS. The containers do not terminate TLS.
 
 ## Compose deployment
 
-Start the production stack with the secure defaults:
+Start the frontend with the secure defaults:
 
 ```bash
 docker compose up --build --detach
 ```
+
+Opt in to the demo API only when needed:
+
+```bash
+docker compose --profile demo up --build --detach
+```
+
+It stays on the internal network with no host API port. The portfolio does not need it.
 
 The WebApp binds to `127.0.0.1:8080` by default. Set a different trusted bind address only when the reverse proxy requires it:
 
@@ -61,7 +69,7 @@ Use these WebApp extra parameters when the Unraid fields do not expose equivalen
 --read-only --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=64 --memory=128m --cpus=0.5 --tmpfs /tmp:rw,noexec,nosuid,size=16m
 ```
 
-For WebApi, use `--pids-limit=128 --memory=256m --cpus=0.5`. Keep the other controls unchanged.
+For the optional WebApi demo, use `--pids-limit=128 --memory=256m --cpus=0.5`. Keep the other controls unchanged.
 
 ## Immutable image update
 
@@ -79,27 +87,32 @@ Run these checks after deployment:
 
 ```bash
 webapp_container=austin-horstman-webapp
-webapi_container=austin-horstman-webapi
 
 docker inspect --format 'User={{.Config.User}} Privileged={{.HostConfig.Privileged}} ReadOnly={{.HostConfig.ReadonlyRootfs}} CapDrop={{json .HostConfig.CapDrop}} SecurityOpt={{json .HostConfig.SecurityOpt}}' "$webapp_container"
 docker inspect --format '{{json .Mounts}}' "$webapp_container"
 docker port "$webapp_container"
 docker exec "$webapp_container" id
 
-docker inspect --format '{{json .Mounts}}' "$webapi_container"
-docker port "$webapi_container"
-
 curl --fail --silent --show-error https://austinhorstman.dev/health
 ```
 
 Expected results:
 
-- Both mount lists are empty.
+- The WebApp mount list is empty.
 - `Privileged` is `false`.
 - `ReadOnly` is `true`.
 - WebApp runs as UID `101`.
-- WebApi publishes no host port.
 - The public health request returns `healthy`.
+
+If you enabled the demo, also check its mounts and ports:
+
+```bash
+webapi_container=austin-horstman-webapi
+docker inspect --format '{{json .Mounts}}' "$webapi_container"
+docker port "$webapi_container"
+```
+
+Its mount list must be empty and it must publish no host port.
 
 Container isolation does not replace backups. Keep versioned backups of personal shares outside the Unraid server.
 
