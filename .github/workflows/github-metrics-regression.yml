@@ -1,0 +1,35 @@
+name: GitHub Metrics Regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/update-github-metrics.mjs'
+      - '.github/scripts/update-github-metrics.test.mjs'
+      - '.github/scripts/github-metrics-fetch.fixture.mjs'
+      - '.github/workflows/github-metrics-regression.yml'
+  pull_request:
+    paths:
+      - '.github/scripts/update-github-metrics.mjs'
+      - '.github/scripts/update-github-metrics.test.mjs'
+      - '.github/scripts/github-metrics-fetch.fixture.mjs'
+      - '.github/workflows/github-metrics-regression.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metrics-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check command and fixture syntax
+        run: |
+          node --check .github/scripts/update-github-metrics.mjs
+          node --check .github/scripts/github-metrics-fetch.fixture.mjs
+          node --check .github/scripts/update-github-metrics.test.mjs
+      - name: Run isolated metrics regression tests
+        run: node --test .github/scripts/update-github-metrics.test.mjs
