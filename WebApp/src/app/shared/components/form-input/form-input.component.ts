@@ -30,7 +30,7 @@ export type FormInputSize = 'sm' | 'md' | 'lg';
 
       <div class="relative">
         @if (leadingIcon(); as li) {
-          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <div class="absolute inset-y-0 left-0 z-10 pl-4 flex items-center pointer-events-none">
             <ng-icon [name]="li" size="1rem" [class]="iconClasses()"></ng-icon>
           </div>
         }
@@ -64,7 +64,7 @@ export type FormInputSize = 'sm' | 'md' | 'lg';
         }
 
         @if (trailingIcon(); as ti) {
-          <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+          <div class="absolute inset-y-0 right-0 z-10 pr-4 flex items-center">
             @if (trailingClickable()) {
               <button
                 type="button"
