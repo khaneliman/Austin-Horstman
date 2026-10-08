@@ -263,3 +263,63 @@ runtimeTest('production app-shell caching and security headers', async ({ page, 
     expect(headers['content-security-policy']).toContain("form-action 'self'");
   }
 });
+
+runtimeTest('catalogue entry defaults and canonical URLs', async ({ page }) => {
+  for (const [entry, kind] of [
+    ['/projects', 'all'],
+    ['/projects/professional', 'professional'],
+    ['/projects/personal', 'personal'],
+  ] as const) {
+    await page.goto(entry);
+    await expect(page.getByLabel('Project type')).toHaveValue(kind);
+    await expect(page.locator('article').filter({ hasText: 'Professional ·' })).toHaveCount(
+      kind === 'personal' ? 0 : 19
+    );
+    await expect(page.locator('article').filter({ hasText: 'Personal ·' })).toHaveCount(
+      kind === 'professional' ? 0 : 6
+    );
+    await page.getByLabel('Project type').selectOption('all');
+    await expect(page.getByRole('heading', { name: 'MuleSoft Migrator', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Khanelinix', exact: true })).toBeVisible();
+    await page.reload();
+    await expect(page.getByLabel('Project type')).toHaveValue('all');
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://austinhorstman.dev${entry}`);
+  }
+});
+
+runtimeTest('catalogue filters restore through refresh, sharing, and Back', async ({ page }) => {
+  await page.goto('/projects');
+  await page.getByLabel('Company', { exact: true }).selectOption('NRI-NA');
+  await expect(page.getByRole('heading', { name: 'Underwriting Workbench', exact: true })).toBeVisible();
+  await page.getByLabel('Technology', { exact: true }).selectOption('.NET APIs');
+  await expect(page.locator('article h2')).toHaveText(['MuleSoft Migrator']);
+  const sharedUrl = page.url();
+  await page.reload();
+  await expect(page.getByLabel('Company', { exact: true })).toHaveValue('NRI-NA');
+  await expect(page.getByLabel('Technology', { exact: true })).toHaveValue('.NET APIs');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://austinhorstman.dev/projects');
+  await page.goBack();
+  await expect(page.getByLabel('Technology', { exact: true })).toHaveValue('');
+  await expect(page.getByRole('heading', { name: 'Underwriting Workbench', exact: true })).toBeVisible();
+  await page.goto(sharedUrl);
+  await expect(page.locator('article h2')).toHaveText(['MuleSoft Migrator']);
+  const project = page.getByRole('link', { name: 'MuleSoft Migrator', exact: true });
+  await project.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/nri-na\/mulesoft-migrator$/);
+});
+
+runtimeTest('catalogue handles personal child technologies and empty results', async ({ page }) => {
+  await page.goto('/projects/personal?technology=REST+API');
+  await expect(page.locator('article h2')).toHaveText(['Personal Portfolio Website']);
+  await page.getByLabel('Company', { exact: true }).selectOption('NRI-NA');
+  await expect(page.getByText('No projects match these filters.', { exact: false })).toBeVisible();
+  await page.getByRole('button', { name: 'Reset filters' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/projects\/personal$/);
+  await expect(page.getByRole('heading', { name: 'Khanelinix', exact: true })).toBeVisible();
+  await page.goto('/projects?kind=invalid&company=invalid&technology=invalid');
+  await expect(page.getByLabel('Project type')).toHaveValue('all');
+  await expect(page.getByLabel('Company', { exact: true })).toHaveValue('');
+  await expect(page.getByLabel('Technology', { exact: true })).toHaveValue('');
+});
