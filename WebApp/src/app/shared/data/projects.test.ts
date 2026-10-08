@@ -4,6 +4,7 @@ import {
   getProjectsForCompany,
   getResumeProjectCards,
   SHARED_PROJECTS,
+  selectProjectCards,
 } from './projects';
 
 describe('Projects Data', () => {
@@ -81,5 +82,43 @@ describe('Projects Data', () => {
     expect(cards.find((project) => project.title === 'FarmLink Modernization')?.company).toBe('NRI-NA');
     expect(cards.find((project) => project.title === 'Kroger')?.company).toBe('Core BTS');
     expect(cards.find((project) => project.title === 'Stat Tracker')?.company).toBe('Best Buy Geek Squad');
+  });
+});
+
+describe('stable project card selection', () => {
+  const ids = [
+    'nri-na/mulesoft-migrator',
+    'nri-na/underwriting-workbench',
+    'nri-na/farmlink-modernization',
+    'nri-na/accident-health',
+  ];
+  it('selects the professional sequence by identity, independent of titles and source order', () => {
+    const cards = getResumeProjectCards()
+      .reverse()
+      .map((card) => ({ ...card, title: 'Renamed' }));
+    expect(selectProjectCards(cards, ids).map((card) => card.id)).toEqual(ids);
+    expect(
+      getProjectsForCompany('nri-na')
+        .slice(0, 4)
+        .map((card) => card.route.split('/').pop())
+    ).toEqual(ids.map((id) => id.split('/').pop()));
+  });
+  it('uses unique route identities even across shared project names', () => {
+    const cards = getResumeProjectCards();
+    expect(new Set(cards.map((card) => card.id)).size).toBe(cards.length);
+    for (const card of cards) expect(card.route).toBe(`/projects/professional/${card.id}`);
+  });
+  it('rejects missing selections and duplicate source or selection IDs', () => {
+    const cards = getResumeProjectCards();
+    expect(() => selectProjectCards(cards, ['missing'])).toThrow('Missing project card ID');
+    expect(() => selectProjectCards(cards, ['nri-na/mulesoft-migrator', 'nri-na/mulesoft-migrator'])).toThrow(
+      'Duplicate selected project ID'
+    );
+    expect(() => selectProjectCards([{ id: 'same' }, { id: 'same' }], [])).toThrow('Duplicate project card ID');
+  });
+  it('marks only Accident & Health as new with no supplied technology stack', () => {
+    const cards = getResumeProjectCards().filter((card) => card.isNew);
+    expect(cards.map((card) => card.id)).toEqual(['nri-na/accident-health']);
+    expect(cards[0]?.technologies).toEqual([]);
   });
 });

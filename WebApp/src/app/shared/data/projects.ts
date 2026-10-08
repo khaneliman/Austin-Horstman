@@ -323,6 +323,8 @@ export function generateProfessionalProjectsGrid() {
 // Helper function to generate projects for resume FloatingCard components
 export function getResumeProjectCards() {
   const allProjects: {
+    id: string;
+    isNew: boolean;
     title: string;
     description: string;
     icon: string;
@@ -342,6 +344,8 @@ export function getResumeProjectCards() {
         const krogerDetails = PROJECT_DETAILS.kroger[companyKey as 'corebts' | 'skyline'];
         if (krogerDetails) {
           allProjects.push({
+            id: `${routeCompanyKey}/${project.route}`,
+            isNew: false,
             title: project.name,
             description: krogerDetails.description,
             icon: krogerDetails.icon,
@@ -355,6 +359,8 @@ export function getResumeProjectCards() {
         const details = PROJECT_DETAILS[project.route as keyof Omit<typeof PROJECT_DETAILS, 'kroger'>];
         if (details) {
           allProjects.push({
+            id: `${routeCompanyKey}/${project.route}`,
+            isNew: project.route === 'accident-health',
             title: project.name,
             description: details.description,
             icon: details.icon,
@@ -369,4 +375,20 @@ export function getResumeProjectCards() {
   });
 
   return allProjects;
+}
+
+export function selectProjectCards<T extends { id: string }>(cards: readonly T[], ids: readonly string[]): T[] {
+  const byId = new Map<string, T>();
+  for (const card of cards) {
+    if (byId.has(card.id)) throw new Error(`Duplicate project card ID '${card.id}'`);
+    byId.set(card.id, card);
+  }
+  const selectedIds = new Set<string>();
+  return ids.map((id) => {
+    if (selectedIds.has(id)) throw new Error(`Duplicate selected project ID '${id}'`);
+    selectedIds.add(id);
+    const card = byId.get(id);
+    if (!card) throw new Error(`Missing project card ID '${id}'`);
+    return card;
+  });
 }
