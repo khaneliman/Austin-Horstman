@@ -188,6 +188,22 @@ for (const mode of ['copied', 'denied', 'unavailable'] as const) {
   });
 }
 
+runtimeTest('Home gateways have working destinations', async ({ page }) => {
+  for (const [label, destination] of [
+    ['resume path', '/personal/resume'],
+    ['project catalog', '/projects'],
+    ['personal context', '/personal/about'],
+    ['contact route', '/personal/contact'],
+  ]) {
+    await page.goto('/home');
+    const gateway = page.getByRole('link', { name: new RegExp(label ?? '') });
+    await gateway.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(new RegExp(`${destination}$`));
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  }
+});
+
 runtimeTest('production app-shell caching and security headers', async ({ page, request }) => {
   await page.goto('/home');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();

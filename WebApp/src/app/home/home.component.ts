@@ -86,21 +86,25 @@ export class HomeComponent {
       {
         value: `${yearsExperience}+`,
         label: 'resume path',
+        route: '/personal/resume',
         detail: 'career timeline, current role, education, and technology depth',
       },
       {
         value: 'Case studies',
         label: 'project catalog',
+        route: '/projects',
         detail: 'professional delivery stories, selected work, and open-source systems',
       },
       {
         value: this.profile.location.split(',')[0] ?? this.profile.location,
         label: 'personal context',
+        route: '/personal/about',
         detail: 'how I work, what I value, and the kind of teams I fit best',
       },
       {
         value: 'Open loop',
         label: 'contact route',
+        route: '/personal/contact',
         detail: 'direct links for hiring, collaboration, or technical conversation',
       },
     ];
