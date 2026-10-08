@@ -40,7 +40,11 @@
     "docker:build": "docker build -f Dockerfile.production -t webapp-prod . --load",
     "docker:run": "docker run -d -p 127.0.0.1:8080:8080 --name webapp-test webapp-prod",
     "docker:stop": "docker stop webapp-test && docker rm webapp-test",
-    "docker:test": "bun run docker:build && bun run docker:run"
+    "docker:test": "bun run docker:build && bun run docker:run",
+    "smoke:serve": "bun scripts/production-smoke-server.mjs",
+    "smoke": "playwright test",
+    "smoke:prod": "bun run build:prod && bun run smoke",
+    "smoke:install": "playwright install --with-deps chromium"
   },
   "private": true,
   "dependencies": {
