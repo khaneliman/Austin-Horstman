@@ -1,5 +1,6 @@
 services:
   webapi:
+    profiles: [demo]
     build:
       context: ./WebApi
       dockerfile: Dockerfile
