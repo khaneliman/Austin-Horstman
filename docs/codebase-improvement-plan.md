@@ -2,7 +2,45 @@
 
 Fix the two reproduced correctness problems first, make the checks reproducible, then improve how visitors find and share the work. Keep Angular, Bun, the static Nginx deployment, and the current visual system. A whole-site redesign is a separate decision.
 
-This plan starts from `b18c6dd2`. It defines future implementation; no application changes have been made as part of planning.
+The original assessment started from `b18c6dd2`. The plan was committed before implementation. The execution results below record what was completed and what was deliberately left disabled.
+
+## Implementation results
+
+Local implementation is complete in Conventional Commit slices after `f8d48653`. The integrated code revision checked from a clean checkout is `7968f48d`. No push, publication, or live deployment was performed.
+
+| Slices | Result                                                                                                                                                                                                                                                                         |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1      | One ISO calendar-date formatter preserves the day in UTC, Chicago, Los Angeles, and Tokyo; Now and Resume use it.                                                                                                                                                              |
+| 2-3    | Metrics responses are validated before writing. All 48 command regression tests pass, including unchanged-file checks for rejected responses. A separate workflow runs them without credentials or network access.                                                             |
+| 4-7    | The frontend gate includes lint, formatting, one Bun test run, standalone TypeScript checking, and a production build. Playwright 1.59.1 is pinned, native Nginx is available in the dev shell, and browser checks run in the frontend workflow.                               |
+| 8      | Navigation updates titles, descriptions, canonical links, and Open Graph/Twitter fields centrally. The sharing image is the existing portrait. These are client-side updates, not static crawler previews.                                                                     |
+| 9      | The prerender trial did not pass production acceptance, so static output remains disabled. See the decision below.                                                                                                                                                             |
+| 10     | Stable company/project IDs preserve MuleSoft, Underwriting Workbench, FarmLink, then Accident & Health. The new case describes agent-facing quoting and UI integration without an invented stack, date, or outcome.                                                            |
+| 11     | Home's four gateway panels are links. Contact copies exact prepared drafts, reports success or failure, and selects text for manual copying when clipboard access fails. It does not send messages.                                                                            |
+| 12     | One catalogue serves the three existing entry routes with URL-backed filters, refresh/sharing/Back behavior, and query-free canonical URLs. Resume uses selected IDs and compact project/technology presentations while retaining career and education facts and detail links. |
+| 13     | The user confirmed that WebApi is demo-only. Both equivalent production Compose files run WebApp by default and enable WebApi with `--profile demo`. CI now executes three HTTP tests rather than an empty `dotnet test` invocation.                                           |
+
+### Decisions made during verification
+
+The prerender trial could render content and hydrate, but could not produce a valid dependency installation on the unchanged Angular patch versions. The installed core/compiler-cli were 22.1.3, while common/compiler/platform-browser/router were 22.1.2. The server-rendering peers require matching exact patches. The existing Nginx configuration also failed static-build fallback, trailing-slash, and generated-HTML revalidation checks. Runtime metadata now works, but those deployment and dependency problems remain. A separately scoped patch-alignment and static-serving change would be needed before enabling prerendering; neither a framework upgrade nor a running SSR service was added here.
+
+The production browser suite found two accessibility/layout defects: dialog focus could leave the overlay, and the additional sibling project could overflow desktop navigation. Those were fixed at their shared owners. Actual PDF inspection then caught an ineffective Resume print override: the timeline's later stylesheet still hid entries. Print visibility now lives in the timeline stylesheet, and all five entries render before any scrolling.
+
+A non-CI run launched 16 browser workers and hit one palette timeout; six focused repeats passed. Local and CI browser concurrency are now both two workers. Retries remain disabled, and the timeout was not raised.
+
+### Final local checks
+
+- Frozen Bun install in a clean checkout, followed by `bun run ci:full`: lint, formatting, 208 Bun tests, TypeScript, and production build pass.
+- Initial bundle: 604.25 kB, below the existing 650 kB warning budget.
+- `bun run smoke` against that fresh build and the production Nginx configuration: 35 pass, with one intentional desktop skip of the mobile-menu test.
+- `node --test .github/scripts/update-github-metrics.test.mjs`: 48 pass.
+- Locked restore, Release build, and `node --test tests/endpoints.test.mjs` inside WebApi: three pass using SDK 10.0.400 and Node 22.23.3.
+- Workflow lint passes. Actual Compose configuration lists only WebApp by default and both services with the demo profile; the two production files remain byte-for-byte equivalent.
+- Independent review checked catalogue routes, URL state, keyboard access, mobile/desktop overflow, retained facts, and normal-motion desktop/mobile PDFs. The print defect was corrected and rechecked.
+
+Reproduce frontend and browser checks using the [WebApp instructions](../WebApp/README.md), and API checks using the [WebApi instructions](../WebApi/README.md). All task-owned implementation and verification worktrees were removed after preserving the review evidence. Unrelated working-tree changes were left untouched.
+
+No Docker daemon was available, so container startup was not verified. The native Nginx build and actual API process were exercised instead. GitHub workflow execution and live deployment remain unverified because no push or deployment was authorized. Existing release and manual image-publication triggers were not changed.
 
 ## Outcomes and constraints
 
@@ -95,9 +133,9 @@ Split catalogue data/behavior, individual route adoption, and Resume simplificat
 
 ### Phase four Deployment decisions and optional polish
 
-**13. Decide the API's purpose before changing deployment.** The repository frontend has no caller for the sample WeatherForecast endpoint. External consumers and the reason for retaining WebApi remain unverified. The default recommendation is an optional Compose profile for the demo, not deletion. If it is product functionality, define its first real use and add endpoint tests instead.
+**13. Make the demo API optional.** The repository frontend has no caller for the sample WeatherForecast endpoint. The user confirmed that WebApi is demo-only and should be opt-in. Retain it behind an optional Compose profile rather than deleting it.
 
-Once the purpose is settled, update both production Compose files together and retain their documented equivalence. Preserve loopback binding, internal networking, image users, and read-only restrictions. Check default and opt-in service lists and start the intended configuration. If the API stays, its CI must report actual executed tests rather than a successful `dotnet test` step with no test project. Update [homelab deployment guidance](homelab-deployment.md) with the chosen behavior. Live Unraid changes remain a separate action.
+Update both production Compose files together and retain their documented equivalence. Preserve loopback binding, internal networking, image users, and read-only restrictions. Check default and opt-in service lists and start the intended configuration when a Docker daemon is available. Its CI must report actual executed tests rather than a successful `dotnet test` step with no test project. Update [homelab deployment guidance](homelab-deployment.md) with the chosen behavior. Live Unraid changes remain a separate action.
 
 **Later, only if justified:** distinguish unhashed-image cache lifetimes from hashed bundles; address eager icon costs if measurements justify it; revisit palette contrast only with an explicit upstream-fidelity/accessibility decision. Keep these out of correctness and catalogue commits.
 
