@@ -96,6 +96,7 @@
               # Web development
               bun
               eslint_d
+              nginx
               nodejs_22
               playwright-test
               prettier
