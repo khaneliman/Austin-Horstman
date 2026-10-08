@@ -2,6 +2,43 @@ import { ProjectDetailConfig } from '../interfaces/project-detail.interface';
 
 // Sample project configurations demonstrating the templating approach
 export const PROJECT_CONFIGURATIONS: Record<string, ProjectDetailConfig> = {
+  'accident-health': {
+    headerIcon: 'heroDocumentText',
+    primaryColor: 'cyan',
+    backRoute: '/experience/nri-na',
+    backLabel: 'Back to NRI-NA Experience',
+    companyKey: 'nri-na',
+    hoverColor: 'cyan',
+    title: 'Accident & Health',
+    description:
+      'A new agent-facing quote interface that aims to reuse Underwriting Workbench backend ingestion and extraction to pre-populate quotes for insurance agents.',
+    casePanel: { eyebrow: 'New', title: 'Agent-facing quote workflow', status: 'In development' },
+    technologies: [],
+    quickStats: [{ label: 'Role', value: 'UI team', icon: 'heroUserGroup' }],
+    overview: {
+      title: 'Project Overview',
+      content:
+        'Accident & Health is a new effort building on the approach used for Underwriting Workbench and FarmLink, with a new UI and design path. Unlike the underwriter-facing Workbench, this interface is for insurance agents.',
+      icon: 'heroDocumentText',
+    },
+    features: [
+      {
+        title: 'Quote pre-population',
+        description:
+          'Aims to reuse the underlying Underwriting Workbench backend ingestion and extraction to pre-populate quotes for insurance agents.',
+        icon: 'heroDocumentText',
+      },
+      {
+        title: 'UI integration',
+        description: 'Austin is on the UI team integrating the new design and backends.',
+        icon: 'heroComputerDesktop',
+      },
+    ],
+    showQuickStats: true,
+    showTechnicalHighlights: false,
+    showImpactSection: false,
+    gridColumns: 'single',
+  },
   'renaissance-learning': {
     // Visual/Branding
     headerIcon: 'heroBookOpen',

@@ -204,6 +204,14 @@ const PROJECT_DETAILS = {
     status: 'Completed' as const,
     technologies: ['Blazor', '.NET', 'AI Agents', 'Azure DevOps', 'Agent Skills', 'Custom Plugins'],
   },
+  'accident-health': {
+    description:
+      'New agent-facing quote UI that aims to reuse Underwriting Workbench ingestion and extraction to pre-populate quotes for insurance agents',
+    icon: 'heroDocumentText',
+    color: 'from-cyan-600 to-blue-700',
+    status: 'In development' as const,
+    technologies: [],
+  },
   'underwriting-workbench': {
     description:
       'AI-assisted underwriting platform that replaces spreadsheet and email intake with structured classification, enrichment, and human review workflows',

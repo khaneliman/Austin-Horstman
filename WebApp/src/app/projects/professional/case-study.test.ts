@@ -59,3 +59,15 @@ describe('case study routes', () => {
     expect(() => resolveCaseStudy({ project: 'missing' })).toThrow("No project configuration for case study 'missing'");
   });
 });
+
+it('resolves Accident & Health through the shared page in professional sequence', () => {
+  const route = NRI_NA_ROUTES.find(({ path }) => path === 'accident-health');
+  const config = resolveCaseStudy(route?.data as CaseStudyRouteData);
+  expect(config.title).toBe('Accident & Health');
+  expect(config.companyKey).toBe('nri-na');
+  expect(config.casePanel?.status).toBe('In development');
+  const sequence = ['mulesoft-migrator', 'underwriting-workbench', 'farmlink-modernization', 'accident-health'];
+  expect(NRI_NA_ROUTES.filter((route) => sequence.includes(route.path ?? '')).map((route) => route.path)).toEqual(
+    sequence
+  );
+});

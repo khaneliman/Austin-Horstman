@@ -13,7 +13,8 @@ export const NRI_NA_ROUTES: Routes = [
   caseStudyRoute('ai-resource-staffing', { project: 'ai-resource-staffing' }),
   caseStudyRoute('tax-document-analysis', { project: 'tax-document-analysis' }),
   caseStudyRoute('mulesoft-migrator', { project: 'mulesoft-migrator' }),
-  caseStudyRoute('farmlink-modernization', { project: 'farmlink-modernization' }),
   caseStudyRoute('underwriting-workbench', { project: 'underwriting-workbench' }),
+  caseStudyRoute('farmlink-modernization', { project: 'farmlink-modernization' }),
+  caseStudyRoute('accident-health', { project: 'accident-health' }),
   { path: '**', redirectTo: '/experience/nri-na' },
 ];

@@ -28,7 +28,6 @@ describe('Project Configurations', () => {
       expect(typeof config.companyKey).toBe('string');
 
       expect(Array.isArray(config.technologies)).toBe(true);
-      expect(config.technologies.length).toBeGreaterThan(0);
     });
   });
 
@@ -162,4 +161,17 @@ describe('Project Configurations', () => {
       ).toBe('The team used AI to help design and implement the application front end and API layers.');
     });
   });
+});
+
+it('records new Accident & Health work without an invented stack or results', () => {
+  const project = PROJECT_CONFIGURATIONS['accident-health'];
+  expect(project?.companyKey).toBe('nri-na');
+  expect(project?.casePanel?.status).toBe('In development');
+  expect(project?.casePanel?.eyebrow).toBe('New');
+  expect(project?.technologies).toEqual([]);
+  expect(project?.overview.content).toContain('Unlike the underwriter-facing Workbench');
+  expect(project?.quickStats?.find((stat) => stat.label === 'Role')?.value).toBe('UI team');
+  expect(project?.description).toContain('aims to');
+  expect(project?.outcome).toBeUndefined();
+  expect(project?.showImpactSection).toBe(false);
 });

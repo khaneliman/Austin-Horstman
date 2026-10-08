@@ -127,9 +127,10 @@ export const COMPANIES = {
     experienceRoute: '/experience/nri-na',
     projectsRoute: '/projects/professional/nri-na',
     projects: [
-      { name: 'FarmLink Modernization', route: 'farmlink-modernization' },
-      { name: 'Underwriting Workbench', route: 'underwriting-workbench' },
       { name: 'MuleSoft Migrator', route: 'mulesoft-migrator' },
+      { name: 'Underwriting Workbench', route: 'underwriting-workbench' },
+      { name: 'FarmLink Modernization', route: 'farmlink-modernization' },
+      { name: 'Accident & Health', route: 'accident-health' },
       { name: 'AI Resource Staffing', route: 'ai-resource-staffing' },
       { name: 'Tax Document Analysis', route: 'tax-document-analysis' },
       { name: 'Do It Best', route: 'doitbest' },
