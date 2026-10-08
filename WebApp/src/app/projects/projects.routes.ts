@@ -2,7 +2,12 @@ import { Routes } from '@angular/router';
 import { ProjectsComponent } from './projects.component';
 
 export const PROJECTS_ROUTES: Routes = [
-  { path: '', component: ProjectsComponent },
+  {
+    path: '',
+    title: 'Projects | Austin Horstman',
+    data: { description: 'Explore Austin Horstman’s professional and personal software projects.' },
+    component: ProjectsComponent,
+  },
   {
     path: 'professional',
     loadChildren: () => import('./professional/professional.routes').then((m) => m.PROFESSIONAL_ROUTES),
