@@ -12,10 +12,12 @@ export interface CaseStudyRouteData {
 
 /** A lazily loaded case study page rendered from PROJECT_CONFIGURATIONS. */
 export function caseStudyRoute(path: string, data: CaseStudyRouteData): Route {
+  const config = resolveCaseStudy(data);
   return {
     path,
+    title: `${config.title} | Austin Horstman`,
     loadComponent: () => import('./project-case-study.component').then((m) => m.ProjectCaseStudyComponent),
-    data,
+    data: { ...data, description: config.description },
   };
 }
 
