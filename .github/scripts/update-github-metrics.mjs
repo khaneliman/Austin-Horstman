@@ -46,7 +46,17 @@ async function getMergedPrCount(repo) {
   }
 
   const payload = await response.json();
-  return payload.total_count ?? 0;
+  if (
+    payload === null ||
+    typeof payload !== 'object' ||
+    payload.incomplete_results !== false ||
+    !Number.isSafeInteger(payload.total_count) ||
+    payload.total_count < 0
+  ) {
+    throw new Error(`Invalid or incomplete search response for ${repo}`);
+  }
+
+  return payload.total_count;
 }
 
 function formatMetricDate(date) {
