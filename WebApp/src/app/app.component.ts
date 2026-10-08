@@ -12,7 +12,8 @@ import { ThemeService } from './shared/services/theme.service';
 
 const MODAL = '[role="dialog"][aria-modal="true"]';
 const PAGE_REGIONS = ':scope > .skip-to-content, :scope > app-navbar, :scope > main, :scope > app-footer';
-const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,8 @@ const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabi
   host: {
     '(document:focusin)': 'onFocusIn($event)',
     '(document:focusout)': 'onFocusOut($event)',
+    '(document:keydown.tab)': 'onTab($event)',
+    '(document:keydown.shift.tab)': 'onTab($event)',
   },
 })
 export class AppComponent {
@@ -55,6 +58,32 @@ export class AppComponent {
     // Focus left for the page body (a click on blank space): nothing to return to.
     if (event.relatedTarget === null && event.target instanceof Element && !event.target.closest(MODAL)) {
       this.lastFocused = null;
+    }
+  }
+
+  onTab(event: Event): void {
+    if (!(event instanceof KeyboardEvent)) return;
+    const dialog = this.host.nativeElement.querySelector<HTMLElement>(MODAL);
+    if (!dialog) return;
+
+    const targets = [...dialog.querySelectorAll<HTMLElement>(FOCUSABLE)].filter(
+      (element) => element.tabIndex >= 0 && element.getClientRects().length > 0 && !element.closest('[inert]')
+    );
+    const first = targets[0];
+    const last = targets.at(-1);
+    const active = this.document.activeElement;
+
+    if (!first || !last) {
+      event.preventDefault();
+      dialog.tabIndex = -1;
+      dialog.focus();
+    } else if (
+      !dialog.contains(active) ||
+      (event.shiftKey && active === first) ||
+      (!event.shiftKey && active === last)
+    ) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
     }
   }
 
