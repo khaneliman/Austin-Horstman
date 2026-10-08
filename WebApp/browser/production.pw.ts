@@ -204,6 +204,47 @@ runtimeTest('Home gateways have working destinations', async ({ page }) => {
   }
 });
 
+runtimeTest('Home chronology and case-study metadata survive navigation', async ({ page }) => {
+  await page.goto('/home');
+  const cards = page.locator('a[href^="/projects/professional/nri-na/"] h3');
+  await expect(cards).toHaveText([
+    'MuleSoft Migrator',
+    'Underwriting Workbench',
+    'FarmLink Modernization',
+    'Accident & Health',
+  ]);
+  await page.getByRole('link', { name: /Accident & Health/ }).click();
+  await expect(page).toHaveTitle('Accident & Health | Austin Horstman');
+  const description = page.locator('meta[name="description"]');
+  await expect(description).toHaveAttribute('content', /new agent-facing quote interface/);
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    'content',
+    'Accident & Health | Austin Horstman'
+  );
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute(
+    'content',
+    'Accident & Health | Austin Horstman'
+  );
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://austinhorstman.dev/projects/professional/nri-na/accident-health'
+  );
+  await expect(page.getByRole('heading', { name: 'Technology Stack', exact: true })).toHaveCount(0);
+  await page.locator('app-footer').getByRole('link', { name: 'Austin Horstman', exact: true }).click();
+  await expect(page).toHaveURL(/\/home$/);
+  await expect(page).toHaveTitle('Austin Horstman - Full Stack Developer Portfolio');
+  await expect(description).toHaveAttribute('content', /Full Stack Developer specializing/);
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    'content',
+    'Austin Horstman - Full Stack Developer Portfolio'
+  );
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute(
+    'content',
+    'Austin Horstman - Full Stack Developer Portfolio'
+  );
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://austinhorstman.dev/');
+});
+
 runtimeTest('production app-shell caching and security headers', async ({ page, request }) => {
   await page.goto('/home');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
