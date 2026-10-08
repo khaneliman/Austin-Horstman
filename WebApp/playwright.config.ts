@@ -7,7 +7,7 @@ export default defineConfig({
   testMatch: '**/*.pw.ts',
   outputDir: './tmp/playwright-results',
   fullyParallel: true,
-  workers: process.env['CI'] ? 2 : undefined,
+  workers: 2,
   retries: 0,
   reporter: 'list',
   use: {
