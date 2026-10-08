@@ -4,10 +4,12 @@ on:
     branches: [main]
     paths:
       - 'WebApp/**/*'
+      - '.github/workflows/angular-webapp.yml'
   pull_request:
     branches: [main]
     paths:
       - 'WebApp/**/*'
+      - '.github/workflows/angular-webapp.yml'
   workflow_dispatch:
     inputs:
       branch:
