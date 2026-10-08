@@ -49,25 +49,6 @@ import {
 } from '../../shared/data/technologies';
 import { formatDateRange, formatIsoDate } from '../../shared/utils/date.utils';
 
-// Company accent colors used as readable inline text color (see getCompanyColor).
-// Mapped to vivid Catppuccin Latte hues; `-800` keys take a darker shade so
-// same-family companies (e.g. NRI blue-500 vs Skyline blue-800) stay distinct.
-const TAILWIND_HEX_COLORS: Record<string, string> = {
-  'blue-500': '#1e66f5', // blue
-  'blue-600': '#1e66f5', // blue
-  'blue-800': '#1445a7', // blue (darker shade)
-  'emerald-600': '#179299', // teal
-  'green-500': '#40a02b', // green
-  'red-600': '#d20f39', // red
-  'orange-500': '#fe640b', // peach
-  'orange-600': '#fe640b', // peach
-  'orange-800': '#c24e08', // peach (darker shade)
-  'indigo-600': '#4e5cac', // lavender (darker shade)
-  'sky-400': '#04a5e5', // sky
-  'teal-500': '#179299', // teal
-  'gray-900': '#4c4f69', // text
-};
-
 // Company accent text classes spelled out in full so Tailwind generates them;
 // class names assembled at runtime ('text-' + color) never reach the stylesheet.
 const COMPANY_TEXT_CLASSES: Readonly<Record<string, string>> = {
@@ -295,10 +276,6 @@ export class ResumeComponent {
 
   getProjectAccent(index: number): string {
     return this.projectAccentPattern[index % this.projectAccentPattern.length] ?? 'primary';
-  }
-
-  getCompanyColor(colorClass: string): string {
-    return TAILWIND_HEX_COLORS[colorClass] ?? '#1e66f5';
   }
 
   getCompanyTextClass(colorClass: string): string {

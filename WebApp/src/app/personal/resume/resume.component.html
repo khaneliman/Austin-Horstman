@@ -400,8 +400,10 @@
               </div>
               <a
                 [routerLink]="company.experienceRoute"
-                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
-                [style.color]="getCompanyColor(company.colorScheme.primary)"
+                [class]="
+                  'inline-flex items-center justify-center gap-2 rounded-lg border border-stone-300 bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800 ' +
+                  getCompanyTextClass(company.colorScheme.primary)
+                "
               >
                 <ng-icon name="heroBriefcase" size="1rem"></ng-icon>
                 Employment Details
