@@ -160,6 +160,8 @@ export class EnhancedFeatureCardComponent {
 
     if (this.iconPosition() === 'top') {
       classes.push('mb-8');
+    } else if (this.iconPosition() === 'left') {
+      classes.push('mr-4', 'flex-shrink-0');
     }
 
     switch (this.size()) {
@@ -176,9 +178,6 @@ export class EnhancedFeatureCardComponent {
 
     return classes.join(' ');
   }
-
-  readonly leftIconClasses =
-    'w-8 h-8 bg-[var(--p-100)] dark:bg-[var(--p-800)] rounded-lg flex items-center justify-center mr-4 flex-shrink-0';
 
   get accentBorderClass(): string {
     const accentBorders: Record<string, string> = {
