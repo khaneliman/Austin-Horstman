@@ -11,6 +11,7 @@ import {
 } from '@ng-icons/heroicons/outline';
 import { GITHUB_METRICS } from '../shared/data/github-metrics';
 import { CountUpDirective } from '../shared/directives/count-up.directive';
+import { formatIsoDate } from '../shared/utils/date.utils';
 
 interface FocusItem {
   eyebrow: string;
@@ -57,7 +58,7 @@ interface ExploringItem {
   ],
 })
 export class NowComponent {
-  readonly asOf = this.formatAsOf(GITHUB_METRICS.asOf);
+  readonly asOf = formatIsoDate(GITHUB_METRICS.asOf);
   readonly totalMergedPrs = GITHUB_METRICS.totalMergedPrs;
   readonly githubUser = 'khaneliman';
   readonly githubProfileUrl = `https://github.com/${this.githubUser}`;
@@ -187,18 +188,7 @@ export class NowComponent {
     },
   ];
 
-  private formatAsOf(date: string): string {
-    return new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  }
-
   formatShipDate(date: string): string {
-    return new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-    });
+    return formatIsoDate(date, 'short');
   }
 }
