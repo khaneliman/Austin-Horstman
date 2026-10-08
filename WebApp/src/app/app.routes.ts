@@ -2,9 +2,19 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  {
+    path: 'home',
+    title: 'Austin Horstman - Full Stack Developer Portfolio',
+    data: {
+      description:
+        'Austin Horstman - Full Stack Developer specializing in Angular, .NET, and modern web technologies. Professional portfolio showcasing enterprise projects and software development expertise.',
+    },
+    component: HomeComponent,
+  },
   {
     path: 'now',
+    title: 'Now | Austin Horstman',
+    data: { description: 'Current work, interests, and updates from Austin Horstman.' },
     loadComponent: () => import('./now/now.component').then((m) => m.NowComponent),
   },
   {
