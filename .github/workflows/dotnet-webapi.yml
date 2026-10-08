@@ -4,10 +4,12 @@ on:
     branches: [main]
     paths:
       - 'WebApi/**/*'
+      - '.github/workflows/dotnet-webapi.yml'
   pull_request:
     branches: [main]
     paths:
       - 'WebApi/**/*'
+      - '.github/workflows/dotnet-webapi.yml'
 jobs:
   build-api:
     runs-on: ubuntu-latest
@@ -15,6 +17,11 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+          package-manager-cache: false
       - name: Setup .NET
         uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
         with:
@@ -22,8 +29,13 @@ jobs:
           cache: true
           cache-dependency-path: WebApi/packages.lock.json
       - name: Restore dependencies
-        run: dotnet restore WebApi/ --locked-mode
+        working-directory: ./WebApi
+        run: dotnet restore --locked-mode
       - name: Build
-        run: dotnet build WebApi/ --configuration Release --no-restore
-      - name: Test
-        run: dotnet test WebApi/ --configuration Release --no-build --verbosity normal
+        working-directory: ./WebApi
+        run: dotnet build --configuration Release --no-restore
+      - name: Test demo endpoints (Node.js 22+)
+        working-directory: ./WebApi
+        run: |
+          node -e 'if (Number(process.versions.node.split(".")[0]) < 22) throw new Error("Node.js 22+ required")'
+          node --test tests/endpoints.test.mjs
