@@ -74,7 +74,7 @@ export interface PersonalCaseStudyStat {
             </div>
           </div>
 
-          <aside class="relative lg:mt-4">
+          <aside class="relative self-start lg:mt-4">
             <div class="absolute -left-4 top-7 h-24 w-24 border-8 case-study-shell__frame" aria-hidden="true"></div>
             <div class="absolute -right-3 bottom-8 h-16 w-16 case-study-shell__callout" aria-hidden="true"></div>
 
