@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { calculateYearsBetweenDates, formatDateRange } from './date.utils';
+import { calculateYearsBetweenDates, formatDateRange, formatIsoDate } from './date.utils';
 
 describe('Date Utilities', () => {
   describe('formatDateRange', () => {
@@ -123,4 +123,62 @@ describe('Date Utilities', () => {
       expect(result).toBe('0.1');
     });
   });
+});
+
+describe('formatIsoDate', () => {
+  const validDates = [
+    ['2026-08-24', 'August 24, 2026', 'Aug 24'],
+    ['2026-09-01', 'September 1, 2026', 'Sep 1'],
+    ['2026-12-31', 'December 31, 2026', 'Dec 31'],
+    ['2024-02-29', 'February 29, 2024', 'Feb 29'],
+    ['2000-02-29', 'February 29, 2000', 'Feb 29'],
+  ];
+  const invalidDates = [
+    '',
+    'not-a-date',
+    '2026-08',
+    '2026-8-24',
+    '2026-08-2',
+    ' 2026-08-24',
+    '2026-08-24 ',
+    '2026-08-24T00:00:00Z',
+    '2026-02-29',
+    '1900-02-29',
+    '2026-04-31',
+    '2026-13-01',
+    '2026-00-01',
+    '2026-01-00',
+    '2026-01-32',
+  ];
+
+  it('defaults to the existing long display', () => {
+    expect(formatIsoDate('2026-08-24')).toBe('August 24, 2026');
+  });
+
+  for (const timeZone of ['UTC', 'America/Chicago', 'America/Los_Angeles', 'Asia/Tokyo']) {
+    it(`preserves calendar dates and rejects invalid input in ${timeZone}`, () => {
+      // Separate processes ensure the runtime starts in each target time zone.
+      const script = `
+        import { formatIsoDate } from ${JSON.stringify(import.meta.resolve('./date.utils'))};
+        const valid = ${JSON.stringify(validDates)}.map(([date]) => [
+          formatIsoDate(date, 'long'), formatIsoDate(date, 'short')
+        ]);
+        const invalid = ${JSON.stringify(invalidDates)}.map((date) => {
+          try { formatIsoDate(date); return false; }
+          catch (error) { return error instanceof RangeError; }
+        });
+        console.log(JSON.stringify({ valid, invalid }));
+      `;
+      const result = Bun.spawnSync([process.execPath, '--eval', script], {
+        cwd: import.meta.dir,
+        env: { ...process.env, TZ: timeZone },
+      });
+      expect(result.stderr.toString()).toBe('');
+      expect(result.exitCode).toBe(0);
+      expect(JSON.parse(result.stdout.toString())).toEqual({
+        valid: validDates.map(([, long, short]) => [long, short]),
+        invalid: invalidDates.map(() => true),
+      });
+    });
+  }
 });

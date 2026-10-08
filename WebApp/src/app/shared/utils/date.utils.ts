@@ -2,6 +2,27 @@
  * Utility functions for date formatting and manipulation
  */
 
+/** Format a calendar date without shifting it to the viewer's time zone.
+ * @throws RangeError for malformed or nonexistent YYYY-MM-DD dates.
+ */
+export function formatIsoDate(dateString: string, style: 'long' | 'short' = 'long'): string {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    throw new RangeError(`Invalid ISO calendar date: ${dateString}`);
+  }
+
+  const date = new Date(`${dateString}T00:00:00Z`);
+  if (Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== dateString) {
+    throw new RangeError(`Invalid ISO calendar date: ${dateString}`);
+  }
+
+  return date.toLocaleDateString('en-US', {
+    timeZone: 'UTC',
+    year: style === 'long' ? 'numeric' : undefined,
+    month: style,
+    day: 'numeric',
+  });
+}
+
 /**
  * Format a date range from start/end date strings
  * @param dateStart Start date in 'YYYY-MM' or 'YYYY-MM-DD' format
