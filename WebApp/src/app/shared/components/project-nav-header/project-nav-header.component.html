@@ -1,34 +1,63 @@
-<!-- Project Navigation Header -->
-<div class="sticky top-16 z-40 border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
-    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-      <!-- Left: Back Navigation -->
-      <div class="flex items-center space-x-4">
-        <a [routerLink]="backRoute()" [class]="backLinkClasses">
-          <ng-icon name="heroChevronLeft" size="1rem" class="mr-2"></ng-icon>
-          {{ backLabel() }}
-        </a>
-      </div>
-
-      <!-- Right: Project Quick Nav -->
-      @if (projects().length > 0) {
-        <div class="project-nav-header__quick-nav w-full min-w-0 md:w-auto">
-          <div
-            class="project-nav-header__quick-nav-scroll -mx-1 flex snap-x items-center gap-2 overflow-x-auto px-1 pb-1 pr-8 md:mx-0 md:flex-wrap md:overflow-visible md:pb-0 md:pr-0"
-            aria-label="Project quick navigation"
-          >
-            @for (project of projects(); track project.route) {
-              <a
-                [routerLink]="project.route"
-                [class]="project.isActive ? activeTabClasses : inactiveTabClasses"
-                [attr.aria-current]="project.isActive ? 'page' : null"
-              >
-                {{ project.name }}
-              </a>
-            }
-          </div>
-        </div>
-      }
+<div class="sticky top-16 z-40 border-b border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="py-3">
+      <a [routerLink]="backRoute()" [class]="backLinkClasses">
+        <ng-icon name="heroChevronLeft" size="1rem" aria-hidden="true"></ng-icon>
+        {{ backLabel() }}
+      </a>
     </div>
+
+    @if (projects().length > 0) {
+      <div class="project-nav-header__quick-nav flex min-w-0 border-t border-stone-200 dark:border-slate-800">
+        @if (hasOverflow()) {
+          <button
+            type="button"
+            class="project-nav-header__scroll-button"
+            aria-label="Scroll projects left"
+            title="Scroll projects left"
+            [disabled]="!canScrollLeft()"
+            (click)="scrollProjects(-1)"
+            (pointerenter)="startEdgeScroll(-1, $event)"
+            (pointerleave)="stopEdgeScroll()"
+            (pointercancel)="stopEdgeScroll()"
+            (blur)="stopEdgeScroll()"
+          >
+            <ng-icon name="heroChevronLeft" size="1.1rem" aria-hidden="true"></ng-icon>
+          </button>
+        }
+        <nav
+          #quickNavigation
+          class="project-nav-header__quick-nav-scroll flex min-w-0 flex-1 items-center gap-1 overflow-x-auto px-1 pb-1"
+          aria-label="Project quick navigation"
+          (scroll)="updateScrollState()"
+        >
+          @for (project of projects(); track project.route) {
+            <a
+              [routerLink]="project.route"
+              [class]="project.isActive ? activeTabClasses : inactiveTabClasses"
+              [attr.aria-current]="project.isActive ? 'page' : null"
+            >
+              {{ project.name }}
+            </a>
+          }
+        </nav>
+        @if (hasOverflow()) {
+          <button
+            type="button"
+            class="project-nav-header__scroll-button"
+            aria-label="Scroll projects right"
+            title="Scroll projects right"
+            [disabled]="!canScrollRight()"
+            (click)="scrollProjects(1)"
+            (pointerenter)="startEdgeScroll(1, $event)"
+            (pointerleave)="stopEdgeScroll()"
+            (pointercancel)="stopEdgeScroll()"
+            (blur)="stopEdgeScroll()"
+          >
+            <ng-icon name="heroChevronRight" size="1.1rem" aria-hidden="true"></ng-icon>
+          </button>
+        }
+      </div>
+    }
   </div>
 </div>

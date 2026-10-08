@@ -1,8 +1,18 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import {
+  afterRenderEffect,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  input,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroChevronLeft } from '@ng-icons/heroicons/outline';
+import { heroChevronLeft, heroChevronRight } from '@ng-icons/heroicons/outline';
 import { filter, map } from 'rxjs/operators';
 import { ProjectNavigationService } from '../../services/project-navigation.service';
 
@@ -15,7 +25,7 @@ export interface ProjectNavItem {
 @Component({
   selector: 'app-project-nav-header',
   imports: [RouterLink, NgIconComponent],
-  providers: [provideIcons({ heroChevronLeft })],
+  providers: [provideIcons({ heroChevronLeft, heroChevronRight })],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './project-nav-header.component.html',
   styleUrl: './project-nav-header.component.scss',
@@ -28,6 +38,90 @@ export class ProjectNavHeaderComponent {
 
   private readonly router = inject(Router);
   private readonly navService = inject(ProjectNavigationService);
+  private readonly quickNavigation = viewChild<ElementRef<HTMLElement>>('quickNavigation');
+  private edgeScrollFrame = 0;
+  private edgeScrollTime = 0;
+
+  protected readonly hasOverflow = signal(false);
+  protected readonly canScrollLeft = signal(false);
+  protected readonly canScrollRight = signal(false);
+
+  constructor() {
+    afterRenderEffect((onCleanup) => {
+      this.projects();
+      const navigation = this.quickNavigation()?.nativeElement;
+      if (!navigation) return;
+
+      this.revealActiveProject();
+      const observer = new ResizeObserver(() => {
+        this.revealActiveProject();
+        this.updateScrollState();
+      });
+      observer.observe(navigation);
+      for (const tab of navigation.children) observer.observe(tab);
+      this.updateScrollState();
+      onCleanup(() => {
+        observer.disconnect();
+        this.stopEdgeScroll();
+      });
+    });
+  }
+
+  private revealActiveProject(): void {
+    const navigation = this.quickNavigation()?.nativeElement;
+    const active = navigation?.querySelector<HTMLElement>('[aria-current="page"]');
+    if (!navigation || !active) return;
+    const bounds = navigation.getBoundingClientRect();
+    const tab = active.getBoundingClientRect();
+    if (tab.left < bounds.left || tab.right > bounds.right) {
+      navigation.scrollLeft += tab.left - bounds.left - (navigation.clientWidth - tab.width) / 2;
+    }
+  }
+
+  protected updateScrollState(): void {
+    const navigation = this.quickNavigation()?.nativeElement;
+    if (!navigation) return;
+    this.hasOverflow.set(
+      navigation.scrollWidth > (navigation.parentElement?.clientWidth ?? navigation.clientWidth) + 1
+    );
+    this.canScrollLeft.set(navigation.scrollLeft > 1);
+    this.canScrollRight.set(navigation.scrollWidth - navigation.clientWidth - navigation.scrollLeft > 1);
+  }
+
+  protected scrollProjects(direction: -1 | 1): void {
+    const navigation = this.quickNavigation()?.nativeElement;
+    if (!navigation) return;
+    navigation.scrollLeft += direction * navigation.clientWidth * 0.75;
+    this.updateScrollState();
+  }
+
+  protected startEdgeScroll(direction: -1 | 1, event: PointerEvent): void {
+    if (event.pointerType !== 'mouse') return;
+    this.stopEdgeScroll();
+    const scroll = (time: number) => {
+      const navigation = this.quickNavigation()?.nativeElement;
+      if (!navigation) {
+        this.stopEdgeScroll();
+        return;
+      }
+      const elapsed = this.edgeScrollTime ? Math.min(time - this.edgeScrollTime, 50) : 0;
+      this.edgeScrollTime = time;
+      navigation.scrollLeft += direction * elapsed * 0.4;
+      this.updateScrollState();
+      if ((direction === -1 && !this.canScrollLeft()) || (direction === 1 && !this.canScrollRight())) {
+        this.stopEdgeScroll();
+        return;
+      }
+      this.edgeScrollFrame = requestAnimationFrame(scroll);
+    };
+    this.edgeScrollFrame = requestAnimationFrame(scroll);
+  }
+
+  protected stopEdgeScroll(): void {
+    cancelAnimationFrame(this.edgeScrollFrame);
+    this.edgeScrollFrame = 0;
+    this.edgeScrollTime = 0;
+  }
 
   private readonly currentUrl = toSignal(
     this.router.events.pipe(
@@ -60,16 +154,16 @@ export class ProjectNavHeaderComponent {
     const palette =
       ProjectNavHeaderComponent.ACTIVE_TAB_CLASSES[this.hoverColor()] ??
       ProjectNavHeaderComponent.ACTIVE_TAB_CLASSES['blue'];
-    return `px-3 py-2 ${palette} rounded-lg text-sm font-medium whitespace-nowrap snap-start focus:outline-none focus:ring-2`;
+    return `border-b-2 border-current px-3 py-3 ${palette} rounded-t-md text-sm font-semibold whitespace-nowrap focus-visible:outline-none focus-visible:ring-2`;
   }
 
   readonly inactiveTabClasses =
-    'px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium whitespace-nowrap snap-start transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400';
+    'border-b-2 border-transparent px-3 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-slate-800 rounded-t-md text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-400';
 
   get backLinkClasses(): string {
     const palette =
       ProjectNavHeaderComponent.BACK_LINK_HOVER_CLASSES[this.hoverColor()] ??
       ProjectNavHeaderComponent.BACK_LINK_HOVER_CLASSES['blue'];
-    return `inline-flex items-center px-4 py-2 text-gray-600 dark:text-gray-300 ${palette} transition-colors duration-200`;
+    return `inline-flex items-center gap-2 rounded-sm text-sm font-medium text-slate-600 dark:text-slate-300 ${palette} transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-400`;
   }
 }
