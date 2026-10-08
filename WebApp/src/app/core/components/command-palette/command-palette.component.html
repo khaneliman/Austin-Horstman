@@ -72,7 +72,9 @@
                     </span>
                     <span class="truncate text-xs text-slate-600 dark:text-slate-400">{{ item.entry.hint }}</span>
                   </span>
-                  <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
+                  <span
+                    class="sr-only font-mono text-[10px] uppercase tracking-[0.18em] text-slate-600 sm:not-sr-only dark:text-slate-400"
+                  >
                     {{ kindLabel[item.entry.kind] }}
                   </span>
                 </button>
