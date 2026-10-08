@@ -42,10 +42,59 @@ runtimeTest('legacy redirects and company entry points', async ({ page }) => {
 runtimeTest('direct case study and sibling navigation', async ({ page }) => {
   await page.goto('/projects/professional/nri-na/farmlink-modernization');
   await expect(page.getByRole('heading', { level: 1 })).toContainText(/FarmLink/i);
-  const siblings = page.getByLabel('Project quick navigation');
+  const siblings = page.getByRole('navigation', { name: 'Project quick navigation' });
+  const current = siblings.locator('[aria-current="page"]');
+  await expect(current).toHaveText('FarmLink Modernization');
+  await expect
+    .poll(() =>
+      current.evaluate((link) => {
+        const navigation = link.closest('nav');
+        if (!navigation) return false;
+        const bounds = navigation.getBoundingClientRect();
+        const tab = link.getBoundingClientRect();
+        return tab.left >= bounds.left && tab.right <= bounds.right;
+      })
+    )
+    .toBe(true);
   await siblings.getByRole('link', { name: /MuleSoft/i }).click();
   await expect(page).toHaveURL(/\/mulesoft-migrator$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText(/MuleSoft/i);
+  await expect(current).toHaveText('MuleSoft Migrator');
+});
+
+runtimeTest('project navigation reveals hidden tabs by pointer and keyboard', async ({ page }, testInfo) => {
+  await page.goto('/projects/professional/nri-na/underwriting-workbench');
+  const navigation = page.getByRole('navigation', { name: 'Project quick navigation' });
+  const right = page.getByRole('button', { name: 'Scroll projects right' });
+  const offset = () => navigation.evaluate((element) => element.scrollLeft);
+  const initial = await offset();
+  await expect(right).toBeEnabled();
+  if (testInfo.project.name === 'mobile') {
+    await right.tap();
+  } else {
+    await right.focus();
+    await page.keyboard.press('Enter');
+  }
+  await expect.poll(offset).toBeGreaterThan(initial);
+
+  const last = navigation.getByRole('link', { name: 'Do It Best', exact: true });
+  await last.focus();
+  if (testInfo.project.name === 'desktop') {
+    const beforeHover = await offset();
+    await page.getByRole('button', { name: 'Scroll projects left' }).hover();
+    await expect.poll(offset).toBeLessThan(beforeHover);
+    await page.getByRole('heading', { level: 1 }).hover();
+    await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const stopped = await offset();
+    await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    expect(await offset()).toBe(stopped);
+  }
+  await last.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/nri-na\/doitbest$/);
+  await expect(navigation.locator('[aria-current="page"]')).toHaveText('Do It Best');
+  await page.getByRole('link', { name: 'Back to NRI-NA Experience', exact: true }).click();
+  await expect(page).toHaveURL(/\/experience\/nri-na$/);
 });
 
 runtimeTest('mobile menu navigation', async ({ page }, testInfo) => {
