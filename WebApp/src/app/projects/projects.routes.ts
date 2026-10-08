@@ -5,7 +5,10 @@ export const PROJECTS_ROUTES: Routes = [
   {
     path: '',
     title: 'Projects | Austin Horstman',
-    data: { description: 'Explore Austin Horstman’s professional and personal software projects.' },
+    data: {
+      catalogueDefault: 'all',
+      description: 'Explore Austin Horstman’s professional and personal software projects.',
+    },
     component: ProjectsComponent,
   },
   {
